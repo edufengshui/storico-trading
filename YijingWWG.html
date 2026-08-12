@@ -1,0 +1,1012 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--  JavaScript Yijing Hexagram Calculator   --><html><head><title>YijingWWG</title>
+<meta content="en-us" http-equiv="Content-Language">
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<meta name="GENERATOR" content="MSHTML 8.00.6001.18702">
+<script language="JavaScript1.2">
+
+/***** Constants *****/
+
+var CRLF = String.fromCharCode(13, 10);
+
+// Five elements
+var WATER = 0;
+var WOOD = 1;
+var FIRE = 2;
+var EARTH = 3;
+var METAL = 4;
+
+// Six colors
+var colors = Array ("qing long", "zhu que", "gou chen", "teng she", "bai hu", "xuan wu");
+
+// 10 Stems and their colors
+var stems = Array (
+	Array("Jia", "qing long"), 
+	Array("Yi", "qing long"), 
+	Array("Bing", "zhu que"), 
+	Array("Ding", "zhu que"), 
+	Array("Wu", "gou chen"), 
+	Array("Ji", "teng she"), 
+	Array("Geng", "bai hu"),
+	Array("Xin", "bai hu"),
+	Array("Ren", "xuan wu"),
+	Array("Gui", "xuan wu")
+);
+
+// 12 Branches and their 5 elements
+var branches = Array (
+	Array ("z", WATER),
+	Array ("c", EARTH),
+	Array ("y", WOOD),
+	Array ("m", WOOD),
+	Array ("cn", EARTH),
+	Array ("si", FIRE),
+	Array ("w", FIRE),
+	Array ("we", EARTH),
+	Array ("s", METAL),
+	Array ("yo", METAL),
+	Array ("xu", EARTH),
+	Array ("h", WATER)
+);
+
+// 5 relations
+var relations = Array("B", "C", "W", "G", "P");
+
+// 8 palaces
+var QIAN = 0;
+var DUI = 1;
+var LI = 2;
+var ZHEN = 3;
+var XUN = 4;
+var KAN = 5;
+var GEN = 6;
+var KUN = 7;
+
+// Element of the palaces
+var palace_elements = Array(METAL, METAL, FIRE, WOOD, WOOD, WATER, EARTH, EARTH);
+
+// Branch assignments for hexagram lines.
+// This is also the branch assignments for palace hexagrams for the above 8 palaces.
+var branch_assignments = Array (	
+	Array ("111111", "z", "y", "cn", "w", "s", "xu"),
+	Array ("110110", "si", "m", "c", "h", "yo", "we"),
+	Array ("101101", "m", "c", "h", "yo", "we", "si"),
+	Array ("100100", "z", "y", "cn", "w", "s", "xu"),
+	Array ("011011", "c", "h", "yo", "we", "si", "m"),
+	Array ("010010", "y", "cn", "w", "s", "xu", "z"),
+	Array ("001001", "cn", "w", "s", "xu", "z", "y"),
+	Array ("000000", "we", "si", "m", "c", "h", "yo")
+);
+
+// All 64 hexagrams.  Columns are:
+// Binary, Number, Name
+var HEX_BINARY = 0;
+var HEX_NUMBER = 1;
+var HEX_NAME = 2;
+
+var hexagrams = Array (	
+	Array("111111", 1, "Qian"),
+	Array("111101", 14, "Da You"),
+	Array("111011", 9, "Xiao Chu"),
+	Array("111001", 26, "Da Chu"),
+	Array("111110", 43, "Guai"),
+	Array("111100", 34, "Da Zhuang"),
+	Array("111000", 11, "Tai"),
+	Array("111010", 5, "Xu"),
+
+	Array("000000", 2, "Kun"),
+	Array("000010", 8, "Bi"),
+	Array("000001", 23, "Bo"),
+	Array("000011", 20, "Guan"),
+	Array("000111", 12, "Pi"),
+	Array("000101", 35, "Jin"),
+	Array("000110", 45, "Cui"),
+	Array("000100", 16, "Yu"),
+	
+	Array("100100", 51, "Zhen"),
+	Array("100110", 17, "Sui"),
+	Array("100101", 21, "Shi He"),
+	Array("100011", 42, "Yi"),
+	Array("100111", 25, "Wu Wang"),
+	Array("100001", 27, "Yi"),
+	Array("100010", 3, "Tun"),
+	Array("100000", 24, "Ru"),
+
+	Array("011011", 57, "Xun"),
+	Array("011001", 18, "Gu"),
+	Array("011111", 44, "Gou"),
+	Array("011101", 50, "Ding"),
+	Array("011100", 32, "Heng"),
+	Array("011000", 46, "Sheng"),
+	Array("011010", 48, "Jing"),
+	Array("011110", 28, "Da Guo"),
+
+	Array("010010", 29, "Kan"),
+	Array("010000", 7, "Shi"),
+	Array("010110", 47, "Kun"),
+	Array("010101", 64, "Wei Ji"),
+	Array("010001", 4, "Meng"),
+	Array("010011", 59, "Huan"),
+	Array("010111", 6, "Song"),
+	Array("010100", 40, "Jie"),
+
+	Array("101101", 30, "Li"),
+	Array("101111", 13, "Tong Ren"),
+	Array("101011", 37, "Jia Ren"),
+	Array("101100", 55, "Feng"),
+	Array("101010", 63, "Ji Ji"),
+	Array("101000", 36, "Ming Yi"),
+	Array("101110", 49, "Ge"),
+	Array("101001", 22, "Bi"),
+
+	Array("110110", 58, "Dui"),
+	Array("110100", 54, "Gui Mei"),
+	Array("110010", 60, "Jie"),
+	Array("110001", 41, "Sun"),
+	Array("110011", 61, "Zhong Fu"),
+	Array("110101", 38, "Kui"),
+	Array("110111", 10, "Lu"),
+	Array("110000", 19, "Lin"),
+
+	Array("001001", 52, "Gen"),
+	Array("001011", 53, "Jian"),
+	Array("001111", 33, "Tun"),
+	Array("001000", 15, "Qian"),
+	Array("001110", 31, "Xian"),
+	Array("001010", 39, "Jian"),
+	Array("001100", 62, "Xiao Guo"),
+	Array("001101", 56, "Lu")
+);
+
+
+/***** Global variables *****/
+
+// Array for the first hexagram.  Columns are:
+// Hidden relation, Hidden Branch, Relation, Branch, Line, J/U, Color
+var FIRST_H_RELATION = 0;
+var FIRST_H_BRANCH = 1;
+var FIRST_RELATION = 2;
+var FIRST_BRANCH = 3;
+var FIRST_LINE = 4;
+var FIRST_JU = 5;
+var FIRST_COLOR = 6;
+
+var first_hex = Array (
+	Array(" "),										// For storing hexagram name and number
+	Array(" ", "  ", " ", "  ", "   ", " ", " "),
+	Array(" ", "  ", " ", "  ", "   ", " ", " "),
+	Array(" ", "  ", " ", "  ", "   ", " ", " "),
+	Array(" ", "  ", " ", "  ", "   ", " ", " "),
+	Array(" ", "  ", " ", "  ", "   ", " ", " "),
+	Array(" ", "  ", " ", "  ", "   ", " ", " "),
+	Array(" ")											// For 6 clash/6 combination/wandering gua/returning gua
+)
+
+// Array for the second hexagram.  Columns are:
+// Relation, Branch, Line
+var SECOND_RELATION = 0;
+var SECOND_BRANCH = 1;
+var SECOND_LINE = 2;
+
+var second_hex = Array (
+	Array(" "),										// For storing hexagram name and number
+	Array(" ", "  ", "   "),
+	Array(" ", "  ", "   "),
+	Array(" ", "  ", "   "),
+	Array(" ", "  ", "   "),
+	Array(" ", "  ", "   "),
+	Array(" ", "  ", "   "),
+	Array(" ")											// For 6 clash/6 combination/wandering gua/returning gua
+);
+
+
+// Data from David Twicken's "Classical Five Element Chinese Astrology Made Easy"
+var NEW_YEAR_2000 = new Date("4 Feb 2000 20:32 UTC");
+var NEW_YEAR_1990 = new Date("4 Feb 1990 10:15 UTC");
+
+// A t-I year to calculate dates from
+var ORIGIN_TIME = new Date("5 Feb 1924 09:50:00 UTC");
+var ORIGIN_DATE = new Date("5 Feb 1924 00:00:00 UTC");
+
+// Number of milliseconds for a year and a day
+var ONE_YEAR = Math.round((NEW_YEAR_2000.valueOf() - NEW_YEAR_1990.valueOf()) / 10);
+var ONE_DAY = 24 * 60 * 60 * 1000;
+
+// Construct an array of month lengths
+// (Length of each month doesn't seem to be constant, like ONE_YEAR / 12, probably because 
+//  the Earth's orbit is ecliptical.)
+var month_start_2002 = Array (
+	new Date("4 Feb 2002 8:08 UTC"),	// month y 2002
+	new Date("6 Mar 2002 2:18 UTC"),
+	new Date("5 Apr 2002 7:21 UTC"),
+	new Date("6 May 2002 0:55 UTC"),
+	new Date("6 Jun 2002 4:54 UTC"),
+	new Date("7 Jul 2002 15:40 UTC"),
+	new Date("8 Aug 2002 1:23 UTC"),
+	new Date("8 Sep 2002 4:07 UTC"),
+	new Date("8 Oct 2002 19:31 UTC"),
+	new Date("7 Nov 2002 23:43 UTC"),
+	new Date("7 Dec 2002 15:16 UTC"),
+	new Date("6 Jan 2003 2:15 UTC"),	
+	new Date("4 Feb 2003 13:57 UTC")	// month y 2003
+);
+
+var month_lengths = new Array();
+for (var m = 0; m < 12; ++m)
+	month_lengths[m] = month_start_2002[m + 1] - month_start_2002[m];
+	
+
+/***** Functions *****/	
+
+// Right pad a string to a certain length
+function rpad(original_str, pad_width)
+{
+	var spaces = "                                                  ";
+	
+	if (original_str.length < pad_width)
+		original_str = original_str + spaces.substring(0, pad_width - original_str.length);
+		
+	return original_str;
+}
+
+// Center a string in a certain length space
+function center_string(original_str, total_width)
+{
+	var spaces = "                                                  ";
+
+	if (original_str.length < total_width)
+		original_str = spaces.substring(0, (total_width - original_str.length) / 2) + original_str;
+			
+	return rpad(original_str, total_width);
+}
+
+// Reverse a binary string by switching 0 to 1 and 1 to 0.
+function reverse_binary(original_str)
+{
+	var reversed = ""
+	
+	for (var idx = 0; idx < original_str.length; ++idx)
+		if (original_str.charAt(idx) == "0")
+			reversed = reversed + "1";
+		else
+			reversed = reversed + "0";
+			
+	return reversed;
+}
+
+// Return the difference in number of days between two dates
+function days_diff(date1, date2)
+{
+	var date_only1 = new Date(date1);
+	var date_only2 = new Date(date2);
+
+	// hours/minutes/seconds are ignored
+	date_only1.setUTCHours(0);
+	date_only1.setUTCMinutes(0);
+	date_only1.setUTCSeconds(0);
+
+	date_only2.setUTCHours(0);
+	date_only2.setUTCMinutes(0);
+	date_only2.setUTCSeconds(0);
+	
+	return Math.round((Math.abs(date_only2.valueOf() - date_only1.valueOf()) / ONE_DAY));
+}
+
+
+// Return the element of a branch
+function get_branch_element(branch)
+{
+	for (var i = 0; i < 12; ++i)
+		if (branch == branches[i][0])
+			return branches[i][1];
+}
+
+// Return void branches given a stem and a branch.
+// Return the string "Invalid" when the stem and branch combo is invalid.
+function get_void_branches(stem, branch)
+{
+	var stem_idx, branch_idx;
+	var days_till_next_Jia, void_branch1_idx;
+	
+	for (stem_idx = 0; stem_idx < 10; ++stem_idx)
+		if (stem == stems[stem_idx][0])
+			break;
+
+	for (branch_idx = 0; branch_idx < 12; ++branch_idx)
+		if (branch == branches[branch_idx][0])
+			break;
+			
+	if (stem_idx % 2 != branch_idx % 2)
+		return "Invalid";
+
+	days_till_next_Jia = 10 - stem_idx;
+	void_branch1_idx = (branch_idx + days_till_next_Jia) % 12;
+	
+	return branches[void_branch1_idx][0] + " & " + branches[void_branch1_idx + 1][0];
+}
+
+// Return the relations for a line branch given the palace element
+function get_relation(palace_element, branch)
+{
+	var line_element = get_branch_element(branch)
+	
+	var distance = line_element - palace_element;
+	
+	if (distance < 0)
+		distance = distance + 5;
+		
+	return relations[distance];
+}
+
+// Return the palace of a hexagram
+function get_palace(hex_binary, j_line, returning_gua)
+{
+	var palace_binary;
+	
+	if (j_line == 1 || j_line == 2 || (j_line == 3 && !returning_gua))
+		palace_binary = hex_binary.substring(3, 6);
+	else if (j_line == 4 || j_line == 5)
+		palace_binary = reverse_binary(hex_binary.substring(0, 3));
+	else if (j_line == 6 || (j_line == 3 && returning_gua))
+		palace_binary = hex_binary.substring(0, 3);
+	
+	palace_binary = palace_binary + palace_binary;
+	
+	for (var idx = 0; idx < 8; ++idx)
+	{
+		if (palace_binary == branch_assignments[idx][0])
+			return idx;
+	}
+}
+
+// Return the change string for a hexagram binary
+function get_changes(hex_binary)
+{
+	var changes = "";
+
+	if (hex_binary.charAt(0) == hex_binary.charAt(3))
+		changes = changes + " ";
+	else
+		changes = changes + "C";
+			
+	if (hex_binary.charAt(1) == hex_binary.charAt(4))
+		changes = changes + " ";
+	else
+		changes = changes + "C";
+
+	if (hex_binary.charAt(2) == hex_binary.charAt(5))
+		changes = changes + " ";
+	else
+		changes = changes + "C";
+		
+	return changes;
+}
+
+// Return if two branches combine with each other
+function is_combine(branch1, branch2)
+{
+	for (i = 0; i < 2; ++i)
+	{
+		if (branch1 == "c" && branch2 == "z")
+			return true;
+		if (branch1 == "y" && branch2 == "h")
+			return true;
+		if (branch1 == "m" && branch2 == "xu")
+			return true;
+		if (branch1 == "cn" && branch2 == "yo")
+			return true;
+		if (branch1 == "si" && branch2 == "s")
+			return true;
+		if (branch1 == "w" && branch2 == "we")
+			return true;
+			
+		// Swap the two branches and re-compare
+		var dummy = branch2;
+		branch2 = branch1;
+		branch1 = dummy;
+	}
+	
+	return false;
+}
+
+// Returns if two branches strike each other
+function is_strike(branch1, branch2)
+{
+	for (i = 0; i < 2; ++i)
+	{
+		if (branch1 == "z" && branch2 == "w")
+			return true;
+		if (branch1 == "c" && branch2 == "we")
+			return true;
+		if (branch1 == "y" && branch2 == "s")
+			return true;
+		if (branch1 == "m" && branch2 == "yo")
+			return true;
+		if (branch1 == "cn" && branch2 == "xu")
+			return true;
+		if (branch1 == "si" && branch2 == "h")
+			return true;
+			
+		// Swap the two branches and re-compare
+		var dummy = branch2;
+		branch2 = branch1;
+		branch1 = dummy;
+	}
+		
+	return false;
+}
+
+// Build the hexagram chart in a string
+function build_chart(has_moving_lines, show_6_colors)
+{
+	var line_str;
+	var chart_str;
+	
+	// Draw hexagram names and numbers
+	chart_str = "      " + rpad(first_hex[0], 17);
+	
+	if (has_moving_lines)
+		chart_str = chart_str + " " + second_hex[0];
+	
+	chart_str = chart_str + CRLF + CRLF;
+	
+	// Draw hexagram lines
+	for (var line_idx = 6; line_idx >= 1; --line_idx)
+	{
+		// Draw first hexagram
+		line_str = " ";
+		line_str = line_str + rpad(first_hex[line_idx][FIRST_H_RELATION], 1) + " ";
+		line_str = line_str + rpad(first_hex[line_idx][FIRST_H_BRANCH], 2) + " ";
+		line_str = line_str + first_hex[line_idx][FIRST_RELATION] + " ";
+		line_str = line_str + rpad(first_hex[line_idx][FIRST_BRANCH], 2) + " ";
+		line_str = line_str + center_string(first_hex[line_idx][FIRST_LINE], 3) + " ";
+		line_str = line_str + rpad(first_hex[line_idx][FIRST_JU], 1);
+		
+		if (has_moving_lines)
+		{
+			// Draw second hexagram
+			line_str = line_str + "        ";
+		
+			line_str = line_str + second_hex[line_idx][SECOND_RELATION] + " ";
+			line_str = line_str + rpad(second_hex[line_idx][SECOND_BRANCH], 2) + " ";
+			line_str = line_str + center_string(second_hex[line_idx][SECOND_LINE], 3) + " ";
+		}
+		
+		if (show_6_colors)
+		{
+			// Draw the colors
+			line_str = line_str + "     ";
+			line_str = line_str + first_hex[line_idx][FIRST_COLOR];
+		}
+			
+		chart_str = chart_str + line_str + CRLF;	
+	}
+
+	// Draw 6 clash/6 combination/wandering gua/returning_gua
+	chart_str = chart_str + CRLF;
+	chart_str = chart_str + "      " + rpad(first_hex[7], 17);
+
+	if (has_moving_lines)
+		chart_str = chart_str + " " + second_hex[7];
+		
+	chart_str = chart_str + CRLF;
+	
+	return chart_str;
+}
+
+// This function gets called when the user clicks the "Generate Hexagram" button.
+function gen_hex(form)
+{
+	var day_stem, day_branch, void_branches;
+	var first_hex_binary, second_hex_binary;
+	var first_hex_changes, second_hex_changes;
+	var first_hex_j_line, first_hex_u_line;
+	var first_hex_palace, palace_element; 
+	var has_moving_lines;
+
+	var time_str = "";
+	var output_str = "";
+	
+	day_branch = form.cboDayBranch.options[form.cboDayBranch.selectedIndex].value;
+	day_stem = form.cboDayStem.options[form.cboDayStem.selectedIndex].value;
+	void_branches = get_void_branches(day_stem, day_branch);
+	
+	if (void_branches == "Invalid")
+	{
+		form.txtHexagram.value = "";
+		alert("Invalid day stem and branch combination.");
+		return;
+	}
+	
+	// Build the time string
+	if (form.cboYear.selectedIndex > 0)
+		time_str = "Year: " + form.cboYear.options[form.cboYear.selectedIndex].value + ", ";
+		
+	time_str = time_str + "Month: " + form.cboMonth.options[form.cboMonth.selectedIndex].value;
+	time_str = time_str + ", Day: " + day_branch + "-" + day_stem;
+	time_str = time_str + ", Void: " + void_branches;
+
+	// clear first_hex array
+	for (var line_idx = 1; line_idx <= 6; ++line_idx)
+	{
+		first_hex[line_idx][FIRST_H_RELATION] = "";
+		first_hex[line_idx][FIRST_H_BRANCH] = "";
+		first_hex[line_idx][FIRST_JU] = "";
+	}
+	first_hex[7] = "";
+	second_hex[7] = "";
+	
+	// Get the first hexagram lines
+	first_hex[1][FIRST_LINE] = form.cboToss1.options[form.cboToss1.selectedIndex].value;
+	first_hex[2][FIRST_LINE] = form.cboToss2.options[form.cboToss2.selectedIndex].value;
+	first_hex[3][FIRST_LINE] = form.cboToss3.options[form.cboToss3.selectedIndex].value;
+	first_hex[4][FIRST_LINE] = form.cboToss4.options[form.cboToss4.selectedIndex].value;
+	first_hex[5][FIRST_LINE] = form.cboToss5.options[form.cboToss5.selectedIndex].value;
+	first_hex[6][FIRST_LINE] = form.cboToss6.options[form.cboToss6.selectedIndex].value;
+	
+	// Get the second hexagram lines
+	for (var line_idx = 1; line_idx <= 6; ++line_idx)
+	{
+		second_hex[line_idx][SECOND_LINE] = first_hex[line_idx][FIRST_LINE]
+		
+		if (second_hex[line_idx][SECOND_LINE] == 'X')
+			second_hex[line_idx][SECOND_LINE] = "-";
+			
+		if (second_hex[line_idx][SECOND_LINE] == 'O')
+			second_hex[line_idx][SECOND_LINE] = "- -";					
+	}
+	
+	// Build first hexagram binary, and find if the hexagram has moving lines
+	first_hex_binary = "";
+	has_moving_lines = false;
+	for (var line_idx = 1; line_idx <= 6; ++line_idx)
+	{
+		switch (first_hex[line_idx][FIRST_LINE])
+		{
+			case "-":
+				first_hex_binary = first_hex_binary + "1";
+				break;
+				
+			case "- -":
+				first_hex_binary = first_hex_binary + "0";
+				break;
+				
+			case "O":
+				first_hex_binary = first_hex_binary + "1";
+				has_moving_lines = true;
+				break;
+				
+			case "X":
+				first_hex_binary = first_hex_binary + "0";
+				has_moving_lines = true;
+				break;
+		}
+	}
+
+	// Build second hexagram binary
+	second_hex_binary = "";
+	for (var line_idx = 1; line_idx <= 6; ++line_idx)
+		if (second_hex[line_idx][SECOND_LINE] == "-")
+			second_hex_binary = second_hex_binary + "1";
+		else
+			second_hex_binary = second_hex_binary + "0";
+
+	// Get hexagram numbers and names
+	for (var idx = 0; idx < 64; ++idx)
+	{
+		if (first_hex_binary == hexagrams[idx][HEX_BINARY])
+			first_hex[0] = hexagrams[idx][HEX_NAME] + " - " + hexagrams[idx][HEX_NUMBER];
+
+		if (second_hex_binary == hexagrams[idx][HEX_BINARY])
+			second_hex[0] = hexagrams[idx][HEX_NAME] + " - " + hexagrams[idx][HEX_NUMBER];
+	}
+	
+	// Assign branches to the lines
+	for (var idx = 0; idx < 8; ++idx)
+	{
+		// First hex, lower trigram
+		if (first_hex_binary.substring(0, 3) == branch_assignments[idx][0].substring(0, 3))
+		{
+			first_hex[1][FIRST_BRANCH] = branch_assignments[idx][1];
+			first_hex[2][FIRST_BRANCH] = branch_assignments[idx][2];
+			first_hex[3][FIRST_BRANCH] = branch_assignments[idx][3];
+		}
+		
+		// First hex, upper trigram
+		if (first_hex_binary.substring(3, 6) == branch_assignments[idx][0].substring(3, 6))
+		{
+			first_hex[4][FIRST_BRANCH] = branch_assignments[idx][4];
+			first_hex[5][FIRST_BRANCH] = branch_assignments[idx][5];
+			first_hex[6][FIRST_BRANCH] = branch_assignments[idx][6];
+		}
+		
+		// Second hex, lower trigram
+		if (second_hex_binary.substring(0, 3) == branch_assignments[idx][0].substring(0, 3))
+		{
+			second_hex[1][SECOND_BRANCH] = branch_assignments[idx][1];
+			second_hex[2][SECOND_BRANCH] = branch_assignments[idx][2];
+			second_hex[3][SECOND_BRANCH] = branch_assignments[idx][3];
+		}
+		
+		// Second hex, upper trigram
+		if (second_hex_binary.substring(3, 6) == branch_assignments[idx][0].substring(3, 6))
+		{
+			second_hex[4][SECOND_BRANCH] = branch_assignments[idx][4];
+			second_hex[5][SECOND_BRANCH] = branch_assignments[idx][5];
+			second_hex[6][SECOND_BRANCH] = branch_assignments[idx][6];
+		}
+	}
+				
+	// Find the position of the first hexagram's J line and if it's returning_gua or wandering gua
+	firstChanges = get_changes(first_hex_binary);
+
+	switch (firstChanges)
+	{
+		case "   ": 
+			first_hex_j_line = 6; 
+			break;
+
+		case "CCC": 
+			first_hex_j_line = 3; 
+			break;
+
+		case "CC ": 
+			first_hex_j_line = 2; 
+			break;
+
+		case "  C": 
+			first_hex_j_line = 5; 
+			break;
+
+		case " CC": 
+			first_hex_j_line = 4; 
+			break;
+
+		case "C  ": 
+			first_hex_j_line = 1; 
+			break;
+
+		case "C C": 
+			first_hex_j_line = 4; 
+			first_hex[7] = "wandering Gua"; 
+			break;
+
+		case " C ": 
+			first_hex_j_line = 3; 
+			first_hex[7] = "Returning Gua"; 
+			break;
+	}
+	
+	// Find the position of the first hex's U line
+	first_hex_u_line = first_hex_j_line - 3;
+	if (first_hex_u_line <= 0)
+		first_hex_u_line = 6 + first_hex_u_line;
+	
+	first_hex[first_hex_j_line][FIRST_JU] = "S";
+	first_hex[first_hex_u_line][FIRST_JU] = "Y";
+
+	// Get first hexagram's palace and the palace's element		
+	first_hex_palace = get_palace(first_hex_binary, first_hex_j_line, (first_hex[7] == "Returning Gua"));
+	palace_element = palace_elements[first_hex_palace];
+	
+	// Assign relations to the lines
+	for (var line_idx = 1; line_idx <= 6; ++line_idx)
+	{
+		first_hex[line_idx][FIRST_RELATION] = get_relation(palace_element, first_hex[line_idx][FIRST_BRANCH]);
+		second_hex[line_idx][SECOND_RELATION] = get_relation(palace_element, second_hex[line_idx][SECOND_BRANCH]);
+	}
+
+	// Find hidden elements and relations
+	var missing_element = new Array(5);
+	missing_element[WATER] = true;
+	missing_element[WOOD] = true;
+	missing_element[FIRE] = true;
+	missing_element[EARTH] = true;
+	missing_element[METAL] = true;
+	
+	for (var line_idx = 1; line_idx <= 6; ++line_idx)
+		missing_element[get_branch_element(first_hex[line_idx][FIRST_BRANCH])] = false;
+
+	for (var element = 0; element < 5; ++element)
+		if (missing_element[element])
+		{
+			// Find the missing element in the palace hexagram
+			for (var line_idx = 1; line_idx <= 6; ++line_idx)
+				if (element == get_branch_element(branch_assignments[first_hex_palace][line_idx]))
+				{
+					first_hex[line_idx][FIRST_H_BRANCH] = branch_assignments[first_hex_palace][line_idx];
+					first_hex[line_idx][FIRST_H_RELATION] = get_relation(palace_element, first_hex[line_idx][FIRST_H_BRANCH]);
+				}
+		}
+	
+	// Figure out if the second hexagram is returning gua or wandering gua
+	second_hex_changes = get_changes(second_hex_binary);
+	
+	if (second_hex_changes == "C C")
+		second_hex[7] = "wandering Gua";
+	else if (second_hex_changes == " C ")
+		second_hex[7] = "Returning Gua";
+
+	// Figure out if the hexagrams are 6 combination or 6 clash
+	if (is_combine(first_hex[1][FIRST_BRANCH], first_hex[4][FIRST_BRANCH]))
+		first_hex[7] = "6 Combination";
+	else if (is_strike(first_hex[1][FIRST_BRANCH], first_hex[4][FIRST_BRANCH]))
+		first_hex[7] = "6 Clash";
+
+	if (is_combine(second_hex[1][SECOND_BRANCH], second_hex[4][SECOND_BRANCH]))
+		second_hex[7] = "6 Combination";
+	else if (is_strike(second_hex[1][SECOND_BRANCH], second_hex[4][SECOND_BRANCH]))
+		second_hex[7] = "6 Clash";	
+
+	// Figure out the colors
+	for (var stem_idx = 0; stem_idx < 10; ++stem_idx)
+		if (day_stem == stems[stem_idx][0])
+		{
+			var color_idx;
+			
+			for (color_idx = 0; color_idx < 6; ++color_idx)
+				if (colors[color_idx] == stems[stem_idx][1])
+					break;
+					
+			for (var line_idx = 1; line_idx <= 6; ++line_idx)
+			{
+				first_hex[line_idx][FIRST_COLOR] = colors[color_idx];
+				color_idx = (color_idx + 1) % 6;
+			}
+			
+			break;
+		}
+	
+	// Create and display the complete chart
+	output_str = time_str + CRLF;
+	output_str = output_str + CRLF;
+	output_str = output_str + build_chart(has_moving_lines, form.chkShow6Colors.checked);
+
+	form.txtHexagram.value = output_str;
+}
+
+// Set Western calender selections to the current date
+function set_to_today(form)
+{
+	var idx;
+	var today = new Date();
+
+	idx = today.getFullYear() - form.cboWesternYear.options[0].value;
+	form.cboWesternYear.selectedIndex = idx;
+	form.cboWesternYear.options[idx].defaultSelected = true;
+	
+	idx = today.getMonth();
+	form.cboWesternMonth.selectedIndex = idx;
+	form.cboWesternMonth.options[idx].defaultSelected = true;
+
+	idx = today.getDate() - 1;
+	form.cboWesternDay.selectedIndex = idx;
+	form.cboWesternDay.options[idx].defaultSelected = true;
+}
+
+// Convert user selected Western date to Chinese date.
+// The time algorithm used here can have error of up to a few hours.
+function convert_date(form)
+{
+	var		date_str = "";
+	var		sel_date, diff;
+	var		this_new_year, prev_new_month, next_new_month;
+	var		year_sexagenary, day_sexagenary, month_branch;
+
+	// Convert user selected date into a date object
+	date_str = date_str + (form.cboWesternDay.selectedIndex + 1) + " ";
+	date_str = date_str + form.cboWesternMonth.options[form.cboWesternMonth.selectedIndex].value + " ";
+	date_str = date_str + form.cboWesternYear.options[form.cboWesternYear.selectedIndex].value + " ";
+	date_str = date_str + "23:59:00 UTC";
+	
+	sel_date = new Date(date_str);
+	
+	// Calculate the year sexagenary cycle number
+	diff = new Date(sel_date.valueOf() - ORIGIN_TIME.valueOf());
+	year_sexagenary = Math.floor(diff.valueOf() / ONE_YEAR) % 60;
+
+	// Calculate the start time of the new year for the user selected year
+	this_new_year = new Date(ORIGIN_TIME.valueOf() + Math.floor(diff.valueOf() / ONE_YEAR) * ONE_YEAR);
+	if (days_diff(this_new_year, month_start_2002[0]) == 0)
+		// This corrects an calculation error for 2002
+		this_new_year = month_start_2002[0];
+
+	// Calculate the day sexagenary cycle number
+	diff = new Date(sel_date.valueOf() - ORIGIN_DATE.valueOf());
+	day_sexagenary = (Math.floor(diff.valueOf() / ONE_DAY) + 50) % 60;
+	
+	//   Calculate the month branch number by comparing the starting time of every month
+	// against the user selected date
+	next_new_month = this_new_year;
+	for (month_branch = 0; month_branch < 12; ++month_branch)
+	{
+		prev_new_month = next_new_month;
+		
+		next_new_month = new Date(next_new_month.valueOf() + month_lengths[month_branch]);
+
+		if (sel_date < next_new_month)
+			break;
+	}
+	month_branch = (month_branch + 2) % 12;
+
+	// Set the Chinese date selection boxes to the Chinese date
+	form.cboYear.selectedIndex = (year_sexagenary % 12) + 1;
+	form.cboMonth.selectedIndex = month_branch;
+	form.cboDayBranch.selectedIndex = (day_sexagenary % 12);
+	form.cboDayStem.selectedIndex = (day_sexagenary % 10);
+	
+	// Alert the user if the date is near a new month
+	if (days_diff(sel_date, prev_new_month) <= 1 || days_diff(sel_date, next_new_month) <= 1)
+		alert("The date is close to a change of month.  Please consult the Chinese calendar for the accurate month branch.");
+}
+
+</script>
+</head>
+<body onload="set_to_today(document.frmGenHex)" alink="#00ffff" link="#ffff00" 
+bgColor=#000000 text=#ffffff vLink=#00ff00>
+<form method="post" name="frmGenHex">
+<div align="center">
+<center>
+<p><big><font face="Arial">       
+              
+       </font></big> 
+</p></center></div>
+<table border="0" cellspacing="0" width="100%" celrpadding="0">
+  <tbody>
+  <tr>
+    <td height="40" width="100%" colspan="2">Western Year: <select size="1" 
+      name=cboWesternYear> <option selected value=1970>1970</option> <option 
+        value=1971>1971</option> <option value="1972">1972</option> <option 
+        value=1973>1973</option> <option value="1974">1974</option> <option 
+        value=1975>1975</option> <option value="1976">1976</option> <option 
+        value=1977>1977</option> <option value="1978">1978</option> <option 
+        value=1979>1979</option> <option value="1980">1980</option> <option 
+        value=1981>1981</option> <option value="1982">1982</option> <option 
+        value=1983>1983</option> <option value="1984">1984</option> <option 
+        value=1985>1985</option> <option value="1986">1986</option> <option 
+        value=1987>1987</option> <option value="1988">1988</option> <option 
+        value=1989>1989</option> <option value="1990">1990</option> <option 
+        value=1991>1991</option> <option value="1992">1992</option> <option 
+        value=1993>1993</option> <option value="1994">1994</option> <option 
+        value=1995>1995</option> <option value="1996">1996</option> <option 
+        value=1997>1997</option> <option value="1998">1998</option> <option 
+        value=1999>1999</option> <option value="2000">2000</option> <option 
+        value=2001>2001</option> <option value="2002">2002</option> <option 
+        value=2003>2003</option> <option value="2004">2004</option> <option 
+        value=2005>2005</option> <option value="2006">2006</option> <option 
+        value=2007>2007</option> <option value="2008">2008</option> <option 
+        value=2009>2009</option> <option value="2010">2010</option> <option 
+        value=2011>2011</option> <option value="2012">2012</option> <option 
+        value=2013>2013</option> <option value="2014">2014</option> <option 
+        value=2015>2015</option> <option value="2016">2016</option> <option 
+        value=2017>2017</option> <option value="2018">2018</option> <option
+        value=2019>2019</option> <option value="2020">2020</option> <option
+        value=2021>2021</option> <option value="2022">2022</option> <option
+        value=2023>2023</option> <option value="2024">2024</option> <option
+        value=2025>2025</option> <option value="2026">2026</option> <option
+        value=2027>2027</option> <option value="2028">2028</option> <option
+        value=2029>2029</option> <option value="2030">2030</option> <option
+        value=2031>2031</option> <option value="2032">2032</option> <option
+        value=2033>2033</option> <option value="2034">2034</option> <option        
+        value=2035>2035</option> <option value="2036">2036</option> <option
+        value=2037>2037</option> <option value="2038">2038</option> <option
+        value=2039>2039</option> <option value="2040">2040</option> <option
+        value=2041>2041</option> <option value="2042">2042</option></select> Month: 
+      <select size="1" name="cboWesternMonth"> <option selected 
+        value=JAN>January</option> <option value="FEB">February</option> <option 
+        value=MAR>March</option> <option value="APR">April</option> <option 
+        value=MAY>May</option> <option value="JUN">June</option> <option 
+        value=JUL>July</option> <option value="AUG">August</option> <option 
+        value=SEP>September</option> <option value="OCT">October</option> <option 
+        value=NOV>November</option> <option value="DEC">December</option></select> 
+      Day: <select size="1" name="cboWesternDay"> <option selected>01</option> 
+        <option>02</option> <option>03</option> <option>04</option> 
+        <option>05</option> <option>06</option> <option>07</option> 
+        <option>08</option> <option>09</option> <option>10</option> 
+        <option>11</option> <option>12</option> <option>13</option> 
+        <option>14</option> <option>15</option> <option>16</option> 
+        <option>17</option> <option>18</option> <option>19</option> 
+        <option>20</option> <option>21</option> <option>22</option> 
+        <option>23</option> <option>24</option> <option>25</option> 
+        <option>26</option> <option>27</option> <option>28</option> 
+        <option>29</option> <option>30</option> <option>31</option></select>&nbsp; 
+<input onclick="convert_date(this.form)" value="Convert To Chinese Date" type="button" name="cmdConvert"> 
+    </td></tr>
+  <tr>
+    <td height="40" width="100%" colspan="2">Year: <select 
+      size=1 name=cboYear> <option selected value="" 
+        ></option> <option value="z" 
+        >z</option> <option value="c" 
+        >c</option> <option value="y" 
+        >y</option> <option value="m" 
+        >m</option> <option value="cn" 
+        >cn</option> <option value="si" 
+        >si</option> <option value="w" 
+        >w</option> <option value="we" 
+        >we</option> <option value="s" 
+        >s</option> <option value="yo" 
+        >yo</option> <option value="xu" 
+        >xu</option> <option value="h" 
+        >h</option></select> Month: <select size="1" 
+      name=cboMonth> <option selected value="z" 
+        >z</option> <option value="c" 
+        >c</option> <option value="y" 
+        >y</option> <option value="m" 
+        >m</option> <option value="cn" 
+        >cn</option> <option value="si" 
+        >si</option> <option value="w" 
+        >w</option> <option value="we" 
+        >we</option> <option value="s" 
+        >s</option> <option value="yo" 
+        >yo</option> <option value="xu" 
+        >xu</option> <option value="h" 
+        >h</option></select> Day: <select size="1" 
+      name=cboDayBranch> <option selected value="z" 
+        >z</option> <option value="c" 
+        >c</option> <option value="y" 
+        >y</option> <option value="m" 
+        >m</option> <option value="cn" 
+        >cn</option> <option value="si" 
+        >si</option> <option value="w" 
+        >w</option> <option value="we" 
+        >we</option> <option value="s" 
+        >s</option> <option value="yo" 
+        >yo</option> <option value="xu" 
+        >xu</option> <option value="h" 
+        >h</option></select> - <select size="1" name="cboDayStem" 
+      > <option selected value="Jia" 
+        >Jia</option> <option value="Yi" 
+        >Yi</option> <option value="Bing" 
+        >Bing</option> <option value="Ding" 
+        >Ding</option> <option value="Wu" 
+        >Wu</option> <option value="Ji" 
+        >Ji</option> <option value="Geng" 
+        >Geng</option> <option value="Xin" 
+        >Xin</option> <option value="Ren" 
+        >Ren</option> <option value="Gui" 
+        >Gui</option></select>&nbsp;  </td></tr>
+  <tr>
+    <td height="25" width="20%">Tosses:</td>
+    <td height="25" width="80%">Hexagram Chart:</td></tr>
+  <tr>
+    <td valign="top" width="20%" align="left">6: <select 
+      size=1 name=cboToss6> <option selected value=- 
+        >-</option> <option value="- -">- 
+        -</option> <option value="O">O</option> <option 
+        value=X>X</option></select> 
+      <p>5: <select size="1" name="cboToss5" 
+        > <option selected value=- 
+        >-</option> <option value="- -">- 
+        -</option> <option value="O">O</option> <option 
+        value=X>X</option></select></p>
+      <p>4: <select size="1" name="cboToss4" 
+        > <option selected value=- 
+        >-</option> <option value="- -">- 
+        -</option> <option value="O">O</option> <option 
+        value=X>X</option></select></p>
+      <p>3: <select size="1" name="cboToss3" 
+        > <option selected value=- 
+        >-</option> <option value="- -">- 
+        -</option> <option value="O">O</option> <option 
+        value=X>X</option></select></p>
+      <p>2: <select size="1" name="cboToss2" 
+        > <option selected value=- 
+        >-</option> <option value="- -">- 
+        -</option> <option value="O">O</option> <option 
+        value=X>X</option></select></p>
+      <p>1: <select size="1" name="cboToss1" 
+        > <option selected value=- 
+        >-</option> <option value="- -">- 
+        -</option> <option value="O">O</option> <option 
+        value=X>X</option></select></p></td>
+    <td valign="top" width="80%" align="left"><font 
+      face="Courier New"><textarea style="BACKGROUND-COLOR: rgb(0,0,128); COLOR: rgb(255,255,255)" rows="14" cols="55" name="txtHexagram">          </textarea></font></td></tr>
+  <tr>
+    <td height="30" width="20%" align="left"><input value="ON" 
+      CHECKED type=checkbox name=chkShow6Colors> Show 6 
+      animals</td>
+    </tr>
+  <tr>
+    <td height="25" valign="top" width="100%" colspan="2" align="left" 
+    ><input onclick="gen_hex(this.form)" value="Generate Hexagram" type="button" name="cmdGenerate"> 
+      &nbsp;&nbsp;&nbsp; <input value="Reset" type="reset" name="B2"></td></tr></tbody></table></form></body></html>
