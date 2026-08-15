@@ -1735,3 +1735,258 @@ Si registra solo l'ANTI-segnale.
 Se il Tai Sui difende il trend e il mese lo sfida: nei mesi in cui **il mese controlla l'anno**
 dovrebbe vincere di più lo **Yong** (non segue); quando **l'anno controlla il mese**, dovrebbe
 vincere di più il **Ti** (segue). → test in corso.
+
+---
+
+# 50d. LA COMBINAZIONE DEL TAI SUI: GENERATIVA vs DISTRUTTIVA  ·  `FISSATA` (15/08/2026)
+
+Carta sorgente: **GBPUSD 15/12/2022** (seme 124, sup 7 艮, inf 4 震, mutante L2, giorno 壬寅,
+mese 子, anno 寅, palazzo 巽 Legno, vuoti 辰巳). La mobile L2 è il Tai Sui-Fratelli 寅 (anche
+ramo del giorno, timely) che AVANZA in 卯; l'arrivo 卯 combina 戌 = Ricchezza sul soggetto (世)
+a L4. Lettura di Edu: la combinazione 卯戌 porta un controllo dentro (Legno controlla Terra) —
+il Fratello forte non raggiunge la Ricchezza, **la distrugge**. La direzione non è quella del
+bersaglio ma l'opposta → SHORT. Mercato −240. ✓
+
+**Il principio**: le sei coppie 六合 si dividono in due famiglie:
+- **generative**: 寅亥 (Acqua→Legno) · 辰酉 (Terra→Metallo) · 午未 (Fuoco→Terra) — il legame
+  porta → direzione del bersaglio
+- **con controllo dentro**: 卯戌 (Legno⊣Terra) · 巳申 (Fuoco⊣Metallo) · 子丑 (Terra⊣Acqua) —
+  la combinazione può essere una distruzione
+
+**Misura (sui casi: mobile = Tai Sui, arrivo combina una linea unica, bersaglio non vuoto)**:
+
+| combinazione distruttiva → OPPOSTA | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| **distruttore timely + attaccato ANCHE timely** | 6 | **83,33%** | 100,00% | 80,00% |
+| distruttore timely + attaccato non timely | 11 | 45,45% | 75,00% | 28,57% |
+| distruttore debole + attaccato timely | 14 | 50,00% | 50,00% | 50,00% |
+| **entrambi deboli** (l'opposta perde sempre → diretta vince) | 5 | **0,00%** | 0,00% | 0,00% |
+| (generativa → direzione del bersaglio) | 73 | 53,42% | 53,06% | 54,55% |
+
+**REGOLA FISSATA (formulazione accettata da Edu il 15/08/2026, corretta sui dati)**:
+1. Combinazione **distruttiva** con **distruttore E attaccato entrambi timely** → la distruzione
+   si compie, si legge l'**OPPOSTO** del bersaglio (83,33%, periodi 100/80 allineati).
+2. Combinazione distruttiva con **entrambi deboli** → la distruzione non ha forza, la
+   combinazione **porta normalmente** → direzione del bersaglio (5/5).
+3. Le celle miste (uno timely, l'altro no) NON danno segnale stabile (45-50%, periodi in
+   contraddizione) → nessuna lettura.
+4. La formulazione iniziale di Edu ("distruttore timely + attaccato non timely") misurava
+   45,45% con periodi opposti: sostituita dalla n.1 col suo consenso, visti i dati.
+
+**Dottrina**: coerente con la §51b (è l'Ufficiale VIBRANTE che la tomba spegne) — gli eventi
+forti si compiono su bersagli forti; lo scontro fra due deboli non lascia traccia e il legame
+prevale. ⚠ 6 e 5 carte: campioni piccolissimi, accettati da Edu ("ampia variabilità del LY");
+periodi allineati in entrambe le celle. Da monitorare in avanti.
+
+---
+
+# 50e. LA COMBINAZIONE DELL'ARRIVO GENERALIZZATA A OGNI MOBILE  ·  `FISSATA` (15/08/2026)
+
+Carta sorgente: **EURJPY 19/04/2022** (seme 137, sup 1 乾, inf 1 乾, mutante L5, giorno 壬寅,
+mese 辰, anno 寅, palazzo 乾 Metallo, vuoti 辰巳). La mobile L5 Fratelli 申→未 è sospesa dal
+giorno (寅冲申), ma **conta comunque l'arrivo** (§50a): 未 combina 午 = Ufficiale a L4, timely,
+sostenuto dal giorno e dal Tai Sui (寅 Legno genera il Fuoco). Combinazione 午未 generativa →
+direzione del bersaglio → L4 → LONG. Mercato +205. ✓ Lettura di Edu.
+
+**Misura — lo schema §50d esteso a QUALSIASI mobile (bersaglio unico, non vuoto):**
+
+| condizione | n | tutto | z | recente | vecchio |
+|---|---|---|---|---|---|
+| **generativa su bersaglio TIMELY → dir. bersaglio** | 551 | **54,26%** | 2,00 | 52,52% | 56,85% |
+| generativa su Ufficiale → dir. bersaglio | 273 | 54,58% | 1,51 | 51,94% | 56,59% |
+| **distruttiva, entrambi deboli → dir. bersaglio** | 57 | **64,91%** | 2,25 | 71,43% | 61,54% |
+| distruttiva, entrambi timely → OPPOSTA | 53 | 47,17% | — | 45,45% | 50,00% |
+| generativa senza filtro timely | 1.068 | 51,22% | — | 49,66% | 52,37% |
+
+**REGOLE FISSATE (per qualunque linea mobile):**
+1. Arrivo combina una linea (unica, non vuota) in modo **generativo** e il bersaglio è
+   **timely** → direzione del bersaglio (54,26%, entrambi i periodi sopra). Senza il filtro
+   timely la regola è piatta: serve un bersaglio vivo di stagione.
+2. Combinazione **distruttiva fra due deboli** → nessuno ha la forza di rompere, il legame
+   porta → direzione del bersaglio (64,91%, periodi 71/61).
+3. **La distruzione compiuta NON generalizza**: per le mobili comuni "distruttiva entrambi
+   timely → opposta" misura 47,17% (contro l'83,33% del Tai Sui, §50d). **Solo il Tai Sui ha
+   la forza concentrata per compiere una distruzione** — coerente con la dottrina del Tai Sui
+   come "capacità di intervento" (grandi istituzioni). La cella distruttiva-forte resta
+   esclusiva della via 14 (Tai Sui).
+
+**Dottrina in una riga**: l'arrivo che combina porta la direzione del bersaglio se il bersaglio
+è vivo di stagione (o se sono entrambi deboli); la distruzione dentro la combinazione è
+privilegio esclusivo del Tai Sui.
+
+---
+
+# 50f. L'ARRIVO DELLA MOBILE GENERA LA RICCHEZZA  ·  `FISSATA` (15/08/2026)
+
+Carta sorgente: **USDJPY 22/09/2022** (seme 144, sup 2 兌, inf 8 坤, mutante L1, giorno 戊寅,
+mese 酉, anno 寅, palazzo 兌 Metallo, vuoti 申酉 — il giorno del primo intervento BoJ sullo
+yen dal 1998). Mobile L1 Genitori 未→子: l'arrivo 子 Acqua **genera** la Ricchezza 卯 Legno a
+L3. La W non è timely (mese 酉 la contrasta) ma è **FORTE**: Tai Sui 寅 Legno e giorno 寅
+Legno le danno spalla (stesso elemento, doppia forza concentrata — §47 timely vs forte).
+L3 → trigramma inferiore → SHORT. Mercato −188. ✓ Lettura di Edu; la correzione decisiva
+("non serve timely, basta il sostegno di giorno/anno") è sua.
+
+**Misura (arrivo genera W; direzione per posizione se le W sbilanciano su un trigramma):**
+
+| condizione | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| **W TIMELY o FORTE → dir. linea** | 280 | **54,29%** | 52,69% | 55,00% |
+| timely E forte insieme | 111 | 57,66% | 53,73% | 61,11% |
+| solo forte | 119 | 52,10% | 52,94% | 51,06% |
+| solo timely | 50 | 52,00% | 50,00% | 52,94% |
+| **né timely né forte** | 60 | **43,33%** | 55,88% | 30,43% |
+
+FORTE = giorno o anno con lo stesso elemento della W, o che la generano.
+
+**REGOLA FISSATA**: l'arrivo della mobile genera la Ricchezza e la W è **timely o forte** →
+direzione della W (per posizione). Le due forze si sommano (insieme 57,66%). Una W **senza
+alcun sostegno non riceve** (43,33%) → nessuna lettura. Controllo di specificità: generare gli
+altri parenti non dà segnale (Ufficiale 51,63%, Genitori 50,94%, Fratelli 50,17%, Figli
+47,99% — coerente con §46: i Figli conservano, non spingono). Integrata come **via 16**.
+
+---
+
+# 50g. LA COMBINAZIONE DOPPIA LEGA IN BASSO  ·  `FISSATA` (15/08/2026)
+
+Carta sorgente: **USDJPY 01/08/2022** (seme 133, sup 8 坤, inf 5 巽, mutante L6, giorno 丙戌,
+mese 未, anno 寅, palazzo 震 Legno, vuoti 午未). L'Ufficiale mobile L6 酉 arriva su 寅 (il ramo
+del Tai Sui); 寅 combina 亥 — ma di 亥 ce ne sono DUE (Genitori a L5 e a L2). Lettura di Edu:
+vince L2 per risonanza (ha il Fratelli 寅 nascosto, gemello dell'arrivo) → SHORT. Mercato −168. ✓
+
+**Misura sui 193 casi di gemelli DIVISI (un bersaglio per trigramma, non vuoti):**
+
+| spareggio | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| **il gemello BASSO** | 193 | **55,96%** | 54,08% | 57,65% |
+| il gemello alto | 193 | 44,04% | 45,92% | 42,35% |
+| risonanza (nascosto = ramo d'arrivo) | 31 | 58,06% | 46,15% | 68,75% |
+| il gemello soggetto (世) | 37 | 54,05% | 61,54% | 36,36% |
+
+**REGOLA FISSATA**: quando l'arrivo della mobile combina un ramo presente su DUE linee divise
+fra i trigrammi, **il legame si compie in basso** → direzione del gemello del trigramma
+inferiore (55,96%, periodi 54/58 allineati). Nella carta sorgente coincide con la scelta di
+Edu (L2). La **risonanza del nascosto** resta annotata come lettura dottrinale NON confermata
+come criterio generale (periodi opposti: 46,15/68,75 su 31 carte) — nel caso singolo può
+spiegare il perché, ma lo spareggio operativo è la posizione. Integrata come **via 17**.
+
+---
+
+# 50h. IL NASCOSTO VUOTO CLASHATO DALL'ARRIVO: LA SCALA DEI SOSTEGNI  ·  `FISSATA` (15/08/2026)
+
+Carta sorgente: **USDJPY 09/03/2020** (seme 103, sup 4 震, inf 7 艮, mutante L5, giorno 辛亥,
+mese 卯, anno 子, palazzo 兌 Metallo, vuoti 寅卯 — il lunedì nero Covid+petrolio). Il Fratello
+mobile L5 avanza 申→酉; l'arrivo 酉 clasha 卯 = la Ricchezza NASCOSTA (伏神) dietro l'Ufficiale
+a L2, vuota ma con TRE sostegni: ramo stesso del mese (旺), generata dal giorno 亥 e dal
+Tai Sui 子 (entrambi Acqua). Lettura di Edu: un vuoto così sostenuto esce facilmente — emerge
+e genera con forza il volante G → L2 → SHORT. Mercato −166. ✓
+
+**Prima misura (ingenua, "vuoto e timely" con 旺 e 相 mischiati): 44,44% — RESPINTA.**
+Correzione di Edu: "non puoi trattare W così come un vuoto qualsiasi" — 旺不为空, e vanno
+contati i sostegni concentrati (giorno/anno), non solo il mese.
+
+**Misura graduata (nascosto vuoto clashato dall'arrivo, ospite unico). Sostegni: 旺 dal mese
+(elemento o ramo stesso) / giorno stesso elemento o che genera / Tai Sui idem:**
+
+| sostegni | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| **≥2 (molto sostenuto)** | 13 | **76,92%** | 75,00% | 80,00% |
+| 1 | 27 | 40,74% | 42,86% | 36,36% |
+| **0 (abbandonato)** | 17 | **23,53%** | 42,86% | 11,11% |
+
+Scala perfettamente monotona: 23% → 41% → 77%.
+
+**REGOLE FISSATE (via 18):**
+1. Nascosto vuoto con **≥2 sostegni** clashato dall'arrivo → esce dal vuoto e agisce →
+   **direzione della linea ospite** (76,92%, periodi 75/80).
+2. Nascosto vuoto con **0 sostegni** → il clash lo sfonda, l'azione si rovescia →
+   **direzione OPPOSTA all'ospite** (76,47%).
+3. 1 sostegno: zona grigia, nessuna lettura.
+⚠ Campioni piccoli (13 e 17) accettati per scala monotona + periodi allineati agli estremi.
+Dottrina: gemella della 旺不为空 di produzione PB, estesa dal solo mese alla forza concentrata
+di giorno e Tai Sui (§47 timely vs forte).
+
+---
+
+# 50i. IL GUA INFERIORE INTERAMENTE VUOTO: IL PAVIMENTO CEDE  ·  `FISSATA` (15/08/2026)
+
+Nata dalla domanda di Edu su GBPUSD 28/09/2022 ("il vuoto 午 copre l'intero trigramma
+inferiore 離: non rende impossibile lo SHORT?"). La misura ha ROVESCIATO l'ipotesi:
+
+| condizione | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| inferiore interamente vuoto → LONG (ipotesi originale) | 567 | 45,33% | 45,54% | 44,09% |
+| **inferiore interamente vuoto → SHORT (rovesciata)** | 567 | **54,67%** | 54,46% | 55,91% |
+| superiore interamente vuoto → SHORT | 458 | 48,91% | — | — |
+
+**REGOLA FISSATA (via 19)**: quando i rami HOUTIAN del trigramma INFERIORE dell'esagramma
+sono tutti nei vuoti del giorno → **è più facile uno SHORT** (54,67%, periodi 54,5/55,9).
+Il vuoto sotto non blocca la discesa: **toglie il pavimento**, e il mercato ci cade dentro.
+Il trigramma superiore vuoto non dice nulla (48,91%).
+
+Note strutturali:
+- I vuoti vengono in coppie fisse (旬空): 乾 (戌亥) e 巽 (辰巳) possono essere interamente
+  vuoti; 艮 (丑寅) e 坤 (未申) cavalcano due coppie → non sono MAI interamente vuoti — la
+  vecchia regola "Gen e Kun non sono mai vuoti" è scritta nella struttura.
+- 旺不为空 coerente: trigramma vuoto ma 旺 di mese → effetto attenuato (52,86% vs 54,93%).
+  Cablata SENZA eccezione (cella aggregata).
+- La carta GBPUSD 28/09/2022 (LONG da intervento BoE) è una delle eccezioni del 45%.
+
+---
+
+# 50j. DUE FRATELLI DIVISI: OGNUNO CURA LA SUA SEZIONE  ·  `FISSATA` (15/08/2026)
+
+Principio di Edu (da EURUSD 20/04/2022): quando ci sono DUE Fratelli, uno per trigramma,
+ognuno rivolge la propria azione al settore di competenza — diversamente dal B singolo
+(§53, ostacolo di trend segue/non-segue). Il verso, allineato sui dati e sulle carte:
+**il mercato va nella sezione del B mobile che esce RAFFORZATO dalla mutazione** (回頭生 o
+avanzante). Il B lavora nel suo settore e il movimento del giorno accade lì.
+
+- EURUSD 20/04/2022: B alto 卯 mobile, sul giorno, timely, 回頭生 → sezione alta → LONG.
+  Mercato +56. ✓
+- GBPUSD 28/09/2022 (contrasto istruttivo): i due B sono FERMI e clashati dal mese — la
+  regola tace; il LONG di quel giorno venne da altro (intervento BoE).
+
+**Misura (carte con esattamente un B per trigramma, 2.248):**
+
+| cella (% giorni in cui il mercato SALE) | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| **B ALTO mobile RAFFORZATO** | 100 | **54,00%** | 53,06% | 56,25% |
+| **B BASSO mobile RAFFORZATO** | 72 | **44,44%** (=55,56% short) | 39,39% | 47,22% |
+| B mobile indebolito (alto) | 58 | 46,55% | 58,06% | 31,82% |
+| B fermi (tutte le combinazioni acceso/spento) | 1.473 | ~51% | — | — |
+
+**REGOLA FISSATA (via 20)**: due B divisi fra i trigrammi + il B mobile esce rafforzato
+dalla mutazione → **direzione della SUA sezione** (172 carte, 54,65%, quattro sotto-celle
+allineate). B indebolito o B fermi: nessuna lettura (periodi in contraddizione / piatti).
+Conferma il primato della DINAMICA: conta chi si muove e con che forza, non la presenza.
+
+---
+
+# 50k. IL CLASH DEL GIORNO ROMPE LA COMBINAZIONE DEL TAI SUI  ·  `FISSATA` (15/08/2026)
+
+Nata dalla domanda di Edu su GBPUSD 28/09/2022: "il giorno 申 clasha l'anno 寅 — il clash non
+rompe la combinazione 寅亥 col P di L3? E allora cosa accade a G 酉 e P 亥?" (合被冲破).
+Il giorno faceva doppio lavoro: clashava il Tai Sui E legava la mobile (申合巳).
+
+**Misura (linea FERMA unica combinata a distanza dal ramo dell'anno):**
+
+| cella | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| combinazione intatta → dir. linea | 1.349 | 49,30% | 50,00% | 47,95% |
+| **rotta dal giorno → OPPOSTA alla linea** | 109 | **56,88%** | 53,85% | 60,38% |
+| solo P: rotta → opposta | 29 | **62,07%** | 63,64% | 64,71% |
+
+**REGOLA FISSATA (via 21)**: una linea ferma unica combinata a distanza dal Tai Sui, nel
+giorno che CLASHA l'anno → la combinazione si rompe e la sede si ribalta → **direzione
+OPPOSTA alla linea**. Finché la combinazione è intatta: nessun segnale (conferma §50b:
+la combinazione a distanza da sola è legame debole — il suo effetto emerge solo quando
+si SPEZZA). Sul P il segnale è massimo (62%): il condotto tenuto dall'anno, sferzato dal
+clash, perde il verso.
+
+Chiude anche il cerchio del P-condotto (§ pendente): delle due "eccezioni" della cella
+G-forte (66,67% dir. sede), GBPUSD 28/09/2022 è spiegata dalla rottura (via 21 la
+intercetta con precedenza); EURUSD 20/04/2022 resta l'eccezione semplice.
+
+**REGOLA FISSATA (via 22, subordinata alla 21)**: P vivo che drena un G nascosto FORTE →
+direzione della sede (42 carte, 66,67%, periodi allineati). Valutata DOPO la via 21: se la
+combinazione col TS è rotta dal giorno, comanda la rottura.
