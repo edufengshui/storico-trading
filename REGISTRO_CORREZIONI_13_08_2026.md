@@ -1273,3 +1273,465 @@ sono **fortemente correlate** — statisticamente valgono molto meno di 109 indi
 | blocca l'arrivo **+ 回頭生** | il trigramma vince nettamente | 44 | **72,73%** |
 | **urtato** dall'arrivo (partenza libera) | il trigramma perde | 301 | **55,15%** (perde) |
 | trattiene la partenza **e** subisce l'urto | non tiene: il trigramma vince | 109 | **55,96%** |
+
+
+---
+
+# 48. GRANDE TEST PB + LY  ·  `FISSATA` — il primo abbinamento completo (14/08/2026)
+
+Impianto (idea di Edu): il PB decide come sempre; il termometro LY completo (55,10%) fa da
+correttivo — **convalida** i positivi, **risolve** i casi dubbi, e nel **contrasto** decide.
+La politica del contrasto è stata misurata, non scelta a priori.
+
+Su 4.111 carte: concordi 620 · contrasti 612 · LY tace 2.879 · PB deboli 933.
+
+## Il contrasto: vince il LY
+
+| contrasto (612 carte) | tutto | recente | vecchio |
+|---|---|---|---|
+| vince PB | 46,08% | 47,95% | 44,36% |
+| **vince LY** | **53,92%** | 52,05% | 55,64% |
+
+Quando PB e LY si oppongono, il PB ha ragione meno di metà delle volte, su entrambi i periodi.
+Il no-trade equivale al "vince PB" come conteggio ma lascia i pip sul tavolo: **override LY
+batte no-trade**.
+
+## La convalida e lo spareggio
+
+- **Concordanza** (620 carte): 53,51% → **56,77%** (58,65% nel vecchio). La concordanza è un
+  marchio di affidabilità del trade.
+- **PB deboli** (933 carte, verdetto = base): lasciare decidere il LY dà **56,06%** (z 3,70) —
+  il LY è più bravo del PB proprio dove il PB è incerto. I PB già forti restano a 53,85%.
+
+## I tre sistemi combinati completi
+
+| sistema | n | tutto | z | recente | vecchio | pip |
+|---|---|---|---|---|---|---|
+| PB da solo (baseline) | 4.111 | 53,51% | 4,51 | 53,28% | 54,39% | +17.221 |
+| **S1 — override LY nel contrasto** | 4.111 | 54,68% | **6,00** | 53,85% | 56,19% | **+23.040** |
+| S2 — salto i contrasti | 3.499 | 54,82% | 5,70 | 54,15% | 56,29% | +20.131 |
+| **S3 — LY spareggia i deboli** | 4.111 | 54,73% | **6,07** | 53,63% | 56,43% | +21.467 |
+
+Tutti e tre battono il PB da solo su entrambi i periodi. Migliore per z: **S3** (6,07);
+migliore per pip: **S1** (+23.040, quasi 6.000 sopra il baseline).
+
+## ⚠ AVVERTENZA METODOLOGICA (essenziale)
+
+**Questo è un risultato IN-SAMPLE.** Le regole LY sono nate su questo stesso periodo leggendo
+carte a posteriori: lo z 6 qui è il tetto ottimistico, NON lo z atteso in avanti. Il segnale
+affidabile è la **coerenza fra i due periodi**: il contrasto perde col PB e vince col LY su
+entrambi; tutte e tre le combinazioni migliorano su entrambi. Quella coerenza è ciò che può
+sopravvivere fuori campione; il valore assoluto di z no.
+
+Conclusioni strutturali: PB e LY catturano cose **diverse** (concordano solo su 620 carte su
+4.111; il LY tace sul 70%); dove il LY parla, migliora il PB in modo consistente nel tempo.
+Prossimo passo naturale: verifica sul **holdout** (mai toccato) quando Edu decide che il
+sistema è congelato, e osservazione forward di S1/S3.
+
+
+---
+
+# 49. IL TAI SUI CHE METTE IN MOTO UN UFFICIALE  ·  `FISSATA` (14/08/2026)
+
+Carta sorgente: **EURJPY 11/07/2024** (seme 175, sup 5 巽, inf 7 艮, mutante L1, giorno 丙子,
+mese 未, anno 辰, palazzo 艮 Terra). Mercato **−233 pip** (SHORT); il LY, leggendo l'Ufficiale
+*fermo* a L6, diceva LONG e perdeva.
+
+**La lettura di Edu:** ci sono DUE Ufficiali (官鬼). Uno **fermo** a L6 (卯, oggetto 應, non
+timely — statico). Uno **messo in moto dal Tai Sui**: la mobile L1 è il Tai Sui 辰 e muta in
+卯 (回頭剋), cioè in Legno = Ufficiale. Fra i due comanda **il più dinamico**: quello attivato
+dal Tai Sui. Principi già fissati che si combinano: (a) *ciò che fa il Tai Sui è importante*;
+(b) *una linea mobile che si muove è azione*. → linea a L1, trigramma inferiore → **SHORT**. ✓
+
+**Misura — la lettura di Edu batte quella statica, e i due periodi sono allineati:**
+
+| | n | tutto | recente | vecchio | pip/tr |
+|---|---|---|---|---|---|
+| **Tai Sui mobile che muta in Ufficiale — sua direzione** | 57 | **57,89%** | 61,76% | 52,63% | 16,71 |
+| (confronto) leggo l'Ufficiale FERMO invece | 34 | 52,94% | 42,11% | 66,67% | −4,20 |
+
+L'Ufficiale fermo dà 52,94% ma con i periodi che si contraddicono (42,11 / 66,67): non
+utilizzabile. L'Ufficiale attivato dal Tai Sui dà **57,89% con entrambi i periodi sopra il
+riferimento**, +953 pip, 16,71 pip/trade (fra le rese per trade più alte trovate).
+
+**Conferma del principio timely/forte (§37):**
+
+| | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| arrivo Ufficiale **non timely** | 31 | **64,52%** | 63,16% | 63,64% |
+| arrivo Ufficiale timely | 26 | 50,00% | 60,00% | 37,50% |
+
+Il caso più forte è l'Ufficiale **non timely** (64,52%, periodi quasi identici 63/63): quando
+l'Ufficiale non ha già forza ampia di stagione, è il **movimento concentrato impresso dal Tai
+Sui** a fare la differenza. Se fosse già timely, l'azione dell'anno aggiunge poco.
+
+Implementazione: la mobile è il Tai Sui (isTaiSui) e il suo ramo di arrivo ha l'elemento
+Ufficiale del palazzo (l'elemento che controlla l'elemento del palazzo). Direzione dalla
+posizione della mobile.
+⚠ 57 carte. Verso solido su entrambi i periodi; da confermare in avanti.
+
+## Nota di metodo (Edu, 14/08/2026)
+Il codice cercava l'Ufficiale come **linea statica** e sbagliava; Edu legge la **dinamica** —
+chi mette in moto chi. Le carte non sono "difficili": la lettura meccanica per classificazione
+fallisce dove quella per movimento riesce. Ricordarsi di guardare SEMPRE il ramo di arrivo
+della mutazione come possibile secondo attore (qui un secondo Ufficiale), non solo le linee
+presenti.
+
+
+---
+
+# 50. IL TAI SUI CHE COMBINA A DISTANZA — LETTURE DOTTRINALI E MISURE (14/08/2026)
+
+Filone esplorato a lungo. **Le letture di Edu sulle singole carte sono corrette e vanno
+conservate**; ciò che NON emerge è un segnale direzionale autonomo misurabile.
+
+## 50a. Le letture (dottrina — da conservare e riusare)
+
+**(1) Il Tai Sui si muove verso dove ATTERRA la mutazione.** Non conta se la partenza è
+sospesa: conta il ramo di ARRIVO e con chi si combina (六合).
+- *USDJPY 15/11/2024*: Tai Sui-Ricchezza L3, 辰→亥; 亥 combina 寅 = oggetto (應) a L2 →
+  trigramma inferiore → SHORT. Mercato −213. ✓
+- *USDJPY 30/10/2025*: Tai Sui-Ufficiale L2, 巳→辰; 辰 combina 酉 = soggetto (世) a L4 →
+  trigramma superiore → LONG. Mercato +133. ✓ (la partenza 巳 era combinata dal giorno 申 e
+  il motore la dava "sospesa": **conta comunque l'arrivo**).
+
+**(2) Una linea VUOTA non può ricevere la direzione.** *USDJPY 12/02/2025*: il Tai Sui atterra
+combinando 卯 = Ricchezza L3 **vuota e dormiente** → non può shortare. Principio già fissato
+(旬空), qui riconfermato.
+
+**(3) IL CIRCUITO CHIUSO** — *EURUSD 05/03/2025* (seme 106, sup 5 巽, inf 2 兌, mutante L5,
+giorno 癸酉, mese 寅, anno 巳, palazzo 艮, vuoti 戌亥). Catena:
+**巳 (Tai Sui L5) → 子 (arrivo) → 丑 (Fratelli L3) → 申 (伏神 Figli nascosto in L3) → 巳**.
+Il circuito **si richiude sul Tai Sui di partenza**: si legge la posizione dell'ORIGINE (L5),
+non quella della prima tappa (L3). L5 = trigramma superiore → **LONG**. Mercato +166. ✓
+> La catena non si ferma al bersaglio: se il bersaglio nasconde una linea che rimanda al punto
+> di partenza, si legge dove il circuito **si chiude**.
+⚠ **Struttura rarissima: 1 carta su 4.111.** Conservata per il futuro, non misurabile ora.
+
+## 50b. Le misure (nessun segnale autonomo)
+
+| condizione | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| arrivo del Tai Sui combina una linea — dir. bersaglio | 157 | 51,59% | 47,78% | 55,74% |
+| ... bersaglio NON vuoto | 129 | 51,16% | 47,30% | 55,10% |
+| ... bersaglio vivo e agibile | 102 | 47,06% | 45,16% | 47,22% |
+| ... bersaglio = soggetto (世) | 27 | 55,56% | **22,22%** | 70,59% |
+| ... bersaglio = oggetto (應) | 29 | 41,38% | 47,83% | 16,67% |
+| capolinea della catena (invece della prima tappa) | 157 | 52,23% | 48,89% | 55,74% |
+
+**Le catene sono quasi sempre di UN passo** (156 su 157): il bersaglio non ha nascosto, o il
+nascosto non rimanda a una linea presente. Quindi "capolinea" e "prima tappa" coincidono.
+Filtrare per il vuoto **non migliora** (51,59 → 51,16); restringere ai bersagli agibili
+**peggiora** (47,06%).
+
+**Conclusione onesta:** la combinazione *a distanza* del Tai Sui è dottrina corretta ma non
+isola un edge; resta inchiodata al 51-52% con il recente sempre sotto il riferimento.
+Diverso dalla §49, dove il Tai Sui **muta NELL'ELEMENTO** Ufficiale e diventa esso stesso un
+attore: lì 57,89% con entrambi i periodi sopra. **Mutazione in elemento = attore misurabile;
+combinazione a distanza = legame debole.**
+
+## 50c. Nota tecnica — confine dei termini solari (惊蛰)
+Su EURUSD 05/03/2025 è emerso il dubbio se la carta andasse scartata per clash giorno↔mese.
+**No**: il 惊蛰 2025 entra alle **08:07 GMT** del 5 marzo, cioè **487 minuti DOPO** l'apertura
+della carta (00:00 GMT). Alle 00:00 GMT il mese è ancora **寅**, non 卯. Giorno 酉 vs mese 寅 =
+nessun clash. (Se il mese fosse stato 卯 → 卯酉冲 → carta scartata.)
+Pilastri verificati: anno 乙巳 · mese 戊寅 · giorno 癸酉.
+⚠ **Tutto va sempre espresso in GMT.** La libreria lunar-javascript emette gli istanti dei
+termini in orologio di Pechino e `jieqi-gmt.js` converte (−8h) prima del confronto: quella è
+l'unica conversione, tutto il resto del sistema è GMT/TST.
+Il filtro SKIPCLASH=gm scarta le carte con clash giorno↔mese **prima** che entrino nel dataset:
+tutte le misure del Liu Yao sono già al netto di quelle.
+
+
+---
+
+# 51. LA TOMBA (墓) — L'ATTORE SEPOLTO SI SPEGNE  ·  `FISSATA` (14/08/2026)
+
+Carta sorgente: **USDJPY 30/07/2024** (seme 153, sup 3 離, inf 1 乾, mutante L6, giorno 乙未,
+mese 未, anno 辰, palazzo 乾 Metallo). L'Ufficiale (官鬼) mobile 巳 Fuoco a L6 muta in **戌 =
+tomba del Fuoco (火墓)**; non c'è un 卯 su cui atterrare, quindi non prosegue: **entra nella
+tomba e si spegne** → non porta la direzione in alto → non va Long. (In più 戌 clasha il Tai
+Sui 辰 a L3, asse delle tombe 辰戌.)
+
+**Le quattro tombe (墓库):** 辰 = tomba Acqua · 戌 = tomba Fuoco · 丑 = tomba Metallo ·
+未 = tomba Legno. Una linea mobile che muta nel ramo-tomba del **proprio** elemento vi entra.
+
+## 51a. L'Ufficiale in tomba — `FISSATA`
+
+| Ufficiale (官鬼) in tomba — leggo l'OPPOSTO | n | tutto | recente | vecchio | pip/tr |
+|---|---|---|---|---|---|
+| **totale** | 42 | **57,14%** | 62,96% | 54,55% | 3,90 |
+| per elemento: Acqua → 辰 | 10 | 70,00% | 71,43% | 66,67% | 19,41 |
+| per elemento: Fuoco → 戌 | 32 | 53,13% | 60,00% | 50,00% | −0,95 |
+| e la tomba clasha il Tai Sui | 21 | 57,14% | 57,14% | — | 9,95 |
+
+Legno→未 e Metallo→丑 **strutturalmente assenti** nel campione (0 carte): l'Ufficiale è
+l'elemento che controlla il palazzo, e quelle combinazioni non si presentano mai. Regola
+coerente col principio ma non verificabile per quei due elementi.
+
+## 51b. SCOPERTA CONTROINTUITIVA — è l'Ufficiale VIBRANTE che si spegne
+
+La clausola classica dice: un elemento **vibrante** in stagione NON entra in tomba. I dati
+dicono l'**opposto** per l'Ufficiale:
+
+| Ufficiale in tomba | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| **VIBRANTE — leggo l'opposto (si spegne)** | 21 | **66,67%** | 66,67% | 100,00% |
+| vibrante — leggo il suo trigramma | 21 | 33,33% | 33,33% | 0,00% |
+| non vibrante — leggo l'opposto | 21 | 47,62% | 58,33% | 37,50% |
+
+**Lettura (coerente con timely/forte §37):** seppellire un Ufficiale **vibrante** è un evento
+FORTE — tanta energia spenta di colpo, effetto netto. Un Ufficiale già debole in tomba non fa
+notizia: era già spento. La tomba morde di più quando c'è qualcosa di grosso da seppellire.
+⚠ 21 carte; contraddice un principio classico, quindi cautela. Ma verso coerente sui due
+periodi (vibrante: 66,67 / 100,00).
+
+## 51c. Gli altri parenti — attori vs passivi
+
+| parente in tomba (opposta) | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| **Fratelli NON vibrante** | 28 | **64,29%** | 61,54% | 64,29% |
+| Fratelli vibrante | 35 | 42,86% | 31,58% | 56,25% |
+| Ricchezza (totale, suo trigramma) | 15 | 53,33% | 55,56% | 40,00% |
+| Genitori / Figli | 30 / 9 | — | (contraddittori) | — |
+
+**La tomba distingue due famiglie:**
+- **Ufficiale** (azione pura) → si spegne quando è **VIBRANTE** (66,67%)
+- **Fratelli** (passivo) → si spegne quando è **DEBOLE** (64,29%, entrambi i periodi)
+- **Ricchezza** (bene passivo) → tende a **mantenere** la direzione, non si spegne (53,33%,
+  suo trigramma) — coerente ma 15 carte
+- Genitori, Figli → campioni insufficienti, non concludibili
+
+È lo stesso asse di tutta la giornata: l'Ufficiale che agisce viene fermato dalla tomba
+proprio quando ha più forza; i parenti passivi (Fratelli, Ricchezza) si spengono solo se erano
+già deboli, altrimenti resistono. La tomba è anche **magazzino** (墓库): toglie l'azione a chi
+agisce, conserva chi è passivo.
+
+
+---
+
+# 52. "CHI NON VINCE PERDE" — L'ESAGRAMMA MOSTRA IL PERDENTE  ·  `SCOPERTA / PRINCIPIO` (14/08/2026)
+
+Carta sorgente: **EURJPY 11/03/2025** (seme 159, sup 3 離, inf 7 艮, mutante L2, giorno 己卯,
+mese 卯, anno 巳, palazzo 離 Fuoco). La mobile L2 兄弟 午 Fuoco (timely nel mese di Legno) muta
+in 亥 Acqua = Ufficiale (官鬼): l'arrivo dovrebbe controllare all'indietro (回頭剋) il 午, ma il
+Fuoco è troppo forte e **il controllo fallisce**. L'Ufficiale-Acqua si esaurisce. La direzione
+SHORT (posizione della mobile in basso) **non può vincere** → LONG. Mercato +177. ✓
+
+## Il principio (con la cautela di Edu)
+
+> **L'esagramma spesso mostra chi NON riesce a imporsi, non chi vince.** Una linea mobile la
+> cui azione è contrastata / fallisce non porta la propria direzione: si legge l'OPPOSTO.
+
+⚠ **NON è una lettura di default.** Edu avverte: succede anche il contrario — l'esagramma fa
+leggere chi *vince*. Il punto non è che "l'opposto" sia la regola base, ma **riconoscere quale
+dei due modi è in atto**. La CONDIZIONE DI FALLIMENTO dell'azione è il segnale che dice di usare
+la lettura "al negativo".
+
+## Misura — "azione fallita → leggo l'opposto"
+
+| categoria di azione fallita | n | tutto | z | recente | vecchio | pip |
+|---|---|---|---|---|---|---|
+| 回頭剋 (arrivo controlla partenza) | 503 | 51,89% | 0,85 | 51,96% | 52,24% | +292 |
+| autocombinazione (自合) | 339 | 53,39% | 1,25 | 50,00% | 57,25% | +1.601 |
+| arrivo clashato dal giorno | 415 | 52,29% | 0,93 | 51,53% | 54,76% | +1.689 |
+| **QUALSIASI azione fallita → opposto** | **1.211** | **52,27%** | 1,58 | 51,05% | 54,60% | **+2.943** |
+| *(le stesse lette diretta)* | 1.211 | 47,73% | −1,58 | 48,95% | 45,40% | −2.943 |
+
+Copre **quasi un terzo del campione**, sopra il riferimento su entrambi i periodi. Non forte in
+valore assoluto (z ~1,5) ma stabile e ampio: è il **principio unificante SOTTO** regole già
+fissate — §14 (回頭剋), §5 (autocombinazione) ne sono casi particolari, non regole separate.
+
+## Il 回頭剋 per parente della mobile (raffinamento)
+
+| mobile in 回頭剋 → opposto | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| **Genitori (父母)** | 94 | **59,57%** | 60,78% | 55,00% |
+| Ufficiale | 151 | 52,32% | 50,00% | 54,39% |
+| Fratelli | 121 | 52,07% | 47,54% | 58,49% |
+| Figli | 38 | 47,37% | 42,86% | 60,00% |
+| Ricchezza | 99 | 45,45% | 55,00% | 33,33% |
+
+I **Genitori** in 回頭剋 danno 59,57% (condotto colpito che cede, coerente §12). La **Ricchezza**
+no (45,45%, periodi opposti): bene passivo, non si fa spegnere.
+
+⚠ **ATTENZIONE alla §14 in produzione:** attualmente il modulo fa "agire l'arrivo dalla
+posizione della mobile", che sui 回頭剋 con partenza debole misura **46,94%** (sotto il rif. su
+entrambi i periodi). La lettura corretta di Edu ("la mobile non vince, si legge l'opposto") dà
+51-53%. **Correzione della §14 NON ancora applicata** — richiede via libera esplicito e
+rimisura del baseline PB. Decisione rimandata.
+
+
+---
+
+# 53. I FRATELLI OSTACOLANO IL TREND  ·  `FISSATA` (14/08/2026)
+
+Recupero dell'impostazione originale: i Fratelli (兄弟) NON danno una direzione assoluta
+long/short (misurato: 50%, nessun segnale), ma dicono **se il mercato segue o NON segue il
+trend EMA** — come il PB. E il verso è ROVESCIATO rispetto all'intuizione: i Fratelli
+**sottraggono/ostacolano**, quindi un Fratello forte fa **NON seguire** il trend.
+
+Carta sorgente del filone: **EURJPY 11/02/2025** (Fratelli 寅 vuoti sullo Ying → niente spinta
+short; mercato LONG contro trend EMA SHORT).
+
+## Misura — "Fratello timely → il mercato NON segue il trend"
+
+| lettura (opera CONTRO il trend EMA) | n | win% | z | recente | vecchio | pip |
+|---|---|---|---|---|---|---|
+| Fratello timely sullo Shi | 344 | 53,49% | 1,29 | 53,67% | 53,42% | +1.754 |
+| Fratello mobile vivo | 891 | 51,96% | 1,17 | 51,81% | 53,28% | +3.514 |
+| Fratelli forti (nessuno vuoto) | 1.409 | 51,88% | 1,41 | 51,00% | 52,90% | +3.879 |
+| **UNICO Fratello timely — qualunque ruolo** | 903 | 52,82% | 1,70 | 52,54% | 54,40% | +4.145 |
+| unico e NON sullo Shi | 806 | 53,10% | 1,76 | 52,47% | 54,44% | +4.106 |
+
+**Non è un fatto di RUOLO ma di POSIZIONE.** Lo Shi da solo (unico Fratello) = 97 carte, neutro
+(50,52%). Il segnale vive nella posizione:
+
+| posizione del Fratello timely | n | win% | z | recente | vecchio | pip |
+|---|---|---|---|---|---|---|
+| **L4** | 508 | **55,31%** | **2,40** | 54,58% | 57,14% | +3.415 |
+| L1 | 79 | 58,23% | 1,46 | 63,41% | 52,94% | +716 |
+| L2 | 240 | 51,25% | 0,39 | 52,99% | 48,04% | +389 |
+| L3 | 759 | 50,72% | 0,40 | 49,88% | 50,94% | +1.653 |
+| L5 | 514 | 51,17% | 0,53 | 46,32% | 56,42% | −91 |
+| **L6** | 345 | 48,41% | −0,59 | 48,82% | 48,00% | −102 |
+
+**La cella forte: Fratello timely a L4 → il mercato NON segue il trend, 55,31% su 508 carte,
+z 2,40, entrambi i periodi sopra** (54,58 / 57,14). L4 = prima linea del trigramma superiore.
+All'estremo opposto L6 va sotto (48,41%): il Fratello all'apice non ostacola.
+
+**Asimmetria (unidirezionale):** il complementare NON vale — "nessun Fratello forte → segue"
+dà 49,32% (sotto rif.), e il sistema a interruttore (forti→non segue, else→segue) è piatto
+(50,06%). I Fratelli sono un **filtro verso il non-segue**, non un interruttore bidirezionale.
+Come le mutazioni PB, la regola vale in un verso solo.
+
+⚠ Testate 10 caselle (6 posizioni × 4 ruoli): un z 2,40 su 10 prove è in parte atteso per
+caso. La credibilità viene dall'**allineamento dei due periodi** (54,58/57,14), non dallo z.
+Da confermare in avanti / su holdout.
+
+## 53a. Confronto diretto col baseline (Yong vs Trend vs niente)
+Tasso di fondo: il mercato NON segue il trend nel **51,23%** dei giorni.
+
+| | n | NON segue % | recente | vecchio |
+|---|---|---|---|---|
+| Fratello timely nello YONG | 1.253 | 51,88% | 51,51% | 52,91% |
+| Fratello timely solo nel TREND | 421 | 52,49% | 50,21% | 53,85% |
+| baseline — nessun Fratello timely | 2.437 | 50,68% | 49,67% | 51,70% |
+
+**L'effetto è modesto (~+1,2 punti sul fondo) e lo Yong NON è decisivo:** confrontati entrambi
+col baseline reale, Yong e Trend stanno appena sopra, senza vantaggio netto dello Yong (la
+differenza Yong>Trend vista nel confronto interno si assottiglia). L'unica cella davvero netta
+resta **posizionale (L4, 55,31%)**, non il gua del PB. **Conclusione di Edu: trasportare il
+Fratello dentro il PB NON dà una chiave di lettura decisiva.**
+
+## 53b. B NEL Ti OSTACOLA IL TREND — `FISSATA` (confronto pulito su tutti i parenti)
+
+Fra i 5 parenti timely trasportati nel PB come "segue/non segue", **solo i Fratelli danno
+segnale**, e solo verso il NON-segue:
+
+| parente timely → NON segue | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| **Fratelli** | 903 | 52,82% | 52,54% | 54,40% |
+| Genitori | 772 | 51,04% | 47,93% | 55,65% (recente sotto) |
+| Figli | 905 | 50,83% | 47,76% | 55,38% (recente sotto) |
+| Ufficiale | 925 | 49,19% | 47,62% | 51,24% |
+| Ricchezza | 823 | 48,85% | 49,69% | 47,55% |
+
+E il Fratello ostacola meglio quando sta nel **Ti (gua del Trend, che nel PB È l'EMA)**,
+massimo a L4:
+
+| | n | tutto | z | recente | vecchio |
+|---|---|---|---|---|---|
+| B nel Ti → non segue | 1.192 | 51,59% | 1,10 | 49,85% | 52,37% |
+| **B nel Ti E a L4 → non segue** | 266 | **57,14%** | 2,33 | 57,53% | 55,96% |
+
+**REGOLA FISSATA: 兄弟 (Fratello) timely nel Ti del PB → il mercato NON segue il trend;
+fortissimo a L4** (57,14%, z 2,33, due periodi allineati). Dottrina: il Fratello sottrae/
+compete, e piantato dentro il corpo del trend lo blocca.
+
+**Controparte simmetrica NON esiste:** 妻財 (Ricchezza) nel Ti → SEGUE misura 50,22% (a L4
+50,35%, periodi sotto 50%): piatta. Il 57,43% visto prima dipendeva dal filtro "W unica timely"
+(restrittivo), non dalla posizione. La Ricchezza è bene passivo: non spinge il trend. Solo i
+Fratelli hanno l'effetto.
+
+## 53c. QUADRO COMPLETO — L'ASSE DEGLI AVVERSI (Ti vs Yong) — `FISSATA`
+
+I 5 parenti timely nel **Ti** (>50% = ostacola il trend / <50% = asseconda):
+
+| parente nel Ti | n | tutto | recente | vecchio | |
+|---|---|---|---|---|---|
+| **Ufficiale (官鬼)** | 964 | 52,18% | 51,95% | 52,25% | ostacola ✓ |
+| **Fratelli (兄弟)** | 1.192 | 51,59% | 49,85% | 52,37% | ostacola ✓ |
+| Figli (子孫) | 587 | 50,26% | 48,40% | 52,90% | neutro |
+| Ricchezza (妻財) | 920 | 49,78% | 51,54% | 48,28% | neutro |
+| Genitori (父母) | 998 | 48,40% | 44,81% | 53,33% | instabile |
+
+A L4: **Fratelli 57,14% (z 2,33)**, **Ufficiale 55,41% (z 1,36)**, gli altri piatti.
+
+Nello **Yong** tutto molto più piatto: Fratelli 51,88%, Figli 52,28%, Ricchezza 51,07%,
+Ufficiale 50,14%, Genitori 50,00%. "Parente = la mutante" non aggiunge nulla (48-51%).
+
+**CONCLUSIONE — l'effetto vive nel Ti, non nello Yong.** Il Ti *è* il trend (corpo/EMA): un
+avverso piantato **dentro il corpo del trend** lo blocca. I due avversi sono **官鬼 (controlla/
+reprime)** e **兄弟 (sottrae/compete)**. Ricchezza, Figli, Genitori: nessun effetto stabile.
+**C'è un asse "avversi ostacolano" ma NON un asse speculare "favorevoli assecondano"** —
+asimmetrico (da indagare: il favore forse è una relazione generativa verso il Ti, non un
+parente → prossimo passo).
+
+## 53d. Raffinamenti — presenza, non azione; il vuoto — `FISSATA`
+
+**Ostacolo = presenza statica, non movimento.**
+- Nel Ti il parente è per costruzione FERMO (la mutante sta nello Yong): B/G ostacolano da
+  fermi. Il 暗動 non cambia (Fratelli quieto 51,58 / in 暗動 51,81).
+- **B e G MOBILI nello Yong NON ostacolano il Ti** (50-51,6%), né in partenza né in arrivo.
+  Due meccaniche distinte: **ostacolare** = presenza forte nel Ti; **agire** = muoversi nello
+  Yong (capolinea, Tai Sui, tomba, 回頭剋).
+
+**Il vuoto (旬空):**
+- **B/G vuoti nel Ti**: NON perdono la capacità di ostacolare (Fratello vuoto 52,78%). Il vuoto
+  non li spegne come ostacoli.
+- **Ufficiale nel Ti + una linea VUOTA nel Ti → 55,65% (z 2,13, 57,22/53,33)**, contro 50,00%
+  se il Ti è pieno. Una **falla nel corpo del trend**: l'Ufficiale forte sfrutta la crepa e
+  l'ostacolo morde. Regola: *官鬼 timely nel Ti + Ti con linea vuota → NON segue*. Per il
+  Fratello questo non cambia (il vuoto conta solo per l'Ufficiale).
+
+
+---
+
+# 54. IL FAVORE AL Ti È INSTABILE; L'ANTI-SEGNALE MESE-vs-TAI SUI È STABILE  ·  `FISSATA` (14/08/2026)
+
+Cercando la metà "favorevole" mancante (perché nel PB gli avversi ostacolano ma nessuno
+asseconda), abbiamo testato: **una mutazione il cui ARRIVO genera l'elemento del Ti → dovrebbe
+far SEGUIRE il trend.**
+
+## 54a. Il favore è instabile (per anno e per mese)
+| | n | tutto | recente | vecchio |
+|---|---|---|---|---|
+| arrivo genera il Ti, timely → SEGUE | 466 | 54,08% | 58,58% | 46,41% |
+
+Scomposto per anno oscilla senza ripetersi: 2020 32% · 2021 48% · 2022 49% · 2023 60% ·
+2024 72% · 2025 44% · 2026 61%. Non è "il 2020 che sporca": è un segnale ballerino. Per mese:
+peggiori i mesi di **nascita** 寅(feb) 30% e 申(ago) 33% (elemento appena sorto); ma anche i
+mesi forti hanno recente≫vecchio. **Firma del rumore**, non di una legge — contro l'ostacolo
+(controllo del Ti) che è piatto e uguale su entrambi i periodi (51,66/51,37).
+
+## 54b. L'ANTI-SEGNALE stabile — `FISSATA`
+La sotto-condizione che regge, isolata dentro il filone instabile:
+
+| | n | tutto | z | recente | vecchio |
+|---|---|---|---|---|---|
+| **mese CONTROLLA il Tai Sui + mutaz. genererebbe il Ti → NON segue** | 43 | **65,12%** | 1,98 | 61,90% | 68,18% |
+
+Entrambi i periodi alti e allineati (il vecchio più forte). Dottrina: **quando il mese controlla
+il Tai Sui, l'anno è sopraffatto dal mese**; in quella condizione anche una mutazione che
+nutrirebbe il Ti non riesce a farlo seguire — il mercato va contro (asse "chi non vince perde",
+§52: il Tai Sui sopraffatto non porta il favore, si legge l'opposto).
+
+Il favore filtrato (mese NON controlla il TS, fuori dai mesi di nascita) sale a 57,36% (z 2,69)
+ma resta con gap 60,73/51,18: **meno instabile, non robusto → non usato come regola**.
+Si registra solo l'ANTI-segnale.
+
+## 54c. Ipotesi da testare (Edu): Tai Sui = difensore del Ti, mese = sfidante (Yong)
+Se il Tai Sui difende il trend e il mese lo sfida: nei mesi in cui **il mese controlla l'anno**
+dovrebbe vincere di più lo **Yong** (non segue); quando **l'anno controlla il mese**, dovrebbe
+vincere di più il **Ti** (segue). → test in corso.
