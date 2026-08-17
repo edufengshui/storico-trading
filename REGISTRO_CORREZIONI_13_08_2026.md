@@ -1990,3 +1990,454 @@ intercetta con precedenza); EURUSD 20/04/2022 resta l'eccezione semplice.
 **REGOLA FISSATA (via 22, subordinata alla 21)**: P vivo che drena un G nascosto FORTE →
 direzione della sede (42 carte, 66,67%, periodi allineati). Valutata DOPO la via 21: se la
 combinazione col TS è rotta dal giorno, comanda la rottura.
+
+---
+
+# 55. IL GENITORI (P) MOBILE CHE CLASHA IL TAI SUI FERMO ROMPE IL SUO TREND  ·  `FISSATA` (16/08/2026)
+
+Nata dalla carta peggiore del gruppo "LY tace" (USDJPY 23/10/2024, PB perde 155 pip): un P
+mobile su L6 (未→戌) il cui arrivo clasha il Tai Sui fermo su L1 (辰), e il mercato sale.
+Lettura di Edu: **il P è per natura il distruttore dei trend. Il Tai Sui FERMO rappresenta
+il trend consolidato della sua sezione (sotto = ribasso, sopra = rialzo). Il P mobile, col
+suo ramo di ARRIVO, lo clasha e quel trend si rompe.** Non c'entrano gli elementi né il
+drenaggio: è natura del P + posizione del Tai Sui.
+
+Ipotesi respinte lungo la strada (agli atti): P avanzante sopra → LONG (47 carte, 48,94%);
+P che arriva nel trigramma inferiore blocca il ribasso in generale (140 carte, 53,57%,
+periodi discordi); clash sul Tai Sui col ramo di PARTENZA (misura dottrinalmente sbagliata:
+quando una linea si muove è SEMPRE il ramo di arrivo che agisce).
+
+**Misura (P mobile, arrivo clasha un TS fermo unico; % = trend del TS ROTTO):**
+
+| cella | n | tutto | z | recente | vecchio |
+|---|---|---|---|---|---|
+| tutte | 32 | 65,63% | 1,77 | 64,29% | 66,67% |
+| TS sopra (rialzo rotto → scende) | 11 | 81,82% | 2,11 | 75,00% | 85,71% |
+| TS sotto (ribasso rotto → sale) | 21 | 57,14% | 0,65 | 60,00% | 54,55% |
+| **TS NON combinato dal giorno** | 27 | **70,37%** | 2,12 | 69,23% | 71,43% |
+| TS combinato dal giorno (difeso) | 5 | 40,00% | — | — | — |
+| controllo: altre parentele che clashano il TS | — | ~40-60% | — | — | — |
+
+La tempestività del P NON separa (timely 66,67% vs non timely 65,00%). Ciò che separa è la
+**difesa del Tai Sui**: se il GIORNO combina il TS, il TS è legato e il clash non passa
+(le tre smentite nette — GBPUSD 05/03/2021, USDJPY 15/02/2024, AUDUSD 15/07/2021 — hanno
+tutte il TS combinato dal giorno). La combinazione da un'altra linea FERMA non difende:
+solo il giorno fa da scudo. Le altre parentele (B, G, W, C) che clashano il TS non mostrano
+questo comportamento — il P è davvero il distruttore, gli altri no.
+
+**Criterio di precedenza (Edu, 16/08/2026):** *gli indicatori principali restano G e W; se
+non ci sono, si "lavora" su B, P e C.* Le due EURJPY 26/08 e 07/09/2020 (TS sopra difeso dal
+giorno, ma il rialzo si rompe lo stesso) NON sono eccezioni: lì il P mobile (亥→午) va a
+GENERARE la Ricchezza 丑 su L1 che coincide col giorno — comanda la W, il P è suo servitore,
+il clash sul TS è un fatto di tavola non l'azione. Nella USDJPY 23/10 l'arrivo combina solo
+una W NASCOSTA (non attiva): né G né W agiscono, allora si legge il P.
+
+**REGOLA FISSATA (via 23, subordinata alle vie di G e W)**: P mobile il cui ramo di ARRIVO
+clasha un Tai Sui FERMO → **il trend rappresentato dal Tai Sui si rompe** (TS sotto → SALE;
+TS sopra → SCENDE). Se il giorno combina il Tai Sui, il TS è difeso e la regola tace.
+27 carte, 70,37%, periodi allineati. n piccolo: le carte arrivano a grappoli (USDJPY 2024,
+EURJPY 2020, EURGBP 2022) — sono ~10-12 episodi reali. Pista forte, non ancora sopra soglia.
+
+---
+
+# 56. TRASPORTO DI A SU UN TAI SUI VUOTO  ·  `FISSATA` (16/08/2026)
+
+Nata da EURJPY 21/06/2023 (seconda peggiore del gruppo "LY tace", PB perde 150 pip): L4
+Figli 酉→戌; l'arrivo 戌 combina l'Ufficiale 卯 su L2, che è Tai Sui, VUOTO, non timely e
+legato anche dal giorno 戌. Il mercato sale.
+
+**Meccanica dottrinale (Edu):** la linea mobile ha due fasi, A (partenza) e B (arrivo).
+È SEMPRE B che compie la combinazione con la linea ferma C. Ma quando B lega C, A NON
+scompare: viene TRASPORTATA fino a C e lì interagisce con C. B è solo la fermata intermedia.
+Qui A=酉 viene portata su C=卯 e lo clasha: il "ragno" trasportato dal legame.
+Correzione di Claude registrata: la prima lettura ("la partenza clasha, l'arrivo combina",
+come se A agisse da ferma) era sbagliata nella sequenza — il perimetro non cambia, cambia
+il senso: prima il legame di B, poi l'azione di A sul bersaglio.
+
+**Misure (agli atti):**
+- C mobile che combina un G qualsiasi → G non regge: 55 carte, 43,64% — RESPINTA (l'Ufficiale
+  abbracciato dal Figli in generale REGGE; vecchio 23,81%).
+- Meccanica larga "A clasha C, B combina C" su tutte le C ferme: 238 carte, 46,22% — RESPINTA.
+- Trasporto spaccato per azione di A su C ferma (1.672 carte): due celle vive fuori perimetro,
+  annotate come piste: A GENERA un Figli legato → sez. Figli non regge (126, 61,90%, z 2,67,
+  periodi allineati); A CONTROLLA un Genitori legato → non regge (20, 70%, allineati). Il
+  bersaglio è sempre P o C, mai G/W. Da leggere in una sessione dedicata.
+- Ristretta a C = Tai Sui (152 carte): TS pieno muto (45,38%). TS VUOTO 22 carte, 54,55% ma
+  periodi discordi (72,73/30,00). Dentro il TS vuoto:
+
+| A trasportata su TS vuoto | n | OK |
+|---|---|---|
+| A CLASHA il TS | 5 | 80% |
+| A CONTROLLA il TS | 5 | 80% |
+| **A ostile (clash o controllo)** | **10** | **80%** (recente e vecchio presenti) |
+| A controllata dal TS / A drena il TS | 9 | 22% (il TS regge) |
+
+**REGOLA FISSATA (via 24, subordinata alle vie di G e W)**: B combina un Tai Sui fermo VUOTO,
+e A trasportata è OSTILE al Tai Sui (lo clasha o lo controlla) → **la sezione del Tai Sui
+non regge** (TS sotto → SALE; TS sopra → SCENDE). Il ragno è A ostile; il TS vuoto è il
+bersaglio già cavo. Se A arriva debole (controllata o drenante), il TS pur vuoto regge: tace.
+Col TS pieno la meccanica è muta: fuori perimetro.
+10 carte, 80%, a grappoli (GBPUSD dic 2024, USDCHF nov 2025) → ~5-6 episodi reali. Fissata
+per coerenza dottrinale (Edu: "una linea che combina e clasha nello stesso movimento fa
+proprio quello che mi aspetterei"), da riverificare quando il campione cresce.
+
+---
+
+# 57. IL RAMO DELL'ORA (dal seme) — IL SOSTENITORE DEL TREND  ·  `FISSATA come RAFFORZATIVO` (16/08/2026)
+
+Domanda di Edu, nata dalla EURJPY 21/06/2023 (§56) dove la partenza A della mobile era proprio
+l'ora: "che effetto fa una linea mobile che è lo stesso ramo dell'ora?" E poi: "un paio di giorni
+fa eravamo sorpresi che, di fronte a diversi indicatori contro il trend, mancasse un vero
+sostenitore del trend. È il ramo dell'ora? Solo come mobile o anche da ferma?"
+
+**Misura — il ramo dell'ora nei suoi cinque ruoli (% = il mercato SEGUE il trend):**
+
+| ruolo dell'ora | n | segue | z | recente | vecchio |
+|---|---|---|---|---|---|
+| **1. PARTENZA della mobile** | 394 | **56,09%** | 2,42 | 57,21% | 55,00% |
+| 2. ARRIVO della mobile | 324 | 45,37% | −1,67 | 44,85% | 45,22% |
+| 3. linea FERMA visibile | 1.640 | 48,41% | −1,28 | 50,45% | 45,67% |
+| 4. solo NASCOSTA | 120 | 44,17% | — | — | — |
+| 5. assente dall'esagramma | 1.633 | 48,38% | — | 48,58% | 48,97% |
+
+**RISPOSTA:** sì, l'ora è il sostenitore del trend — ma **SOLO quando è la PARTENZA della linea
+mobile**. Da ferma è muta (identica all'assenza). L'ora che ARRIVA (B = ora) o che viene clashata
+dalla partenza va contro il trend (44-45%). Il momento della domanda dà forza a chi lo porta da
+subito, non a chi ci arriva.
+
+Dentro il caso "partenza = ora":
+- mobile PIENA: 57,27% (330) · mobile VUOTA: 50,00% (64) → l'ora vuota non sostiene.
+- caso −4 (mutazione che indebolisce forte): 78,13% (32, allineati 66,67/84,21); caso −1: 60,78%
+  (102, allineati). L'ora che si muove e si spegne nel movimento sostiene il trend ancora di più.
+- Figli sull'ora: 65,63% (32, allineati). Genitori 57,53% (146, ma discordi 63,74/45,10).
+
+**L'ora livella P e B (i negativi sul trend):**
+
+| mobile | non sull'ora → segue | sull'ora → segue |
+|---|---|---|
+| P/B (negativi) | 47,52% (1.692) | **55,96%** (218) |
+| G/W/C | 48,40% (2.025) | 56,25% (176) |
+
+Quando P o B si muovono sull'ora, vince l'ora: la parentela non conta più. MA: P/B sull'ora e
+**rafforzati** dalla mutazione (caso 1/5 o avanzante) → 49,43% (87, vecchio 40%): il negativo torna
+a mordere. P/B sull'ora e non rafforzati → 60,31% (131, allineati 60,00/58,33). Il P/B che si
+spegne nel movimento non fa danni; quello che esce rafforzato resta un negativo (stesso principio
+della via 20, letto al contrario).
+
+**Nel PB: nessun effetto.** L'ora nel palazzo del Ti (640 carte, PB win 51,41%), dello Yong
+(602, 54,65%), dello Yong trasformato (519, 54,72%), fuori (2.350, 53,53%): tutto nella banda
+naturale del PB. Sul segue/non segue: 46,8-49,2% in tutti i casi. Nel PB i palazzi sono strutture
+ferme; l'ora conta solo se si muove — coerente col LY.
+
+**Come via del termometro: RESPINTA.** Via 25 "partenza = ora → segue" in coda: copre 100 carte in
+più ma peggiora tutti i sistemi (S1 6,94→6,66; S3 7,00→6,75; −1.000 pip). Stessa asimmetria del PB:
+una via "segue" scavalca i PB che avevano ragione a dire "non segue". Interruttore VIAORA=1, spento.
+
+**Come RAFFORZATIVO non decisivo (Edu): FISSATO.** Dove il LY parla e dice SEGUE, con partenza =
+ora: 65,83% (120, allineati 70,59/61,22) vs 55,31% senza. Dove il LY dice NON segue, con partenza
+= ora: 44,83% (174, vecchio 37%) vs 56,14% senza. L'ora sostiene chi segue e smentisce chi non
+segue. Nel sistema: **S4 = S1, ma nei contrasti PB/LY, se la partenza è l'ora e il PB segue il
+trend, l'ora sostiene il PB.** S4: z 7,07 · 27.084 pip · 54,34/57,14 — il migliore su z e pip
+(S1 6,94/26.527, S3 7,00/27.040). Sempre attivo nel grande test.
+
+**Filtro sulle vie di P/B mobile (20, 23, 24):** cablato (FILTROORA=1: se la mobile P/B è
+sull'ora e non rafforzata, la via tace) ma OGGI VUOTO — nessuna carta di quelle vie ha quella
+configurazione (la via 20 richiede il B rafforzato). Resta pronto per vie future su P/B.
+
+**Pista aperta (non ancora letta con Edu):** linea FERMA sull'ora CLASHATA DAL GIORNO → il mercato
+NON segue il trend: 34,26% segue (108 carte, z −3,27, allineati 35,71/34,69). Il giorno che rompe
+l'ora ferma è un "non segue" pulito — la direzione che paga. Candidata a via del termometro.
+
+---
+
+# 58. L'UFFICIALE FERMO SUL RAMO DEL GIORNO ROMPE IL TREND  ·  `FISSATA` (16/08/2026) — via 25
+
+Nata dal giro dei ruoli di giorno/mese/anno (richiesto da Edu dopo la §57): a differenza dell'ora,
+giorno, mese e anno NON sostengono il trend in nessun ruolo (partenza della mobile: giorno 49,69%,
+mese 46,87%, anno 50,41% — contro l'ora 56,09%). Sono lo sfondo comune a tutte e nove le croci
+della giornata; solo l'ora dal seme cambia da croce a croce ed è la domanda specifica.
+Ma dal giro esce una cella forte con la firma "non segue":
+
+**Ufficiale (G) FERMO sul ramo del GIORNO → il mercato NON segue il trend.**
+234 carte · segue 40,60% · z −2,88 · recente 42,96% · vecchio 37,78%.
+
+Vale in tutte le combinazioni (risposta alla domanda di Edu):
+- G sotto: 40,27% (149, allineati 40,23/40,35) · G sopra: 41,18% (85, 47,92/33,33)
+- trend LONG: 41,18% (119, allineati) · trend SHORT: 40,00% (115, allineati)
+Non è una regola di posizione né di verso: è l'Ufficiale che coincide col giorno che di per sé
+dice "non fidarti del trend oggi". Lettura: l'Ufficiale (il trend stesso) sostenuto dal giorno è
+"troppo forte" — e nel sistema il troppo forte inverte (stessa logica del PB Rafforzamento).
+
+Condizioni che rafforzano / spengono:
+- G anche Tai Sui (giorno + anno): 32,26% (31) — ancora più "troppo forte"
+- la mobile lo COMBINA: 48,39% (31) → tace · l'ORA lo combina: 51,52% (33) → tace (il legame lo placa)
+- la mobile è una RICCHEZZA: 54,55% (33) → tace (W comanda, criterio Edu)
+- il MESE lo combina: 43,48% (23, discordi) — non usato
+
+**Interazione con Ti/Yong del PB (richiesta da Edu):** conta dove SIEDE l'Ufficiale, non dove cade
+il giorno nei palazzi. G-giorno nel trigramma del **Ti**: 37,59% (133, z −2,86, allineati
+42,11/32,08); nello **Yong**: 44,55% (101, allineati 44,07/45,95). Il Ti è il trigramma fermo,
+"io": l'Ufficiale piantato nel soggetto è troppo; nello Yong (che muta) pesa meno.
+Sul rendimento PB: PB "non segue" + G nel Ti → PB vince 66,25% (80, +1.177 pip); nello Yong 56,25%;
+PB "segue" perde in entrambi (43%, 48%). Il PB coglie già in parte la configurazione ma sbaglia
+in 74 carte su 234: la via corregge proprio quelle.
+
+**REGOLA FISSATA (via 25):** G fermo sul ramo del giorno, non combinato dalla mobile né dall'ora,
+mobile non W → **NON segue il trend** (restituisce l'opposto dell'EMA). Attiva su Ti e Yong
+(GGIORNOVIA=ti+yong, default); variante solo-Ti disponibile.
+
+| sistema | senza via 25 | con via 25 (Ti+Yong) |
+|---|---|---|
+| LY tace | 879 | 836 |
+| S1 | z 6,94 · 26.527 | z 7,03 · 26.766 |
+| S2 | z 7,20 · 21.874 | z 7,26 · 21.993 |
+| S3 | z 7,00 · 27.040 | z 7,07 · 27.186 |
+| **S4** | z 7,07 · 27.084 | **z 7,16 · 27.322** |
+
+Tutti i sistemi migliorano, nessuno peggiora, periodi allineati. È la prima via "non segue"
+generica (senza direzione propria) del termometro: dice al sistema di andare contro l'EMA.
+
+Note dal giro giorno/mese/anno (piste minori, agli atti): anno fermo né Shi né Ying → 46% segue
+(917, z −2,41); mese come arrivo della mobile → 44,48% (326, allineati 44,83/44,60).
+
+---
+
+# 59. IL GENERALE DEL MESE (月將) AMPLIFICA LA NATURA DELLA MOBILE  ·  `FISSATA` (16/08/2026) — via 26
+
+Indagine di Edu sugli spiriti del DLR nel LY/PB. Il Generale del Mese = ramo del 中氣 corrente
+a 00:00 GMT del giorno (helper `generaleDelMese()` in pb_stress.js, da jieqi-gmt.js + daliuren.js;
+distribuzione uniforme sui 12 rami, 0 carte mancanti).
+
+**Come ramo generico: MUTO.** Nel LY, i cinque ruoli (partenza 47,18% · arrivo 48,18% · ferma
+48,78% · nascosta 49,54% · assente 49,06%): tutto rumore. 伏吟 (Generale = ora) 50,67%, 返吟
+(Generale clasha l'ora) 47,40%: niente. Nel PB, palazzi Ti 48%, Yong 52%, trasf. 48%; PB win in
+banda (伏吟 55,80% su 371, +1.251 pip — un filo sopra, dentro il rumore).
+
+**Come PARTENZA della mobile: amplifica la parentela di chi muove** (Edu: "quando il Generale
+muove un Ufficiale e il trend tiene al 59% non è significativo?" — verificato contro la stessa
+parentela SENZA Generale):
+
+| mobile | partenza = Generale | partenza NON Generale | delta |
+|---|---|---|---|
+| **Ufficiale** | **58,97%** segue (78, 64,29/55,88) | 47,40% (808) | **+11,5** |
+| Fratelli | 54,76% (84, discordi 57,50/47,37) | 47,91% (933) | +7 |
+| Ricchezza | 45,71% (70, discordi 41,03/53,85) | 50,91% (715) | −5 |
+| **Genitori** | **37,50%** segue (72, 37,78/37,50) | 49,45% (821) | **−12** |
+| Figli | 32,00% (50, discordi 38,46/22,73) | 49,58% (480) | −17 |
+
+Non è l'ora mascherata: Ufficiale mobile con partenza = ora ma non Generale → 51,52%. Il Generale
+è la forza del sole che si posa: sull'Ufficiale (il trend) il trend riceve forza e tiene; sui suoi
+drenatori/nemici (Genitori, Figli) quelli si attivano e il trend cede. Le due celle solide (periodi
+allineati) sono agli estremi: G tiene, P rompe. Figli va nel verso giusto ma vecchio n=22. Ricchezza
+(controparte E generatrice di G): i dati non scelgono.
+
+**Nel termometro:**
+- **via 26 — P mobile con partenza = Generale → NON segue: FISSATA.** S1 7,03→7,10 · S2 7,26→7,31 ·
+  S3 7,07→7,10 · **S4 7,16→7,28, 27.322→27.783 pip**. LY tace 836→821. Periodi allineati.
+- G mobile con partenza = Generale come rafforzativo nei contrasti (S6 = S4 + "Generale su G
+  sostiene il PB che segue"): PEGGIORA (27.045 vs 27.322 senza via 26; 27.506 vs 27.783 con).
+  RITIRATO. Il 59% è vero da solo, ma nei contrasti il LY che ha parlato ha già ragione più spesso.
+  Ancora l'asimmetria: paga solo il segnale "non segue". Il dato G-Generale resta a registro senza uso.
+
+## §59-bis. CAVALLO POSTALE, DING SPIRIT, e l'ALLARGAMENTO della via 26 (16/08/2026)
+
+**Cavallo Postale (驛馬, dal giorno per triade e dall'anno):** MUTO nei ruoli generali (partenza
+48,8% · arrivo 47,1% · ferma 46,6% · nascosta 47,8% · assente 51,1%; dall'anno idem). Nel PB
+niente. Unico sfondo: Cavallo del giorno fermo su una linea che la mobile ignora → 45,39% segue
+(1.150, z −3,13, allineati) — effetto piccolo spalmato su un gruppo enorme, non una regola.
+
+**Ding Spirit (丁神, il ramo col tronco 丁 nel 旬 del giorno; helper `dingSpirit()`):** MUTO nei
+ruoli generali (partenza 48,3% · arrivo 52,3% · ferma 48,6% · nascosta 46,2% · assente 48,6%).
+Nel PB niente. Nessun rapporto con l'ora.
+
+**Ma su entrambi torna la stessa cella:** P mobile con partenza = Cavallo → 39,39% segue (66);
+P mobile con partenza = Ding → 36,76% (68). Stesso segno del Generale sul P (37,50%).
+
+**Verifica (richiesta di Edu, spiegata con calma): il P cede a QUALSIASI carica o solo agli
+spiriti?** Su 893 carte con P mobile, per cosa coincide con la PARTENZA del P:
+
+| partenza del P = | n | segue | z |
+|---|---|---|---|
+| Generale del Mese | 72 | 37,50% | −2,12 |
+| Ding | 68 | 36,76% | −2,18 |
+| Cavallo del giorno | 66 | 39,39% | −1,72 |
+| **uno dei tre SPIRITI** | **188** | **40,43%** | **−2,63** (43,56 / 33,80) |
+| ora dal seme | 146 | 57,53% | +1,82 |
+| anno | 69 | 57,97% | +1,32 |
+| giorno | 66 | 54,55% | +0,74 |
+| mese | 80 | 48,75% | — |
+| nessuno spirito | 705 | 50,64% | — |
+
+Non è "qualsiasi carica": le due famiglie fanno l'OPPOSTO. Gli **spiriti** (Generale, Ding,
+Cavallo — forze in movimento) che si posano sul P lo *svegliano*: il P, drenatore di G, rompe il
+trend. I **pilastri** (ora, giorno, anno — la struttura del tempo) che si posano sul P lo
+*calmano*: il trend tiene. Non c'entra il sostegno elementale del giorno (46,67%, nulla; lo
+spirito agisce con e senza: 40,5% / 40,4%).
+
+**Via 26 ALLARGATA: P mobile con partenza = uno spirito del giorno (月將 / 丁神 / 驛馬) → NON
+segue.** GENVIA=generale (solo 月將) | spiriti (default) | off.
+
+| sistema | via 26 spenta | solo Generale | **tre spiriti** |
+|---|---|---|---|
+| LY tace | 836 | 821 | **794** |
+| S1 | 7,03 · 26.766 | 7,10 · 27.124 | 7,10 · **27.218** |
+| S2 | 7,26 · 21.993 | 7,31 · 22.173 | 7,32 · **22.220** |
+| S3 | 7,07 · 27.186 | 7,10 · 27.271 | 7,13 · **27.440** |
+| **S4** | 7,16 · 27.322 | 7,28 · 27.783 | 7,28 · **27.877** |
+
+Nessun sistema peggiora, periodi allineati. Cavallo e Ding restano senza funzione propria: agiscono
+solo come "carica" sul P mobile.
+
+---
+
+# 60. LE VIRTU' — mute da sole, ma 天德 e 支德 BENEDICONO LA W  ·  `FISSATA come RAFFORZATIVO` (16/08/2026)
+
+**Le quattro Virtù nel LY e nel PB (ruoli generali): TUTTE MUTE.** 天德 (Cielo, tabella per mese,
+tronco→ramo via 旬 del giorno), 月德 (Mese, per triade), 日德 (Giorno, dal tronco: 甲己寅 乙庚申
+丙辛巳 丁壬亥 戊癸巳), 支德 (Ramo, giorno+5). Partenza/arrivo/ferma/nascosta/assente: tutto
+45-52%. Nel PB in banda. E — a differenza di Generale/Ding/Cavallo — NON caricano il P (天德 sul P
+43,3% discorde; 月德 sul P 57,8% con periodi opposti 74/30). Le Virtù sono benevole e statiche,
+non forze in moto: non svegliano il drenatore.
+
+**Ma tre Virtù su quattro sostengono la W** (Edu: "di quanto aumentano l'efficacia di W?"):
+
+| W mobile, partenza = | n | segue | z | recente | vecchio | delta vs W senza |
+|---|---|---|---|---|---|---|
+| tutte le W mobili | 785 | 50,45% | 0,25 | 51,85 | 50,84 | — |
+| nessuna Virtù | 603 | 48,59% | −0,69 | 49,30 | 50,00 | base |
+| **una Virtù qualsiasi** | 182 | **56,59%** | 1,78 | 60,58 | 53,42 | **+8** |
+| due Virtù insieme | 43 | 60,47% | 1,37 | 64,00 | 58,82 | +12 |
+| **天德** | 64 | **62,50%** | 2,00 | 68,57 | 57,14 | **+13** |
+| **支德** | 68 | **61,76%** | 1,94 | 65,79 | 59,26 | **+12** |
+| 日德 | 36 | 58,33% | 1,00 | 77,78 | 38,89 | discorde — no |
+| 月德 | 72 | 44,44% | −0,94 | 45,45 | 46,15 | **−6, va al contrario** |
+| spirito (Gen/Ding/Cav) | 171 | 53,80% | 0,99 | 57,73 | 50,75 | +5 (debole) |
+| pilastro (ora/g/a/m) | 245 | 48,57% | −0,45 | — | — | nulla |
+
+La W da sola NON è un sostenitore del trend (50,45%). Diventa tale se parte da 天德 o 支德: la W
+benedetta nutre G (W genera G) e il trend tiene. 月德 anzi la disturba (usato solo come esclusione).
+Nel PB su queste carte: PB "non segue" con W benedetta PERDE (43,18%, −108 pip su 88), PB "segue"
+VINCE (56,38%, +377 su 94) — il rovescio delle W senza Virtù. È uno dei casi in cui il "non segue"
+del PB sbaglia: rafforzativo, non via.
+
+**Nel termometro (rafforzativo nei contrasti, come l'ora):**
+
+| sistema | z | pip |
+|---|---|---|
+| S1 (LY vince nei contrasti) | 7,10 | 27.218 |
+| S8 = S1 + solo Virtù su W | 7,10 | 27.546 |
+| S4 = S1 + ora | 7,28 | 27.877 |
+| **S7 = S4 + Virtù su W** | **7,31** | **28.257** |
+
+I due rafforzativi si sommano (54,65 / 57,08 allineati). **S7 diventa il sistema di riferimento:**
+nei contrasti PB/LY, se il PB segue il trend e (partenza della mobile = ORA) oppure (mobile = W con
+partenza = 天德 o 支德), il PB vince; altrimenti vince il LY.
+
+**Tabella riassuntiva del giro degli spiriti (16/08/2026):**
+
+| spirito | funzione propria | sul P mobile | sulla W mobile | sul G mobile |
+|---|---|---|---|---|
+| Generale 月將 | no | non segue 37,5% → **via 26** | 45,7% discorde | segue 59% (no uso) |
+| Ding 丁神 | no | non segue 36,8% → **via 26** | — | — |
+| Cavallo 驛馬 | no | non segue 39,4% → **via 26** | — | — |
+| 天德 · 支德 | no | no | **segue 62% → S7** | — |
+| 日德 · 月德 | no | no | discorde / contro | — |
+
+Le forze in moto svegliano il P (drenatore di G → rompe il trend); le Virtù benevole nutrono la W
+(generatrice di G → sostiene il trend). Nessuno spirito agisce da solo nell'esagramma né nel PB.
+Note pipeline: helper globali in pb_stress.js — generaleDelMese(), dingSpirit(), tronco2ramo(),
+tiande(), yuede(), ride(), zhide().
+
+---
+
+# 61. SPIRITI DALLO STELO DEL GIORNO — Lu, Medico, Tomb Sha, Ghost Sha, Wealth-of-day  ·  `FISSATA` (16/08/2026)
+
+**Correzione di metodo (Edu):** questi si misurano dallo STELO del giorno e dal suo ciclo di 12
+stadi, non dal ramo o dal mese. La mia prima misura (Lu dal tronco — coincideva; Medico dal mese;
+Tomb come tomba dell'elemento del ramo) era sbagliata per Medico e Tomb ed è stata rifatta.
+Tabelle fissate (STELO_SPIRITI in pb_stress.js):
+- **Lu 祿** = stadio 4 (臨官): 甲寅 乙卯 丙戊巳 丁己午 庚申 辛酉 壬亥 癸子
+- **Medico 天醫** = sede DLR dello stelo (寄宮) + 2: 甲辰 乙午 丙未 丁酉 戊未 己酉 庚戌 辛子 壬丑 癸卯
+- **Tomb Sha 墓煞** = stadio 9 (墓): 甲未 乙戌 丙戌 丁丑 戊戌 己丑 庚丑 辛辰 壬辰 癸未
+- **Ghost Sha 鬼煞** = ramo il cui stelo principale controlla lo stelo del giorno, stessa polarità:
+  甲申 乙酉 丙亥 丁子 戊寅 己卯 庚巳 辛午 壬辰戌 癸丑未
+- **Wealth-of-day 日財** = ramo il cui stelo principale è controllato dallo stelo del giorno, stessa
+  polarità: 甲辰戌 乙丑未 丙申 丁酉 戊亥 己子 庚寅 辛卯 壬巳 癸午
+
+**Ruoli generali nel LY (partenza/arrivo/ferma/nascosta/assente): TUTTI MUTI (44-53%).** Nel PB in
+banda; unico palazzo negativo: Ghost Sha nel palazzo dello Yong, PB win 48,38%, −850 pip (556).
+
+**Sulla partenza della mobile per parentela:**
+
+| spirito dallo stelo | sulla W | altro |
+|---|---|---|
+| **Ghost Sha** | **61,90%** segue (63, allineati 62,79/64,71) | P 56,4% (94); mobile piena 54,7% vs vuota 44,6% |
+| **Tomb Sha** | **59,49%** (79, allineati 62,22/56,25) | Tomb come ARRIVO della mobile 55,10% (343, z 1,89, allineati) |
+| Lu | 43,64% (55, allineati 44,83/44,00) — **contro** | piatto |
+| Medico | 47,6% | C sul Medico 34,6% (52) ma discorde 44,8/19,0 |
+| Wealth-of-day | 46,7% discorde | arrivo sul 日財 → 44,73% (427, z −2,18, allineati 43,3/43,6) |
+
+**Sorpresa sul Lu:** Edu lo indicava come importante per la W, ma la W che parte dal Lu NON sostiene
+il trend (43,6%, allineato). Il Lu è la "paga" dello stelo: forse la W sul Lu è una W che si incassa,
+non una W che nutre G. Il Ghost Sha (controllore dello stelo) invece la benedice — da leggere.
+
+**Lista completa di cosa benedice la W mobile (segue > 55%, periodi allineati):**
+天德 62,5% · Ghost Sha 61,9% · 支德 61,8% · Tomb Sha 59,5%. Contro: Lu 43,6% · 月德 44,4%.
+Nulli: pilastri, Generale/Ding/Cavallo, 日德 (discorde), Medico, 日財.
+
+**Nel termometro (rafforzativo nei contrasti):**
+
+| sistema | z | pip |
+|---|---|---|
+| S4 = S1 + ora | 7,28 | 27.877 |
+| S7 = S4 + 天德/支德 su W | 7,31 | 28.257 |
+| **S9 = S7 + Ghost/Tomb su W** | **7,38** | **28.433** |
+
+Periodi allineati (54,78 / 57,02). **S9 diventa il sistema di riferimento:** nei contrasti PB/LY,
+se il PB segue il trend e (partenza della mobile = ORA) oppure (mobile = W con partenza su 天德, 支德,
+Ghost Sha o Tomb Sha), il PB vince; altrimenti vince il LY.
+
+---
+
+# 62. IL G CHE SI CONSEGNA AL C FORTE — e l'AMBIVALENZA DEL C  ·  `FISSATA` (16/08/2026) — via in TESTA
+
+Nata dalla coppia gemella Kun/Li di marzo 2023 (stesso esagramma, stesso C 卯 Tai Sui = mese timely
+su L1 Ying, stesso mese/anno 卯):
+- **AUDUSD 07/03/2023**: G fermo e legato dal giorno, W nascosta dietro un B vuoto, P mobile debole
+  (non timely, clashato dal mese, esce controllato), B vuoti. Edu: *"nello LY si deve lavorare con
+  quello che c'è e non su quello che non c'è; quando TUTTO IL RESTO tace il Qi si concentra su C, e
+  C è il produttore di W: SHORT è una scelta di buon senso"* (mercato −148, il PB aveva detto LONG).
+- **USDJPY 21/03/2023**: qui il G si MUOVE (L2 丑→寅) e arriva nel Legno, l'elemento del C 卯
+  fortissimo che lo controlla. Edu: *"L2 G si muove per essere eliminato da un C fortissimo. Non c'è
+  altro da vedere. LONG"* (mercato +106).
+Le due gemelle leggono in modo opposto per un solo motivo: **chi si muove**.
+
+**Principio nuovo (Edu): C è AMBIVALENTE.** Quando c'è la W, la genera e la aiuta; quando c'è un G
+vicino, lo attacca. Finora il C non aveva mai avuto una via propria (solo come generatore della W
+nella §50f): questa è la sua prima regola come attaccante.
+
+**Misure:**
+- "Quando tutto tace" (G, W, P, B tutti muti) e resta un C forte fermo → sede del C: **110 carte,
+  50,00%** — quando l'esagramma è davvero muto, è muto: il C da solo non decide (C su Ying 46%,
+  su Shi 58%, C = TS 6/7 ma carico 2 = 43%). Le 110 sono il cuore del gruppo "LY tace": lasciare
+  parlare il PB. La AUDUSD resta lettura di caso.
+- G mobile che ARRIVA nell'elemento di un C forte fermo (timely, pieno, vivo) che lo controlla:
+  49 carte, segue 42,86% (recente 53,3 / vecchio 29,4); C su Ying 24, 37,5% (63,6 / 18,2); carico 2
+  6 carte, 5/6. **G sotto che si consegna → LONG: 60,98% (41, allineati 57,7 / 69,2)** — l'unica
+  riga con i due periodi d'accordo. Controllo: G indebolito dall'arrivo SENZA C forte → 50,2%
+  (non è il caso 3/4 in sé: serve il carnefice).
+- Nota: statisticamente sotto soglia e con periodi non allineati sul "segue"; **fissata su
+  indicazione esplicita di Edu come pilastro della dottrina.**
+
+**REGOLA FISSATA (§62, IN TESTA al termometro — GELIMTOP, default attiva):** G mobile che arriva
+nell'elemento di un C forte fermo (timely, pieno, vivo) che lo controlla → il G si consegna al
+carnefice, il trend muore → **opposto della sede del G** (G sotto → LONG, G sopra → SHORT).
+In coda al termometro era soffocata dalle vie di G precedenti (1 carta); IN TESTA governa le sue
+carte e tutti i sistemi salgono: S1 7,07→7,13 · S3 7,13→7,22 · **S9 7,35→7,41 · 28.408 pip**,
+periodi allineati. È il posto giusto per un pilastro sul G (indicatore primario).
+
+**Piste minori registrate (dalla stessa carta):** TS fermo su Ying/Shi con UNA carica (timely o
+= mese/giorno) → segue 57-63% (allineati); con DUE cariche → 44% (il "fortissimo" è troppo);
+TS altrove → 46% (z −2,41). G-TS su Ying → sede 74% (35, allineati 81/64). Trasporto sulla W
+nascosta (arrivo combina la linea che la nasconde, W nutrita da C timely): 21 carte, 100% recente /
+36% vecchio — vive solo nel recente, in sospeso.
