@@ -2441,3 +2441,355 @@ periodi allineati. È il posto giusto per un pilastro sul G (indicatore primario
 TS altrove → 46% (z −2,41). G-TS su Ying → sede 74% (35, allineati 81/64). Trasporto sulla W
 nascosta (arrivo combina la linea che la nasconde, W nutrita da C timely): 21 carte, 100% recente /
 36% vecchio — vive solo nel recente, in sospeso.
+
+---
+
+---
+
+## PRINCIPI DI LETTURA DI EDU (raccolti il 17/08/2026 — da rileggere a ogni ripartenza)
+
+Questi principi guidano OGNI lettura, prima delle singole vie. Se una via li contraddice, è la via
+da rivedere. Ognuno è già cablato dove indicato, ma il principio vale più della sua cablatura.
+
+1. **Precedenza dello Yong Shen.** G e W parlano per primi. P, B, C si leggono solo se G e W non
+   parlano (vivi, pieni, timely o mobili). Il B è notoriamente un indicatore negativo. (§64, §66)
+2. **Priorità residua.** Se G e W tacciono, B è vuoto e P debole, decide l'attore forte che resta:
+   "quando non ci sono alternative migliori si va all'unica disponibile, anche se non piace". (§63, §64)
+3. **Si va dove si svolge l'azione.** È l'azione che guida l'interpretazione, non la forza in sé: la
+   forza da sola non dà direzione (misurato: Ying/Shi/mobile forti ≈ 50%), pesa DENTRO un'azione. (§63,
+   §67, §68, §69)
+4. **Capannello e corridore.** Un raduno completo (tre presenti) basta a richiamare l'attenzione: il Qi
+   si ferma lì. Se invece qualcuno "corre" (l'arrivo va a clashare/combinare) si guarda dove va. (§67, §68)
+5. **Lo Yong Shen cambia la lettura della stessa azione ("dipende").** Clash dell'arrivo: P clashata
+   cede, G e C reggono, W che corre porta il Qi con sé. (§68)
+6. **Il vuoto non agisce.** Una linea vuota, anche timely, non si oppone e non difende (lascia libero un
+   raduno). Il vuoto prospero di mese resta vuoto quanto ad azione. (§67; nel PB la 旺不为空 vale solo
+   per il palazzo del Trend)
+7. **Certe carte non hanno alternative: si legge l'unica cosa che c'è.** Movimento nullo → si guarda
+   chi tocca il giorno (Ying sul giorno; l'unica ferma clashata dal giorno). (§65, §69)
+8. **Chi non vince perde.** L'azione fallita (回頭剋, autocombinazione, arrivo clashato) non porta la
+   sua direzione. (§52)
+9. **È l'arrivo che agisce**, mai la partenza (salvo il trasporto §56 e i rafforzativi ora/W).
+10. **Metodo di verifica.** Per respingere una lettura dottrinale va presentata ALMENO UNA CARTA
+    completa (con seme) dove non funziona; le percentuali da sole non bastano. Le confutazioni "a
+    percentuale" fallivano perché non pesavano la forza → modello di forza (mese su tutte; giorno e
+    anno solo sul focus; ora 20%; raduno completo +2; vuoto −2; nascosto; ferme adiacenti solo se la
+    madre è timely).
+11. **Le regole devono reggere nei due periodi** (recente / vecchio) e non si ribaltano i verdetti per
+    inseguire i numeri.
+
+---
+
+## §63 — 回頭生 BLOCCATO: l'arrivo trova qualcuno da clashare (17/08/2026)
+
+**Carta:** EURJPY 06/02/2025 · Li 離 (Fuoco) sopra Kan 坎 (Acqua) = 未濟 Wei Ji, palazzo Li · mutante L4
+W 酉 (Metallo) → 戌 (Terra), caso 1 回頭生 · seme 158 · giorno 丙午 · mese 寅 · anno 巳 · ora dal seme 丑
+· vuoti 寅卯 · Tai Sui 巳 su L6 (B, Ying, fermo, timely) · Shi L3 B 午 = giorno, nascosto G 亥.
+Trend EMA SHORT · PB dice LONG (non segue) · esito SHORT −147 pip · il mercato ha seguito il trend.
+Termometro (27 vie): LY tace → S9 = PB solo → perdita. Prima carta del giro "LY tace" (793).
+
+**Lettura di Edu:** L4 si muove e dovrebbe generare indietro (戌 Terra → 酉 Metallo, 回頭生) decretando
+il LONG (sede della W sopra) — ma non lo fa, perché l'arrivo 戌 trova L2 (C 辰) da clashare (辰↔戌).
+La W 酉 è debolissima (Metallo in mese 寅), 辰 è fortissimo (Terra generata da giorno 午 e anno 巳):
+per mancanza di priorità migliori (G assente, W debole) il C su L2 diventa il decisore → la sua sede,
+sotto → SHORT.
+
+**Meccanica cablata:** mobile NON timely + caso 1 (回頭生) + l'arrivo clasha UNA linea ferma FORTE
+(timely o sostenuta da giorno/anno) → la generazione di ritorno non si compie, la linea clashata decide
+→ la sua sede (sotto → SHORT, sopra → LONG).
+
+**Misure (dopo le 26 vie precedenti; sede del bersaglio):**
+| cella | n | giuste | recente | vecchio | pip |
+|---|---|---|---|---|---|
+| A. arrivo clasha 1 linea ferma → sede del bersaglio (tutte) | 1310 | 47,7% | 48,4 | 47,1 | −1897 |
+| D. mobile debole + bersaglio forte | 505 | 49,7% | 47,8 | 52,9 | +76 |
+| D su LY tace | 89 | 53,9% | 54,4 | 54,8 | −181 |
+| **I. D + caso 1 (回頭生 fallito) su LY tace** | **17** | **70,6%** | **69,2** | **75,0** | **+149** |
+| I su LY parla (un'altra via ha già parlato) | 40 | 42,5% | 28,6 | 55,6 | +100 |
+| G. D + bersaglio C su LY tace | 9 | 77,8% | 75,0 | 100 | +130 |
+| H. D + mobile W + bersaglio C su LY tace | 8 | 75,0% | 71,4 | 100 | +113 |
+| H su LY parla | 19 | 36,8% | 33,3 | 42,9 | −292 |
+| controllo: mobile forte + bersaglio debole (LY tace) | 20 | 35,0% | 46,2 | 14,3 | −251 |
+| controllo: entrambi deboli (LY tace) | 53 | 43,4% | 48,6 | 35,3 | −258 |
+
+La parte che regge è la MECCANICA (回頭生 che non torna perché l'arrivo è occupato a clashare un
+forte): 17 carte, 70,6%, allineate. La specificazione W→C è troppo piccola (8-9 carte). Fuori dal
+gruppo LY-tace la lettura PERDE (36-42%): va tenuta in coda, dove parla solo se nessuna via ha risposto.
+Sotto soglia (z 1,70): **fissata come pilastro dottrinale su indicazione di Edu.**
+
+**REGOLA FISSATA (§63, via 27, IN CODA — VIA63=off per spegnere):** mobile debole, caso 1, arrivo
+clasha una linea ferma forte → sede della linea clashata.
+Grande test: LY tace 793 → 776 · S1 7,13→7,16 (26.938) · **S9 7,41→7,47 · 28.209 pip** (z sale,
+−199 pip: quattro carte grandi contro) · periodi allineati (54,92 / 57,02).
+Parità software ↔ pb_stress.js dopo la cablatura: 0 disallineamenti su 4.111 (LY e S9).
+
+**Chiarimento sulle linee ferme (richiesto da Edu).** Nel resoconto della carta avevo notato che i due
+B fermi (L3 = giorno 午, L6 = Tai Sui 巳) sono entrambi Fuoco timely, e avevo ipotizzato che questo
+sostenesse il "segue" (SHORT). Misurato: **B fermo sul giorno + B fermo sul Tai Sui, entrambi timely
+→ segue 32,0% (25 carte, 30,8 / 30,0)** — è l'OPPOSTO: la carta segue il trend NONOSTANTE i due
+Fratelli, non grazie a loro. In generale "linea ferma = giorno + linea ferma = Tai Sui, stessa
+parentela" → segue 40,9% (88); B fermo timely sopra E sotto → 48%. La mia ipotesi (a) è RESPINTA;
+resta valida solo la lettura di Edu (§63). Ipotesi (b) "W rafforzata da un arrivo = Tomb Sha → W falsa"
+non misurata: la carta si spiega già con la §63.
+
+**§63-bis — la W assediata (17/08/2026, stessa carta).** Edu: sulla EURJPY c'è anche un raduno
+direzionale del Fuoco 三會 巳午未 fra **L6 巳** (Tai Sui, B), **L5 未** (C) e il **giorno 午** (che è
+anche L3 Shi); il Fuoco raccolto controlla il Metallo della W 酉 (L4, la mobile) → W inagibile, e di
+nuovo si va su L2 a cercare l'azione (il clash dell'arrivo). "Si deve andare dove si svolge l'azione,
+specie in queste carte così sbilanciate."
+
+**Misure (raduno 三會 o 三合 fra linee FERME + giorno/mese/anno, dell'elemento che CONTROLLA la mobile):**
+| cella | n | giuste | recente | vecchio | pip |
+|---|---|---|---|---|---|
+| raduno controllante da solo → sede della mobile | 418 | 51,2% | 53,5 | 47,3 | — |
+| raduno controllante da solo → segue? | 418 | 47,6% | 46,5 | 46,7 | — |
+| **mobile timely ma assediata + caso 1 + arrivo clasha 1 ferma forte → sede bersaglio (LY tace)** | **10** | **70,0%** | **66,7** | **100** | **+356** |
+| stessa cella, tutte le carte | 21 | 61,9% | 62,5 | 60,0 | +457 |
+| §63 allargata (debole O assediata), tutte | 78 | 53,8% | 50,0 | 59,3 | +706 |
+| controllo: raduno che SOSTIENE la mobile (stesso el. o la genera) | 737 | 51,8% | 51,4 | 51,3 | — |
+
+Il raduno da solo non decide nulla: conta solo come SECONDA CAUSA di inagibilità della mobile dentro la
+meccanica della §63 (l'azione va cercata dove l'arrivo agisce). Piccola ma allineata; **fissata su
+indicazione di Edu.**
+
+**REGOLA FISSATA (§63-bis, dentro la via 27):** la mobile è inagibile se NON timely **oppure** se
+timely ma assediata da 三會/三合 controllante (linee ferme + giorno/mese/anno); poi come §63.
+Grande test: LY tace 776 → 766 · S1 7,16→7,22 (27.234) · S3 7,28 · **S9 7,47→7,50 · 28.266 pip**
+(recente 54,96 / vecchio 57,02). Parità software ↔ pb_stress.js: 0/4.111.
+Nel software la via si chiama "Return-generation blocked: go where the action is" e la lettura scrive
+"weak / besieged by the Fire gathering 巳午未 …" con i rami reali.
+
+---
+
+## §64 — PRIORITÀ RESIDUA: G e W tacciono, decide il più forte fra P e C (17/08/2026)
+
+**Carta:** AUDUSD 07/03/2023 · Kun 坤 (Terra) sopra Li 離 (Fuoco) = 明夷 Ming Yi, palazzo Kan · mutante L6
+P 酉 → 寅 (caso 4, arrivo 寅 combina 亥 che è VUOTO su L3/L5 → il movimento finisce nel vuoto) · seme 67
+· giorno 甲子 · mese 卯 · anno 卯 · ora 午 · vuoti 戌亥 · Tai Sui 卯 su L1 (C, Ying, = mese, = Ding, 旺).
+G L2/L4 legati dal giorno 子 (子合丑); B L3/L5 vuoti; W solo nascosta sotto L3 (午, clashata dal giorno);
+P mobile debole (Metallo in primavera). Trend EMA SHORT · PB dice LONG · esito SHORT −148 · perdita.
+Termometro (27 vie): LY tace. Seconda carta del giro.
+
+**Lettura di Edu:** "Ying fortissimo con C vince → SHORT". E richiamo del criterio già enunciato: questo
+modo di leggere si basa sull'ASSENZA delle priorità precedenti — G e W non parlano, B vuoto, P
+debolissimo — per cui decide l'attore forte residuo. Il criterio di precedenza (16/08) era a registro
+come principio ma NON era cablato come via: corretto oggi. Edu: "è il secondo caso quando tu mi avevi
+detto che era rarissimo" (il 16/08 avevo misurato "quando tutto tace + C forte" a 50% su 110 e lasciato
+al PB — quella cella era mal definita: non filtrava G/W per forza e non sceglieva il decisore per forza).
+
+**Letture intermedie misurate e RESPINTE su questa carta:** (a) giorno clasha il nascosto W 午 sotto L3
+→ sede dell'ospite: 330 carte 46,4%, su LY tace 60 carte 35,0% (ospite vuoto: 16 carte 18,8%) —
+il clash del giorno sul nascosto DISPERDE, non estrae (conferma del 15/08); (b) nascosto clashato
+"costretto a generare" il G 丑 di L2 → sede della generata: 120 carte 50,8%, su LY tace 15 carte 26,7%;
+(c) Ying C = Tai Sui → sede: 39 carte 41,0% (solo recente); Ying = TS timely qualunque parentela:
+108 carte 56,5%, su LY tace 28 carte 60,7% — regge come sottocaso della §64.
+
+**Misure della PRIORITÀ RESIDUA (G/W "non parlano" = nessuno vivo, pieno e timely-o-mobile; decisore =
+più forte fra P/B/C per punteggio timely+TS+mese+giorno+sostegno del giorno, unico):**
+| cella | n | giuste | recente | vecchio | pip |
+|---|---|---|---|---|---|
+| decisore unico, tutte le carte | 815 | 51,8% | 52,2 | 50,6 | +636 |
+| **decisore FERMO, su LY tace** | **116** | **56,0%** | **56,7** | **53,8** | **+955** |
+| decisore C, LY tace | 47 | 59,6% | 54,2 | 61,9 | +599 |
+| decisore P, LY tace | 60 | 56,7% | 57,9 | 54,5 | +266 |
+| **decisore B, LY tace** | 52 | **42,3%** | 45,8 | 38,5 | −111 |
+| decisore = Tai Sui, LY tace | 27 | 51,9% | 52,6 | 50,0 | +317 |
+| decisore su Ying / su Shi, LY tace | 26 / 20 | 53,8 / 60,0 | — | — | — |
+| controllo: G/W parlano, decisore residuo | 1411 | 50,2% | 50,4 | 50,8 | −238 |
+
+Fuori dal gruppo LY-tace la regola è muta (le vie di G/W hanno già parlato): sta in CODA. Il B residuo
+va contro: escluso.
+
+**REGOLA FISSATA (§64, via 28, IN CODA — VIA64=off per spegnere):** G e W non parlano → il più forte fra
+P e C, se unico per punteggio, decide → la sua sede (sotto → SHORT, sopra → LONG); il B residuo non decide.
+Grande test: LY tace 766 → **659** · S1 7,22→7,44 (27.942) · S3 7,28→7,41 · **S9 7,50→7,72 · 29.004 pip**
+(recente 55,14 / vecchio 57,14, entrambi su). Parità software ↔ pb_stress.js: 0/4.111.
+Nel software: "Residual priority: G and W silent → strongest P or C decides", con la lettura che elenca
+le cariche del decisore (timely, Tai Sui, = month, = day, backed by the day).
+
+---
+
+## §65 — NIENTE SI MUOVE: lo Ying sul giorno decide (17/08/2026)
+
+**Carta:** EURJPY 05/03/2025 · Li 離 (Fuoco) sopra Gen 艮 (Monte) = 旅 Lü, palazzo Li · mutante L2 B 午 →
+亥 VUOTO (caso 0, movimento nullo) · seme 159 · giorno 癸酉 · mese 寅 · anno 巳 · ora 寅 · vuoti 戌亥 ·
+Tai Sui 巳 su L6 (B) · Shi L1 C 辰 legato dal giorno (辰合酉) · Ying L4 W 酉 = GIORNO. Trend EMA LONG ·
+PB dice SHORT · esito LONG +145 · perdita. Terza carta del giro (LY tace 659).
+
+**Lettura di Edu:** "Semplicissima: Shi genera Ying, LONG. Certe carte non hanno alternative, quindi si
+legge l'unica alternativa possibile: la mobile finisce nel nulla, non si muove niente, l'unica cosa che
+salta all'occhio è Shi che genera Ying, che è il giorno stesso."
+
+**Misure.** "Shi genera Ying → sede Ying" in generale NON regge: 445 carte 51,0%; su LY tace 55 carte
+43,6%; con Ying W 24 carte 33,3%; Shi-Ying che si combinano (辰酉) 20 carte 30,0% (conferma: la lettura
+statica Shi/Ying non ha mai misurato, v. LY autonomo v1-v4 bocciato l'11/08). Ristretta al MOVIMENTO
+NULLO: Shi genera Ying → 195 carte 48,7%; ciò che decide è **Ying = giorno**:
+| cella (→ sede dello Ying) | n | giuste | recente | vecchio | pip |
+|---|---|---|---|---|---|
+| Ying fermo sul giorno, tutte | 295 | 50,2% | 52,7 | 47,8 | −237 |
+| Ying sul giorno, LY tace | 35 | 54,3% | 56,3 | 52,9 | +64 |
+| **Ying sul giorno + movimento NULLO, LY tace** | **12** | **91,7%** | **100** | **83,3** | **+372** |
+| Ying sul giorno + movimento VIVO, LY tace | 23 | **34,8%** | 36,4 | 36,4 | −308 |
+| Ying sul giorno + movimento nullo, LY parla | 135 | 47,4% | 49,4 | 44,2 | −518 |
+| Shi sul giorno + movimento nullo → sede Shi | 26 | 34,6% | 41,7 | 30,8 | +17 |
+Le 12: USDJPY 09/11/2020 (unica sbagliata, −213), AUDUSD 15/09/2025, USDCAD 31/03/2021, 07/04/2022,
+31/01/2023, NZDUSD 06/04/2022, 31/07/2023, 08/11/2024, EURJPY 30/09/2020, 10/06/2021, 26/02/2025,
+05/03/2025. Il controllo è pulito: il giorno sullo Ying parla SOLO nel silenzio della carta; con la
+mobile viva è la mobile che comanda. Vale per lo Ying, non per lo Shi. Fuori da LY tace è muta → coda.
+Assorbe la pista del 16/08 "TS su Ying con una carica → segue 57-63%" e quella di oggi "Ying con ≥3
+cariche → 80% (10)": era il movimento nullo a farle funzionare, non il numero di cariche.
+
+**REGOLA FISSATA (§65, via 29, IN CODA — VIA65=off per spegnere):** movimento nullo della mobile + Ying
+fermo sul ramo del giorno → sede dello Ying (sotto → SHORT, sopra → LONG).
+Grande test: LY tace 659 → **647** · S1 7,50 (28.062) · S3 7,47 · **S9 7,72→7,78 · 29.124 pip**
+(recente 55,23 / vecchio 57,08). Parità software ↔ pb_stress.js: 0/4.111.
+Nel software: "Nothing moves: Ying on the day branch decides".
+
+---
+
+## §66 — B AVANZANTE nel gua inferiore: il trend vince sopra (17/08/2026)
+
+**Carta:** USDJPY 30/04/2024 · Li 離 (Fuoco) sopra Zhen 震 (Tuono) = 噬嗑 Shi He, palazzo Xun 巽 · mutante
+L2 B 寅 → 卯 (caso 5, AVANZANTE 進神, partenza = Cavallo, arrivo = Ding, arrivo clasha G 酉 L4) · seme 156
+· giorno 甲子 · mese 辰 · anno 辰 · ora 亥 · vuoti 戌亥 (nessuno in carta) · Tai Sui 辰 su L3 (W = mese)
+· Shi L5 W 未 · Ying L2 (la mobile) · tutte le linee piene e timely (carta densa). Trend EMA LONG · PB
+dice SHORT · esito LONG +140 · perdita. Quarta carta del giro (LY tace 647).
+
+**Lettura di Edu:** "B avanza su L2 per clashare il G L4, che è combinato da mese e anno (辰酉合) e non si
+fa spazzare via → LONG. Inoltre un B che avanza nel gua inferiore sarebbe già indicazione di un trend
+vincente sull'altro lato. Il B è notoriamente un indicatore negativo."
+
+**Misure.** (a) Bersaglio clashato DIFESO (combinato da giorno/mese/anno) → sede del bersaglio: 256 carte
+48,0%; su LY tace 54 carte 44,4%; con bersaglio G 34 carte 41,2%; controllo (bersaglio NON difeso) 47,6%
+— nei dati la difesa per combinazione non cambia l'esito del clash → RESPINTA. (b) B avanzante:
+| cella | n | giuste | recente | vecchio | pip |
+|---|---|---|---|---|---|
+| B avanzante → lato opposto (sotto→LONG, sopra→SHORT), tutte | 120 | 45,0% | 44,8 | 44,8 | −396 |
+| idem, LY parla | 106 | 42,5% | 39,6 | 44,4 | −773 |
+| **B avanzante SOTTO → LONG, LY tace** | **11** | **72,7%** | **75,0** | **66,7** | **+347** |
+| mobile avanzante (ogni parentela) sotto → LONG, LY tace | 19 | 68,4% | 66,7 | 75,0 | +572 |
+| mobile avanzante SOPRA → SHORT, LY tace | 32 | 37,5% | 36,8 | 38,5 | −89 |
+L'avanzata del B paga solo dal basso e solo dove nessuna via ha parlato; fuori da lì dà l'opposto.
+Edu sceglie la versione stretta al B (indicatore negativo). Sotto soglia; **fissata per dottrina.**
+
+**REGOLA FISSATA (§66, via 30, IN CODA — VIA66=off per spegnere):** B mobile avanzante nel gua inferiore
+→ LONG. Grande test: LY tace 647 → **636** · S1 7,50→7,66 (28.624) · S3 7,60 · **S9 7,78→7,94 · 29.686 pip**
+(recente 55,40 / vecchio 57,14). Parità software ↔ pb_stress.js: 0/4.111.
+Nel software: "B advancing in the lower trigram: the trend wins above".
+
+---
+
+## MODELLO DI FORZA (17/08/2026) e §67 — raduno del Legno sotto: forte sale, debole affonda
+
+**Origine.** Su USDJPY 30/04/2024 (LONG +140) e sulla sua gemella USDCHF 16/09/2024 (SHORT −30, stesso
+esagramma Zhen sotto, stessa mobile L2 B 寅→卯, stesso G 酉 clashato) le mie confutazioni "a percentuale"
+non reggevano: Edu — "le carte che mi proponi per confutare ribaltano quasi sempre la tua aspettativa a
+causa del timeliness/forza delle linee". Il motore conosceva solo timely/non timely e "sostenuto dal
+giorno". Costruito il MODELLO DI FORZA (liuyao.js `forzaModello`, esposto nel software colonna "Force"
++ "Hidden force", riga arrivo/raduni, dettaglio al click), dottrina fissata da Edu:
+- Mese: SEMPRE, su tutte le linee — prospero +2 · in crescita +1 · riposo 0 · imprigionato −1 · morto −2.
+  Terra prospera nei quattro mesi di Terra, e lo è anche l'elemento stagionale (si prende il migliore).
+- Giorno e anno: forti SOLO sul FOCUS (la linea che la regola sta esaminando). Giorno: stesso +1,5,
+  genera +1, controlla −1, clasha −1 (il clash RIEMPIE una linea vuota solo se timely), combina: forza
+  invariata ma legata. Anno: stesso +1, genera +0,5, controlla −0,5.
+- Ora dal seme: 20% del timeliness — stesso ramo +0,4, stesso elemento +0,3, genera +0,2.
+- Raduno (三會/三合, linee + arrivo + giorno/mese/anno): solo COMPLETO, niente mezzo raduno, NON vale
+  con uno dei tre vuoti; +2 all'elemento del raduno.
+- Vuoto −2 salvo prospero di mese (0). MA: una linea vuota, anche timely, NON AGISCE (non si oppone
+  a un raduno, non difende).
+- Mobile: alla partenza l'effetto dell'arrivo — 回頭生 +1 · 比和 +0,5 · 回頭剋 −2 · 進神 +1 · 退神 −1 ·
+  movimento nullo → la partenza non agisce.
+- Nascosto: forza del proprio elemento; ospite vuoto lo lascia uscire, ospite pieno lo copre (−1).
+- Ferme adiacenti: si nutrono SOLO se la madre è timely (+1 al figlio); un figlio timely può esaurire
+  la madre non timely (−1 alla madre).
+
+**Correzione mia (svista):** in una lista precedente avevo letto "via —" come "nessuna via" e detto "6/6
+sul gruppo LY tace"; "—" è invece l'etichetta delle vie 1-6 (senza § nel registro): quelle carte erano
+spiegate dalle vie 2 e 6. Corretto qui.
+
+**Misura col modello (raduno 三會 completo nel trigramma della mobile, forza della mobile come focus):**
+| cella | n | giuste | recente | vecchio | pip |
+|---|---|---|---|---|---|
+| **sotto, forte (≥3) → LONG, LY tace/coda** | **7** | **100%** | 100 | 100 | +363 |
+| **sotto, debole (<3) → SHORT, LY tace/coda** | **4** | **100%** | 100 | — | +90 |
+| sotto forte → LONG, LY parla | 30 | 36,7% | 57,1 | 20,0 | −40 |
+| sopra (forte → SHORT / debole → LONG) | 13 | 46% | — | — | — |
+Le 7 forti: USDJPY 30/04/24, USDCHF 02/01/24, EURJPY 24/02/25, EURGBP 25/11/21, 18/05/22, 14/05/25,
+EURUSD 21/07/25 (tutte LONG). Le 4 deboli: USDCHF 10/09 e 16/09/24, EURGBP 10/09 e 16/09/24 (Legno
+morto nel mese 酉, forza 1,7, G 酉 vuoto che non si oppone; tutte SHORT). Fuori dal gruppo di coda la
+lettura non vale (37%): coda. Le tre carte perse dalla §66 erano proprio le "deboli".
+
+**REGOLA FISSATA (§67, via 31, in coda PRIMA della §66 — VIA67=off per spegnere):** raduno 三會 completo
+nel trigramma inferiore (mobile partenza/arrivo + ferme, nessun vuoto) → forza della mobile ≥ 3 → LONG;
+< 3 → SHORT. Grande test: LY tace 636 → 635 · S1 7,66→7,72 (28.720) · S3 7,66 · **S9 7,94→8,00 ·
+29.782 pip** (recente 55,49 / vecchio 57,14). Parità software ↔ pb_stress.js: 0/4.111.
+Nel software: "Wood gathering in the lower trigram: strong rises, weak sinks", con la forza e il suo
+dettaglio nella lettura.
+
+**Da fare col modello di forza:** rimisurare le letture di forza già respinte "a percentuale" (G difeso
+dalla combinazione, Ying forte, W assediata §63-bis, nascosto clashato) usando i punteggi; valutare se
+il modello può sostituire "timely" nelle vie esistenti (una via alla volta, parità dopo ogni cambio).
+
+---
+
+## §68 — CLASH DELL'ARRIVO letto per YONG SHEN (17/08/2026)
+
+**Origine.** Coppia USDJPY 24/06/2024 (seme 159: L6 B 巳→戌 clasha L1 辰 Shi+Tai Sui, mercato SHORT) e
+USDJPY 02/06/2026 (seme 159, stessa azione, Tai Sui su L2, mercato LONG). Poi USDCHF 03/01/2023 (seme 92,
+L5 W 未→申 clasha il Tai Sui B 寅 di L2 MA combina il C 巳 di L6 → LONG +113).
+Edu: "capannello per strada → ti fermi (raduno: il Qi resta); uno che corre attraversando → guardi dove
+va (si segue l'arrivo)". E: "dipende — esiste lo Yong Shen (Spirito del Focus): nel LY sono B, C, W, G, P,
+ognuno fa cose diverse e l'interpretazione si adatta a quello che fanno".
+
+**Misure (arrivo che clasha SOLO una linea ferma piena, nessuna combinazione; → sede della clashata):**
+| cella | n | giuste | recente | vecchio | pip |
+|---|---|---|---|---|---|
+| tutte | 332 | 43,7% | 45,8 | 41,2 | −1739 |
+| **clashata P, coda** | 35 | **25,7%** (→ 74% opposto) | 30,0 | 20,0 | −788 |
+| clashata P, tutte | 105 | 36,2% | 36,7 | 38,5 | −1017 |
+| **clashata G, coda** | 13 | **76,9%** | 87,5 | 60,0 | +411 |
+| **clashata C, coda** | 25 | **64,0%** | 64,7 | 62,5 | +666 |
+| clashata B / W | 141 / 111 | 45,4 / 45,0 | — | — | — |
+| **mobile W che clasha, coda** | 33 | **60,6%** | 57,7 | 71,4 | +584 |
+| mobile W clasha W | 30 | 63,3% | 68,2 | 57,1 | +256 |
+| mobile B che clasha, coda | 33 | 45,5% (B clasha P: 1/16) | — | — | — |
+| mobile G / C che clasha, coda | 15 / 12 | 26,7 / 33,3 | — | — | — |
+Il corridore che va a COMBINARE arriva davvero (clasha E combina → sede combinata 60% vs 40%; solo
+combina, altro lato 54,8%). Quello che va a CLASHARE: la P investita cade sempre, G e C reggono il colpo;
+se chi corre è una W ci si volta e si va dove va lei.
+Il caso "clashata = Tai Sui" da solo NON regge (35 carte 40%; coda 10 carte 60%): la 24/06/2024 si spiega
+per il C clashato (L1 C 辰 → regge → SHORT), non per il Tai Sui.
+
+**REGOLA FISSATA (§68, via 32, IN CODA — VIA68=off per spegnere), ordine come proposto e accettato:**
+1) clashata P → sede opposta; 2) clashata G o C → sede clashata; 3) altrimenti mobile W → sede clashata.
+Grande test: LY tace 635 → **578** · S1 7,72→7,94 (29.192) · S3 7,88 · **S9 8,00→8,25 · 30.378 pip**
+(recente 55,62 / vecchio 57,44). Parità software ↔ pb_stress.js: 0/4.111.
+Nel software: "Arrival clash read by the Yong Shen (who is hit, who hits)".
+
+---
+
+## §69 — UNICA AZIONE: il giorno clasha una ferma mentre nulla si muove (17/08/2026)
+
+**Carte:** USDJPY 13/02/2024 (seme 149; Dui/Xun, L3 G 酉→午 sospeso dal giorno 未; il giorno clasha lo
+Ying L1 W 丑 PIENO → "rotto" → LONG +137) e USDCHF 27/12/2023 (seme 85; stessa carta, Ying L1 W 丑
+VUOTO clashato dal giorno → "esce dal vuoto e decide" → SHORT −105 per la lettura opposta).
+Edu: "due tentativi non riusciti, chi non vince perde" (13/02); "l'unica differenza è L1: era vuoto ed è
+clashato fuori dal vuoto → diventa il fattore che decide" (27/12). E, richiamato il principio: "se non
+ci sono migliori alternative si va verso l'unica disponibile anche se non ti piace. È l'azione che
+guida l'interpretazione. Se W è vuoto e viene clashato fuori dal vuoto — e altrove non succede niente —
+è QUI che si DEVE guardare."
+
+**Misure (movimento nullo, nessun raduno, il giorno clasha esattamente UNA ferma; vuota → sede, piena →
+opposta):** tutte 134 carte 47,0% (53,1 / 40,3); **coda 31 carte 61,3% (72,2 / 46,2), +280**; ramo
+"piena → opposta" coda 28 carte 60,7% (72 / 40); ramo "vuota → sede" 19 carte 36,8% (di cui 3 in coda).
+Famiglia più larga (già misurata prima): "ferma vuota clashata dal giorno → sede" 348 carte 48,9%;
+"nascosto vuoto/debole estratto dal clash del giorno" 15/08 44%, 17/08 46%: nei dati il clash del giorno
+non riempie. Movimento nullo → lato opposto (chi non vince perde esteso): 1.966 carte 51,2%.
+**Nessuna carta singola contraria decisiva** da opporre (celle a metà, non un controesempio netto):
+per metodo, fissata come **pilastro dottrinale su insistenza di Edu**, con sostegno statistico DEBOLE e
+periodi non allineati — da tenere d'occhio nell'holdout.
+
+**REGOLA FISSATA (§69, via 33, IN CODA — VIA69=off per spegnere):** movimento nullo + nessun raduno + il
+giorno clasha una sola ferma → vuota: sua sede; piena: sede opposta.
+Grande test: LY tace 578 → **553** · S1 7,97 (29.114) · S3 7,85 · **S9 8,25→8,28 · 30.270 pip** (−108 pip,
+recente 55,67 / vecchio 57,44). Parità software ↔ pb_stress.js: 0/4.111.

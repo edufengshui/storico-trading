@@ -6022,6 +6022,84 @@ if (process.env.PBLY) {
       if (r.oraBranch && R.mutante.ramoDep===r.oraBranch)
         return r.emaDir==='up' ? 'LONG' : 'SHORT';
     }
+    // 29 — §63 (FISSATA 17/08/2026, pilastro dottrinale, da EURJPY 06/02/2025): 回頭生 BLOCCATO.
+    //      La mobile e' debole (non timely), l'arrivo la genererebbe (caso 1) ma e' occupato a
+    //      clashare UNA linea ferma FORTE (timely o sostenuta da giorno/anno): la generazione
+    //      di ritorno non avviene, e per mancanza di priorita' migliori la linea clashata decide
+    //      -> la sua sede. 17 carte, 70,6%, allineati (69/75). In coda. VIA63=off per spegnere.
+    // §63-bis (17/08/2026): vale anche se la mobile e' timely ma ASSEDIATA da un raduno 三會/三合
+    //      (linee ferme + giorno/mese/anno) dell'elemento che la controlla.
+    if (process.env.VIA63!=='off' && R.mutante.casoMut===1) {
+      const HUI3=[{r:['寅','卯','辰'],el:'Wood'},{r:['巳','午','未'],el:'Fire'},{r:['申','酉','戌'],el:'Metal'},{r:['亥','子','丑'],el:'Water'}];
+      const HE3 =[{r:['寅','午','戌'],el:'Fire'},{r:['申','子','辰'],el:'Water'},{r:['巳','酉','丑'],el:'Metal'},{r:['亥','卯','未'],el:'Wood'}];
+      const pool=new Set(R.linee.filter(l=>!l.isMobile).map(l=>l.ramo).concat([D,Mo,Y]));
+      const ctrlEl=Object.keys(CTRL).find(e=>CTRL[e]===mob.el);
+      const raduno=HUI3.concat(HE3).some(h=>h.el===ctrlEl&&h.r.every(x=>pool.has(x)));
+      const inagibile=!timely(mob.el)||raduno;
+      if (inagibile) {
+      const arr=R.mutante.ramoArr;
+      const tgt=R.linee.filter(l=>!l.isMobile && CLASH[arr]===l.ramo);
+      if (tgt.length===1) { const t=tgt[0];
+        const supp=el=>WX[D]===el||GEN[WX[D]]===el||WX[Y]===el||GEN[WX[Y]]===el;
+        if (timely(t.el)||supp(t.el)) return t.pos<=3?'SHORT':'LONG'; }
+      }
+    }
+    // 30 — §64 (FISSATA 17/08/2026, da AUDUSD 07/03/2023): PRIORITA' RESIDUA. G e W non parlano
+    //      (nessuno vivo, pieno e timely-o-mobile) -> il piu' forte fra P e C, se unico per punteggio
+    //      (timely, TS, =mese, =giorno, sostenuto dal giorno), decide -> la sua sede. Il B residuo
+    //      NON decide (42%). 116 carte LY tace, 56,0%, allineati. In coda. VIA64=off per spegnere.
+    if (process.env.VIA64!=='off') {
+      const attiva=l=>vivo(l)&&!l.vuoto;
+      const gwParla=R.linee.some(l=>(l.par==='G'||l.par==='W')&&attiva(l)&&(timely(l.el)||l.isMobile));
+      if (!gwParla) {
+        const forza=l=>(timely(l.el)?1:0)+(l.isTaiSui?1:0)+(l.ramo===Mo?1:0)+(l.ramo===D?1:0)+((WX[D]===l.el||GEN[WX[D]]===l.el)?1:0);
+        const resto=R.linee.filter(l=>l.par!=='G'&&l.par!=='W'&&attiva(l));
+        if (resto.length) { const maxF=Math.max(...resto.map(forza)); const top=resto.filter(l=>forza(l)===maxF);
+          if (top.length===1 && top[0].par!=='B') return top[0].pos<=3?'SHORT':'LONG'; }
+      }
+    }
+    // 31 — §65 (FISSATA 17/08/2026, da EURJPY 05/03/2025): NIENTE SI MUOVE, lo YING sul GIORNO decide.
+    //      Movimento nullo della mobile + Ying fermo sul ramo del giorno -> sede dello Ying.
+    //      12 carte LY tace, 91,7% (100/83); con movimento VIVO la stessa cella fa 34,8%. In coda.
+    //      VIA65=off per spegnere.
+    if (process.env.VIA65!=='off' && R.mutante.movimentoNullo) {
+      const Yg=R.linee[R.ying-1];
+      if (!Yg.isMobile && Yg.ramo===D) return Yg.pos<=3?'SHORT':'LONG';
+    }
+    // 33 — §67 (FISSATA 17/08/2026, MODELLO DI FORZA, da USDJPY 30/04 + USDCHF 16/09/2024): raduno
+    //      三會 completo (senza vuoti) nel trigramma INFERIORE (mobile partenza/arrivo + ferme). Forza
+    //      della mobile (modello: mese su tutte, giorno/anno sul focus, ora 20%, raduno +2, vuoto -2,
+    //      effetto dell'arrivo) >= 3 -> forte, spinge su -> LONG; < 3 -> affonda -> SHORT. Il
+    //      controllore vuoto, anche timely, non si oppone. 11/11 su LY tace/coda. Prima della §66.
+    //      VIA67=off per spegnere.
+    if (process.env.VIA67!=='off' && mob.pos<=3 && !R.mutante.movimentoNullo) {
+      const HUI4=[{r:['寅','卯','辰'],el:'Wood'},{r:['巳','午','未'],el:'Fire'},{r:['申','酉','戌'],el:'Metal'},{r:['亥','子','丑'],el:'Water'}];
+      const pool4=new Set(R.linee.filter(l=>l.pos<=3).map(l=>l.ramo)); pool4.add(R.mutante.ramoArr);
+      const g4=HUI4.find(h=>h.r.every(x=>pool4.has(x)&&!R.vuoti.includes(x)));
+      if (g4) { const Fr=LYM.forzaModello(R,{oraBranch:r.oraBranch},mob.pos).linee[mob.pos-1].score; return Fr>=3?'LONG':'SHORT'; }
+    }
+    // 32 — §66 (FISSATA 17/08/2026, da USDJPY 30/04/2024): B AVANZANTE nel gua inferiore -> il trend
+    //      vince sopra -> LONG. B = indicatore negativo. 11 carte LY tace, 72,7% (75/67); fuori da
+    //      LY tace da' l'opposto (44%). In coda. VIA66=off per spegnere.
+    if (process.env.VIA66!=='off' && mob.par==='B' && R.mutante.progressione==='avanzante' && mob.pos<=3) return 'LONG';
+    // 34 — §68 (FISSATA 17/08/2026): CLASH DELL'ARRIVO LETTO PER YONG SHEN. L'arrivo clasha SOLO una
+    //      ferma piena (nessuna combinazione): P clashata cede -> sede opposta; G o C clashati reggono
+    //      -> sede clashata; altrimenti mobile W -> sede clashata. In coda. VIA68=off per spegnere.
+    if (process.env.VIA68!=='off' && !R.mutante.movimentoNullo) {
+      const arr8=R.mutante.ramoArr;
+      const cT=R.linee.filter(l=>!l.isMobile&&CLASH[arr8]===l.ramo&&!l.vuoto), kT=R.linee.filter(l=>!l.isMobile&&COMBINA[arr8]===l.ramo&&!l.vuoto);
+      if (cT.length===1 && !kT.length) { const T=cT[0]; const seatT=T.pos<=3?'SHORT':'LONG', opp8=seatT==='LONG'?'SHORT':'LONG';
+        if (T.par==='P') return opp8; if (T.par==='G'||T.par==='C') return seatT; if (mob.par==='W') return seatT; }
+    }
+    // 35 — §69 (FISSATA 17/08/2026, pilastro dottrinale su insistenza di Edu): UNICA AZIONE. Movimento
+    //      nullo, nessun raduno, il giorno clasha ESATTAMENTE una ferma: vuota -> riempita, decide ->
+    //      sua sede; piena -> rotta -> sede opposta. Sostegno statistico debole (coda 31, 61%, 72/46).
+    //      In coda. VIA69=off per spegnere.
+    if (process.env.VIA69!=='off' && R.mutante.movimentoNullo) {
+      const cl9=R.linee.filter(l=>!l.isMobile&&CLASH[D]===l.ramo);
+      if (cl9.length===1 && !LYM.forzaModello(R,{oraBranch:r.oraBranch},cl9[0].pos).raduni.length) {
+        const T=cl9[0]; const seatT=T.pos<=3?'SHORT':'LONG'; return T.vuoto ? seatT : (seatT==='LONG'?'SHORT':'LONG'); }
+    }
     return null;
   }
 
