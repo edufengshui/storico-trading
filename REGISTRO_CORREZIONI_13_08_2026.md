@@ -2793,3 +2793,85 @@ periodi non allineati — da tenere d'occhio nell'holdout.
 giorno clasha una sola ferma → vuota: sua sede; piena: sede opposta.
 Grande test: LY tace 578 → **553** · S1 7,97 (29.114) · S3 7,85 · **S9 8,25→8,28 · 30.270 pip** (−108 pip,
 recente 55,67 / vecchio 57,44). Parità software ↔ pb_stress.js: 0/4.111.
+
+## §70 — NA YIN dell'esagramma iniziale come INDICATORE DI CONFIDENZA del LY (18/08/2026)
+
+**Ipotesi Edu:** il Na Yin dell'esagramma iniziale (XKDG: esagramma → jiazi → Na Yin) entra come attore in più
+nel gioco delle relazioni a cinque elementi, rafforzando o indebolendo Ti, Yong o le parentele LY (B/C/W/G/P).
+
+**Misura (universo LY parla, 3.550 carte):**
+- Na Yin INDEBOLISCE il B (lo controlla o lo drena): 1.453 carte · 57,67% · z 5,85 · +11.817 pip
+- Na Yin RAFFORZA il B (uguale o lo genera): 1.246 carte · 56,02% · z 4,25 · +9.497 pip
+- Na Yin neutro sul B: 851 carte · 54,76% · z 2,78 · +3.000 pip
+- baseline LY solo: 56,39% · z 7,62 · +24.314 pip
+
+**Verdetto:** il Na Yin che colpisce il B (bandiera negativa) segnala che il LY è più affidabile su quella carta;
+non è un segnale di direzione. Provato come:
+- rafforzativo del PB nel contrasto (S10): −3.298 pip rispetto a S9 → **danneggia**
+- decisore nel gruppo LY tace (561 carte): tutte le varianti peggiori del PB da solo → **danneggia**
+- override del LY (forza segue/non segue, salto contrasti): tutte peggiori della baseline → **danneggia**
+
+**Registrato come:** indicatore di confidenza del LY, NON cablato come via né rafforzativo. Da tenere per
+un'eventuale pesatura delle posizioni (LY più preciso quando Na Yin indebolisce B).
+
+**Osservazione collaterale:** Na Yin vs Yong PB, "Yong controlla il Na Yin" → 699 carte · 57,51% · z 3,97,
+concentrato nella via 我生 (253 carte, 60,47%, z 3,33). Sotto soglia, in osservazione.
+
+**Piste chiuse (18/08/2026, provate senza esito):**
+- Tre Messaggi 三傳 del DLR: nessuna cella oltre z 2 (ruolo nell'esagramma, Shi/Ying/mobile, palazzi PB)
+- 1a–4a lettura DLR (四課): nessuna cella oltre z 2,8
+- ramo celeste sopra anno/mese/ora (DLR): nessuna cella oltre z 2,3
+- numerazione XKDG (Kun1 Xun2 Li3 Dui4 Zhen8 Gen6 Kan7 Qian9), somma Hetu 5/10/15, Sheng/Ke In-Out
+  senza Terra: nessuna cella oltre z 3, nessun rinforzo combinato
+- risonanza (scala mobile) su tutto il dataset: pulita 49,8%, bloccata 44,9% → nessun edge; regge solo
+  su 34 carte LY tace bloccate (58,8%) — troppo poche per cablare
+- Qi bloccato su B via combinazione 六合 → SHORT: 36 carte LY tace, 44,4% → non regge
+
+## §71 — GUA SHEN (卦身) e confronto SHI↔YING: piste chiuse (18/08/2026)
+
+**Gua Shen (卦身).** Definizione (Edu): sulla linea Shi, se yang L1..L6 → 子丑寅卯辰巳; se yin → 午未申酉戌亥.
+Provate tre formulazioni, tutte con la lettura doctrinale di Edu integrata:
+1. GS singolo, ruolo nell'esagramma (partenza/arrivo mobile, ferma, nascosto, assente): nessuna cella oltre z 2,5 come direzione
+2. Due GS (Shi e Ying, uno per clan), parteggiamento a punteggio (stesso ramo +2, combina/genera +1, clash/controlla −1): 3.482 carte, 50,57%
+3. Due GS come innescatori di AZIONI, con la regola del clash corretta ("il clash muove la linea sulla propria
+   trasformazione: conta solo se il ramo futuro è diverso"), combinazioni doppie che si annullano, vuoto che non
+   conta: 3.335 carte, 50,85%; nel LY tace 49,25%. Il codice riproduce fedelmente la lettura di Edu su EURJPY
+   28/04/2022 (SHORT attivo ma non vince → LONG) ma generalizzata non predice.
+   Contro-esempio: USDJPY 15/11/2024 (GS-Ying = ramo dello Shi = giorno, margine 4 → LONG; mercato sceso −213).
+Osservazione: il sistema va meglio dove il GS è "muto"/assente (57–60%). Non cablato.
+
+**Confronto diretto Shi↔Ying.** Rimisurato con motore attuale in 7 forme (elementale, mobile=Shi/Ying, arrivo che
+colpisce Shi/Ying, coppie di parentele, sostegno della data, vuoto, giorno che tocca): tutte ≈50%, nessuna oltre z 2.
+Ripetuto con Shi/Ying letti ATTRAVERSO la mobile (tomba 墓 = 辰Acqua/未Legno/戌Fuoco/丑Metallo, clash/controllo
+dall'arrivo, vuoto), regola "la tomba spegne l'azione di chi la subisce": 2.647 carte, 48,21%, −4.842 pip.
+Il codice riproduce la lettura di Edu su EURJPY 19/12/2024 (Ying in tomba non genera lo Shi → Shi non vince → LONG),
+ma su 401 carte simili: 46,38%.
+Dato chiave: LY contrario al modello Shi/Ying vince 58,13% vs 55,45% quando concorde.
+
+**Perimetro (Edu):** chiuso SOLO il confronto diretto Shi↔Ying come fonte di direzione. Shi e Ying restano
+attori in tutte le vie che già li usano (§65 Ying sul giorno, clan/sede, bersagli di clash e combinazione, ecc.).
+La carta continua a essere interpretata come sempre.
+
+**Errori di sessione (18/08/2026):** due errori di segno sul movimento del mercato (EURJPY 09/12/2024 e 28/04/2022)
+e un contro-esempio presentato senza verificare il blocco da linea vuota (EURUSD 27/01/2022). Regola per il futuro:
+prima di presentare una carta, verificare esplicitamente move (>0 = salito), segnale finale e pnl dal dump CARTA=.
+
+## §72 — MODELLO "dove va il Qi" per Shi↔Ying: codificato ma sotto soglia (18/08/2026)
+
+Riscrittura pulita del confronto Shi↔Ying secondo il principio di Edu "dove va il Qi":
+- l'arrivo della mobile è il Qi; se l'arrivo è vuoto → azione nulla
+- la mobile in vuoto NON è vuota (il movimento la riempie); l'arrivo vuoto non produce effetto
+- il Qi si ferma alla PRIMA cattura: combinazione (con linea non vuota) > clash > tomba
+- combinazione con Shi/Ying → quella linea si carica e prevale → vince il suo clan
+- clash → la linea avanza alla linea futura (esagramma trasformato); conta solo se il ramo futuro è diverso
+- tomba → la linea intombata non agisce (perde generazione/controllo verso l'altra)
+
+Le tre carte di controllo tornano tutte con la lettura di Edu (EURUSD 12/05/2022 → SHORT; USDJPY 04/01/2024
+e EURJPY 19/12/2024 → il Qi combina una linea non-Shi/Ying, quindi il modello tace, niente più SHORT sbagliato).
+
+**Misura:** dove il Qi combina proprio Shi o Ying (mobile esclusa): 473 carte, 51,59%, +1.500 pip. Nel LY tace: 37
+carte, 43,24%. LY concorde col modello 57,95% vs contrario 56,40% (differenza trascurabile). Sotto soglia, non
+cablabile, ma la lettura è ora codificata correttamente (blocco QIMODEL in pb_stress.js per riferimento).
+
+**Stato:** capitolo Shi↔Ying come DIREZIONE chiuso (§71-§72). Shi e Ying restano attivi in tutte le vie che già li
+usano. Na Yin resta come indicatore di confidenza (§70). Nessuna nuova via cablata oggi: S9 invariato.
