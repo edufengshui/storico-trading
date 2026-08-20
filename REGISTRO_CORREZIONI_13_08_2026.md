@@ -3132,3 +3132,102 @@ LY(chi vince) e' cio' che produce S11 56,90% z 8,84.
 - **DA FARE:** esplorazione sistematica di tutte e sei le bestie incrociate con Shi/Ying/mobile, parentela e forza,
   in sessione dedicata. E' l'unico filone di oggi che ha mostrato un segnale coerente sui due periodi.
 Blocchi MOBTREND / MOBTREND2 / SHITREND / SHITREND2 / REPTREND / SHIALLIN / BESTIE / TIGRE in pb_stress.js (flag, default off).
+
+---
+
+## §81 — Il Serpente 螣蛇 morto o imprigionato sostiene chi NON segue (20/08/2026)
+
+**Regola.** Se il Serpente siede sulla **Shi**, sulla **Ying** o sulla **linea mobile** ed è **untimely** nel mese
+(囚 o 死), e il PB dice **"non segue il trend"**, il PB è forte e il LY non lo scavalca.
+
+**Numeri.** Perimetro 527 carte. Lasciando decidere il PB: 59,20% (recente 57,0 / vecchio 61,8).
+Lasciando decidere il LY: 54,84%. Contributo al sistema: da 56,94% a 57,48%, +766 pip.
+
+**Dottrina.** Il Serpente non indica una direzione: indica che **l'azione è attorcigliata**. Quando è debole
+su una linea che conta, il movimento non regge e il trend non tiene. È un indicatore di fragilità
+dell'azione, non di direzione.
+
+**A una faccia sola.** Il ramo simmetrico (Serpente timely sostiene chi segue) PEGGIORA il sistema
+(56,58% contro 56,94%). Non cablato. Rispetta l'asimmetria nota: il profitto vive nel "non segue".
+
+**Perimetro largo, non stretto — attenzione.** Da solo il 死 è molto più forte del 囚
+(死: 365 carte 62,47% z 4,76 · 囚: 369 carte 51,49% z 0,57). Ma **dentro il contrasto** il rapporto si
+inverte: 囚 fa vincere il PB nel 57,78% dei casi, 死 solo nel 54,55%. Motivo: sulle carte in 死 il LY è
+già d'accordo col PB, quindi la regola non ha nulla da correggere. Restringere al solo 死 costa 868 pip.
+Interruttore `SERP81=stretto` nel motore, spento.
+
+**Indipendente dalla parentela.** P 61,4% · W 58,2% · C 57,1% · G 55,0% · B 53,3% — tutte positive,
+nessuna che ribalta il segno.
+
+---
+
+## §68-bis — Il clash dell'arrivo che è anche controllo distrugge (20/08/2026)
+
+**Origine.** Carta EURJPY 11/12/2023, letta da Edu.
+
+**Regola.** Nel perimetro del §68 (l'arrivo della mobile clasha esattamente una ferma piena, nessuna
+combinazione): se l'**arrivo controlla (剋) anche l'elemento** della linea colpita, non è un urto ma una
+distruzione. La colpita non regge — chi non vince perde — e prevale la **mobile** (= sede opposta alla
+colpita, che su tutte le carte del perimetro coincide).
+
+**Numeri.** Sulle 85 carte interessate: il §68 di prima faceva 45,88% (−828 pip), la lettura nuova fa
+56,47% (+871). Il §68 intero passa da 54,80% z 1,81 (+699) a 57,34% z 2,76 (+2.399), con entrambi i
+periodi in miglioramento. Sul sistema: +96 pip. Vale per dottrina più che per pip.
+Interruttore `VIA68BIS=off`.
+
+**La timeliness non entra.** Verificato su richiesta di Edu: "vince la mobile" funziona in tutti e quattro
+i quadranti (arrivo timely/untimely × colpita timely/untimely): 56,4 / 53,1 / 54,6 / 56,5. Il quadrante
+che l'ipotesi dava per più forte (arrivo timely, colpita untimely) è il **più debole** e l'unico spaccato
+fra i periodi (45,9 recente contro 63,8 vecchio). Conferma il principio: **l'azione, non la forza**.
+
+---
+
+## Piste chiuse il 20/08/2026
+
+- **Le Sei Bestie, esplorazione sistematica.** Vincolo strutturale: le bestie si dispongono in sequenza
+  fissa dallo **stelo del giorno**, quindi due bestie a 3 posizioni di distanza sono sempre in specchio.
+  Non esistono sei indicatori ma tre assi, e la posizione di una bestia è un filtro di calendario
+  travestito. Bestia su Shi/Ying/mobile: niente (43–55%). Bestia con B/C/W/G/P: segnali deboli
+  (45–46% "segue"), tutti entro ~3 punti dalla base EMA di 48,77%. Nessuna casella a z > 4.
+- **Serpente come indicatore di trend.** No: 48,77%, identico all'EMA nuda.
+- **Serpente che tocca il trigramma opposto.** Clash 50,00% esatto su 198 carte, combinazione 50,92%.
+  Nulla. Nota: il Serpente è l'unica bestia per cui la mobile che clasha l'opposto non prevale — ma
+  l'effetto sulle altre è della mobile, non della bestia, e comunque debole (z 1,94).
+- **Drago che si combina col Serpente.** 41 carte; la casella "segue il trend" fa 58,54% ma spaccata
+  (73,3 vecchio / 52,0 recente) su undici carte. Il Drago mobile da solo fa 49,32% su 365 carte.
+  Unica casella con segno: la partenza del Drago clasha il Serpente → vince il Serpente, 66,7% su 36
+  carte. Troppo poche e trovata cercando: segnalata, non usata.
+- **Linea legata dal giorno liberata dal clash della mobile.** 113 carte, 53,98%, **+8 pip** netti — vince
+  piccolo e perde grosso. Segnale contraddittorio fra clash di partenza e clash di arrivo. Non è una via.
+- **得位 (linea intera su posto dispari, spezzata su posto pari).** Come predittore: niente
+  (Shi al posto 49,90%, Ying 49,22%, "vince il trigramma più ordinato" 49,04%). Come rafforzativo del PB:
+  **respinto** — vedi sotto.
+
+---
+
+## Nota di metodo (20/08/2026) — misurare dentro il contrasto, mai sul totale
+
+Due volte nella stessa sessione la stessa trappola:
+
+1. Il Serpente in 死 fa 62,47% (z 4,76) sul totale ma solo 54,55% dentro il contrasto; il 囚 fa 51,49%
+   sul totale e 57,78% dentro il contrasto.
+2. Il PB con esagramma ordinato (4+ linee al posto) fa 55,72% sul totale contro 52,09% — ma dentro il
+   contrasto fa 45,62%, cioè **peggio** che con l'esagramma disordinato (46,03%).
+
+In entrambi i casi il guadagno apparente veniva da carte dove **il LY era già d'accordo col PB**, dove il
+verdetto sarebbe stato lo stesso comunque. **Sul totale si misura l'accordo, non l'informazione.**
+Una condizione candidata a rafforzativo va sempre misurata sulle sole carte in contrasto.
+
+---
+
+## Nota software (20/08/2026) — la PWA non applicava il LY
+
+Scoperto durante la sessione: `fsadvisor.org/trading/` mostrava un segnale calcolato **solo dal Plum
+Blossom** (53,51%). Il pannello Liu Yao disegnava l'esagramma ma `combinaS9` non veniva mai chiamata.
+Corretto in `app.js`: il segnale ora è quello del sistema completo (57,48%), verificato **0 disallineamenti
+su 4.111 carte** contro il motore. Aggiunta nel pannello la riga "六爻 Liu Yao corrective".
+Al modulo `liuyao.js` mancavano anche i rafforzativi §78 (TSLEGA) e §81 (SERPENTE): cablati.
+Condizione necessaria: `app.js` deve passare `corpoEl` (elemento del trigramma del Trend) nel contesto,
+altrimenti il §54b non può valutare e 16 carte divergono.
+
+Tolta la parola "inverte" dall'output del motore (8 occorrenze) — ora stampa "NON SEGUE".

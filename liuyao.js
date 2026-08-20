@@ -1116,6 +1116,15 @@
       if (cT.length !== 1 || kT.length) return null;
       var T = cT[0], seatT = T.pos<=3 ? 'SHORT' : 'LONG', opp = seatT==='LONG' ? 'SHORT' : 'LONG';
       var lbl = 'L'+T.pos+' <b>'+T.par+' '+T.ramo+'</b>';
+      // §68-bis (Edu 20/08/2026, da EURJPY 11/12/2023): if the ARRIVAL also CONTROLS (剋) the element
+      // of the clashed line, this is not a bump but a destruction: the clashed line does not hold,
+      // whoever does not win loses → the mobile prevails (= seat opposite to the clashed line).
+      if (CTRL[WX[arr]] === T.el) {
+        var seatM = mob.pos<=3 ? 'SHORT' : 'LONG';
+        state.why = 'The arrival <b>'+arr+'</b> does not merely clash '+lbl+': it also CONTROLS it (剋). '+
+          'The clashed line is destroyed, not displaced → the mobile prevails → '+seatM+'.';
+        return seatM;
+      }
       if (T.par === 'P') { state.why = 'The arrival <b>'+arr+'</b> only clashes '+lbl+': a clashed <b>P</b> gives way → the clashed side loses → '+opp+'.'; return opp; }
       if (T.par === 'G' || T.par === 'C') { state.why = 'The arrival <b>'+arr+'</b> only clashes '+lbl+': a clashed <b>'+T.par+'</b> holds the blow, the qi stops there → seat of the clashed line → '+seatT+'.'; return seatT; }
       if (mob.par === 'W') { state.why = 'The mobile <b>W</b> L'+mob.pos+' runs to clash '+lbl+': you look where the W goes → seat of the clashed line → '+seatT+'.'; return seatT; }
@@ -1150,6 +1159,20 @@
         var gh = STELO_SPIRITI.ghost[R.dayStem] || [], tb = STELO_SPIRITI.tomb[R.dayStem] || [];
         var stelo = gh.indexOf(A)>=0 || tb.indexOf(A)>=0;
         return virtu || stelo;
+      } },
+    { id:'TSLEGA', nome:'Tai Sui binds the day and backs the follower',
+    dottrina:'§78 — If the DAY branch is bound (六合) by the TAI SUI (year branch) and the one saying "follows the trend" is the PB, the PB is strong and the LY does not override it.',
+      test: function (R, ctx, state) { return !!(R.yearBranch && COMBINA[R.dayBranch] === R.yearBranch); } },
+    { id:'SERPENTE', nome:'Untimely Snake backs the non-follower',
+    dottrina:'§81 — If the Snake (螣蛇) sits on the SHI, the YING or the MOBILE line and is UNTIMELY (囚 or 死 in the month), and the one saying "does not follow the trend" is the PB, the PB is strong and the LY does not override it.',
+      polarita: 'nonSegue',
+      test: function (R, ctx, state) {
+        var S = null;
+        for (var i=0;i<R.linee.length;i++){ var L=R.linee[i]; if (L.bestia && L.bestia.cn==='螣蛇'){ S=L; break; } }
+        if (!S) return false;
+        if (!(S.isShi || S.isYing || S.isMobile)) return false;
+        var st = stagione(S.el, WX[R.monthBranch]);
+        return st === '囚' || st === '死';
       } }
   ];
 
@@ -1215,9 +1238,16 @@
     enabledRaff = enabledRaff || {};
     var aOra = enabledRaff.ORA !== false && LY_RAFFORZATIVI[0].test(R, ctx);
     var wVirtu = enabledRaff.WVIRTU !== false && LY_RAFFORZATIVI[1].test(R, ctx);
-    if ((aOra || wVirtu) && pbSegue) {
+    var tsLega = enabledRaff.TSLEGA !== false && LY_RAFFORZATIVI[2].test(R, ctx);
+    var serpente = enabledRaff.SERPENTE !== false && LY_RAFFORZATIVI[3].test(R, ctx);
+    if (serpente && !pbSegue) {
+      return { finale: pbDir, chi: 'conflict → SNAKE reinforcer (§81): the Snake 螣蛇 sits on the Shi/Ying/mobile and is untimely in the month, and the PB does not follow the trend → the PB wins', via: t, ly: t.dir, why: t.why };
+    }
+    if ((aOra || wVirtu || tsLega) && pbSegue) {
       var A0 = R.mutante.ramoDep, mob0 = R.linee[R.mutante.pos-1];
-      var chi = aOra
+      var chi = !aOra && !wVirtu
+        ? 'conflict → TAI SUI reinforcer (§78): the day <b>' + R.dayBranch + '</b> is bound (六合) by the Tai Sui <b>' + R.yearBranch + '</b>, and the PB follows the trend → the PB wins'
+        : aOra
         ? 'conflict → HOUR reinforcer: the mobile ' + mob0.par + ' departs from <b>' + A0 + '</b> = <b>hour from the seed</b>, and the PB follows the trend → the PB wins'
         : 'conflict → BLESSED W reinforcer: the mobile <b>W</b> departs from <b>' + A0 + '</b> = ' + wBless(R, A0) + ', and the PB follows the trend → the PB wins';
       return { finale: pbDir, chi: chi, via: t, ly: t.dir, why: t.why };
