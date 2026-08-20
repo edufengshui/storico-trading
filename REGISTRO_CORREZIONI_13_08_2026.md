@@ -2875,3 +2875,260 @@ cablabile, ma la lettura è ora codificata correttamente (blocco QIMODEL in pb_s
 
 **Stato:** capitolo Shi↔Ying come DIREZIONE chiuso (§71-§72). Shi e Ying restano attivi in tutte le vie che già li
 usano. Na Yin resta come indicatore di confidenza (§70). Nessuna nuova via cablata oggi: S9 invariato.
+
+## §73 — MECCANICA CORRETTA del "dove va il Qi" Shi↔Ying: sette raffinamenti dottrinali, ancora sotto soglia (19/08/2026)
+
+Ripresa del confronto Shi↔Ying (§72) partendo dai contro-esempi. Edu ha corretto la meccanica carta per carta;
+ogni correzione legge bene la carta specifica e TUTTE le carte di controllo, ma l'aggregato non supera mai il 52-55%
+(la versione "forza/elemento dominante" scende addirittura al 45,71%). Non cablabile. Qui si SALVANO le spiegazioni.
+
+### La meccanica finale (dottrina), passo per passo
+1. **Cattura.** L'arrivo della mobile (ramo di arrivo) combina in 六合 con una linea Shi o Ying non vuota: quella è la
+   linea "catturata" (C); l'altra fra Shi/Ying è "l'altra" (O). Perimetro: mobile ≠ Shi/Ying, arrivo non vuoto.
+2. **Trasformazione della catturata.** La catturata riceve il ramo di PARTENZA della mobile e assume il suo elemento
+   — TRANNE quando forma un 三合 (vedi §3). Es. semplice: Ying 巳 + partenza mobile 未 → Ying diventa Terra.
+3. **三合 PIENO (三合, raduno/trigono) — regola forte.** Se il ramo della catturata + il ramo di partenza della mobile
+   + un TERZO membro formano un 三合 pieno, la catturata si RINFORZA nell'elemento del trigono (non conversione).
+   - I MEZZI-TRIGONI (半合) NON contano: serve il trigono pieno a tre membri.
+   - Il terzo membro può essere: una linea VISIBILE non vuota, una linea NASCOSTA (伏神/fushen), OPPURE un ramo del
+     BAZI (anno/mese/giorno). Anche l'arrivo della mobile (linea futura) conta come membro presente.
+   - Un membro VUOTO non chiude il trigono (il vuoto non agisce) — MA una linea in vuoto che si MUOVE non è vuota
+     (il movimento la riempie), quindi un 伏/ramo che partecipa al movimento conta anche se sta nei vuoti del giorno.
+   - Trigoni: Acqua 申子辰 · Legno 亥卯未 · Fuoco 寅午戌 · Metallo 巳酉丑.
+4. **Chi prevale (controllo/generazione).** Fra la catturata (nel suo elemento, trasformato o rinforzato) e l'altra:
+   - la catturata CONTROLLA l'altra → prevale la catturata (vince il controllore);
+   - l'altra controlla la catturata → prevale l'altra;
+   - generazione in un verso o nell'altro → prevale L'ALTRA (la catturata prevale SOLO se controlla);
+   - 比和 (stesso elemento) → muto.
+   Direzione = clan della linea che prevale (L1-3 = SHORT, L4-6 = LONG).
+5. **Drenaggio col 伏神 (interp 1).** Se la mobile ha una linea NASCOSTA (伏神), il movimento la porta fino alla
+   catturata, che assume l'elemento del 伏. Se a quel punto l'altra GENERA la catturata (es. Shi-Metallo genera
+   Ying-Acqua), l'altra è DRENATA e la catturata prevale. Questo drenaggio scatta SOLO se c'è un 伏 da portare
+   (senza 伏 → lettura normale del §4). Ed è subordinato alla forza (vedi §6).
+6. **Elemento dominante / forza (interp 2, principio unificante).** La forza dominante del quadro (三合 + Bazi) UCCIDE
+   una delle due linee: la linea CONTROLLATA dal dominante è spenta, la linea che GENERA il dominante è drenata;
+   vince chi sopravvive. Il drenaggio del §5 "vince" solo se la linea drenata è davvero DEBOLE/untimely.
+   Una linea allineata col dominante (stesso elemento, prospera) resiste e vince.
+
+### Carte di controllo (tutte lette correttamente dalla dottrina; seme + trigrammi nel testo sessione)
+- EURUSD 12/05/2022 (SHORT): catturata→Legno controlla Terra → vince catturata → SHORT. ✓
+- USDJPY 04/01/2024 (LONG): catturata→Metallo controlla Legno → vince catturata → LONG. ✓
+- GBPUSD 15/12/2022 (SHORT): Shi 戌 riceve partenza 寅 → Legno; niente 伏 sulla mobile → Ying-Acqua genera Shi-Legno,
+  vince l'altra (Ying) → SHORT. ✓ (il drenaggio NON scatta senza 伏.)
+- USDJPY 19/12/2024 (LONG): Acqua dominante — 三合水 申子辰 (anno 辰 + mese/伏 子 mobile + arrivo 申), col 子 nascosto
+  che si muove (non vuoto). L'Acqua controlla la Ying-Fuoco → Ying spenta → vince la Shi → LONG. ✓
+- USDJPY 05/02/2025 (SHORT): Fuoco dominante (anno/giorno 巳巳 + Ying 巳). Il 伏 子 (Acqua) è untimely, non riesce a
+  drenare la Shi debole in modo decisivo; la Ying-Fuoco resiste ed è forte → vince la Ying → SHORT. ✓
+  (Gemella figurale della 19/12/2024 — stesso esagramma 3/2 L5 seme 154, stesso palazzo Terra, stessa mobile 未 伏 子 —
+   ma esito opposto deciso dall'elemento dominante: Acqua vs Fuoco.)
+- USDJPY 28/04/2025 (SHORT): 三合火 寅午戌 pieno (寅 伏 sotto la Shi) → Shi rinforzata Fuoco, controlla Ying-Metallo →
+  vince la Shi → SHORT. ✓
+- USDJPY 09/03/2020 (SHORT): 三合水 申子辰 (子 dall'anno) sulla Ying → Ying-Acqua controlla Shi-Fuoco → vince Ying → SHORT. ✓
+- USDJPY 02/08/2022 (LONG): 三合legno 亥卯未 col 未 dal MESE ma 未 è VUOTO → trigono non si forma → conversione
+  semplice, Ying→Acqua, Shi-Terra la controlla → vince la Shi → LONG. ✓
+
+### Misure (env pb_stress.js, tutte spente di default; S9 invariato)
+- v7 (conversione + 三合 pieno con 伏/Bazi, membro vuoto escluso + controllo/generazione): 288 carte, 52,78%, z 0,94,
+  +2.282 pip. LY tace 19 carte, 31,58% (negativo).
+- interp 1 corretta (drenaggio solo con 伏神): 305 carte, 53,11%, z 1,09, +1.964 pip. Rompe solo USDJPY 19/12/2024
+  (poi spiegata dall'elemento dominante).
+- interp 2 (forza Shi/Ying come direttore): 48,38%, z −0,60 — scartata, sotto testa-o-croce, rompe 3 controlli.
+- MODELLO ELEMENTO DOMINANTE (forza a punteggio su Shi/Ying con bonus 三合 e soppressione): 315 carte, 45,71%,
+  z −1,52, −2.491 pip — la codificazione a punteggio NON cattura la lettura esperta.
+
+### Verdetto
+Ogni carta è spiegabile dottrinalmente e la meccanica è ora ben definita, ma NESSUNA codificazione meccanica supera
+il ~55%, e la più completa va sotto il 50%. Nel gruppo LY-tace (dove servirebbe come voce autonoma) sono 18-22 carte,
+mai con edge. Firma di un giudizio esperto non riducibile a regola a punteggio su questo dataset. Shi↔Ying "dove va
+il Qi" resta NON cablabile come decisore (coerente con §71-§72). Le regole dottrinali (三合 pieno; terzo membro anche
+伏神/Bazi; mezzi-trigoni no; membro vuoto non chiude; vuoto-che-si-muove non è vuoto; drenaggio solo con 伏; elemento
+dominante uccide la linea controllata/drenata) si TENGONO come sapere dottrinale, non come segnale. Blocchi di prova
+in pb_stress.js: QIFIX/QIV5/QIV6/QIV7/QICHOOSE2/QIFORCE (tutti sotto flag, default off).
+
+## §74 — CLASH DEL GIORNO SULLA LINEA MOBILE: la mobile SI MUOVE COMUNQUE, e il LY è più affidabile (19/08/2026)
+
+**Domanda (Edu):** una linea mobile clashata dal ramo del giorno riesce a muoversi o no? (test generale, non legato a Shi/Ying)
+
+**Test (sonda LY):** il termometro legge sempre l'ARRIVO della mobile. Se la mobile clashata non si muovesse, l'arrivo
+sarebbe rumore e il LY crollerebbe in quel gruppo. Invece:
+- mobile CLASHATA dal giorno: LY **60,26%** (234 carte, z 3,14, +2.751 pip) · recente 54,2% / vecchio 68,0%
+- mobile NON clashata: LY 56,12% (3.316 carte, z 7,05)
+**Risposta: la mobile clashata dal giorno SI MUOVE — e si muove meglio.** Il clash non la ferma, la rende più decisa
+(coerente col 冲起, il clash che "alza/attiva" la mobile). Il vantaggio è TRASVERSALE alle vie: 11 su 12 vie con ≥8
+carte clashate fanno meglio nel gruppo clashata (R5 68% vs 54%, R12 67% vs 53%, R13 63% vs 53%, R11 82% vs 58%, R6 61% vs 54%).
+Non è un artefatto di composizione delle vie.
+
+**Timeliness (dal mese, elemento di partenza della mobile):**
+- clash su mobile TIMELY (旺/相): 62,1% (103, z 2,46) · neutra (休): 66,7% (45) → il vantaggio sta qui
+- clash su mobile UNTIMELY (囚/死): 54,7% (86, z 0,86) — recente 47% → NESSUN vantaggio, il clash su una linea debole
+  non la rilancia, la disturba e basta
+- nel gruppo NON clashato la timeliness NON conta (timely 55,0% / untimely 57,4%, piatto): l'effetto è l'INTERAZIONE
+  clash × forza, non la forza da sola.
+(Il saldo Bazi dà un segnale opposto e controintuitivo su 65 carte con 89% nel vecchio — non affidabile; vale il taglio di stagione.)
+
+**Natura:** AMPLIFICATORE DI CONFIDENZA del LY (stessa famiglia di §70 Na Yin), non direzione nuova. Utile per pesare
+posizioni, non per cambiare verdetti. Cautela: vantaggio più piccolo nel periodo recente — da riverificare nel tempo.
+Non cablato. Blocchi MOBCLASHGEN / MOBCLASHVIE / MOBCLASHTIME in pb_stress.js (flag, default off).
+
+**Ricaduta su Shi↔Ying:** conferma la carta USDJPY 20/03/2026 (LY tace, mercato LONG +116): la Shi/mobile L2 亥,
+clashata dal giorno 巳, SI MUOVE comunque, arriva su 午 che combina la Ying L5 未 (vuota, 午未合) → la Ying sveglia
+vince → LONG. Spiegata.
+
+**§74 — CABLATO come PESATURA (19/08/2026, sera).** Nel blocco PBLY di pb_stress.js il sistema S9 ha ora una riga
+parallela "S9p. S9 PESATO §74": lotto x2 quando la PARTENZA della mobile e' clashata dal ramo del GIORNO (290 carte);
+i verdetti non cambiano. Risultato canonico: S9 4.111 · 56,46% · z 8,28 · +30.270 pip  →  S9p +34.200 pip (+3.930).
+Attivo di default; si spegne con PESO74=off. La versione condizionata alla timeliness (x2 solo timely/neutra) rende
+MENO (+604 su pnl PB), e penalizzare le untimely (x0,5) azzera il vantaggio: cablata la forma semplice.
+Non ancora nel PWA (liuyao.js/app.js): da aggiungere come indicazione "lotto x2" nel verdetto quando serve.
+
+## §75 — "CLASH DEL VUOTO" (冲空) come via LY: testato, sotto soglia (19/08/2026)
+
+Meccanica (da USDJPY 14/06/2022): una linea VUOTA non mobile clashata dal ramo del GIORNO viene svegliata (il primo
+clash solo la sveglia, non la muove); da svegliata può fare da intermediario (drena una linea, combina/nutre un'altra).
+Test come via:
+- perimetro stretto (la svegliata combina Shi o Ying e la nutre -> prevale la nutrita): 8 carte su 4.111 (5 col "nutre"),
+  62% ma z 0,7 — TROPPO RARA per essere misurata. LY tace: 1-2 carte.
+- perimetro largo (qualsiasi linea vuota svegliata dal giorno, 274 carte): sede della svegliata 48,54% — nessun segnale.
+- per PARENTELA della svegliata: W (Ricchezza) -> sede 58,82% (51, z 1,26; recente 57,7 / vecchio 56,5, allineati);
+  B (Fratelli) -> sede 40,00% (75, z -1,73) cioè l'OPPOSTO al 60%. Firma coerente con "W vince, B perde", ma z ~1,3-1,7:
+  SOTTO SOGLIA. LY tace: W 11 carte (72,7%), B 4 carte.
+Verdetto: NON via. Meccanica reale come evento (W svegliata bene, B svegliata male) ma troppo debole/rara per decidere.
+Tenuta come sapere, in osservazione. Blocchi VIACHONGKONG / VIACHONGKONG2 (flag, default off).
+
+## §76 — R13_52 "chi non vince perde": TOLTO il sotto-caso "arrivo clashato dal giorno" (19/08/2026) — CABLATO
+
+Analisi delle tre vie grosse e deboli (R13_52 727 carte 53,1% · R6 464 54,1% · R5 357 54,6%, insieme 38% delle carte).
+In R13_52 le perdite si concentravano nel sotto-caso "arrivo clashato dal giorno": 211 carte, 49,76%, -481 pip
+(gli altri due sotto-casi reggono: 回頭剋 313 carte 51,4%, autocombinazione positiva). Sette letture alternative
+provate su quelle 211 carte (sede, timeliness arrivo/partenza/giorno, parentela, bersaglio del clash, "segue sempre"):
+TUTTE ~44-56%, nessuna regge — sono carte SENZA informazione direzionale, e il LY ci stava dando un verdetto rumore.
+Premessa dottrinale corretta dal §74: il clash del GIORNO sulla mobile la ATTIVA (la mobile si muove, e meglio), quindi
+un arrivo clashato dal giorno NON e' "azione fallita". Tolto il sotto-caso: R13_52 resta con 回頭剋 + autocombinazione.
+Effetto su S9: 4.111 · 56,46% · z 8,28 · +30.270  →  56,58% · z 8,44 · +30.460 (+190 pip), MIGLIORA SU ENTRAMBI i
+periodi (recente 55,67→55,76 · vecchio 57,44→57,56). Modifica "togli, non aggiungi". Cablata in pb_stress.js (lyDir,
+regola 13) e in liuyao.js (via R13_52). NUOVO BASELINE S9: 4.111 · 56,58% · z 8,44 · +30.460 · S9p +34.390.
+
+**Nota su pesatura per via (verifica cieca):** lotti per via fissati sul periodo VECCHIO e applicati al RECENTE a
+esposizione pari: PEGGIORANO (11.920 -> 10.973 pip). I tassi per via non sono stabili fra periodi: pesare per via NON
+regge fuori campione, NON cablare. Il §74 (x2 mobile clashata) in cieco sul recente: +1% (12.013) — marginale ma
+credibile (nessun parametro aggiustato). ESCLUDERE i gruppi deboli perde pip (i gruppi deboli sono comunque positivi).
+Linea operativa: ~3,2 trade/giorno su 9 cross, lotto uniforme + §74.
+
+## §77 — R6 三會 (raduno dei tre col mese): TACE quando la mobile è G (19/08/2026) — CABLATO
+
+R5 退神 analizzata: 8 letture alternative provate, la regola attuale ("opposto, salvo Tai Sui che clasha la partenza")
+è la MIGLIORE (54,6%); sede-sempre 46,5%, timeliness 49%, clash giorno+anno 52,7%. R5 CONFERMATA, non toccata.
+Il recente di R5 (-199 pip) viene da pochi colpi grossi su USDJPY/EURJPY, non da un difetto della regola.
+(Nota a campione piccolo: R5 con mobile W 68%/19 carte, C 62%/16; B 53%/100, P 52%/120.)
+
+R6 三會 analizzata: 7 letture alternative, nessuna batte la maggioranza attuale (54,1%); "raduno controlla il palazzo ->
+opposto" 42% da scartare; senza COVID 54,3%, senza Legno 54,7% (non vale eccezione). Ma per PARENTELA della mobile:
+  mobile P  89 carte 67,4% z 3,29 (recente 61 / vecchio 74) — fortissima e stabile
+  mobile G  95 carte 45,3% — recente 36% — qui R6 perde davvero
+  B/C/W 51-55%.
+Cablato: R6 TACE quando la mobile e' G (coerente col principio 5, "il Yong Shen cambia la lettura della stessa azione").
+Effetto su S9: 56,58% z 8,44 +30.460  →  56,80% z 8,72 +30.272. Win% e z SALGONO (z massimo mai toccato), MIGLIORA SU
+ENTRAMBI i periodi (recente 55,76→56,02 · vecchio 57,56→57,68), ma -188 pip (le 95 carte G riprese da altre vie/PB
+indovinano piu' spesso su movimenti piu' piccoli). Cablato per z e stabilita' (i 188 pip sono entro il rumore di 3-4 carte).
+In pb_stress.js (lyDir regola 6) e liuyao.js (via R6).
+NUOVO BASELINE S9: 4.111 · 56,80% · z 8,72 · +30.272 pip · S9p (§74) +33.866.
+
+## §78 — IL GIORNO LEGATO (六合) DAL TAI SUI: inversione del ramo segue/non-segue del PB (19/08/2026) — CABLATO (S11)
+
+**Domanda di Edu:** quando il Tai Sui lega il giorno, o quando e' il mese a legarlo, ci sono carte positive che
+diventano negative o l'opposto? RISPOSTA: SI, e l'inversione e' sul Tai Sui.
+
+Misura su tutte le 4.111 carte (giorno legato = 六合 fra ramo del giorno e ramo dell'anno / del mese):
+| gruppo | n | PB "NON segue" | PB "SEGUE" |
+| giorno LIBERO | 3.417 | 54,61% (+12.813) | 53,33% (+3.172) |
+| legato dal MESE | 351 | 46,09% (-154) | 50,00% (-497) |
+| legato dal TAI SUI | 316 | 46,78% (-110) | **66,27% z 2,96 (+1.503)** |
+| legato da entrambi | 27 | 70,6% (17 carte) | 50% |
+
+- **TAI SUI lega il giorno -> SI CAPOVOLGE il pilastro del sistema.** Normalmente il profitto vive nel "non segue"
+  e il "segue" e' il ramo debole; li' il "segue" fa 66,27% (83 carte, z 2,96, recente 70,27% / vecchio 63,04% —
+  COERENTE SUI DUE PERIODI) e il "non segue" scende a 46,78%. Lettura dottrinale: il Tai Sui che lega il giorno
+  fissa la giornata sull'anno e in quel regime il trend TIENE.
+- **MESE lega il giorno -> nessuna inversione, si SPEGNE tutto:** il PB va sotto il 50% in entrambi i rami
+  (47,29% complessivo, -651 pip). Il mese che lega il giorno neutralizza il PB, non lo rovescia. (Non cablato:
+  gruppo negativo ma senza lettura alternativa; da riprendere.)
+- **Il LY NON risente di nessuno dei due** (57,75% col TS · 55,86% col mese · 56,97% libero): e' solo il PB a essere sensibile.
+
+**Cablato come S11** (rafforzativo nella stessa forma di S4/S7/S9): se il giorno e' legato dal Tai Sui E il PB segue
+il trend, il PB e' forte e il LY non lo scavalca nel contrasto.
+Effetto: S9 56,80% z 8,72 +30.272  →  **S11 56,90% z 8,84 +31.000** (+728 pip). Vecchio 57,68→57,98; recente
+56,02→55,98 (piatto). Migliora win%, z E pip insieme (le §76/§77 scambiavano pip per z). Con pesatura §74: +34.594.
+Lato motore (pb_stress.js, blocco PBLY); la PWA non implementa le policy S1-S11 (mostra PB e termometro separati).
+
+**NUOVO BASELINE: S11 · 4.111 carte · 56,90% · z 8,84 · +31.000 pip · S11p (con §74) +34.594.**
+
+**Nota — meccaniche dottrinali testate e NON cablabili (19/08, sera):** "il clash del giorno e' neutralizzato se il
+giorno e' combinato dal Tai Sui" (da AUDUSD 02/08/2022): solo 41 carte nel perimetro, sede 48,8% vs opposto 51,2%,
+periodi discordi (recente 64 / vecchio 40) — NESSUNA differenza misurabile. Conferma inoltre che l'intero gruppo
+"arrivo clashato dal giorno" (415 carte) e' rumore puro (sede 47,6% / opposto 52,4%): §76 era la mossa giusta.
+
+## §79 — RAMO DEL TRIGRAMMA CHE SI MUOVE: pista quasi tutta chiusa, un candidato in osservazione (19/08/2026)
+
+Idea di Edu: il trigramma che CONTIENE la mobile porta con se' il suo ramo (Houtian: 坎=子 · 艮=丑寅 · 震=卯 · 巽=辰巳 ·
+離=午 · 坤=未申 · 兌=酉 · 乾=戌亥) e quel ramo agisce sul quadro.
+Testate: clash/combinazione del ramo su una linea (48-51%), clash su Shi o Ying (51%), la catena esatta della carta
+(冲空 su Shi/Ying che poi controlla l'altra: 46 carte, 50,00%, periodi opposti), elemento del trigramma che controlla
+Shi/Ying (51%). Poi, su indicazione di Edu, azione elementale (controlla/drena/nutre) col FILTRO "mobile bloccata da
+combinazione o clash": tutte le celle 48-51%, LY tace 50,0% su 174 carte. PISTA CHIUSA in queste forme.
+
+**CANDIDATO IN OSSERVAZIONE (non cablato):** "il ramo del trigramma che si muove CLASHA una linea VUOTA -> quella linea
+e' spenta (NON svegliata) e il suo lato PERDE -> clan OPPOSTO". E' il rovescio del 冲空 del giorno (il giorno risveglia,
+il ramo del trigramma annulla).
+- LY TACE: 44 carte, **72,73%**, z 3,02, +934 pip · recente 66,7% / vecchio 75,0% (coerente) · senza COVID 43 carte 72,1%
+- taglio piu' pulito: la vuota clashata NON e' ne' Shi ne' Ying -> **25 carte, 84,0%, z 3,40** (recente 90 / vecchio 77)
+- se la vuota E' Shi o Ying: sparisce (50% / 63,6%)
+- LY PARLA: 297 carte, 50,84% — NESSUN segnale (funziona solo dove il LY non ha voce: via "di riserva")
+Cautela: 44 carte (25 nel taglio migliore), z 3,02 sotto la soglia z>4. NON cablato, da riverificare con piu' dati.
+Blocchi TRIGRAMO / TRIGRAMO2 / TRIGVUOTO in pb_stress.js (flag, default off).
+
+## §80 — ESISTE UN INDICATORE DI TREND DENTRO IL LY? Risposta: NO (19/08/2026)
+
+Domanda di Edu: il LY produce solo alto/basso (clan) — chi vince — e mai "segue / non segue". Il segue/non-segue lo
+produce SOLO il PB. Si e' cercato un indicatore di trend interno al LY. Provate CINQUE costruzioni, decine di varianti:
+
+1. **La MOBILE rappresenta il trend** (bloccata -> non segue). Tutte le forme di "blocco" da COMBINAZIONE/CLASH/回頭剋
+   danno SOTTO il 50% (48,3-49,9%): quando la mobile e' impedita il trend TIENE, il contrario dell'intuizione.
+   L'unico verso giusto e' la FORZA: mobile untimely -> non segue 51,7% z 2,17 (LY tace 54,8%).
+   Per parentela della mobile: W 53,6% z 2,03 · C 55,3% z 2,43 (LY tace 59,2%) · B 49,0% · P periodi opposti · G 51,1%.
+2. **Parentela dell'ARRIVO.** Arrivo W -> "non segue" 53,2% (LY tace 168 carte **57,74% z 2,01**, recente 58,1/vecchio 58,5).
+   Arrivo G -> NIENTE (49,7/50,3, periodi opposti). Altri arrivi 50,8-51,5%.
+   **Provato come S12 sopra S11: PEGGIORA (56,90->56,43%, z 8,84->8,25, 31.000->28.276 pip).** Il PB su quelle carte fa
+   gia' meglio: un tasso alto in isolamento NON implica additivita'. Non cablato.
+3. **La SHI rappresenta il trend.** Le singole condizioni sono quasi tutte negative (Shi clashata dal giorno 48,9% ·
+   Shi e' la mobile 48,7% · combinata dal giorno 48,9% · drenata 49,7% · controllata 49,6%): quando la Shi e' colpita
+   il trend TIENE. Miglior combinazione (controllata o drenata o vuota -> non segue): 51,5% z 1,98 (LY tace 55,6% z 2,87).
+   Sotto il PB (53,5% / 53,75%).
+4. **Shi qualificata dalla PARENTELA** (Edu: Shi B o P che vince = negativo per il trend, e l'opposto). Quattro varianti:
+   49,1-50,0% (LY tace 49,0-51,7%). La parentela della Shi NON discrimina. Dettaglio: "seguire" e' sotto il 50% in quasi
+   tutte le celle per ogni parentela; l'unica sopra (Shi P sana 53,7%) ha periodi opposti (59,5/47,6) = rumore.
+5. **Rappresentante scelto dall'EMA** (rialzista -> quello in alto fra Shi/Ying, e viceversa).
+   NOTA CONCETTUALE: nella forma letterale "il rappresentante vince -> segue" questa idea e' MATEMATICAMENTE IDENTICA
+   alla lettura per clan che il LY gia' usa (alto vince = LONG = segue quando l'EMA e' up, ecc.). Il LY quindi UN rapporto
+   col trend ce l'ha: e' esattamente la lettura per clan, vista dall'altro lato. La versione non banale (rappresentante
+   forte -> segue) da' 49,4-50,7%. Anche "Shi allineata + non contrastata -> trend confermato" (7 definizioni di
+   contrasto): 49,3-51,4%.
+
+**CONCLUSIONE: il LY non contiene un secondo canale di lettura del trend, indipendente dal PB.** Legge chi vince fra
+alto e basso; il "segue/non segue" resta compito del PB (53,5% da solo, z 4,51). La divisione del lavoro PB(trend) +
+LY(chi vince) e' cio' che produce S11 56,90% z 8,84.
+
+### Le SEI BESTIE (prima esplorazione, 19/08/2026)
+- **青龍 Drago Azzurro** — unico segnale reale del filone: **"Drago in ALTO -> segue, in BASSO -> non segue": 4.111 carte,
+  51,79%, z 2,29, +9.843 pip, recente 51,0 / vecchio 52,2 (coerenti).** Come DIREZIONE invece non funziona (sede del
+  Drago -> clan 50,1%; LY tace 46,9%). Altre celle: Drago sulla mobile -> NON segue 52,6% · Drago sulla Shi -> non segue 52,8%.
+  Provato come rafforzativo sopra S11 (S13: Drago in alto sostiene chi segue): 56,87% z 8,81 **+31.601 pip** e RECENTE
+  MIGLIORE (55,98->56,24) ma z e vecchio leggermente peggio. Le varianti S14 (Drago in basso sostiene chi non segue) e
+  S15 (entrambi i versi) PEGGIORANO nettamente (56,31 / 56,29%). NON cablato: guadagno dentro il rumore, pagato con z.
+- **白虎 Tigre Bianca** — NIENTE, in 13 letture (49,1-50,8%). Come impulso ribassista ("Tigre -> SHORT sempre") 49,6%:
+  nessuna spinta ribassista intrinseca. Come trend: Tigre in alto -> non segue 50,3%; Tigre sulla Shi -> non segue 49,1%.
+  Miglior cella "sede della Tigre -> clan opposto" 50,8% (contro-immagine del Drago, meta' del suo segnale).
+  Nel LY tace "Tigre forte -> SHORT" fa 44,5% (z -2,58): una Tigre forte NON implica ribasso, semmai il contrario.
+  **Asimmetria Drago/Tigre: non sono una coppia simmetrica.**
+- **DA FARE:** esplorazione sistematica di tutte e sei le bestie incrociate con Shi/Ying/mobile, parentela e forza,
+  in sessione dedicata. E' l'unico filone di oggi che ha mostrato un segnale coerente sui due periodi.
+Blocchi MOBTREND / MOBTREND2 / SHITREND / SHITREND2 / REPTREND / SHIALLIN / BESTIE / TIGRE in pb_stress.js (flag, default off).
