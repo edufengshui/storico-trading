@@ -6354,6 +6354,7 @@ if (process.env.PBLY) {
         push('S17. S11 + Serpente untimely sostiene chi NON segue', s17, r);
         push('S17p. S17 PESATO §74', s17, r, peso74(r));
         r._S17ref = s17;
+        if (process.env.DUMPS17) { (global.__s17dump = global.__s17dump || []).push({c:r.cross,d:r.date,dir:s17,move:r.move}); }
         const s18 = ((r._aOra || r._wVirtu || r._wStelo || r._tsLegaGiorno || sf) && pbSegue) || (ss && !pbSegue) ? pb : ly;
         push('S18. S11 + Serpente in entrambi i versi', s18, r);
         push('S18p. S18 PESATO', s18, r, peso74(r));
@@ -6406,6 +6407,7 @@ if (process.env.PBLY) {
       push('S17. S11 + Serpente untimely sostiene chi NON segue', pb, r);
       push('S17p. S17 PESATO §74', pb, r, peso74(r));
       r._S17ref = pb;
+      if (process.env.DUMPS17) { (global.__s17dump = global.__s17dump || []).push({c:r.cross,d:r.date,dir:pb,move:r.move}); }
       push('S18. S11 + Serpente in entrambi i versi', pb, r);
       push('S18p. S18 PESATO', pb, r, peso74(r));
       push('S19. S16 + Drago in alto (S13+S16)', pb, r);
@@ -6424,6 +6426,7 @@ if (process.env.PBLY) {
 
   const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
   const z=o=>{const n=o.w+o.l; if(!n)return '—'; const p=o.w/n; return ((p-0.5)/Math.sqrt(0.25/n)).toFixed(2);};
+  if (process.env.DUMPS17) { require('fs').writeFileSync(process.env.DUMPS17, JSON.stringify(global.__s17dump||[])); }
   console.log('\n############## GRANDE TEST PB + LY ##############');
   console.log('carte totali: '+rows.length+'  ·  concordi: '+concordi+'  ·  contrasti: '+contrasti+
               '  ·  LY tace: '+lyMuto+'  ·  PB deboli: '+dubbiRisolti);
@@ -7266,10 +7269,13 @@ if (process.env.CARTAFULL) {
     console.log('MUTAZIONE: L'+R.mutante.pos+'  '+R.mutante.ramoDep+' → '+R.mutante.ramoArr+
                 '   caso '+R.mutante.casoMut+': '+(R.mutante.casoLabel||'')+
                 (R.mutante.progressione?'   ['+R.mutante.progressione+']':''));
-    console.log('   il ramo di arrivo '+R.mutante.ramoArr+' combina (六合) con '+COMB[R.mutante.ramoArr]);
     const tgt=R.linee.filter(l=>l.pos!==mob.pos && l.ramo===COMB[R.mutante.ramoArr]);
-    if(tgt.length) console.log('   → bersaglio: L'+tgt[0].pos+' '+tgt[0].parCn+'('+parIt[tgt[0].par]+') '+
-       tgt[0].ramo+'  [stato '+tgt[0].stato+']');
+    if(tgt.length) {
+      console.log('   il ramo di arrivo '+R.mutante.ramoArr+' combina (六合) con L'+tgt[0].pos+' '+
+        tgt[0].parCn+'('+parIt[tgt[0].par]+') '+tgt[0].ramo+'  [stato '+tgt[0].stato+']');
+    } else {
+      console.log('   combinazione (六合) dell arrivo: NESSUN BERSAGLIO fra le linee visibili');
+    }
     console.log('');
     console.log('ESITO DI MERCATO: '+(r.move>0?'SALE (LONG)':'SCENDE (SHORT)')+' '+Math.abs(r.move).toFixed(0)+' pip');
     console.log('Trend EMA: '+(r.emaDir==='up'?'LONG':'SHORT')+' (barra '+r.emaRun+')');
@@ -18025,7 +18031,7 @@ if (process.env.AZIONEFALLITA) {
     const F={};
     F.F1 = R.vuoti.indexOf(arr)>=0;
     F.F2 = !!(mob.fushen && mob.fushen.b===D && timelyEl(mob.fushen.el,mEl));
-    F.F3 = (COMBINA[D]===arr);
+    F.F3 = (COMBINA[D]===arr) && !(COMBINA[Mo]===D);   // 21/08: il giorno legato dal mese non blocca
     F.F4 = (CLASH[D]===dep && CLASH[Mo]===dep);
     F.F5 = (TOMB[WX[arr]]===Mo);
     const attivi = Object.keys(F).filter(k=>F[k]);
@@ -18063,7 +18069,7 @@ if (process.env.CARATTERE) {
     const mob = R.linee[R.mutante.pos-1]; if(!mob) continue;
     const car = mob.par; if(!car) continue;
     const arr = R.mutante.ramoArr, D=r.dayBranchUsed, Mo=r.monthBranchUsed;
-    const f1 = R.vuoti.indexOf(arr)>=0, f3 = (COMBINA[D]===arr), f5 = (TOMB[WX[arr]]===Mo);
+    const f1 = R.vuoti.indexOf(arr)>=0, f3 = (COMBINA[D]===arr) && !(COMBINA[Mo]===D), f5 = (TOMB[WX[arr]]===Mo);
     const fallita = f1||f3||f5;
     const sedeD = mob.pos<=3 ? 'SHORT':'LONG';
     if (fallita) {
@@ -18085,6 +18091,713 @@ if (process.env.CARATTERE) {
   }
 }
 
+if (process.env.AFFILAC2) {
+  // Affilatura di secondo livello: SOLO dentro "C libero da seggio (ne Shi ne Ying) con azione non compiuta".
+  const LYM = require('./liuyao.js');
+  const SEASON={'寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire','午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water','子':'Water','丑':'Earth'};
+  const TOMB={Water:'辰',Wood:'未',Fire:'戌',Metal:'丑'};
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,dir,r)=>{ if(!dir) return; M[k]=M[k]||mk(); const pnl=dir==='LONG'?r.move:-r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(pnl>0)o.w++; else if(pnl<0)o.l++; o.p+=pnl;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob = R.linee[R.mutante.pos-1]; if(!mob || mob.par!=='C') continue;
+    if (mob.isShi || mob.isYing) continue; // solo libero da seggio
+    const arr = R.mutante.ramoArr, D=r.dayBranchUsed, Mo=r.monthBranchUsed, mEl=SEASON[Mo];
+    const f1 = R.vuoti.indexOf(arr)>=0, f3 = (COMBINA[D]===arr) && !(COMBINA[Mo]===D), f5 = (TOMB[WX[arr]]===Mo);
+    if (!(f1||f3||f5)) continue;
+    add('BASE · C libero da seggio, fallita','LONG',r);
+    const tim = (mob.el===mEl)||(GEN[mEl]===mob.el);
+    const t=LYM.termometro(R,{oraBranch:r.oraBranch,emaDir:r.emaDir,date:r.date},{},{});
+    add('  '+(tim?'TIMELY':'untimely'),'LONG',r);
+    add('  in '+(mob.pos<=3?'basso':'alto'),'LONG',r);
+    add('  '+(t.dir?'LY parla':'LY tace'),'LONG',r);
+    add('  modo '+(f1?'F1':f3?'F3':'F5')+(([f1,f3,f5].filter(Boolean).length>1)?'+altro':' solo'),'LONG',r);
+    if (tim && mob.pos>3) add('  ** TIMELY + in alto','LONG',r);
+    if (tim && !t.dir) add('  ** TIMELY + LY tace','LONG',r);
+    if (mob.pos>3 && !t.dir) add('  ** in alto + LY tace','LONG',r);
+    if (tim && mob.pos>3 && !t.dir) add('  *** TIMELY + in alto + LY tace','LONG',r);
+    if (f1) add('  F1 arrivo vuoto (isolato)','LONG',r);
+    if (f1 && tim) add('  ** F1 + TIMELY','LONG',r);
+    if (f1 && mob.pos>3) add('  ** F1 + in alto','LONG',r);
+    // controparte: stesso identico taglio ma senza il requisito "fallita" (controllo)
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zs=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== AFFILATURA 2 · dentro "C libero da seggio, azione non compiuta" -> LONG ===');
+  console.log('cella'.padEnd(42)+'n'.padStart(6)+'long%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M)){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(42)+String(n).padStart(6)+pc(d.t).padStart(9)+zs(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.LISTAC) {
+  // Elenco delle carte del gruppo base "C libero da seggio, azione fallita" che PERDONO (predetto LONG, esito SHORT).
+  const LYM = require('./liuyao.js');
+  const SEASON={'寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire','午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water','子':'Water','丑':'Earth'};
+  const TOMB={Water:'辰',Wood:'未',Fire:'戌',Metal:'丑'};
+  const persi=[];
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob = R.linee[R.mutante.pos-1]; if(!mob || mob.par!=='C') continue;
+    if (mob.isShi || mob.isYing) continue;
+    const arr = R.mutante.ramoArr, D=r.dayBranchUsed, Mo=r.monthBranchUsed;
+    const f1 = R.vuoti.indexOf(arr)>=0, f3 = (COMBINA[D]===arr) && !(COMBINA[Mo]===D), f5 = (TOMB[WX[arr]]===Mo);
+    if (!(f1||f3||f5)) continue;
+    if (r.move < 0) persi.push({cross:r.cross, date:r.date, pnl:r.move});
+  }
+  persi.sort((a,b)=>a.pnl-b.pnl);
+  console.log('\\n=== CARTE PERSE nel gruppo "C libero da seggio, fallita" (predetto LONG) ===');
+  console.log('totale perse: '+persi.length);
+  for(const p of persi) console.log('  '+p.cross+' '+p.date+'  '+p.pnl+' pip');
+}
+
+if (process.env.TRASPCAR) {
+  // Quadro del 16/08 (A trasportata su C, relazione elementale) SPACCATO per carattere di A.
+  // Serve a rispondere: esiste un taglio per carattere di chi viene portato?
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob=R.linee[R.mutante.pos-1]; if(!mob) continue;
+    const A=R.mutante.ramoDep, B=R.mutante.ramoArr;
+    if (R.vuoti.indexOf(B)>=0) continue;          // arrivo in VUOTO: non atterra, niente trasporto
+    if (R.mutante.movimentoNullo && process.env.NONULLO) continue;
+    const cs=R.linee.filter(l=>!l.isMobile && l.ramo===COMBINA[B]);
+    if (cs.length!==1) continue;
+    const c=cs[0]; const cSotto=c.pos<=3; const sale=r.move>0;
+    const ok = cSotto?!sale:sale;            // VINCE il trigramma della destinazione (dove atterra)
+    const aEl=WX[A], cEl=c.el;
+    let az;
+    if (CLASH[A]===c.ramo) az='A CLASHA C';
+    else if (aEl===cEl) az='A stesso el.';
+    else if (GEN[aEl]===cEl) az='A GENERA C';
+    else if (GEN[cEl]===aEl) az='A drena C';
+    else if (CTRL[aEl]===cEl) az='A CONTROLLA C';
+    else if (CTRL[cEl]===aEl) az='A controllata da C';
+    else az='altro';
+    const car = mob.par;
+    add('CARATTERE DI A = '+car+' · tutte le azioni', ok, r);
+    add('  A='+car+' · '+az, ok, r);
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== TRASPORTO · spaccato per CARATTERE di A (chi viene portato) ===');
+  console.log('(% = la sezione di C NON regge)\\n');
+  console.log('cella'.padEnd(46)+'n'.padStart(6)+'OK'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const car of ['G','W','C','B','P']){
+    for(const [k,d] of Object.entries(M).sort()){ if(k.indexOf('= '+car+' ')<0 && k.indexOf('A='+car+' ')<0) continue;
+      const n=d.t.w+d.t.l; if(n<12) continue;
+      console.log(k.padEnd(46)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+    console.log('');
+  }
+}
+
+// ===== FILTRO COMUNE (21/08/2026): ogni misura passa da qui prima di produrre numeri o carte =====
+// Applica le meccaniche GIA' FISSATE: 動不為空 (mobile mai vuota), arrivo in vuoto = niente
+// atterraggio, movimento nullo = niente azione/trasporto (il motore ora incorpora anche
+// "giorno legato dal mese non sospende"). Ritorna null se il trasporto non e' valido,
+// altrimenti {mob, A, B, dest}.
+function trasportoValido(R, rows_r) {
+  const mob = R.linee[R.mutante.pos-1];
+  if (!mob) return null;
+  if (R.mutante.movimentoNullo) return null;                 // include arrivo vuoto e sospensioni
+  const A = R.mutante.ramoDep, B = R.mutante.ramoArr;
+  if (R.vuoti.indexOf(B) >= 0) return null;                  // ridondante col motore, per sicurezza
+  // M4 (F2): il 伏神 della mobile sul ramo del GIORNO sopprime la mobile: non parte.
+  // Il giorno rinforza il proprio ramo (日辰臨爻): il nascosto e' forte a prescindere dalla stagione.
+  if (mob.fushen && rows_r && mob.fushen.b === rows_r.dayBranchUsed) return null;
+  // F4: partenza clashata da giorno E mese: non parte
+  if (rows_r && CLASH[rows_r.dayBranchUsed]===A && CLASH[rows_r.monthBranchUsed]===A) return null;
+  const part = COMBINA[B];
+  if (!part) return null;
+  const cs = R.linee.filter(l => !l.isMobile && l.ramo === part);
+  if (cs.length !== 1) return null;                          // atterraggio ambiguo o assente
+  // la destinazione deve poter RICEVERE: una linea rotta (clash effettivo), eliminata o
+  // autocombinata non riceve nulla (Edu, 21/08/2026, da USDCAD 25/03/2020)
+  if (['rotta','eliminata','autocombinata'].indexOf(cs[0].stato) >= 0) return null;
+  return { mob, A, B, dest: cs[0] };
+}
+
+if (process.env.TRASPKO2) {
+  // Carte in cui la regola del trasporto CON ribaltamento continua a sbagliare.
+  // Stesso perimetro di TRASPRIB. Ordinate per perdita.
+  const LYM = require('./liuyao.js');
+  const SEASON={'寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire','午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water','子':'Water','丑':'Earth'};
+  const MORTI=['legata','rotta','dormiente','eliminata','autocombinata'];
+  const ko=[];
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const T = trasportoValido(R, r);
+    if (!T) continue;
+    const {mob, A, dest:c} = T;
+    const car = mob.par; if (car==='C') continue;
+    const cSotto = c.pos<=3, sale = r.move>0;
+    const vinceSotto = (car==='G'||car==='W') ? cSotto : !cSotto;
+    const mEl=SEASON[r.monthBranchUsed], mEl2=WX[r.monthBranchUsed];
+    const timely = el => el===mEl || GEN[mEl]===el || el===mEl2 || GEN[mEl2]===el;
+    const puoVincere = trigSotto => R.linee.some(l => (trigSotto ? l.pos<=3 : l.pos>=4) &&
+        !l.isMobile && MORTI.indexOf(l.stato)<0 && timely(l.el));
+    const capace = puoVincere(vinceSotto);
+    const vf = capace ? vinceSotto : !vinceSotto;
+    const ok = vf ? !sale : sale;
+    if (!ok) ko.push({c:r.cross,dt:r.date,car,mobPos:mob.pos,A,B:T.B,destPos:c.pos,
+      capace, dir: vf?'SHORT':'LONG', pip:Math.abs(r.move)});
+  }
+  ko.sort((a,b)=>b.pip-a.pip);
+  console.log('\\n=== il 49%: carte in cui il trasporto (col ribaltamento) sbaglia: '+ko.length+' ===');
+  ko.slice(0,15).forEach(p=>console.log('  '+p.c+' '+p.dt+'  mob L'+p.mobPos+' '+p.car+' '+p.A+'->'+p.B+
+    '  atterra L'+p.destPos+(p.capace?'':'  [RIBALTATA]')+'  dice '+p.dir+'  -'+p.pip.toFixed(0)));
+}
+
+if (process.env.TRASPRIB) {
+  // TRASPORTO + RIBALTAMENTO (Edu, 21/08/2026, da USDCAD 11/06/2020):
+  // il verdetto del trasporto designa un vincitore, ma il vincitore DEVE POTER vincere.
+  // Definizione proposta (da validare): il trigramma designato "puo' vincere" se ha almeno
+  // una linea VIVA (non legata/rotta/dormiente/eliminata/autocombinata) E TIMELY.
+  // Se non puo', il verdetto si ribalta.
+  const LYM = require('./liuyao.js');
+  const SEASON={'寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire','午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water','子':'Water','丑':'Earth'};
+  const MORTI=['legata','rotta','dormiente','eliminata','autocombinata'];
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const T = trasportoValido(R, r);
+    if (!T) continue;
+    const {mob, A, dest:c} = T;
+    const car = mob.par; if (car==='C') continue;
+    const cSotto = c.pos<=3, sale = r.move>0;
+    // vincitore designato dalla regola base
+    const vinceSotto = (car==='G'||car==='W') ? cSotto : !cSotto;
+    // il trigramma designato puo' vincere?
+    const mEl=SEASON[r.monthBranchUsed], mEl2=WX[r.monthBranchUsed];
+    const timely = el => el===mEl || GEN[mEl]===el || el===mEl2 || GEN[mEl2]===el;
+    const puoVincere = trigSotto => R.linee.some(l => (trigSotto ? l.pos<=3 : l.pos>=4) &&
+        !l.isMobile && MORTI.indexOf(l.stato)<0 && timely(l.el));
+    const capace = puoVincere(vinceSotto);
+    const vinceSottoFinale = capace ? vinceSotto : !vinceSotto;
+    // convenzione (Edu): il sotto vince = SHORT (mercato scende); il sopra vince = LONG
+    const ok = vinceSottoFinale ? !sale : sale;
+    const okBase = vinceSotto ? !sale : sale;
+    add('BASE (senza ribaltamento)', okBase, r);
+    add('CON RIBALTAMENTO', ok, r);
+    add('  carte '+(capace?'NON ribaltate':'RIBALTATE')+' · con ribaltamento', ok, r);
+    add('  carte '+(capace?'NON ribaltate':'RIBALTATE')+' · base', okBase, r);
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== TRASPORTO + "il vincitore deve poter vincere" ===');
+  console.log('cella'.padEnd(48)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(48)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.TRASPKO) {
+  // Carte VALIDE (filtro comune) in cui la regola di Edu sul trasporto SBAGLIA,
+  // ordinate per perdita. Solo G/W/B/P (C non ha ancora un verso).
+  const LYM = require('./liuyao.js');
+  const ko=[];
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const T = trasportoValido(R, r);
+    if (!T) continue;
+    const {mob, A, dest:c} = T;
+    const cSotto = c.pos<=3, sale = r.move>0;
+    const okDest = cSotto ? !sale : sale;
+    const car = mob.par;
+    let ok=null, dir=null;
+    if (car==='G'||car==='W') { ok = okDest; dir = cSotto?'SHORT':'LONG'; }
+    else if (car==='B'||car==='P') { ok = !okDest; dir = cSotto?'LONG':'SHORT'; }
+    if (ok===false) ko.push({c:r.cross,dt:r.date,car,mobPos:mob.pos,A,B:T.B,destPos:c.pos,destPar:c.par,destRamo:c.ramo,destStato:c.stato,dir,pip:Math.abs(r.move)});
+  }
+  ko.sort((a,b)=>b.pip-a.pip);
+  console.log('\\n=== carte valide in cui la regola del trasporto SBAGLIA: '+ko.length+' ===');
+  ko.slice(0,12).forEach(p=>console.log('  '+p.c+' '+p.dt+'  mob L'+p.mobPos+' '+p.car+' '+p.A+'->'+p.B+
+    '  atterra L'+p.destPos+' '+p.destPar+' '+p.destRamo+' ('+p.destStato+')  regola dice '+p.dir+'  -'+p.pip.toFixed(0)));
+}
+
+if (process.env.TRASPOK) {
+  // TRASPORTO col filtro comune e col VERSO GIUSTO (Edu, 21/08/2026):
+  // "vince il trigramma dove atterra" per G e W; il contrario per B e P; C da testare.
+  // Spaccato per carattere di A x azione elementale di A su C.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const T = trasportoValido(R, r);
+    if (!T) continue;
+    const {mob, A, dest:c} = T;
+    const cSotto = c.pos<=3, sale = r.move>0;
+    const okDest = cSotto ? !sale : sale;      // vince il trigramma dove atterra
+    const aEl=WX[A], cEl=c.el;
+    let az;
+    if (CLASH[A]===c.ramo) az='A CLASHA C';
+    else if (aEl===cEl) az='A stesso el.';
+    else if (GEN[aEl]===cEl) az='A GENERA C';
+    else if (GEN[cEl]===aEl) az='A drena C';
+    else if (CTRL[aEl]===cEl) az='A CONTROLLA C';
+    else if (CTRL[cEl]===aEl) az='A controllata da C';
+    else az='altro';
+    const car=mob.par;
+    // verso per carattere: G/W -> vince la destinazione; B/P -> il contrario; C misurato in entrambi
+    let ok=null;
+    if (car==='G'||car==='W') ok = okDest;
+    else if (car==='B'||car==='P') ok = !okDest;
+    if (ok!==null) { add('REGOLA EDU · tutte ('+'G/W dest, B/P contrario)', ok, r);
+                     add('  A='+car, ok, r); add('  A='+car+' · '+az, ok, r); }
+    if (car==='C') { add('  A=C · destinazione vince', okDest, r); add('  A=C · contrario', !okDest, r); }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== TRASPORTO VALIDO (filtro comune) · verso di Edu ===');
+  console.log('cella'.padEnd(46)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<12) continue;
+    console.log(k.padEnd(46)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.TRASPCARTE) {
+  // Elenco carte della cella scelta, ordinate per pip: serve per portarle a Edu.
+  // CELLA=gen  -> A GENERA C, C = Figli
+  // CELLA=ctrl -> A controllata da C, A molto piu forte
+  const LYM = require('./liuyao.js');
+  const cella = process.env.CELLA || 'gen';
+  const out=[];
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob=R.linee[R.mutante.pos-1]; if(!mob) continue;
+    const A=R.mutante.ramoDep, B=R.mutante.ramoArr;
+    const cs=R.linee.filter(l=>!l.isMobile && l.ramo===COMBINA[B]);
+    if (cs.length!==1) continue;
+    const c=cs[0]; const cSotto=c.pos<=3; const sale=r.move>0;
+    const ok = cSotto?!sale:sale;   // vince il trigramma dove atterra
+    const aEl=WX[A], cEl=c.el;
+    let sel=false;
+    if (cella==="gen")  sel = (GEN[aEl]===cEl && !(CLASH[A]===c.ramo) && aEl!==cEl && c.par==="C");
+    if (cella==="gctrl") sel = (mob.par==="G" && CTRL[aEl]===cEl && !(CLASH[A]===c.ramo) && aEl!==cEl);
+    if (cella==="gw") sel = ((mob.par==="G"||mob.par==="W"));
+    if (cella==='ctrl') {
+      if (CTRL[cEl]===aEl && !(CLASH[A]===c.ramo) && aEl!==cEl) {
+        const FA = LYM.forzaModello(R,{oraBranch:r.oraBranch,date:r.date},mob.pos);
+        const FC = LYM.forzaModello(R,{oraBranch:r.oraBranch,date:r.date},c.pos);
+        sel = (FA.linee[mob.pos-1].score - FC.linee[c.pos-1].score) >= 2;
+      }
+    }
+    if (!sel) continue;
+    out.push({c:r.cross,dt:r.date,ok,pip:Math.abs(r.move),mobPos:mob.pos,mobPar:mob.par,A,B,
+              destPos:c.pos,destPar:c.par,destRamo:c.ramo,destStato:c.stato,
+              dir: cSotto?'SHORT':'LONG'});
+  }
+  const good=out.filter(x=>x.ok).sort((a,b)=>b.pip-a.pip);
+  const bad =out.filter(x=>!x.ok).sort((a,b)=>b.pip-a.pip);
+  console.log('\\n=== CELLA '+cella+' · '+out.length+' carte ('+good.length+' giuste, '+bad.length+' sbagliate) ===');
+  console.log('-- dove FUNZIONA --');
+  good.slice(0,8).forEach(p=>console.log('  '+p.c+' '+p.dt+'  mob L'+p.mobPos+' '+p.mobPar+' '+p.A+'->'+p.B+
+    '  atterra L'+p.destPos+' '+p.destPar+' '+p.destRamo+' ('+p.destStato+')  dice '+p.dir+'  +'+p.pip.toFixed(0)));
+  console.log('-- dove FALLISCE --');
+  bad.slice(0,5).forEach(p=>console.log('  '+p.c+' '+p.dt+'  mob L'+p.mobPos+' '+p.mobPar+' '+p.A+'->'+p.B+
+    '  atterra L'+p.destPos+' '+p.destPar+' '+p.destRamo+' ('+p.destStato+')  dice '+p.dir+'  -'+p.pip.toFixed(0)));
+}
+
+if (process.env.TRASPFORZA) {
+  // Modulazione di forza sul trasporto (Edu, 21/08/2026):
+  // "L'efficacia del trasporto dipende dalla forza di chi atterra (A) e di chi riceve (C).
+  //  Se A e' molto forte si impone anche se C controlla A o c'e' clash; se C e' molto forte
+  //  puo' accadere il contrario."
+  // Perimetro: la cella viva del 16/08 -> A GENERA C, e il quadro completo per confronto.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip = Math.abs(r.move) * (ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  const parIt={G:'Ufficiale',W:'Ricchezza',P:'Genitori',C:'Figli',B:'Fratelli'};
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob=R.linee[R.mutante.pos-1]; if(!mob) continue;
+    const A=R.mutante.ramoDep, B=R.mutante.ramoArr;
+    const cs=R.linee.filter(l=>!l.isMobile && l.ramo===COMBINA[B]);
+    if (cs.length!==1) continue;
+    const c=cs[0]; const cSotto=c.pos<=3; const sale=r.move>0;
+    const ok = cSotto?sale:!sale;         // la sezione di C NON regge
+    const aEl=WX[A], cEl=c.el;
+    let az;
+    if (CLASH[A]===c.ramo) az='A CLASHA C';
+    else if (aEl===cEl) az='A stesso el.';
+    else if (GEN[aEl]===cEl) az='A GENERA C';
+    else if (GEN[cEl]===aEl) az='A drena C';
+    else if (CTRL[aEl]===cEl) az='A CONTROLLA C';
+    else if (CTRL[cEl]===aEl) az='A controllata da C';
+    else az='altro';
+    // forze dal modello generale, con focus sulla mobile (A) e su C
+    const FA = LYM.forzaModello(R, {oraBranch:r.oraBranch, date:r.date}, mob.pos);
+    const FC = LYM.forzaModello(R, {oraBranch:r.oraBranch, date:r.date}, c.pos);
+    const sA = FA.linee[mob.pos-1].score, sC = FC.linee[c.pos-1].score;
+    const diff = sA - sC;
+    const fascia = diff >= 2 ? 'A molto piu forte (>=2)' : diff <= -2 ? 'C molto piu forte (<=-2)' : 'forze vicine';
+    add('TUTTE', ok, r);
+    add(az, ok, r);
+    add(az+' · '+fascia, ok, r);
+    if (az==='A GENERA C') {
+      add('  [A GENERA C] C = '+parIt[c.par], ok, r);
+      add('  [A GENERA C] C = '+parIt[c.par]+' · '+fascia, ok, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== TRASPORTO x FORZA (A che atterra vs C che riceve) ===');
+  console.log('(% = la sezione di C NON regge)\\n');
+  console.log('cella'.padEnd(52)+'n'.padStart(6)+'OK'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<12) continue;
+    console.log(k.padEnd(52)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.TRASPORTO_NEW) {
+  // TRASPORTO (Edu, 21/08/2026): se l'arrivo della mobile combina (六合) con una linea
+  // dell'ALTRO trigramma, la PARTENZA "viene portata" su quella linea.
+  // Regola dettata: G o W trasportati -> vince il trigramma opposto (la destinazione perde).
+  //                 B o P trasportati -> avviene il contrario (la destinazione vince).
+  //                 C -> da testare.
+  // "trigramma opposto" ha due letture possibili: opposto alla DESTINAZIONE o alla SEDE
+  // della mobile. Le misuro entrambe e le tengo separate.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,dir,r)=>{ if(!dir) return; M[k]=M[k]||mk(); const pnl=dir==='LONG'?r.move:-r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(pnl>0)o.w++; else if(pnl<0)o.l++; o.p+=pnl;} };
+  const sede = p => p<=3 ? 'SHORT' : 'LONG';
+  const opp  = p => p<=3 ? 'LONG' : 'SHORT';
+  let nTot=0;
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob = R.linee[R.mutante.pos-1]; if(!mob) continue;
+    if (R.mutante.movimentoNullo) continue;              // nessuna azione: non c'e' trasporto
+    const arr = R.mutante.ramoArr, part = COMBINA[arr];
+    if (!part) continue;
+    const dest = R.linee.filter(l=>l.pos!==mob.pos && l.ramo===part);
+    if (dest.length!==1) continue;                        // trasporto ambiguo: scarto
+    const D = dest[0];
+    const altroTrig = (mob.pos<=3) !== (D.pos<=3);
+    if (!altroTrig) continue;                             // solo trasporto verso l'ALTRO trigramma
+    nTot++;
+    const car = mob.par;                                  // carattere di CHI viene portato (la partenza)
+    const t=LYM.termometro(R,{oraBranch:r.oraBranch,emaDir:r.emaDir,date:r.date},{},{});
+    // lettura 1: "opposto" riferito alla DESTINAZIONE
+    const d1 = (car==='G'||car==='W') ? opp(D.pos) : (car==='B'||car==='P') ? sede(D.pos) : null;
+    // lettura 2: "opposto" riferito alla SEDE della mobile
+    const d2 = (car==='G'||car==='W') ? opp(mob.pos) : (car==='B'||car==='P') ? sede(mob.pos) : null;
+    if (d1) { add('L1 · rif. DESTINAZIONE · tutti', d1, r); add('L1 · rif. DESTINAZIONE · portato '+car, d1, r);
+              if(!t.dir) add('L1 · rif. DESTINAZIONE · dove LY TACE', d1, r); }
+    if (d2) { add('L2 · rif. SEDE MOBILE · tutti', d2, r); add('L2 · rif. SEDE MOBILE · portato '+car, d2, r);
+              if(!t.dir) add('L2 · rif. SEDE MOBILE · dove LY TACE', d2, r); }
+    if (car==='C') { add('C portato · destinazione PERDE', opp(D.pos), r);
+                     add('C portato · destinazione VINCE', sede(D.pos), r); }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zs=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== TRASPORTO · la partenza portata sulla linea dell altro trigramma ===');
+  console.log('carte con trasporto verso l altro trigramma: '+nTot);
+  console.log('');
+  console.log('cella'.padEnd(46)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(46)+String(n).padStart(6)+pc(d.t).padStart(9)+zs(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.CLANBP2) {
+  // Caso PULITO: carte con UNA SOLA linea B (o una sola P) in tutto l'esagramma,
+  // cosi' "il trigramma in cui sta" non e' ambiguo. Elenco anche le carte che lo negano.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,dir,r)=>{ if(!dir) return; M[k]=M[k]||mk(); const pnl=dir==='LONG'?r.move:-r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(pnl>0)o.w++; else if(pnl<0)o.l++; o.p+=pnl;} };
+  const opp = pos => pos<=3 ? 'LONG' : 'SHORT';
+  const persi=[];
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    for (const car of ['B','P']) {
+      const ls = R.linee.filter(l=>l.par===car);
+      if (ls.length!==1) continue;
+      const l = ls[0];
+      const d = opp(l.pos);
+      add('UNICA linea '+car+' -> il suo trigramma perde', d, r);
+      add('  '+car+' unica a L'+l.pos, d, r);
+      const tim = l.stato==='piena'||l.stato==='mossa';
+      const pnl = d==='LONG'? r.move : -r.move;
+      if (car==='B' && pnl<0) persi.push({c:r.cross,dt:r.date,car,pos:l.pos,stato:l.stato,d,pnl});
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zs=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== CASO PULITO · una sola B (o una sola P) nell esagramma ===');
+  console.log('cella'.padEnd(46)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(46)+String(n).padStart(6)+pc(d.t).padStart(9)+zs(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+  persi.sort((a,b)=>a.pnl-b.pnl);
+  console.log('\\ncarte che NEGANO la regola (B unica), le peggiori:');
+  persi.slice(0,8).forEach(p=>console.log('  '+p.c+' '+p.dt+'  B unica a L'+p.pos+' ('+p.stato+')  regola dice '+p.d+'  '+p.pnl.toFixed(0)+' pip'));
+}
+
+if (process.env.CLANBP) {
+  // "B e P fanno perdere il proprio clan (il trigramma in cui stanno)" (Edu, 21/08/2026).
+  // Misuro le letture possibili, tenendole separate:
+  //  A) l'ARRIVO della mobile e' B o P -> il trigramma della MOBILE perde (opposto della sede)
+  //  B) l'ARRIVO e' B o P -> perde il trigramma dove sta la linea ferma con quel ramo
+  //  C) linea FERMA B o P -> il suo trigramma perde
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,dir,r)=>{ if(!dir) return; M[k]=M[k]||mk(); const pnl=dir==='LONG'?r.move:-r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(pnl>0)o.w++; else if(pnl<0)o.l++; o.p+=pnl;} };
+  const opp = pos => pos<=3 ? 'LONG' : 'SHORT';   // il trigramma della linea PERDE
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob = R.linee[R.mutante.pos-1]; if(!mob) continue;
+    const arr = R.mutante.ramoArr;
+    // carattere dell'arrivo: lo ricavo dalla linea ferma che porta quel ramo, se c'e'
+    const omo = R.linee.filter(l=>l.pos!==mob.pos && l.ramo===arr);
+    const carArr = omo.length===1 ? omo[0].par : null;
+    if (carArr==='B' || carArr==='P') {
+      add('A. arrivo '+carArr+' -> perde il trigramma della MOBILE', opp(mob.pos), r);
+      add('A. arrivo B/P -> perde il trigramma della MOBILE', opp(mob.pos), r);
+      add('B. arrivo B/P -> perde il trigramma della linea omonima', opp(omo[0].pos), r);
+    }
+    // C) linee ferme B o P, una alla volta
+    for (const l of R.linee) {
+      if (l.pos===mob.pos) continue;
+      if (l.par!=='B' && l.par!=='P') continue;
+      add('C. ferma '+l.par+' -> perde il suo trigramma', opp(l.pos), r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zs=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== B e P fanno perdere il proprio clan ===');
+  console.log('cella'.padEnd(56)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(56)+String(n).padStart(6)+pc(d.t).padStart(9)+zs(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.CMPAC9) {
+  // Confronto carta per carta: baseline vs AUTOCOMB9=soloavanti, limitato alle carte 午->未.
+  // Elenca le carte in cui la variante PEGGIORA (oggi vince, con la variante perde).
+  const fs2=require('fs');
+  const f=process.env.CMPAC9;   // file dove scrivere il dump
+  const out=rows.map(r=>({c:r.cross,d:r.date,dep:r.mutDep||null,arr:r.mutArr||null,pnl:r.pnlS17!=null?r.pnlS17:null}));
+  fs2.writeFileSync(f, JSON.stringify(out));
+  console.log('dump scritto: '+f+' ('+out.length+' righe)');
+}
+
+if (process.env.AUTOCOMB) {
+  // §9 rivista (Edu, 21/08/2026, da USDCAD 18/03/2020): l'autocombinazione 自合 blocca solo
+  // quando il rapporto elementale corre ALL'INDIETRO, cioe' l'ARRIVO genera la PARTENZA
+  // (l'arrivo torna indietro sulla partenza). Se e' la partenza a generare l'arrivo, il
+  // movimento va avanti e NON e' bloccato.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,dir,r)=>{ if(!dir) return; M[k]=M[k]||mk(); const pnl=dir==='LONG'?r.move:-r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(pnl>0)o.w++; else if(pnl<0)o.l++; o.p+=pnl;} };
+  const cnt={};
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob = R.linee[R.mutante.pos-1]; if(!mob) continue;
+    const dep = R.mutante.ramoDep, arr = R.mutante.ramoArr;
+    if (COMBINA[dep] !== arr) continue;            // solo autocombinazioni
+    const eD = WX[dep], eA = WX[arr];
+    let tipo;
+    if (GEN[eA]===eD) tipo='ARRIVO genera PARTENZA (indietro) -> blocca';
+    else if (GEN[eD]===eA) tipo='PARTENZA genera ARRIVO (avanti) -> NON blocca';
+    else if (CTRL[eD]===eA) tipo='PARTENZA controlla ARRIVO';
+    else if (CTRL[eA]===eD) tipo='ARRIVO controlla PARTENZA';
+    else tipo='altro';
+    cnt[tipo]=(cnt[tipo]||0)+1;
+    const sede = mob.pos<=3?'SHORT':'LONG';
+    add(dep+'+'+arr+' · '+tipo+' · sede mobile', sede, r);
+    add('TOTALE · '+tipo+' · sede mobile', sede, r);
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zs=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== §9 AUTOCOMBINAZIONE · scomposizione per rapporto elementale ===');
+  console.log('conteggi: '+Object.entries(cnt).map(([k,v])=>k+': '+v).join('  ·  '));
+  console.log('');
+  console.log('cella'.padEnd(56)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(56)+String(n).padStart(6)+pc(d.t).padStart(9)+zs(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.FEISHENCHK) {
+  // Controllo di metodo: quante "coperture vuote" della rimisura §41 sono in realta' la linea MOBILE?
+  // 動不為空: una linea in movimento non e' mai vuota, quindi non puo' fare da copertura trasparente.
+  const LYM = require('./liuyao.js');
+  let tot=0, mobili=0, ferme=0;
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,dir,r)=>{ if(!dir) return; M[k]=M[k]||mk(); const pnl=dir==='LONG'?r.move:-r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(pnl>0)o.w++; else if(pnl<0)o.l++; o.p+=pnl;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    for (const l of R.linee) {
+      if (!l.fushen) continue;
+      if (R.vuoti.indexOf(l.ramo)<0) continue;
+      tot++;
+      const sede = l.pos<=3?'SHORT':'LONG';
+      if (l.isMobile) { mobili++; add('copertura vuota che e la MOBILE (da escludere) · sede', sede, r); }
+      else { ferme++; add('copertura vuota FERMA (§41 corretta) · sede', sede, r);
+             add('  ferma · nascosto '+l.fushen.par+' · sede', sede, r); }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zs=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== §41 · controllo 動不為空 (la mobile non e mai vuota) ===');
+  console.log('coperture vuote totali: '+tot+'  ·  di cui MOBILI (da escludere): '+mobili+'  ·  ferme: '+ferme);
+  console.log('');
+  console.log('cella'.padEnd(52)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(52)+String(n).padStart(6)+pc(d.t).padStart(9)+zs(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.FEISHENLOSS) {
+  // Carte in cui §41 (nascosto sotto copertura vuota -> sede della copertura) SBAGLIA.
+  const LYM = require('./liuyao.js');
+  const persi=[];
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const cop = R.linee.filter(l=>l.fushen && R.vuoti.indexOf(l.ramo)>=0);
+    if (cop.length!==1) continue;         // caso pulito: una sola copertura vuota
+    const l = cop[0];
+    const sede = l.pos<=3 ? 'SHORT':'LONG';
+    const pnl = sede==='LONG'? r.move : -r.move;
+    if (pnl < 0) persi.push({cross:r.cross,date:r.date,pos:l.pos,par:l.fushen.par,sede,pnl});
+  }
+  persi.sort((a,b)=>a.pnl-b.pnl);
+  console.log('\\n=== §41 · carte in cui la regola SBAGLIA (una sola copertura vuota) ===');
+  console.log('totale: '+persi.length);
+  for(const p of persi.slice(0,20)) console.log('  '+p.cross+' '+p.date+'  copertura L'+p.pos+' nasconde '+p.par+'  regola dice '+p.sede+'  '+p.pnl.toFixed(0)+' pip');
+}
+
+if (process.env.FEISHEN) {
+  // §41 飛神空伏神出 — rimisura 21/08/2026. Verifica anche se la copertura vuota compare
+  // ora fuori da L3 (limite strutturale della misura del 13/08).
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,dir,r)=>{ if(!dir) return; M[k]=M[k]||mk(); const pnl=dir==='LONG'?r.move:-r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(pnl>0)o.w++; else if(pnl<0)o.l++; o.p+=pnl;} };
+  const posCount={};
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    for (const l of R.linee) {
+      if (!l.fushen) continue;
+      const copVuota = R.vuoti.indexOf(l.ramo)>=0;
+      const par = l.fushen.par;
+      const sede = l.pos<=3 ? 'SHORT':'LONG';   // sede della copertura = sede del nascosto emerso
+      const key = (copVuota?'copertura VUOTA':'copertura piena')+' · nascosto '+par;
+      add(key, sede, r);
+      if (copVuota) {
+        posCount[l.pos]=(posCount[l.pos]||0)+1;
+        add('TUTTI i nascosti sotto copertura VUOTA · sede', sede, r);
+        add('  sotto copertura vuota a L'+l.pos+' · sede', sede, r);
+      }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zs=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== §41 RIMISURA · nascosto sotto copertura vuota -> sede della copertura ===');
+  console.log('distribuzione posizioni della copertura vuota: '+Object.entries(posCount).sort().map(([k,v])=>'L'+k+':'+v).join(' · '));
+  console.log('');
+  console.log('cella'.padEnd(52)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(52)+String(n).padStart(6)+pc(d.t).padStart(9)+zs(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.AFFILAC4) {
+  // Raffinamento dottrinale di Edu (21/08, da EURUSD 22/04/2025): il giorno che lega l'arrivo (F3)
+  // NON blocca se il giorno stesso e' legato dal mese (六合 mese-giorno) — la sua capacita' di
+  // combinare e' gia' impegnata. In quel caso il movimento SI COMPIE: si legge SEDE, non "fallita".
+  const LYM = require('./liuyao.js');
+  const SEASON={'寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire','午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water','子':'Water','丑':'Earth'};
+  const TOMB={Water:'辰',Wood:'未',Fire:'戌',Metal:'丑'};
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,dir,r)=>{ if(!dir) return; M[k]=M[k]||mk(); const pnl=dir==='LONG'?r.move:-r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(pnl>0)o.w++; else if(pnl<0)o.l++; o.p+=pnl;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob = R.linee[R.mutante.pos-1]; if(!mob || mob.par!=='C') continue;
+    if (mob.isShi || mob.isYing) continue;
+    const arr = R.mutante.ramoArr, D=r.dayBranchUsed, Mo=r.monthBranchUsed;
+    const f1 = R.vuoti.indexOf(arr)>=0, f3raw = (COMBINA[D]===arr), f5 = (TOMB[WX[arr]]===Mo);
+    const giornoLegatoDalMese = (COMBINA[Mo]===D);
+    const f3 = f3raw && !giornoLegatoDalMese;     // F3 raffinato
+    const sede = mob.pos<=3 ? 'SHORT':'LONG';
+    if (process.env.DEBUGF3 && f3raw && giornoLegatoDalMese) console.log(r.cross, r.date, 'sede='+sede, 'move='+r.move.toFixed(0), 'pnlLONG='+r.move.toFixed(0), 'pnlSEDE='+((sede==='LONG'?r.move:-r.move).toFixed(0)));
+    if (f3raw) {
+      // dentro il vecchio F3: confronto SEDE vs LONG-assoluto, spaccato per "giorno legato dal mese"
+      const lab = giornoLegatoDalMese ? 'giorno LEGATO dal mese' : 'giorno LIBERO';
+      add('F3raw · '+lab+' · LONG assoluto (vecchia ipotesi)','LONG',r);
+      add('F3raw · '+lab+' · SEDE', sede, r);
+    }
+    if (!(f1||f3||f5)) continue;   // con F3 raffinato
+    add('BASE RAFFINATA · C libero da seggio, fallita (F3 corretto) · LONG','LONG',r);
+    add('BASE RAFFINATA · C libero da seggio, fallita (F3 corretto) · SEDE', sede, r);
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zs=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== AFFILATURA 4 · raffinamento F3 (giorno legato dal mese non blocca) ===');
+  console.log('cella'.padEnd(58)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M)){ const n=d.t.w+d.t.l; if(n<5) continue;
+    console.log(k.padEnd(58)+String(n).padStart(6)+pc(d.t).padStart(9)+zs(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.AFFILAC3) {
+  // Test di allargamento: C libero da seggio SENZA richiedere "azione fallita" -> tiene il LONG assoluto?
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,dir,r)=>{ if(!dir) return; M[k]=M[k]||mk(); const pnl=dir==='LONG'?r.move:-r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(pnl>0)o.w++; else if(pnl<0)o.l++; o.p+=pnl;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob = R.linee[R.mutante.pos-1]; if(!mob || mob.par!=='C') continue;
+    if (mob.isShi || mob.isYing) continue;
+    add('C libero da seggio · TUTTE (fallita o no)','LONG',r);
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zs=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== AFFILATURA 3 · C libero da seggio, TUTTE le carte (allargamento) ===');
+  for(const [k,d] of Object.entries(M)){ const n=d.t.w+d.t.l;
+    console.log(k.padEnd(42)+String(n).padStart(6)+pc(d.t).padStart(9)+zs(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
 if (process.env.AFFILAC) {
   // Affilatura del candidato M6: mobile C con azione non compiuta -> LONG (164 carte, 58,54%).
   const LYM = require('./liuyao.js');
@@ -18099,7 +18812,7 @@ if (process.env.AFFILAC) {
     if (R.error) continue;
     const mob = R.linee[R.mutante.pos-1]; if(!mob || mob.par!=='C') continue;
     const arr = R.mutante.ramoArr, D=r.dayBranchUsed, Mo=r.monthBranchUsed, mEl=SEASON[Mo];
-    const f1 = R.vuoti.indexOf(arr)>=0, f3 = (COMBINA[D]===arr), f5 = (TOMB[WX[arr]]===Mo);
+    const f1 = R.vuoti.indexOf(arr)>=0, f3 = (COMBINA[D]===arr) && !(COMBINA[Mo]===D), f5 = (TOMB[WX[arr]]===Mo);
     if (!(f1||f3||f5)) continue;
     add('C fallita · TUTTE','LONG',r);
     if(f1) add('  modo F1 arrivo vuoto','LONG',r);

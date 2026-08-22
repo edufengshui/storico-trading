@@ -209,8 +209,13 @@
     // arrivo vuoto (旬空): movimento nullo (la mobile non e' mai vuota di suo, 動不為空)
     if (vuoti.indexOf(ramoArr) >= 0) { effEl = null; casoMut = 0;
       motivoNullo = 'arrival void'; }
-    // sospensione dal giorno: il giorno COMBINA (六合) o CLASHA (六冲) partenza o arrivo
-    if (dayBranch && (COMBINA[dayBranch] === ramoDep || COMBINA[dayBranch] === ramoArr ||
+    // sospensione dal giorno: il giorno COMBINA (六合) o CLASHA (六冲) partenza o arrivo.
+    // FISSATA (Edu, 21/08/2026): se il GIORNO e' legato in 六合 dal MESE, la sua capacita'
+    // di combinare/clashare e' gia' impegnata e NON sospende la mobile.
+    // Audit: GIORNOLEGATO=off ripristina il comportamento precedente.
+    var _glOff = (typeof process !== 'undefined' && process.env && process.env.GIORNOLEGATO === 'off');
+    var _gioLegatoMese = !_glOff && !!(dayBranch && monthBranch && COMBINA[monthBranch] === dayBranch);
+    if (!_gioLegatoMese && dayBranch && (COMBINA[dayBranch] === ramoDep || COMBINA[dayBranch] === ramoArr ||
         CLASH[dayBranch] === ramoDep || CLASH[dayBranch] === ramoArr)) {
       effEl = null; casoMut = -1;
       motivoNullo = 'suspended by the day (day combines/clashes departure or arrival)'; }
@@ -232,7 +237,22 @@
     // AUTOCOMBINAZIONE 自合 (Edu, 13/08/2026, da USDCAD 18/03/2020)
     // Se la PARTENZA della mobile combina (六合) il proprio ARRIVO, la linea si lega
     // a se stessa: e' bloccata, non e' piu' "in movimento" e non regge la lettura.
+    // REVISIONE Edu 21/08/2026 (stessa carta): blocca solo se il rapporto elementale corre
+    // ALL'INDIETRO (l'arrivo genera la partenza = torna indietro). Se e' la partenza a
+    // generare l'arrivo, il movimento va avanti e non e' bloccato.
+    // Attiva con AUTOCOMB9=indietro; senza flag resta il comportamento originale.
     var autoComb = (COMBINA[ramoDep] === ramoArr);
+    if (autoComb && typeof process !== 'undefined' && process.env && process.env.AUTOCOMB9 === 'off') {
+      autoComb = false;
+    }
+    if (autoComb && typeof process !== 'undefined' && process.env && process.env.AUTOCOMB9 === 'indietro') {
+      autoComb = (GEN[WX[ramoArr]] === WX[ramoDep]);
+    }
+    // variante stretta: tolgo il blocco SOLO dove la partenza genera l'arrivo (avanti),
+    // lasciando invariate le coppie di controllo, su cui Edu non si e' pronunciato.
+    if (autoComb && typeof process !== 'undefined' && process.env && process.env.AUTOCOMB9 === 'soloavanti') {
+      if (GEN[WX[ramoDep]] === WX[ramoArr]) autoComb = false;
+    }
     if (autoComb) { effEl = null; casoMut = -4;
       motivoNullo = 'self-combination (' + ramoDep + '+' + ramoArr + ')'; }
     var movimentoNullo = (effEl === null);
@@ -260,6 +280,10 @@
     };
     // linee in 暗動: piene, non vuote, clashate effettivamente (regola 1: giorno sempre,
     // anno se 旺/相, mese solo potenzia) -- il loro arrivo nell'esagramma trasformato
+    var _glMode = (typeof process !== 'undefined' && process.env) ? (process.env.GIORNOLEGATO || '') : '';
+    var giornoLegatoDalMese = (_glMode !== 'off') && !!(dayBranch && monthBranch && COMBINA[monthBranch] === dayBranch);
+    var _gioNoComb  = giornoLegatoDalMese;
+    var _gioNoClash = giornoLegatoDalMese;
     var anDong = {};   // pos -> { arr }
     for (var ad = 1; ad <= 6; ad++) {
       if (ad === linea) continue;
@@ -298,15 +322,18 @@
       var s = stagione(WX[yearBranch], monthEl);
       return s === '旺' || s === '相';
     })();
+    // IL GIORNO LEGATO DAL MESE (Edu, 21/08/2026, FISSATA) — vale anche sulle linee:
+    // il giorno legato in 六合 dal mese non combina e non clasha nessuna linea.
+    // Audit: GIORNOLEGATO=off ripristina il comportamento precedente.
     function clashSu(br) {
-      var dayC   = !!(dayBranch   && CLASH[dayBranch]   === br);
+      var dayC   = !!(dayBranch   && CLASH[dayBranch]   === br) && !_gioNoClash;
       var yearC  = !!(yearBranch  && CLASH[yearBranch]  === br && annoTimely);
       var monthC = !!(monthBranch && CLASH[monthBranch] === br);
       var eff = dayC || yearC;
       return { eff: eff, dayC: dayC, yearC: yearC, monthC: monthC,
                potenza: eff ? ((dayC?1:0) + (yearC?1:0) + (monthC?1:0)) : 0 };
     }
-    function legataDalGiorno(br) { return !!(dayBranch && COMBINA[dayBranch] === br); }
+    function legataDalGiorno(br) { return !!(dayBranch && COMBINA[dayBranch] === br) && !_gioNoComb; }
 
     // COMBINAZIONE E CLASH (Edu, 13/08/2026)
     // La combinazione (六合) dal GIORNO blocca sempre il ramo — MA protegge anche il ramo

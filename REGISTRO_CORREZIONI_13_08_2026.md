@@ -3231,3 +3231,52 @@ Condizione necessaria: `app.js` deve passare `corpoEl` (elemento del trigramma d
 altrimenti il §54b non può valutare e 16 carte divergono.
 
 Tolta la parola "inverte" dall'output del motore (8 occorrenze) — ora stampa "NON SEGUE".
+
+---
+
+# §82. IL GIORNO LEGATO DAL MESE NON INTERVIENE  ·  `FISSATA` (Edu, 21/08/2026) — NEL MOTORE
+
+Carte sorgente: **EURUSD 22/04/2025** (seme 115, giorno 辛酉, mese 辰: 辰酉合) e
+**USDJPY 28/07/2022** (seme 136, giorno 壬午, mese 未: 午未合).
+
+Se il ramo del GIORNO è legato in 六合 dal ramo del MESE, la sua capacità di combinare e
+clashare è già impegnata: **il giorno non combina e non clasha nessuna linea dell'esagramma,
+e non sospende la mobile** (né su partenza né su arrivo).
+
+Implementata di default in `liuyao.js` (stati linee, 暗動, sospensione caso −1) e in
+`pb_stress.js` (F3, 5 punti). Audit: `GIORNOLEGATO=off`.
+
+**Effetto sul baseline: S17 da 57,48/z9,59/+32.039 a 57,55/z9,69/+32.512 (pesato +36.306);
+LY tace da 652 a 636.** Coerente su entrambi i periodi (56,78/58,40).
+
+# §83. IL TRASPORTO — VERSO E FILTRO  ·  `IN PROVA` (Edu, 21/08/2026) — watchlist
+
+Continuazione del blocco TRASPORTO del 16/08. Verso dettato da Edu: "fa vincere il trigramma
+opposto" = **vince il trigramma DOVE ATTERRA**. G/W → vince la destinazione; B/P → il
+contrario; C senza verso (52/48). Ribaltamento: **il vincitore deve poter vincere** (da
+USDCAD 11/06/2020: Shi vuota + G legato + C debole → il basso non può → vince l'alto).
+Filtro di validità obbligatorio (`trasportoValido`): movimento compiuto, arrivo non vuoto,
+伏 della mobile non sul ramo del giorno (M4), partenza non clashata da giorno+mese (F4),
+atterraggio unico, destinazione non rotta/eliminata/autocombinata (da USDCAD 25/03/2020).
+Numeri in CANDIDATI_OSSERVAZIONE.md. NON cablata: base 51,60%, celle migliori sotto z 4.
+
+# §11 — RITIRATA DA EDU (21/08/2026)
+
+Sulla carta USDCAD 18/03/2020: "La mia interpretazione era affrettata e sbagliata. P 寅 non
+può essere fuori dai giochi perché il Legno è vibrante nel mese 卯. La vera interpretazione:
+L4 muove, genera e si combina con C 未." Decade anche la QUESTIONE APERTA annotata sotto §11
+(clash+controllo dal giorno): non c'era contraddizione da risolvere.
+
+# §9 — REVISIONE TESTATA E RESPINTA (21/08/2026)
+
+Ipotesi di Edu (自合 blocca solo se l'arrivo genera la partenza): misurata in tutte le forme
+(`AUTOCOMB9=off|indietro|soloavanti`), ogni indebolimento costa (−1.405/−2.332/−2.493 pip su
+S17). Resta la FORMA PIENA. Nota: sulla carta sorgente il sistema vince già (+266); per
+riaprire serve un controesempio con seme (principio 10).
+
+# §41 — RIMISURATA E RIDIMENSIONATA (21/08/2026)
+
+Col campione attuale la copertura vuota copre L1-L5 (limite L3 caduto): forma generale
+49,7-49,8% → **BOCCIATA**. Sopravvive solo: **nascosto G sotto copertura vuota FERMA**
+(esclusa la mobile, 動不為空): 68 carte, 36,76% (rovescio 63,2%), coerente 34,9/38,1.
+In watchlist (`FEISHENCHK`).

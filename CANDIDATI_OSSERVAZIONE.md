@@ -133,6 +133,13 @@ Prima di presentare una carta del gruppo "LY tace", controllare questa lista e l
 | USDJPY 23/10/2024 | — | ~16/08 | → §55 (FISSATA) |
 | EURJPY 21/06/2023 | — | ~16/08 | → §56 (FISSATA) |
 | AUDUSD 07/03/2023 · USDJPY 21/03/2023 | — | ~17/08 | registrate nel REGISTRO (righe 2406-2566) |
+| USDCAD 25/03/2020 | 144 | 21/08 | → trasporto: destinazione ROTTA non riceve (filtro) |
+| USDCAD 11/06/2020 | 134 | 21/08 | → trasporto: ribaltamento ("il vincitore deve poter vincere") |
+| USDJPY 29/04/2024 | 158 (Li/Kan — STESSO CHART di EURJPY 21/08 e 31/10/2023) | 21/08 | → M4: 伏 sul giorno sopprime la mobile. ⚠ chart presentato 5 volte: MAI più |
+| EURUSD 22/04/2025 | 115 | 21/08 | → FISSATA: giorno legato dal mese non blocca (nel motore) |
+| EURJPY 13/03/2026 | 183 | 21/08 | → §41: nascosto sotto L2 vuota emerge; W emerso in basso → SHORT |
+| USDJPY 28/07/2022 | 136 | 21/08 | → giorno legato dal mese: L1 non è legata; L4 muove su P in basso → SHORT |
+| USDCAD 18/03/2020 | 142 | 21/08 | → §11 RITIRATA; lettura: L4 muove, genera e combina C 未 |
 
 ---
 
@@ -151,6 +158,18 @@ Comando base: aggiungere il flag indicato al comando canonico del motore.
 | condizione | flag | n | win% | z | periodi | strada |
 |---|---|---|---|---|---|---|
 | Serpente 螣蛇 solo 死 su Shi/Ying/mobile → "non segue" (via autonoma, NON rafforzativo) | (v. RIPARTENZA 20/08 §1) | 365 | 62,47% | 4,76 | ok | decisione (perimetro ≠ rafforzativo §81, attenzione nota di metodo) |
+
+## Filone TRASPORTO (21/08/2026) — misurato col filtro `trasportoValido`, NON cablato
+Verso di Edu: G/W trasportati → vince il trigramma DOVE ATTERRANO; B/P → il contrario; C muto.
+Ribaltamento: se il trigramma designato non ha linee vive+timely, il verdetto si ribalta.
+| condizione | flag | n | win% | z | periodi | n per z4 | strada |
+|---|---|---|---|---|---|---|---|
+| regola base | `TRASPOK=1` | 719 | 51,60% | 0,86 | 53,8/49,8 | ~15.500 | affilatura obbligata |
+| + ribaltamento | `TRASPRIB=1` | 719 | 52,02% | 1,08 | 51,2/53,5 (si scambiano ⚠) | ~9.800 | definire "non può vincere" con Edu |
+| A=B GENERA C → vince la partenza | (cella in `TRASPOK`) | 66 | 65,15% | 2,46 | 80,8/56,4 | ~110 | accumulo + giro del 49% |
+| A=G CONTROLLA C → vince destinazione | (cella in `TRASPOK`) | 39 | 58,97% | 1,12 | 38,9/72,2 ⚠ | ~490 | spaccata sui periodi |
+Carte del 49% da leggere: `TRASPKO2=1`. M6 aggiornato col F3 corretto: 115 carte, 63,48%, z 2,89 (`AFFILAC2`).
+§41 rimisurata: forma generale BOCCIATA (49,7%); resta solo G sotto copertura vuota FERMA: 68 carte, 36,76% (rovescio 63,2%), coerente (34,9/38,1) (`FEISHENCHK`).
 
 ## Vicini — accumulo realistico
 | condizione | flag | n | win% | z | periodi | n per z4 | strada |
