@@ -3280,3 +3280,138 @@ Col campione attuale la copertura vuota copre L1-L5 (limite L3 caduto): forma ge
 49,7-49,8% → **BOCCIATA**. Sopravvive solo: **nascosto G sotto copertura vuota FERMA**
 (esclusa la mobile, 動不為空): 68 carte, 36,76% (rovescio 63,2%), coerente 34,9/38,1.
 In watchlist (`FEISHENCHK`).
+
+# §84. LA DESTINAZIONE GIÀ LEGATA NON RICEVE (doppia combinazione)  ·  `FISSATA NEL FILTRO` (Edu, 21/08/2026)
+
+Carta sorgente: **EURJPY 19/12/2024** (seme 160, Zhen/Kun, L6). Il giorno 巳 lega già L5 申
+(巳申合); l'arrivo della mobile è lo stesso 巳: la seconda combinazione sulla stessa linea
+NON avviene ("double combination"). **Il trasporto fallisce e la mobile si legge per il suo
+caso di mutazione, in sede**: qui 回頭生, W rinforzata a L6 in alto → LONG (mercato +306).
+Nel filtro `trasportoValido`: destinazione rotta / eliminata / autocombinata / **legata** non
+riceve. Risolve nella pratica anche la configurazione di §21 (争合): il legame esistente
+vince, il nuovo arrivato fallisce.
+
+**Effetto sul filone trasporto**: perimetro 719→611; base 51,60→52,70% (55,1/51,0);
+ribaltamento ora INUTILE sui numeri (49,49% dove scatta — le carte che lo giustificavano
+erano in gran parte destinazioni legate, ora fuori; definizione "non può vincere" indifesa);
+**cella A=B GENERA C → vince la partenza: 45 carte, 75,56%, z 3,43** (94,7/64,0) — la più
+vicina alla soglia, mancano ~25 carte. A=G CONTROLLA C: 18 carte, 72,22% (54,5/100 ⚠ n basso).
+
+# §85. L'ELASTICO ROTTO × FORZA  ·  `IN PROVA — OPERATIVA IN LETTURA` (Edu, 21/08/2026)
+
+Carta sorgente: **USDCAD 13/09/2022** (seme 129, Kun/Qian, L3).
+
+**Meccanica**: una linea ferma tenuta in combinazione (dall'anno o dal mese) e clashata dal
+giorno viene liberata di colpo, carica ("elastico rotto"). Il verdetto NON è la sede della
+liberata: è il **confronto di energia fra i due trigrammi** (somma degli score forzaModello
+di tutte le linee, per trigramma) — **vince il trigramma più forte** ("l'energia in gioco
+qui è superiore a quanto avviene sotto").
+
+**Numeri (21/08, flag `ELASTICOF=1`, affilatura `ELAFF=1`)**:
+- vecchia ipotesi (vince il trig. della liberata): 268 carte, 50,75% — MORTA
+- vince il più forte: 268, 54,85%, z 1,59 (56,2/53,6)
+- energie nette |diff|≥3: 149, 57,72%, z 1,88 (56,6/60,3)
+- **|diff|≥3 + liberata NEL trigramma più forte: 41 carte, 63,41%, z 1,72 (58,3/70,6)**
+- tagli interni (tutti coerenti, tutti piccoli): liberata piena 33/66,7% · liberata sotto
+  19/73,7% · legame MESE 20/65,0% · |diff|≥5 21/66,7%
+
+**Stato operativo**: definita al millimetro e misurabile con un flag; VA APPLICATA in ogni
+lettura di carta (checklist) da subito. NON entra nel motore live: per il criterio fissato
+(z≥4 coerente sui due periodi) mancano ~100 carte di accumulo. Rimisurare a ogni
+aggiornamento di full1h.json.
+
+**Chiusura collegata — LA FORZA NUDA NON È UN VERDETTO** (stessa sessione, `FORZANUDA=1`):
+il confronto di forza da solo, su tutte le carte: 51,10%; dove LY tace 53,27%; ma DENTRO IL
+CONTRASTO (LY tace, forza dissente da PB): **48,04% su 306 carte** — quando disobbedisce al
+sistema, perde. Nessuna soglia di differenza la salva. Conclusione: la forza pesa le braccia
+ma serve la dottrina a dire quale braccio tira; usarla solo dentro configurazioni dottrinali
+(come §85). NON rimisurare come verdetto autonomo.
+
+---
+
+# §87. LA TECNICA DEGLI STELI  ·  `FISSATA COME STRUMENTO DI LETTURA` (Edu, 21-22/08/2026)
+
+**Collocazione (scala fissa)**: L1 porta SEMPRE lo stelo del giorno; poi la scala prosegue
+verso l'alto dentro la propria polarità e ricomincia da capo:
+- giorno YANG: 甲 丙 戊 己 庚 壬 (partendo dallo stelo del giorno)
+- giorno YIN:  乙 丁 戊 己 辛 癸 (partendo dallo stelo del giorno)
+Gli steli dei quattro pilastri della data (anno, mese, giorno, ora) cadono ciascuno sulla
+propria linea di casa. Uno stelo di polarità opposta al giorno non ha casa.
+Ora: 五鼠遁 dallo stelo del giorno. Pilastri via lunar-javascript (mezzogiorno).
+
+**Censimento (4.507 carte)**: accumulo massimo 1 stelo 62,3% · 2 steli 33,8% · 3 steli 3,7%
+(168 carte) · 4 steli 0,1% (4 carte: EURUSD+EURGBP 06/11/2024, GBPUSD 18/01/2022,
+NZDUSD 23/09/2025). L'accumulo forte è un fenomeno di L1 (il giorno vi abita).
+
+**Il condotto**: gli steli interagiscono FRA LORO per Cinque Elementi: un gruppo di 2+
+steli dello stesso elemento GENERA lo stelo di un altro pilastro -> quel pilastro è CARICO.
+Struttura verificata; lo sbocco cade sulla mobile con frequenza da caso (16,3%).
+
+**Il principio d'uso (Edu)**: il peso segnala IMPORTANZA della linea, non direzione.
+"C'è un accumulo su Lx, quindi quella linea è importante" — il significato emerge dalla
+lettura, non da una formula. La riga degli steli è ora parte del formato di presentazione
+delle carte.
+
+**Misure direzionali chiuse (NON rimisurare — flag conservati)**:
+- peso=vela (trigramma pesante vince): 49,1-49,6% · nel contrasto col sistema 41,0% (PESOTRIG)
+- peso su linea inerte: 48,1% rumore perfetto (PESOINERTE). Peso senza azione = niente.
+- peso come amplificatore dell'arrivo B/P: nessun gradiente (PESOAMP)
+- condotto -> sbocco: direzione piatta 50,5% (PESOFLUSSO)
+- steli->bestia della destinazione: ordinamento giusto ma debole (TRASPBESTIA)
+- pilastro carico che clasha -> verso trigramma/trend/carattere/mobile-piena: TUTTI caduti
+  sotto controllo (v. §88)
+- "torna a casa" (trigono pieno data+mobile -> il capo accoglie): 48,0% vs controllo 49,9%;
+  giorno-famiglia irrilevante; sospese 44,8% (TORNACASA). Resta tecnica di lettura di Edu.
+
+# §88. IL PILASTRO CARICO CHE CLASHA  ·  `STRUTTURA FISSATA, DIREZIONE APERTA` (21-22/08/2026)
+
+Carta sorgente: **USDJPY 10/01/2024** (seme 144, Dui/Kun, L2; tre 癸 su L1, 乙 del mese
+carico dal condotto, 丑 clasha L1 未).
+
+**FISSATO (regge ai controlli)**:
+1. Un pilastro muto (mese / anno non timely / ora) da solo NON agisce sulle linee: né
+   clash, né combinazione, né stesso ramo (tutte 48-51% su 700-1600 carte).
+2. Il test discriminante RAMI vs PALAZZI (coppie palazzo-opposte senza clash: 寅未, 丑申,
+   戌巳, 亥辰): comanda il RAMO. L'opposizione di palazzo senza clash è rumore (50,1%).
+3. La combinazione del pilastro e lo stesso-ramo non muovono e non fanno vincere (49,5-51,1%).
+4. Se qualcosa accade, accade SOLO con: clash di rami + pilastro CARICO dal condotto.
+
+**APERTO (sei versi provati, tutti caduti sotto controllo)**: bersaglio perde · colpita
+vince · trend vince (54,6% -> 50,0% tolto l'artefatto giorno=mese) · per carattere ·
+mese-P · colpita-come-mobile per relazione elementale. La direzione si deciderà dalle
+letture di Edu sui mazzi puliti (94 mese / 102 anno-muto).
+
+**TRE ARTEFATTI documentati (lezione di metodo)**: (a) §41: campione confinato a L3;
+(b) ramo del pilastro = ramo del GIORNO (il clash funziona di suo) — ora escluso in ogni
+misura; (c) anno TIMELY (clasha di suo per §1) — idem. Regola: una cella non è pulita
+finché non le togli le carte dove una meccanica già nota agisce da sola.
+
+**Scala residua non spiegata**: bersaglio della linea clashata dal mese, per steli sulla
+linea: 0: 53,9% vince · 1: 50,4 · 2: 48,6 · 3: 26,7 (=73,3% perde, 15 carte, periodi
+allineati). Monotona, piccola in cima, in watchlist (MESECLASH).
+
+# §89. FORZARE IL BLOCCO  ·  `FISSATA — IN USO OPERATIVO DI LETTURA` (Edu, 22/08/2026)
+
+Carta sorgente: **USDJPY 10/01/2024**. I tre 癸 generano il 乙 (condotto); il 乙 carico è
+DI CASA sulla L2 — che è la MOBILE SOSPESA dal giorno. La linea riceve potenza, FORZA il
+blocco: il movimento negato SI COMPIE, l'arrivo raggiunge il suo bersaglio di combinazione
+(qui 辰->酉 su L5), e **la squadra della linea raggiunta VINCE** (qui: LONG, mercato +133).
+
+**Regola**: mobile sospesa dal giorno (caso −1) + uno stelo della data CARICO dal condotto
+la cui casa è la posizione della mobile -> il blocco cede, il movimento si compie, vince
+la squadra della linea raggiunta dall'arrivo.
+Nota: il raffinamento "lo stelo genera il ramo della mobile" pare NON necessario (anche i
+carichi che non generano: 66,7% su 15) — basta la carica in casa.
+
+**Misura (22/08, flag FORZABLOCCO)**:
+| cella | n | win% | periodi |
+|---|---|---|---|
+| stelo CARICO di casa sulla sospesa | **22** | **68,18%** | **66,7 / 62,5 (allineati)** |
+| stelo di casa ma scarico (controllo) | 139 | 50,36% | — |
+| nessuno stelo di casa (controllo) | 405 | 51,85% | — |
+
+Controlli a rumore, periodi allineati, specificità completa: unico verso direzionale della
+pista steli sopravvissuto a tutti i controlli. Per z≥4 servono ~120 carte: accumulo +
+letture di Edu sulle 22. **STATO: fissata come regola di lettura (Edu: "gli steli
+sopravvivono e adesso useremo questi"); NON nel motore live fino a soglia.**
+Rimisurare a ogni aggiornamento di full1h.json.

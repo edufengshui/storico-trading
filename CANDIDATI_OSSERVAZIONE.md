@@ -140,6 +140,13 @@ Prima di presentare una carta del gruppo "LY tace", controllare questa lista e l
 | EURJPY 13/03/2026 | 183 | 21/08 | → §41: nascosto sotto L2 vuota emerge; W emerso in basso → SHORT |
 | USDJPY 28/07/2022 | 136 | 21/08 | → giorno legato dal mese: L1 non è legata; L4 muove su P in basso → SHORT |
 | USDCAD 18/03/2020 | 142 | 21/08 | → §11 RITIRATA; lettura: L4 muove, genera e combina C 未 |
+| EURJPY 19/12/2024 | 160 (Zhen/Kun) | 21/08 | → §84: destinazione legata non riceve (doppia combinazione); si legge la mutazione in sede → LONG |
+| USDCAD 13/09/2022 | 129 (Kun/Qian) | 21/08 | → §85: elastico rotto (giorno spezza il legame dell'anno su L5) + energia superiore sopra → LONG |
+| USDJPY 13/12/2023 | 145 (Dui/Qian) | 21/08 | → nel 49%: B retro su W a L1, base sbaglia; ipotesi ritiro-non-consegna NON generalizza (misurata) |
+| USDJPY 10/01/2024 | 144 (Dui/Kun) | 22/08 | → carta-chiave della pista steli: §89 la spiega (condotto→乙 carico su L2 sospesa→blocco forzato→L5→LONG); "torna a casa" lettura alternativa (misura negativa) |
+| GBPUSD 19/05/2022 | 123 (Gen/Li) | 22/08 | → 3 壬 su L1 Shi-mobile; lettura arrivo-B non generalizza |
+| EURGBP 21/04/2020 | 87 (Dui/Gen) | 22/08 | → camino/risonanza (18/08) rivisitato: B con gemella, misura piatta in entrambi i versi |
+| USDCAD 13/09/2022 | 129 (Kun/Qian) | 22/08 | → §85 elastico (già in lista) + qui: partenza legata dal mese RAFFORZA il trasporto (61,4%) |
 
 ---
 
@@ -164,10 +171,16 @@ Verso di Edu: G/W trasportati → vince il trigramma DOVE ATTERRANO; B/P → il 
 Ribaltamento: se il trigramma designato non ha linee vive+timely, il verdetto si ribalta.
 | condizione | flag | n | win% | z | periodi | n per z4 | strada |
 |---|---|---|---|---|---|---|---|
-| regola base | `TRASPOK=1` | 719 | 51,60% | 0,86 | 53,8/49,8 | ~15.500 | affilatura obbligata |
-| + ribaltamento | `TRASPRIB=1` | 719 | 52,02% | 1,08 | 51,2/53,5 (si scambiano ⚠) | ~9.800 | definire "non può vincere" con Edu |
-| A=B GENERA C → vince la partenza | (cella in `TRASPOK`) | 66 | 65,15% | 2,46 | 80,8/56,4 | ~110 | accumulo + giro del 49% |
-| A=G CONTROLLA C → vince destinazione | (cella in `TRASPOK`) | 39 | 58,97% | 1,12 | 38,9/72,2 ⚠ | ~490 | spaccata sui periodi |
+| regola base (filtro con §84) | `TRASPOK=1` | 611 | 52,70% | 1,34 | 55,1/51,0 | ~5.500 | giro del 49% (in corso) |
+| + ribaltamento | `TRASPRIB=1` | 611 | 52,37% | 1,17 | 51,5/54,2 | — | INDIFESO dopo §84 (49,5% dove scatta): probabile chiusura |
+| **A=B GENERA C → vince la partenza** | (cella in `TRASPOK`) | **45** | **75,56%** | **3,43** | 94,7/64,0 | **~25** | accumulo/affilatura: LA PIÙ VICINA |
+| A=G CONTROLLA C → vince destinazione | (cella in `TRASPOK`) | 18 | 72,22% | 1,89 | 54,5/100 ⚠ | ~60 | n troppo basso |
+| **§85 elastico×forza: \|diff\|≥3 + liberata nel più forte** | `ELASTICOF=1 ELAFF=1` | **41** | **63,41%** | 1,72 | 58,3/70,6 | ~100 | accumulo; OPERATIVA in checklist di lettura |
+| forza nuda come verdetto autonomo | `FORZANUDA=1` | 306 (contrasto) | 48,04% | −0,69 | 48,5/48,0 | — | **CHIUSA: non rimisurare** |
+| **§89 forzare il blocco: sospesa + stelo carico in casa** | `FORZABLOCCO=1` | **22** | **68,18%** | 1,71 | **66,7/62,5 ✓** | **~120** | FISSATA in lettura; accumulo + leggere le 22 |
+| §88 scala bersaglio 0→3 steli (cella 3 steli: perde) | `MESECLASH=1` | 15 | 73,33% | 1,81 | 70/80 ✓ | ~60 | watchlist |
+| §88 anno MUTO carico che clasha → segue | `TRENDPIL=1 ANNOSPLIT=1` | 102 | 53,92% | 0,79 | 58,7/44,7 ⚠ | — | mazzo per letture |
+| peso zavorra dove LY tace (trig. pesante perde) | `PESOTRIG=1` | 428 | 55,61% (rovescio) | 2,32 | 58,9/51,8 | ~800 | watchlist debole |
 Carte del 49% da leggere: `TRASPKO2=1`. M6 aggiornato col F3 corretto: 115 carte, 63,48%, z 2,89 (`AFFILAC2`).
 §41 rimisurata: forma generale BOCCIATA (49,7%); resta solo G sotto copertura vuota FERMA: 68 carte, 36,76% (rovescio 63,2%), coerente (34,9/38,1) (`FEISHENCHK`).
 

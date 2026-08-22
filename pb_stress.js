@@ -18222,7 +18222,10 @@ function trasportoValido(R, rows_r) {
   if (cs.length !== 1) return null;                          // atterraggio ambiguo o assente
   // la destinazione deve poter RICEVERE: una linea rotta (clash effettivo), eliminata o
   // autocombinata non riceve nulla (Edu, 21/08/2026, da USDCAD 25/03/2020)
-  if (['rotta','eliminata','autocombinata'].indexOf(cs[0].stato) >= 0) return null;
+  // + 'legata' (Edu, 21/08/2026, da EURJPY 19/12/2024): la destinazione gia' legata dal
+  // giorno non puo' essere combinata una seconda volta (doppia combinazione): il trasporto
+  // fallisce e la mobile si legge per il suo caso di mutazione, in sede.
+  if (['rotta','eliminata','autocombinata','legata'].indexOf(cs[0].stato) >= 0) return null;
   return { mob, A, B, dest: cs[0] };
 }
 
@@ -18256,6 +18259,1340 @@ if (process.env.TRASPKO2) {
   console.log('\\n=== il 49%: carte in cui il trasporto (col ribaltamento) sbaglia: '+ko.length+' ===');
   ko.slice(0,15).forEach(p=>console.log('  '+p.c+' '+p.dt+'  mob L'+p.mobPos+' '+p.car+' '+p.A+'->'+p.B+
     '  atterra L'+p.destPos+(p.capace?'':'  [RIBALTATA]')+'  dice '+p.dir+'  -'+p.pip.toFixed(0)));
+}
+
+if (process.env.FORZANUDA) {
+  // IL CONFRONTO DI FORZA NUDO (21/08/2026, passo 2): su OGNI carta, somma degli score
+  // forzaModello per trigramma; vince il piu' forte. Misurato su tutto, su dove LY tace,
+  // e per soglie di differenza.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const F = LYM.forzaModello(R, {oraBranch:r.oraBranch, date:r.date}, null);
+    let fS=0, fU=0;
+    R.linee.forEach(l=>{const s=F.linee[l.pos-1].score; if(l.pos<=3)fS+=s; else fU+=s;});
+    const diff=fU-fS; if(Math.abs(diff)<0.01) continue;
+    const sale=r.move>0;
+    const ok = diff>0 ? sale : !sale;
+    const t=LYM.termometro(R,{oraBranch:r.oraBranch,emaDir:r.emaDir,date:r.date},{},{});
+    add('TUTTE le carte', ok, r);
+    add((t.dir?'dove LY PARLA':'dove LY TACE'), ok, r);
+    for (const s of [2,3,4,5,6]) add('  |diff| >= '+s, Math.abs(diff)>=s?ok:null, r);
+    if(!t.dir) for (const s of [2,3,4,5]) add('  LY TACE · |diff| >= '+s, Math.abs(diff)>=s?ok:null, r);
+    // CONTRASTO col sistema (regola registrata: misurare DENTRO il contrasto): dove LY tace
+    // il sistema usa PB; conto solo le carte in cui la forza DISSENTE dal sistema.
+    if (!t.dir && r._S17ref) {
+      const dirForza = diff>0 ? 'LONG' : 'SHORT';
+      if (dirForza !== r._S17ref) {
+        const okF = dirForza==='LONG' ? sale : !sale;
+        add('  CONTRASTO (LY tace): vince la FORZA', okF, r);
+        for (const s of [2,3,4]) add('  CONTRASTO · |diff| >= '+s, Math.abs(diff)>=s?okF:null, r);
+      }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== FORZA NUDA · vince il trigramma con piu energia ===');
+  console.log('cella'.padEnd(36)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<15) continue;
+    console.log(k.padEnd(36)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.TRASPPEN) {
+  // PUNIZIONE (Edu, 21/08/2026, da EURUSD 06/11/2024): la destinazione colpita da 刑 del
+  // GIORNO (qui doppiata dal mese: 戌刑未 due volte) NON riceve la combinazione.
+  // Misuro dentro i trasporti validi: verdetto base sulle destinazioni punite vs non punite.
+  const LYM = require('./liuyao.js');
+  const PEN={'丑':'戌','戌':'未','未':'丑','寅':'巳','巳':'申','申':'寅','子':'卯','卯':'子','辰':'辰','午':'午','酉':'酉','亥':'亥'};
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const T = trasportoValido(R, r);
+    if (!T) continue;
+    const {mob, dest:c} = T;
+    const car = mob.par; if (car==='C') continue;
+    const cSotto = c.pos<=3, sale = r.move>0;
+    const vinceSotto = (car==='G'||car==='W') ? cSotto : !cSotto;
+    const okBase = vinceSotto ? !sale : sale;
+    const penD = (PEN[r.dayBranchUsed]===c.ramo), penM = (PEN[r.monthBranchUsed]===c.ramo);
+    const lab = penD&&penM ? 'punita da GIORNO+MESE' : penD ? 'punita dal GIORNO' : penM ? 'punita solo dal mese' : 'NON punita';
+    add('dest. '+lab+' · verdetto base', okBase, r);
+    if (penD) {
+      // fallback di Edu: l'arrivo genera la linea superstite dello stesso elemento
+      const genEl = GEN[WX[T.B]];
+      const host = R.linee.filter(l=>!l.isMobile && l.pos!==c.pos && l.el===genEl &&
+                   ['rotta','eliminata','autocombinata','legata'].indexOf(l.stato)<0 &&
+                   PEN[r.dayBranchUsed]!==l.ramo);
+      if (host.length===1) {
+        const okFb = host[0].pos<=3 ? !sale : sale;
+        add('  punita dal giorno · FALLBACK: arrivo genera superstite -> sua sede', okFb, r);
+      }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== TRASPORTO x PUNIZIONE (刑) della destinazione ===');
+  console.log('cella'.padEnd(56)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<6) continue;
+    console.log(k.padEnd(56)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PESOSTELI) {
+  // PESO DEGLI STELI (Edu, 21/08/2026): gli steli della data (anno, mese, giorno, ora)
+  // cadono ciascuno sulla propria linea di casa (scala: L1 = stelo del giorno, poi si
+  // prosegue; yang 甲丙戊己庚壬 · yin 乙丁戊己辛癸). Dove si accumulano, la linea "pesa".
+  // Qui NESSUNA interpretazione: solo censimento della rarita' dell'accumulo.
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil(dateStr){ if(cacheP[dateStr]) return cacheP[dateStr];
+    const [y,m,d]=dateStr.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[dateStr]=o; return o; }
+  const conta={}, esempi={};
+  let tot=0;
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const stems=[P.anno,P.mese,ds,so].filter(Boolean);
+    const perLinea={};
+    for(const s of stems){ const c=casa(s); if(c) perLinea[c]=(perLinea[c]||0)+1; }
+    const maxA=Math.max(0,...Object.values(perLinea));
+    conta[maxA]=(conta[maxA]||0)+1; tot++;
+    if(maxA>=3){ const lin=Object.keys(perLinea).find(k=>perLinea[k]===maxA);
+      (esempi[maxA]=esempi[maxA]||[]).push(r.cross+' '+r.date+' (L'+lin+')'); }
+  }
+  console.log('\\n=== PESO DEGLI STELI · censimento dell accumulo (su '+tot+' carte) ===');
+  for(const k of Object.keys(conta).sort()) console.log('  massimo accumulo '+k+' steli sulla stessa linea: '+conta[k]+' carte ('+(100*conta[k]/tot).toFixed(1)+'%)');
+  for(const k of Object.keys(esempi).sort().reverse()){
+    console.log('  esempi con '+k+' steli: '+esempi[k].slice(0,10).join(' · ')+(esempi[k].length>10?'  … +'+(esempi[k].length-10):''));
+  }
+}
+
+if (process.env.STELOFILO) {
+  // FORMULAZIONE ESATTA DI EDU (21/08/2026): (1) accumulo di uno stelo nella data;
+  // (2) quello stelo corrisponde a una linea (la sua casa); (3) un ramo della data che
+  // PORTA quello stelo nei suoi 藏干 clasha la linea. Effetto: la linea quieta si muove
+  // e si combina (六合 o 三合 pieno). Il clasher puo' essere mese, anno od ora (il giorno
+  // clasha gia' per conto suo, lo tengo separato).
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const CANG={'子':['癸'],'丑':['己','癸','辛'],'寅':['甲','丙','戊'],'卯':['乙'],'辰':['戊','乙','癸'],
+              '巳':['丙','庚','戊'],'午':['丁','己'],'未':['己','丁','乙'],'申':['庚','壬','戊'],
+              '酉':['辛'],'戌':['戊','辛','丁'],'亥':['壬','甲']};
+  const TRINE={'申':['子','辰'],'子':['申','辰'],'辰':['申','子'],
+               '亥':['卯','未'],'卯':['亥','未'],'未':['亥','卯'],
+               '寅':['午','戌'],'午':['寅','戌'],'戌':['寅','午'],
+               '巳':['酉','丑'],'酉':['巳','丑'],'丑':['巳','酉']};
+  const cacheP={};
+  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const stems=[P.anno,P.mese,ds,so].filter(Boolean);
+    const perStelo={}; for(const s of stems) perStelo[s]=(perStelo[s]||0)+1;
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const sale=r.move>0;
+    const clashers=[['mese',r.monthBranchUsed],['anno',r.yearBranchUsed],['ora',r.oraBranch]];
+    for (const [stelo, nS] of Object.entries(perStelo)) {
+      const pos = casa(stelo); if(!pos) continue;
+      const l=R.linee[pos-1];
+      if (l.isMobile) continue;                              // linea QUIETA
+      for (const [chi, br] of clashers) {
+        if (!br || CLASH[br]!==l.ramo) continue;
+        if (CANG[br].indexOf(stelo)<0) continue;             // il ramo PORTA lo stelo (punto 3)
+        // bersaglio della combinazione: 六合 o 三合 pieno
+        let tgt = R.linee.filter(o=>o.pos!==pos && o.ramo===COMBINA[l.ramo]);
+        let tipo='六合';
+        if (tgt.length!==1) {
+          const [m1,m2]=TRINE[l.ramo];
+          const l1=R.linee.filter(o=>o.pos!==pos && o.ramo===m1);
+          const l2=R.linee.filter(o=>o.pos!==pos && o.ramo===m2);
+          const h1=R.linee.some(o=>o.fushen && o.fushen.b===m1);
+          const h2=R.linee.some(o=>o.fushen && o.fushen.b===m2);
+          if (l1.length===1 && (l2.length===1 || h2)) { tgt=l1; tipo='三合'; }
+          else if (l2.length===1 && (l1.length===1 || h1)) { tgt=l2; tipo='三合'; }
+          else tgt=[];
+        }
+        if (tgt.length!==1) continue;
+        const T=tgt[0];
+        const okV = T.pos<=3 ? !sale : sale;
+        const banda = nS>=3?'3+':String(nS);
+        add('FILO · steli '+banda+' · bersaglio vince', okV, r);
+        add('FILO · steli '+banda+' · bersaglio perde', !okV, r);
+        add('  FILO · clasher '+chi, okV, r);
+        add('  FILO · tipo '+tipo, okV, r);
+        add('FILO TUTTI · bersaglio vince', okV, r);
+      }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== IL FILO DELLO STELO · il ramo che porta lo stelo accumulato clasha la sua casa ===');
+  console.log('cella'.padEnd(46)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<8) continue;
+    console.log(k.padEnd(46)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.TORNACASA) {
+  // "TORNA A CASA" (Edu, 22/08/2026, da USDJPY 10/01/2024): trigono PIENO a cavallo fra
+  // data e carta: due membri nella data (fra mese/anno/ora/giorno), il terzo e' la MOBILE.
+  // Il giorno, se e' membro della famiglia, NON blocca: accoglie. La mobile torna a casa
+  // dal CAPO del trigono (Acqua 子, Legno 卯, Fuoco 午, Metallo 酉) presente nell'esagramma:
+  // la squadra della linea del capo VINCE.
+  const LYM = require('./liuyao.js');
+  const TRINE={'申':'Metal? no'};
+  const FAM={ '申':['子','辰'],'子':['申','辰'],'辰':['申','子'],
+              '亥':['卯','未'],'卯':['亥','未'],'未':['亥','卯'],
+              '寅':['午','戌'],'午':['寅','戌'],'戌':['寅','午'],
+              '巳':['酉','丑'],'酉':['巳','丑'],'丑':['巳','酉']};
+  const CAPO={'申':'子','子':'子','辰':'子','亥':'卯','卯':'卯','未':'卯',
+              '寅':'午','午':'午','戌':'午','巳':'酉','酉':'酉','丑':'酉'};
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob=R.linee[R.mutante.pos-1]; if(!mob) continue;
+    const fam=FAM[mob.ramo]; if(!fam) continue;
+    const rami={mese:r.monthBranchUsed, anno:r.yearBranchUsed, giorno:r.dayBranchUsed, ora:r.oraBranch};
+    // i due membri mancanti devono stare nella DATA
+    const dove1=Object.entries(rami).filter(([k,v])=>v===fam[0]).map(([k])=>k);
+    const dove2=Object.entries(rami).filter(([k,v])=>v===fam[1]).map(([k])=>k);
+    const pieno = dove1.length>0 && dove2.length>0;
+    const giornoFam = (r.dayBranchUsed===fam[0]||r.dayBranchUsed===fam[1]);
+    // il capo del trigono presente nell'esagramma (linea ferma unica, non la mobile)
+    const capoB=CAPO[mob.ramo];
+    const capoL=R.linee.filter(l=>l.pos!==mob.pos && l.ramo===capoB);
+    if (capoL.length!==1) continue;
+    const C=capoL[0]; const sale=r.move>0;
+    const okC = C.pos<=3 ? !sale : sale;                 // la squadra del CAPO vince
+    const sosp = R.mutante.casoMut===-1;
+    if (pieno) {
+      add('A. trigono PIENO (data+mobile) · squadra del capo VINCE', okC, r);
+      add('A. pieno · giorno '+(giornoFam?'IN famiglia':'fuori famiglia')+' · capo vince', okC, r);
+      add('A. pieno · mobile '+(sosp?'sospesa (il blocco cede?)':'libera')+' · capo vince', okC, r);
+    } else {
+      add('B. trigono INCOMPLETO (controllo, meta non basta) · capo vince', okC, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== TORNA A CASA · trigono pieno data+mobile, il capo accoglie ===');
+  console.log('cella'.padEnd(56)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<8) continue;
+    console.log(k.padEnd(56)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.FORZABLOCCO) {
+  // CONTROLLO FINALE (Edu, 22/08/2026, da USDJPY 10/01/2024): il condotto carica uno stelo
+  // la cui CASA e' la linea MOBILE SOSPESA dal giorno; se l'elemento dello stelo GENERA
+  // l'elemento del ramo della mobile, la linea riceve potenza inaudita, FORZA il blocco:
+  // il movimento negato si compie, l'arrivo raggiunge il suo bersaglio di combinazione,
+  // e la squadra della linea raggiunta VINCE.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil8(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const stems=[P.annoS,P.meseS,ds,so].filter(Boolean);
+    const perEl={}; for(const s of stems){const e=SE[s]; (perEl[e]=perEl[e]||[]).push(s);}
+    const gruppi=Object.entries(perEl).filter(([e,g])=>g.length>=2).map(([e])=>e);
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    if (R.mutante.casoMut !== -1) continue;             // SOLO mobili sospese dal giorno
+    const mob=R.linee[R.mutante.pos-1]; if(!mob) continue;
+    // stelo carico dal condotto con casa sulla mobile
+    const carichi = stems.filter(s=>casa(s)===mob.pos && gruppi.some(e=>GEN[e]===SE[s] && e!==SE[s]));
+    const scarichi = stems.filter(s=>casa(s)===mob.pos && !gruppi.some(e=>GEN[e]===SE[s] && e!==SE[s]));
+    // bersaglio del movimento forzato: l'arrivo combina una linea unica
+    const arr=R.mutante.ramoArr;
+    const tgt=R.linee.filter(o=>o.pos!==mob.pos && o.ramo===COMBINA[arr]);
+    if (tgt.length!==1) continue;
+    const T=tgt[0]; const sale=r.move>0;
+    const okT = T.pos<=3 ? !sale : sale;                 // la squadra della raggiunta VINCE
+    if (carichi.length) {
+      const genera = carichi.some(s=>GEN[SE[s]]===WX[mob.ramo]);
+      add('A. stelo CARICO in casa sulla sospesa · raggiunta vince', okT, r);
+      add('A. carico e '+(genera?'GENERA il ramo (potenza)':'non genera il ramo')+' · raggiunta vince', okT, r);
+    } else if (scarichi.length) {
+      add('B. stelo in casa ma SCARICO (controllo) · raggiunta vince', okT, r);
+    } else {
+      add('C. nessuno stelo in casa (controllo) · raggiunta vince', okT, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== FORZARE IL BLOCCO · mobile sospesa + stelo carico in casa ===');
+  console.log('cella'.padEnd(56)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<8) continue;
+    console.log(k.padEnd(56)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.TRENDPIL) {
+  // (Edu, 22/08/2026): anche ANNO e ORA caricati dal condotto, quando clashano una linea
+  // ferma, fanno vincere il trend? Confronto diretto coi numeri del mese.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const P=pil8(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const perEl={}; for(const s of [P.annoS,P.meseS,ds,so].filter(Boolean)){const e=SE[s]; (perEl[e]=perEl[e]||[]).push(s);}
+    const gruppi=Object.entries(perEl).filter(([e,g])=>g.length>=2).map(([e])=>e);
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const sale=r.move>0;
+    const segue = (r.emaDir==='up') ? sale : !sale;
+    const pilastri=[{n:'mese', s:P.meseS, b:r.monthBranchUsed},
+                    {n:'anno', s:P.annoS, b:r.yearBranchUsed},
+                    {n:'ora',  s:so,      b:r.oraBranch}].filter(p=>p.s&&p.b);
+    for (const p of pilastri) {
+      if (p.b===r.dayBranchUsed) continue;      // il giorno clasha gia' di suo: fuori
+      // §1: l'anno TIMELY clasha gia' di suo -> per il test dell'attivazione va escluso
+      if (p.n==='anno' && process.env.ANNOSPLIT) {
+        const SEAS={'寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire','午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water','子':'Water','丑':'Earth'};
+        const mE=SEAS[r.monthBranchUsed], mE2=WX[r.monthBranchUsed], yE=WX[p.b];
+        var annoTim = (yE===mE||GEN[mE]===yE||yE===mE2||GEN[mE2]===yE);
+      } else var annoTim=null;
+      const nutrito = gruppi.some(e=>GEN[e]===SE[p.s] && e!==SE[p.s]);
+      for (const l of R.linee) {
+        if (l.isMobile) continue;
+        if (CLASH[p.b]!==l.ramo) continue;
+        // bersaglio: 六合 unico fra le linee, o 三合 pieno (terzo anche nascosto)
+        const TR={'申':['子','辰'],'子':['申','辰'],'辰':['申','子'],'亥':['卯','未'],'卯':['亥','未'],'未':['亥','卯'],
+                  '寅':['午','戌'],'午':['寅','戌'],'戌':['寅','午'],'巳':['酉','丑'],'酉':['巳','丑'],'丑':['巳','酉']};
+        let tgt=R.linee.filter(o=>o.pos!==l.pos && o.ramo===COMBINA[l.ramo]);
+        if(tgt.length!==1){ const [m1,m2]=TR[l.ramo];
+          const l1=R.linee.filter(o=>o.pos!==l.pos&&o.ramo===m1), l2=R.linee.filter(o=>o.pos!==l.pos&&o.ramo===m2);
+          const h1=R.linee.some(o=>o.fushen&&o.fushen.b===m1), h2=R.linee.some(o=>o.fushen&&o.fushen.b===m2);
+          if(l1.length===1&&(l2.length===1||h2)) tgt=l1; else if(l2.length===1&&(l1.length===1||h1)) tgt=l2; else tgt=[]; }
+        const conB = tgt.length===1;
+        if (process.env.MOBNATA && nutrito && conB) {
+          // la colpita si comporta da mobile: relazione elementale col ricevente (dottrina esistente)
+          const T2=tgt[0], eL=WX[l.ramo], eT=T2.el;
+          let relEl;
+          if (eL===eT) relEl='stesso el.';
+          else if (GEN[eL]===eT) relEl='la mossa GENERA chi riceve';
+          else if (GEN[eT]===eL) relEl='la mossa drena chi riceve';
+          else if (CTRL[eL]===eT) relEl='la mossa CONTROLLA chi riceve';
+          else relEl='la mossa e controllata';
+          const okT = T2.pos<=3 ? !sale : sale;    // chi riceve: la sua squadra VINCE
+          add('MOB· '+relEl+' · chi riceve VINCE', okT, r);
+          add('MOB· TUTTE · chi riceve VINCE', okT, r);
+          add('MOB· ricevente '+T2.par+' · chi riceve VINCE', okT, r);
+        }
+        add(p.n+' · '+(nutrito?'CARICO':'scarico')+' · segue', segue, r);
+        add(p.n+' · '+(nutrito?'CARICO':'scarico')+' · '+(conB?'CON bersaglio':'SENZA bersaglio')+' · segue', segue, r);
+        if (p.n==='anno' && annoTim!==null) add('anno '+(annoTim?'TIMELY (clasha gia di suo)':'MUTO')+' · '+(nutrito?'CARICO':'scarico')+' · segue', segue, r);
+      }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== PILASTRO CARICO CHE CLASHA -> SEGUE IL TREND? · mese vs anno vs ora ===');
+  console.log('cella'.padEnd(36)+'n'.padStart(6)+'segue%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<15) continue;
+    console.log(k.padEnd(36)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.TRENDCLASH) {
+  // ALLARGAMENTO (Edu, 22/08/2026): il mese che clasha una linea P fa vincere il TREND?
+  // Scala completa: per numero di steli sulla linea clashata (0/1/2/3) e per condotto
+  // acceso o spento. Solo linee P (carattere della colpita = P). Verdetto: segue il trend.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil8(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const perL={}; for(const s of [P.annoS,P.meseS,ds,so].filter(Boolean)){const c=casa(s); if(c) perL[c]=(perL[c]||0)+1;}
+    const perEl={}; for(const s of [P.annoS,P.meseS,ds,so].filter(Boolean)){const e=SE[s]; (perEl[e]=perEl[e]||[]).push(s);}
+    const gruppi=Object.entries(perEl).filter(([e,g])=>g.length>=2).map(([e])=>e);
+    const nutrito = gruppi.some(e=>GEN[e]===SE[P.meseS] && e!==SE[P.meseS]);
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const Mo=r.monthBranchUsed, sale=r.move>0;
+    const segue = (r.emaDir==='up') ? sale : !sale;
+    const eMo=WX[Mo], pEl=R.palEl;
+    const parMese = eMo===pEl?'B': GEN[pEl]===eMo?'C': CTRL[pEl]===eMo?'W': CTRL[eMo]===pEl?'G':'P';
+    for (const l of R.linee) {
+      if (l.isMobile) continue;
+      if (process.env.MESEP) {
+        // CONTRARIO (Edu, 22/08): dev'essere il MESE ad essere P nel palazzo della carta
+        if (parMese!=='P') continue;
+        if (CLASH[Mo]!==l.ramo) continue;
+        const nS = perL[l.pos]||0;
+        add('MESE-P clasha · linea '+l.par+' · segue', segue, r);
+        add('MESE-P clasha · steli '+nS+' · segue', segue, r);
+        add('MESE-P clasha · '+(nutrito?'condotto ACCESO':'condotto spento')+' · segue', segue, r);
+        add('MESE-P clasha · TUTTE · segue', segue, r);
+        continue;
+      }
+      if (l.par!=='P') continue;                          // SOLO linee P
+      if (CLASH[Mo]!==l.ramo) continue;                   // il mese la clasha
+      const nS = perL[l.pos]||0;
+      add('P clashata dal mese · steli '+nS+' · segue', segue, r);
+      add('P clashata dal mese · '+(nutrito?'condotto ACCESO':'condotto spento')+' · segue', segue, r);
+      add('P clashata dal mese · TUTTE · segue', segue, r);
+      add('  steli '+nS+' · '+(nutrito?'ACCESO':'spento')+' · segue', segue, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== IL MESE CLASHA UNA LINEA P -> VINCE IL TREND? · scala completa ===');
+  console.log('cella'.padEnd(52)+'n'.padStart(6)+'segue%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(52)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PALAZZI) {
+  // TEST DISCRIMINANTE (Edu, 21/08/2026): la dinamica e' del RAMO (六冲) o del PALAZZO
+  // (opposizione Houtian)? Coi palazzi a doppio ramo esistono coppie palazzo-opposte SENZA
+  // clash: 寅-未, 丑-申, 戌-巳, 亥-辰. Se l'effetto appare anche li' -> palazzi; se no -> rami.
+  // Relazioni del MESE verso la linea ferma: CLASH / OPPOSTO-senza-clash / COMBINA / STESSO RAMO.
+  // Verdetto (verso stabilito in §88): il bersaglio raggiunto dalla linea mossa PERDE.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const TRINE={'申':['子','辰'],'子':['申','辰'],'辰':['申','子'],'亥':['卯','未'],'卯':['亥','未'],'未':['亥','卯'],
+               '寅':['午','戌'],'午':['寅','戌'],'戌':['寅','午'],'巳':['酉','丑'],'酉':['巳','丑'],'丑':['巳','酉']};
+  const PALA={'子':6,'午':3,'卯':4,'酉':2,'丑':7,'寅':7,'未':8,'申':8,'戌':1,'亥':1,'辰':5,'巳':5};
+  const OPP={6:3,3:6,4:2,2:4,7:8,8:7,1:5,5:1};
+  const cacheP={};
+  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  function bersaglio(R, pos, ramo){
+    let tgt = R.linee.filter(o=>o.pos!==pos && o.ramo===COMBINA[ramo]);
+    if (tgt.length===1) return tgt[0];
+    const [m1,m2]=TRINE[ramo];
+    const l1=R.linee.filter(o=>o.pos!==pos && o.ramo===m1);
+    const l2=R.linee.filter(o=>o.pos!==pos && o.ramo===m2);
+    const h1=R.linee.some(o=>o.fushen && o.fushen.b===m1);
+    const h2=R.linee.some(o=>o.fushen && o.fushen.b===m2);
+    if (l1.length===1 && (l2.length===1 || h2)) return l1[0];
+    if (l2.length===1 && (l1.length===1 || h1)) return l2[0];
+    return null;
+  }
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const P=pil8(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const perEl={}; for(const s of [P.annoS,P.meseS,ds,so].filter(Boolean)){const e=SE[s]; (perEl[e]=perEl[e]||[]).push(s);}
+    const gruppi=Object.entries(perEl).filter(([e,g])=>g.length>=2).map(([e])=>e);
+    const nutrito = gruppi.some(e=>GEN[e]===SE[P.meseS] && e!==SE[P.meseS]);
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const Mo=r.monthBranchUsed, sale=r.move>0;
+    for (const l of R.linee) {
+      if (l.isMobile) continue;
+      let rel=null;
+      if (CLASH[Mo]===l.ramo) rel='1. CLASH (opposto con clash)';
+      else if (OPP[PALA[Mo]]===PALA[l.ramo]) rel='2. OPPOSTO senza clash';
+      else if (COMBINA[Mo]===l.ramo) rel='3. COMBINA';
+      else if (Mo===l.ramo) rel='4. STESSO RAMO';
+      if (!rel) continue;
+      const T=bersaglio(R, l.pos, l.ramo);
+      if (!T) continue;
+      const okP = T.pos<=3 ? sale : !sale;          // il bersaglio PERDE
+      add(rel+' · bersaglio perde', okP, r);
+      add(rel+' · '+(nutrito?'mese NUTRITO':'mese non nutrito')+' · bersaglio perde', okP, r);
+      if (process.env.PALVINCE) {
+        const okL = l.pos<=3 ? !sale : sale;        // la squadra della LINEA toccata VINCE
+        add('V· '+rel+' · la linea toccata VINCE', okL, r);
+        add('V· '+rel+' · '+(nutrito?'NUTRITO':'non nutrito')+' · linea toccata vince', okL, r);
+      }
+      if (process.env.PALTREND && rel.indexOf('CLASH')>=0 && !(process.env.NODM && Mo===r.dayBranchUsed)) {
+        const segue = (r.emaDir==='up') ? sale : !sale;
+        const eMo=WX[Mo], pEl=R.palEl;
+        const parMese = eMo===pEl?'B': GEN[pEl]===eMo?'C': CTRL[pEl]===eMo?'W': CTRL[eMo]===pEl?'G':'P';
+        if (nutrito) {
+          add('T· NUTRITO · il mercato SEGUE il trend', segue, r);
+          add('T· NUTRITO · mese '+parMese+' clasha linea '+l.par+' · segue', segue, r);
+          if (parMese===l.par) add('T· NUTRITO · mese e linea STESSO carattere · segue', segue, r);
+        } else {
+          add('T· non nutrito (controllo) · segue', segue, r);
+        }
+        add('T· TASSO BASE su questo perimetro · segue', segue, r);
+      }
+      if (process.env.PALCAR && nutrito && rel.indexOf('CLASH')>=0) {
+        const okL = l.pos<=3 ? !sale : sale;
+        add('CAR· attivata '+l.par+' · la sua squadra VINCE', okL, r);
+        add('CAR· attivata '+l.par+' · la sua squadra PERDE', !okL, r);
+      }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== RAMO o PALAZZO? · relazioni del mese verso la linea ferma (bersaglio perde) ===');
+  console.log('cella'.padEnd(56)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<12) continue;
+    console.log(k.padEnd(56)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PILASTRO) {
+  // IL PILASTRO NUTRITO COLPISCE (Edu, 21/08/2026, da USDJPY 10/01/2024):
+  // (1) il gruppo pesante di steli (2+ dello stesso elemento) GENERA lo stelo di un altro
+  //     pilastro della data (il condotto);
+  // (2) il RAMO di quel pilastro nutrito clasha una linea ferma -> il clash, anche se
+  //     verrebbe da una fonte muta (mese / anno / ora), DIVENTA EFFICACE: la linea si muove;
+  // (3) la linea mossa si combina (六合, o 三合 pieno anche con nascosto) col bersaglio.
+  // Celle: A) meccanica completa  B) stesso clash SENZA condotto  C) condotto ma clash da
+  // pilastro NON nutrito. Verdetto esplorativo: bersaglio vince / perde.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const TRINE={'申':['子','辰'],'子':['申','辰'],'辰':['申','子'],'亥':['卯','未'],'卯':['亥','未'],'未':['亥','卯'],
+               '寅':['午','戌'],'午':['寅','戌'],'戌':['寅','午'],'巳':['酉','丑'],'酉':['巳','丑'],'丑':['巳','酉']};
+  const cacheP={};
+  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  function bersaglio(R, pos, ramo){
+    let tgt = R.linee.filter(o=>o.pos!==pos && o.ramo===COMBINA[ramo]);
+    if (tgt.length===1) return tgt[0];
+    const [m1,m2]=TRINE[ramo];
+    const l1=R.linee.filter(o=>o.pos!==pos && o.ramo===m1);
+    const l2=R.linee.filter(o=>o.pos!==pos && o.ramo===m2);
+    const h1=R.linee.some(o=>o.fushen && o.fushen.b===m1);
+    const h2=R.linee.some(o=>o.fushen && o.fushen.b===m2);
+    if (l1.length===1 && (l2.length===1 || h2)) return l1[0];
+    if (l2.length===1 && (l1.length===1 || h1)) return l2[0];
+    return null;
+  }
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil8(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const sale=r.move>0;
+    // pilastri come coppie stelo+ramo (escludo il GIORNO: il suo clash e' gia' efficace di suo)
+    const pilastri=[{n:'mese', s:P.meseS, b:r.monthBranchUsed},
+                    {n:'anno', s:P.annoS, b:r.yearBranchUsed},
+                    {n:'ora',  s:so,      b:r.oraBranch}].filter(p=>p.s&&p.b);
+    // gruppo pesante per elemento (2+)
+    const perEl={}; for(const s of [P.annoS,P.meseS,ds,so].filter(Boolean)){const e=SE[s]; (perEl[e]=perEl[e]||[]).push(s);}
+    const gruppi=Object.entries(perEl).filter(([e,g])=>g.length>=2).map(([e])=>e);
+    for (const p of pilastri) {
+      const nutrito = gruppi.some(e=>GEN[e]===SE[p.s] && e!==SE[p.s]);
+      for (const l of R.linee) {
+        if (l.isMobile) continue;
+        if (CLASH[p.b]!==l.ramo) continue;
+        // il clash deve venire da fonte MUTA di suo (escludo: e' anche il ramo del giorno,
+        // o anno timely che gia' clasha per regola fissata)
+        if (p.b===r.dayBranchUsed) continue;
+        const T=bersaglio(R, l.pos, l.ramo);
+        if (!T) continue;
+        const okV = T.pos<=3 ? !sale : sale;              // bersaglio: la sua squadra vince
+        const okM = l.pos<=3 ? sale : !sale;               // chi si muove: la sua squadra PERDE (abbandono)
+        const chiave = nutrito ? 'A. pilastro NUTRITO dal condotto ('+p.n+')' :
+                       (gruppi.length? 'C. condotto presente, pilastro non nutrito' : 'B. nessun condotto (controllo)');
+        add(chiave+' · bersaglio vince', okV, r);
+        add(chiave+' · bersaglio perde', !okV, r);
+        if (process.env.PILSPLIT && nutrito && p.n==='mese') {
+          const stesso = (l.pos<=3)===(T.pos<=3);
+          add('SPLIT mese · '+(stesso?'STESSO trigramma':'trigrammi DIVERSI')+' · chi si muove perde (abbandono)', okM, r);
+          add('SPLIT mese · '+(stesso?'STESSO trigramma':'trigrammi DIVERSI')+' · bersaglio perde', !okV, r);
+          add('SPLIT mese · TUTTI · chi si muove perde (abbandono)', okM, r);
+        }
+      }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== IL PILASTRO NUTRITO COLPISCE · meccanica vs controlli ===');
+  console.log('cella'.padEnd(56)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(56)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.MESECLASH) {
+  // VERIFICA (Edu, 21/08/2026, da USDJPY 10/01/2024): il mese normalmente NON clasha, ma
+  // potrebbe clashare la linea CHE PORTA STELI e metterla in moto fino a combinarsi
+  // (六合 o 三合 pieno) con un'altra linea. CONDIZIONE ABILITANTE: un ramo della data
+  // (anno/giorno/ora, oltre al mese) presente nell'esagramma, oppure che clashi/combini
+  // il ramo della linea con gli steli.
+  // Misuro: esistenza per 1/2/3 steli + direzione (squadra del bersaglio vince / perde).
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const TRINE={'申':['子','辰'],'子':['申','辰'],'辰':['申','子'],
+               '亥':['卯','未'],'卯':['亥','未'],'未':['亥','卯'],
+               '寅':['午','戌'],'午':['寅','戌'],'戌':['寅','午'],
+               '巳':['酉','丑'],'酉':['巳','丑'],'丑':['巳','酉']};
+  const cacheP={};
+  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  const contaEsist={1:0,2:0,3:0};
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const perL={}; for(const s of [P.anno,P.mese,ds,so].filter(Boolean)){const c=casa(s); if(c) perL[c]=(perL[c]||0)+1;}
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const Mo=r.monthBranchUsed;
+    const ramiData=[r.yearBranchUsed, r.dayBranchUsed, r.oraBranch].filter(Boolean);
+    const ramiEsag=R.linee.map(l=>l.ramo);
+    const sale=r.move>0;
+    // CONTROLLO: stessa configurazione su linee SENZA steli (nS=0)
+    for (let pos0=1; pos0<=6; pos0++) {
+      if (perL[pos0]) continue;
+      const l0=R.linee[pos0-1];
+      if (CLASH[Mo]!==l0.ramo) continue;
+      if (l0.isMobile) continue;
+      const abil0 = ramiData.some(b=>ramiEsag.indexOf(b)>=0) ||
+                    ramiData.some(b=>CLASH[b]===l0.ramo || COMBINA[b]===l0.ramo);
+      if (!abil0) continue;
+      let tgt0 = R.linee.filter(o=>o.pos!==pos0 && o.ramo===COMBINA[l0.ramo]);
+      if (tgt0.length!==1) {
+        const [m1,m2]=TRINE[l0.ramo];
+        const l1=R.linee.filter(o=>o.pos!==pos0 && o.ramo===m1);
+        const l2=R.linee.filter(o=>o.pos!==pos0 && o.ramo===m2);
+        const h1=R.linee.some(o=>o.fushen && o.fushen.b===m1);
+        const h2=R.linee.some(o=>o.fushen && o.fushen.b===m2);
+        if (l1.length===1 && (l2.length===1 || h2)) tgt0=l1;
+        else if (l2.length===1 && (l1.length===1 || h1)) tgt0=l2;
+        else tgt0=[];
+      }
+      if (tgt0.length!==1) continue;
+      const okV0 = tgt0[0].pos<=3 ? !sale : sale;
+      add('CONTROLLO steli 0 · bersaglio vince', okV0, r);
+    }
+    for (const [posS, nS] of Object.entries(perL)) {
+      const pos=parseInt(posS,10); const l=R.linee[pos-1];
+      if (CLASH[Mo]!==l.ramo) continue;                       // il mese clasha la linea con steli
+      // condizione abilitante
+      const abil = ramiData.some(b=>ramiEsag.indexOf(b)>=0) ||
+                   ramiData.some(b=>CLASH[b]===l.ramo || COMBINA[b]===l.ramo);
+      if (!abil) continue;
+      // bersaglio: 六合 fra le linee, oppure 三合 PIENO (terzo membro visibile o nascosto)
+      let tgt = R.linee.filter(o=>o.pos!==pos && o.ramo===COMBINA[l.ramo]);
+      let tipo='六合';
+      if (tgt.length!==1) {
+        const [m1,m2]=TRINE[l.ramo];
+        const l1=R.linee.filter(o=>o.pos!==pos && o.ramo===m1);
+        const l2=R.linee.filter(o=>o.pos!==pos && o.ramo===m2);
+        const h1=R.linee.some(o=>o.fushen && o.fushen.b===m1);
+        const h2=R.linee.some(o=>o.fushen && o.fushen.b===m2);
+        if (l1.length===1 && (l2.length===1 || h2)) { tgt=l1; tipo='三合'; }
+        else if (l2.length===1 && (l1.length===1 || h1)) { tgt=l2; tipo='三合'; }
+        else tgt=[];
+      }
+      if (tgt.length!==1) continue;
+      contaEsist[Math.min(nS,3)]++;
+      const T=tgt[0];
+      const okV = T.pos<=3 ? !sale : sale;                    // squadra del bersaglio VINCE
+      add('steli '+nS+' · squadra del bersaglio VINCE', okV, r);
+      add('steli '+nS+' · squadra del bersaglio perde', !okV, r);
+      add('  tipo '+tipo+' · bersaglio vince', okV, r);
+      add('TUTTI · bersaglio vince', okV, r);
+    }
+  }
+  console.log('\\n=== MESE CLASHA LA LINEA CON STELI -> si muove a combinarsi ===');
+  console.log('esistenza (con condizione abilitante e bersaglio trovato): 1 stelo: '+contaEsist[1]+' · 2 steli: '+contaEsist[2]+' · 3 steli: '+contaEsist[3]);
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('cella'.padEnd(46)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<8) continue;
+    console.log(k.padEnd(46)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PESOFLUSSO) {
+  // IL CONDOTTO DEGLI STELI (Edu, 21/08/2026, da USDJPY 10/01/2024): gli steli della data
+  // interagiscono FRA LORO per Cinque Elementi: il gruppo pesante GENERA un altro stelo
+  // presente -> il Qi scorre e sbocca sulla casa di quest'ultimo.
+  // Misura 1 (struttura): quanto spesso lo sbocco e' la linea MOBILE? (caso: 1/6)
+  // Misura 2 (direzione, esplorativa): la squadra dello sbocco vince o perde?
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  let nPipe=0, suMobile=0, suAgente=0;
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const stems=[P.anno,P.mese,ds,so].filter(Boolean);
+    // gruppo pesante per ELEMENTO (2+ steli dello stesso elemento) che GENERA l'elemento
+    // di un altro stelo presente con casa
+    const perEl={}; for(const s of stems){const e=SE[s]; perEl[e]=(perEl[e]||[]); perEl[e].push(s);}
+    let sbocco=null;
+    for (const [e, gruppo] of Object.entries(perEl)) {
+      if (gruppo.length<2) continue;
+      const rx = stems.filter(s=>SE[s]===GEN[e] && casa(s));
+      if (rx.length===1) { const c=casa(rx[0]); if(c && c!==casa(gruppo[0])) sbocco={pos:c, da:gruppo.length}; }
+    }
+    if (!sbocco) continue;
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    nPipe++;
+    const l=R.linee[sbocco.pos-1];
+    const isMob = l.isMobile;
+    const agente = isMob || l.stato==='mossa' || l.stato==='attiva' || l.stato==='liberata';
+    if (isMob) suMobile++;
+    if (agente) suAgente++;
+    const sale=r.move>0;
+    const okV = l.pos<=3 ? !sale : sale;                    // la squadra dello sbocco VINCE
+    add('sbocco su qualunque linea · squadra VINCE', okV, r);
+    add('  sbocco sulla MOBILE · vince', isMob?okV:null, r);
+    add('  sbocco su linea agente (mobile/mossa/attiva) · vince', agente?okV:null, r);
+    add('  sbocco su linea ferma · vince', !agente?okV:null, r);
+    add('  da gruppo di '+sbocco.da+' · vince', okV, r);
+  }
+  console.log('\\n=== IL CONDOTTO DEGLI STELI · il gruppo pesante genera un altro stelo ===');
+  console.log('carte con condotto: '+nPipe+'  ·  sbocco sulla MOBILE: '+suMobile+' ('+(100*suMobile/Math.max(1,nPipe)).toFixed(1)+'% — caso ~16,7%)  ·  su linea agente: '+suAgente+' ('+(100*suAgente/Math.max(1,nPipe)).toFixed(1)+'%)');
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('cella'.padEnd(50)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<12) continue;
+    console.log(k.padEnd(50)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PESOINERTE) {
+  // (Edu, 21/08/2026): due situazioni per gli steli: (1) sopra una linea che CONTA perche'
+  // fa qualcosa; (2) sopra una linea che NON FA NIENTE. Qui misuro la 2.
+  // Definizione di "non fa niente" (dichiarata): linea ferma, non Shi, non Ying, non mobile,
+  // non sul ramo del giorno, non clashata/combinata/svegliata (stato piena o dormiente),
+  // non destinazione di atterraggio dell'arrivo.
+  // Verdetto testato: la squadra della linea pesante-e-inerte PERDE (ipotesi zavorra).
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const perL={}; for(const s of [P.anno,P.mese,ds,so].filter(Boolean)){const c=casa(s); if(c) perL[c]=(perL[c]||0)+1;}
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const arr = R.mutante.movimentoNullo ? null : R.mutante.ramoArr;
+    const t=LYM.termometro(R,{oraBranch:r.oraBranch,emaDir:r.emaDir,date:r.date},{},{});
+    const sale=r.move>0;
+    for (const [posS, nS] of Object.entries(perL)) {
+      const pos=parseInt(posS,10); if (nS<2) continue;          // solo linee con peso (>=2 steli)
+      const l=R.linee[pos-1];
+      const inerte = !l.isMobile && !l.isShi && !l.isYing &&
+        l.ramo!==r.dayBranchUsed &&
+        (l.stato==='piena'||l.stato==='dormiente') &&
+        (!arr || COMBINA[arr]!==l.ramo);
+      const ok = l.pos<=3 ? sale : !sale;                       // la squadra della pesante PERDE
+      const lab = inerte ? 'INERTE' : 'ATTIVA';
+      if (process.env.PESOLIST && inerte && nS>=3) {
+        console.log('P3I '+r.cross+' '+r.date+'  linea pesante L'+pos+' '+l.parCn+' '+l.ramo+' ('+l.stato+')  squadra-perde dice '+(l.pos<=3?'LONG':'SHORT')+'  '+(ok?'+':'-')+Math.abs(r.move).toFixed(0)+'  seme '+r.seed);
+      }
+      add('peso>=2 su linea '+lab+' · la sua squadra perde', ok, r);
+      add('  '+lab+' · peso '+nS, ok, r);
+      if(!t.dir) add('  '+lab+' · dove LY TACE', ok, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== PESO SU LINEA INERTE vs ATTIVA · ipotesi zavorra (la squadra della pesante perde) ===');
+  console.log('cella'.padEnd(48)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<12) continue;
+    console.log(k.padEnd(48)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PESOTRIG) {
+  // IL PESO DECIDE? (Edu, 21/08/2026, da EURGBP 21/04/2020: "due steli su L5 hanno fatto
+  // vincere il Long?"). Test: il trigramma che porta piu' steli della data VINCE.
+  // Nota strutturale: lo stelo del giorno cade SEMPRE su L1 (basso) -> misuro anche la
+  // variante senza il giorno (solo anno, mese, ora) per togliere il bias.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const sale=r.move>0;
+    const conta = stems => { let lo=0, up=0;
+      for(const s of stems){ const c=casa(s); if(!c) continue; if(c<=3) lo++; else up++; }
+      return {lo, up}; };
+    const tutti = conta([P.anno,P.mese,ds,so].filter(Boolean));
+    const senzaG = conta([P.anno,P.mese,so].filter(Boolean));
+    // variante A: tutti e quattro
+    if (tutti.lo!==tutti.up) {
+      const ok = tutti.up>tutti.lo ? sale : !sale;
+      add('A. 4 steli · trigramma piu pesante VINCE', ok, r);
+      add('A. margine '+Math.abs(tutti.up-tutti.lo), ok, r);
+    }
+    // variante B: senza il giorno (strutturale su L1)
+    if (senzaG.lo!==senzaG.up) {
+      const ok = senzaG.up>senzaG.lo ? sale : !sale;
+      add('B. senza giorno · piu pesante VINCE', ok, r);
+      add('B. margine '+Math.abs(senzaG.up-senzaG.lo), ok, r);
+      const t=(()=>{try{const R=LYM.readManual(r.sup,r.inf,r.linea,r.dayBranchUsed,r.monthBranchUsed,r.yearBranchUsed,r.dayStemUsed);
+        if(R.error)return null; return LYM.termometro(R,{oraBranch:r.oraBranch,emaDir:r.emaDir,date:r.date},{},{});}catch(e){return null;}})();
+      if (t && !t.dir) add('B. senza giorno · dove LY TACE', ok, r);
+      if (r._S17ref) { const dirP = senzaG.up>senzaG.lo?'LONG':'SHORT';
+        if (dirP!==r._S17ref) add('B. CONTRASTO col sistema: vince il peso', ok, r); }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== IL PESO DECIDE? · trigramma con piu steli della data ===');
+  console.log('cella'.padEnd(46)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<15) continue;
+    console.log(k.padEnd(46)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.CAMINOB) {
+  // CARTA-CAMINO (Edu, 21/08/2026, da EURGBP 21/04/2020, riapre la risonanza del 18/08):
+  // arrivo di carattere B che trova la GEMELLA (stesso ramo) fra le linee ferme: il Qi
+  // scorre lungo il camino e CONSEGNA LA PERDITA dove finisce -> il trigramma della gemella
+  // PERDE. (Il 18/08 fu misurato col verso opposto: vince la sede della gemella.)
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob=R.linee[R.mutante.pos-1]; if(!mob) continue;
+    if (R.mutante.movimentoNullo) continue;
+    const arr=R.mutante.ramoArr, e=WX[arr], p=R.palEl;
+    const parArr = e===p?'B': GEN[p]===e?'C': CTRL[p]===e?'W': CTRL[e]===p?'G':'P';
+    const gem = R.linee.filter(l=>!l.isMobile && l.ramo===arr);
+    if (gem.length!==1) continue;                              // una sola gemella: caso pulito
+    const g=gem[0];
+    if ((g.pos<=3)===(mob.pos<=3)) var stessoTrig=true; else stessoTrig=false;
+    const sale=r.move>0;
+    const okPerde = g.pos<=3 ? sale : !sale;    // il trigramma della gemella PERDE (verso di Edu)
+    const okVince = !okPerde;                   // verso del 18/08
+    add('arrivo '+parArr+' con gemella · gemella PERDE (Edu)', okPerde, r);
+    add('arrivo '+parArr+' con gemella · gemella vince (18/08)', okVince, r);
+    if (parArr==='B') {
+      add('  B · gemella nell ALTRO trigramma · perde', !stessoTrig?okPerde:null, r);
+      add('  B · gemella nello STESSO trigramma · perde', stessoTrig?okPerde:null, r);
+      add('  B · gemella e anche B (camino puro) · perde', g.par==='B'?okPerde:null, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== CARTA-CAMINO · arrivo con gemella: chi perde? ===');
+  console.log('cella'.padEnd(52)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(52)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PESOAMP) {
+  // IL PESO COME AMPLIFICATORE (Edu, 21/08/2026, da GBPUSD 19/05/2022):
+  // "L1 si muove in una B. B fa perdere la propria squadra. Tre Ren su L1 aggravano."
+  // Ipotesi: il peso degli steli AMPLIFICA il verdetto della linea. Test sul caso della
+  // carta: mobile con arrivo di carattere B (o P) -> il trigramma della mobile perde;
+  // spaccato per numero di steli della data sulla linea mobile.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const mob=R.linee[R.mutante.pos-1]; if(!mob) continue;
+    if (R.mutante.movimentoNullo) continue;
+    const arr=R.mutante.ramoArr, e=WX[arr], p=R.palEl;
+    const parArr = e===p?'B': GEN[p]===e?'C': CTRL[p]===e?'W': CTRL[e]===p?'G':'P';
+    if (parArr!=='B' && parArr!=='P') continue;
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const stems=[P.anno,P.mese,ds,so].filter(Boolean);
+    let peso=0; for(const s of stems) if(casa(s)===mob.pos) peso++;
+    const sale=r.move>0;
+    const ok = mob.pos<=3 ? sale : !sale;    // il trigramma della mobile PERDE
+    add('arrivo '+parArr+' -> trig. mobile perde · TUTTE', ok, r);
+    if (process.env.PESOKO && parArr==='B' && !ok) {
+      console.log('KOB '+r.cross+' '+r.date+'  mobL'+mob.pos+' '+mob.par+' '+R.mutante.ramoDep+'->'+arr+'  caso'+R.mutante.casoMut+'  peso'+peso+'  move '+(r.move>0?'+':'')+r.move.toFixed(0));
+    }
+    add('  arrivo '+parArr+' · peso '+(peso>=2?'>=2':peso===1?'=1':'=0')+' steli sulla mobile', ok, r);
+    add('  arrivo B/P · peso '+(peso>=2?'>=2':peso===1?'=1':'=0'), ok, r);
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== PESO COME AMPLIFICATORE · arrivo B/P, il trigramma della mobile perde ===');
+  console.log('cella'.padEnd(48)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<8) continue;
+    console.log(k.padEnd(48)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PESOSCAN) {
+  // Scansione delle carte con 3 steli sulla stessa linea: cosa STA FACENDO quella linea?
+  // Solo fatti osservabili: mobile? destinazione di atterraggio? Shi/Ying? combinata/clashata?
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const stems=[P.anno,P.mese,ds,so].filter(Boolean);
+    const perL={}; for(const s of stems){const c=casa(s); if(c) perL[c]=(perL[c]||0)+1;}
+    const maxA=Math.max(0,...Object.values(perL));
+    if(maxA<3) continue;
+    const pos=parseInt(Object.keys(perL).find(k=>perL[k]===maxA),10);
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const l=R.linee[pos-1];
+    const ruoli=[];
+    if(l.isMobile) ruoli.push('MOBILE');
+    if(l.isShi) ruoli.push('Shi'); if(l.isYing) ruoli.push('Ying');
+    if(!R.mutante.movimentoNullo && COMBINA[R.mutante.ramoArr]===l.ramo) ruoli.push('DESTINAZIONE-ATTERRAGGIO');
+    if(CLASH[r.dayBranchUsed]===l.ramo) ruoli.push('clashata-dal-giorno');
+    if(l.ramo===r.dayBranchUsed) ruoli.push('ramo-del-giorno');
+    ruoli.push('stato:'+l.stato);
+    console.log(r.cross+' '+r.date+'  L'+pos+' ('+maxA+' steli) '+l.parCn+' '+l.ramo+'  ['+ruoli.join(', ')+']  move '+(r.move>0?'+':'')+r.move.toFixed(0));
+  }
+}
+
+if (process.env.TRASPSTELI) {
+  // STELI SULLE LINEE (Edu, 21/08/2026): L1 = stelo del giorno, poi la scala prosegue
+  // (giorno yang: 甲丙戊己庚壬 · giorno yin: 乙丁戊己辛癸, partendo dallo stelo del giorno).
+  // Gli steli della DATA (anno, mese, giorno, ora) portano sostegno o controllo alle linee:
+  // uguale +1 · stesso elemento +0.75 · genera +0.5 · controlla -1.
+  // Misura: punteggio della DESTINAZIONE del trasporto -> qualita' del verdetto base.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const cachePil={};
+  function pilastri(dateStr){ if(cachePil[dateStr]) return cachePil[dateStr];
+    const [y,m,d]=dateStr.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const out={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)};
+    cachePil[dateStr]=out; return out; }
+  function steloOra(dayStem, oraBranch){ const s0=WUSHU[dayStem]; if(!s0||!oraBranch) return null;
+    const i=HB.indexOf(oraBranch); if(i<0) return null; return ST[(ST.indexOf(s0)+i)%10]; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const T = trasportoValido(R, r);
+    if (!T) continue;
+    const {mob, dest:c} = T;
+    const car = mob.par; if (car==='C') continue;
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad = (ST.indexOf(ds)%2===0)?YANG:YIN;
+    const i0 = lad.indexOf(ds); if(i0<0) continue;
+    const lineStem = pos => lad[(i0+pos-1)%6];
+    const P = pilastri(r.date);
+    const dateStems=[P.anno,P.mese,ds,steloOra(ds,r.oraBranch)].filter(Boolean);
+    const dstStem = lineStem(c.pos), dstEl = SE[dstStem];
+    let score=0;
+    for (const s of dateStems){ const e=SE[s];
+      if (s===dstStem) score+=1; else if (e===dstEl) score+=0.75;
+      else if (GEN[e]===dstEl) score+=0.5; else if (CTRL[e]===dstEl) score-=1; }
+    const cSotto=c.pos<=3, sale=r.move>0;
+    const vinceSotto=(car==='G'||car==='W')?cSotto:!cSotto;
+    const okBase=vinceSotto?!sale:sale;
+    const band = score<=-2?'sostegno <= -2 (controllata forte)': score<0?'sostegno < 0': score===0?'sostegno = 0': score<2?'sostegno > 0':'sostegno >= +2 (sostenuta forte)';
+    add(band+' · verdetto base', okBase, r);
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== STELI DELLA DATA sulla DESTINAZIONE (trasporti validi) ===');
+  console.log('cella'.padEnd(48)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(48)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.TRASPBESTIA) {
+  // STELO DEL GIORNO x BESTIA DELLA DESTINAZIONE (Edu, 21/08/2026, da EURUSD 06/11/2024,
+  // data con quattro Jia). Ogni bestia e' un proxy di stelo: 青龍=Legno, 朱雀=Fuoco,
+  // 勾陳=Terra(yang 戊), 螣蛇=Terra(yin 己), 白虎=Metallo, 玄武=Acqua.
+  // Ipotesi generale: lo stelo del giorno che CONTROLLA la bestia della destinazione ne
+  // indebolisce la ricezione; stelo uguale o che genera la sostiene.
+  const LYM = require('./liuyao.js');
+  const BEL={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+  const STEM_EL={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const T = trasportoValido(R, r);
+    if (!T) continue;
+    const {mob, dest:c} = T;
+    const car = mob.par; if (car==='C') continue;
+    if (!c.bestia) continue;
+    const sEl = STEM_EL[r.dayStemUsed]; if(!sEl) continue;
+    const bEl = BEL[c.bestia.cn];
+    const cSotto = c.pos<=3, sale = r.move>0;
+    const vinceSotto = (car==='G'||car==='W') ? cSotto : !cSotto;
+    const okBase = vinceSotto ? !sale : sale;
+    let rel;
+    if (sEl===bEl) rel='stelo UGUALE alla bestia';
+    else if (GEN[sEl]===bEl) rel='stelo GENERA la bestia';
+    else if (CTRL[sEl]===bEl) rel='stelo CONTROLLA la bestia';
+    else if (GEN[bEl]===sEl) rel='bestia genera lo stelo';
+    else rel='bestia controlla lo stelo';
+    add(rel+' · verdetto base', okBase, r);
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== STELO DEL GIORNO x BESTIA DELLA DESTINAZIONE (trasporti validi) ===');
+  console.log('cella'.padEnd(44)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<10) continue;
+    console.log(k.padEnd(44)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.ELASTICOF) {
+  // ELASTICO + FORZA (Edu, 21/08/2026): "l'energia in gioco sopra e' superiore a quella sotto".
+  // Stessa configurazione dell'ELASTICO, ma il verdetto e' dato dal CONFRONTO DI FORZA fra i
+  // due trigrammi (somma degli score forzaModello delle linee): vince il trigramma piu' forte.
+  // La linea liberata dall'elastico conta nel proprio trigramma con la sua forza.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const D=r.dayBranchUsed, Mo=r.monthBranchUsed, Y=r.yearBranchUsed;
+    const el = R.linee.filter(l=>!l.isMobile && CLASH[D]===l.ramo &&
+                (COMBINA[Y]===l.ramo || COMBINA[Mo]===l.ramo));
+    if (el.length!==1) continue;                       // una sola linea-elastico: caso pulito
+    const lib = el[0];
+    const F = LYM.forzaModello(R, {oraBranch:r.oraBranch, date:r.date}, null);   // forze di tutte
+    const somma = trigSotto => R.linee.reduce((s,l)=> s + ((l.pos<=3)===trigSotto ? F.linee[l.pos-1].score : 0), 0);
+    const fSotto = somma(true), fSopra = somma(false);
+    const diff = fSopra - fSotto;
+    const sale = r.move>0;
+    if (Math.abs(diff) < 0.01) continue;
+    const okForza = diff>0 ? sale : !sale;             // vince il trigramma piu' forte
+    const okSuo   = lib.pos<=3 ? !sale : sale;         // vecchia ipotesi: vince il trig. della liberata
+    add('FORZA: vince il trigramma piu forte', okForza, r);
+    add('  liberata NEL trig. piu forte', (lib.pos<=3)===(diff<0) ? okForza : null, r);
+    add('  liberata nel trig. piu debole', (lib.pos<=3)===(diff>0) ? okForza : null, r);
+    add('  |diff| >= 3 (energie nette)', Math.abs(diff)>=3 ? okForza : null, r);
+    add('  |diff| >= 3 · liberata nel piu forte', (Math.abs(diff)>=3 && (lib.pos<=3)===(diff<0)) ? okForza : null, r);
+    add('(controllo) vecchia ipotesi: vince il trig. della liberata', okSuo, r);
+    // affilatura della cella |diff|>=3 + liberata nel piu forte
+    if (process.env.ELAFF && Math.abs(diff)>=3 && (lib.pos<=3)===(diff<0)) {
+      const t=LYM.termometro(R,{oraBranch:r.oraBranch,emaDir:r.emaDir,date:r.date},{},{});
+      add('AFF · '+(t.dir?'LY parla':'LY tace'), okForza, r);
+      add('AFF · legame da '+(COMBINA[Y]===lib.ramo?'ANNO':'MESE'), okForza, r);
+      add('AFF · liberata '+(R.vuoti.indexOf(lib.ramo)>=0?'vuota':'piena'), okForza, r);
+      add('AFF · liberata '+(lib.pos<=3?'sotto':'sopra'), okForza, r);
+      add('AFF · |diff| >= 4', Math.abs(diff)>=4?okForza:null, r);
+      add('AFF · |diff| >= 5', Math.abs(diff)>=5?okForza:null, r);
+      add('AFF · mobile con movimento '+(R.mutante.movimentoNullo?'NULLO':'vivo'), okForza, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== ELASTICO x FORZA · vince il trigramma con piu energia ===');
+  console.log('cella'.padEnd(52)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<8) continue;
+    console.log(k.padEnd(52)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.ELASTICO) {
+  // "L'ELASTICO ROTTO" (Edu, 21/08/2026, da USDCAD 13/09/2022): una linea tenuta in
+  // combinazione (dall'ANNO) e clashata dal GIORNO viene liberata di colpo, carica di
+  // energia -> vince il SUO trigramma. Varianti misurate: con/senza vuoto, con/senza
+  // generatore timely adiacente, e combinazione dal MESE anziche' dall'anno.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  const SEAS={'寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire','午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water','子':'Water','丑':'Earth'};
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const D=r.dayBranchUsed, Mo=r.monthBranchUsed, Y=r.yearBranchUsed;
+    const mE=SEAS[Mo], mE2=WX[Mo];
+    const tim = e => e===mE || GEN[mE]===e || e===mE2 || GEN[mE2]===e;
+    for (const l of R.linee) {
+      if (l.isMobile) continue;
+      if (CLASH[D]!==l.ramo) continue;                       // clashata dal giorno
+      const combAnno = (COMBINA[Y]===l.ramo);
+      const combMese = (COMBINA[Mo]===l.ramo);
+      if (!combAnno && !combMese) continue;                  // deve esserci un legame da rompere
+      const sale = r.move>0;
+      const ok = l.pos<=3 ? !sale : sale;                    // vince il SUO trigramma
+      const src = combAnno ? 'ANNO' : 'MESE';
+      add('elastico rotto (legame da '+src+') · vince il suo trig.', ok, r);
+      add('  '+src+' · linea '+(R.vuoti.indexOf(l.ramo)>=0?'vuota':'piena'), ok, r);
+      // generatore adiacente timely (come L6 su L5 nella carta sorgente)
+      const gen = R.linee.some(o=>!o.isMobile && Math.abs(o.pos-l.pos)===1 && GEN[o.el]===l.el && tim(o.el));
+      add('  '+src+' · generatore adiacente timely: '+(gen?'SI':'no'), ok, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== ELASTICO ROTTO · clash del giorno rompe la combinazione, la linea si libera carica ===');
+  console.log('cella'.padEnd(50)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<8) continue;
+    console.log(k.padEnd(50)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.TRASPRETRO) {
+  // (Edu, 21/08/2026, da USDJPY 13/12/2023): se chi viene trasportato RETROCEDE (退神),
+  // l'azione non si consegna — B/P non infliggono la perdita (il clan d'atterraggio NON
+  // perde), e in simmetria G/W non consegnano il dono (la destinazione NON vince).
+  // Misuro il verdetto base vs il verdetto ROVESCIATO, spaccato per progressione.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const T = trasportoValido(R, r);
+    if (!T) continue;
+    const {mob, dest:c} = T;
+    const car = mob.par; if (car==='C') continue;
+    const cSotto = c.pos<=3, sale = r.move>0;
+    const vinceSotto = (car==='G'||car==='W') ? cSotto : !cSotto;
+    const okBase = vinceSotto ? !sale : sale;
+    const pr = R.mutante.progressione || 'nessuna';
+    const depLegataMese = (COMBINA[r.monthBranchUsed]===R.mutante.ramoDep);
+    add('partenza '+(depLegataMese?'LEGATA dal mese':'libera')+' · base', okBase, r);
+    add('partenza '+(depLegataMese?'LEGATA dal mese':'libera')+' · rovesciato', !okBase, r);
+    if (pr==='retrocedente' && car==='B') {
+      add('  retroB · partenza '+(depLegataMese?'LEGATA mese':'libera')+' · base', okBase, r);
+      add('  retroB · partenza '+(depLegataMese?'LEGATA mese':'libera')+' · rovesciato', !okBase, r);
+    }
+    add('prog. '+pr+' · verdetto BASE', okBase, r);
+    add('prog. '+pr+' · verdetto ROVESCIATO', !okBase, r);
+    if (pr==='retrocedente') { add('  retro · A='+car+' · base', okBase, r);
+                               add('  retro · A='+car+' · rovesciato', !okBase, r); }
+    if (pr==='retrocedente' && car==='B' && process.env.RETROLIST) {
+      const d = vinceSotto?'SHORT':'LONG';
+      console.log('RETROB '+r.cross+' '+r.date+' mobL'+mob.pos+' -> dest L'+c.pos+' '+c.par+' '+c.ramo+' ('+c.stato+')  dice '+d+'  '+(okBase?'+':'-')+Math.abs(r.move).toFixed(0));
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\\n=== TRASPORTO x PROGRESSIONE (il ritiro non consegna l azione) ===');
+  console.log('cella'.padEnd(46)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<8) continue;
+    console.log(k.padEnd(46)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
 }
 
 if (process.env.TRASPRIB) {
