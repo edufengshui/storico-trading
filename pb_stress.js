@@ -6198,6 +6198,38 @@ if (process.env.PBLY) {
     //      vince sopra -> LONG. B = indicatore negativo. 11 carte LY tace, 72,7% (75/67); fuori da
     //      LY tace da' l'opposto (44%). In coda. VIA66=off per spegnere.
     if (process.env.VIA66!=='off' && mob.par==='B' && R.mutante.progressione==='avanzante' && mob.pos<=3) return 'LONG';
+    // 35 — §92 IL RIGETTO DEL G (FISSATA 22/08/2026, da EURUSD 12/01/2026): la mobile G si muove
+    //      e il suo ARRIVO combina (六合) una linea C. La C RIGETTA il G venuto a darle la
+    //      vittoria: non e' uno scontro di forza, e' un rifiuto — e il rifiuto costa a chi
+    //      rifiuta. Perde il trigramma DOVE STA LA RAGGIUNTA. Per questo la forza della C non
+    //      conta (misurato: C debole 72,2%, C forte 57,1% — rigettare non richiede forza).
+    //      ECCEZIONE: se G e C sono alleati nello stesso 三合 COMPLETO (terzo membro anche
+    //      伏神) non c'e' rifiuto ma accoglienza — la via non si applica. Carta: USDCHF
+    //      23/03/2022 (亥 L2 mobile, 未 L5, 卯 fushen su L1).
+    //      CABLATA nella forma STRETTA (raggiunta nello STESSO trigramma della mobile), dove il
+    //      rifiuto e' netto: 14 carte, 78,57% (70,0/100). Forma larga 32 carte, 65,63%, ma in
+    //      coda costa 158 pip al baseline: non si usa.
+    //      Cablata per DOTTRINA (Edu, 22/08/2026): la rarita' e' strutturale del calendario, la
+    //      soglia z non si applica; si toglie davanti a una carta che la smentisce nel suo
+    //      perimetro. In coda. VIA92=off per spegnere · VIA92LARGA=1 per la forma larga.
+    if (process.env.VIA92!=='off' && mob.par==='G' && !R.mutante.movimentoNullo) {
+      const arr92=R.mutante.ramoArr;
+      const t92=R.linee.filter(l=>!l.isMobile && l.ramo===COMBINA[arr92] && l.par==='C');
+      if (t92.length===1) {
+        const T92=t92[0];
+        const stesso92=(T92.pos<=3)===(mob.pos<=3);
+        // alleanza di trigono: nessun rigetto
+        const TRIG92=[['申','子','辰'],['亥','卯','未'],['寅','午','戌'],['巳','酉','丑']];
+        const pool92=new Set();
+        for (const l of R.linee) {
+          if (!l.vuoto || l.isMobile || l.anDong) pool92.add(l.ramo);
+          if (l.fushen && l.fushen.b) pool92.add(l.fushen.b);
+        }
+        const alleati92=TRIG92.some(t=>t.includes(mob.ramo)&&t.includes(T92.ramo)&&t.every(x=>pool92.has(x)));
+        const nelTaglio = process.env.VIA92LARGA ? true : stesso92;
+        if (!alleati92 && nelTaglio) return T92.pos<=3?'SHORT':'LONG';
+      }
+    }
     // 34 — §68 (FISSATA 17/08/2026): CLASH DELL'ARRIVO LETTO PER YONG SHEN. L'arrivo clasha SOLO una
     //      ferma piena (nessuna combinazione): P clashata cede -> sede opposta; G o C clashati reggono
     //      -> sede clashata; altrimenti mobile W -> sede clashata. In coda. VIA68=off per spegnere.
@@ -20542,4 +20574,305 @@ if (process.env.DISTPIP) {
     const media=sel.reduce((a,r)=>a+Math.abs(r.move),0)/(sel.length||1);
     console.log(('>= '+s).padEnd(10)+String(sel.length).padStart(8)+((100*sel.length/tot).toFixed(1)+'%').padStart(11)+media.toFixed(1).padStart(11));
   }
+}
+
+if (process.env.COMBSTELI) {
+  // COMBINAZIONE DEL MESE SU LINEA FERMA CARICA (Edu, 22/08/2026).
+  // Verso confermato da Edu PRIMA della misura: il mese che COMBINA (六合) una linea FERMA
+  // che e' casa di uno stelo RADICATO -> la sede di quella linea PERDE. (Speculare al clash,
+  // che invece la fa vincere / la mette in moto: qui la combinazione la trattiene.)
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const ELB={'寅':'Wood','卯':'Wood','巳':'Fire','午':'Fire','辰':'Earth','丑':'Earth','戌':'Earth','未':'Earth','申':'Metal','酉':'Metal','亥':'Water','子':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; if(lad.indexOf(ds)<0) continue;
+    const i0=lad.indexOf(ds);
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil8(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const steli=[P.annoS,P.meseS,ds,so].filter(Boolean);
+    const rami=[r.yearBranchUsed,r.monthBranchUsed,r.dayBranchUsed,r.oraBranch].filter(Boolean);
+    const conRadice = s => rami.some(b=>ELB[b]===SE[s]);
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const sale=r.move>0;
+    const combMese = COMBINA[r.monthBranchUsed];
+    if (!combMese) continue;
+    for (const l of R.linee) {
+      if (R.mutante && l.pos===R.mutante.pos) continue;      // solo linee FERME
+      if (l.anDong) continue;                                 // ne' 暗動
+      if (l.ramo !== combMese) continue;                      // combinata dal mese
+      const inCasa = steli.filter(s=>lad.indexOf(s)>=0 && casa(s)===l.pos);
+      if (!inCasa.length) continue;
+      const radicati = inCasa.filter(conRadice);
+      const perde = l.pos<=3 ? sale : !sale;                  // la squadra della combinata PERDE
+      // RAPPORTO DENTRO IL 六合 (Edu, 22/08/2026): la coppia non e' mai neutra — o il ramo
+      // del mese CONTROLLA la linea (es. 丑 Terra combina e controlla 子 Acqua), o la
+      // genera, o e' controllato/generato da essa. Separo le quattro direzioni.
+      const eM=WX[r.monthBranchUsed], eL=WX[l.ramo];
+      let rel='?';
+      if (CTRL[eM]===eL) rel='mese CONTROLLA la linea';
+      else if (CTRL[eL]===eM) rel='linea CONTROLLA il mese';
+      else if (GEN[eM]===eL) rel='mese GENERA la linea';
+      else if (GEN[eL]===eM) rel='linea GENERA il mese';
+      if (radicati.length) {
+        add('A. mese COMBINA linea ferma carica (radicata) · sede PERDE', perde, r);
+        add('A. · Carattere '+l.par+' · sede PERDE', perde, r);
+        add('R. '+rel+' · sede PERDE', perde, r);
+        // LETTURA DI EDU (22/08/2026): la combinazione del mese NON emette verdetto — lascia
+        // la linea dov'e'. Il verdetto lo da' il CARATTERE della linea trattenuta, secondo la
+        // regola confermata: B e P fanno PERDERE la propria sede, C e W la fanno VINCERE.
+        const okM6 = (l.par==='B'||l.par==='P') ? perde : !perde;
+        add('M6. verso per Carattere della trattenuta (B/P perde, C/W vince)', okM6, r);
+        add('M6. · trattenuta '+l.par, okM6, r);
+        for (const sg of [30,50]) if (Math.abs(r.move)>=sg)
+          add('M6e. verso per Carattere · energia >= '+sg+' pip', okM6, r);
+        if (rel==='mese CONTROLLA la linea') add('M6c. verso per Carattere · mese CONTROLLA la linea', okM6, r);
+        if (rel==='mese CONTROLLA la linea') {
+          add('R1. mese combina E CONTROLLA · Carattere '+l.par+' · sede PERDE', perde, r);
+          if (l.par==='P'||l.par==='B') add('R1-PB. mese combina E CONTROLLA · P/B · sede PERDE', perde, r);
+          else add('R1-CWG. mese combina E CONTROLLA · C/W/G · sede PERDE', perde, r);
+          for (const s of [30,50]) if (Math.abs(r.move)>=s)
+            add('R1e. mese combina E CONTROLLA · energia >= '+s+' · sede PERDE', perde, r);
+        }
+        if (l.par==='P'||l.par==='B') add('A-PB. Carattere P/B · sede PERDE', perde, r);
+        else add('A-CWG. Carattere C/W/G · sede PERDE', perde, r);
+        for (const s of [30,50]) if (Math.abs(r.move)>=s)
+          add('Ae. radicata · energia >= '+s+' pip · sede PERDE', perde, r);
+        if (!l.vuoto) add('Av. radicata NON vuota · sede PERDE', perde, r);
+      } else {
+        add('B. stelo in casa SENZA radice (controllo) · sede PERDE', perde, r);
+        add('B. · '+rel+' (senza radice) · sede PERDE', perde, r);
+      }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\n=== MESE COMBINA LINEA FERMA CARICA · la sede PERDE ===');
+  console.log('cella'.padEnd(58)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<6) continue;
+    console.log(k.padEnd(58)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.MESEPENGIORNO) {
+  // 刑 PENALITA' DIREZIONALE (Edu, 22/08/2026): non e' il controllo 克. I cicli vanno letti
+  // in ordine: 丑->戌->未->丑 (恃勢之刑, della prepotenza) · 寅->巳->申->寅 (無恩之刑,
+  // dell'ingratitudine) · 子<->卯 reciproca (無禮之刑). Autopenalita' 辰午酉亥 esclusa qui.
+  const LYM = require('./liuyao.js');
+  const PEN={'丑':'戌','戌':'未','未':'丑','寅':'巳','巳':'申','申':'寅','子':'卯','卯':'子'};
+  let nCtrl=0, nLinea=0, perPos={}, mobili=0;
+  for (const r of rows) {
+    if (PEN[r.monthBranchUsed]!==r.dayBranchUsed) continue;   // il mese PENALIZZA il giorno
+    nCtrl++;
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const eq = R.linee.filter(l=>l.ramo===r.dayBranchUsed);
+    if (!eq.length) continue;
+    nLinea++;
+    for (const l of eq) { perPos[l.pos]=(perPos[l.pos]||0)+1; if (R.mutante&&l.pos===R.mutante.pos) mobili++; }
+  }
+  console.log('\n=== PERIMETRO · mese penalizza il giorno + linea uguale al giorno ===');
+  console.log('carte in cui il mese controlla il giorno: '+nCtrl+' su '+rows.length);
+  console.log('di queste, con almeno una linea uguale al ramo del giorno: '+nLinea);
+  console.log('occorrenze per posizione: '+JSON.stringify(perPos));
+  console.log('di cui la linea uguale al giorno e la MOBILE: '+mobili);
+}
+
+if (process.env.RAGGCTRL) {
+  // (Edu, 22/08/2026, da EURUSD 12/01/2026): la mobile parte e il suo ARRIVO combina una
+  // linea (la RAGGIUNTA). Se la raggiunta CONTROLLA per parentela la mobile, la mobile
+  // perde lo scontro -> la SEDE DELLA MOBILE perde. Verso confermato da Edu prima della misura.
+  // Nota di Edu: la situazione della C e' critica — vicina a W ottima, vicina a G no.
+  // Misuro "vicina" in due sensi: (a) posizione adiacente, (b) rapporto di parentela.
+  const LYM = require('./liuyao.js');
+  const CTRLPAR={'C':'G','G':'B','B':'W','W':'P','P':'C'};   // chi controlla chi (parentele)
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error || !R.mutante) continue;
+    const mob=R.linee[R.mutante.pos-1]; if(!mob) continue;
+    const arr=R.mutante.ramoArr; if(!arr) continue;
+    const tgt=R.linee.filter(o=>o.pos!==mob.pos && o.ramo===COMBINA[arr]);
+    if (tgt.length!==1) continue;
+    const T=tgt[0];
+    if (CTRLPAR[T.par]!==mob.par) continue;          // la raggiunta CONTROLLA la mobile
+    const sale=r.move>0;
+    const perdeMob = mob.pos<=3 ? sale : !sale;      // la SEDE DELLA MOBILE perde
+    add('A. raggiunta CONTROLLA la mobile · sede della mobile PERDE', perdeMob, r);
+    add('A. · raggiunta '+T.par+' vs mobile '+mob.par, perdeMob, r);
+    for (const s of [30,50]) if (Math.abs(r.move)>=s)
+      add('Ae. energia >= '+s+' pip · sede della mobile PERDE', perdeMob, r);
+    // REGOLA DI EDU (22/08/2026, fissata su EURUSD 12/01/2026): se G si muove e va a finire
+    // in C, PERDE. Se avviene DENTRO il proprio trigramma perde il proprio clan; se arriva
+    // ALL'ALTRO perde l'altro. In entrambi i casi: perde il trigramma DOVE STA LA RAGGIUNTA.
+    if (mob.par==='G' && T.par==='C') {
+      const perdeRagg = T.pos<=3 ? sale : !sale;     // la sede della RAGGIUNTA perde
+      const stesso = (T.pos<=3) === (mob.pos<=3);
+      add('E. G finisce in C · perde la sede della RAGGIUNTA', perdeRagg, r);
+      add('E. · '+(stesso?'DENTRO il proprio trigramma (perde il clan)':'ARRIVA ALL ALTRO (perde l altro)'), perdeRagg, r);
+      for (const sg of [30,50]) if (Math.abs(r.move)>=sg)
+        add('Ee. G finisce in C · energia >= '+sg+' pip', perdeRagg, r);
+      // TIMELINESS (Edu, 22/08/2026, da USDCHF 23/03/2022): una C DEBOLE non abbatte il G.
+      add('T. G finisce in C · C raggiunta '+(T.forte?'FORTE (timely)':'DEBOLE'), perdeRagg, r);
+      add('T2. C '+(T.forte?'forte':'debole')+' · G mobile '+(mob.forte?'forte':'debole'), perdeRagg, r);
+      if (T.forte) add('T3. C FORTE · '+(stesso?'stesso trigramma':'altro trigramma'), perdeRagg, r);
+      if (T.forte && !mob.forte) add('T4. C forte CONTRO G debole (rapporto favorevole)', perdeRagg, r);
+      // TRIGONO (Edu, 22/08/2026, da USDCHF 23/03/2022): se la mobile G e la C raggiunta sono
+      // membri dello STESSO 三合 COMPLETO, non sono avversari ma alleati: la C non controlla
+      // il G. Solo trigoni completi; il terzo membro puo' essere un 伏神; i vuoti non contano
+      // se non in movimento.
+      const TRIG=[['申','子','辰'],['亥','卯','未'],['寅','午','戌'],['巳','酉','丑']];
+      const pool=new Set();
+      for (const l of R.linee) {
+        const vale = !l.vuoto || l.isMobile || l.anDong;
+        if (vale) pool.add(l.ramo);
+        if (l.fushen && l.fushen.b) pool.add(l.fushen.b);
+      }
+      const trigComune = TRIG.some(t=>t.includes(mob.ramo)&&t.includes(T.ramo)&&t.every(x=>pool.has(x)));
+      add('X. '+(trigComune?'ALLEATI nello stesso trigono (da ESCLUDERE)':'nessun trigono comune (via valida)'), perdeRagg, r);
+      if (!trigComune) {
+        add('X2. via 92 SENZA gli alleati di trigono', perdeRagg, r);
+        add('X3. senza trigono · '+(stesso?'stesso trigramma':'altro trigramma'), perdeRagg, r);
+      }
+      // IPOTESI DI EDU (22/08/2026): dove la C NON puo' resistere — perche' alleata nel trigono
+      // o perche' DEBOLE — il G non viene abbattuto: si STABILISCE sulla raggiunta e VINCE il
+      // suo trigramma. Verdetto ROVESCIATO rispetto alla via.
+      const nonResiste = trigComune || !T.forte;
+      if (nonResiste) {
+        add('Y1. C non resiste (trigono o debole) · il G si STABILISCE, vince la raggiunta', !perdeRagg, r);
+        add('Y1b. [confronto] stessa cella col verso della via (perde la raggiunta)', perdeRagg, r);
+        add('Y2. · '+(trigComune?'per TRIGONO':'per DEBOLEZZA')+' · il G si stabilisce', !perdeRagg, r);
+      } else {
+        add('Y3. C resiste (forte e non alleata) · perde la raggiunta', perdeRagg, r);
+      }
+    }
+    if (T.par==='C') {
+      // (a) VICINANZA DI POSIZIONE: linee adiacenti alla C raggiunta
+      const adj=R.linee.filter(o=>Math.abs(o.pos-T.pos)===1).map(o=>o.par);
+      if (adj.includes('W') && !adj.includes('G')) add('Ca. C raggiunta, ADIACENTE a W (non a G)', perdeMob, r);
+      if (adj.includes('G') && !adj.includes('W')) add('Cb. C raggiunta, ADIACENTE a G (non a W)', perdeMob, r);
+      if (adj.includes('G') && adj.includes('W'))  add('Cc. C raggiunta, adiacente a ENTRAMBI', perdeMob, r);
+      // (b) VICINANZA DI PARENTELA: esiste una W in carta (la C la genera) / una G (la C la controlla)
+      const hasW=R.linee.some(o=>o.par==='W'), hasG=R.linee.some(o=>o.par==='G');
+      if (hasW) add('Cw. C raggiunta, W presente in carta (la C genera)', perdeMob, r);
+      if (hasG) add('Cg. C raggiunta, G presente in carta (la C controlla)', perdeMob, r);
+      // (c) la C e' timely / forte?
+      add('Cf. C raggiunta · '+(T.forte?'FORTE':'debole'), perdeMob, r);
+      if (T.vuoto) add('Cv. C raggiunta VUOTA', perdeMob, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\n=== RAGGIUNTA CHE CONTROLLA LA MOBILE · la sede della mobile PERDE ===');
+  console.log('cella'.padEnd(58)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<6) continue;
+    console.log(k.padEnd(58)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PENALITA) {
+  // REGOLA 1 DI EDU (22/08/2026, da EURUSD 12/01/2026): il GIORNO PENALIZZATO DAL MESE (刑)
+  // perde potenza e NON riesce a bloccare la mobile: il movimento parte.
+  // 丑->戌->未->丑 (恃勢之刑) · 寅->巳->申->寅 (無恩之刑) · 子<->卯 (無禮之刑).
+  const LYM = require('./liuyao.js');
+  const PEN={'丑':'戌','戌':'未','未':'丑','寅':'巳','巳':'申','申':'寅','子':'卯','卯':'子'};
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  let nPer=0, nDiv=0; const divergenti=[];
+  for (const r of rows) {
+    if (PEN[r.monthBranchUsed]!==r.dayBranchUsed) continue;      // il mese penalizza il giorno
+    // com'e' ORA (col blocco)
+    LYM.setSblocco(false);
+    const R0 = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R0.error || !R0.mutante) continue;
+    if (R0.mutante.casoMut !== -1) continue;                      // solo mobili sospese dal giorno
+    nPer++;
+    // come sarebbe SBLOCCATA
+    LYM.setSblocco(true);
+    const R1 = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    LYM.setSblocco(false);
+    if (R1.error) continue;
+    const ctx={oraBranch:r.oraBranch, emaDir:r.emaDir, date:r.date};
+    LYM.setSblocco(false);
+    const t0 = LYM.termometro(R0, ctx, {}, {}) || {};
+    LYM.setSblocco(true);
+    const t1 = (!R1.error) ? (LYM.termometro(R1, ctx, {}, {}) || {}) : {};
+    LYM.setSblocco(false);
+    const sale=r.move>0;
+    const esito = d => d==null ? null : (d==='LONG' ? sale : !sale);
+    add('1. BLOCCATA (come oggi) · LY dice', esito(t0.dir), r);
+    add('2. SBLOCCATA (penalita) · LY dice', esito(t1.dir), r);
+    if (t0.dir && t1.dir && t0.dir!==t1.dir) {
+      nDiv++;
+      add('3. dove i verdetti DIFFERISCONO: vince lo sbloccato', esito(t1.dir), r);
+      divergenti.push(r.cross+' '+r.date+' seme'+(r.sup+''+r.inf+''+r.linea)+' '+t0.dir+'->'+t1.dir+' '+(r.move>0?'+':'')+r.move.toFixed(0)+' pip · sbloccato '+(esito(t1.dir)?'GIUSTO':'sbagliato'));
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\n=== PENALITA 刑: il giorno penalizzato dal mese non blocca la mobile ===');
+  console.log('mobili sospese dal giorno CON giorno penalizzato dal mese: '+nPer);
+  console.log('carte in cui il verdetto LY CAMBIA: '+nDiv);
+  console.log('cella'.padEnd(50)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l;
+    console.log(k.padEnd(50)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+  for(const d of divergenti) console.log('  DIV '+d);
+}
+
+if (process.env.GARRIVA) {
+  // (Edu, 22/08/2026): il G che si muove e ARRIVA nel trigramma opposto lo fa VINCERE?
+  // Misura larga, senza restrizione sul Carattere della raggiunta.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error || !R.mutante || R.mutante.movimentoNullo) continue;
+    const mob=R.linee[R.mutante.pos-1]; if(!mob || mob.par!=='G') continue;
+    const arr=R.mutante.ramoArr; if(!arr) continue;
+    const sale=r.move>0;
+    const tgt=R.linee.filter(o=>o.pos!==mob.pos && o.ramo===COMBINA[arr]);
+    if (tgt.length!==1) continue;
+    const T=tgt[0];
+    const stesso=(T.pos<=3)===(mob.pos<=3);
+    const vinceRagg = T.pos<=3 ? !sale : sale;      // il trigramma della RAGGIUNTA vince
+    add('1. G mobile · raggiunta in ALTRO trigramma → quel trigramma VINCE',
+        stesso?null:vinceRagg, r);
+    add('2. G mobile · raggiunta nello STESSO trigramma → quel trigramma VINCE',
+        stesso?vinceRagg:null, r);
+    if (!stesso) add('3. ALTRO trigramma · raggiunta '+T.par+' → vince', vinceRagg, r);
+    if (stesso)  add('4. STESSO trigramma · raggiunta '+T.par+' → vince', vinceRagg, r);
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\n=== G MOBILE CHE ARRIVA · quale trigramma vince ===');
+  console.log('cella'.padEnd(60)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<6) continue;
+    console.log(k.padEnd(60)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
 }

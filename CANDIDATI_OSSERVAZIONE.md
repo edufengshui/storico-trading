@@ -247,3 +247,35 @@ non informazione (nota di metodo, violazione evitata). NON è un rafforzativo. R
 - Annullamento §50i per 六合/半合 del giorno col ramo vuoto: lo SHORT non crolla (55,6%); il vuoto non si lega (`ANNULLA50I=1`)
 - §50i: restringerlo (mobile in basso) o spegnerlo COSTA (−251 / −622 pip); resta in forma piena (`VIA50I=basso/off`)
 - Arrivo in vuoto → vince la sede della mobile, tutte le parentele: 48,1% (`ARRVUOTO=1`); vivo solo il taglio G→LONG (v. sopra)
+
+## Misurate e PIATTE il 22/08/2026 (sera 2) — non riaprire senza carta nuova
+
+Tutte a soglia 25 pip, sul baseline S17 · 2.788 carte.
+
+| meccanica | flag | n | win% | z | periodi | esito |
+|---|---|---|---|---|---|---|
+| Mese combina (六合) linea ferma carica di stelo radicato → la sede PERDE | `COMBSTELI=1` | 266 | 48,87% | −0,37 | 47,41 / 50,42 | MORTA |
+| idem, taglio "mese combina E CONTROLLA la linea" (丑 su 子) | `COMBSTELI=1` | 64 | 51,56% | 0,25 | 50,00 / 58,33 | MORTA |
+| idem, verso per Carattere della trattenuta (B/P perde, C/W vince) | `COMBSTELI=1` | 266 | 52,63% | 0,86 | 54,07 / 48,74 | MORTA |
+| Giorno penalizzato (刑) dal mese non blocca la mobile → sbloccarla | `PENALITA=1` | 28 | 35,71% | −1,51 | 41,18 / 30,00 | **CONTRARIA** (col blocco 44,44%) |
+| G mobile arriva nell'altro trigramma → quel trigramma vince | `GARRIVA=1` | 60 | 46,67% | −0,52 | 38,89 / 59,09 | MORTA (ribaltata 53,33%, periodi 61,11/40,91) |
+
+**Nota sul controllo che smaschera la prima famiglia**: nel gruppo *senza* radice la stessa
+cella fa 55,62% (169 carte), meglio del gruppo radicato. Se la radice fosse il discriminante
+sarebbe il contrario → non stavamo guardando una meccanica degli steli.
+
+**Principio che ne esce (dottrinale, non cablato):** serve un MOVIMENTO perché il Carattere
+parli. Il clash sulla linea carica la mette in moto e allora B/P fanno perdere la sede; la
+combinazione la trattiene ferma e il Carattere non emette verdetto. Coerente con il principio
+di lettura n. 3 (l'azione dà la direzione, la forza pesa soltanto).
+
+**Nota metodologica (Edu, 22/08/2026):** "chi non vince perde" è un principio di lettura della
+singola carta, NON una conversione statistica. Una cella al 46,67% non diventa buona girata al
+53,33%: è la stessa cella. Il test resta la coerenza dei due periodi in un verso solo.
+
+## Carte irrisolte da riprendere
+- **USDCHF 23/03/2022** (seme 93): via §92 esclusa correttamente dal trigono 亥卯未, ma sulle
+  altre 9 carte con trigono comune l'effetto non si riproduce (60,00% contro 68,18% delle
+  altre). L'eccezione è dottrinalmente solida, statisticamente non dimostrata.
+- **NZDUSD 10/08/2022** (seme 763): gemella di GBPUSD 29/08/2023, mai letta. Ultimo
+  controesempio superstite del giro §89 sul verso per Carattere.

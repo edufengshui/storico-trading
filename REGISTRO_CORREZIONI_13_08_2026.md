@@ -3439,3 +3439,51 @@ RIPARTENZA_22_08_2026_SERA.md.
 Carte sotto i 25 pip ELIMINATE a monte (pb_stress.js). Nuovo baseline S17: 2.788 carte,
 58,07%, z 8,52, +29.503 (S17p +33.146). Audit SOGLIAPIP=0. Tutti i numeri precedenti di
 questo registro sono sul campione 4.111 e NON confrontabili senza audit.
+
+# §92. IL RIGETTO DEL G  ·  `CABLATA — VIA 35, IN CODA` (Edu, 22/08/2026)
+
+Carta sorgente: **EURUSD 12/01/2026** (seme 643, Li/Zhen, L3).
+
+**Meccanica.** La mobile **G** si muove e il suo ARRIVO combina (六合) una linea **C**.
+La C **rigetta** il G venuto a darle la vittoria. Non è uno scontro di forza: è un rifiuto,
+e il rifiuto costa a chi rifiuta. **Perde il trigramma DOVE STA LA RAGGIUNTA** — dentro il
+proprio trigramma perde il proprio clan, se arriva all'altro perde l'altro.
+
+**Conferma indiretta del meccanismo**: la forza della C NON conta (C debole 18 carte 72,22%,
+C forte 14 carte 57,14%). Rigettare non richiede di essere forti, richiede solo di essere C.
+Questo esclude la lettura "la C controlla e abbatte il G", che avrebbe richiesto una C forte.
+
+**ECCEZIONE — alleanza di trigono.** Se G e C sono membri dello stesso **三合 completo**
+(trigono; terzo membro anche 伏神, vuoti esclusi se non in movimento) non c'è rifiuto ma
+accoglienza: la via non si applica. Carta: **USDCHF 23/03/2022** (seme 93 — 亥 L2 mobile,
+未 L5 raggiunta, 卯 伏神 su L1: trigono 亥卯未 di Legno completo).
+
+**Numeri (flag di misura `RAGGCTRL=1`)**
+| cella | n | win% | z | recente/vecchio |
+|---|---|---|---|---|
+| forma larga: perde la sede della raggiunta | 32 | 65,63% | 1,77 | 60,87 / 75,00 |
+| **STRETTA: dentro il proprio trigramma** | **14** | **78,57%** | **2,14** | **70,00 / 100,00** |
+| arriva all'altro trigramma | 18 | 55,56% | 0,47 | 53,85 / 50,00 |
+| senza alleati di trigono (forma larga) | 22 | 68,18% | 1,71 | 62,50 / 83,33 |
+
+**Cablaggio.** Forma **STRETTA** come default. In coda cattura 2 carte nuove e le legge
+entrambe giuste: baseline **INVARIATO** (S17 58,07% · z 8,52 · +29.503), LY tace 438 → 436.
+La forma larga cattura 3 carte in più e le sbaglia: S17 58,03% · z 8,48 · 29.345 (−158 pip)
+— **non si usa**. Audit: `VIA92=off` spegne · `VIA92LARGA=1` per la forma larga.
+
+**Decisione metodologica di Edu (22/08/2026):** cablata per DOTTRINA nonostante n basso.
+"Anche con altri sei anni di storici sarebbero comunque poche in relazione al tutto": la
+rarità è strutturale del calendario, non un difetto della regola. La soglia z≥4 **non si
+applica** a questo tipo di regola. Si toglie davanti a una carta che la smentisce nel suo
+perimetro.
+
+**FALSIFICATO nello stesso giro (non riaprire senza carta nuova):**
+- "il G che si trasferisce fa vincere il trigramma dove arriva": 60 carte, 46,67%
+  (38,89/59,09) — e il ribaltamento dà 53,33% (61,11/40,91). Periodi incoerenti in
+  entrambi i versi: rumore. Flag `GARRIVA=1`.
+- "dove la C non resiste (debole o alleata) il G si stabilisce e vince": 22 carte, **31,82%**
+  — il verso della via sulle stesse carte fa 68,18%. Flag `RAGGCTRL=1`, celle Y1/Y2.
+- "la raggiunta controlla la mobile → perde la sede della MOBILE" (verso su cui era partita
+  la misura): 267 carte, 49,44%. È leggere il verso sulla linea sbagliata.
+
+---
