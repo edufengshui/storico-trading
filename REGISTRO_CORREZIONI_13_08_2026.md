@@ -3415,3 +3415,27 @@ pista steli sopravvissuto a tutti i controlli. Per z≥4 servono ~120 carte: acc
 letture di Edu sulle 22. **STATO: fissata come regola di lettura (Edu: "gli steli
 sopravvivono e adesso useremo questi"); NON nel motore live fino a soglia.**
 Rimisurare a ogni aggiornamento di full1h.json.
+
+
+# §90. LA MESSA IN MOTO DAL CLASH SULLA LINEA CARICA · `FISSATA IN LETTURA` (Edu, 22/08/2026)
+Gerarchia: il clash su una linea che è CASA di uno stelo RADICATO (radice = almeno un ramo
+della data del suo stesso elemento) non dà verdetto da ferma: LA METTE IN MOTO. Da lì si
+legge come movimento: se avanza vince (EURUSD 12/03/2020: L1 avanza e combina L3); altrimenti
+parla il Carattere (EURUSD 28/07/2020: L6 P in moto → perde la sede → SHORT ✓).
+Per Edu vale per ogni fonte di clash, incluso il MESE (che normalmente non clasha ma muove la
+linea carica). Misure 22/08 a soglia 25: fonte ARRIVO, P/B → 47 carte, 65,96%, z 2,19,
+periodi 69,2/61,9 (flag CLASHSTELI, cella G1). Fonte MESE: 52,4% su 147, piatta — giro carte
+in corso. Criterio di "avanzamento" da definire con Edu (quello tabellare di Claude: 44,6%).
+
+# §92. IL FLUSSO DEL QI DELLA DATA — FORMA DEFINITIVA · `FISSATA` (Edu, 22/08/2026)
+Otto caratteri, tutti partecipano, nessuna soglia. Punto terminale SEMPRE uno stelo della
+polarità del giorno; il flusso avanza solo verso elementi con stelo utilizzabile; RADICE
+obbligatoria per agire sulle linee; capolinea vuoto → ripiego sul precedente timely.
+Anello chiuso: NON esiste (4 steli, 5 elementi). Carte d'origine: USDCHF 11/05/2022,
+USDCHF 24/11/2021, GBPUSD 29/08/2023, EURUSD 12/03/2020. Dettaglio completo in
+RIPARTENZA_22_08_2026_SERA.md.
+
+# SOGLIA DI ENERGIA · `REGOLA DI SISTEMA` (Edu, 22/08/2026)
+Carte sotto i 25 pip ELIMINATE a monte (pb_stress.js). Nuovo baseline S17: 2.788 carte,
+58,07%, z 8,52, +29.503 (S17p +33.146). Audit SOGLIAPIP=0. Tutti i numeri precedenti di
+questo registro sono sul campione 4.111 e NON confrontabili senza audit.

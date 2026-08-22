@@ -1,4 +1,20 @@
-# CANDIDATI SOTTO OSSERVAZIONE · aggiornato 21/08/2026
+# CANDIDATI SOTTO OSSERVAZIONE · aggiornato 22/08/2026
+
+## ✅ REGOLA CONFERMATA IN VIA DEFINITIVA (Edu, 22/08/2026)
+**B e P fanno perdere la squadra della propria sede.** Verso RELATIVO al seggio della linea
+(non assoluto): la linea B o P fa perdere il trigramma in cui si trova; se sta in basso vince
+l'alto, se sta in alto vince il basso. Vale anche per il Carattere di ARRIVO della mobile
+(carta d'origine di questa formulazione: USDCAD 24/10/2022, L2 G che arriva in P → il basso
+perde → LONG, mercato salito).
+Emersa e verificata su decine di carte lette nell'arco di oltre una settimana; ogni tentativo
+di controesempio è stato smontato dalla lettura. **Stato: confermata.** Si rivede solo se
+compare una carta che la smentisce dentro il suo perimetro.
+
+⚠ **CORREZIONE a RIPARTENZA_21_08_2026_SERA.md** — la riga che dava la regola come "misurata
+in 3 letture, tutte piatte (49,6-51,8%)" è FUORVIANTE e non va usata per riaprire la
+questione: quelle misure erano fatte su perimetri che raccoglievano anche carte governate da
+altre meccaniche. Una misura piatta su perimetro sbagliato non è un controesempio: solo una
+carta lo è.
 
 ## ⚠ PRINCIPIO (Edu, 21/08/2026)
 **Una spiegazione dottrinale valida va registrata anche se le carte che spiega sono rare.**
@@ -147,6 +163,17 @@ Prima di presentare una carta del gruppo "LY tace", controllare questa lista e l
 | GBPUSD 19/05/2022 | 123 (Gen/Li) | 22/08 | → 3 壬 su L1 Shi-mobile; lettura arrivo-B non generalizza |
 | EURGBP 21/04/2020 | 87 (Dui/Gen) | 22/08 | → camino/risonanza (18/08) rivisitato: B con gemella, misura piatta in entrambi i versi |
 | USDCAD 13/09/2022 | 129 (Kun/Qian) | 22/08 | → §85 elastico (già in lista) + qui: partenza legata dal mese RAFFORZA il trasporto (61,4%) |
+| USDCHF 13/12/2022 | 93 (Li/Xun L3) | 22/08 | → §89 perde; ritorno-che-controlla → filtro (RITCTRL) |
+| USDCHF 12/11/2025 | 80 | 22/08 | → clash del portatore (丁亥) → blocco tiene → filtro 2 (PORTCLASH) |
+| GBPUSD 17/09/2025 | 136 (Qian/Kun L5) | 22/08 | → 丑 del giorno clasha L1 casa di 己 carico → vince la colpita → SHORT |
+| USDCHF 13/11/2025 | 79 | 22/08 | → giorno carico (丙戌) clasha il trigramma inferiore → lo fa vincere → SHORT |
+| USDCHF 24/11/2021 | 93 (GEMELLA di 13/12/2022) | 22/08 | → capolinea vuoto → ripiego 己 timely; trigono Acqua → P nascosto forte → LONG |
+| USDCHF 11/05/2022 | 99 | 22/08 | → portatore 丙寅 muove la legata; clash su L5 (P liberato dal mese) preferito al vuoto → SHORT |
+| USDCAD 24/10/2022 | 136 | 22/08 | → Carattere d'ARRIVO: G arriva in P → P fa perdere la sede → LONG |
+| EURUSD 15/11/2024 | 105 | 22/08 | → sblocco con combinazione = mutazione normale con più forza |
+| EURUSD 12/03/2020 | 112 | 22/08 | → steli muti (mobile non timely); L4 clashata dal giorno muta in B → SHORT; L1 avanza e combina L3 |
+| EURUSD 28/07/2020 | 117 | 22/08 | → L6 P (casa 庚 radicato) clashata dall'arrivo → MESSA IN MOTO → perde la sede → SHORT |
+| GBPUSD 29/08/2023 | 126 | 22/08 | → carta d'origine del PUNTO TERMINALE del flusso (capolinea 癸) |
 
 ---
 
@@ -177,11 +204,13 @@ Ribaltamento: se il trigramma designato non ha linee vive+timely, il verdetto si
 | A=G CONTROLLA C → vince destinazione | (cella in `TRASPOK`) | 18 | 72,22% | 1,89 | 54,5/100 ⚠ | ~60 | n troppo basso |
 | **§85 elastico×forza: \|diff\|≥3 + liberata nel più forte** | `ELASTICOF=1 ELAFF=1` | **41** | **63,41%** | 1,72 | 58,3/70,6 | ~100 | accumulo; OPERATIVA in checklist di lettura |
 | forza nuda come verdetto autonomo | `FORZANUDA=1` | 306 (contrasto) | 48,04% | −0,69 | 48,5/48,0 | — | **CHIUSA: non rimisurare** |
-| **§89 forzare il blocco: sospesa + stelo carico in casa** | `FORZABLOCCO=1` | **22** | **68,18%** | 1,71 | **66,7/62,5 ✓** | **~120** | FISSATA in lettura; accumulo + leggere le 22 |
+| §89 forzare il blocco (forma condotto-1-passo, SUPERATA 22/08) | `FORZABLOCCO=1` | 35* | 54,29%* | 0,51 | — | — | ridimensionata dalla forma definitiva del flusso; resta lettura |
+| **G1 (22/08): arrivo di mossa clasha linea con stelo RADICATO, P/B → MESSA IN MOTO → sede PERDE** | `CLASHSTELI=1` | **47** | **65,96%** | **2,19** | **69,2/61,9 ✓** | **~110** | accumulo; LA MIGLIORE del 22/08 |
+| M1 (22/08): MESE clasha linea carica, P/B in moto → sede perde | `CLASHSTELI=1` | 147 | 52,38% | 0,58 | 56,3/46,9 ⚠ | — | Edu: regola giusta; giro carte in corso |
 | §88 scala bersaglio 0→3 steli (cella 3 steli: perde) | `MESECLASH=1` | 15 | 73,33% | 1,81 | 70/80 ✓ | ~60 | watchlist |
 | §88 anno MUTO carico che clasha → segue | `TRENDPIL=1 ANNOSPLIT=1` | 102 | 53,92% | 0,79 | 58,7/44,7 ⚠ | — | mazzo per letture |
 | peso zavorra dove LY tace (trig. pesante perde) | `PESOTRIG=1` | 428 | 55,61% (rovescio) | 2,32 | 58,9/51,8 | ~800 | watchlist debole |
-Carte del 49% da leggere: `TRASPKO2=1`. M6 aggiornato col F3 corretto: 115 carte, 63,48%, z 2,89 (`AFFILAC2`).
+⚠ TUTTI I NUMERI sopra questa riga sono PRE-soglia-25 (campione 4.111): rimisurare col nuovo baseline prima di usarli. Carte del 49% da leggere: `TRASPKO2=1`. M6 aggiornato col F3 corretto: 115 carte, 63,48%, z 2,89 (`AFFILAC2`).
 §41 rimisurata: forma generale BOCCIATA (49,7%); resta solo G sotto copertura vuota FERMA: 68 carte, 36,76% (rovescio 63,2%), coerente (34,9/38,1) (`FEISHENCHK`).
 
 ## Vicini — accumulo realistico

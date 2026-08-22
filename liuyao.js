@@ -215,7 +215,9 @@
     // Audit: GIORNOLEGATO=off ripristina il comportamento precedente.
     var _glOff = (typeof process !== 'undefined' && process.env && process.env.GIORNOLEGATO === 'off');
     var _gioLegatoMese = !_glOff && !!(dayBranch && monthBranch && COMBINA[monthBranch] === dayBranch);
-    if (!_gioLegatoMese && dayBranch && (COMBINA[dayBranch] === ramoDep || COMBINA[dayBranch] === ramoArr ||
+    var _sbOff = (typeof process !== 'undefined' && process.env && process.env.GIORNOSBLOCCO === 'off');
+    var _sbloccata = !_sbOff && _sblocco;
+    if (!_sbloccata && !_gioLegatoMese && dayBranch && (COMBINA[dayBranch] === ramoDep || COMBINA[dayBranch] === ramoArr ||
         CLASH[dayBranch] === ramoDep || CLASH[dayBranch] === ramoArr)) {
       effEl = null; casoMut = -1;
       motivoNullo = 'suspended by the day (day combines/clashes departure or arrival)'; }
@@ -454,6 +456,15 @@
       }
     };
   }
+
+  // SBLOCCO DEL GIORNO (Edu, 22/08/2026) — §89 forma definitiva.
+  // Quando il capolinea del flusso del Qi della data siede sulla linea mobile, la linea ha
+  // forza sufficiente a vincere il blocco imposto dal giorno (combinazione o clash): si
+  // muove come una linea normale e si legge col suo caso di mutazione in sede.
+  // pb_stress.js decide carta per carta e comunica la decisione con setSblocco(true/false).
+  // Audit: GIORNOSBLOCCO=off ignora del tutto l'interruttore (comportamento precedente).
+  var _sblocco = false;
+  function setSblocco(v){ _sblocco = !!v; }
 
   // l'ORA dal seme (come nel PB): quarto ramo che partecipa a combinazioni e raduni
   function oraDalSeme(seed){ return B[(((seed-1)%12)+12)%12]; }
@@ -1282,7 +1293,7 @@
     return { finale: t.dir, chi: 'conflict → LY wins (rule ' + t.sezione + ' ' + t.nome + ')', via: t, ly: t.dir, why: t.why };
   }
 
-  return { read: read, readManual: readManual, TRIGRAM: TRIGRAM,
+  return { read: read, readManual: readManual, setSblocco: setSblocco, TRIGRAM: TRIGRAM,
            PAR: PAR, SEI_BESTIE: SEI_BESTIE, EL_IT: EL_IT, BR_IT: BR_IT,
            oraDalSeme: oraDalSeme,
            LY_VIE: LY_VIE, LY_RAFFORZATIVI: LY_RAFFORZATIVI,
