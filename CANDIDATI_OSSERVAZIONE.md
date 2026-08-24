@@ -43,6 +43,120 @@ caso **vuota svegliata**, che il §42 oggi non copre. Da unificare se si costrui
 Numeri (`SALTOVUOTO=1`): perimetro largo 34 carte 55,9% z 0,69; con "nutre" 11 carte 54,5%.
 Configurazione rara (servono quattro condizioni insieme) → non cablabile per accumulo naturale.
 
+### M11 · Gli steli, filone 2: lo stelo sormontante rende il pilastro operativo (Edu, 23/08/2026)
+Carta guida: **NZDUSD 17/06/2025** (seme 60, gemella del 16/06, persa dal sistema −32).
+REGOLA — INDIPENDENTE dal flusso del Qi: lo stelo sormontante di ANNO, MESE o ORA che sia
+dello STESSO ELEMENTO della BESTIA (六獸) della linea bersaglio rende quel pilastro CAPACE
+DI OPERARE sulla linea: il clash è EFFETTIVO. Visto finora sui clash; non escluso su
+combinazioni e altro (in osservazione). Se il clash effettivo blocca la PARTENZA della
+mobile → "chi non porta a termine la vittoria, perde": la squadra della mobile perde.
+Nella carta: L5 porta 玄武 (Acqua, dal giorno 丁 le bestie salgono da 朱雀 in L1); il mese
+壬午 ha in groppa 壬 Acqua = elemento della bestia → il clash 午→子 opera, la P non parte
+→ superiore perde → SHORT ✓. NOTA: il criterio è la BESTIA della linea, NON l'elemento
+del ramo (correzione Edu in sessione: "non perché è Zi, ma perché L5 è Xuan Wu/Acqua"). La gemella 16/06 (giorno 丙辰, mobile L4 sospesa) si
+risolveva invece con "Shi controlla Ying vuoto" → LONG ✓: la coppia stesso-seme con esiti
+opposti è la miglior conferma del discriminante.
+Codificata nella checklist `carta_check.js` come controllo permanente (clash effettivo +
+combinazioni in osservazione).
+
+### M10 · La P sepolta nella propria tomba (Edu, 23/08/2026)
+Carta guida: **USDCHF 30/01/2025** (seme 90, Li/Dui, persa dal sistema −33, PB e LY insieme).
+La P vuota svegliata dal clash del giorno si muove ed entra nella PROPRIA TOMBA quando la
+tomba del suo elemento è la sua LINEA FUTURA (il najia del trigramma trasformato alla sua
+posizione). P fa perdere la propria squadra — ma sepolta nella tomba la negatività tace:
+LA SQUADRA VINCE.
+Nella carta: giorno 亥 clasha L6 (巳 P, vuota) e la sveglia; la mutazione di L5 trasforma
+離→乾 e la linea futura di L6 è 戌 = tomba del Fuoco → la P entra nella tomba → superiore
+vince → LONG ✓ (+33 recuperati).
+Precisazione dottrinale (Edu): il trigono 巳酉丑 parla solo coi TRE INSIEME; se non agiscono
+insieme ogni ramo è per conto proprio (qui niente magazzino: tomba classica 戌).
+Nota motore: l'atterraggio §93-bis su L1 (巳 eliminata) diceva SHORT ✗ — resta aperta la
+questione "il vuoto non si lega" sulla destinazione d'atterraggio vuota.
+
+### M9 · L'arrivo impigliato dal mese carico del terminale (Edu, 23/08/2026)
+Carta guida: **EURUSD 20/11/2024** (seme 106, Xun/Dui, persa da PB e LY insieme −64).
+La mobile in 退神 non riesce a retrocedere se la LINEA FUTURA (l'arrivo) è COMBINATA dal
+MESE (六合). Il mese ha la forza di legare quando è SORMONTATO da uno stelo dell'elemento
+del capolinea (il terminale del flusso): lo stelo sopra il ramo dà al mese il peso per
+trattenere. La mobile resta se stessa e vince con la propria sede.
+Nella carta: L2 G 卯→寅 退神; il mese 亥 combina 寅 e porta in testa 乙 (Legno = capolinea
+del flusso) → la retrocessione non si compie, il G resta → inferiore → SHORT ✓.
+Nota di famiglia: finora l'impigliamento dell'arrivo era del GIORNO; il mese può farlo
+solo se caricato dal terminale. Stessa carta-tipo di M6b (卯→寅 col 辰 altrove) risolta
+per altra via: il 辰 del Tai Sui non serviva.
+
+### M8 · Il Tai Sui impedisce il movimento (Edu, 23/08/2026 — DA OSSERVARE SEMPRE)
+Carta guida: **EURGBP 22/05/2024** (seme 85, Dui/Xun, persa dal PB −28, LY muto).
+Quando lo STELO dell'anno siede in casa sulla linea MOBILE e il RAMO dell'anno clasha
+l'ARRIVO, il Tai Sui IMPEDISCE il movimento: l'avanzamento (進神) non si compie.
+Nella carta: Tai Sui 甲辰 — 甲 in casa su L6 (la mobile W 未→戌 avanzante), 辰 clasha
+l'arrivo 戌 → niente avanzamento. Il verdetto viene da Ying controlla Shi (P clashata dal
+mese cede) → SHORT ✓. Cablato nella checklist `carta_check.js` come controllo permanente.
+
+### M7 · La fortuna compiuta del W (Edu, 23/08/2026)
+Carta guida: **USDJPY 25/07/2023** (seme 141, Qian/Xun, persa dal PB −59, LY muto).
+Dentro M1: la linea carica (casa di stelo radicato) clashata dal mese SI MUOVE perché
+clashata — la carica accetta il clash e supera anche il blocco del giorno grazie alla
+propulsione degli steli. L'esito non si legge dal punto raggiunto in sé ma dall'INCONTRO
+DEI CARATTERI: **quando il W raggiunge il C (o il movimento arriva dove W e C stanno
+insieme), la fortuna del W è compiuta** — il C genera il W, i figli generano la ricchezza —
+e la squadra di quella sede VINCE. Raggiungere la linea nascosta non è necessario:
+è l'incontro W-C a compiere la fortuna.
+Nella carta: L1 丑 P (Shi, casa del 甲 attore del capolinea) clashata dal mese 未 (vuoto,
+ma gli steli non sono mai vuoti — M5) si muove; arriva dove il W 寅 (nascosto) sta col
+C 亥 (L2) che lo genera → fortuna compiuta in L2 → inferiore → SHORT ✓ (−59 recuperati).
+Misura esplorativa (ipotesi-canale "porta d'angolo" 丑↔寅/未↔申, /tmp/porta): compagna
+visibile → vince la raggiunta 65,00% (20 carte, 60/70); nascosta 60% (5); senza porta la
+M1 classica resta piatta (52,9% su 138). Il canale-porta è interpretazione di Claude;
+la dottrina del verdetto è l'incontro dei Caratteri (Edu). Da raffinare con più carte.
+
+### M6b · Il trio direzionale annulla la regressione (Edu, 23/08/2026 — REGOLA per dottrina)
+Carta guida: **GBPUSD 05/12/2022** (seme 122, Gen/Dui, mobile L2 G 卯→寅 retrocedente).
+La mobile in 退神 non regredisce se partenza + arrivo + GIORNO completano un TRIO
+DIREZIONALE 三會 (寅卯辰 Legno · 巳午未 Fuoco · 申酉戌 Metallo · 亥子丑 Acqua) e
+l'elemento del trio è timely nel mese: i tre insieme sono una direzione compiuta, non
+un passo indietro. La mobile vince con la propria sede.
+Nella carta: 卯+寅+giorno 辰 = 寅卯辰 Legno, timely nel mese 亥 (Acqua genera Legno) →
+niente regressione, il G vince → inferiore → SHORT ✓ (−102). La via 退神 diceva LONG.
+Verifica del controesempio (23/08): 6 carte nel perimetro esatto, 3 giuste 3 perse;
+TUTTE le perse spiegate da altre regole (via —, §53d) → nessun controesempio pulito.
+La carta guida non è spiegata da nessun'altra regola: questa lettura è l'unica a coprirla.
+STATO: regola dottrinale confermata; la precedenza quando un'altra regola parla è
+materiale per la gerarchia (gruppi A/B). Non cablata come via nel motore finché la
+gerarchia non è definita (cablarla ora sovrascriverebbe le 3 carte dove parla l'altra).
+
+### M5 · Gli steli superano il vuoto dell'arrivo (Edu, 23/08/2026, forma corretta)
+Carta guida: **AUDUSD 03/08/2022** (seme 68, Kun/Zhen, mobile L1 = Shi).
+La mobile ha l'arrivo in vuoto (motore: movimento nullo, caso 0). MA **gli steli non sono
+mai vuoti** — sono pura energia Yang nel Bazi. Uno stelo IN CODA ALLA GENERAZIONE (l'attore
+del capolinea) in casa sulla mobile fa SUPERARE il vuoto: il movimento si compie. Il mese
+con lo stesso ramo dell'arrivo aggiunge certezza (partecipazione), ma da solo NON basta:
+il colpo finale lo danno gli steli. Il compiuto si legge dal Carattere d'arrivo (B/P → la
+sede perde; C/W → vince), e non clasha la linea che il giorno tiene legata.
+Nella carta: giorno 戊子 per intero su L1 (stelo 戊 attore del capolinea in casa, ramo 子
+sulla linea) + mese 未 = ramo d'arrivo → il vuoto è superato senza dubbi; L1 W→未(B), il B
+si ferma e fa perdere la propria squadra (inferiore) → LONG ✓ (+58). Il LY diceva SHORT.
+Numeri (23/08, `/tmp/vuotosteli`): stelo+mese 3 carte 66,7% (config. della carta, rarissima);
+solo stelo · B/P → sede perde 66,67% (12 carte, 50/85,7); solo mese · B/P 66,7% (6) e
+C/W 70,0% (10); controllo senza nulla · B/P 56,4% (117) — fondo del Carattere d'arrivo.
+Tutte le celle nel verso della dottrina; nessuna cablabile per n. Accumulo.
+
+### M4 · L'assorbimento con proiezione (Edu, 23/08/2026)
+Carte guida: **EURUSD 02/06/2020** (seme 111, fallisce B→G) vs **USDCHF 18/05/2022** (seme 99, B→G vince).
+La mobile B si muove e diventa G: di regola la sede vince. MA se un'altra linea in moto
+(暗動 dal clash del giorno) ha l'elemento GENERATO dall'arrivo, quella linea ASSORBE
+l'energia del G e la PROIETTA in avanti (generazione successiva) su un B/P: il ricevente
+fa perdere la PROPRIA squadra. Il ricevente non prosegue oltre se il giorno lo tiene fermo.
+La propulsione della catena viene dagli steli in casa sulla mobile (02/06: 丙 radicato,
+attore del capolinea).
+Nella 02/06: L1 B→G(卯); L2 午 Fuoco in 暗動 assorbe (Legno genera Fuoco) e proietta su
+Terra → il B carico perde la squadra → LONG ✓ (+45). Nella 18/05: L2 è Terra come l'arrivo,
+nessun assorbimento → l'azione si compie, la sede vince → SHORT ✓ (−56).
+Numeri (23/08): catena completa 7 carte, 4 giuste — configurazione rara, non cablabile per
+accumulo. La metà "senza assorbimento → sede vince" resta piatta (48% su 73) perché quelle
+carte sono contese da altre regole (§52 in testa): misurarle in blocco è il mescolamento
+già smascherato. Serve la GERARCHIA delle regole (lavoro futuro, gruppi A/B).
+
 ### M2 · Il G che non atterra va in alto (Edu, 20/08/2026)
 Carta: **USDJPY 29/03/2023** (seme 131, Kun/Li, mobile L4 = Shi, G).
 La mobile si muove ma l'**arrivo è vuoto**: non atterra. Non per questo si spegne (動不為空).
@@ -206,7 +320,8 @@ Ribaltamento: se il trigramma designato non ha linee vive+timely, il verdetto si
 | forza nuda come verdetto autonomo | `FORZANUDA=1` | 306 (contrasto) | 48,04% | −0,69 | 48,5/48,0 | — | **CHIUSA: non rimisurare** |
 | §89 forzare il blocco (forma condotto-1-passo, SUPERATA 22/08) | `FORZABLOCCO=1` | 35* | 54,29%* | 0,51 | — | — | ridimensionata dalla forma definitiva del flusso; resta lettura |
 | **G1 (22/08): arrivo di mossa clasha linea con stelo RADICATO, P/B → MESSA IN MOTO → sede PERDE** | `CLASHSTELI=1` | **47** | **65,96%** | **2,19** | **69,2/61,9 ✓** | **~110** | accumulo; LA MIGLIORE del 22/08 |
-| M1 (22/08): MESE clasha linea carica, P/B in moto → sede perde | `CLASHSTELI=1` | 147 | 52,38% | 0,58 | 56,3/46,9 ⚠ | — | Edu: regola giusta; giro carte in corso |
+| M1 (22/08): MESE clasha linea carica, P/B in moto → sede perde | `CLASHSTELI=1` | 147 | 52,38% | 0,58 | 56,3/46,9 ⚠ | — | ESITO GIRO 23/08 (Edu): regola di SUPPORTO per la lettura normale, non cella cablabile — il LY va interpretato con impiego combinato. Varianti misurate e piatte: casa attore 47,6/105; +mese non vuoto 48,8/86. Il giro ha prodotto §93, §93-bis, M4-M7 |
+| — affilatura M1 da misurare (23/08): richiedere MESE NON VUOTO (due carte perse col mese vuoto: USDCAD 24/11/2020, GBPUSD 15/01/2021) | — | — | — | — | — | — | in coda al giro |
 | §88 scala bersaglio 0→3 steli (cella 3 steli: perde) | `MESECLASH=1` | 15 | 73,33% | 1,81 | 70/80 ✓ | ~60 | watchlist |
 | §88 anno MUTO carico che clasha → segue | `TRENDPIL=1 ANNOSPLIT=1` | 102 | 53,92% | 0,79 | 58,7/44,7 ⚠ | — | mazzo per letture |
 | peso zavorra dove LY tace (trig. pesante perde) | `PESOTRIG=1` | 428 | 55,61% (rovescio) | 2,32 | 58,9/51,8 | ~800 | watchlist debole |
@@ -279,3 +394,29 @@ singola carta, NON una conversione statistica. Una cella al 46,67% non diventa b
   altre). L'eccezione è dottrinalmente solida, statisticamente non dimostrata.
 - **NZDUSD 10/08/2022** (seme 763): gemella di GBPUSD 29/08/2023, mai letta. Ultimo
   controesempio superstite del giro §89 sul verso per Carattere.
+
+---
+## STRUMENTO OBBLIGATORIO DAL 23/08/2026 — `carta_check.js`
+Ogni carta, PRIMA di essere presentata a Edu, passa da:
+`node carta_check.js CROSS YYYY-MM-DD`
+La checklist esegue: dati PB verbatim · riga degli steli (case/radici/capolinea) · struttura
+LY · TUTTE le vie cablate con verdetto ✓/✗ · rafforzativi · meccaniche di lettura
+(atterraggio §93/§93-bis, capannello, arrivi che combinano/clashano, 三合, salti, rami di
+data vuoti) · perimetri dei candidati di questo file · ESITO FILTRO finale.
+`--registra "nota"` aggiunge la carta a `carte_lette.json`; alla chiamata successiva sulla
+stessa carta (o su una gemella per seme+trigrammi+giorno) la checklist AVVISA.
+Il registro `carte_lette.json` vive in `storico-trading` e viaggia col repo.
+
+## Misurata e PIATTA il 23/08/2026 — non riaprire senza carta nuova
+| meccanica | flag | n | win% | z | periodi | esito |
+|---|---|---|---|---|---|---|
+| Carattere d'arrivo come verso universale (casi 2/3/4, "arrivo G → sede vince/perde") | script /tmp/arrg2 | 175 (G) | 45,14 (dritto) | −1,29 | 48,2/38,8 ⚠ | PIATTA in ogni cella; nessuna coppia mobile→arrivo cablabile (80 celle ~50%) |
+
+Nota CORRETTA (23/08/2026, dopo la prova del controesempio): la cella nuda è piatta
+perché MESCOLA due popolazioni. Delle 42 carte dove "B→G → sede vince" fallisce, TUTTE
+sono spiegate da altre regole (42/42 dalla §52 "chi non vince perde"): il controesempio
+pulito NON ESISTE. La lettura "B diventa G → la sede vince" resta valida dove l'azione
+si compie; dove l'azione fallisce parla la §52. Dimostrazione del principio dell'uso
+combinato. Da capire (dottrina, Edu): il discriminante fra "azione compiuta" e "azione
+fallita" dentro il caso 3 — su USDCHF 18/05/2022 la §52 diceva LONG e sbagliava, la
+lettura B→G diceva SHORT e vinceva.

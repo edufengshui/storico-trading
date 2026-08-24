@@ -145,6 +145,69 @@ function monthStemFrom(yearStem, monthBranch){
 // clash degli steli (i quattro: 甲庚 乙辛 丙壬 丁癸; 戊己 senza clash)
 const STEMCLASH = { '甲':'庚','庚':'甲','乙':'辛','辛':'乙','丙':'壬','壬':'丙','丁':'癸','癸':'丁' };
 
+// CASA DELL'ATTORE DEL CAPOLINEA (Edu, 23/08/2026, per l'eccezione alla §93).
+// Flusso del Qi forma definitiva (22/08): tutti gli 8 caratteri per elemento; il flusso
+// avanza di generazione in generazione finche' l'elemento generato ha almeno uno stelo
+// della polarita' del giorno; l'ultimo raggiunto e' il capolinea; il suo stelo e' l'attore
+// e la sua casa (scala della polarita' del giorno) e' la posizione ritornata (1-6 o null).
+const CA_YANG=['甲','丙','戊','己','庚','壬'], CA_YIN=['乙','丁','戊','己','辛','癸'];
+const CA_SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+const CA_ELB={'寅':'Wood','卯':'Wood','巳':'Fire','午':'Fire','辰':'Earth','丑':'Earth','戌':'Earth','未':'Earth','申':'Metal','酉':'Metal','亥':'Water','子':'Water'};
+const CA_WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+function casaAttoreFrom(dateStr, dayStem, oraBranch, dayBranch, monthBranch, yearBranch){
+  if (!dateStr || !dayStem) return null;
+  const p = dateStr.split('-').map(Number);
+  const ys = yearStemAt(p[0],p[1],p[2]);
+  const ms = monthStemFrom(ys, monthBranch);
+  const lad = (STEMS10.indexOf(dayStem)%2===0) ? CA_YANG : CA_YIN;
+  const i0 = lad.indexOf(dayStem); if (i0<0) return null;
+  const so = (()=>{ const s0=CA_WUSHU[dayStem]; if(!s0||!oraBranch) return null;
+    const i=B.indexOf(oraBranch); return i<0?null:STEMS10[(STEMS10.indexOf(s0)+i)%10]; })();
+  const steliT=[ys,ms,dayStem,so].filter(Boolean);
+  const ramiT=[yearBranch,monthBranch,dayBranch,oraBranch].filter(Boolean);
+  const conRadice = s => ramiT.some(b=>CA_ELB[b]===SE_of(s));
+  function SE_of(s){ return CA_SE[s]; }
+  const pres={};
+  for (const s of steliT) (pres[CA_SE[s]]=pres[CA_SE[s]]||[]).push(s);
+  for (const b of ramiT) if(CA_ELB[b]) (pres[CA_ELB[b]]=pres[CA_ELB[b]]||[]).push(b);
+  const steloUtile = e => steliT.filter(s=>CA_SE[s]===e && lad.indexOf(s)>=0);
+  let attore=null, precedente=null;
+  for (const part of Object.keys(pres)) {
+    let e=part, guard=0, ultimoS=null, penultimoS=null;
+    while (guard++ < 6) {
+      const g=GEN[e];
+      const su=steloUtile(g);
+      if (!pres[g] || !su.length) break;
+      penultimoS=ultimoS; e=g; ultimoS=su[0];
+    }
+    if (ultimoS) { attore=ultimoS; precedente=penultimoS; }
+  }
+  if (!attore) return null;
+  // TERMINALE SENZA RADICE (Edu, 23/08/2026, da EURUSD 30/01/2025): se lo stelo del
+  // capolinea non e' radicato, si prende ANCHE lo step precedente della generazione
+  // (il suo stelo, se radicato). Ritorna una o due case (array).
+  const case_ = [];
+  const j = lad.indexOf(attore);
+  case_.push(((j - i0 + 6) % 6) + 1);
+  if (!conRadice(attore)) {
+    let prevS = precedente;
+    if (!prevS) {
+      // il capolinea e' il punto di partenza stesso: lo step precedente nella
+      // generazione e' l'elemento che genera il capolinea, se ha stelo utilizzabile
+      const elPrev = Object.keys(GEN).find(e=>GEN[e]===CA_SE[attore]);
+      const su = elPrev ? steloUtile(elPrev) : [];
+      prevS = su[0] || null;
+    }
+    if (prevS && conRadice(prevS)) {
+      const jp = lad.indexOf(prevS);
+      const cp = ((jp - i0 + 6) % 6) + 1;
+      if (case_.indexOf(cp)<0) case_.push(cp);
+    }
+  }
+  return case_.length===1 ? case_[0] : case_;
+}
+let G_CASA_ATTORE = null;   // impostata al sito di chiamata di leggi (serve la data)
+
 /* lettura di base + regola del clash */
 const seedToBranch = s => B[(((s-1)%12)+12)%12];
 function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
@@ -614,8 +677,22 @@ function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
                            : NAJIA_OUT[trigTrasf][pInTrig-1];
       const coinc = COMBINA[ramoTrasfReale];   // ramo con cui il trasformato combina
       // c'e' una linea nell'esagramma di lavoro con quel ramo?
+      // DESTINAZIONE ROTTA (Edu, 23/08/2026, DEFINITIVA): destinazione clashata dal
+      // giorno e non timely -> la combinazione non si forma, atterraggio ANNULLATO.
+      // ECCEZIONE (Edu, 23/08/2026, da GBPUSD 15/01/2021): se la destinazione e' CASA
+      // DELL'ATTORE DEL CAPOLINEA (carica dal condotto) resiste al clash e l'atterraggio
+      // VALE (misura: carica 80,0% su 10; scarica fallisce 67,9% su 28).
+      // Audit: ATTROTTAOFF=1.
       for(let p=1;p<=6;p++){ if(ramoAl2(p)===coinc){
-        atterraggio = { pos:p, ramo:coinc, dir: p<=3 ? 'SHORT':'LONG' }; break; } }
+        let destRotta = false;
+        if (process.env.ATTROTTAOFF!=='1' && p!==linea && vuoti.indexOf(coinc)<0 &&
+            CLASH[dayBranch]===coinc &&
+            !(Array.isArray(G_CASA_ATTORE) ? G_CASA_ATTORE.indexOf(p)>=0 : p===G_CASA_ATTORE)) {
+          const stD = stagione(WX[coinc], monthEl);
+          if (stD!=='旺' && stD!=='相') destRotta = true;
+        }
+        if (!destRotta) atterraggio = { pos:p, ramo:coinc, dir: p<=3 ? 'SHORT':'LONG' };
+        break; } }
     }
     const ramoDep = ramoAl2(linea);
     const ramoArr = linea<=3 ? NAJIA_IN[usoTrasf][linea-1] : NAJIA_OUT[usoTrasf][linea-4];
@@ -792,6 +869,7 @@ if (process.env.CARTA) {
   const ch = DLR.buildChartFromForexSeed(process.env.MEZZOGIORNO ? Date.UTC(p[0],p[1]-1,p[2],12,0,0) : mezzanotteTST(p[0],p[1],p[2]), 0, '子');
   const yb = yearBranchAt(p[0],p[1],p[2]);
   const seed = parseInt(f3(o),10);
+  G_CASA_ATTORE = casaAttoreFrom(dt, ch.dayStem, seedToBranch(seed), ch.dayBranch, ch.monthBranch, yb);
   const r = leggi(seed, ch.dayBranch, ch.monthBranch, yb, ch.dayStem);
   const f = pipFactor(cr);
   console.log(cr+' — '+dt);
@@ -871,6 +949,7 @@ Object.keys(hist.crosses).forEach(cross => {
     const ch=DLR.buildChartFromForexSeed(process.env.MEZZOGIORNO ? Date.UTC(p[0],p[1]-1,p[2],12,0,0) : mezzanotteTST(p[0],p[1],p[2]),0,'子');
     if(!ch||ch.error) continue;
     const yb=yearBranchAt(p[0],p[1],p[2]);
+    G_CASA_ATTORE = casaAttoreFrom(d, ch.dayStem, seedToBranch(seed), ch.dayBranch, ch.monthBranch, yb);
     const r=leggi(seed, ch.dayBranch, ch.monthBranch, yb, ch.dayStem, runLen);
     // ASTENSIONE SUI CLASH VALIDI (Edu, 10/08/2026): il clash e' effettivo solo fra
     // ramo del giorno<->ramo del mese, ramo del giorno<->ramo dell'anno, e stelo del
@@ -930,7 +1009,7 @@ Object.keys(hist.crosses).forEach(cross => {
     const _soglia = process.env.SOGLIAPIP!==undefined ? Number(process.env.SOGLIAPIP) : 25;
     if (Math.abs(move) < _soglia) continue;
     rows.push({cross,date:d,move,emaDir:ema.direction,corpoEl:r.corpo.el,yongElem:r.yong.el,via:r.via,linea:r.linea,sup:r.sup,inf:r.inf,usoTrasf:r.usoTrasf,rafforzato:r.rafforzato,trendEtaiSui:r.trendEtaiSui,seedUsed:seed,
-               liu:r.liu,
+               liu:r.liu, casaAttore:G_CASA_ATTORE,
                yearBranchUsed:yb, dayStemUsed:ch.dayStem,
                base:r.base, finale:r.finale, soccorso:r.soccorso, emaRun:runLen, trendVuoto:r.trendVuoto, oraBranch:r.oraBranch, vuoti:r.vuoti, dayBranchUsed:ch.dayBranch, monthBranchUsed:ch.monthBranch, spazzato:r.spazzato, bloccato:r.bloccato, autopen:r.autopen, ponteYong:r.ponteYong, scarico:r.scarico, ponteRel:r.ponteRel, protetto:r.protetto, yongDebole:r.yongDebole,
                pnlBase: (ema.direction==='up'?(r.base?'LONG':'SHORT'):(r.base?'SHORT':'LONG'))==='LONG'?move:-move,
@@ -5842,6 +5921,7 @@ if (process.env.PBLY) {
 
   // --- termometro LY autonomo: ritorna 'LONG' | 'SHORT' | null ---
   function lyDir(r){
+    LYM.setCasaAttore(r.casaAttore || null);   // eccezione §93: carica dal condotto
     const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed,
                              r.yearBranchUsed, r.dayStemUsed);
     if (R.error) return null;
@@ -6902,6 +6982,7 @@ if (process.env.LYMUTO) {
   const HUI=[{r:['寅','卯','辰'],el:'Wood'},{r:['巳','午','未'],el:'Fire'},
              {r:['申','酉','戌'],el:'Metal'},{r:['亥','子','丑'],el:'Water'}];
   function lyDir(r){
+    LYM.setCasaAttore(r.casaAttore || null);   // eccezione §93: carica dal condotto
     const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed,
                              r.yearBranchUsed, r.dayStemUsed);
     if (R.error) return {dir:null,R:null};
@@ -9463,6 +9544,7 @@ if (process.env.TACCIONO) {
   const f1=s=>s==='旺'||s==='相';
 
   function lyDir(r){
+    LYM.setCasaAttore(r.casaAttore || null);   // eccezione §93: carica dal condotto
     const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed,
                              r.yearBranchUsed, r.dayStemUsed);
     if (R.error) return null;
@@ -20562,6 +20644,172 @@ if (process.env.CLASHSTELI) {
   console.log('cella'.padEnd(58)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
   for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<6) continue;
     console.log(k.padEnd(58)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.M1DUMP) {
+  // Dump temporaneo (non dottrinale): elenco carte M1 (mese clasha linea carica, P/B in moto)
+  // per il giro di lettura una per una. Replica esatta del filtro CLASHSTELI/M1.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const ELB={'寅':'Wood','卯':'Wood','巳':'Fire','午':'Fire','辰':'Earth','丑':'Earth','戌':'Earth','未':'Earth','申':'Metal','酉':'Metal','亥':'Water','子':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const out=[];
+  for (const r of rows) {
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; if(lad.indexOf(ds)<0) continue;
+    const i0=lad.indexOf(ds);
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil8(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const steli=[P.annoS,P.meseS,ds,so].filter(Boolean);
+    const rami=[r.yearBranchUsed,r.monthBranchUsed,r.dayBranchUsed,r.oraBranch].filter(Boolean);
+    const conRadice = s => rami.some(b=>ELB[b]===SE[s]);
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const sale=r.move>0;
+    const fonti=[['giorno',CLASH[r.dayBranchUsed]],['mese',CLASH[r.monthBranchUsed]]];
+    if (R.mutante && R.mutante.casoMut>0) fonti.push(['arrivo mobile',CLASH[R.mutante.ramoArr]]);
+    for (const l of R.linee) { if (l.anDong && l.mutArr) fonti.push(['arrivo 暗動', CLASH[l.mutArr]]); }
+    for (const l of R.linee) {
+      const inCasa = steli.filter(s=>lad.indexOf(s)>=0 && casa(s)===l.pos);
+      if (!inCasa.length) continue;
+      const radicati = inCasa.filter(conRadice);
+      if (!radicati.length) continue;   // M1 richiede stelo RADICATO (come nel motore)
+      const colpita = fonti.filter(([n,b])=>b===l.ramo).map(([n])=>n);
+      if (!colpita.length) continue;
+      const vince = l.pos<=3 ? !sale : sale;
+      if (colpita[0]==='mese' && (l.par==='P'||l.par==='B')) {
+        const perde = !vince;
+        out.push({cross:r.cross, date:r.date, move:r.move, ok:perde, seed:r.seedUsed, sup:r.sup, inf:r.inf, linea:r.linea, par:l.par, pos:l.pos});
+      }
+    }
+  }
+  out.sort((a,b)=>a.date<b.date?-1:1);
+  console.log('\\n=== M1 DUMP · '+out.length+' carte totali, perse: '+out.filter(x=>!x.ok).length+' ===');
+  for (const x of out) console.log((x.ok?'W ':'L ')+x.date+' '+x.cross+'  seme='+x.seed+'  sup='+x.sup+' inf='+x.inf+' linea='+x.linea+' Carattere='+x.par+' pos='+x.pos+'  move='+x.move.toFixed(0));
+  require('fs').writeFileSync('/tmp/m1_perse.json', JSON.stringify(out.filter(x=>!x.ok).map(x=>{
+    const r = rows.find(q=>q.cross===x.cross && q.date===x.date);
+    return {cross:x.cross, date:x.date, move:x.move, seed:x.seed, sup:x.sup, inf:x.inf, linea:x.linea, par:x.par, pos:x.pos,
+      dayB:r.dayBranchUsed, monthB:r.monthBranchUsed, yearB:r.yearBranchUsed, dayS:r.dayStemUsed, oraB:r.oraBranch, emaDir:r.emaDir};
+  })));
+  require('fs').writeFileSync('/tmp/m1_rows_full.json', JSON.stringify(rows.map(r=>(
+    {cross:r.cross, date:r.date, move:r.move, sup:r.sup, inf:r.inf, linea:r.linea,
+     dayB:r.dayBranchUsed, monthB:r.monthBranchUsed, yearB:r.yearBranchUsed, dayS:r.dayStemUsed,
+     oraB:r.oraBranch, emaDir:r.emaDir, casaAttore:r.casaAttore}))));
+}
+
+if (process.env.ATTROTTA) {
+  // TEST (Edu, 23/08/2026, da EURJPY 11/08/2020): l'ATTERRAGGIO e' ANNULLATO se la linea
+  // di destinazione e' ROTTA dal giorno (clashata, non timely). Misura: precisione della
+  // direzione dell'atterraggio con destinazione rotta vs destinazione sana.
+  const LYM = require('./liuyao.js');
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    if (!r.liu || !r.liu.atterraggio || r.move===0) continue;
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const a = r.liu.atterraggio;
+    const dest = R.linee[a.pos-1];
+    const okDir = (a.dir==='LONG') === (r.move>0);
+    if (dest.stato==='rotta') {
+      add('B. destinazione ROTTA dal giorno · atterraggio azzecca', okDir, r);
+      add('B2. destinazione ROTTA · atterraggio FALLISCE (annullato)', !okDir, r);
+    } else {
+      add('A. destinazione sana · atterraggio azzecca', okDir, r);
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\n=== ATTERRAGGIO ANNULLATO SU DESTINAZIONE ROTTA ===');
+  console.log('cella'.padEnd(58)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<1) continue;
+    console.log(k.padEnd(58)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.ATTROTTA2) {
+  // ECCEZIONE ALLA §93 (Edu, 23/08/2026, da GBPUSD 15/01/2021): la destinazione rotta
+  // che e' CASA DELL'ATTORE DEL CAPOLINEA (carica dal condotto) RESISTE al clash del
+  // giorno: la combinazione si forma e l'atterraggio VALE. Eseguire con ATTROTTAOFF=1.
+  const LYM = require('./liuyao.js');
+  const {Solar} = require('lunar-javascript');
+  const YANG=['甲','丙','戊','己','庚','壬'], YIN=['乙','丁','戊','己','辛','癸'];
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const ELB={'寅':'Wood','卯':'Wood','巳':'Fire','午':'Fire','辰':'Earth','丑':'Earth','戌':'Earth','未':'Earth','申':'Metal','酉':'Metal','亥':'Water','子':'Water'};
+  const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+  const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const cacheP={};
+  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
+    const [y,m,d]=ds.split('-').map(Number);
+    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
+    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
+  const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    const pip=Math.abs(r.move)*(ok?1:-1);
+    for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
+  for (const r of rows) {
+    if (!r.liu || !r.liu.atterraggio || r.move===0) continue;
+    const ds=r.dayStemUsed; if(!ds) continue;
+    const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
+    const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
+    const P=pil8(r.date);
+    const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
+      const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
+    const steliT=[P.annoS,P.meseS,ds,so].filter(Boolean);
+    const ramiT=[r.yearBranchUsed,r.monthBranchUsed,r.dayBranchUsed,r.oraBranch].filter(Boolean);
+    // flusso definitivo: tutti gli 8 caratteri per elemento; avanza finche' l'elemento
+    // generato ha uno stelo della polarita' del giorno; l'ultimo raggiunto e' il capolinea
+    const pres={};
+    for (const s of steliT) (pres[SE[s]]=pres[SE[s]]||[]).push(s);
+    for (const b of ramiT) if(ELB[b]) (pres[ELB[b]]=pres[ELB[b]]||[]).push(b);
+    const steloUtile = e => steliT.filter(s=>SE[s]===e && lad.indexOf(s)>=0);
+    let capolinea=null, attore=null;
+    for (const part of Object.keys(pres)) {
+      let e=part, guard=0, ultimo=null, ultimoS=null;
+      while (guard++ < 6) {
+        const g=GEN[e];
+        const su=steloUtile(g);
+        if (!pres[g] || !su.length) break;
+        e=g; ultimo=g; ultimoS=su[0];
+      }
+      if (ultimo) { capolinea=ultimo; attore=ultimoS; }
+    }
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
+    if (R.error) continue;
+    const a = r.liu.atterraggio;
+    const dest = R.linee[a.pos-1];
+    const okDir = (a.dir==='LONG') === (r.move>0);
+    if (dest.stato==='rotta') {
+      const carica = attore!=null && casa(attore)===a.pos;
+      if (carica) {
+        add('B-CARICA. dest. rotta ma casa attore capolinea · atterraggio VALE', okDir, r);
+      } else {
+        add('B-SCARICA. dest. rotta senza carica · atterraggio FALLISCE', !okDir, r);
+        add('B-SCARICA. (controllo: atterraggio azzecca)', okDir, r);
+      }
+    }
+  }
+  const pc=o=>(o.w+o.l)?(100*o.w/(o.w+o.l)).toFixed(2)+'%':'—';
+  const zz=o=>{const n=o.w+o.l; return n? ((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\n=== §93 ECCEZIONE: DESTINAZIONE ROTTA MA CARICA DAL CONDOTTO ===');
+  console.log('cella'.padEnd(62)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
+  for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<1) continue;
+    console.log(k.padEnd(62)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
 }
 
 if (process.env.DISTPIP) {

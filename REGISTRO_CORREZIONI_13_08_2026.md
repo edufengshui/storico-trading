@@ -3487,3 +3487,94 @@ perimetro.
   la misura): 267 carte, 49,44%. È leggere il verso sulla linea sbagliata.
 
 ---
+## §93 — L'ATTERRAGGIO ANNULLATO SULLA DESTINAZIONE ROTTA (23/08/2026, DEFINITIVA)
+
+**Da EURJPY 11/08/2020 (seme 124), giro carte M1.**
+
+**Dottrina (Edu):** la linea mobile viaggia e atterra combinando (六合) il proprio arrivo
+con un ramo presente nell'esagramma. Ma se la linea di destinazione è **ROTTA dal giorno**
+(clashata dal ramo del giorno, non timely nel mese, ferma, non vuota) **la combinazione non
+si forma e l'atterraggio è annullato**: la mobile si ferma al proprio arrivo (capannello).
+
+Nella carta: L4 (Shi, mobile W) parte da 戌 e arriva su G 酉; 酉 combinerebbe 辰 (L3),
+ma 辰 è rotta dal clash del giorno 戌 → nessun atterraggio. Il G d'arrivo agisce nella
+sede della mobile (trigramma superiore) → il superiore vince → LONG ✓ (+65 pip).
+
+**Test di supporto (flag `ATTROTTA=1`):**
+| cella | n | win% | z | recente/vecchio |
+|---|---|---|---|---|
+| destinazione sana: atterraggio azzecca | 489 | 51,53% | 0,68 | 46,40 / 55,61 |
+| destinazione ROTTA: atterraggio azzecca | 38 | 44,74% | −0,65 | 50,00 / 33,33 |
+
+Il verso conferma la dottrina (sotto il caso dove la destinazione è rotta); numeri deboli,
+ma la regola è cablata **per dottrina** secondo la decisione metodologica del 22/08/2026.
+Si toglie davanti a una carta che la smentisca nel suo perimetro.
+
+**Cablaggio:** annullamento dell'atterraggio in `liuyao.js` (calcolo dell'atterraggio in
+readManual) e nella copia LIUTAG di `pb_stress.js` — parità mantenuta. La destinazione non
+conta come rotta se: è la mobile stessa (動不為空), è vuota (stato diverso), o è timely
+(il clash la muove, non la rompe). Baseline S17 **INVARIATO** (2.788 · 58,07% · z 8,52 ·
++29.503): la regola agisce solo sulle letture, non sulla catena del verdetto.
+Audit: `ATTROTTAOFF=1` ripristina il comportamento precedente.
+
+**Nota di metodo (Edu, 23/08/2026, correzione al filtro delle carte):** il filtro "carta
+già spiegata" non si fa solo sulle vie cablate: si fa sulla **lettura combinata** della
+carta intera. Una regola non spiega tutto; è l'uso combinato di tutte le regole che porta
+al successo.
+
+---
+### §93-bis — ECCEZIONE: LA DESTINAZIONE CARICA DAL CONDOTTO RESISTE (23/08/2026, DEFINITIVA)
+
+**Da GBPUSD 15/01/2021 (seme 136), giro carte M1.**
+
+**Dottrina (Edu):** la destinazione rotta dal giorno annulla l'atterraggio (§93), MA se la
+linea di destinazione è **casa dell'attore del capolinea** (carica dal condotto del flusso
+del Qi) **riceve il flusso e resiste al clash del giorno**: la combinazione si forma e
+l'atterraggio VALE.
+
+Nella carta: L3 (Shi, W 卯 mobile) arriva su 申; 申 combina il G 巳 in L2. L2 è clashata
+dal giorno 亥 (sarebbe rotta), ma è casa dell'attore del capolinea (flusso Acqua → Legno,
+attore 乙, casa L2): resiste. La combinazione si compie su L2 (inferiore) → SHORT ✓
+(mercato −100; il sistema diceva LONG).
+
+**Misura (flag `ATTROTTA2=1`, eseguita con `ATTROTTAOFF=1`):**
+| cella | n | win% | z | recente/vecchio |
+|---|---|---|---|---|
+| dest. rotta CARICA (casa attore capolinea): atterraggio vale | 10 | 80,00% | 1,90 | 75,00 / 100,00 |
+| dest. rotta SENZA carica: atterraggio fallisce | 28 | 67,86% | 1,89 | 66,67 / 71,43 |
+
+Le due celle si separano nel verso della dottrina, periodi allineati in entrambe.
+Cablata per dottrina (classe di regole del 22/08/2026).
+
+**Cablaggio:** nuova funzione `setCasaAttore(pos)` in `liuyao.js` (il chiamante che conosce
+la data completa calcola la casa dell'attore del capolinea e la comunica prima di
+read/readManual; se null vale la §93 senza eccezione — stesso schema di `setSblocco` §89).
+In `pb_stress.js`: helper `casaAttoreFrom(...)` (flusso definitivo 22/08), impostato al
+sito di chiamata di `leggi` (loop principale e CARTA), campo `casaAttore` nelle rows, e
+`LYM.setCasaAttore(r.casaAttore)` nei tre termometri `lyDir`. Baseline S17 **INVARIATO**
+(2.788 · 58,07% · z 8,52 · +29.503 · pesato +33.146). Audit: `ATTROTTAOFF=1` spegne §93
+ed eccezione insieme.
+
+**Nota per la PWA:** `app.js` dovrà chiamare `setCasaAttore` col valore calcolato dalla
+data completa prima della lettura; finché non lo fa, l'app applica la §93 senza eccezione.
+
+---
+## FLUSSO DEL QI — IL TERMINALE SENZA RADICE SCENDE DI UNO STEP (23/08/2026, DEFINITIVA)
+
+**Da EURUSD 30/01/2025 (seme 104), giro carte M1.**
+
+**Dottrina (Edu):** se lo stelo del capolinea (terminale del flusso) NON è radicato nella
+data, si prende ANCHE lo step precedente della generazione: il suo stelo, se radicato,
+è attore insieme al terminale. Le case cariche possono quindi essere due.
+
+Nella carta: flusso → Metallo, terminale 辛 senza radice; step precedente Terra, 己
+(giorno) molto forte, radicato → attore anche 己, casa L1 (la mobile). L1 così carica
+VINCE il clash del mese 丑, si muove e raggiunge il W in L3 (卯), formando il trigono di
+Legno 亥卯未 col giorno → inferiore → SHORT ✓ (+33).
+
+**Cablaggio:** `casaAttoreFrom` in `pb_stress.js` ritorna una o due case (numero o array);
+`setCasaAttore` in `liuyao.js` accetta entrambi; §93-bis verifica l'appartenenza; replica
+allineata in `carta_check.js`. Baseline S17 **INVARIATO** (2.788 · 58,07% · z 8,52).
+Carta guida §93-bis riverificata.
+
+---
