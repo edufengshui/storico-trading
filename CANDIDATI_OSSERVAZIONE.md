@@ -506,3 +506,36 @@ si compie; dove l'azione fallisce parla la §52. Dimostrazione del principio del
 combinato. Da capire (dottrina, Edu): il discriminante fra "azione compiuta" e "azione
 fallita" dentro il caso 3 — su USDCHF 18/05/2022 la §52 diceva LONG e sbagliava, la
 lettura B→G diceva SHORT e vinceva.
+
+## M18 — abbondanza del Bazi alla Bestia della linea (quando nessuno stelo ha radice usabile)
+Carta guida: **USDJPY 31/07/2024** (seme 152, sup 3 inf 8, mutante L2, SHORT −275).
+Contesto: la mobile L2 è **G** (官鬼 巳), mobile quindi non vuota (動不為空), ma NON riesce a
+mutare in **P** (父母 辰) perché l'arrivo 辰 è VUOTO → resta G e fa vincere la sua sede (L2
+bassa) → SHORT. Il PERCHÉ la L2 agisce viene dal Bazi.
+Meccanica (estensione del filone 2 degli steli): **gli steli devono avere radice per operare.
+Quando NESSUNO stelo ha radice usabile** (qui l'unico radicato è 辛/mese Metallo, ma di
+polarità opposta → non conta), **la grande abbondanza di un elemento nel Bazi va alla Bestia
+(六獸) della linea di quell'elemento e la POTENZIA**. Qui: 3 rami di Terra su 4 (辰未未) → la
+bestia 勾陳 (Chen, Terra) su L2 riceve la spinta → L2 potenziata. Il G potenziato che resta G
+vince la sede → SHORT.
+Da misurare quando c'è il modello di forza: flag da assegnare, n/win%/z/periodi ancora da
+rilevare. Perimetro: mutante con arrivo vuoto + nessuno stelo radicato usabile + un elemento
+dominante nel Bazi che coincide con la bestia della mobile (o della linea che deve agire).
+NB tecnico: il motore etichetta questa carta caso −1 ("sospesa dal giorno": il giorno 申
+combina la partenza 巳), il che MASCHERA l'arrivo vuoto. carta_check.js ora riconosce
+l'arrivo vuoto anche sotto l'etichetta −1 (corretto 24/08/2026).
+
+## M19 — combinazione con linea VUOTA → accesso al 伏神 sotto (attore se timely)
+Carta guida: **USDJPY 12/01/2023** (seme 131, sup 8 inf 3, mutante L6, SHORT −264).
+Meccanica: quando la mobile (o il suo arrivo) si **combina 六合 con una linea che è VUOTA**
+(旬空), la combinazione **attraversa la linea vuota e accede direttamente al 伏神 nascosto
+sotto**. Se quel 伏神 è **timely** (qui è proprio il ramo del giorno) diventa l'attore che
+decide, e il verso è la sua sede. Qui: L6 (P 酉) muta in 寅 → 六合 con L3 (B 亥, VUOTA) →
+accede al 伏神 W (午) = giorno → W a sede bassa (L3) → SHORT.
+Conferma indipendente sulla stessa carta: la Ying (C 卯) controlla lo Shi (G 丑) → SHORT.
+Perimetro da misurare: arrivo/mobile in 六合 con linea vuota che ha un 伏神 sotto, 伏神
+timely. Da assegnare flag, n, win%, z, periodi.
+NB per il pre-screen: carta_check già segnala "伏神 sotto Lx = ramo del giorno … se timely
+SOPPRIME la linea sopra", ma NON lo collega ancora alla combinazione sulla linea vuota. Da
+cablare nel filtro: se l'arrivo combina una linea vuota con 伏神 timely sotto, la meccanica
+M19 spiega la carta (verso = sede del 伏神).

@@ -161,6 +161,41 @@ const ramiVuoti = [['anno',annoB],['mese',meseB],['ora',oraB]].filter(([,b])=>b 
 if (ramiVuoti.length) mecc.push('RAMI DI DATA VUOTI: '+ramiVuoti.map(([n,b])=>n+' '+b).join(', ')+' → non colpiscono (precedente PB; verificare che clash/combinazioni da questi rami non siano usate)');
 // mutazione
 mecc.push('MUTAZIONE: L'+M.pos+' '+M.ramoDep+'('+EL_IT[M.depEl]+') → '+M.ramoArr+'('+EL_IT[M.arrEl]+') · caso '+M.casoMut+(M.movimentoNullo?' · MOVIMENTO NULLO: '+M.motivoNullo:''));
+// ARRIVO NEL VUOTO (caso 0) — "chi non vince perde" (Edu, 24/08/2026): la mobile NON
+// muta e RESTA il carattere di partenza. G/W reggono e VINCONO la propria sede; B/P
+// fanno PERDERE la propria sede (verso opposto). C: verso non definito. Il verso è la
+// sede della mobile (bassa→SHORT, alta→LONG), invertito per B/P. PRECEDENZA: se c'è un
+// 三合 completo o una combinazione del bersaglio, comanda quello (vedi sotto); se la
+// mobile è Shi o Ying si legge ANCHE Shi↔Ying (se la Ying controlla lo Shi, lo Shi perde
+// comunque). Nessuna mappatura secca tiene sul totale: va incrociata con le altre meccaniche.
+if (M.movimentoNullo && (/arrival void/.test(M.motivoNullo||'') || R.vuoti.indexOf(M.ramoArr)>=0)) {
+  const arrMascherato = !/arrival void/.test(M.motivoNullo||'') && R.vuoti.indexOf(M.ramoArr)>=0;
+  const car = mob.par;
+  const seatDir = p => p<=3 ? 'SHORT' : 'LONG';
+  const tiene = (car==='G'||car==='W'), cade = (car==='B'||car==='P');
+  if (mob.isShi || mob.isYing) {
+    // la mobile è Shi o Ying: si legge il confronto Shi↔Ying (override del carattere)
+    const shiL = R.linee[R.shi-1], yingL = R.linee[R.ying-1];
+    const altro = mob.isShi ? yingL : shiL;
+    let vinc, perche;
+    if (CTRL[altro.el]===mob.el) { vinc=altro; perche='l\'altro controlla la mobile → la mobile perde'; }
+    else if (CTRL[mob.el]===altro.el) { vinc=mob; perche='la mobile controlla l\'altro → la mobile vince'; }
+    else if (tiene) { vinc=mob; perche=car+' regge → vince la mobile'; }
+    else if (cade) { vinc=altro; perche=car+' fa perdere la mobile → vince l\'altro'; }
+    else { vinc=null; perche='C → verso non definito'; }
+    const dir = vinc ? seatDir(vinc.pos) : null;
+    mecc.push('ARRIVO NEL VUOTO (chi non vince perde) · mobile = '+(mob.isShi?'Shi':'Ying')+' '+car+': '+perche+(dir?(' → sede del vincitore L'+vinc.pos+' = '+dir+(dir===realDir?' ✓':' ✗')):''));
+  } else {
+    // mobile terza linea: vale solo il carattere che resta
+    let dir=null, spieg;
+    if (tiene) { dir=seatDir(mob.pos); spieg=car+' regge → vince la propria sede'; }
+    else if (cade) { dir=(seatDir(mob.pos)==='SHORT'?'LONG':'SHORT'); spieg=car+' fa perdere la propria sede → verso opposto'; }
+    else spieg='C → verso non definito (tenuto fuori)';
+    mecc.push('ARRIVO NEL VUOTO (chi non vince perde): mobile L'+mob.pos+' (terza linea) resta '+car+' — '+spieg+(dir?(' → '+dir+(dir===realDir?' ✓':' ✗')):''));
+  }
+  mecc.push('  └ PRECEDENZA: se sopra c\'è un 三合 completo o una combinazione del bersaglio, comanda quello, non il carattere della mobile');
+  if (arrMascherato) mecc.push('  └ NB: l\'arrivo '+M.ramoArr+' è VUOTO ma l\'etichetta del motore è "'+M.motivoNullo+'" (il giorno sospende ANCHE): l\'arrivo-nel-vuoto vale comunque');
+}
 if (M.progressione) mecc.push('PROGRESSIONE: '+M.progressione+' ('+(M.progressione==='avanzante'?'進神':'退神')+')');
 // TAI SUI SUL MOVIMENTO (Edu, 23/08/2026, da EURGBP 22/05/2024 — DA OSSERVARE SEMPRE):
 // lo stelo dell'anno in casa sulla MOBILE + il ramo dell'anno che clasha l'ARRIVO
@@ -373,9 +408,20 @@ if (!cand.length) li('nessun candidato tocca questa carta');
 for (const c of cand) li(c);
 console.log('');
 const spiegataDaVia = vie.some(v=>v.ok);
-console.log('[ESITO FILTRO] '+(spiegataDaVia
-  ? 'SPIEGATA da via cablata ('+vie.filter(v=>v.ok).map(v=>'§'+v.sezione).join(', ')+') — verificare priorità nel termometro'
-  : 'NESSUNA via cablata la spiega — valutare le meccaniche in [5] e i candidati in [6]; se nulla la spiega, DA LEGGERE con Edu'));
+// una meccanica o un candidato "spiega" la carta se la sua lettura AZZECCA il verso reale
+// (riga che termina con ✓). Il filtro dichiara DA LEGGERE solo se NULLA la spiega —
+// né via cablata, né meccanica in [5], né candidato in [6] (regola Edu 24/08/2026).
+const meccOk = mecc.filter(m=>/✓\s*$/.test(m));
+const candOk = cand.filter(c=>/✓\s*$/.test(c));
+const etichetta = s => s.replace(/\s*→.*$/,'').replace(/\s*\(.*$/,'').trim();
+if (spiegataDaVia) {
+  console.log('[ESITO FILTRO] SPIEGATA da via cablata ('+vie.filter(v=>v.ok).map(v=>'§'+v.sezione).join(', ')+') — verificare priorità nel termometro');
+} else if (meccOk.length || candOk.length) {
+  const chi = meccOk.concat(candOk).map(etichetta).filter((v,i,a)=>a.indexOf(v)===i).join(' · ');
+  console.log('[ESITO FILTRO] NESSUNA via cablata, MA la spiega una meccanica/candidato in osservazione: '+chi+' — NON portarla a Edu come \"non spiegata\"; se semmai è da promuovere a via, misurarla nel perimetro');
+} else {
+  console.log('[ESITO FILTRO] NULLA la spiega — né via cablata, né meccanica in [5], né candidato in [6]. Questa è DA LEGGERE con Edu.');
+}
 
 /* ---------- REGISTRAZIONE ---------- */
 if (REGISTRA) {
