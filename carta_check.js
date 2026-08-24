@@ -174,7 +174,8 @@ if (M.progressione) mecc.push('PROGRESSIONE: '+M.progressione+' ('+(M.progressio
 // atterraggio §93/§93-bis
 if (M.atterraggio) {
   const carico = (casaAtt && casaAtt.indexOf(M.atterraggio.pos)>=0) ? ' · DESTINAZIONE CARICA dal condotto (§93-bis)' : '';
-  mecc.push('ATTERRAGGIO: su L'+M.atterraggio.pos+' ('+M.atterraggio.ramo+') → '+M.atterraggio.dir+carico+(M.atterraggio.dir===realDir?' ✓':' ✗'));
+  const caricata = M.atterraggio.caricata ? ' · il mosso GENERA la destinazione → la squadra della caricata perde (§94)' : '';
+  mecc.push('ATTERRAGGIO: su L'+M.atterraggio.pos+' ('+M.atterraggio.ramo+') → '+M.atterraggio.dir+carico+caricata+(M.atterraggio.dir===realDir?' ✓':' ✗'));
 } else if (!M.movimentoNullo) {
   const coinc = COMBINA[M.ramoArr];
   const destL = R.linee.find(l=>l.ramo===coinc);
@@ -229,9 +230,21 @@ for (const [pn, ps, pb] of [['anno',annoS,annoB],['mese',meseS,meseB],['ora',ora
 const ramiVis = R.linee.filter(l=>!(R.vuoti.indexOf(l.ramo)>=0 && !l.isMobile)).map(l=>l.ramo);
 const ramiFus = R.linee.filter(l=>l.fushen).map(l=>l.fushen.b);
 const tuttiR = ramiVis.concat(ramiFus);
+// il terzo membro puo' venire dai rami di data (regola Edu 19/08): rami di data
+// ammessi solo se NON vuoti del giorno
+const ramiData = ramiT.filter(b => R.vuoti.indexOf(b) < 0);
+const tuttiR2 = tuttiR.concat(ramiData);
 for (const T3 of TRIGONI) {
-  if (T3.every(b=>tuttiR.indexOf(b)>=0))
+  if (T3.every(b=>tuttiR.indexOf(b)>=0)) {
     mecc.push('三合 COMPLETO '+T3.join('')+' ('+EL_IT[WX[T3[1]]]+')'+(T3.some(b=>ramiFus.indexOf(b)>=0)?' · terzo membro in 伏神':''));
+  } else if (T3.every(b=>tuttiR2.indexOf(b)>=0) && T3.filter(b=>tuttiR.indexOf(b)>=0).length>=2) {
+    const daData = T3.filter(b=>tuttiR.indexOf(b)<0);
+    const dove = daData.map(b=>{
+      const n=[]; if(b===annoB)n.push('anno'); if(b===meseB)n.push('mese'); if(b===dayB)n.push('giorno'); if(b===oraB)n.push('ora');
+      return b+' ('+n.join('/')+')';
+    }).join(', ');
+    mecc.push('三合 COMPLETO '+T3.join('')+' ('+EL_IT[WX[T3[1]]]+') · terzo membro dai RAMI DI DATA: '+dove);
+  }
 }
 // fushen notevoli
 for (const l of R.linee) { if (!l.fushen) continue;

@@ -3578,3 +3578,32 @@ allineata in `carta_check.js`. Baseline S17 **INVARIATO** (2.788 · 58,07% · z 
 Carta guida §93-bis riverificata.
 
 ---
+
+---
+## §94 — L'ATTERRAGGIO DI CHI GENERA: LA SQUADRA DELLA CARICATA PERDE (24/08/2026, DEFINITIVA)
+
+**Da USDJPY 10/03/2020 (seme 103, Zhen/Gen, palazzo 兌), persa dal sistema −215.**
+
+**Dottrina (Edu):** nell'atterraggio "si DEVE vedere chi ci guadagna". Se il MOSSO (la
+linea di partenza) GENERA la destinazione su cui atterra, si scarica caricandola e NON
+si impone: **la squadra della linea caricata PERDE** — il verdetto è il ribaltato della
+sede raggiunta (destinazione in basso → LONG, in alto → SHORT). È la stessa lettura
+della carta guida: il 午 debole (doppio clash di giorno e anno, il nascosto 亥 che lo
+controlla da sotto) arriva sulla Ying 辰 P, non può imporsi e finisce col generarla;
+la P rafforzata fa perdere la propria squadra → LONG ✓.
+
+**Misura sul perimetro degli atterraggi validi** (tutte le carte, regola "sede raggiunta
+vince"): mosso CONTROLLA la destinazione 76 · 57,9% (si impone davvero); destinazione
+controlla il mosso 128 · 56,3%; destinazione genera il mosso 160 · 51,3% (piatta);
+**mosso GENERA la destinazione 113 · 44,3% (43,9 recente / 40,4 vecchio)** → letta al
+ribaltato **55,8%**, coerente sui due periodi.
+
+**Codifica:** default in `liuyao.js` (blocco atterraggio, campo `atterraggio.caricata`)
+e in `pb_stress.js` (stesso blocco); la checklist `carta_check.js` mostra la dicitura
+"il mosso GENERA la destinazione → la squadra della caricata perde (§94)".
+Audit: `ATTGENOFF=1` ripristina il comportamento precedente.
+
+**Nota:** l'atterraggio a oggi NON entra in nessuna via del termometro (è dato di
+lettura e perimetro d'analisi): baseline S17 **INVARIATO** (2.788 · 58,07% · z 8,52 ·
++29.503 · pesato +33.146). La regola serve alla lettura delle carte e alla gerarchia;
+quando l'atterraggio verrà promosso a via, entrerà già con la distinzione giusta.

@@ -284,5 +284,83 @@
   "quando": "2026-08-23",
   "esito": "SHORT -32",
   "nota": "M11/filone2: mese 壬午, stelo 壬 stesso elemento della bestia 玄武 su L5 → clash effettivo, la mobile non parte, chi non vince perde → SHORT (recupero −32)"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2020-03-10",
+  "seme": 103,
+  "sup": 4,
+  "inf": 7,
+  "linea": 6,
+  "dayB": "子",
+  "monthB": "卯",
+  "quando": "2026-08-24",
+  "esito": "LONG +215",
+  "nota": "Lettura Edu 24/08: Shi 暗動 dal giorno va sulla Ying P; 午 debole (doppio clash giorno+anno, 伏 亥 lo controlla da sotto) non si impone e la genera; P rafforzata fa perdere la propria squadra → LONG"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2025-02-12",
+  "seme": 158,
+  "sup": 3,
+  "inf": 6,
+  "linea": 4,
+  "dayB": "子",
+  "monthB": "寅",
+  "quando": "2026-08-24",
+  "esito": "LONG +201",
+  "nota": "Lettura Edu 24/08: evidente LONG — la W di L4 si muove per essere generata indietro (回頭生), esce rafforzata → la sua sede (sopra) vince"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-07-17",
+  "seme": 158,
+  "sup": 3,
+  "inf": 6,
+  "linea": 4,
+  "dayB": "午",
+  "monthB": "未",
+  "quando": "2026-08-24",
+  "esito": "SHORT -220",
+  "nota": "Lettura Edu 24/08 — CARTA GUIDA DEL JUMP: L4 W generata indietro (回頭生) e forte SALTA su L2 (辰 C) via 六合 辰酉合; L2 e' un super Tai Sui (ramo dell'anno + terminale del flusso steli + Drago Verde) → vince la sede della linea raggiunta, in basso → SHORT ✓"
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2022-11-02",
+  "seme": 136,
+  "sup": 1,
+  "inf": 8,
+  "linea": 5,
+  "dayB": "未",
+  "monthB": "戌",
+  "quando": "2026-08-24",
+  "esito": "LONG +87",
+  "nota": "CARTA GUIDA JUMP (Edu 24/08): flusso steli arriva su 庚戌 (mese); 庚 Metallo = elemento della bestia 白虎 su L2 → il pilastro opera; 戌 e' la tomba del Fuoco → 巳 spento (e comunque untimely nel mese 戌) → non controlla piu' 申 di L5, che salta libero su L2 e PORTA IL B al trigramma inferiore → il basso perde → LONG ✓"
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2025-04-07",
+  "seme": 129,
+  "sup": 8,
+  "inf": 1,
+  "linea": 4,
+  "dayB": "午",
+  "monthB": "辰",
+  "quando": "2026-08-24",
+  "esito": "SHORT -185",
+  "nota": "Lettura Edu 24/08 — Jump RESPINTO: il mese ha sopra il reale Geng (Metallo) e il derivato Ren (WuShu Dun sul ramo 辰, Acqua) → doppio sostegno a distanza per Zi (Acqua); il giorno 午 clasha L1 impedendo la cattura (子丑合) che sarebbe stata letale per Zi; W Zi resiste e fa vincere la propria squadra → SHORT ✓"
+ },
+ {
+  "cross": "AUDUSD",
+  "date": "2024-01-31",
+  "seme": 65,
+  "sup": 8,
+  "inf": 1,
+  "linea": 4,
+  "dayB": "午",
+  "monthB": "丑",
+  "quando": "2026-08-24",
+  "esito": "SHORT -27",
+  "nota": "Lettura Edu 24/08: L4 genera indietro una B rafforzata che NON salta perche' il giorno 午 clasha L1 (子) — il bersaglio colpito dal giorno impedisce il salto (子丑合 non si chiude). La B resta a casa e fa perdere la propria squadra (in alto → l'alto perde) → SHORT ✓"
  }
 ]

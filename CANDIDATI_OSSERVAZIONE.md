@@ -43,6 +43,92 @@ caso **vuota svegliata**, che il §42 oggi non copre. Da unificare se si costrui
 Numeri (`SALTOVUOTO=1`): perimetro largo 34 carte 55,9% z 0,69; con "nutre" 11 carte 54,5%.
 Configurazione rara (servono quattro condizioni insieme) → non cablabile per accumulo naturale.
 
+### M17 · Il bersaglio del Jump resiste: doppio sostegno a distanza + clash del giorno impedisce la cattura (Edu, 24/08/2026)
+Carta guida: **GBPUSD 07/04/2025** (seme 129, palazzo 坤, contrasto PB/LY, LY sbagliava,
+persa dal sistema −185; una delle 7 carte con lo stesso impianto B/L4→L1/W trovate nel
+setaccio del Jump).
+Il bersaglio del salto (qui L1, W 子) può RESISTERE alla cattura invece di perdere la
+propria squadra, quando riceve un DOPPIO SOSTEGNO A DISTANZA dal pilastro del mese: lo
+stelo REALE del mese (qui 庚 Metallo, genera l'elemento del bersaglio) E lo stelo
+DERIVATO sul RAMO del mese (metodo 五鼠遁/WuShu Dun applicato al ramo del mese usando lo
+stelo del giorno — la stessa tecnica con cui si deriva lo stelo dell'ora, qui applicata
+al mese: da giorno 丙 sul ramo 辰 esce 壬 Acqua, stesso elemento del bersaglio) — E il
+GIORNO clasha il bersaglio, impedendo che la combinazione di cattura (qui 子丑合) si
+chiuda. Con questa doppia condizione il bersaglio resta ATTIVO e fa vincere la PROPRIA
+squadra (non quella della mobile che salta) → SHORT ✓ (+185 recuperati).
+Tecnica del "flusso di steli" generalizzata: lo stelo derivato per WuShu Dun non è
+riservato all'ora — si può calcolare per QUALSIASI ramo (qui il ramo del mese) usando
+sempre lo stelo del GIORNO come base, per trovare un sostegno elementale "a cavallo"
+non visibile nella lettura diretta dei quattro pilastri.
+Da verificare sulle altre 6 carte dello stesso impianto (mobile B a L4, 丑→午, salto su
+L1 子): quante hanno lo stesso doppio sostegno + clash del giorno sul bersaglio.
+
+
+Carte guida: **USDJPY 17/07/2024** (salto che vince), **EURJPY 19/12/2024** (salto che NON parte),
+**USDCAD 02/11/2022** (salto che porta il B).
+REGOLA: una linea FORTE può saltare su un'altra linea quando è (a) CLASHATA, oppure
+(b) GENERATA INDIETRO (回頭生) — la mobile esce rafforzata dal proprio ritorno e salta.
+Il salto avviene sulla linea che la **PARTENZA** combina (六合).
+**Precondizione (due modi di bloccare il salto):**
+1. la PARTENZA è bloccata dallo stelo sormontante dell'elemento della Bestia della mobile
+   (anno/mese/ora) — vedi EURJPY 19/12/2024;
+2. il BERSAGLIO è clashato dal GIORNO — la combinazione di cattura non si chiude e il
+   salto non parte (AUDUSD 31/01/2024: giorno 午 clasha L1 子, la mobile B resta a casa e
+   fa perdere la propria squadra → SHORT ✓).
+Nota di famiglia: il clash del giorno sul bersaglio impedisce il salto in entrambi i casi;
+l'ESITO poi dipende da chi resta in piedi — se il bersaglio ha il doppio sostegno del mese
+(M17) sopravvive e vince la propria squadra; se non ce l'ha, è la mobile che, non saltando,
+fa perdere la propria (regola B/P in sede).
+**Verdetto all'arrivo (correzione di Edu, USDCAD 02/11/2022):** la mobile NON fa
+semplicemente vincere la sede raggiunta — ci **PORTA IL PROPRIO CARATTERE**, e poi vale la
+regola confermata "B e P fanno perdere la squadra della propria sede".
+MISURA (perimetro pulito, 53 carte): lettura vecchia "vince la sede raggiunta" 47,2%;
+lettura di Edu "porta il proprio carattere" 52,8%; **ramo B: 24 carte · 62,5% ·
+58,3 recente / 60,0 vecchio** (unico ramo con numeri e coerenza). W 9 · 55,6%;
+G 11 · 45,5%; P 5 · 20,0% (troppo poche). Flag: `JUMP4=1`.
+MISURATO E RESPINTO: il ramo dell'anno che clasha la partenza NON blocca da solo
+(101 carte · 52,5% contro un riferimento di 49,6%) — serve lo stelo sormontante, come
+già stabilito da Edu ("non perché è il ramo, ma perché la linea porta quella Bestia").
+
+### M15 · Il pilastro operativo che porta la TOMBA spegne la linea (Edu, 24/08/2026)
+Da USDCAD 02/11/2022, meccanica mai incontrata prima. Quando il pilastro reso operativo
+dallo stelo sormontante dell'elemento della Bestia porta il ramo che è **TOMBA**
+dell'elemento della linea bersaglio, la linea non è indebolita: è **SPENTA**, e non può
+più esercitare il proprio controllo su nessun'altra linea.
+Nella carta: il flusso degli steli arriva su 庚戌 (mese); 庚 Metallo = elemento della
+Bestia 白虎 (Tigre Bianca) su L2 → il pilastro opera; 戌 è la tomba del Fuoco → il 巳 G di
+L2 si spegne → non controlla più il 申 di L5, che salta libero.
+**Precisazione di Edu (dottrina a sé, più generale della carta):** il 巳 non poteva
+comunque opporsi al 申, perché nel mese 戌 il Fuoco è untimely. La tomba aggiunge
+CERTEZZA, non è lei a fare il lavoro.
+
+
+Nata misurando la lettura di Edu su EURJPY 12/02/2025 ("la W si muove per essere generata
+indietro, rafforzata → la sua sede vince"). Sulla popolazione, per parentela della mobile
+in 回頭生 (generazione di ritorno, l'arrivo genera la partenza), lettura "sede della mobile
+vince": W 54 · 57,4% (62,5 rec / 45,0 vec, periodi discordi); C 42 · 57,1%; G 44 · 54,5%;
+B 107 · 51,4% (piatta); **P 61 · 37,7% (35,9 rec / 42,1 vec)** → letta al ribaltato
+**62,3%, coerente sui due periodi**: la P rafforzata dal ritorno fa perdere la propria
+squadra. Perfettamente coerente con la regola confermata "B e P fanno perdere la squadra
+della propria sede" e con l'atterraggio di chi genera (§94): la P caricata — dal mosso che
+la genera o dal proprio ritorno — è negatività caricata. Flag misura: `WGENRIT=1` (con
+LIUTAG=1). Da portare a Edu per conferma dottrinale prima di cablarla in via.
+
+### M12 · Il mosso debole non si impone: genera, e la P rafforzata fa perdere la sua squadra (Edu, 24/08/2026)
+Carta guida: **USDJPY 10/03/2020** (seme 103, Zhen/Gen, palazzo 兌, persa dal sistema −215,
+contrasto PB/LY dove il LY sbagliava). Lo Shi (L4 午 G) è in 暗動 (movimento oscuro) perché
+clashato dal giorno, e va sulla Ying (L1 辰 P). Ma il 午 è DEBOLE nell'azione: riceve DUE
+clash (giorno 子 e anno 子) e dietro di sé ha il nascosto 亥 (伏神 Acqua) che lo controlla.
+Quando arriva sulla Ying non può imporsi e FINISCE COL GENERARLA (午 Fuoco genera 辰 Terra).
+La P rafforzata fa perdere la propria squadra: P alla Ying L1, in basso → il basso perde →
+LONG ✓ (+215 recuperati). Coerente con la regola confermata "B e P fanno perdere la squadra
+della propria sede": qui la P non è solo in sede, è CARICATA dal mosso che non ce l'ha fatta.
+Elementi nuovi da osservare: (a) il doppio clash giorno+anno sullo stesso ramo INDEBOLISCE
+il mosso invece di spingerlo; (b) il 伏神 che controlla da sotto pesa sulla forza del mosso;
+(c) il mosso troppo debole per imporsi si scarica generando la destinazione.
+NOTA lettura respinta: il 三合 completo 申子辰 (col 子 di anno e giorno) NON è la chiave di
+questa carta — la lettura passa dallo Shi mosso, non dal trigono.
+
 ### M11 · Gli steli, filone 2: lo stelo sormontante rende il pilastro operativo (Edu, 23/08/2026)
 Carta guida: **NZDUSD 17/06/2025** (seme 60, gemella del 16/06, persa dal sistema −32).
 REGOLA — INDIPENDENTE dal flusso del Qi: lo stelo sormontante di ANNO, MESE o ORA che sia

@@ -259,12 +259,40 @@
       motivoNullo = 'self-combination (' + ramoDep + '+' + ramoArr + ')'; }
     var movimentoNullo = (effEl === null);
 
-    // viaggio/atterraggio della mobile: se l'arrivo COMBINA con un ramo presente, atterra
+    // viaggio/atterraggio della mobile: se l'arrivo COMBINA con un ramo presente, atterra.
+    // DESTINAZIONE ROTTA (Edu, 23/08/2026, da EURJPY 11/08/2020, DEFINITIVA dottrinale):
+    // se la linea di destinazione e' ROTTA dal giorno (clashata, non timely, ferma, non
+    // vuota) la combinazione non si forma e l'atterraggio e' ANNULLATO.
+    // ECCEZIONE (Edu, 23/08/2026, da GBPUSD 15/01/2021): se la destinazione e' CASA
+    // DELL'ATTORE DEL CAPOLINEA (carica dal condotto, v. setCasaAttore) RESISTE al clash
+    // del giorno e l'atterraggio VALE (carica 80,0% su 10; scarica fallisce 67,9% su 28).
+    // Audit: ATTROTTAOFF=1 ripristina il comportamento precedente.
     var atterraggio = null;
     if (!movimentoNullo){
       var coinc = COMBINA[ramoArr];
       for (var a = 1; a <= 6; a++){ if (ramoAl(a) === coinc){
-        atterraggio = { pos: a, ramo: coinc, dir: a <= 3 ? 'SHORT' : 'LONG' }; break; } }
+        var _arOff = (typeof process !== 'undefined' && process.env && process.env.ATTROTTAOFF === '1');
+        var _destRotta = false;
+        if (!_arOff && dayBranch && a !== linea && vuoti.indexOf(coinc) < 0 &&
+            CLASH[dayBranch] === coinc && !_isCasaAttore(a)) {
+          var _stD = stagione(WX[coinc], monthEl);
+          if (_stD !== '旺' && _stD !== '相') _destRotta = true;
+        }
+        if (!_destRotta){
+          atterraggio = { pos: a, ramo: coinc, dir: a <= 3 ? 'SHORT' : 'LONG' };
+          // §94 (Edu, 24/08/2026, da USDJPY 10/03/2020): "si DEVE vedere chi ci
+          // guadagna". Se il MOSSO (la linea di partenza) GENERA la destinazione,
+          // si scarica caricandola e NON si impone: LA SQUADRA DELLA CARICATA PERDE
+          // (verdetto ribaltato rispetto alla sede raggiunta). Misura sul perimetro:
+          // sede raggiunta vince 44,3% (43,9/40,4) -> ribaltata 55,8%, coerente.
+          // Audit: ATTGENOFF=1 ripristina il comportamento precedente.
+          var _agOff = (typeof process !== 'undefined' && process.env && process.env.ATTGENOFF === '1');
+          if (!_agOff && GEN[WX[ramoDep]] === WX[coinc]) {
+            atterraggio.dir = (atterraggio.dir === 'LONG') ? 'SHORT' : 'LONG';
+            atterraggio.caricata = true;   // la destinazione e' stata caricata dal mosso
+          }
+        }
+        break; } }
     }
 
     // ---- SCALA MOBILE (Edu, 13/08/2026, da EURJPY 11/12/2023 / 噬嗑→无妄) ----
@@ -465,6 +493,21 @@
   // Audit: GIORNOSBLOCCO=off ignora del tutto l'interruttore (comportamento precedente).
   var _sblocco = false;
   function setSblocco(v){ _sblocco = !!v; }
+
+  // CASA DELL'ATTORE DEL CAPOLINEA (Edu, 23/08/2026) — per l'eccezione alla §93.
+  // Il chiamante che conosce la data completa (pb_stress.js o l'app) calcola la casa
+  // dell'attore del capolinea del flusso del Qi e la comunica qui PRIMA di chiamare
+  // read/readManual. Se null, vale la §93 senza eccezione.
+  // AGGIORNAMENTO (Edu, 23/08/2026, da EURUSD 30/01/2025): se il terminale non e'
+  // radicato si prende ANCHE lo step precedente -> il valore puo' essere un numero
+  // (1-6) O un array di numeri (piu' case cariche).
+  var _casaAttore = [];
+  function setCasaAttore(p){
+    if (p==null) { _casaAttore = []; return; }
+    var arr = Array.isArray(p) ? p : [p];
+    _casaAttore = arr.filter(function(x){ return x>=1 && x<=6; });
+  }
+  function _isCasaAttore(pos){ return _casaAttore.indexOf(pos) >= 0; }
 
   // l'ORA dal seme (come nel PB): quarto ramo che partecipa a combinazioni e raduni
   function oraDalSeme(seed){ return B[(((seed-1)%12)+12)%12]; }
@@ -929,6 +972,11 @@
     dottrina:'The arrival clashes the (void) hidden line of a single fixed line: with ≥2 supports (season + day + year) it leaves the void and acts in its seat; with 0 supports the clash breaks it → opposite.',
     test: function (R, ctx, state) {
       var c = _ctx(R);
+      // PRINCIPIO GENERALE (Edu, 24/08/2026, da EURJPY 12/02/2025): in GENERAZIONE DI
+      // RITORNO (回頭生, caso 1) l'arrivo e' tutto preso dal tornare dalla madre e NON
+      // agisce altrove: nessun clash suo su una linea distante ha voce.
+      // Audit: ARRLIB=off ripristina il comportamento precedente.
+      if (R.mutante.casoMut === 1 && !(typeof process !== 'undefined' && process.env && process.env.ARRLIB === 'off')) return null;
       var mob = R.linee[R.mutante.pos-1];
       var arr = R.mutante.ramoArr;
       var host = R.linee.filter(function(l){return l.pos!==mob.pos && l.fushen && CLASH[arr]===l.fushen.b;});
@@ -1002,6 +1050,11 @@
       var tsL = R.linee.filter(function(l){return l.isTaiSui && !l.isMobile;});
       if (tsL.length!==1) return null;
       var ts = tsL[0];
+      // PRINCIPIO GENERALE (Edu, 24/08/2026, da EURJPY 12/02/2025): in GENERAZIONE DI
+      // RITORNO (回頭生, caso 1) l'arrivo e' tutto preso dal tornare dalla madre e NON
+      // agisce altrove: nessun clash suo su una linea distante ha voce.
+      // Audit: ARRLIB=off ripristina il comportamento precedente.
+      if (R.mutante.casoMut === 1 && !(typeof process !== 'undefined' && process.env && process.env.ARRLIB === 'off')) return null;
       if (!(CLASH[R.mutante.ramoArr]===ts.ramo && COMBINA[R.dayBranch]!==ts.ramo)) return null;
       state.why = 'Mobile <b>P</b> L'+mob.pos+' arrives in <b>'+R.mutante.ramoArr+'</b>, which clashes the fixed <b>Tai Sui '+ts.ramo+'</b> on L'+ts.pos+' (not defended by the day '+R.dayBranch+'): the trend of the Tai Sui\'s seat breaks → '+(ts.pos<=3?'below → market rises':'above → market falls')+'.';
       return ts.pos<=3 ? 'LONG' : 'SHORT';
@@ -1062,6 +1115,12 @@
   LY_VIE.push({ id:'R27_63', sezione:'§63', nome:'Return-generation blocked: go where the action is',
     dottrina:'The mobile is weak (not timely) — or timely but BESIEGED by a seasonal gathering / triple combination of the element that controls it (§63-bis) — and its arrival would generate it back (return-generation, case 1), but the arrival is busy clashing a single fixed line that is STRONG (timely or backed by day/year): the return-generation does not happen, and by lack of a better priority the clashed line becomes the decider → its seat. Doctrinal pillar (Edu 17/08, from EURJPY 06/02/2025); 17 cards, 70.6%, both periods aligned; below statistical threshold, fixed by doctrine. Evaluated last (only if every other rule is silent).',
     test: function (R, ctx, state) {
+      // RIMOSSA (Edu, 24/08/2026, da EURJPY 12/02/2025): "la relazione fra arrivo e
+      // partenza sulla stessa linea e' molto piu' intima del rapporto con una linea
+      // lontana". In 回頭生 l'arrivo e' tutto preso dal tornare dalla madre e NON fa
+      // altro: nessun clash su una linea distante puo' impedire la generazione di
+      // ritorno. Ripristino per audit: VIA63ON=1.
+      if (!(typeof process !== 'undefined' && process.env && process.env.VIA63ON === '1')) return null;
       var c = _ctx(R);
       var mob = R.linee[R.mutante.pos-1];
       if (R.mutante.casoMut !== 1) return null;
@@ -1148,6 +1207,11 @@
     dottrina:'Edu (17/08): "it depends" — the Yong Shen (spirit of the focus) tells how to read. Metaphor: a crowd gathered → you stop there (gathering: the qi stays); a runner crossing the street → you look where he goes (follow the arrival). When the arrival ONLY clashes one full fixed line (no combination): a clashed P gives way → seat OPPOSITE to the clashed line (35 cards, 74% opposite); a clashed G or C holds the blow → seat of the clashed line (G 13 cards 77%, C 25 cards 64%); otherwise, if the mobile is a W, the qi goes where the W goes → seat of the clashed line (33 cards, 61%). B/W clashed by a non-W mobile: no rule. Last in the thermometer.',
     test: function (R, ctx, state) {
       if (R.mutante.movimentoNullo) return null;
+      // PRINCIPIO GENERALE (Edu, 24/08/2026, da EURJPY 12/02/2025): in GENERAZIONE DI
+      // RITORNO (回頭生, caso 1) l'arrivo e' tutto preso dal tornare dalla madre e NON
+      // agisce altrove: nessun clash suo su una linea distante ha voce.
+      // Audit: ARRLIB=off ripristina il comportamento precedente.
+      if (R.mutante.casoMut === 1 && !(typeof process !== 'undefined' && process.env && process.env.ARRLIB === 'off')) return null;
       var mob = R.linee[R.mutante.pos-1], arr = R.mutante.ramoArr;
       var cT = R.linee.filter(function(l){ return !l.isMobile && CLASH[arr]===l.ramo && !l.vuoto; });
       var kT = R.linee.filter(function(l){ return !l.isMobile && COMBINA[arr]===l.ramo && !l.vuoto; });
@@ -1255,6 +1319,9 @@
     for (var i = 0; i < LY_VIE.length; i++) {
       var v = LY_VIE[i];
       if (enabled[v.id] === false) continue;
+      // spegnimento di una via da ambiente per misura/audit: VIAOFF=R27_63 (o piu', separate da virgola)
+      if (typeof process !== 'undefined' && process.env && process.env.VIAOFF &&
+          (','+process.env.VIAOFF+',').indexOf(','+v.id+',') >= 0) continue;
       var dir = v.test(R, ctx, state);
       if (dir) return { dir: dir, viaId: v.id, sezione: v.sezione, nome: v.nome, why: state.why || '',
         ramoDep: R.mutante.ramoDep, mobPar: R.linee[R.mutante.pos-1].par };
@@ -1293,7 +1360,7 @@
     return { finale: t.dir, chi: 'conflict → LY wins (rule ' + t.sezione + ' ' + t.nome + ')', via: t, ly: t.dir, why: t.why };
   }
 
-  return { read: read, readManual: readManual, setSblocco: setSblocco, TRIGRAM: TRIGRAM,
+  return { read: read, readManual: readManual, setSblocco: setSblocco, setCasaAttore: setCasaAttore, TRIGRAM: TRIGRAM,
            PAR: PAR, SEI_BESTIE: SEI_BESTIE, EL_IT: EL_IT, BR_IT: BR_IT,
            oraDalSeme: oraDalSeme,
            LY_VIE: LY_VIE, LY_RAFFORZATIVI: LY_RAFFORZATIVI,
