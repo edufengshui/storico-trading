@@ -1411,7 +1411,7 @@ if (process.env.LYSPACCATO) {
   console.log('mercato sceso in '+mercatoGiu+'/'+cel.length+' giorni ('+(100*mercatoGiu/Math.max(1,cel.length)).toFixed(1)+'%)');
 }
 if (process.env.DUMP) {
-  require('fs').writeFileSync(process.env.DUMP, JSON.stringify(rows.map(r=>({c:r.cross,d:r.date,move:r.move,emaDir:r.emaDir,via:r.via,linea:r.linea,sup:r.sup,inf:r.inf,base:r.base,finale:r.finale,emaRun:r.emaRun,trendVuoto:r.trendVuoto,via:r.via,oraBranch:r.oraBranch,vuoti:r.vuoti,dayBranch:r.dayBranchUsed,monthBranch:r.monthBranchUsed,ponteRel:r.ponteRel,ponteYong:r.ponteYong,scarico:r.scarico,protetto:r.protetto,yongDebole:r.yongDebole,p:r.pnl,b:r.pnlBase}))));
+  require('fs').writeFileSync(process.env.DUMP, JSON.stringify(rows.map(r=>({c:r.cross,d:r.date,move:r.move,emaDir:r.emaDir,via:r.via,linea:r.linea,sup:r.sup,inf:r.inf,base:r.base,finale:r.finale,emaRun:r.emaRun,trendVuoto:r.trendVuoto,via:r.via,oraBranch:r.oraBranch,vuoti:r.vuoti,dayBranch:r.dayBranchUsed,monthBranch:r.monthBranchUsed,yearBranch:r.yearBranchUsed,dayStem:r.dayStemUsed,ponteRel:r.ponteRel,ponteYong:r.ponteYong,scarico:r.scarico,protetto:r.protetto,yongDebole:r.yongDebole,p:r.pnl,b:r.pnlBase}))));
 }
 if (process.env.LISTA) {
   console.log('\npeggiori 15 carte dopo la regola');
@@ -6085,7 +6085,8 @@ if (process.env.PBLY) {
       const arr=R.mutante.ramoArr, aEl=WX[arr];
       const forte=el=> WX[D]===el || GEN[WX[D]]===el || WX[Y]===el || GEN[WX[Y]]===el;
       const tgt=R.linee.filter(l=>l.pos!==mob.pos && l.par==='W' && GEN[aEl]===l.el);
-      if (tgt.length) {
+      // Guardia movimento nullo (Edu, 25/08/2026, audit): l'arrivo non agisce col movimento nullo (caso -1). G50FC1=off ripristina.
+      if (tgt.length && (process.env.G50FC1==='off' || R.mutante.casoMut!==-1)) {
         const basso=tgt.filter(l=>l.pos<=3).length, alto=tgt.length-basso;
         if (basso!==alto && tgt.some(l=>timely(l.el)||forte(l.el)))
           return basso>alto?'SHORT':'LONG';
@@ -6096,7 +6097,8 @@ if (process.env.PBLY) {
       const arr=R.mutante.ramoArr, part=COMBINA[arr];
       if (part) {
         const tgt=R.linee.filter(l=>l.pos!==mob.pos && l.ramo===part && !l.vuoto);
-        if (tgt.length>=2) {
+        // Guardia movimento nullo (Edu, 25/08/2026, audit): come §50f. G50GC1=off ripristina.
+        if (tgt.length>=2 && (process.env.G50GC1==='off' || R.mutante.casoMut!==-1)) {
           const basso=tgt.filter(l=>l.pos<=3).length, alto=tgt.length-basso;
           if (basso>0 && alto>0) return 'SHORT';        // gemelli divisi: il legame si compie in basso
         }
