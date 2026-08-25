@@ -134,7 +134,8 @@ const casaAtt = caseAttore.length ? caseAttore : null;
 LYM.setCasaAttore(casaAtt);
 const R = LYM.readManual(sup, inf, linea, dayB, meseB, annoB, dayS);
 if (R.error) { console.log('ERRORE readManual: '+R.error); process.exit(1); }
-const ctx = { oraBranch: oraB, emaDir: emaDir==='up'?'up':'down', date: date };
+const ctx = { oraBranch: oraB, emaDir: emaDir==='up'?'up':'down', date: date,
+              yearStem: annoS, monthStem: meseS, hourStem: oraS };
 const mEl = WX[meseB];
 
 /* ---------- 4. VIE + RAFFORZATIVI ---------- */

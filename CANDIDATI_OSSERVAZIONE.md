@@ -539,3 +539,52 @@ NB per il pre-screen: carta_check già segnala "伏神 sotto Lx = ramo del giorn
 SOPPRIME la linea sopra", ma NON lo collega ancora alla combinazione sulla linea vuota. Da
 cablare nel filtro: se l'arrivo combina una linea vuota con 伏神 timely sotto, la meccanica
 M19 spiega la carta (verso = sede del 伏神).
+
+## Bestie/steli (Filone 2) — RAFFORZATIVO SELETTIVO, mai standalone (Edu, 25/08/2026)
+Chiarimento dottrinale FISSO. Le bestie/steli NON sono un metodo a sé stante: sono un
+**rafforzativo** dei metodi che restano **principali** (linee mobili, Shi vs Ying, ecc.).
+Sono **selettive**: "aumentano" il peso energetico di una linea **solo se quella linea già
+svolge una funzione importante** nella lettura. Non decidono da sole e non si applicano a
+tappeto.
+- Carta guida d'uso legittimo: **EURJPY 31/10/2023** (seme 158, sup 3 inf 6, mutante L2, LONG
+  +213). Lì la mobile L2 (C 辰) è morta (doppio clash, bestia senza radice) e l'unico metodo
+  principale rimasto era **Y vs S**, in pareggio (Shi L3 B 午 e Ying L6 B 巳, stesso Fuoco). Le
+  bestie/steli hanno solo ROTTO quel pareggio: Ying bestia 白虎 (Metallo) nutrita dallo stelo 辛
+  (Metallo); Shi bestia 朱雀 (Fuoco) non nutrita → vince la Ying → sede alta L6 → LONG.
+- Misura come STANDALONE (errata per definizione, tenuta come prova del contrario): lo stallo
+  Shi/Ying stesso elemento + tie-break netto della bestia ricorre 110 volte; da solo 56,4%
+  (z 1,33); ristretto alle carte già spiegate da un'altra regola concorda solo 54,4% (31/57) e
+  **CONTRADDICE 26 letture corrette**. Quelle 26 sono carte con un ATTORE PRINCIPALE (una mobile,
+  un'altra via): lì le bestie/steli non dovevano intervenire. La misura conferma: **da solo NON
+  si cabla**. Va usato solo come rinforzo dentro un metodo principale già in atto.
+
+## Eccezione a §52 (回頭克) — è FORZA NETTA controllore↔controllato, con INTEGRITÀ della tomba
+Gruppo "spiegate ma sbagliate → eccezioni dentro le vie maggiori". §52 dà: 回頭克 (caso 3,
+l'arrivo controlla la partenza) → "azione fallita" → OPPOSTO della sede. Ma è così solo se il
+controllo si COMPIE: dipende dal bilancio di forza fra l'arrivo (controllore) e la partenza
+(controllato), NON da un trigger secco "arrivo in tomba".
+- Carta guida dell'eccezione (controllo FALLISCE → sede): **EURUSD 06/11/2024** (seme 109,
+  sup5 inf5, L3 G 酉→午 Fuoco). L'arrivo 午 (C) è debole e IN TOMBA (戌) — tomba INTATTA: due 戌
+  (mese+giorno) resistono al clash singolo dell'anno 辰, nessuna punizione — e la partenza 酉 (G)
+  è rinforzata dalla Terra sovrabbondante via la bestia 勾陳 → il controllo NON si compie → il G
+  resta alla sede bassa (Ying L3) → SHORT. ✓
+- Carta guida del CONTRARIO (controllo SI COMPIE → §52 opposto): **USDJPY 16/10/2024** (seme 149,
+  sup2 inf5, L3 G 酉→午 Fuoco). Stessa forma, MA la tomba 戌 è DISATTIVATA: anno 辰 la clasha
+  (辰戌冲, apre) e giorno 丑 la punisce (丑戌 刑, rompe) → 午 NON è in tomba, la linea funziona
+  normalmente → §52 (opposto della sede) → LONG. ✓
+- DOTTRINA della tomba: entomba solo se il ramo-tomba è INTATTO — non clashato (冲) né punito (刑);
+  più rami-tomba resistono a un clash singolo. Tombe pulite: 水→辰, 木→未, 火→戌, 金→丑.
+- Misura a trigger secco "arrivo in tomba" (errata, tenuta come prova): su 343 caso-3, §52 51,3%;
+  sotto-insieme "in tomba" 104 carte §52 51,0% vs sede 49,0% (nessuna differenza). Coin-flip
+  PERCHÉ il trigger ignora l'integrità della tomba e la forza netta. NON cablabile come trigger:
+  va letta come bilancio di forza (arrivo con/ senza trigono·bestia·stagione·tomba-integra vs
+  partenza rinforzata).
+
+### Misura rifatta con integrità della tomba (25/08/2026) — CONFERMA non cablabile
+Codificata l'integrità: tomba entomba solo se presente, nT>nC (piu' tombe che clash) e nP=0
+(nessuna punizione 三刑; 辰=自刑). Perimetro eccezione = caso-3 + tomba INTATTA + partenza
+rinforzata → predice SEDE: **27 carte, 44,4%** (§52/opposto sulla stessa 55,6%). La sede sta
+SOTTO §52 persino qui. Stesso config di tomba (es. 丑 nT1 nC0 nP0) da' esiti opposti su carte
+diverse → nessuna sotto-condizione di tomba ribalta §52 in modo affidabile. CONCLUSIONE: l'eccezione
+e' caso-per-caso (forza netta di piu' fattori insieme), NON un trigger cablabile. Guide a se':
+EURUSD 06/11/2024 (sede) e USDJPY 16/10/2024 (§52 opposto).

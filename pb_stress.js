@@ -5974,8 +5974,9 @@ if (process.env.PBLY) {
       for(const m of MUT)if(m.includes(a)&&m.includes(b)&&a!==b)return true;return false;};
     const cf=R.linee.filter(l=>l.fushen&&inX(l.ramo,l.fushen.b));
     if (cf.length===1){const l=cf[0]; if(!timely(l.el)&&!timely(l.fushen.el)) return l.pos<=3?'SHORT':'LONG';}
-    // 4 capolinea G
-    if (capG) return capG.pos<=3?'SHORT':'LONG';
+    // 4 capolinea G · guardia mobile (Edu 25/08/2026, audit): R4 sbaglia con mobile G
+    //   (27 carte 40,7%, -802, coerente sui due periodi). GR4G=off ripristina.
+    if (capG && (process.env.GR4G==='off' || mob.par!=='G')) return capG.pos<=3?'SHORT':'LONG';
     // 5 退神
     if (R.mutante.progressione==='retrocedente'){const suo=mob.pos<=3?'SHORT':'LONG';
       return CLASH[Y]===dep?suo:(suo==='LONG'?'SHORT':'LONG');}
@@ -6027,14 +6028,19 @@ if (process.env.PBLY) {
     // 11 — §53c: Fratello timely nel Ti (gua del Trend), posizione L4 -> NON segue
     {
       const l4=R.linee[3];
-      if (yongBasso && l4.par==='B' && vivo(l4) && timely(l4.el)) return emaLong?'SHORT':'LONG';
+      // Guardia mobile di prova (audit): §53c debole con mobile G. G53CG=off = attiva §53c anche con mobile G.
+      if (yongBasso && l4.par==='B' && vivo(l4) && timely(l4.el) && (process.env.G53CG==='off' || mob.par!=='G')) return emaLong?'SHORT':'LONG';
     }
     // 12 — §53d: Ufficiale timely e PIENO nel Ti + una linea vuota nel Ti -> NON segue (falla nel trend)
     {
       const tiLinee=R.linee.filter(l=>tiRange.includes(l.pos));
       const gTiPieno=tiLinee.filter(l=>l.par==='G'&&vivo(l)&&timely(l.el)&&!l.vuoto);
       const tiHaVuoto=tiLinee.some(l=>l.vuoto);
-      if (gTiPieno.length>=1 && tiHaVuoto) return emaLong?'SHORT':'LONG';
+      // Guardia mobile (Edu, 25/08/2026): §53d sbaglia quando la mobile e' B o P (indicatori
+      // negativi): sul termometro mob B 40,6%/-821 pip, mob P 43,8%/-636, contro G/C/W in attivo
+      // (+1025). Scatta solo se la mobile NON e' B/P. G53DMOB=off ripristina il vecchio.
+      const mob53=R.linee[R.mutante.pos-1];
+      if (gTiPieno.length>=1 && tiHaVuoto && (process.env.G53DMOB==='off' || (mob53.par!=='B'&&mob53.par!=='P'))) return emaLong?'SHORT':'LONG';
     }
     // 13 — §52 "chi non vince perde": azione della mobile fallita (回頭剋/autocombinazione)
     // -> non porta la sua direzione, leggo l'opposto. [§76: il caso "arrivo clashato dal giorno" e' stato tolto]
@@ -6043,7 +6049,10 @@ if (process.env.PBLY) {
       const autoc = mob.stato==='autocombinata';
       // §76 (19/08/2026): TOLTO il sotto-caso "arrivo clashato dal giorno" (211 carte, 49,8%, -481 pip):
       // coerente col §74, il clash del giorno ATTIVA la mobile, non fa fallire l'azione. Restano 回頭剋 e autocombinazione.
-      if (huitou || autoc) {
+      // Guardia mobile (Edu, 25/08/2026, audit vie×parentela): §52 sbaglia quando la mobile e'
+      // B (兄弟): 68 carte 45,6% -882 pip, coerente sui due periodi. Non scatta se mobile B.
+      // G52B=off ripristina il vecchio.
+      if ((huitou || autoc) && (process.env.G52B==='off' || mob.par!=='B')) {
         const suo=mob.pos<=3?'SHORT':'LONG';
         return suo==='LONG'?'SHORT':'LONG';
       }
@@ -6260,7 +6269,9 @@ if (process.env.PBLY) {
         const forza=l=>(timely(l.el)?1:0)+(l.isTaiSui?1:0)+(l.ramo===Mo?1:0)+(l.ramo===D?1:0)+((WX[D]===l.el||GEN[WX[D]]===l.el)?1:0);
         const resto=R.linee.filter(l=>l.par!=='G'&&l.par!=='W'&&attiva(l));
         if (resto.length) { const maxF=Math.max(...resto.map(forza)); const top=resto.filter(l=>forza(l)===maxF);
-          if (top.length===1 && top[0].par!=='B') return top[0].pos<=3?'SHORT':'LONG'; }
+          // Guardia mobile (Edu, 25/08/2026, audit): §64 sbaglia con mobile B (20 carte 35%, -440,
+          // coerente sui due periodi). G64B=off ripristina.
+          if (top.length===1 && top[0].par!=='B' && (process.env.G64B==='off' || mob.par!=='B')) return top[0].pos<=3?'SHORT':'LONG'; }
       }
     }
     // 31 — §65 (FISSATA 17/08/2026, da EURJPY 05/03/2025): NIENTE SI MUOVE, lo YING sul GIORNO decide.
@@ -6340,6 +6351,49 @@ if (process.env.PBLY) {
       const cl9=R.linee.filter(l=>!l.isMobile&&CLASH[D]===l.ramo);
       if (cl9.length===1 && !LYM.forzaModello(R,{oraBranch:r.oraBranch},cl9[0].pos).raduni.length) {
         const T=cl9[0]; const seatT=T.pos<=3?'SHORT':'LONG'; return T.vuoto ? seatT : (seatT==='LONG'?'SHORT':'LONG'); }
+    }
+    // 36 — M18 POTENZIAMENTO VIA BESTIA (Edu, 25/08/2026; guide USDJPY 31/07/2024 + EURGBP
+    //      21/01/2022): quando NESSUNO stelo (anno/mese/giorno/ora) ha radice usabile (radicato
+    //      E in scala della polarita' del giorno), l'elemento SOVRABBONDANTE dei 4 rami (>=3,
+    //      senza pari) potenzia — TRAMITE la Bestia (六獸) della linea MOBILE — quella linea, a
+    //      patto che l'ARRIVO della mobile sia VUOTO. Poi lettura normale:
+    //        · se l'abbondanza GENERA l'arrivo (E 生 arrivo): l'arrivo vuoto e' attivato e AGISCE;
+    //          se il mobile e' Shi/Ying si legge il controllo arrivo↔polo opposto (chi controlla vince);
+    //        · altrimenti il mobile RESTA e vince la sua sede (G/W tiene, B/P inverte, C tace).
+    //      Rarita' strutturale del calendario: cablata per dottrina a n basso (Edu: in mancanza di
+    //      smentite si cabla; si toglie davanti a una carta che la falsifica nel perimetro). In
+    //      coda, cosi' le vie forti (es. §50k) hanno precedenza. VIA_M18=off per spegnere.
+    if (process.env.VIA_M18!=='off' && R.vuoti.indexOf(R.mutante.ramoArr)>=0) {
+      const _p=r.date.split('-').map(Number);
+      const _ys=yearStemAt(_p[0],_p[1],_p[2]);
+      const _ms=monthStemFrom(_ys, Mo);
+      const _hs=(CA_WUSHU[r.dayStemUsed]&&r.oraBranch)?STEMS10[(STEMS10.indexOf(CA_WUSHU[r.dayStemUsed])+B.indexOf(r.oraBranch))%10]:null;
+      const _lad=(STEMS10.indexOf(r.dayStemUsed)%2===0)?CA_YANG:CA_YIN;
+      const _rami=[Y,Mo,D,r.oraBranch].filter(Boolean);
+      const _rad=s=>_rami.some(b=>WX[b]===CA_SE[s]);
+      const _steli=[_ys,_ms,r.dayStemUsed,_hs].filter(Boolean);
+      const _usable=_steli.some(s=>_rad(s)&&_lad.indexOf(s)>=0);
+      if (!_usable) {
+        const _cnt={}; for(const b of _rami) _cnt[WX[b]]=(_cnt[WX[b]]||0)+1;
+        let _dom=null,_dn=0,_tie=false;
+        for(const e in _cnt){ if(_cnt[e]>_dn){_dom=e;_dn=_cnt[e];_tie=false;} else if(_cnt[e]===_dn)_tie=true; }
+        const _BEL={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+        const _bst=mob.bestia&&mob.bestia.cn;
+        if (_dn>=3 && !_tie && _bst && _BEL[_bst]===_dom) {
+          const _arrEl=WX[R.mutante.ramoArr];
+          const _seat=pos=>pos<=3?'SHORT':'LONG';
+          if (GEN[_dom]===_arrEl) {                       // CASO B: arrivo generato → attivato, agisce
+            if (mob.isShi||mob.isYing) {
+              const _altro = mob.isShi ? R.linee[R.ying-1] : R.linee[R.shi-1];
+              if (CTRL[_arrEl]===_altro.el) return _seat(mob.pos);
+              if (CTRL[_altro.el]===_arrEl) return _seat(_altro.pos);
+            }
+          } else {                                         // CASO A: mobile resta, vince la sua sede
+            if (mob.par==='G'||mob.par==='W') return _seat(mob.pos);
+            if (mob.par==='B'||mob.par==='P') return _seat(mob.pos)==='SHORT'?'LONG':'SHORT';
+          }
+        }
+      }
     }
     return null;
   }
