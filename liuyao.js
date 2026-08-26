@@ -789,6 +789,68 @@
   // (dal registro, per la spiegazione al click), test(R, ctx, state) -> 'LONG'|'SHORT'|null.
   var LY_VIE = [];
 
+  // §101 — BLOCCO DELLA MOBILE RICEVENTE UNTIMELY (Edu, 26/08/2026, da EURJPY 27/03/2025).
+  //   Nel caso 6 (il giorno libera la mobile: la mobile parte ma l'arrivo e' clashato dal giorno,
+  //   quindi si muove senza trasformarsi). Se la mobile e' UNTIMELY e la BESTIA seduta sulla sua
+  //   linea la DRENA (泄: l'elemento della bestia e' il figlio della mobile) ed e' RADICATA (>=1
+  //   radice nei rami di calendario) e TIMELY, il movimento non parte: azione tentata e fallita ->
+  //   chi non vince perde -> SEDE OPPOSTA (mobile in basso -> LONG, mobile in alto -> SHORT).
+  //   Solo il DRENAGGIO blocca, non il controllo (剋): gemella EURJPY 08/04/2025 (stesso seme 161,
+  //   pressione di controllo) la mobile parte e vince la sua sede. Perimetro stretto e raro (caso 6
+  //   + bestia radicata che drena): 2 carte, 2/2. GIORNOBLOCCO=off spegne.
+  LY_VIE.push({ id:'R41_101', sezione:'§101', nome:'Blocked receiving mobile: rooted draining beast on the mobile → opposite seat',
+    dottrina:'Edu (26/08/2026, da EURJPY 27/03/2025): nel caso 6 (giorno libera la mobile), se la mobile e\' untimely e la BESTIA sulla sua linea la DRENA (泄), radicata e timely, il movimento non parte -> chi non vince perde -> sede opposta. Solo il drenaggio blocca, non il controllo (gemella EURJPY 08/04/2025, seme 161).',
+    test: function (R, ctx, state) {
+      if (typeof process!=='undefined' && process.env && process.env.GIORNOBLOCCO==='off') return null;
+      if (R.mutante.casoMut !== 6) return null;
+      var mob = R.linee[R.mutante.pos-1];
+      var mEl = WX[R.monthBranch], sEl = SEASON[R.monthBranch];
+      var timely = function(el){ var a=stagione(el,mEl), b=stagione(el,sEl);
+        return a==='旺'||a==='相'||b==='旺'||b==='相'; };
+      if (timely(mob.el)) return null;                       // la mobile dev'essere UNTIMELY
+      if (!mob.bestia) return null;
+      var BEL101 = {'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+      var bEl = BEL101[mob.bestia.cn];
+      if (!bEl || GEN[mob.el] !== bEl) return null;           // la bestia dev'essere il FIGLIO della mobile (drena)
+      var cal = [R.dayBranch, R.monthBranch, R.yearBranch, ctx && ctx.oraBranch].filter(function(b){return !!b;});
+      var rooted = cal.filter(function(b){return WX[b]===bEl;}).length >= 1;
+      if (!rooted || !timely(bEl)) return null;               // bestia radicata E timely
+      var opp = mob.pos<=3 ? 'LONG' : 'SHORT';                // sede opposta della mobile
+      state.why = 'The receiving mobile <b>'+mob.par+'</b> L'+mob.pos+' is untimely and the beast on it ('+mob.bestia.cn+') drains it (rooted, timely): the movement does not start — who does not win loses → opposite seat → '+opp+'.';
+      return opp;
+    }});
+
+  // §102 — ARRIVO TENUTO DAL TRIGONO, NON CONTRASTATO (Edu, 26/08/2026, da EURJPY 31/08/2020).
+  //   Nel caso 6 (il giorno vorrebbe liberare la mobile clashando l'arrivo), se l'ARRIVO e' membro
+  //   di un 三合 COMPLETO presente nel Bazi (anno/mese/giorno/ora), e' TIMELY, e il GIORNO che
+  //   vorrebbe clasharlo e' UNTIMELY, allora una linea untimely non agisce su una timely: il clash
+  //   FALLISCE, l'arrivo tenuto dal trigono AGISCE. Il focus e' sull'azione, non sulla raccolta
+  //   statica (Shen/You/Xu fermi non contano; e il Metallo che genera l'Acqua rema con l'arrivo,
+  //   non contro). L'arrivo vince -> la mobile non tiene la sua sede -> SEDE OPPOSTA. Perimetro
+  //   strutturale rarissimo (三合 completo sull'arrivo): 1 carta. GIORNOTRIGONO=off spegne.
+  LY_VIE.push({ id:'R42_102', sezione:'§102', nome:'Arrival held by a full trine, uncontested: the arrival acts → opposite seat',
+    dottrina:'Edu (26/08/2026, da EURJPY 31/08/2020): caso 6 con l\'arrivo dentro un 三合 completo del Bazi, timely, e il giorno che vorrebbe clasharlo untimely -> l\'untimely non agisce sulla timely, il clash fallisce, l\'arrivo tenuto dal trigono agisce -> sede opposta. La raccolta stagionale statica non conta (focus sull\'azione).',
+    test: function (R, ctx, state) {
+      if (typeof process!=='undefined' && process.env && process.env.GIORNOTRIGONO==='off') return null;
+      if (R.mutante.casoMut !== 6) return null;
+      var arr = R.mutante.ramoArr, arrEl = WX[arr];
+      var mEl = WX[R.monthBranch], sEl = SEASON[R.monthBranch];
+      var timely = function(el){ var a=stagione(el,mEl), b=stagione(el,sEl);
+        return a==='旺'||a==='相'||b==='旺'||b==='相'; };
+      if (!timely(arrEl)) return null;                        // arrivo timely
+      if (timely(WX[R.dayBranch])) return null;               // il giorno (clasherebbe) untimely
+      var cal = [R.yearBranch, R.monthBranch, R.dayBranch, ctx && ctx.oraBranch].filter(function(b){return !!b;});
+      var TRI = [['申','子','辰'],['亥','卯','未'],['寅','午','戌'],['巳','酉','丑']];
+      var hit = null;
+      for (var i=0;i<TRI.length;i++){ var t=TRI[i];
+        if (t.indexOf(arr)>=0 && t.every(function(x){return cal.indexOf(x)>=0;})) { hit=t; break; } }
+      if (!hit) return null;                                  // arrivo dentro un 三合 completo del Bazi
+      var mob = R.linee[R.mutante.pos-1];
+      var opp = mob.pos<=3 ? 'LONG' : 'SHORT';                // l'arrivo vince: la mobile non tiene la sua sede
+      state.why = 'The arrival <b>'+arr+'</b> is held by the full trine '+hit.join('')+' (timely) and the day that would clash it is untimely: the untimely cannot act on the timely, the clash fails, the arrival acts → opposite seat → '+opp+'.';
+      return opp;
+    }});
+
   LY_VIE.push({ id:'B62', sezione:'§62', nome:'Mobile G delivered to a strong C (FIRST)',
     dottrina:'A mobile G whose ARRIVAL lands in the element of a fixed C that is timely, full and controls it: the G hands itself to its executioner, the trend dies → OPPOSITE of the G\'s seat (G below → LONG, G above → SHORT). Doctrinal pillar (Edu 16/08), fixed by doctrine. C is ambivalent: it generates a W, but attacks a nearby G.',
     test: function (R, ctx, state) {

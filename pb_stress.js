@@ -5932,7 +5932,7 @@ if (process.env.PBLY) {
   function lyDir(r){
     LYM.setCasaAttore(r.casaAttore || null);   // eccezione §93: carica dal condotto
     const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed,
-                             r.yearBranchUsed, r.dayStemUsed);
+                             r.yearBranchUsed, r.dayStemUsed, r.oraBranch);
     if (R.error) return null;
     r._ramoDep = R.mutante.ramoDep; r._mobPar = R.linee[R.mutante.pos-1].par;
     { const lB = R.linee.find(l=>l.par==='B'); r._gongEl = lB ? lB.el : null; }
@@ -5954,6 +5954,33 @@ if (process.env.PBLY) {
     const timely=el=>f1(st1(el,mEl))||f1(st1(el,sEl));   // doppia timeliness
     const vivo=l=>!['legata','rotta','dormiente','eliminata','autocombinata'].includes(l.stato);
     const mob=R.linee[R.mutante.pos-1], dep=R.mutante.ramoDep;
+    // 0 — §101 BLOCCO DELLA MOBILE RICEVENTE UNTIMELY (Edu, 26/08/2026, da EURJPY 27/03/2025).
+    //   Caso 6 (il giorno libera la mobile): se la mobile e' untimely e la BESTIA sulla sua linea
+    //   la DRENA (泄: elemento bestia = figlio della mobile), radicata (>=1 radice di calendario)
+    //   e timely, il movimento non parte -> chi non vince perde -> SEDE OPPOSTA. Solo il drenaggio
+    //   blocca, non il controllo (gemella EURJPY 08/04/2025, seme 161). 2 carte, 2/2. GIORNOBLOCCO=off.
+    if (process.env.GIORNOBLOCCO!=='off' && R.mutante.casoMut===6 && !timely(mob.el) && mob.bestia) {
+      const _BEL101={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+      const _bEl=_BEL101[mob.bestia.cn];
+      if (_bEl && GEN[mob.el]===_bEl) {
+        const _cal=[r.dayBranchUsed,r.monthBranchUsed,r.yearBranchUsed,r.oraBranch].filter(Boolean);
+        const _rooted=_cal.filter(b=>WX[b]===_bEl).length>=1;
+        if (_rooted && timely(_bEl)) return mob.pos<=3?'LONG':'SHORT';   // sede opposta
+      }
+    }
+    // 0-bis — §102 ARRIVO TENUTO DAL TRIGONO, NON CONTRASTATO (Edu, 26/08/2026, da EURJPY 31/08/2020).
+    //   Caso 6: se l'arrivo e' dentro un 三合 completo del Bazi, timely, e il giorno che vorrebbe
+    //   clasharlo e' untimely -> l'untimely non agisce sulla timely, il clash fallisce, l'arrivo
+    //   agisce -> sede opposta. 1 carta. GIORNOTRIGONO=off spegne.
+    if (process.env.GIORNOTRIGONO!=='off' && R.mutante.casoMut===6) {
+      const _arr=R.mutante.ramoArr, _arrEl=WX[_arr];
+      if (timely(_arrEl) && !timely(WX[r.dayBranchUsed])) {
+        const _cal=[r.yearBranchUsed,r.monthBranchUsed,r.dayBranchUsed,r.oraBranch].filter(Boolean);
+        const _TRI=[['申','子','辰'],['亥','卯','未'],['寅','午','戌'],['巳','酉','丑']];
+        const _hit=_TRI.find(t=>t.includes(_arr)&&t.every(x=>_cal.includes(x)));
+        if (_hit) return mob.pos<=3?'LONG':'SHORT';           // sede opposta: l'arrivo vince
+      }
+    }
     // 1 mobile distrutta -> legge la timely (no C/B, no 自刑)
     const AUTOP=['辰','午','酉','亥'];
     if ((R.vuoti.indexOf(dep)>=0)&&(CLASH[D]===dep)&&!timely(mob.el)) {
