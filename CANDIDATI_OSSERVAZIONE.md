@@ -588,3 +588,46 @@ SOTTO §52 persino qui. Stesso config di tomba (es. 丑 nT1 nC0 nP0) da' esiti o
 diverse → nessuna sotto-condizione di tomba ribalta §52 in modo affidabile. CONCLUSIONE: l'eccezione
 e' caso-per-caso (forza netta di piu' fattori insieme), NON un trigger cablabile. Guide a se':
 EURUSD 06/11/2024 (sede) e USDJPY 16/10/2024 (§52 opposto).
+
+### 刑 amplificato che abbatte il ramo-del-giorno sulla linea del 青龍 (in osservazione, 25/08/2026)
+Origine: lettura di Edu su **USDCAD 07/03/2023** (子卯刑 triplo → il 子 ramo del giorno, 伏神 C su
+L1 col 青龍, cade → trigramma inferiore perde → LONG). Config esatta = n=1 in tutta la storia.
+Meccanismo generalizzato e misurato (predice: il trigramma della linea del 青龍 perde → vince
+l'altro; drago in basso → LONG, in alto → SHORT):
+- **generale (senza day-embodied): NON regge.** ≥2 su ramo visibile del 青龍 59,2% (~baseline);
+  sul 伏神 sotto il 青龍 **38,5%** (sotto il 50%); visibile-o-伏神 53,6%. Scartato.
+- **vincolato al RAMO DEL GIORNO (day-embodied), 刑 amplificato ≥2:**
+  - flag: 刑 amplificato (≥2 nel calendario) colpisce il ramo del giorno che sta sulla/sotto la
+    linea del 青龍 → quel trigramma perde
+  - n **20** · win **75,0%** · z **2,24** · pip **+775** · periodi: recente 71% (17) / vecchio 100% (3)
+  - variante solo ramo visibile: n 17 · 76,5% · z 2,18
+  - n-per-z4: ~57–64 carte (a ~75%) — oggi 20, quindi z4 non raggiungibile a breve (rarità di calendario)
+- Stato: **NON cablabile ora** (z<4, vecchio troppo esile). Da promuovere solo dopo aver vagliato
+  le ~5 perdenti nel perimetro (verificare se ognuna è spiegata da un'altra regola nel suo perimetro,
+  criterio di Edu). Se nessuna la falsifica nel perimetro → candidata a via a bassa n.
+
+### §96 in salvaguardia — arrivo che penalizza (刑) la partenza (25/08/2026)
+Dottrina certificata da Edu (guida EURJPY 14/11/2023, registrata): arrivo che punisce la propria
+partenza con penalizzatore POTENTE (timely nel mese o elemento del Tai Sui) → la mobile cade →
+sede opposta. Perimetro grezzo: potente n 109 · 59,6% · z 2,01 · +1.350 · 60/59 (debole 44,9%).
+MA in pipeline (coda del termometro) boccia la regressione: 4 raddrizzate (140 pip) vs 7 rotte
+(548 pip), S17 −816. Cablata in entrambi i file ma SPENTA di default (VIA96=1 accende). Da vagliare
+le 7 rotte (GBPUSD 24/03/2020 154 · GBPUSD 27/02/2023 114 · EURGBP 03/10/2024 79 · USDJPY
+29/08/2024 55 · EURUSD 23/03/2026 55 · EURGBP 21/06/2023 48 · EURUSD 01/02/2022 43): se altre
+regole le spiegano, §96 non era l'attore e si ristudia priorità/perimetro. Decisione di Edu pendente.
+
+### Asse "forza della bestia = radici nei rami" (dottrina in formazione, 25/08/2026)
+Enunciato di Edu: quando un pilastro coincide con la bestia (elemento dello stelo del giorno = elemento
+della bestia sulla linea toccata) E la bestia è sostenuta dal flusso (radici nei rami del calendario),
+la sua influenza è predominante — se sostenuta dal flusso può cambiare la lettura radicalmente.
+Misure 25/08:
+- Censimento coincidenza (pilastro clasha/combina la linea con la bestia del suo elemento):
+  giorno 591 (21,2%) · mese 603 · anno 560 · ora 575.
+- S17 sulle carte di coincidenza-giorno: 60,58% (591) vs 58,58% fuori — nessuna sofferenza (scarto nel rumore).
+- Modello "P attivato dal giorno sulla sua bestia → squadra perde" PER RADICI della bestia:
+  radici 0 → 35,7% (28, INVERTE) · 1 → 43,5% (23) · 2+ → 71,4% (7 · rec 60/vec 100). Gradiente monotono.
+- Quadro a due facce (da letture): bestia RADICATA → la linea agisce e comanda (USDCAD 07/03: 青龍 con
+  3 radici 卯卯卯); bestia SCARICA → la linea tenta e fallisce (GBPUSD 27/11: 青龍 0 radici, W fallisce,
+  chi non vince perde) o viene scavalcata da un'azione viva (EURJPY 01/05/2024: 青龍 0 vs 勾陳 3 sulla
+  mobile → comanda la mobile, §50g, +302).
+- Lente di lettura, non ancora formula. Residuo caso −1: 18/59 carte in coincidenza (31% vs 21% atteso).

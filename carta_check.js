@@ -162,6 +162,21 @@ const ramiVuoti = [['anno',annoB],['mese',meseB],['ora',oraB]].filter(([,b])=>b 
 if (ramiVuoti.length) mecc.push('RAMI DI DATA VUOTI: '+ramiVuoti.map(([n,b])=>n+' '+b).join(', ')+' → non colpiscono (precedente PB; verificare che clash/combinazioni da questi rami non siano usate)');
 // mutazione
 mecc.push('MUTAZIONE: L'+M.pos+' '+M.ramoDep+'('+EL_IT[M.depEl]+') → '+M.ramoArr+'('+EL_IT[M.arrEl]+') · caso '+M.casoMut+(M.movimentoNullo?' · MOVIMENTO NULLO: '+M.motivoNullo:''));
+// STATO DELL'ARRIVO NEL MESE (filtro obbligatorio, Edu 25/08/2026: "fai passare ogni carta
+// attraverso tutti i filtri, inclusi timely e untimely" — guida gemella USDCHF 13/11 vs 28/07:
+// arrivo vibrante controlla indietro e vince; arrivo in TOMBA non controlla e perde).
+{
+  const TOMBA={'Wood':'未','Fire':'戌','Metal':'丑','Water':'辰'};
+  const mEl=WX[meseB], aEl=M.arrEl;
+  let stato;
+  if (TOMBA[aEl]===meseB) stato='IN TOMBA ('+aEl+'庫 in '+meseB+') — il controllo indietro NON funziona';
+  else if (aEl===mEl) stato='旺 regnante nel mese';
+  else if (GEN[mEl]===aEl) stato='相 VIBRANTE (il mese lo genera) — controlla indietro con forza';
+  else if (GEN[aEl]===mEl) stato='休 riposa (genera il mese)';
+  else if (CTRL[aEl]===mEl) stato='囚 prigione (controlla il mese)';
+  else stato='死 morto (il mese lo controlla)';
+  mecc.push('  └ STATO DELL\'ARRIVO '+M.ramoArr+' NEL MESE '+meseB+': '+stato);
+}
 // ARRIVO NEL VUOTO (caso 0) — "chi non vince perde" (Edu, 24/08/2026): la mobile NON
 // muta e RESTA il carattere di partenza. G/W reggono e VINCONO la propria sede; B/P
 // fanno PERDERE la propria sede (verso opposto). C: verso non definito. Il verso è la
@@ -362,6 +377,87 @@ if (M.casoMut===1 && GEN[M.arrEl]===M.depEl)
 // §88 anno muto carico che clasha
 if (annoB && R.linee.some(l=>CLASH[annoB]===l.ramo) && !R.linee.some(l=>l.ramo===annoB))
   cand.push('§88-famiglia: anno '+annoB+' muto che clasha una linea (verificare se carico)');
+// [3-bis] BESTIE E RADICI — in primo piano su richiesta di Edu (25/08/2026): se sostenute
+// dal flusso (radici nei rami del calendario) possono cambiare la lettura radicalmente.
+{
+  const BEL={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+  const ramiCal=[dayB,meseB,annoB,oraB].filter(Boolean);
+  const righe=R.linee.map(l=>{
+    const el=l.bestia?BEL[l.bestia.cn]:null;
+    const rad=el?ramiCal.filter(b=>WX[b]===el).length:0;
+    return 'L'+l.pos+' '+(l.bestia?l.bestia.cn:'—')+'('+rad+(rad>=2?'★':'')+')';
+  });
+  console.log('');
+  console.log('[3-bis] BESTIE (radici nei rami giorno/mese/anno/ora; ★ = sostenuta dal flusso)');
+  console.log('  '+righe.join('  '));
+}
+
+// [3-ter] STADI 十二長生 NEL MESE — IL FILTRO PIU' IMPORTANTE (Edu, 25/08/2026):
+//   stadi 1-6 timely (migliori 1,4,5) · stadi 7-12 untimely (peggiori 8,9,10).
+//   Leggi di sopravvivenza: untimely clashata NON SOPRAVVIVE · timely clashata E' PIU' FORTE ·
+//   untimely generata (dal giorno o da una linea) puo' ancora operare · timely drenata puo' ancora operare.
+//   Terra: scuola 火土同宮 (ciclo del Fuoco) — da confermare con Edu.
+const BR12=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+const NASCITA={'Wood':'亥','Fire':'寅','Metal':'巳','Water':'申'};   // Terra: regola propria (Edu 25/08), non segue il ciclo
+const NOMI12=['長生 Nascita','沐浴 Bagno','冠帶 Vestizione','臨官 Ufficio','帝旺 Apice','衰 Declino','病 Malattia','死 Morte','墓 Tomba','絕 Recisione','胎 Embrione','養 Nutrimento'];
+function stadio(el, ramo){ if(el==='Earth') return null; const i=BR12.indexOf(ramo), n=BR12.indexOf(NASCITA[el]); if(i<0||n<0) return null; return ((i-n+12)%12)+1; }
+// TERRA (regola di Edu, 25/08/2026): timely nei 4 mesi di Terra (丑辰未戌), vibrante in estate (巳午), untimely altrove.
+function terraTimely(ramoMese){ if('丑辰未戌'.indexOf(ramoMese)>=0) return 'terra'; if('巳午'.indexOf(ramoMese)>=0) return 'estate'; return null; }
+function isTimely(el, ramoMese){ if(el==='Earth') return terraTimely(ramoMese)!==null; const s=stadio(el,ramoMese); return !!s && s<=6; }
+function stadioTxt(el, ramoMese){
+  if(el==='Earth'){ const t=terraTimely(ramoMese);
+    if(t==='terra') return 'TIMELY (mese di Terra '+ramoMese+')';
+    if(t==='estate') return 'TIMELY — 相 vibrante (l\'estate la genera)';
+    return 'untimely (Terra fuori dai suoi mesi)'; }
+  const s=stadio(el,ramoMese); if(!s) return '?';
+  const t=s<=6, top=(s===1||s===4||s===5), worst=(s===8||s===9||s===10);
+  return 'stadio '+s+' '+NOMI12[s-1]+' — '+(t?'TIMELY'+(top?' (top)':''):'untimely'+(worst?' (peggiore)':'')); }
+{
+  console.log('');
+  console.log('[3-ter] STADI 十二長生 nel mese '+meseB+' (1-6 timely, 7-12 untimely; leggi di sopravvivenza)');
+  for (const l of R.linee) {
+    const el=WX[l.ramo];
+    // lo stadio dell'ELEMENTO della linea si calcola rispetto al RAMO DEL MESE
+    let riga='  L'+l.pos+' '+l.ramo+' ('+(EL_IT[el]||el)+'): '+stadioTxt(el, meseB);
+    const timely=isTimely(el, meseB);
+    const clashata = CLASH[dayB]===l.ramo || CLASH[meseB]===l.ramo;
+    if (clashata) riga += timely ? '  · CLASHATA → PIU\' FORTE' : '  · CLASHATA → NON SOPRAVVIVE';
+    console.log(riga);
+  }
+  console.log('  ARRIVO '+M.ramoArr+' ('+(EL_IT[M.arrEl]||M.arrEl)+'): '+stadioTxt(M.arrEl, meseB));
+}
+
+// ============================================================
+// CANDIDATI ATTIVI — misurati a OGNI carta, alimentano l'esito.
+// Per aggiungerne uno: appendere una funzione a candAttivi che
+// ritorna null (non tocca la carta) oppure {dir, desc}. Il verso
+// reale decide ✓/✗ e quindi se la carta risulta "spiegata".
+// ============================================================
+const XING = {'子':['卯'],'卯':['子'],'寅':['巳'],'巳':['申'],'申':['寅'],
+              '丑':['戌'],'戌':['未'],'未':['丑'],'辰':['辰'],'午':['午'],'酉':['酉'],'亥':['亥']};
+const puni = (x,y)=> (XING[x]||[]).indexOf(y)>=0;
+const candAttivi = [
+  // 刑 amplificato che abbatte il ramo del giorno sulla/sotto la linea del 青龍
+  // (osservazione 25/08/2026 — carta madre USDCAD 07/03/2023). n 20 · 75% · z 2,24.
+  function(){
+    const drago = R.linee.find(l=>l.bestia && l.bestia.cn==='青龍');
+    if(!drago) return null;
+    const pil=[dayB,meseB,annoB,oraB].filter(Boolean);
+    const cnt={}; pil.forEach(b=>{cnt[b]=(cnt[b]||0)+1;});
+    const ampl=Object.keys(cnt).filter(b=>cnt[b]>=2);            // 刑 amplificato
+    const dayOnDrago = drago.ramo===dayB || (drago.fushen && drago.fushen.b===dayB);
+    if(!dayOnDrago) return null;                                 // dev'essere day-embodied sul 青龍
+    const colpi = ampl.filter(x=>puni(x,dayB));
+    if(!colpi.length) return null;                              // nessun ramo amplificato punisce il giorno
+    const dir = drago.pos<=3 ? 'LONG' : 'SHORT';               // trigramma del drago perde → vince l'altro
+    return {dir, desc:'刑 amplificato day-embodied sul 青龍 (L'+drago.pos+') → ramo del giorno '+
+      dayB+' punito da '+colpi.join('')+' → il suo trigramma perde → '+dir};
+  },
+];
+for(const f of candAttivi){
+  let out=null; try{ out=f(); }catch(e){ out=null; }
+  if(out) cand.push(out.desc + (out.dir===realDir?' ✓':' ✗'));
+}
 // ELASTICOF §85
 cand.push('§85 elastico×forza: da valutare A MANO se c\'è una liberata (serve il modello di forza — non automatizzato qui)');
 

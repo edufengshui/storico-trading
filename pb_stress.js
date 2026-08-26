@@ -6157,6 +6157,40 @@ if (process.env.PBLY) {
           (R.mutante.casoMut===1 || R.mutante.progressione==='avanzante'))
         return mob.pos<=3?'SHORT':'LONG';               // direzione della SUA sezione
     }
+    // 18-bis — §97 (CABLATA 25/08/2026, REGIME CODA, guida GBPUSD 27/11/2024 seme 125): W IN
+    //      MOTO OSCURO (暗動) CON ARRIVO VUOTO. La W svegliata dal clash del giorno prova ad
+    //      avanzare ma l'arrivo e' nel vuoto (旬空): l'arrivo vuoto non agisce -> la W non puo'
+    //      vincere -> chi non vince perde -> la sua sede perde -> sede OPPOSTA. PRIORITA' SOPRA
+    //      §50i (Edu, 25/08/2026): l'azione della W, anche fallita, precede lo sfondo del
+    //      pavimento vuoto. Sorpasso misurato: 1 raddrizzata (+107, la guida) / 1 rotta (-52,
+    //      USDJPY 30/03/2021, da vagliare). Misura al cablaggio: n 21 · 57,1% · +328 · rec 63
+    //      (16) / vec 40 (5, esile). CONGELATA; riga di classe coda. VIA97=off per spegnere.
+    if (process.env.VIA97!=='off' && R.anDong) {
+      for (const p97 in R.anDong) {
+        const l97=R.linee[p97-1];
+        if (l97 && l97.par==='W' && R.vuoti.indexOf(R.anDong[p97].arr)>=0)
+          return l97.pos<=3?'LONG':'SHORT';
+      }
+    }
+    // 18-ter — §98 (CABLATA 25/08/2026, REGIME CODA, guida EURJPY 10/08/2023 seme 157): IL GIORNO
+    //      ARRIVA SULLA LINEA E GENERA IL P NASCOSTO. Il giorno combina (六合) una linea ferma e
+    //      il suo ramo GENERA l'elemento del 伏神 P sotto di lei: il P si sveglia carico, e un P
+    //      attivo fa perdere la propria squadra -> il trigramma che lo ospita cade -> sede
+    //      OPPOSTA alla linea ospite. (Colonna piena: nella guida 庚 genera 子 genera 卯.)
+    //      Misura al cablaggio: n 6 · 5/6 · +256 (rec 5/5 · vec 0/1, perdente USDCHF 13/12/2022
+    //      da vagliare). Rarita' di calendario; CONGELATA; riga di classe coda.
+    //      PRIORITA' SOPRA §50i (Edu, 25/08/2026): chi tocca il giorno precede lo sfondo del
+    //      pavimento vuoto. Sorpasso misurato: 1 raddrizzata (+113, la guida) / 0 rotte, S17
+    //      58,97 -> 59,00. VIA98=off per spegnere.
+    if (process.env.VIA98!=='off') {
+      for (const l98 of R.linee) {
+        if (l98.isMobile) continue;
+        if (COMBINA[D]!==l98.ramo) continue;
+        if (!l98.fushen || l98.fushen.par!=='P') continue;
+        if (GEN[WX[D]]!==WX[l98.fushen.b]) continue;
+        return l98.pos<=3?'LONG':'SHORT';
+      }
+    }
     // 19 — §50i: gua inferiore interamente vuoto -> il pavimento cede -> SHORT (15/08/2026)
     // VIA50I=off per spegnere; VIA50I=basso: parla solo se la mobile abita il trigramma inferiore (audit 20/08/2026)
     if (process.env.VIA50I!=='off') {
@@ -6276,6 +6310,20 @@ if (process.env.PBLY) {
           if (top.length===1 && top[0].par!=='B' && (process.env.G64B==='off' || mob.par!=='B')) return top[0].pos<=3?'SHORT':'LONG'; }
       }
     }
+    // 30-bis — §94 (CABLATA 25/08/2026, REGIME CODA, guida USDJPY 24/02/2026 seme 154): B SOSPESA
+    //      NON PUO' AVANZARE, NON PUO' PERDERE. Mobile B con ARRIVO combinato (六合) dal GIORNO
+    //      (arrivo impigliato): il movimento non si compie, e il malus del B ("il B fa perdere la
+    //      sua squadra") richiede l'azione compiuta -> il B sospeso non nuoce -> vince la sua sede
+    //      (B in alto LONG, in basso SHORT). Stesso principio delle guardie del caso -1 (movimento
+    //      nullo: l'azione non agisce) applicato al malus del B. PRIORITA' SOPRA §65 (Edu,
+    //      25/08/2026): §65 e' un ripiego per quando niente agisce, ma una B sospesa E' un'azione
+    //      leggibile — la lettura della mobile precede il ripiego sullo Ying. Sorpasso misurato:
+    //      4 raddrizzate (+497) vs 2 perse (-201), entrambi i periodi migliorano. Misura al
+    //      cablaggio: n 48 · 60,4% · +804 pip · periodi 61/60 (sede alta 69,6%/23 · bassa
+    //      52,0%/25 — asimmetria annotata, regola tenuta SIMMETRICA per dottrina). CONGELATA alla
+    //      nascita; giudicata in aggregato dalla riga di classe coda. VIA94=off per spegnere.
+    if (process.env.VIA94!=='off' && mob.par==='B' && COMBINA[D]===R.mutante.ramoArr)
+      return mob.pos<=3?'SHORT':'LONG';
     // 31 — §65 (FISSATA 17/08/2026, da EURJPY 05/03/2025): NIENTE SI MUOVE, lo YING sul GIORNO decide.
     //      Movimento nullo della mobile + Ying fermo sul ramo del giorno -> sede dello Ying.
     //      12 carte LY tace, 91,7% (100/83); con movimento VIVO la stessa cella fa 34,8%. In coda.
@@ -6396,6 +6444,39 @@ if (process.env.PBLY) {
           }
         }
       }
+    }
+    // 38 — §96 (CABLATA 25/08/2026, REGIME CODA, guida EURJPY 14/11/2023 seme 162): L'ARRIVO CHE
+    //      PENALIZZA (刑) LA PARTENZA abbatte la mobile, se il penalizzatore e' POTENTE (elemento
+    //      dell'arrivo timely nel mese — doppia stagione — o elemento del Tai Sui). Il 回頭生 per
+    //      elemento puo' essere un dono avvelenato: per ramo l'arrivo punisce chi si muove ->
+    //      la mobile cade -> sede OPPOSTA. Misura al cablaggio: potente n 109 · 59,6% · z 2,01 ·
+    //      +1350 · periodi 60/59 (debole 44,9%: senza potenza la punizione non abbatte).
+    //      Annotazione: cella mobile-G 47,1%/17 con periodi contrastanti. IN SALVAGUARDIA
+    //      (default OFF, VIA96=1 per accendere): in pipeline boccia la regressione — 4 raddrizzate
+    //      (140 pip) vs 7 rotte (548 pip), S17 −816. Le 7 rotte sono il materiale di vaglio;
+    //      decisione di Edu pendente (vagliare / sorpasso / lasciare spenta).
+    if (process.env.VIA96==='1') {
+      const XING96={'寅':'巳','巳':'申','申':'寅','丑':'戌','戌':'未','未':'丑','子':'卯','卯':'子'};
+      if (XING96[R.mutante.ramoArr]===R.mutante.ramoDep) {
+        const aEl96=WX[R.mutante.ramoArr];
+        const pot96=(aEl96===mEl||GEN[mEl]===aEl96)||(aEl96===sEl||GEN[sEl]===aEl96)||(WX[Y]===aEl96);
+        if (pot96) return mob.pos<=3?'LONG':'SHORT';
+      }
+    }
+    // 40 — §95 FAMIGLIA P/B (SIMULAZIONE, VIA95=1): "P e B fanno perdere la propria squadra" —
+    //      quattro conseguenze logiche (Edu 25/08/2026): vivo+avanza -> squadra perde (sede opposta);
+    //      vivo+retrocede -> squadra vince (sede); impedito+avanza -> squadra vince (sede);
+    //      impedito+retrocede -> squadra perde (sede opposta). Asse def. C: retrocede = coppia
+    //      classica 退神, avanza = tutto il resto. RESIDUALE: ultima a parlare (P/B parlano solo
+    //      se G e W tacciono). Default OFF in attesa della regressione.
+    if (process.env.VIA95==='1' && (mob.par==='B'||mob.par==='P')) {
+      if (process.env.VIA95DEF==='A' && !R.mutante.progressione) return null;   // asse classico: né avanza né retrocede -> tace
+      const retro95 = R.mutante.progressione==='retrocedente';
+      const sede95 = mob.pos<=3?'SHORT':'LONG', opp95 = sede95==='LONG'?'SHORT':'LONG';
+      const dir95 = (!R.mutante.movimentoNullo) ? (retro95?sede95:opp95) : (retro95?opp95:sede95);
+      if (process.env.PRUNE95) (global.__v95=global.__v95||[]).push({c:r.cross,d:r.date,move:r.move,par:mob.par,
+        q:(!R.mutante.movimentoNullo?(retro95?'Q2':'Q1'):(retro95?'Q4':'Q3')),dir:dir95});
+      return dir95;
     }
     return null;
   }
@@ -21649,4 +21730,8 @@ if (process.env.JUMP4) {
   console.log('cella'.padEnd(56)+'n'.padStart(6)+'win%'.padStart(9)+'z'.padStart(7)+'recente'.padStart(10)+'vecchio'.padStart(10)+'pip'.padStart(9));
   for(const [k,d] of Object.entries(M).sort()){ const n=d.t.w+d.t.l; if(n<5) continue;
     console.log(k.padEnd(56)+String(n).padStart(6)+pc(d.t).padStart(9)+zz(d.t).padStart(7)+pc(d.re).padStart(10)+pc(d.ve).padStart(10)+d.t.p.toFixed(0).padStart(9)); }
+}
+
+if (process.env.PRUNE95) {
+  require('fs').writeFileSync('/tmp/v95.json', JSON.stringify(global.__v95||[]));
 }

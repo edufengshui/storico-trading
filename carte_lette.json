@@ -531,5 +531,70 @@
   "quando": "2026-08-25",
   "esito": "LONG +104",
   "nota": "Lettura Edu (09/10/2024, contro-esempio della guida 29/11/2024). Il giorno e' 丙午: stelo 丙 Fuoco E ramo 午 Fuoco, pilastro omogeneo. La bestia di L1 e' 朱雀 (Passero rosso, Fuoco) e sta DIRETTAMENTE nel pilastro del giorno: e' lei che BLOCCA L1, quindi la linea non parte proprio (nessuna liberazione, il 回頭剋 non si compie). Si passa a Ying vs Shi: L3 辰 W (Shi) e L6 未 W (Ying) sono entrambe Terra -> PARI. Decide la SECONDA bestia: 青龍 (Drago verde) su L6 -> vince lo Ying -> L6 in alto -> LONG. Mercato LONG +104 (PB vinceva; il LY diceva SHORT e faceva perdere l'S17). DISTINZIONE rispetto alla guida 29/11/2024 (giorno 丁酉, stelo Fuoco ma ramo Metallo): li' la bestia Fuoco NON e' il pilastro del giorno, quindi carica la linea e la fa partire."
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2023-03-07",
+  "seme": 136,
+  "sup": 1,
+  "inf": 8,
+  "linea": 4,
+  "dayB": "子",
+  "monthB": "卯",
+  "quando": "2026-08-25",
+  "esito": "LONG +137",
+  "nota": "子卯刑 triplo (mese+anno+ora 卯) abbatte il 子 che è ramo del giorno, annidato come 伏神 C su L1 con 青龍 → trigramma inferiore (坤) perde → vince il superiore (乾) → LONG. Mercato +137. n=1 (rarità di calendario). Meccanismo generale day-embodied in osservazione."
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2023-11-14",
+  "seme": 162,
+  "sup": 4,
+  "inf": 2,
+  "linea": 1,
+  "dayB": "子",
+  "monthB": "亥",
+  "quando": "2026-08-25",
+  "esito": "LONG +133",
+  "nota": "§96 (in salvaguardia): l'arrivo 寅 penalizza (寅刑巳) la propria partenza — penalizzatore potente (Legno 相 nel mese 亥, Tai Sui 卯) → il G mobile è abbattuto dal suo stesso arrivo → la squadra bassa perde → LONG. Mercato +133. Il 回頭生 per elemento era un dono avvelenato."
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2023-08-30",
+  "seme": 158,
+  "sup": 3,
+  "inf": 6,
+  "linea": 6,
+  "dayB": "申",
+  "monthB": "申",
+  "quando": "2026-08-25",
+  "esito": "LONG +105",
+  "nota": "Il giorno 庚申 (colonna piena di Metallo) arriva su L1 col clash (寅申冲) e attiva il P 寅 → un P attivo fa perdere la propria squadra → il trigramma inferiore cade → LONG. Mercato +105. Coincidenza giorno-bestia (庚 Metallo su 白虎). La generalizzazione meccanica non regge in aggregato: il regime della coincidenza richiede lettura col giorno al centro."
+ },
+ {
+  "cross": "USDCHF",
+  "date": "2025-11-13",
+  "seme": 79,
+  "sup": 1,
+  "inf": 7,
+  "linea": 1,
+  "dayB": "戌",
+  "monthB": "亥",
+  "quando": "2026-08-26",
+  "esito": "SHORT -53",
+  "nota": "La bestia col flusso sblocca la sospensione: 朱雀 (bestia del giorno 丙, Fuoco) sulla mobile L1, radicata (anno 巳, ora 午), fa muovere la linea malgrado il clash del giorno sulla partenza (辰戌) → il movimento si compie → l'arrivo W 卯 elimina il P (Legno controlla Terra) → la W fa vincere la propria squadra → sede bassa → SHORT. Mercato −53."
+ },
+ {
+  "cross": "USDCHF",
+  "date": "2025-07-28",
+  "seme": 79,
+  "sup": 1,
+  "inf": 7,
+  "linea": 1,
+  "dayB": "戌",
+  "monthB": "未",
+  "quando": "2026-08-26",
+  "esito": "LONG +74",
+  "nota": "Gemella della guida 13/11 con esito opposto — due filtri convergenti (Edu): (1) radici della bestia in 刑 fra loro (戌刑未, flusso avvelenato: non sblocca); (2) l'arrivo W 卯 è IN TOMBA nel mese 未 (木庫) → il controllo indietro non funziona → la W non elimina il P → la sede della mobile perde. In più la mobile stessa giace nel vuoto (辰) e i G sono vivi. Mercato +74. Lezione: ogni carta va passata per TUTTI i filtri, timely/untimely inclusi."
  }
 ]

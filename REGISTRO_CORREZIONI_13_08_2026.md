@@ -3607,3 +3607,21 @@ Audit: `ATTGENOFF=1` ripristina il comportamento precedente.
 lettura e perimetro d'analisi): baseline S17 **INVARIATO** (2.788 · 58,07% · z 8,52 ·
 +29.503 · pesato +33.146). La regola serve alla lettura delle carte e alla gerarchia;
 quando l'atterraggio verrà promosso a via, entrerà già con la distinzione giusta.
+
+## 25/08/2026 — MODELLO A 12 STADI (十二長生): IL FILTRO PIÙ IMPORTANTE (Edu)
+Lo stadio dell'elemento di una linea (o di un arrivo) si calcola rispetto al ramo del MESE.
+Stadi: 1 長生 Nascita · 2 沐浴 Bagno · 3 冠帶 Vestizione · 4 臨官 Ufficio · 5 帝旺 Apice ·
+6 衰 Declino · 7 病 Malattia · 8 死 Morte · 9 墓 Tomba · 10 絕 Recisione · 11 胎 Embrione · 12 養 Nutrimento.
+- Stadi 1–6 = TIMELY (i migliori: 1, 4, 5) · stadi 7–12 = UNTIMELY (i peggiori: 8, 9, 10).
+- Leggi di sopravvivenza:
+  1. Una linea untimely NON SOPRAVVIVE se clashata.
+  2. Una linea timely è ANCORA PIÙ FORTE se clashata.
+  3. Una linea untimely GENERATA (dal giorno o da un'altra linea) può ancora operare.
+  4. Una linea timely DRENATA (dal giorno o da un'altra linea) può ancora operare.
+- TERRA (regola di Edu, 25/08/2026, sostituisce il ciclo): timely nei quattro mesi dei rami di
+  Terra (丑, 辰, 未, 戌); vibrante (相) anche in estate nei mesi 巳 e 午; untimely negli altri periodi.
+- Prova sulle gemelle USDCHF: guida 13/11 arrivo 卯 nel mese 亥 = stadio 1 長生 (top) → il controllo
+  indietro vince; sfidante 28/07 arrivo 卯 nel mese 未 = stadio 9 墓 (peggiore) → il controllo muore.
+- Cablato in carta_check ([3-ter]): stadio per ogni linea + arrivo, con annotazione di sopravvivenza
+  sulle clashate. Prossima carpenteria: cablare anche le leggi 3–4 (soccorso per generazione,
+  tenuta al drenaggio) come valutazioni attive.
