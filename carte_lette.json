@@ -596,5 +596,57 @@
   "quando": "2026-08-26",
   "esito": "LONG +74",
   "nota": "Gemella della guida 13/11 con esito opposto — due filtri convergenti (Edu): (1) radici della bestia in 刑 fra loro (戌刑未, flusso avvelenato: non sblocca); (2) l'arrivo W 卯 è IN TOMBA nel mese 未 (木庫) → il controllo indietro non funziona → la W non elimina il P → la sede della mobile perde. In più la mobile stessa giace nel vuoto (辰) e i G sono vivi. Mercato +74. Lezione: ogni carta va passata per TUTTI i filtri, timely/untimely inclusi."
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2022-08-02",
+  "seme": 131,
+  "sup": 8,
+  "inf": 3,
+  "linea": 5,
+  "dayB": "亥",
+  "monthB": "未",
+  "quando": "2026-08-26",
+  "esito": "LONG +181",
+  "nota": "Lettura Edu (26/08/2026, GUIDA §99). Mobile L5 B 亥 (Fratelli, Acqua) muta in 戌 (Terra) che nel palazzo 坎 (Acqua) e G (Ufficiale): la B DIVENTA Ufficiale e fa VINCERE la propria squadra -> sede alta -> LONG. Mercato LONG +181. Il termometro dava §50i SHORT (sbagliato): la carta ha FALSIFICATO §50i nel suo perimetro e Edu ne ha ordinato la CANCELLAZIONE. Nata da qui la via §99 (lettura base della mobile G/W)."
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2023-03-08",
+  "seme": 137,
+  "sup": 1,
+  "inf": 1,
+  "linea": 4,
+  "dayB": "丑",
+  "monthB": "卯",
+  "quando": "2026-08-26",
+  "esito": "LONG +53",
+  "nota": "Lettura Edu (26/08/2026, co-guida §99). Mobile L4 G 午 (Ufficiale, Fuoco): si muove ma NON puo trasformarsi in P 未 (Genitori) perche l ARRIVO e clashato dal giorno 丑 (丑未 冲) — il clash rompe l autocombinazione 午+未 e LIBERA la mobile. La G resta G, e coinvolta nell azione e fa VINCERE la propria squadra -> sede alta L4 -> LONG. Mercato LONG +53. NOTA APERTA: questa lettura richiede il meccanismo GIORNOLIBERA (autocombinazione rotta dal clash del giorno sull arrivo), che in regressione costa -606 pip; decisione di Edu PENDENTE. Con GIORNOLIBERA spento la carta ricade su §52 e resta SHORT (sbagliata)."
+ },
+ {
+  "cross": "EURGBP",
+  "date": "2026-03-20",
+  "seme": 86,
+  "sup": 2,
+  "inf": 6,
+  "linea": 2,
+  "dayB": "巳",
+  "monthB": "卯",
+  "quando": "2026-08-26",
+  "esito": "LONG +72",
+  "nota": "Lettura Edu (26/08/2026). CARTA CHE FALSIFICA la regola della combinazione direzionale col capo nel mese. Combinazione 寅卯辰 (Legno), capo 卯 = mese, laterali 寅 (L1) e 辰 (L2) entrambe nel trigramma inferiore: la regola convertirebbe L2 da P a W -> mobile W vince la sua sede bassa -> SHORT. Il mercato sale (+72). Il LONG si spiega SOLO con L2 辰 che RESTA P e, generata indietro dall arrivo 巳 (回頭生, arrivo 相 vibrante nel mese), fa PERDERE la propria squadra -> sede opposta -> LONG. Nessun altro attore la spiega (imbuto completo: nessuna via, nessuna meccanica, nessun candidato). Edu ha ordinato l ANNULLAMENTO della regola."
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2026-01-27",
+  "seme": 137,
+  "sup": 1,
+  "inf": 1,
+  "linea": 4,
+  "dayB": "丑",
+  "monthB": "丑",
+  "quando": "2026-08-26",
+  "esito": "SHORT -136",
+  "nota": "Lettura Edu (26/08/2026, GUIDA della guardia delle bestie su §99). Gemella esatta della guida USDCAD 08/03/2023 (stesso seme 137, stessi trigrammi, stessa mobile G 午 su L4, stessa mutazione 午→未 liberata dal clash del giorno 丑) ma con esito opposto. Lettura: il PESO DELLE BESTIE cade tutto in alto — tre dei quattro rami di calendario sono Terra (丑 丑 辰), quindi 螣蛇 su L6 e 勾陳 su L5 hanno 3 radici ciascuna, tutte le altre bestie 0 o 1. L6 e lo SHI (戌 Terra, P) e porta il 螣蛇 carico e dello stesso elemento della linea: lo Shi e PENALIZZATO -> la sede alta cade -> SHORT. Mercato SHORT -136. LA MOBILE NON C ENTRA NIENTE: ha la bestia 朱雀 con una sola radice, e la piu scarica della carta. Da qui la GUARDIA: se la mobile ha bestia scarica (0-1 radici) e il peso (>=2) sta sullo Shi o sull Ying, §99 TACE. Regressione: 58,90 -> 59,25 per cento, z 9,39 -> 9,77, +1.458 pip, entrambi i periodi in su. Effetto collaterale: con la guardia attiva la tecnica il giorno libera la mobile non costa piu nulla (36.276 accesa vs 36.217 spenta)."
  }
 ]

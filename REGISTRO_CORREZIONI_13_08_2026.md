@@ -3625,3 +3625,155 @@ Stadi: 1 長生 Nascita · 2 沐浴 Bagno · 3 冠帶 Vestizione · 4 臨官 Uff
 - Cablato in carta_check ([3-ter]): stadio per ogni linea + arrivo, con annotazione di sopravvivenza
   sulle clashate. Prossima carpenteria: cablare anche le leggi 3–4 (soccorso per generazione,
   tenuta al drenaggio) come valutazioni attive.
+
+## 26/08/2026 — §50i CANCELLATA e §99 CABLATA: la lettura base della mobile G/W (Edu)
+
+### §50i "trigramma inferiore interamente vuoto" — CANCELLATA
+**Carta che l'ha falsificata: USDJPY 02/08/2022** (seme 131 · sup 8 坤 · inf 3 離 · mutante L5 ·
+giorno 丁亥 · mese 丁未 · anno 壬寅 · vuoti 午未 · palazzo 坎 Acqua · Shi L4 · Ying L1).
+Lettura di Edu: la mobile L5 è **B 亥** (Fratelli, Acqua) e mutando diventa **戌** (Terra), che nel
+palazzo 坎 (Acqua) è **G** (Ufficiale): la B **diventa Ufficiale** e fa **vincere la propria squadra**
+→ sede alta → **LONG**. Mercato LONG **+181**. §50i imponeva SHORT.
+
+Perché la regola è caduta: §50i non guarda le linee del trigramma inferiore (qui 子寅辰, tutte piene)
+ma i due rami-direzione Houtian del palazzo; scatta per una coincidenza di calendario (i vuoti che
+cadono su quei rami) ed è **cieca alle bestie e al flusso degli steli**. Dopo l'introduzione di quei
+due filtri la regola non serve più (giudizio dottrinale di Edu).
+Misura: §50i decideva **149 carte al 54,4%** (+843 pip). Toglierla **da sola costa −434 pip**; le 38
+carte che restano leggibili senza di lei fanno **60,5%**, cioè meglio del 54,4% cieco.
+Default **SPENTA** in entrambi i file. Audit: `VIA50I=1` ripristina.
+
+### §99 — LETTURA BASE DELLA MOBILE G/W (nuova via, ultima in priorità)
+**Il buco:** "G e W fanno vincere la propria squadra" **non esisteva come via generale**. §64 (priorità
+residuale) **cede il passo** a ogni G/W viva — ma sotto non c'era nessuna lettura, e una mobile G/W non
+catturata da un perimetro speciale (§62, §68, §94, §98, M18…) **cadeva nel vuoto**: 294 carte mute.
+
+**La via, due rami OPPOSTI distinti dal fatto che la linea AGISCA o no:**
+- **(a) MOVIMENTO VERO** — la G/W è coinvolta nell'azione → fa vincere la propria squadra →
+  **la sua sede** (alto LONG, basso SHORT).
+- **(b) MOVIMENTO NULLO** — non è una linea ferma e non coinvolta: è un'azione **tentata e fallita** →
+  *chi non vince perde* → **la sede cade** (opposto). Esclude i due casi già letti da §52
+  (回頭剋 caso 3 e autocombinazione) per non duplicarne il perimetro.
+
+**Misura di sostegno** (tutte le carte con mobile G/W, n 1.135): movimento vero **51,9%** sede ·
+movimento nullo **43,3%** sede = **56,7% opposto, z 3,17**. Tutto il segnale negativo sta nel
+movimento nullo, coerente con "chi non vince perde". *Nota metodologica: una misura precedente
+(40,7%) era stata fatta sul solo residuo muto — campione selezionato — ed è stata RITIRATA.*
+
+**Regressione (le due branche si sommano, nessuna traina l'altra):**
+- solo (a): 58,93% · z 9,43 · +34.743
+- solo (b): 58,93% · z 9,43 · +34.938
+- **entrambe: 59,00% · z 9,51 · +35.424**
+
+**BASELINE S17 NUOVO: 2.788 · 59,00% · z 9,51 · +35.424 pip** (pesato +39.064) ·
+recente 58,72 · vecchio 58,93 — **+733 pip** sul canonico precedente, entrambi i periodi tengono.
+Default **ACCESA** in entrambi i file. Audit: `VIAGW=off` la spegne; `VIAGW_RAMO=a|b` isola un ramo.
+Co-guida: **USDCAD 08/03/2023** (vedi nota GIORNOLIBERA sotto).
+
+### IL GIORNO LIBERA LA MOBILE — tecnica CONFERMATA da Edu (26/08/2026)
+**Nome:** correzione di Edu — NON e' un "autoclash" (nome sbagliato, inventato da Claude e ritirato):
+la linea non si clasha da sola, **e' il giorno che clasha l'arrivo**. Flag: `GIORNOLIBERA`.
+**Carta: USDCAD 08/03/2023** (seme 137 · sup 1 · inf 1 · mutante L4 · giorno 乙丑 · vuoti 戌亥).
+Lettura di Edu: la mobile **L4 G 午** (Ufficiale) **si muove ma non può trasformarsi in P 未**
+(Genitori) perché **l'arrivo è clashato dal giorno 丑** (丑未 冲): il clash **rompe l'autocombinazione
+午+未 e libera la mobile**. La G resta G, è coinvolta nell'azione → vince la sua sede → **LONG**.
+Mercato LONG **+53**.
+Implementato in `liuyao.js` come caso di mutazione **6** ("autocombinazione rotta dal clash del giorno
+sull'arrivo: la mobile si muove non trasformata"). Perimetro: **36 carte**.
+**Tensione da sciogliere:** con `GIORNOLIBERA` acceso la carta si legge correttamente via §99 → LONG, ma
+la regressione **cala di 606 pip** (59,00 → 58,90 · z 9,51 → 9,39). Con `GIORNOLIBERA` spento la carta
+ricade su §52 e resta **SHORT (sbagliata)**. Nessuna carta falsifica la lettura di Edu: è solo il conto
+aggregato ad andare in direzione opposta. Default **SPENTO** in attesa della decisione. `GIORNOLIBERA=1` accende.
+
+### DEBITO TECNICO EMERSO — due termometri separati
+`pb_stress.js` **non usa le vie di `liuyao.js`**: ha una reimplementazione interna (`lyDir`) con la sua
+copia di ogni via. Le due vanno tenute in parità A MANO — ed è da qui che è nato il buco di oggi
+(la cancellazione di §50i nel solo `liuyao.js` non era visibile alla regressione).
+Controllo di parità `CHKLY=1`: disallineamenti **49 prima di §99, 45 dopo** (§99 non li ha creati).
+Dato di fondo: prima di §99 l'app taceva su **666** carte e il motore su **622** → **il motore ha ~44
+letture che l'app non ha: il sito vivo legge meno del motore di ricerca.** Debito da sanare a parte.
+
+
+## 26/08/2026 — COMBINAZIONE DIREZIONALE COL CAPO NEL MESE: PROPOSTA E ANNULLAMENTO (Edu)
+
+**La regola proposta.** Quando si forma una combinazione DIREZIONALE 三會
+(亥子丑 Acqua · 寅卯辰 Legno · 巳午未 Fuoco · 申酉戌 Metallo) e il CAPO — il ramo CENTRALE
+(子 · 卯 · 午 · 酉) — è il ramo del MESE, le due laterali PERDONO LO STATUS che avevano e
+assumono l'elemento del mese. Condizioni fissate da Edu nel corso della sessione:
+- le due laterali devono stare **entrambe nello stesso trigramma** (entrambe L1–L3 o entrambe
+  L4–L6, l'ordine non conta). Divise fra i due trigrammi: la combinazione NON si forma.
+- il membro mancante può venire dai rami di data (giorno/mese/anno non vuoti), ma non è obbligatorio:
+  vanno bene anche entrambe le laterali dentro l'esagramma.
+- se la coppia compare in ENTRAMBI i trigrammi (najia ripetuta) la conversione è simmetrica:
+  **parità — la squadra che prevale si trova in altro modo**, non da questa regola.
+Perimetro implementato: 342 carte, 370 linee convertite (306 a trigramma singolo, 36 in parità).
+
+**ANNULLATA lo stesso giorno. Carta che la falsifica: EURGBP 20/03/2026**
+(seme **86** · sup **2** 兌 · inf **6** 坎 · mutante **L2** · anno 丙午 · mese 辛卯 · giorno 癸巳 ·
+ora 癸丑 · vuoti 午未 · palazzo 兌 Metallo · Shi L1 · Ying L4).
+Combinazione 寅卯辰 col capo 卯 = mese; laterali 寅 (L1) e 辰 (L2) **entrambe nel trigramma
+inferiore** — condizione pienamente soddisfatta, nessuna parità. La regola convertirebbe L2 da
+**P a W**: mobile W che vince la propria sede, bassa → **SHORT**. Il mercato **sale (+72)**.
+Lettura di Edu: il LONG si spiega **solo** con L2 辰 che **resta P** e, generata indietro
+dall'arrivo 巳 (回頭生, arrivo 相 vibrante nel mese 卯), **fa perdere la propria squadra** →
+sede opposta → **LONG**. Imbuto completo: nessuna via, nessuna meccanica, nessun candidato la
+spiega altrimenti. Regola rimossa secondo il criterio: *una regola si toglie quando una carta la
+falsifica dentro il suo perimetro*.
+Default **SPENTA**. Audit: `TRIGCAPO=1` la riaccende.
+
+**Procedura di vaglio delle contrarie (fatta per intero).** 16 carte contrarie passate una a una
+per `carta_check`: **12 spiegate da un altro attore** (§56, §65, §99, §53d ×2, §50h, §50g, §59 e
+tre vie senza numero) → non falsificanti; **3 in parità** (USDJPY 04/01/2023, NZDUSD 22/12/2021,
+GBPUSD 17/12/2021: la coppia 亥/丑 compare in entrambi i trigrammi) → escluse per dottrina;
+**1 genuinamente nuda**, EURGBP 20/03/2026, che ha falsificato la regola.
+
+**Misure raccolte prima dell'annullamento** (a titolo di archivio): testa a testa sulla mobile
+convertita 19/35 (54,3% · z 0,51 · saldo pip −311); regressione S17 58,43% · z 8,90 · +33.288
+(−2.136 pip); nessuna interferenza con la via R6 "raduno stagionale col mese" (spegnendola i
+numeri restano identici).
+
+**Errori di Claude in questa istruttoria (registrati per non ripeterli):** (1) implementato il
+trigono 三合 (申子辰…) al posto della combinazione direzionale 三會, con un falso guadagno di
++220 pip; (2) richiesti due membri dentro l'esagramma quando ne basta uno; (3) condizione di
+trigramma applicata a tutte le laterali insieme invece che dentro ciascun trigramma; (4) misure
+aggregate presentate come obiezione alla dottrina senza la carta richiesta dal metodo.
+
+
+## 26/08/2026 — GUARDIA DEL PESO DELLE BESTIE SU §99 (Edu) — il salto della giornata
+
+**Carta guida: USDCAD 27/01/2026** (seme **137** · sup 1 · inf 1 · mutante **L4** · anno 乙巳 ·
+mese 己丑 · giorno 辛丑 · ora 壬辰 · vuoti 辰巳 · palazzo 乾 Metallo · Shi L6 · Ying L3).
+È la **gemella esatta** della guida di §99 (USDCAD 08/03/2023): stesso seme, stessi trigrammi,
+stessa mobile G 午 su L4, stessa mutazione 午→未 liberata dal clash del giorno 丑 — ed esito opposto.
+
+**Lettura di Edu:** *"Il peso delle bestie cade tutto su L6 che viene penalizzata. Short.
+La mobile non c'entra niente."*
+Verifica meccanica: tre dei quattro rami di calendario sono **Terra** (丑 丑 辰), quindi le due
+bestie di Terra — **螣蛇 su L6** e **勾陳 su L5** — hanno **3 radici ciascuna**; tutte le altre
+0 o 1. **L6 è lo Shi** (戌 Terra, P) e porta il 螣蛇 carico e **dello stesso elemento della linea**:
+lo Shi è penalizzato → la sede alta cade → **SHORT**. Mercato SHORT −136.
+La mobile ha la bestia 朱雀 con **una sola radice**: è la linea più scarica della carta.
+
+**LA GUARDIA.** Se la mobile ha la bestia **scarica (0–1 radici)** e il peso (**≥2 radici**) sta
+sullo **Shi** o sull'**Ying**, l'attore non è la mobile → **§99 TACE**.
+Misura del gradiente (dove §99 decide, n 309, 52,1%):
+- mobile col **peso massimo**: 56,1% · n 114 · **+1.479**
+- mobile scarica e peso ≥2 altrove: 48,7% · n 187 · −901
+- mobile scarica e peso su **Shi/Ying**: **42,2% · n 90 · −1.030**
+
+**Regressione: 58,90% → 59,25% · z 9,39 → 9,77 · +34.818 → +36.276 (+1.458 pip)**,
+recente 58,45 → 58,59 · vecchio 59,10 → 59,68 — **entrambi i periodi salgono**.
+Verificata sulle due gemelle: zittisce §99 su USDCAD 27/01/2026, lascia intatta USDCAD 08/03/2023.
+Cablata in **entrambi** i file. Audit: `G99BESTIE=off`.
+
+**Conseguenza importante — "il giorno libera la mobile" non costa più nulla.** Con la guardia
+attiva: accesa +36.276, spenta +36.217 (59,25% e z 9,77 in entrambi i casi). I 606 pip che
+sembravano il costo della tecnica erano in realtà il costo di §99, che leggeva la mobile liberata
+anche quando l'attore stava altrove. La posizione di Edu (tecnica giusta, non va cancellata) era
+corretta e il dato aggregato che sembrava contraddirla era un artefatto di una via a valle.
+
+**Come si è arrivati qui — il vaglio delle contrarie.** Le 22 carte contrarie del perimetro
+"il giorno libera la mobile" passate una a una per `carta_check`: **11 spiegate da un altro attore**
+(§68, §99, atterraggio, Shi, arrivo che clasha) e **11 nude**, di cui **6 nella stessa cella**
+della carta guida (G su L4, 午→未, giorno 丑). La lettura della più cara di quelle sei ha prodotto
+la guardia. È la conferma del metodo: l'aggregato non diceva nulla di utile, la carta sì.

@@ -631,3 +631,45 @@ Misure 25/08:
   chi non vince perde) o viene scavalcata da un'azione viva (EURJPY 01/05/2024: 青龍 0 vs 勾陳 3 sulla
   mobile → comanda la mobile, §50g, +302).
 - Lente di lettura, non ancora formula. Residuo caso −1: 18/59 carte in coincidenza (31% vs 21% atteso).
+
+---
+
+## IL GIORNO LIBERA LA MOBILE — tecnica CONFERMATA da Edu (26/08/2026)
+
+**Nome:** "autoclash" era un nome sbagliato inventato da Claude, RITIRATO. La linea non si clasha
+da sola: **e' il giorno che clasha l'arrivo**. Flag: `GIORNOLIBERA`.
+
+**Che cosa dice** (lettura di Edu, carta USDCAD 08/03/2023): quando la mobile si autocombina
+(la partenza combina 六合 il proprio arrivo) MA il **giorno clasha l'arrivo** (六冲), il clash
+**rompe l'autocombinazione e libera la mobile**: la linea **si muove ma non si trasforma**
+(l'arrivo è rotto) e agisce con l'elemento di **partenza**.
+
+- Implementato in `liuyao.js` come **caso di mutazione 6**. Flag: `GIORNOLIBERA=1` (default SPENTO).
+- **Perimetro: 36 carte.** Verdetto LY nel perimetro: 52,8% acceso, 52,8% spento (rimescola, saldo zero).
+- **Regressione:** configurazione nuova (§50i spenta + §99 accesa) **59,00% · z 9,51 · +35.424**;
+  con GIORNOLIBERA acceso **58,90% · z 9,39 · +34.818** → **−606 pip**.
+- **Perché resta aperto:** la lettura dottrinale di Edu sulla carta guida **richiede** questo
+  meccanismo (senza, la carta ricade su §52 → SHORT sbagliato; con, §99 → LONG corretto).
+  **Nessuna carta falsifica la lettura**: è solo l'aggregato ad andare in direzione opposta,
+  e l'aggregato da solo non basta a sfidare la dottrina.
+- **TECNICA CONFERMATA DA EDU: giusta, NON va cancellata.** Resta da decidere solo il default. Tre strade: (1) accendere per dottrina e accettare i −606;
+  (2) lasciare spento e vagliare le carte del perimetro una per una per capire dove il meccanismo
+  sbaglia; (3) restringere il perimetro con una condizione ulteriore (es. stato dell'arrivo nel mese,
+  parentela della mobile) e rimisurare.
+
+## DEBITO DI PARITÀ — il sito vivo legge meno del motore (26/08/2026)
+
+`pb_stress.js` (`lyDir`) e `liuyao.js` (`LY_VIE`) sono **due implementazioni separate** dello stesso
+termometro, da tenere in parità a mano. Controllo: `CHKLY=1`.
+- Disallineamenti: **49 prima di §99 · 45 dopo**.
+- Prima di §99: app tace su **666** carte, motore su **622** → **~44 letture presenti nel motore e
+  assenti nell'app**.
+- Da fare: censire quelle 44 e portarle nell'app, oppure unificare le due implementazioni.
+
+
+## COMBINAZIONE DIREZIONALE COL CAPO NEL MESE — ANNULLATA (26/08/2026)
+
+Proposta e annullata nella stessa sessione. Falsificata da **EURGBP 20/03/2026** (seme 86).
+Non riaprire senza una carta nuova: il criterio di rimozione è stato applicato correttamente
+(carta completa, dentro il perimetro, nessun altro attore). Flag di audit: `TRIGCAPO=1`.
+Dettaglio completo nel registro correzioni alla data 26/08/2026.

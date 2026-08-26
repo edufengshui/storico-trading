@@ -6191,9 +6191,13 @@ if (process.env.PBLY) {
         return l98.pos<=3?'LONG':'SHORT';
       }
     }
-    // 19 — §50i: gua inferiore interamente vuoto -> il pavimento cede -> SHORT (15/08/2026)
-    // VIA50I=off per spegnere; VIA50I=basso: parla solo se la mobile abita il trigramma inferiore (audit 20/08/2026)
-    if (process.env.VIA50I!=='off') {
+    // 19 — §50i CANCELLATA (Edu, 26/08/2026, da USDJPY 02/08/2022): regola strutturale
+    //      ("il pavimento cede") cieca a bestie e flusso degli steli, superata dalla dottrina
+    //      nuova. Falsificata nel suo perimetro: la mobile B 亥 muta in G 戌 e fa vincere la
+    //      propria squadra -> LONG, ma §50i imponeva SHORT (-181). Toglierla da sola costa
+    //      -434 pip, ma la lettura corretta che la sostituisce (§99) ne rende +733.
+    //      Default SPENTA. Audit: VIA50I=1 la ripristina.
+    if (process.env.VIA50I==='1' || process.env.VIA50I==='basso') {
       if (HOUTIAN[r.inf].every(b=>R.vuoti.indexOf(b)>=0)) {
         if (process.env.VIA50I!=='basso' || R.mutante.pos<=3) return 'SHORT';
       }
@@ -6478,10 +6482,45 @@ if (process.env.PBLY) {
         q:(!R.mutante.movimentoNullo?(retro95?'Q2':'Q1'):(retro95?'Q4':'Q3')),dir:dir95});
       return dir95;
     }
+    // 41 — §99 LETTURA BASE DELLA MOBILE G/W (Edu, 26/08/2026, da USDCAD 08/03/2023 e
+    //      USDJPY 02/08/2022). Finora "G e W fanno vincere la propria squadra" non esisteva
+    //      come via generale: §64 CEDE il passo a G/W vive, ma sotto non c'era nessuna lettura,
+    //      e la mobile G/W non catturata da un perimetro speciale cadeva nel vuoto.
+    //      Due rami OPPOSTI, distinti dal fatto che la linea AGISCA o no:
+    //        (a) MOVIMENTO VERO: la G/W e' coinvolta nell'azione -> fa vincere la propria
+    //            squadra -> la sua sede (alto LONG, basso SHORT);
+    //        (b) MOVIMENTO NULLO: non e' una linea ferma non coinvolta, e' un'azione TENTATA
+    //            E FALLITA -> chi non vince perde -> la sede cade (opposto).
+    //      Il ramo (b) esclude i due casi gia' letti da §52 (回頭剋 caso 3, autocombinazione).
+    //      Misura di sostegno (su tutte le carte con mobile G/W): movimento vero 51,9% sede,
+    //      movimento nullo 43,3% sede = 56,7% opposto, z 3,17 -> il segnale negativo sta tutto
+    //      nel movimento nullo, coerente con "chi non vince perde".
+    //      RESIDUALE: ultima a parlare. VIAGW=1 per accendere; VIAGW_RAMO=a/b isola un ramo.
+    if (process.env.VIAGW!=='off' && (mob.par==='G'||mob.par==='W')) {
+      // GUARDIA DEL PESO DELLE BESTIE (Edu, 26/08/2026, da USDCAD 27/01/2026): se la MOBILE ha
+      // la bestia SCARICA (0-1 radici nei rami di calendario) e il peso (>=2) sta sullo SHI o
+      // sull'YING, l'attore non e' la mobile -> §99 TACE. G99BESTIE=off disattiva.
+      var _guard99 = false;
+      if (process.env.G99BESTIE!=='off') {
+        const _BEL={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+        const _cal=[r.dayBranchUsed,r.monthBranchUsed,r.yearBranchUsed,r.oraBranch].filter(Boolean);
+        const _rad=l=>{ if(!l||!l.bestia) return 0; const e=_BEL[l.bestia.cn]; if(!e) return 0;
+                        return _cal.filter(b=>WX[b]===e).length; };
+        if (_rad(mob)<=1) {
+          const _shi=R.linee[R.shi-1], _ying=R.linee[R.ying-1];
+          if (_rad(_shi)>=2 || _rad(_ying)>=2) _guard99 = true;
+        }
+      }
+      if (_guard99) return null;
+      const sede99 = mob.pos<=3?'SHORT':'LONG', opp99 = sede99==='LONG'?'SHORT':'LONG';
+      if (!R.mutante.movimentoNullo) {
+        if (process.env.VIAGW_RAMO!=='b') return sede99;
+      } else if (!(R.mutante.casoMut===3 || mob.stato==='autocombinata')) {
+        if (process.env.VIAGW_RAMO!=='a') return opp99;
+      }
+    }
     return null;
   }
-
-  // PB debole = verdetto = base (nessuna regola oltre la base ha agito)
   const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');
   const pbForte=r=> r.finale!==r.base;   // una regola PB ha modificato la base
 
