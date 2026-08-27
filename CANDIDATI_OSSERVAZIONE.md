@@ -673,3 +673,75 @@ Proposta e annullata nella stessa sessione. Falsificata da **EURGBP 20/03/2026**
 Non riaprire senza una carta nuova: il criterio di rimozione è stato applicato correttamente
 (carta completa, dentro il perimetro, nessun altro attore). Flag di audit: `TRIGCAPO=1`.
 Dettaglio completo nel registro correzioni alla data 26/08/2026.
+
+---
+
+### CHIUSO E BOCCIATO · Conversione dei rami laterali del trigono (Edu, 27/08/2026)
+
+**L'ipotesi.** In un 三合 PIENO (san he, trigono completo) i tre partecipanti diventerebbero
+**l'unico elemento del trigono**, e quindi cambierebbero Carattere rispetto al palazzo. Ipotesi
+formulata da Edu leggendo EURJPY 17/06/2026, dove il trigono di Fuoco 寅午戌 è anche l'elemento
+del mese 午 (Wu) e trasformerebbe la Ying 寅 da G in P.
+
+**Le due misure.**
+1. *Dentro la lettura della carta guida* (casa terminale del flusso, B che genera il proprio C
+   nascosto, G e W fuori campo per stagione): **senza** conversione 19 carte 57,9% +171 pip;
+   **con** conversione 11 carte **45,5% −75 pip**. Peggiora.
+2. *Come meccanica a sé*, su tutti i trigoni pieni il cui elemento è quello del mese e con almeno
+   due membri dentro l'esagramma, applicando il Carattere convertito (P e B fanno perdere la sede
+   del raduno, C e W la fanno vincere): **195 carte, 55,4%, z 1,50, +1.974 pip**. Per Carattere:
+   W 59,1% (44) · G 60,0% (20) · B 56,0% (25) · C 53,3% (60) · P 52,2% (46). Nessun Carattere si
+   stacca, e i due periodi ballano in verso opposto (P 61% vecchio / 43% recente; C il contrario).
+
+**Conclusione (Edu, 27/08/2026): QUESTIONE CHIUSA.** Se la conversione fosse un meccanismo
+generale, il Carattere convertito separerebbe i verdetti su 195 carte, e non lo fa. Il trigono
+conta quando è **l'attore della carta specifica** — per esempio quando il raduno si chiude sulla
+mobile — non come riclassificazione automatica delle linee. **Non riaprire.**
+
+**Ricaduta utile, questa sì da tenere.** Nel valutare se una G o una W "parla" va usata la
+**stagione**, non il campo `stato` del motore: 寅 (Yin, Legno) nel mese 午 (Wu, Fuoco) non è vivo
+anche se il motore lo dà "pieno". Con questa correzione, sulla carta guida G e W tacciono davvero
+e vale il principio di Edu che P/B/C parlano solo quando G e W tacciono.
+
+### IN OSSERVAZIONE · Il C nascosto che drena la B sulla casa terminale del flusso (Edu, 27/08/2026)
+
+Da EURJPY 17/06/2026. Tutta l'energia si concentra sulla **casa terminale del flusso** degli steli;
+se su quella linea c'è una **B che genera il proprio 伏神 C**, il C la **drena** (泄), e in mancanza
+di G e W in campo (per stagione) **la squadra del C vince** → sede di quella linea.
+Misura: **19 carte · 57,9% · z 0,69 · +171 pip** (vecchio 55% su 11, recente 63% su 8).
+Falsificatrici: EURJPY 04/06/2020 (+123) · NZDUSD 06/04/2020 (+75) · GBPUSD 28/09/2023 (+69) ·
+GBPUSD 18/01/2023 (+65) · NZDUSD 05/09/2025 (+43) · EURJPY 28/07/2026 (+41) · USDJPY 12/08/2020 (+38) ·
+EURUSD 31/05/2021 (+36). **Non cablabile**: il perimetro va tagliato leggendo una falsificatrice.
+
+**Aggiornamento 27/08/2026 — dove si è rotta la generalizzazione.** Edu ha letto due carte del
+perimetro che il ramo "sola" sbaglia, e in tutte e due la mobile **si libera e atterra**:
+- *GBPUSD 12/01/2022* (+67): L5 申 (Shen, Metallo) è la linea più nutrita della carta — tre 丑
+  (Chou, Terra), un 己 (Ji, Terra) e due 辛 (Xin, Metallo): Terra che finisce in Metallo; e la
+  bestia sulla sua linea è 白虎 (Bai Hu, Tigre Bianca), Metallo anche lei. Il giorno 丑 è Terra:
+  **la nutre, non la ferma**. Si muove e si combina con la G di L4 → LONG.
+- *USDCAD 17/10/2024* (+38): il giorno 寅 (Yin, Legno) è untimely e non può fermare una L5 申
+  timely e nutrita dalla molta Terra della data (anno 辰, ora 辰, mese 戌). Si muove e si combina
+  con L4 → LONG.
+
+**Le prove di generalizzazione, tutte peggiorative** (perimetro: caso −1, generazione all'indietro
+bloccata, mobile B timely):
+| forma | carte | giuste | pip |
+|---|---|---|---|
+| solo "sola → fa perdere la squadra" | 15 | 9 | +184 |
+| **+ ramo "carica dal flusso → atterra"** | **15** | **10** | **+318** |
+| + subordinazione alla congiunzione 1+2 su linea attiva | 15 | 8 | +79 |
+| + "giorno untimely non ferma" | 16 | 5 | −348 |
+| + "giorno untimely O che la nutre non ferma" | 16 | 6 | −214 |
+| + conteggio dei sostegni di calendario (soglie 2/3/4) | 15 | 5/7/9 | −64/−238/+184 |
+
+**Diagnosi (Claude, agli atti).** Il criterio di **liberazione** non è il problema: le letture di
+Edu sulle due carte sono coerenti. Il problema è **dove va a finire il Qi una volta liberata la
+mobile**. Nelle due carte l'atterraggio su L4 è stato indicato da Edu; nelle altre lo scelgo io
+("la linea il cui ramo combina con l'arrivo") e sbaglio. **Il pezzo mancante è l'atterraggio, non
+la forza.** Da riprendere da lì nella prossima sessione.
+
+**Nota tecnica importante per chi rimisura.** Nelle prime misure di questa sessione avevo usato
+una tabella stagionale identica a quella degli elementi dei rami, annullando la doppia timeliness.
+La tabella giusta è quella del motore: 寅卯辰 Legno · 巳午未 Fuoco · 申酉戌 Metallo · 亥子丑 Acqua.
+Le vie cablate (§103–§106) non ne sono toccate: sono state verificate con la funzione `timely`
+del motore stesso.

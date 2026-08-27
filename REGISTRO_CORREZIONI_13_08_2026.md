@@ -3777,3 +3777,257 @@ corretta e il dato aggregato che sembrava contraddirla era un artefatto di una v
 (§68, §99, atterraggio, Shi, arrivo che clasha) e **11 nude**, di cui **6 nella stessa cella**
 della carta guida (G su L4, 午→未, giorno 丑). La lettura della più cara di quelle sei ha prodotto
 la guardia. È la conferma del metodo: l'aggregato non diceva nulla di utile, la carta sì.
+
+---
+
+## §103 — LA GEMELLA DELL'ARRIVO SALTA NELLA SEDE DELLA MOBILE (Edu, 27/08/2026)
+
+**Carta guida: USDCAD 11/04/2022** (trend LONG, il sistema diceva SHORT, mercato LONG +54 → perdeva).
+Passata per l'imbuto completo di `carta_check.js`: nessuna via cablata, nessuna meccanica,
+nessun candidato la spiegava. L'unica che parlava era il raduno del Legno nel trigramma
+inferiore (§67) e sbagliava.
+
+**LA LETTURA (Edu).** Siamo nel caso in cui **il giorno libera la mobile** (caso 6: il giorno
+clasha l'arrivo e rompe la combinazione fra partenza e arrivo). Qui il giorno 午 (Wu, Fuoco)
+clasha 子 (Zi, Acqua), che è **sia l'arrivo della mobile L1 sia il ramo della linea ferma L5**.
+La P su L1 — cioè l'arrivo — è resa inefficace; ma la **P di L5, clashata dallo stesso giorno,
+salta nella sede della mobile e la sostituisce**. Il trigramma inferiore perde → **LONG**.
+
+**LA CONDIZIONE CHE MANCAVA (misura, poi approvata da Edu).** La lettura secca faceva 5 su 7
+nel suo perimetro. Le due falsificatrici — NZDUSD 09/10/2024 (−69) e USDCAD 17/01/2022 (−27) —
+si separano da sole: sono le uniche in cui la mobile 丑 (Chou, Terra) ha **due radici del proprio
+elemento fra anno e mese** (anno 辰 + mese 戌; anno 丑 + mese 丑). Nelle altre cinque ne ha una o
+nessuna. Dottrina: **se la mobile è radicata nel calendario regge la sostituzione e si tiene la
+propria sede; se non lo è, la linea che salta la rimpiazza davvero e il suo trigramma perde**.
+Il **giorno non si conta**: in questo perimetro è per costruzione sempre il clash dell'arrivo,
+quindi costante e senza potere di distinguere (e per giunta genera la Terra in tutte e sette).
+
+**IL PERIMETRO.** Caso 6 + esiste una linea **ferma** che porta lo **stesso ramo dell'arrivo**.
+Sono **7 carte** e sono tutte lo stesso esagramma (superiore 7, inferiore 5, mutante L1,
+mobile 丑 → 子, P 子 ferma su L5): un perimetro strutturalmente raro, non una scelta di taglio.
+Con la condizione del radicamento: **7 su 7, +378 pip**.
+
+**REGRESSIONE: 59,36% → 59,47% · z 9,89 → 10,00 · +36.758 → +37.133 (+375 pip)**
+recente 58,72 → 58,79 · vecchio 59,77 → 59,93 — **entrambi i periodi salgono**.
+Tre carte raddrizzate (USDCAD 23/03/2021, USDCAD 11/04/2022, NZDUSD 09/10/2024), **nessuna
+rovinata**. La quarta del perimetro che perdeva (USDCAD 17/01/2022) non cambia verdetto perché
+lì il verdetto finale S9 lo decide il Plum Blossom, non il Liu Yao.
+
+Cablata in **entrambi** i file (`pb_stress.js` in coda alle altre due letture del caso 6,
+`liuyao.js` come via `R43_103` subito dopo §102). Verificata la parità: la via di produzione
+scatta sulle stesse 7 carte e dà gli stessi 7 verdetti del motore di ricerca. Audit: `GIORNOSALTO=off`.
+
+**Avvertenza onesta, agli atti.** La soglia delle due radici è stata tarata su sette carte:
+statisticamente non vale nulla da sola (z 2,65 anche a 7 su 7). Sta in piedi perché Edu l'ha
+riconosciuta come dottrinalmente giusta, non perché la misura la sostenga. Va rimossa se una
+carta la falsifica dentro il suo perimetro.
+
+---
+
+## §104 — MOBILE UNTIMELY SENZA LA GENERAZIONE ALL'INDIETRO: DECIDE IL DUELLO SHI/YING (Edu, 27/08/2026)
+
+**Carta guida: EURUSD 22/08/2023** (trend SHORT, il sistema diceva LONG, mercato SHORT −52 → perdeva).
+Passata per l'imbuto completo: nessuna via, nessuna meccanica, nessun candidato la spiegava.
+Le due che parlavano — il clash dell'arrivo letto dallo Yong Shen (§68) e la mobile G/W che vince
+la propria sede (§99) — dicevano LONG tutte e due e sbagliavano.
+
+**LA LETTURA (Edu).** Caso in cui **il giorno libera la mobile** (caso 6). La mobile L4 未 (Wei,
+Terra) è **molto untimely** — Terra fuori dai suoi mesi, nel mese 申 (Shen, Metallo) — e l'unica
+cosa che potrebbe reggerla è la **generazione all'indietro dall'arrivo** 午 (Wu, Fuoco → Terra,
+回頭生 hui tou sheng). Ma è proprio quella che il clash del giorno 子 (Zi) spegne: la mobile parte
+e non conclude. **Chi non vince, perde** → la mobile esce dalla decisione.
+
+**A DECIDERE RESTA IL DUELLO SHI/YING.** Lo Shi è L3 辰 (Chen, Terra), la Ying è L6 卯 (Mao,
+Legno): è la **Ying che controlla lo Shi**, non il contrario. Ma qui **la Ying è in vuoto**, e
+**il vuoto non agisce**: l'attacco non parte, lo Shi resta in piedi e vince. Sede dello Shi, che
+sta in basso → **SHORT**.
+
+**IL PERIMETRO.** Caso 6 + mobile untimely + la mutazione è 回頭生 (l'arrivo genera la partenza)
++ la Ying controlla lo Shi. Sono **3 carte**, tutte lo stesso esagramma (superiore 5, inferiore 4,
+mutante L4, 未 ← 午): **3 su 3, +196 pip**, una nel vecchio e due nel recente. Le due sorelle
+(EURUSD 27/02/2020 e 01/03/2024) hanno la Ying **piena** — mese 寅 (Yin, Legno) — quindi il Legno
+controlla davvero la Terra dello Shi, vince la Ying, sede alta → LONG, e LONG sono andate davvero.
+
+**REGRESSIONE: 59,47% → 59,51% · z 10,00 → 10,04 · +37.133 → +37.237 (+104 pip)**
+recente 58,79 → 58,86 · vecchio 59,93 invariato. Una carta raddrizzata, **nessuna rovinata**.
+
+**Vicolo cieco misurato, agli atti.** Prima di arrivare al vuoto avevo proposto come discriminante
+la **difesa col proprio 伏神** (fu shen, spirito nascosto): lo Shi 辰 genera il nascosto 酉 (You,
+Metallo), timely nel mese 申, che controlla l'attaccante 卯. Sulle tre carte separa allo stesso
+modo, ma **è la spiegazione sbagliata**: Edu ha indicato il vuoto della Ying. E infatti la difesa
+col nascosto, misurata da sola su tutto lo storico dove ricorre (**81 carte, 53,1%, z 0,56**), è
+rumore puro: non è un attore autonomo.
+
+**Allargamento provato e scartato.** Togliendo il vincolo della 回頭生 e tenendo solo "caso 6 +
+mobile untimely + duello", il perimetro sale a 11 carte ma crolla a **6/11 (54,5%)**, e per giunta
+va a sbattere contro tre carte già lette bene da §103. Il confine giusto è quello stretto, ed è
+esattamente quello dottrinale: conta che il giorno spenga **proprio** il sostegno di cui la mobile
+untimely avrebbe bisogno.
+
+Cablata in **entrambi** i file (`pb_stress.js` dopo §103, `liuyao.js` come via `R44_104`).
+Parità verificata: stesse 3 carte, stessi 3 verdetti. Audit: `GIORNODUELLO=off`.
+
+---
+
+## §105 — MOBILE TIMELY AL CAPOLINEA DEL FLUSSO: IL QI ARRIVA SULLA P (Edu, 27/08/2026)
+
+**Carta guida: USDCAD 20/03/2023** (trend LONG, il sistema diceva LONG, mercato SHORT −47 → perdeva).
+Il Liu Yao taceva: decideva il Plum Blossom da solo.
+
+**LA LETTURA (Edu).** Caso in cui il giorno clasha l'arrivo. La mobile L4 午 (Wu, Fuoco) è **G**
+ed è **molto timely**: è Fuoco generato da molto Legno nella data (anno 卯, mese 卯, tronco del
+mese 乙, tronco dell'ora 甲) ed è il **punto terminale del flusso** degli steli. Perciò la linea
+si muove per **generare in avanti** la P 未 (Wei, Terra); il fatto che l'arrivo riceva il clash
+del giorno **non conta**, perché una G carica spinge con forza. Il Qi arriva quindi sulla P, e
+**la P fa perdere la propria squadra** → sede opposta alla mobile, che sta in alto → **SHORT**.
+
+**IL CAPOLINEA È CIÒ CHE SEPARA LE DUE GEMELLE.** USDCAD 08/03/2023 ha lo stesso esagramma, lo
+stesso ramo di giorno 丑 e la stessa mobile, ma cambia il **tronco del giorno** (乙 invece di 丁)
+e con esso il flusso: lì il capolinea è il **Legno**, la mobile non è caricata, resta libera e
+fa vincere la propria squadra → LONG (lettura di Edu del 26/08, mercato LONG +53). Qui il
+capolinea è il **Fuoco**, cioè la mobile stessa. Cambiano anche i vuoti (戌亥 contro 申酉), ma è
+il capolinea l'attore.
+
+**IL PERIMETRO.** Caso 6 + mobile G/W + timely + genera in avanti l'arrivo + l'arrivo è una P +
+la mobile è il capolinea del flusso: **1 carta**. Senza il vincolo del capolinea il perimetro sale
+a 3 carte ma scende a **2/3**, e la carta che sbaglia è **proprio la gemella**: è la prova che il
+capolinea non è un ritaglio ma l'attore. La terza sorella, EURJPY 29/06/2022, non ha capolinea
+(nessuno stelo utilizzabile) e resta fuori: è già letta bene dal Plum Blossom.
+
+**REGRESSIONE: 59,51% → 59,54% · z 10,04 → 10,08 · +37.237 → +37.330 (+93 pip)**
+recente 58,86 invariato · vecchio 59,93 invariato. Una carta raddrizzata, **nessuna rovinata**,
+e la gemella non viene toccata.
+
+**Avvertenza onesta, agli atti.** Il perimetro è di **una sola carta**: la regola sta in piedi
+sulla dottrina e sul fatto che spiega la divergenza di una coppia di gemelle, non sulla misura.
+Va rimossa se una carta la falsifica dentro il suo perimetro.
+
+**Nota di implementazione.** Il capolinea non era disponibile nel motore di produzione: nel
+motore di ricerca è stata aggiunta `capolineaElFrom()` (stessa camminata di `casaAttoreFrom`,
+ma restituisce l'elemento invece della casa), e nell'app `capolineaDelFlusso()`, che lo calcola
+dai quattro pilastri della carta e lo passa al termometro come `capolineaEl`. Parità verificata:
+stessa carta, stesso verdetto. Audit: `GIORNOCAPOLINEA=off`.
+
+**Ipotesi mia scartata, agli atti.** Avevo proposto che a distinguere le gemelle fosse il
+**三合 completo di Fuoco 寅午戌** (san he, trigono pieno), che il 20/03 si chiude dentro
+l'esagramma e inghiotte la mobile (capannello: raduno completo, il Qi si ferma), mentre l'08/03
+salta perché 戌 è in vuoto. Separa le due carte allo stesso modo, ma Edu ha indicato il flusso:
+la mobile non è imprigionata, è **caricata** e spinge.
+
+---
+
+## §106 — MOBILE SENZA FORZA E SHI IN VUOTO: VINCE LA YING (Edu, 27/08/2026)
+
+**Carta guida: AUDUSD 14/09/2021** (trend LONG, il Plum Blossom e il Liu Yao dicevano LONG,
+mercato SHORT −45). Terza sorella della coppia USDCAD 08/03 e 20/03/2023: stesso esagramma,
+stessa mobile L4 午 (Wu, Fuoco) G che va su 未 (Wei, Terra) P, stesso ramo di giorno 丑.
+
+**LA LETTURA (Edu).** L4 è allo **stadio 8 (死, si, morte)** nel mese 酉 (You, Metallo): la linea
+**non ha forza e non riesce a fare niente**, quindi esce dalla decisione. Tutto il flusso finisce
+sul **Metallo di L5** (申, Shen — timely all'apice 帝旺, e casa del tronco del Tai Sui), che va a
+**generare L1** 子 (Zi, Acqua): il Qi si scarica in basso. In aggiunta, **fra Ying e Shi vince la
+Ying, perché lo Shi è in vuoto** (戌 dentro i vuoti 戌亥) e il vuoto non agisce. La Ying sta su
+L3, in basso → **SHORT**. Le due strade convergono sul trigramma inferiore.
+
+**COSA È STATO CABLATO.** Solo il duello, che è formalizzabile: caso 6 + mobile untimely +
+**Shi in vuoto e Ying no** → sede della Ying. La lettura del flusso che finisce sul Metallo di L5
+e genera L1 non è ancora rappresentata nel motore (il flusso oggi è calcolato sugli steli, non
+sulle linee) ed è **coerente ma non cablata**.
+
+**IL PERIMETRO.** 3 carte, **3/3, +204 pip** (2 nel vecchio, 1 nel recente).
+Due controlli che delimitano il confine:
+- **senza il vincolo della mobile senza forza** il perimetro sale a 4 carte e scende a 3/4, e la
+  carta che sbaglia è **proprio la gemella USDCAD 08/03/2023**, dove la mobile è timely e agisce:
+  è la conferma che è la mancanza di forza a far passare la decisione al duello;
+- **il duello da solo**, su tutto lo storico (Shi vuoto e Ying piena, 403 carte), fa **50,1%**:
+  rumore assoluto. Non è un attore autonomo, funziona solo quando la mobile è gia' fuori gioco.
+
+**IL RAMO SPECULARE NON VALE.** "Ying vuota → vince lo Shi", dentro lo stesso caso 6 con mobile
+senza forza, fa **3 su 7**. Va lasciato a §104, che lo restringe alla sola 回頭生 spenta dal
+giorno. La forma unificata dei due rami (uno solo dei due in vuoto → vince l'altro) fa **6/10**:
+**da non fare**. I due rami non sono la stessa regola.
+
+**REGRESSIONE: 59,54% → 59,58% · z 10,08 → 10,11 · +37.330 → +37.421 (+91 pip)**
+recente 58,86 → 58,93 · vecchio 59,93 invariato. Una carta raddrizzata (USDCAD 22/12/2025, del
+periodo recente), **nessuna rovinata**.
+
+**Nota.** Sulla carta guida il verdetto finale S9 era già SHORT — perdeva il Plum Blossom da solo,
+non il sistema. La via non cambia quel verdetto ma toglie il disaccordo fra i due motori.
+
+Cablata in **entrambi** i file (`pb_stress.js` dopo §105, `liuyao.js` come via `R46_106`).
+Parità verificata: stesse 3 carte, stessi 3 verdetti. Audit: `GIORNOSHIVUOTO=off`.
+
+---
+
+## DOTTRINA · I TRE MECCANISMI DI CARICA DI UNA LINEA (Edu, 27/08/2026)
+
+Chiarimento dato leggendo GBPUSD 12/01/2022 e USDCAD 17/10/2024. **Sono tre meccanismi
+distinti**, finora usati nel codice senza distinguerli.
+
+**1. Coincidenza di ramo.** Il ramo del **giorno** — ma anche del **mese**, dell'**anno** o
+dell'**ora** — coincide col ramo di una linea dell'esagramma. Attiva quella linea **in modo forte**.
+
+**2. La bestia attivata dal flusso.** Il punto terminale del flusso degli steli — steli radicati
+nei rami, rispettando la **polarità del giorno** — individua una bestia nell'esagramma. Attiva
+quella linea **in modo forte**. Vale in **due forme, entrambe importanti**:
+   - **2a · casa dell'attore**: la posizione che il tronco terminale occupa nella scala delle sei
+     bestie a partire dal tronco del giorno (è ciò che il codice chiama `casaAttoreFrom`);
+   - **2b · bestia per elemento**: la bestia il cui **elemento** coincide con l'elemento del
+     capolinea del flusso (青龍 Legno · 朱雀 Fuoco · 勾陳 Terra · 螣蛇 Terra · 白虎 Metallo ·
+     玄武 Acqua).
+
+**3. Capolinea generico del Bazi.** Il punto terminale del flusso **senza** che serva la 1 o la 2.
+Può dare energia a **qualsiasi linea in grado di riceverla**. È il meccanismo più debole dei tre.
+
+**Gerarchia (Edu): tutti e tre sono efficaci, ma 1 e 2 lo sono di più. E 1 e 2 quasi sempre
+lavorano IN CONGIUNZIONE** — la carica forte è quella che le vede insieme sulla stessa linea.
+
+**CONDIZIONE FONDAMENTALE, che vale su tutti e tre.** Devono **intervenire dove succedono le
+cose**. Se potenziano una linea che non fa nulla, **non servono**. Una carica su una linea inerte
+non è un attore.
+
+**Le due carte che l'hanno fissato.**
+- *GBPUSD 12/01/2022* (mercato LONG +67): il Metallo è capolinea del flusso e la sua casa è **L5,
+  la mobile stessa**. La carica aiuta L5 a muoversi nonostante la sospensione del giorno, e il suo
+  arrivo 未 (Wei) **combina con la G di L4** — che è anche la sede di una bestia radicata nei rami.
+  Il Qi atterra in alto → LONG.
+- *USDCAD 17/10/2024* (mercato LONG +38): qui **non c'è capolinea affatto** (nessuno stelo
+  utilizzabile), quindi la mobile L5 非 riceve niente. La congiunzione 1+2 cade invece su **L3**:
+  il ramo 辰 (Chen) coincide con L3 e arriva **due volte** (anno e ora), e la bestia di L3, 勾陳,
+  è la più radicata della carta. **E su L3 sta succedendo qualcosa**: il mese 戌 (Xu) la clasha.
+  L3 è una P, e la P fa perdere il proprio clan → la sede bassa cade → LONG.
+
+**Conseguenza operativa.** La lettura della B timely sospesa (sotto) **non va corretta, va
+subordinata**: quando la congiunzione 1+2 carica un'altra linea su cui sta accadendo qualcosa,
+comanda quella, non la mobile.
+
+### IN OSSERVAZIONE · B timely sospesa: carica o sola (Edu, 27/08/2026)
+
+Da USDJPY 28/02/2020 e GBPUSD 12/01/2022. Caso −1 (il giorno sospende la mobile) + la mutazione
+sarebbe una generazione all'indietro, quindi bloccata + la mobile è una **B timely**:
+- se la mobile sta sulla **casa carica** dal flusso, si muove e **atterra** dove il suo arrivo
+  combina → sede della linea di atterraggio;
+- altrimenti **resta sola** e fa perdere la propria squadra → sede opposta alla mobile.
+
+Misura: **15 carte · 10 giuste (66,7%) · z 1,29 · +318 pip** (vecchio 63% su 8, recente 71% su 7).
+Il ramo singolo "sola" da solo faceva 9/15 e +184 pip: i due rami insieme valgono più della somma.
+Delle 5 contro, **4 hanno già il loro attore** (§50d/e su EURJPY 19/04/2022; §94 su USDJPY
+30/03/2021 e EURUSD 28/02/2020; una meccanica in osservazione su EURUSD 15/02/2024) e la quinta,
+USDCAD 17/10/2024, è spiegata dalla congiunzione 1+2 qui sopra. Perimetro effettivo **11 carte,
+10 giuste**. **Non ancora cablata**: manca la formalizzazione di "dove succedono le cose".
+
+### DOTTRINA · "DOVE SUCCEDONO LE COSE" — le linee attive (Edu, 27/08/2026)
+
+Definizione data da Edu per rendere applicabile la condizione fondamentale dei tre meccanismi di
+carica. Una carica conta solo se cade su una **linea attiva**. Le linee attive sono:
+
+1. **La linea mobile**, con tutto il suo movimento: la **partenza**, l'**arrivo**, e la
+   **combinazione o il clash** che l'arrivo (o la partenza) produce su un'altra linea — anche
+   quell'altra linea è attiva;
+2. **la linea clashata**;
+3. **la linea combinata**;
+4. **lo Shi e la Ying**.
+
+Queste linee possono essere **timely o untimely**, e possono **ricevere bestie, steli o flusso**:
+la carica si somma allo stato, non lo sostituisce. Una linea fuori da questo elenco, per quanto
+caricata, **non è un attore**.

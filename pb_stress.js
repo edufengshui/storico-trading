@@ -208,6 +208,33 @@ function casaAttoreFrom(dateStr, dayStem, oraBranch, dayBranch, monthBranch, yea
 }
 let G_CASA_ATTORE = null;   // impostata al sito di chiamata di leggi (serve la data)
 
+// ELEMENTO DEL CAPOLINEA del flusso degli steli (stessa camminata di casaAttoreFrom, ma
+// invece della casa restituisce l'elemento in cui il flusso si ferma). Serve a §105.
+function capolineaElFrom(dateStr, dayStem, oraBranch, dayBranch, monthBranch, yearBranch){
+  if (!dateStr || !dayStem) return null;
+  const p = dateStr.split('-').map(Number);
+  const ys = yearStemAt(p[0],p[1],p[2]);
+  const ms = monthStemFrom(ys, monthBranch);
+  const lad = (STEMS10.indexOf(dayStem)%2===0) ? CA_YANG : CA_YIN;
+  if (lad.indexOf(dayStem)<0) return null;
+  const so = (()=>{ const s0=CA_WUSHU[dayStem]; if(!s0||!oraBranch) return null;
+    const i=B.indexOf(oraBranch); return i<0?null:STEMS10[(STEMS10.indexOf(s0)+i)%10]; })();
+  const steliT=[ys,ms,dayStem,so].filter(Boolean);
+  const ramiT=[yearBranch,monthBranch,dayBranch,oraBranch].filter(Boolean);
+  const pres={};
+  for (const s of steliT) (pres[CA_SE[s]]=pres[CA_SE[s]]||[]).push(s);
+  for (const b of ramiT) if(CA_ELB[b]) (pres[CA_ELB[b]]=pres[CA_ELB[b]]||[]).push(b);
+  const steloUtile = e => steliT.filter(s=>CA_SE[s]===e && lad.indexOf(s)>=0);
+  let capolinea=null;
+  for (const part of Object.keys(pres)) {
+    let e=part, guard=0, ultimo=null;
+    while (guard++ < 6) { const g=GEN[e], su=steloUtile(g);
+      if (!pres[g] || !su.length) break; e=g; ultimo=g; }
+    if (ultimo) capolinea=ultimo;
+  }
+  return capolinea;
+}
+
 /* lettura di base + regola del clash */
 const seedToBranch = s => B[(((s-1)%12)+12)%12];
 function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
@@ -5980,6 +6007,76 @@ if (process.env.PBLY) {
         const _hit=_TRI.find(t=>t.includes(_arr)&&t.every(x=>_cal.includes(x)));
         if (_hit) return mob.pos<=3?'LONG':'SHORT';           // sede opposta: l'arrivo vince
       }
+    }
+    // 0-ter — §103 LA GEMELLA DELL'ARRIVO SALTA NELLA SEDE DELLA MOBILE
+    //   (Edu, 27/08/2026, da USDCAD 11/04/2022).
+    //   Caso 6 (il giorno libera la mobile clashando l'arrivo): se una linea FERMA porta lo
+    //   STESSO ramo dell'arrivo, quel ramo e' clashato dal giorno anche su di lei, e salta nella
+    //   sede della mobile a sostituire l'arrivo reso inefficace. Chi vince dipende dal
+    //   RADICAMENTO della mobile nel calendario: con almeno DUE radici del suo elemento fra ANNO
+    //   e MESE la mobile regge la sostituzione e si tiene la propria sede; con una o nessuna la
+    //   linea che salta la rimpiazza davvero e il trigramma della mobile perde -> sede opposta.
+    //   Il giorno non si conta: in questo perimetro e' sempre il clash dell'arrivo, quindi
+    //   costante e senza potere di distinguere. 7 carte, 7/7, +378 pip. GIORNOSALTO=off spegne.
+    if (process.env.GIORNOSALTO!=='off' && R.mutante.casoMut===6) {
+      const _arr=R.mutante.ramoArr;
+      if (R.linee.some(l=>l.ramo===_arr && l.pos!==mob.pos)) {
+        const _rad=[r.yearBranchUsed,r.monthBranchUsed].filter(b=>b&&WX[b]===mob.el).length;
+        return (_rad>=2) ? (mob.pos<=3?'SHORT':'LONG')      // mobile radicata: tiene la sua sede
+                         : (mob.pos<=3?'LONG':'SHORT');     // mobile non radicata: sede opposta
+      }
+    }
+    // 0-quater — §104 MOBILE UNTIMELY SENZA LA GENERAZIONE ALL'INDIETRO: DECIDE IL DUELLO
+    //   SHI/YING (Edu, 27/08/2026, da EURUSD 22/08/2023).
+    //   Caso 6 (il giorno libera la mobile clashando l'arrivo): se la mobile e' untimely e
+    //   l'unica cosa che potrebbe sostenerla e' la generazione all'indietro dall'arrivo
+    //   (回頭生), il clash del giorno spegne proprio quella: la mobile parte e non conclude.
+    //   Chi non vince perde -> la mobile esce dalla decisione, che passa al duello Shi/Ying.
+    //   Dove la Ying controlla lo Shi: se la Ying e' in VUOTO non agisce e vince lo Shi;
+    //   se e' piena controlla lo Shi e vince lei. Verdetto = sede del vincitore.
+    //   3 carte, 3/3, +196 pip. GIORNODUELLO=off spegne.
+    if (process.env.GIORNODUELLO!=='off' && R.mutante.casoMut===6 && !timely(mob.el)
+        && GEN[WX[R.mutante.ramoArr]]===mob.el) {
+      const _S=R.linee[R.shi-1], _Y=R.linee[R.ying-1];
+      if (_S && _Y && CTRL[_Y.el]===_S.el) {
+        const _v = _Y.vuoto ? _S : _Y;                 // il vuoto non agisce
+        return _v.pos<=3 ? 'SHORT' : 'LONG';           // sede del vincitore del duello
+      }
+    }
+    // 0-quinquies — §105 MOBILE TIMELY AL CAPOLINEA DEL FLUSSO: IL QI ARRIVA SULLA P
+    //   (Edu, 27/08/2026, da USDCAD 20/03/2023).
+    //   Caso 6 (il giorno clasha l'arrivo): se la mobile e' una G (o una W), e' TIMELY ed e' il
+    //   punto TERMINALE del flusso degli steli, allora si muove per GENERARE IN AVANTI l'arrivo
+    //   e il clash del giorno non ferma nulla, perche' una G/W carica spinge con forza.
+    //   Il Qi arriva sulla P, e la P fa perdere la propria squadra -> sede opposta alla mobile.
+    //   Il capolinea e' cio' che separa la carta dalla sua gemella USDCAD 08/03/2023 (stesso
+    //   esagramma, stesso ramo di giorno): li' il flusso finisce nel Legno, la mobile non e'
+    //   caricata, resta libera e vince la propria squadra -> LONG (letta da Edu il 26/08).
+    //   1 carta. GIORNOCAPOLINEA=off spegne.
+    if (process.env.GIORNOCAPOLINEA!=='off' && R.mutante.casoMut===6
+        && ['G','W'].includes(mob.par) && timely(mob.el)
+        && GEN[mob.el]===WX[R.mutante.ramoArr]) {
+      const _gongEl=(R.linee.find(l=>l.par==='B')||{}).el;
+      const _par=(el,g)=> el===g?'B':GEN[el]===g?'P':GEN[g]===el?'C':CTRL[el]===g?'G':'W';
+      if (_gongEl && _par(WX[R.mutante.ramoArr],_gongEl)==='P') {
+        const _cap=capolineaElFrom(r.date||r.dateStr||r.d, r.dayStemUsed, r.oraBranch,
+                                   r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed);
+        if (_cap===mob.el) return mob.pos<=3 ? 'LONG' : 'SHORT';   // la P fa perdere la sua squadra
+      }
+    }
+    // 0-sexies — §106 MOBILE SENZA FORZA E SHI IN VUOTO: VINCE LA YING
+    //   (Edu, 27/08/2026, da AUDUSD 14/09/2021).
+    //   Caso 6: se la mobile e' untimely non ha forza e non riesce a fare niente, quindi esce
+    //   dalla decisione. Fra Shi e Ying vince la Ying quando lo SHI e' in VUOTO (il vuoto non
+    //   agisce) e la Ying non lo e' -> sede della Ying.
+    //   ATTENZIONE, il ramo speculare NON vale: "Ying vuota -> vince lo Shi" misurato da solo
+    //   fa 3/7, e va lasciato a §104, che lo restringe alla 回頭生 spenta dal giorno.
+    //   Senza il vincolo della mobile senza forza il perimetro sale a 4 carte e sbaglia
+    //   proprio la gemella USDCAD 08/03/2023, dove la mobile e' timely e agisce.
+    //   3 carte, 3/3, +204 pip. GIORNOSHIVUOTO=off spegne.
+    if (process.env.GIORNOSHIVUOTO!=='off' && R.mutante.casoMut===6 && !timely(mob.el)) {
+      const _S=R.linee[R.shi-1], _Y=R.linee[R.ying-1];
+      if (_S && _Y && _S.vuoto && !_Y.vuoto) return _Y.pos<=3 ? 'SHORT' : 'LONG';
     }
     // 1 mobile distrutta -> legge la timely (no C/B, no 自刑)
     const AUTOP=['辰','午','酉','亥'];
