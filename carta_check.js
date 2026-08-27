@@ -86,9 +86,29 @@ const giaLetta = lette.find(stessa);
 const gemelle = lette.filter(gemella);
 
 /* ---------- 2. RIGA DEGLI STELI ---------- */
+// Steli di anno e mese DERIVATI dai rami del motore (00:00 GMT), non dal pilastro di
+// mezzogiorno: nei giorni a cavallo di un termine solare il pilastro di mezzogiorno puo'
+// appartenere al mese (o all'anno) sbagliato rispetto all'ingresso del trade.
+// Anno: dato l'anno civile e il ramo d'anno del motore, lo stelo e' determinato.
+// Mese: regola 五虎遁 (cinque tigri) dallo stelo d'anno + ramo di mese del motore.
 const p = date.split('-').map(Number);
-const ec = Solar.fromYmdHms(p[0],p[1],p[2],12,0,0).getLunar().getEightChar();
-const annoS = ec.getYear().charAt(0), meseS = ec.getMonth().charAt(0);
+const annoS = (()=>{ const BR=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const STm=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  for (const Y of [p[0], p[0]-1]) {
+    const idx=((Y-4)%12+12)%12;
+    if (BR[idx]===annoB) return STm[((Y-4)%10+10)%10];
+  }
+  // ripiego (ramo d'anno assente): pilastro delle 00:00
+  return Solar.fromYmdHms(p[0],p[1],p[2],0,0,0).getLunar().getEightChar().getYear().charAt(0);
+})();
+const meseS = (()=>{ if(!annoS||!meseB) return null;
+  const PRIMO={'甲':'丙','己':'丙','乙':'戊','庚':'戊','丙':'庚','辛':'庚','丁':'壬','壬':'壬','戊':'甲','癸':'甲'};
+  const BRm=['寅','卯','辰','巳','午','未','申','酉','戌','亥','子','丑'];
+  const STm=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const i=BRm.indexOf(meseB), s0=PRIMO[annoS];
+  if(i<0||!s0) return null;
+  return STm[(STm.indexOf(s0)+i)%10];
+})();
 const lad = (ST.indexOf(dayS)%2===0) ? YANG : YIN;
 const i0 = lad.indexOf(dayS);
 const casa = s => { const j = lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
@@ -458,6 +478,59 @@ for(const f of candAttivi){
   let out=null; try{ out=f(); }catch(e){ out=null; }
   if(out) cand.push(out.desc + (out.dir===realDir?' ✓':' ✗'));
 }
+// DUELLO-24 — CABLATE §107/§108 il 27/08/2026: qui resta la DIAGNOSTICA del perimetro
+// mobile CHIUSA AI DUE CAPI (il giorno combina la partenza E clasha l'arrivo, o lo speculare)
+// -> non può né partire né arrivare, esce dalla decisione -> duello Shi/Ying.
+// CASO SPECIALE: se la mobile è anche IN VUOTO non parte nemmeno (l'arrivo non esiste senza
+// partenza): linea inerte. Il flusso CON LA COMBINAZIONE DEGLI STELI (gli steli legati non
+// possono essere capolinea), se termina sull'elemento della BESTIA della linea inerte, vi si
+// ferma e il PILASTRO DEL GIORNO ne diventa padrone. Duello per GENERAZIONE (il padrone
+// sostituisce la linea inerte se è Shi o Ying): chi genera cede il Qi, chi riceve vince.
+// Altrimenti duello normale: la Ying VUOTA non agisce -> vince lo Shi (13/13, +874 pip).
+// Lo speculare (Shi vuoto -> Ying) NON vale (44,4%); senza vuoti il duello non parla.
+(() => {
+  if (M.casoMut !== -1) return;
+  const doppio = (COMBINA[dayB]===M.ramoDep && CLASH[dayB]===M.ramoArr)
+              || (CLASH[dayB]===M.ramoDep && COMBINA[dayB]===M.ramoArr);
+  if (!doppio) return;
+  const S=R.linee[R.shi-1], Y=R.linee[R.ying-1]; if(!S||!Y) return;
+  // — caso speciale (mobile inerte) —
+  if (mob.vuoto) {
+    const HE={'甲':'己','己':'甲','乙':'庚','庚':'乙','丙':'辛','辛':'丙','丁':'壬','壬':'丁','戊':'癸','癸':'戊'};
+    const stemsA = steliT.map(x=>x[1]);
+    const legati=new Set();
+    for(let i=0;i<stemsA.length;i++) for(let j=i+1;j<stemsA.length;j++)
+      if(HE[stemsA[i]]===stemsA[j]){ legati.add(i); legati.add(j); }
+    const liberi=stemsA.filter((s,i)=>!legati.has(i));
+    const util2=e=>liberi.filter(s=>SE[s]===e && lad.indexOf(s)>=0);
+    let cap2=null, lung2=-1;
+    for(const part of Object.keys(pres)){
+      let e=part,g2=0,ult=null,passi=0;
+      while(g2++<6){ const g=GEN[e]; const su=util2(g); if(!pres[g]||!su.length)break; e=g; ult=g; passi++; }
+      if(ult&&passi>lung2){ lung2=passi; cap2=ult; }
+    }
+    const BEL2={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+    const bstEl=mob.bestia?BEL2[mob.bestia.cn]:null;
+    if (cap2 && bstEl && cap2===bstEl) {
+      const padroneEl=SE[dayS];
+      const elShi = (M.pos===R.shi) ? padroneEl : S.el;
+      const elYing = (M.pos===R.ying) ? padroneEl : Y.el;
+      let vinc=null;
+      if (GEN[elShi]===elYing) vinc=Y; else if (GEN[elYing]===elShi) vinc=S;
+      const testa='DUELLO-24 (§108 CABLATA) CASO SPECIALE: mobile VUOTA chiusa ai due capi (inerte) · flusso con combinazione degli steli termina sulla bestia '+(mob.bestia?mob.bestia.cn:'—')+' ('+EL_IT[bstEl]+') della mobile · pilastro del giorno '+dayS+dayB+' padrone della linea';
+      if (vinc) cand.push(testa+' · chi riceve la generazione vince: '+(vinc===S?'Shi L'+S.pos:'Ying L'+Y.pos)+' → '+(vinc.pos<=3?'SHORT':'LONG')+((vinc.pos<=3?'SHORT':'LONG')===realDir?' ✓':' ✗'));
+      else cand.push(testa+' · nessuna generazione fra i contendenti — il principio non parla (caso degenere)');
+      return;                                       // il caso speciale assorbe il duello normale
+    }
+  }
+  // — duello normale: il vuoto non agisce —
+  if (Y.vuoto && !S.vuoto)
+    cand.push('DUELLO-24 (§107 CABLATA): mobile chiusa ai due capi · esce dalla decisione · Ying L'+Y.pos+' ('+Y.ramo+') VUOTA non agisce → vince lo Shi L'+S.pos+' → '+(S.pos<=3?'SHORT':'LONG')+((S.pos<=3?'SHORT':'LONG')===realDir?' ✓':' ✗'));
+  else if (S.vuoto && !Y.vuoto)
+    cand.push('DUELLO-24: mobile chiusa ai due capi, Shi VUOTO (diagnostica) — lo speculare NON è in osservazione (44,4%): non usare come verdetto');
+  else
+    cand.push('DUELLO-24: mobile chiusa ai due capi, nessun vuoto fra Shi e Ying (diagnostica) — il duello non parla (celle di controllo piatte)');
+})();
 // ELASTICOF §85
 cand.push('§85 elastico×forza: da valutare A MANO se c\'è una liberata (serve il modello di forza — non automatizzato qui)');
 

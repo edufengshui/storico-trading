@@ -745,3 +745,109 @@ una tabella stagionale identica a quella degli elementi dei rami, annullando la 
 La tabella giusta è quella del motore: 寅卯辰 Legno · 巳午未 Fuoco · 申酉戌 Metallo · 亥子丑 Acqua.
 Le vie cablate (§103–§106) non ne sono toccate: sono state verificate con la funzione `timely`
 del motore stesso.
+
+---
+
+### CABLATA §107 (27/08/2026) · Mobile CHIUSA AI DUE CAPI → duello Shi/Ying (Edu, sessione 24)
+
+Da **EURGBP 19/11/2025** (seme 88). Perimetro: caso −1 in cui il giorno **combina la partenza E
+clasha l'arrivo** della mobile (o lo speculare): la linea non può né partire né arrivare, è inutile
+per decidere chi vince ed **esce dalla decisione** → si passa al duello Shi/Ying, dove **il vuoto
+non agisce**.
+
+- **Ying vuota (Shi pieno) → vince lo Shi → sede dello Shi: 13/13 · +874 pip** (vecchio 100%,
+  recente 100% dopo la sistemazione della falsificatrice — v. caso speciale sotto). z 3,61;
+  ~3 carte per z4. Attenzione: tre carte condividono la data 19/12/2023 (GBPUSD, USDJPY, NZDUSD):
+  i cross sono correlati, le osservazioni indipendenti sono meno di 13.
+- Lo **speculare** (Shi vuoto → vince la Ying): 9 carte, 44,4% — **NON vale** (coerente con la
+  trappola del ramo speculare già misurata in sessione 23).
+- Senza vuoti, duello per **controllo** elementare: piatto (50,0% / 47,6%) — senza il vuoto il
+  duello non parla.
+
+Universo del doppio legame: 105 carte su 2.788. Script di misura in archivio: `duello_chiusa.js`.
+**CABLATA il 27/08/2026 su decisione di Edu** in entrambi i motori (§107, in testa al termometro,
+subito dopo §108; audit `DUELLO24=off`). Regressione: da sola +1.160 pip; con §108 il baseline
+canonico passa a **59,90% · z 10,45 · +38.918 pip** (recente 59,34 · vecchio 60,10 · 45 vie).
+
+### CABLATA §108 (27/08/2026) · CASO SPECIALE del duello: mobile inerte, PADRONE DEL GIORNO (Edu, sessione 24)
+
+Da **NZDUSD 22/06/2023** (seme 62), la falsificatrice del duello, letta da Edu. Dentro il
+perimetro del doppio legame, se la mobile è **anche in vuoto** resta vuota e **non parte nemmeno**:
+l'arrivo non esiste se non c'è partenza — linea **inerte**, niente si muove. Allora si guarda il
+Qi degli steli/bestie:
+
+1. Il flusso si calcola **con la combinazione degli steli** (甲己 · 乙庚 · 丙辛 · 丁壬 · 戊癸):
+   uno stelo legato in combinazione **non può essere capolinea** (nella carta guida 戊 e 癸 si
+   legano e il capolinea passa dall'Acqua al **Metallo**).
+2. Se il capolinea coincide con **l'elemento della bestia sulla linea inerte**, il flusso termina
+   lì; la linea non muovendosi, il **pilastro del giorno ne diventa padrone**.
+3. Duello Shi/Ying **per generazione**, col padrone al posto della linea inerte quando questa è
+   Shi o Ying: **chi genera cede il Qi, chi riceve vince** → sede del ricevente.
+   (Generalizzazione confermata da Edu il 27/08/2026.)
+
+Misura: **4/4 dove il principio parla · +256 pip**, nessuna contraria:
+- NZDUSD 22/06/2023 (+27): padrone 辛亥 sulla Ying; Shi 戌 Terra genera il Metallo che scorre in
+  Acqua → vince la Ying → SHORT ✓
+- USDJPY 29/11/2024 (+141): padrone 丁酉 su L1 辰 (terza linea); Ying 未 Terra genera Shi 申
+  Metallo → vince lo Shi → SHORT ✓ — **era la carta più cara del bacino caso −1 ancora da leggere**
+- AUDUSD 07/06/2023 (+26) e 04/12/2023 (+62), gemelle: padrone 丙申 su L1 巳; Ying 亥 Acqua genera
+  Shi 卯 Legno → vince lo Shi → SHORT ✓✓
+- AUDUSD 04/07/2022: degenere (linea inerte = Shi; padrone Terra contro Ying Terra a sua volta
+  vuota: nessuna generazione) — il principio non parla; la carta resta al duello normale.
+
+Struttura **rarissima**: 18 mobile vuote a doppio legame su 2.788; il flusso termina sulla bestia
+in 5. Verifica di coerenza: le gemelle GBPUSD/USDJPY/NZDUSD 19/12/2023 (mobile vuota, stessa
+struttura del giorno 辛亥) **non** scattano — la combinazione lì è 甲己 e il capolinea va altrove —
+e vincono col duello normale: il discriminante del mese fra NZDUSD 22/06 e 19/12 era esattamente
+la combinazione degli steli.
+
+**QUESTIONE APERTA (da non toccare senza regressione):** la combinazione degli steli vale per il
+flusso **in generale** (casa dell'attore, §93-bis, §105, filone steli)? Oggi è fissata solo dentro
+§108 (`capolinea24From` nel motore di ricerca, calcolo interno alla via nel motore del sito);
+estenderla al flusso comune richiede rimisurare tutte le meccaniche che lo usano. Script:
+`caso_speciale.js`.
+**CABLATA il 27/08/2026 su decisione di Edu** in entrambi i motori (§108, PRIMA di §107 perché più
+specifica; audit `SPECIALE24=off`). Da sola +283 pip in regressione.
+
+**Ricaduta sul candidato "B timely sospesa: carica o sola":** EURGBP 19/11/2025, che il ramo
+"sola" sbagliava, è spiegata dal duello (Ying vuota → vince lo Shi ✓): una falsificatrice in meno
+in quel perimetro.
+
+---
+
+### AGGIORNAMENTO 27/08/2026 (sera) · Duello a legame singolo: il gate della liberazione
+
+Dalla lettura di Edu su EURUSD 05/03/2020 (mese caricato in casa sulla mobile → la libera; il
+duello non si apre). Rimisurato `duello_singolo.js` con l'ingrediente nuovo:
+
+- silenzio + mobile **liberata** (uno stelo di data con casa sulla linea della mobile): 4 carte,
+  il duello fa **25%** — conferma nel verso giusto: quando la mobile si libera il duello NON vale.
+- silenzio + mobile **non liberata**: **14 carte · 64,3% · +411 pip** (71% recente / 57% vecchio)
+  — meglio di prima (55,6%) ma restano 5 contrarie: USDJPY 20/08/2020, USDCHF 24/06/2020,
+  USDCAD 16/01/2024, NZDUSD 25/02/2026, EURJPY 06/11/2020. Il gate del "non succede niente"
+  è ancora incompleto. RESTA IN OSSERVAZIONE, non cablabile.
+
+Meccaniche nuove dalla stessa lettura (da tenere nel filtro):
+1. **Liberazione per casa**: stelo di data (qui il mese, ed era anche capolinea) con casa sulla
+   mobile sospesa → la carica vince sulla sospensione, la mobile si muove. Tassello per il punto
+   aperto "liberazione" della ripartenza.
+2. **L'arrivo della liberata agisce**: qui clasha la linea sopra una nascosta e la fa uscire
+   (亥 clasha 巳 su L5 → esce la W 子).
+3. **Radice della bestia nel ramo di data**: un attore debole di stagione può agire se la bestia
+   della sua linea ha radice nel ramo di data del suo stesso elemento (玄武 Acqua radicata nel
+   子 dell'anno). Da misurare come qualificatore generale dei "deboli che agiscono".
+
+---
+
+### MISURATA, NON CABLABILE (27/08/2026) · Linea incompatibile col trigramma che la ospita
+
+Concetto nuovo di Edu (da USDCAD 16/01/2024): una linea il cui ramo clasha un ramo proprio del
+trigramma che la ospita (坎:子 · 離:午 · 震:卯 · 兌:酉 · 乾:戌亥 · 坤:未申 · 艮:丑寅 · 巽:辰巳)
+è una "mobile latente"; se niente si muove (caso −1) e la linea è carica, fa vincere la propria
+squadra. Sulla carta guida legge giusto (L4 丑 dentro 坤, stelo 乙 raddoppiato radicato in casa,
+青龍 dell'elemento del capolinea → LONG ✓ +59).
+
+Misura (universo caso −1, 477 carte con almeno un'incompatibile): stelo radicato in casa 75 carte
+50,7%; bestia del capolinea 96 carte 44,8%; tutte e due le cariche 39 carte 51,3%; controllo senza
+carica 48,8%. **Piatta in ogni variante nella formalizzazione attuale.** Se si riprende, serve un
+ingrediente più stretto per "niente si muove" e/o per la carica. Script: `incompatibile.js`.

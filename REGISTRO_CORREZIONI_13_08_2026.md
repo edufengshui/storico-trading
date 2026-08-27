@@ -4031,3 +4031,102 @@ carica. Una carica conta solo se cade su una **linea attiva**. Le linee attive s
 Queste linee possono essere **timely o untimely**, e possono **ricevere bestie, steli o flusso**:
 la carica si somma allo stato, non lo sostituisce. Una linea fuori da questo elenco, per quanto
 caricata, **non è un attore**.
+
+---
+
+## 27/08/2026 — SESSIONE 24 · Il doppio legame del giorno e il padrone della linea inerte
+
+### Carta guida 1 · EURGBP 19/11/2025 (seme 88, mercato LONG +25)
+
+Mobile L4 酉 (You, Metallo), B (Fratelli), timely, Shi. Il giorno 辰 (Chen, Terra) **combina la
+partenza 酉 e clasha l'arrivo 戌** (Xu, Terra): la mobile non può né partire né arrivare.
+
+**Lettura di Edu:** la linea è inutile per valutare chi vince. Si passa al duello Shi/Ying:
+la Ying L1 未 (Wei, Terra) è **in vuoto** e il vuoto non agisce → **vince lo Shi**, in alto →
+LONG ✓.
+
+### Carta guida 2 · NZDUSD 22/06/2023 (seme 62, mercato SHORT −27) — IL CASO SPECIALE
+
+Mobile L1 寅 (Yin, Legno), P (Genitori), **in vuoto** (vuoti 寅卯) e chiusa ai due capi dal giorno
+亥 (Hai, Acqua): combina la partenza 寅, clasha l'arrivo 巳 (Si, Fuoco). La Ying è la mobile stessa.
+
+**Lettura di Edu (testuale nella sostanza):** un caso speciale — **niente si muove**. L1 è vuoto ed
+è bloccato, per cui rimane vuoto: **non parte neanche; l'arrivo non esiste se non c'è partenza**.
+A questo punto si vede il Qi degli steli/bestie: il **Metallo è il terminale del flusso — non il
+Gui (癸), per via della combinazione fra gli steli 戊 e 癸**. La bestia su L1 è la **Tigre Bianca
+白虎, Metallo**: è lì che termina il flusso. Ma poiché la linea non si muove, **辛亥 (il giorno)
+diventa padrone di L1**. Duello Ying vs Shi: **vince la Ying perché è Metallo → Acqua, mentre lo
+Shi è Terra → Metallo** → SHORT ✓.
+
+### Principi fissati (Edu, 27/08/2026)
+
+1. **Doppio legame del giorno**: quando il giorno combina la partenza e clasha l'arrivo (o lo
+   speculare), la mobile non può né partire né arrivare: esce dalla decisione. Si passa al duello
+   Shi/Ying, dove il vuoto non agisce.
+2. **Mobile vuota e chiusa ai due capi**: resta vuota, non parte nemmeno. **L'arrivo non esiste
+   se non c'è partenza.** Linea inerte.
+3. **Combinazione degli steli nel flusso** (甲己 · 乙庚 · 丙辛 · 丁壬 · 戊癸): lo stelo legato in
+   combinazione non può essere il capolinea del flusso.
+4. **Il padrone della linea inerte**: se il flusso (così corretto) termina sull'elemento della
+   bestia della linea inerte, vi si ferma, e il pilastro del giorno diventa padrone della linea.
+5. **Duello per generazione** (generalizzazione confermata da Edu): fra i due contendenti — col
+   padrone al posto della linea inerte quando questa è Shi o Ying — **chi genera cede il Qi, chi
+   riceve vince**; verdetto = sede del ricevente.
+
+Misure e perimetri completi in `CANDIDATI_OSSERVAZIONE.md` (sezioni DUELLO-24). Il duello normale
+fa 13/13 (+874 pip); il caso speciale 4/4 (+256 pip), rarissimo, e spiega **USDJPY 29/11/2024
+(+141)**, la carta più cara del bacino caso −1 ancora da leggere. La gemella NZDUSD 19/12/2023
+resta al duello normale (combinazione 甲己, capolinea altrove): il discriminante del mese era la
+combinazione degli steli.
+
+### Cablatura (27/08/2026, decisione di Edu)
+
+§107 (duello del doppio legame: la Ying vuota non agisce → vince lo Shi) e §108 (padrone della
+linea inerte, duello per generazione) **cablate in entrambi i motori**, in testa al termometro —
+§108 prima di §107 perché più specifica; entrambe prima di §101–§106 e di tutte le vie generiche
+(nel perimetro il §50d/e sbagliava la carta guida). Audit: `DUELLO24=off` · `SPECIALE24=off`.
+Parità verificata carta per carta su tutte le 17 del perimetro. Nuovo baseline canonico:
+**2.788 carte · 59,90% · z 10,45 · +38.918 pip** (recente 59,34 · vecchio 60,10 · 45 vie).
+
+### CORREZIONE TECNICA GRAVE (27/08/2026, sessione 24): steli di anno/mese dal pilastro di mezzogiorno
+
+Scoperta da una domanda di Edu su EURUSD 05/03/2020 (giorno del Jingzhe, 02:56 GMT). In più punti
+gli steli di anno e mese venivano presi dal pilastro delle 12:00: nei giorni a cavallo di un
+termine solare appartengono al mese (o, al Lichun, all'anno) sbagliato rispetto alle 00:00 GMT.
+Impatto: 28 carte su 10 giorni di confine (4 anche sullo stelo d'anno). Il filone principale del
+motore di ricerca era già corretto (五虎遁 dal ramo del motore): il baseline non è mai stato toccato.
+
+**REGOLA PERMANENTE: gli steli di anno e mese NON si prendono MAI dal pilastro di un'ora
+convenzionale. Si derivano SEMPRE dai rami del motore (00:00 GMT): anno dall'anno civile + ramo
+d'anno; mese con la regola delle cinque tigri (五虎遁) dallo stelo d'anno; ora con le cinque
+sorci (五鼠遁) dallo stelo del giorno.** Il pilastro di mezzogiorno resta legittimo SOLO per
+disambiguare il pilastro del GIORNO (solar-time.js) e per leggere la tabella dei termini solari
+(daliuren.js).
+
+Ripuliti: pb_stress.js (23 blocchi di misura → helper unico `pilastriDerivati`), carta_check.js,
+caso_speciale.js, perim_btim.js. Scoperto e chiuso anche un buco peggiore in app.js: il sito NON
+passava affatto steli di anno/mese/ora al termometro (§108 vi sarebbe rimasta muta) → aggiunto
+`steliDiData` in entrambi i punti. Verifiche: baseline identico (59,90% · +38.918), §108 stesse
+5 carte, §107/§108 sparano uguali nei due motori sulle carte di sessione.
+
+### Principio fissato (Edu, 27/08/2026): il mese delle carte a cavallo di un termine solare
+
+**Comanda il mese vivo alle 00:00 GMT dell'ingresso**, anche se il termine solare scatta poche
+ore dopo, dentro il trade. (Su EURUSD 05/03/2020: mese 寅, benché il Jingzhe arrivi alle 02:56
+GMT.) La convenzione del motore è confermata.
+
+### Lettura di Edu · EURUSD 05/03/2020 (seme 111, mercato LONG +102)
+
+Il mese, **caricato su L2** (lo stelo di mese 戊 ha la sua casa proprio su L2, ed è il capolinea
+del flusso), **fa muovere la mobile sospesa**: la linea si muove e il suo arrivo 亥 (Hai, Acqua)
+**clasha L5 巳** (Si, Fuoco), liberando la **nascosta W 子** (Zi, Acqua) che sta sotto.
+L'Acqua è debole nel mese e di norma non potrebbe farlo, **ma la bestia su L5 — il 玄武
+(Xuan Wu, Acqua) — ha la sua radice proprio nel 子 della data** (il ramo d'anno): per questo
+può. La W liberata parla → **LONG** ✓.
+
+Tre insegnamenti:
+1. Lo stelo di mese (qui anche capolinea) con casa sulla mobile sospesa **la libera**: la carica
+   sulla linea vince sulla sospensione del giorno. ("Qualcosa succede" → il duello non si apre.)
+2. L'arrivo della mobile liberata **agisce**: qui clasha la linea sopra la nascosta e la fa uscire.
+3. Un attore debole di stagione **può agire se la bestia della linea ha radice nel ramo di data
+   del suo stesso elemento** (qui 玄武/壬 Acqua radicata nel 子 dell'anno).

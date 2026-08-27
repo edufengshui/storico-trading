@@ -137,6 +137,18 @@ function yearStemAt(y,m,d){
 const STEMS10 = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
 const WUHU = { '甲':'丙','己':'丙','乙':'戊','庚':'戊','丙':'庚','辛':'庚','丁':'壬','壬':'壬','戊':'甲','癸':'甲' };
 const MESI_DA_YIN = ['寅','卯','辰','巳','午','未','申','酉','戌','亥','子','丑'];
+// STELI DI ANNO E MESE DERIVATI DAI RAMI DEL MOTORE (correzione 27/08/2026, sessione 24):
+// MAI prendere steli di anno/mese dal pilastro di un'ora convenzionale (mezzogiorno): nei
+// giorni a cavallo di un termine solare appartengono al mese/anno sbagliato rispetto alle
+// 00:00 GMT. Anno: dall'anno civile + ramo d'anno del motore. Mese: 五虎遁 dallo stelo d'anno.
+const _PIL_BR=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+function pilastriDerivati(dateStr, yearBranch, monthBranch){
+  const y=+String(dateStr).split('-')[0];
+  let anno=null;
+  for (const Y of [y, y-1]) if (_PIL_BR[((Y-4)%12+12)%12]===yearBranch) { anno=STEMS10[((Y-4)%10+10)%10]; break; }
+  const mese = anno ? monthStemFrom(anno, monthBranch) : null;
+  return { anno, mese };
+}
 function monthStemFrom(yearStem, monthBranch){
   const start = STEMS10.indexOf(WUHU[yearStem]);
   const idx = MESI_DA_YIN.indexOf(monthBranch);
@@ -231,6 +243,38 @@ function capolineaElFrom(dateStr, dayStem, oraBranch, dayBranch, monthBranch, ye
     while (guard++ < 6) { const g=GEN[e], su=steloUtile(g);
       if (!pres[g] || !su.length) break; e=g; ultimo=g; }
     if (ultimo) capolinea=ultimo;
+  }
+  return capolinea;
+}
+
+// SESSIONE 24 (§108): flusso CON LA COMBINAZIONE DEGLI STELI (甲己 乙庚 丙辛 丁壬 戊癸):
+// gli steli legati in combinazione non possono essere capolinea ne' portare il flusso.
+function capolinea24From(dateStr, dayStem, oraBranch, dayBranch, monthBranch, yearBranch){
+  if (!dateStr || !dayStem) return null;
+  const p = dateStr.split('-').map(Number);
+  const ys = yearStemAt(p[0],p[1],p[2]);
+  const ms = monthStemFrom(ys, monthBranch);
+  const lad = (STEMS10.indexOf(dayStem)%2===0) ? CA_YANG : CA_YIN;
+  if (lad.indexOf(dayStem)<0) return null;
+  const so = (()=>{ const s0=CA_WUSHU[dayStem]; if(!s0||!oraBranch) return null;
+    const i=B.indexOf(oraBranch); return i<0?null:STEMS10[(STEMS10.indexOf(s0)+i)%10]; })();
+  const steliT=[ys,ms,dayStem,so].filter(Boolean);
+  const ramiT=[yearBranch,monthBranch,dayBranch,oraBranch].filter(Boolean);
+  const HE24={'甲':'己','己':'甲','乙':'庚','庚':'乙','丙':'辛','辛':'丙','丁':'壬','壬':'丁','戊':'癸','癸':'戊'};
+  const legati=new Set();
+  for(let i=0;i<steliT.length;i++) for(let j=i+1;j<steliT.length;j++)
+    if(HE24[steliT[i]]===steliT[j]){ legati.add(i); legati.add(j); }
+  const liberi=steliT.filter((s,i)=>!legati.has(i));
+  const pres={};
+  for (const s of steliT) (pres[CA_SE[s]]=pres[CA_SE[s]]||[]).push(s);   // presenza: tutti
+  for (const b of ramiT) if(CA_ELB[b]) (pres[CA_ELB[b]]=pres[CA_ELB[b]]||[]).push(b);
+  const steloUtile = e => liberi.filter(s=>CA_SE[s]===e && lad.indexOf(s)>=0);
+  let capolinea=null, lung=-1;
+  for (const part of Object.keys(pres)) {
+    let e=part, guard=0, ultimo=null, passi=0;
+    while (guard++ < 6) { const g=GEN[e], su=steloUtile(g);
+      if (!pres[g] || !su.length) break; e=g; ultimo=g; passi++; }
+    if (ultimo && passi>lung) { lung=passi; capolinea=ultimo; }
   }
   return capolinea;
 }
@@ -5981,6 +6025,45 @@ if (process.env.PBLY) {
     const timely=el=>f1(st1(el,mEl))||f1(st1(el,sEl));   // doppia timeliness
     const vivo=l=>!['legata','rotta','dormiente','eliminata','autocombinata'].includes(l.stato);
     const mob=R.linee[R.mutante.pos-1], dep=R.mutante.ramoDep;
+    // 0-pre — §107 DUELLO DEL DOPPIO LEGAME + §108 PADRONE DELLA LINEA INERTE
+    //   (CABLATE 27/08/2026 sessione 24; guide EURGBP 19/11/2025 seme 88 e NZDUSD 22/06/2023
+    //   seme 62). MOBILE CHIUSA AI DUE CAPI (caso -1: il giorno combina la partenza E clasha
+    //   l'arrivo, o lo speculare): non puo' ne' partire ne' arrivare -> esce dalla decisione.
+    //   §108 (prima, piu' specifica): se la mobile e' anche in VUOTO non parte nemmeno (l'arrivo
+    //   non esiste senza partenza: linea inerte); il flusso CON LA COMBINAZIONE DEGLI STELI
+    //   (capolinea24From: 甲己 乙庚 丙辛 丁壬 戊癸, lo stelo legato non puo' essere capolinea),
+    //   se termina sull'elemento della BESTIA della mobile, vi si ferma e il PILASTRO DEL GIORNO
+    //   diventa padrone della linea; duello per GENERAZIONE (padrone al posto della linea inerte
+    //   se Shi/Ying): chi genera cede il Qi, chi riceve vince -> sede del ricevente. 4/4, +256.
+    //   §107: duello normale, la Ying VUOTA non agisce -> vince lo Shi -> sede dello Shi.
+    //   13/13, +874. Lo speculare (Shi vuoto) NON vale (44,4%); senza vuoti il duello tace.
+    //   Audit: DUELLO24=off e SPECIALE24=off spengono.
+    if ((process.env.DUELLO24!=='off'||process.env.SPECIALE24!=='off') && R.mutante.casoMut===-1) {
+      const _arr24=R.mutante.ramoArr;
+      const _doppio24=(COMBINA[D]===dep&&CLASH[D]===_arr24)||(CLASH[D]===dep&&COMBINA[D]===_arr24);
+      if (_doppio24) {
+        const _S24=R.linee[R.shi-1], _Y24=R.linee[R.ying-1];
+        if (_S24&&_Y24) {
+          if (process.env.SPECIALE24!=='off' && mob.vuoto) {
+            const _cap24=capolinea24From(r.date||r.dateStr||r.d, r.dayStemUsed, r.oraBranch,
+                                         r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed);
+            const _BEL24={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+            const _bEl24=mob.bestia?_BEL24[mob.bestia.cn]:null;
+            if (_cap24 && _bEl24 && _cap24===_bEl24) {
+              const _SEs={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+              const _padr=_SEs[r.dayStemUsed];
+              const _eS=(R.mutante.pos===R.shi)?_padr:_S24.el;
+              const _eY=(R.mutante.pos===R.ying)?_padr:_Y24.el;
+              if (GEN[_eS]===_eY) return _Y24.pos<=3?'SHORT':'LONG';   // chi riceve la generazione vince
+              if (GEN[_eY]===_eS) return _S24.pos<=3?'SHORT':'LONG';
+              // degenere (nessuna generazione): scende al duello normale
+            }
+          }
+          if (process.env.DUELLO24!=='off' && _Y24.vuoto && !_S24.vuoto)
+            return _S24.pos<=3?'SHORT':'LONG';                          // la Ying vuota non agisce
+        }
+      }
+    }
     // 0 — §101 BLOCCO DELLA MOBILE RICEVENTE UNTIMELY (Edu, 26/08/2026, da EURJPY 27/03/2025).
     //   Caso 6 (il giorno libera la mobile): se la mobile e' untimely e la BESTIA sulla sua linea
     //   la DRENA (泄: elemento bestia = figlio della mobile), radicata (>=1 radice di calendario)
@@ -18787,17 +18870,16 @@ if (process.env.PESOSTELI) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil(dateStr){ if(cacheP[dateStr]) return cacheP[dateStr];
-    const [y,m,d]=dateStr.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[dateStr]=o; return o; }
+  function pil(dateStr, _yb, _mb){ const _k=dateStr+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(dateStr, _yb, _mb);
+    const o={anno:_d.anno, mese:_d.mese}; cacheP[_k]=o; return o; }
   const conta={}, esempi={};
   let tot=0;
   for (const r of rows) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil(r.date);
+    const P=pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const stems=[P.anno,P.mese,ds,so].filter(Boolean);
@@ -18835,10 +18917,9 @@ if (process.env.STELOFILO) {
                '寅':['午','戌'],'午':['寅','戌'],'戌':['寅','午'],
                '巳':['酉','丑'],'酉':['巳','丑'],'丑':['巳','酉']};
   const cacheP={};
-  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={anno:_d.anno, mese:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -18848,7 +18929,7 @@ if (process.env.STELOFILO) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil(r.date);
+    const P=pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const stems=[P.anno,P.mese,ds,so].filter(Boolean);
@@ -18964,10 +19045,9 @@ if (process.env.FORZABLOCCO) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -18977,7 +19057,7 @@ if (process.env.FORZABLOCCO) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     // POLARITA' (Edu, 22/08/2026): due opzioni a confronto.
@@ -19090,10 +19170,9 @@ if (process.env.TRENDPIL) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -19101,7 +19180,7 @@ if (process.env.TRENDPIL) {
     for(const pp of ['t',per].filter(Boolean)){const o=M[k][pp]; if(ok)o.w++; else o.l++; o.p+=pip;} };
   for (const r of rows) {
     const ds=r.dayStemUsed; if(!ds) continue;
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const perEl={}; for(const s of [P.annoS,P.meseS,ds,so].filter(Boolean)){const e=SE[s]; (perEl[e]=perEl[e]||[]).push(s);}
@@ -19174,10 +19253,9 @@ if (process.env.TRENDCLASH) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -19187,7 +19265,7 @@ if (process.env.TRENDCLASH) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const perL={}; for(const s of [P.annoS,P.meseS,ds,so].filter(Boolean)){const c=casa(s); if(c) perL[c]=(perL[c]||0)+1;}
@@ -19248,10 +19326,9 @@ if (process.env.PALAZZI) {
   const PALA={'子':6,'午':3,'卯':4,'酉':2,'丑':7,'寅':7,'未':8,'申':8,'戌':1,'亥':1,'辰':5,'巳':5};
   const OPP={6:3,3:6,4:2,2:4,7:8,8:7,1:5,5:1};
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -19272,7 +19349,7 @@ if (process.env.PALAZZI) {
   for (const r of rows) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const perEl={}; for(const s of [P.annoS,P.meseS,ds,so].filter(Boolean)){const e=SE[s]; (perEl[e]=perEl[e]||[]).push(s);}
@@ -19346,10 +19423,9 @@ if (process.env.PILASTRO) {
   const TRINE={'申':['子','辰'],'子':['申','辰'],'辰':['申','子'],'亥':['卯','未'],'卯':['亥','未'],'未':['亥','卯'],
                '寅':['午','戌'],'午':['寅','戌'],'戌':['寅','午'],'巳':['酉','丑'],'酉':['巳','丑'],'丑':['巳','酉']};
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -19371,7 +19447,7 @@ if (process.env.PILASTRO) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed);
@@ -19435,10 +19511,9 @@ if (process.env.MESECLASH) {
                '寅':['午','戌'],'午':['寅','戌'],'戌':['寅','午'],
                '巳':['酉','丑'],'酉':['巳','丑'],'丑':['巳','酉']};
   const cacheP={};
-  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={anno:_d.anno, mese:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -19449,7 +19524,7 @@ if (process.env.MESECLASH) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil(r.date);
+    const P=pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const perL={}; for(const s of [P.anno,P.mese,ds,so].filter(Boolean)){const c=casa(s); if(c) perL[c]=(perL[c]||0)+1;}
@@ -19536,10 +19611,9 @@ if (process.env.PESOFLUSSO) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={anno:_d.anno, mese:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -19550,7 +19624,7 @@ if (process.env.PESOFLUSSO) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil(r.date);
+    const P=pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const stems=[P.anno,P.mese,ds,so].filter(Boolean);
@@ -19603,10 +19677,9 @@ if (process.env.PESOINERTE) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={anno:_d.anno, mese:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -19616,7 +19689,7 @@ if (process.env.PESOINERTE) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil(r.date);
+    const P=pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const perL={}; for(const s of [P.anno,P.mese,ds,so].filter(Boolean)){const c=casa(s); if(c) perL[c]=(perL[c]||0)+1;}
@@ -19662,10 +19735,9 @@ if (process.env.PESOTRIG) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={anno:_d.anno, mese:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -19675,7 +19747,7 @@ if (process.env.PESOTRIG) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil(r.date);
+    const P=pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const sale=r.move>0;
@@ -19764,10 +19836,9 @@ if (process.env.PESOAMP) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={anno:_d.anno, mese:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -19784,7 +19855,7 @@ if (process.env.PESOAMP) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil(r.date);
+    const P=pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const stems=[P.anno,P.mese,ds,so].filter(Boolean);
@@ -19816,15 +19887,14 @@ if (process.env.PESOSCAN) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={anno:_d.anno, mese:_d.mese}; cacheP[_k]=o; return o; }
   for (const r of rows) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil(r.date);
+    const P=pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const stems=[P.anno,P.mese,ds,so].filter(Boolean);
@@ -19860,11 +19930,10 @@ if (process.env.TRASPSTELI) {
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
   const cachePil={};
-  function pilastri(dateStr){ if(cachePil[dateStr]) return cachePil[dateStr];
-    const [y,m,d]=dateStr.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const out={anno:ec.getYear().charAt(0), mese:ec.getMonth().charAt(0)};
-    cachePil[dateStr]=out; return out; }
+  function pilastri(dateStr, _yb, _mb){ const _k=dateStr+'|'+_yb+'|'+_mb; if(cachePil[_k]) return cachePil[_k];
+    const _d=pilastriDerivati(dateStr, _yb, _mb);
+    const out={anno:_d.anno, mese:_d.mese};
+    cachePil[_k]=out; return out; }
   function steloOra(dayStem, oraBranch){ const s0=WUSHU[dayStem]; if(!s0||!oraBranch) return null;
     const i=HB.indexOf(oraBranch); if(i<0) return null; return ST[(ST.indexOf(s0)+i)%10]; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
@@ -19883,7 +19952,7 @@ if (process.env.TRASPSTELI) {
     const lad = (ST.indexOf(ds)%2===0)?YANG:YIN;
     const i0 = lad.indexOf(ds); if(i0<0) continue;
     const lineStem = pos => lad[(i0+pos-1)%6];
-    const P = pilastri(r.date);
+    const P = pilastri(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const dateStems=[P.anno,P.mese,ds,steloOra(ds,r.oraBranch)].filter(Boolean);
     const dstStem = lineStem(c.pos), dstEl = SE[dstStem];
     let score=0;
@@ -20682,10 +20751,9 @@ if (process.env.LIBERAZIONE) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -20695,7 +20763,7 @@ if (process.env.LIBERAZIONE) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const coppie=[{s:P.annoS,b:r.yearBranchUsed},{s:P.meseS,b:r.monthBranchUsed},
@@ -20777,10 +20845,9 @@ if (process.env.SBLOCCOMIS) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -20792,7 +20859,7 @@ if (process.env.SBLOCCOMIS) {
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; if(lad.indexOf(ds)<0) continue;
     const i0=lad.indexOf(ds);
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const steli=[P.annoS,P.meseS,ds,so].filter(Boolean);
@@ -20875,10 +20942,9 @@ if (process.env.CLASHSTELI) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -20889,7 +20955,7 @@ if (process.env.CLASHSTELI) {
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; if(lad.indexOf(ds)<0) continue;
     const i0=lad.indexOf(ds);
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const steli=[P.annoS,P.meseS,ds,so].filter(Boolean);
@@ -20967,17 +21033,16 @@ if (process.env.M1DUMP) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const out=[];
   for (const r of rows) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; if(lad.indexOf(ds)<0) continue;
     const i0=lad.indexOf(ds);
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const steli=[P.annoS,P.meseS,ds,so].filter(Boolean);
@@ -21062,10 +21127,9 @@ if (process.env.ATTROTTA2) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -21076,7 +21140,7 @@ if (process.env.ATTROTTA2) {
     const ds=r.dayStemUsed; if(!ds) continue;
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; const i0=lad.indexOf(ds); if(i0<0) continue;
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const steliT=[P.annoS,P.meseS,ds,so].filter(Boolean);
@@ -21147,10 +21211,9 @@ if (process.env.COMBSTELI) {
   const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
   const HB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheP={};
-  function pil8(ds){ if(cacheP[ds]) return cacheP[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={annoS:ec.getYear().charAt(0), meseS:ec.getMonth().charAt(0)}; cacheP[ds]=o; return o; }
+  function pil8(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheP[_k]) return cacheP[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={annoS:_d.anno, meseS:_d.mese}; cacheP[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -21161,7 +21224,7 @@ if (process.env.COMBSTELI) {
     const lad=(ST.indexOf(ds)%2===0)?YANG:YIN; if(lad.indexOf(ds)<0) continue;
     const i0=lad.indexOf(ds);
     const casa = s => { const j=lad.indexOf(s); return j<0?null:((j-i0+6)%6)+1; };
-    const P=pil8(r.date);
+    const P=pil8(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const so=(()=>{const s0=WUSHU[ds]; if(!s0||!r.oraBranch)return null;
       const i=HB.indexOf(r.oraBranch); return i<0?null:ST[(ST.indexOf(s0)+i)%10];})();
     const steli=[P.annoS,P.meseS,ds,so].filter(Boolean);
@@ -21712,12 +21775,10 @@ if (process.env.JUMP3) {
   const SEx={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
   const BEL={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Fire','白虎':'Metal','玄武':'Water'};
   const cacheB={};
-  function pil(ds){ if(cacheB[ds]) return cacheB[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    const o={aS:ec.getYear().charAt(0), aB:ec.getYear().charAt(1),
-             mS:ec.getMonth().charAt(0), mB:ec.getMonth().charAt(1)};
-    cacheB[ds]=o; return o; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheB[_k]) return cacheB[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    const o={aS:_d.anno, aB:_yb, mS:_d.mese, mB:_mb};
+    cacheB[_k]=o; return o; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -21732,7 +21793,7 @@ if (process.env.JUMP3) {
     if (!mob || mob.forte === false) continue;
     const dep = R.mutante.ramoDep;
     // partenza bloccata dallo stelo sormontante dell'elemento della Bestia della mobile?
-    const P = pil(r.date);
+    const P = pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const bEl = mob.bestia ? BEL[mob.bestia.cn] : null;
     let bloccata = false;
     if (bEl) {
@@ -21786,11 +21847,10 @@ if (process.env.TSBLOCCO) {
   const STx=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
   const BRx=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheB={};
-  function pil(ds){ if(cacheB[ds]) return cacheB[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    cacheB[ds]={aS:ec.getYear().charAt(0),aB:ec.getYear().charAt(1),mS:ec.getMonth().charAt(0),mB:ec.getMonth().charAt(1)};
-    return cacheB[ds]; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheB[_k]) return cacheB[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    cacheB[_k]={aS:_d.anno, aB:_yb, mS:_d.mese, mB:_mb};
+    return cacheB[_k]; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -21803,7 +21863,7 @@ if (process.env.TSBLOCCO) {
     if (R.mutante.movimentoNullo) continue;
     const mob = R.linee[R.mutante.pos-1]; if (!mob) continue;
     const dep = R.mutante.ramoDep;
-    const P = pil(r.date);
+    const P = pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const bEl = mob.bestia ? BEL[mob.bestia.cn] : null;
     let oS=null; const oB=r.oraBranch||null;
     if (oB && r.dayStemUsed && WUSHUx[r.dayStemUsed]) { const i=BRx.indexOf(oB);
@@ -21846,11 +21906,10 @@ if (process.env.JUMP4) {
   const STx=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
   const BRx=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
   const cacheB={};
-  function pil(ds){ if(cacheB[ds]) return cacheB[ds];
-    const [y,m,d]=ds.split('-').map(Number);
-    const ec=Solar.fromYmdHms(y,m,d,12,0,0).getLunar().getEightChar();
-    cacheB[ds]={aS:ec.getYear().charAt(0),aB:ec.getYear().charAt(1),mS:ec.getMonth().charAt(0),mB:ec.getMonth().charAt(1)};
-    return cacheB[ds]; }
+  function pil(ds, _yb, _mb){ const _k=ds+'|'+_yb+'|'+_mb; if(cacheB[_k]) return cacheB[_k];
+    const _d=pilastriDerivati(ds, _yb, _mb);
+    cacheB[_k]={aS:_d.anno, aB:_yb, mS:_d.mese, mB:_mb};
+    return cacheB[_k]; }
   const mk=()=>({t:{w:0,l:0,p:0},re:{w:0,l:0,p:0},ve:{w:0,l:0,p:0}});
   const M={}; const add=(k,ok,r)=>{ if(ok===null) return; M[k]=M[k]||mk();
     const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
@@ -21864,7 +21923,7 @@ if (process.env.JUMP4) {
     const mob = R.linee[R.mutante.pos-1];
     if (!mob || mob.forte === false) continue;
     const dep = R.mutante.ramoDep;
-    const P = pil(r.date);
+    const P = pil(r.date, r.yearBranchUsed, r.monthBranchUsed);
     const bEl = mob.bestia ? BEL[mob.bestia.cn] : null;
     let oS=null; const oB=r.oraBranch||null;
     if (oB && r.dayStemUsed && WUSHUx[r.dayStemUsed]) { const i=BRx.indexOf(oB);
