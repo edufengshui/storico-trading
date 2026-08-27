@@ -51,29 +51,42 @@ for (const r of rows) {
     while(g++<6){const gg=GEN[e]; if(!pres[gg]||!util(gg).length)break; e=gg; ult=gg; passi++;}
     if(ult&&passi>lung){lung=passi;cap=ult;}}
   const sale=r.move>0;
-  // linee incompatibili
+  // FATTORE FINALE: parla solo se nient'altro succede (silenzio come nel duello)
+  const D=r.dayBranch, Mo=r.monthBranch;
+  const COMB2={'子':'丑','丑':'子','寅':'亥','亥':'寅','卯':'戌','戌':'卯','辰':'酉','酉':'辰','巳':'申','申':'巳','午':'未','未':'午'};
+  const mob=R.linee[R.mutante.pos-1];
+  const meseVuoto=R.vuoti&&R.vuoti.indexOf(Mo)>=0;
+  const meseClasha=!meseVuoto&&R.linee.some(l=>CLASH[Mo]===l.ramo);
+  const giornoAltro=R.linee.some(l=>l.pos!==mob.pos&&(CLASH[D]===l.ramo||COMB2[D]===l.ramo));
+  const silenzio=!meseClasha&&!giornoAltro;
+  // linee incompatibili + cariche (bestia/stelo COL PROPRIO RAMO NELLA DATA)
   const inc=[];
   for(const l of R.linee){
     const trig=l.pos<=3?r.inf:r.sup; const propri=TRIG_RAMI[trig]||[];
     if(!propri.some(b=>CLASH[b]===l.ramo)) continue;
-    const steloCasa=steli.some(s=>casaDi(s)===l.pos&&conRadice(s));
-    const bestiaCap=cap&&l.bestia&&BEL[l.bestia.cn]===cap;
-    inc.push({l, steloCasa, bestiaCap});
+    const bEl=l.bestia?BEL[l.bestia.cn]:null;
+    const radiciBestia=bEl?rami.filter(b=>WX[b]===bEl).length:0;
+    const steloCasaRad=steli.filter(s=>casaDi(s)===l.pos&&conRadice(s));
+    const steloStessoEl=steloCasaRad.some(s=>SE[s]===bEl);
+    inc.push({l, radiciBestia, steloCasa:steloCasaRad.length>0, steloStessoEl});
   }
   if(!inc.length) continue;
-  add('0. esiste almeno una linea incompatibile (caso -1)', true, r);
   const vinceSeat=l=>((l.pos<=3?'SHORT':'LONG')===(sale?'LONG':'SHORT'));
-  // A: stelo radicato in casa
-  const A=inc.filter(x=>x.steloCasa);
-  if(A.length===1) add('A. UNICA incompatibile con stelo di data RADICATO in casa -> vince la sua squadra', vinceSeat(A[0].l), r, 'L'+A[0].l.pos+' '+A[0].l.ramo);
-  // B: bestia dell'elemento del capolinea
-  const Bq=inc.filter(x=>x.bestiaCap);
-  if(Bq.length===1) add('B. UNICA incompatibile con bestia del capolinea -> vince la sua squadra', vinceSeat(Bq[0].l), r, 'L'+Bq[0].l.pos+' '+Bq[0].l.ramo);
-  // C: tutte e due le cariche insieme
-  const Cq=inc.filter(x=>x.steloCasa&&x.bestiaCap);
-  if(Cq.length===1) add('C. UNICA incompatibile con stelo in casa E bestia del capolinea -> vince la sua squadra', vinceSeat(Cq[0].l), r, 'L'+Cq[0].l.pos+' '+Cq[0].l.ramo);
-  // D: controllo — incompatibile qualunque senza carica (prima trovata)
-  if(inc.length===1) add('D. controllo: incompatibile unica, carica o no -> vince la sua squadra', vinceSeat(inc[0].l), r);
+  // dimenticanze: la legge fissa (una linea VUOTA non agisce) e la carica per COINCIDENZA
+  // del ramo di data sulla linea (nella guida L4 丑 coincide con MESE e ORA, raddoppiati)
+  for(const x of inc){
+    x.vuota=!!x.l.vuoto;
+    x.coinc=rami.filter(b=>b===x.l.ramo).length;   // quante volte il ramo della linea sta nella data
+  }
+  const cella=(nome,f)=>{const q=inc.filter(f);
+    if(q.length===1){ add(nome, vinceSeat(q[0].l), r, 'L'+q[0].l.pos+' '+q[0].l.ramo);
+      if(silenzio) add(nome+' · E SILENZIO (fattore finale)', vinceSeat(q[0].l), r, 'L'+q[0].l.pos+' '+q[0].l.ramo); }};
+  cella('E. bestia radicata + stelo in casa stesso el. (misura precedente)', x=>x.radiciBestia>=1&&x.steloStessoEl);
+  cella('G. NON vuota + coincidenza di ramo di data sulla linea', x=>!x.vuota&&x.coinc>=1);
+  cella('H. NON vuota + coincidenza + bestia radicata', x=>!x.vuota&&x.coinc>=1&&x.radiciBestia>=1);
+  cella('I. NON vuota + coincidenza + stelo radicato in casa', x=>!x.vuota&&x.coinc>=1&&x.steloCasa);
+  cella('J. NON vuota + coincidenza RADDOPPIATA (>=2 rami di data)', x=>!x.vuota&&x.coinc>=2);
+  cella('K. la struttura piena della guida: non vuota, coinc>=2, bestia radicata, stelo in casa', x=>!x.vuota&&x.coinc>=2&&x.radiciBestia>=1&&x.steloCasa);
 }
 const pc=d=>{const n=d.w+d.l; return n?(100*d.w/n).toFixed(1)+'%':'—';};
 const zz=d=>{const n=d.w+d.l; return n?((d.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
@@ -82,7 +95,7 @@ console.log('cella'.padEnd(78)+'n'.padStart(5)+'win%'.padStart(8)+'z'.padStart(7
 for(const [k,d] of Object.entries(M).sort()){
   console.log(k.padEnd(78)+String(d.w+d.l).padStart(5)+pc(d).padStart(8)+zz(d).padStart(7)+pp(d.re).padStart(10)+pp(d.ve).padStart(10)+d.p.toFixed(0).padStart(8));
 }
-for(const key of ['C. UNICA incompatibile con stelo in casa E bestia del capolinea -> vince la sua squadra','A. UNICA incompatibile con stelo di data RADICATO in casa -> vince la sua squadra']){
+for(const key of ['J. NON vuota + coincidenza RADDOPPIATA (>=2 rami di data) · E SILENZIO (fattore finale)','G. NON vuota + coincidenza di ramo di data sulla linea · E SILENZIO (fattore finale)','H. NON vuota + coincidenza + bestia radicata · E SILENZIO (fattore finale)']){
   console.log('\n--- dettaglio '+key.slice(0,1)+' ---');
   (dett[key]||[]).forEach(x=>console.log(x));
 }

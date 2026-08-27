@@ -6726,6 +6726,45 @@ if (process.env.PBLY) {
         if (process.env.VIAGW_RAMO!=='a') return opp99;
       }
     }
+    // === ULTIMA ISTANZA (Edu, 27/08/2026): prima di ricorrere al duello Shi/Ying ===
+    // ULTIMA ISTANZA — §109 LINEA INCOMPATIBILE COL TRIGRAMMA CHE LA OSPITA
+    // (CABLATA 27/08/2026 sessione 24, guida USDCAD 16/01/2024 seme 134; "B perde"
+    // CERTIFICATA DA EDU il 27/08/2026). SOLO le cinque coppie di Edu, corpo unico:
+    // 丑∈坤 · 卯∈兌 · 辰∈乾 · 午∈坎 · 申∈艮 (le speculari NON valgono: 40,4%).
+    // Linea NON vuota (il vuoto non agisce), UNICA, che SI PRENDE BESTIA E STELI
+    // (bestia radicata nella data + stelo radicato con casa sulla linea), a movimento
+    // nullo (caso -1). G/P/W -> la sua squadra VINCE; B -> PERDE; C tace.
+    // Parla in ULTIMA ISTANZA, prima di ricorrere al duello Shi/Ying (indicazione di Edu):
+    // regressione +275 pip, recente invariato, vecchio migliora. Audit: INCOMP24=off.
+    if (process.env.INCOMP24!=='off' && R.mutante.casoMut===-1) {
+      const _EDU={'丑':8,'卯':2,'辰':1,'午':6,'申':7};
+      const _BEL={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+      const _SEs={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+      const _WXb={'寅':'Wood','卯':'Wood','巳':'Fire','午':'Fire','辰':'Earth','丑':'Earth','戌':'Earth','未':'Earth','申':'Metal','酉':'Metal','亥':'Water','子':'Water'};
+      const _pl=pilastriDerivati(r.date||r.d, r.yearBranchUsed, r.monthBranchUsed);
+      const _so=(()=>{const s0=CA_WUSHU[r.dayStemUsed]; if(!s0||!r.oraBranch)return null;
+        const i=B.indexOf(r.oraBranch); return i<0?null:STEMS10[(STEMS10.indexOf(s0)+i)%10];})();
+      const _steli=[_pl.anno,_pl.mese,r.dayStemUsed,_so].filter(Boolean);
+      const _rami=[r.yearBranchUsed,r.monthBranchUsed,r.dayBranchUsed,r.oraBranch].filter(Boolean);
+      const _lad=(STEMS10.indexOf(r.dayStemUsed)%2===0)?CA_YANG:CA_YIN;
+      const _i0=_lad.indexOf(r.dayStemUsed);
+      if (_i0>=0) {
+        const _casa=s=>{const j=_lad.indexOf(s); return j<0?null:((j-_i0+6)%6)+1;};
+        const _rad=s=>_rami.some(b=>_WXb[b]===_SEs[s]);
+        const _q=R.linee.filter(l=>{
+          const trig=l.pos<=3?r.inf:r.sup;
+          if(_EDU[l.ramo]!==trig||l.vuoto) return false;
+          const bEl=l.bestia?_BEL[l.bestia.cn]:null;
+          if(!bEl||!_rami.some(b=>_WXb[b]===bEl)) return false;
+          return _steli.some(s=>_casa(s)===l.pos&&_rad(s));
+        });
+        if (_q.length===1 && _q[0].par!=='C') {
+          const _l=_q[0];
+          const _vs=(_l.par!=='B');
+          return _vs ? (_l.pos<=3?'SHORT':'LONG') : (_l.pos<=3?'LONG':'SHORT');
+        }
+      }
+    }
     return null;
   }
   const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');

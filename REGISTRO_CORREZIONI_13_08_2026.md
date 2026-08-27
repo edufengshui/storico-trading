@@ -4130,3 +4130,16 @@ Tre insegnamenti:
 2. L'arrivo della mobile liberata **agisce**: qui clasha la linea sopra la nascosta e la fa uscire.
 3. Un attore debole di stagione **può agire se la bestia della linea ha radice nel ramo di data
    del suo stesso elemento** (qui 玄武/壬 Acqua radicata nel 子 dell'anno).
+
+### §109 CABLATA (27/08/2026, sera) — Linea incompatibile col trigramma, ULTIMA ISTANZA
+
+**Edu certifica la direzione della B: la B incompatibile carica fa PERDERE la propria squadra.**
+Cablata §109 in entrambi i motori, in ULTIMA ISTANZA — parla solo quando tutte le altre vie
+tacciono, prima di ricorrere al duello Shi/Ying (indicazione esplicita di Edu; in testa avrebbe
+reso +71 pip col recente in calo, in ultima istanza rende +275 senza costi). Perimetro: cinque
+coppie (丑∈坤 卯∈兌 辰∈乾 午∈坎 申∈艮), movimento nullo, linea non vuota unica che si prende
+bestia e steli; G/P/W vince · B perde · C tace. Nota d'ordine: 6 carte stanno anche nel doppio
+legame del duello (cinque B): oggi lì parla prima il duello (§107/108 in testa); sotto-ordine da
+rifinire con misura dedicata se serve. Nuovo baseline canonico:
+**2.788 carte · 59,94% · z 10,49 · +39.193 pip** (recente 59,34 · vecchio 60,18 · **46 vie**).
+Audit: `INCOMP24=off` → 59,90.

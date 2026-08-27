@@ -851,3 +851,30 @@ Misura (universo caso −1, 477 carte con almeno un'incompatibile): stelo radica
 50,7%; bestia del capolinea 96 carte 44,8%; tutte e due le cariche 39 carte 51,3%; controllo senza
 carica 48,8%. **Piatta in ogni variante nella formalizzazione attuale.** Se si riprende, serve un
 ingrediente più stretto per "niente si muove" e/o per la carica. Script: `incompatibile.js`.
+
+**Aggiornamento (stessa sera) — misura rifatta con la formalizzazione corretta di Edu:** la linea
+incompatibile non è una mobile ma un **fattore finale** (parla solo nel silenzio, priorità del
+residuo), e la carica è **bestia/stelo col proprio ramo nella data** (come il 玄武 di EURUSD
+05/03/2020), non la bestia del capolinea. Rimisurato: silenzio + incompatibile unica + bestia
+radicata nella data + stelo radicato in casa dello stesso elemento (la struttura esatta della
+guida) = **22 carte · 11 giuste, 11 sbagliate · 50,0%**. Anche le varianti più larghe e più
+strette (solo bestia, radici ≥2, senza silenzio) sono tutte fra 45,8% e 50,7%. Dentro la cella ci
+sono contrasti stretti: GBPUSD 02/12/2020 (L4 丑 dentro 坤, la gemella strutturale della guida)
+perde; USDCAD 21/07/2025 vince e 29/07/2025 perde con la stessa L3 辰. Il fattore, così come lo
+so scrivere, non separa.
+
+
+**Aggiornamento finale sessione 24 — la formulazione giusta (lista esplicita di Edu).** Le coppie
+incompatibili sono SOLO cinque, corpo unico: 丑∈坤 · 卯∈兌 · 辰∈乾 · 午∈坎 · 申∈艮 (le speculari
+NON appartengono: 40,4% su 94, tirano all'opposto). Perimetro: caso −1, linea non vuota, unica,
+che SI PRENDE BESTIA E STELI (bestia radicata nella data + stelo radicato in casa). **53 carte su
+2.788** — la rarità attesa da Edu torna. Mappa al netto dei 50%:
+- VINCE la squadra della linea: **G 14 · 64,3%** · **P 7 · 71,4%** · **W 6 · 66,7%**
+- PERDE la squadra: **B 24 · 58,3%** (67% nel vecchio); dentro: 申 vibrante (autunno, tutte B)
+  perde 3/4 — coerente col principio di Edu (in tomba su 艮 fuori stagione: muta) letto con la B
+  rovesciata; B timely in trigramma untimely perde 8/12
+- REGOLA COMPOSTA (G/P/W vince · B perde · C tace): **51 carte · 62,7% · z 1,82 · +564 pip**
+  (recente 58% · vecchio 72%). **CABLATA §109 il 27/08/2026 in ULTIMA ISTANZA** (+275 pip in
+  regressione, recente invariato); la direzione "B perde" è stata **CERTIFICATA da Edu**;
+  il rapporto elementale linea/trigramma e i timeliness (linea e trigramma) sono mappati ma il
+  campione non basta a deciderli: servirà lo spartito completo di Edu o più carte.

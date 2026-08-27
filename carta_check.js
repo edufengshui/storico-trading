@@ -531,6 +531,32 @@ for(const f of candAttivi){
   else
     cand.push('DUELLO-24: mobile chiusa ai due capi, nessun vuoto fra Shi e Ying (diagnostica) — il duello non parla (celle di controllo piatte)');
 })();
+// INCOMP-24 — CABLATA §109 il 27/08/2026 (diagnostica di perimetro; la via vera e' in LY_VIE)
+// trigramma che la ospita — SOLO le cinque coppie di Edu: 丑∈坤 卯∈兌 辰∈乾 午∈坎 申∈艮 —
+// non vuota, che SI PRENDE BESTIA E STELI (bestia radicata nella data + stelo radicato in
+// casa sulla linea), unica, a movimento nullo (caso -1). Direzioni EMPIRICHE (51 carte,
+// 62,7%, z 1,82: rec 58% / vec 72%): G/P/W -> la sua squadra VINCE; B -> PERDE; C tace.
+// La "B perde" attende certificazione dottrinale di Edu. Rapporto elementale linea/trigramma
+// e timeliness: mappa in CANDIDATI, campione troppo piccolo per decidere.
+(() => {
+  if (M.casoMut !== -1) return;
+  const EDU24={'丑':8,'卯':2,'辰':1,'午':6,'申':7};
+  const BEL24={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+  const q=R.linee.filter(l=>{
+    const trig=l.pos<=3?inf:sup;
+    if(EDU24[l.ramo]!==trig||l.vuoto) return false;
+    const bEl=l.bestia?BEL24[l.bestia.cn]:null;
+    if(!bEl||!ramiT.some(b=>WX[b]===bEl)) return false;
+    return steliT.some(x=>{const s=x[1];return casa(s)===l.pos&&conRadice(s);});
+  });
+  if(q.length!==1) return;
+  const l=q[0];
+  if(l.par==='C'){ cand.push('INCOMP-24 (§109): linea incompatibile carica L'+l.pos+' '+l.ramo+' e\' una C — il candidato tace'); return; }
+  const vinceSquadra=(l.par!=='B');
+  const dir=vinceSquadra?(l.pos<=3?'SHORT':'LONG'):(l.pos<=3?'LONG':'SHORT');
+  cand.push('INCOMP-24 (§109 CABLATA): L'+l.pos+' '+l.ramo+' ('+l.par+') incompatibile col trigramma, si prende bestia e steli → '
+    +(vinceSquadra?'la sua squadra VINCE':'B: la sua squadra PERDE')+' → '+dir+(dir===realDir?' ✓':' ✗'));
+})();
 // ELASTICOF §85
 cand.push('§85 elastico×forza: da valutare A MANO se c\'è una liberata (serve il modello di forza — non automatizzato qui)');
 
