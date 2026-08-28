@@ -878,3 +878,47 @@ che SI PRENDE BESTIA E STELI (bestia radicata nella data + stelo radicato in cas
   regressione, recente invariato); la direzione "B perde" è stata **CERTIFICATA da Edu**;
   il rapporto elementale linea/trigramma e i timeliness (linea e trigramma) sono mappati ma il
   campione non basta a deciderli: servirà lo spartito completo di Edu o più carte.
+
+### C-GEN · Duello Shi/Ying per generazione col nutrito vivo (Edu, sessione 25, 28/08/2026)
+**Lettura:** a movimento nullo, nel residuo dell'inventario (il giorno non clasha ferme, niente
+trigono completo, niente linea incompatibile, nessun vuoto asimmetrico S/Y), se fra Shi e Ying
+c'è GENERAZIONE, **chi viene nutrito vince** (sede del ricevente) — ma solo se il nutrito è VIVO:
+nutrire un morto non lo fa vincere (gemelle USDCHF 15/06/2022 vs 13/10/2022, stesso seme 99,
+cambia solo il mese e con lui la vita del ricevente).
+**Carte guida lette:** USDJPY 11/04/2024 (Ying 未 genera Shi 酉 → LONG ✓), EURGBP 03/05/2021
+(Ying 未... variante: Y genera S → SHORT ✓), USDCHF 13/10/2022 (Y 丑 genera S 申 forte → LONG ✓).
+**Misura (28/08/2026):** perimetro residuo + generazione: col campo `forte` del motore
+26 carte · 46,2%; con vita per stagione (mese genera o stesso elemento) 17 carte · 52,9% ·
+recente 3/9 · vecchio 5/7. **Non separa ancora: la definizione della "vita" del nutrito è la
+domanda aperta.** Il ramo complementare (niente generazione utile → parla l'ora intera) è stato
+cablato come §112.
+**Flag:** in lettura carta per carta con Edu. Cablare solo quando le perdenti del perimetro
+saranno spiegate o la definizione di vita separerà. Carte a z4: ~30 col 70%.
+**Aggiornamento 28/08/2026 (stessa sessione):** col checklist corretto (arrivo impigliato →
+carattere d'arrivo, regola confermata) TUTTE le perdenti del perimetro risultano governate da
+altre regole; il residuo dove la generazione parlerebbe da sola si riduce a 3 carte. Stato:
+resta MECCANICA DI LETTURA (Parte 1) — decide le carte in mano a Edu e fa da porta a §110/§112 —
+ma al momento NON ha spazio da via autonoma nel termometro. Si riapre se il residuo cresce.
+
+### M-ATT · La linea attivata che non può trasformarsi (Edu, sessione 25, 28/08/2026)
+**Carte:** NZDUSD 15/06/2022 (seme 62) e USDCAD 04/11/2025 (seme 140).
+Un PILASTRO arriva sulla mobile — la bestia del suo stelo le siede sopra (bestia terminale del
+flusso, o bestia dello stelo del mese) — e la ATTIVA. **Due pilastri i cui rami si clashano fra
+loro non arrivano** (USDCAD: giorno 丑 e ora 未 si clashano → arriva il mese). La linea attivata
+però NON PUÒ TRASFORMARSI: l'arrivo le viene tolto da un ramo di calendario (clash del giorno su
+NZDUSD; penalità 刑 del mese su USDCAD). Resta il **carattere di partenza**: B/P fanno perdere la
+propria squadra (sede opposta), G/W la fanno vincere. È la regola confermata del 22/08 ("B e P
+fanno perdere la squadra della propria sede") applicata alla mobile attivata-e-bloccata.
+**Misura della porta grezza (28/08):** residuo + qualunque pilastro arrivante + arrivo tolto da
+clash/刑: 52 carte · 44,2% (base 59,6%) — NON cablabile così: la porta non distingue quale
+pilastro arriva davvero né se l'azione che toglie l'arrivo è nel tempo. Domande dottrinali aperte
+per affinare: gerarchia dei pilastri arrivanti; timeliness dell'azione che toglie l'arrivo.
+
+### M-TSQ · Il Tai Sui che clasha la quieta: lei genera la vicina (Edu, sessione 25, 28/08/2026)
+**Carta:** USDJPY 27/03/2023 (seme 130). Il Tai Sui 卯 (doppio: anche il mese è 卯) clasha la
+quieta L6 酉 C. Colpita, la quieta non trova nient'altro da fare che GENERARE la linea più
+vicina: la W L5 亥. La nutrita vince → la sua sede → LONG ✓ (+70).
+**Misura della porta grezza (28/08):** residuo + Tai Sui che clasha una ferma + generazione
+verso una vicina: 18 carte · 50,0% — NON cablabile così. Aperte per l'affinamento: quali quiete
+contano, la vita del Tai Sui (qui raddoppiato dal mese) e della colpita, la parentela della
+nutrita (G 4/6, P 2/6).

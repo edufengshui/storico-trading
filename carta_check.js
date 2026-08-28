@@ -232,6 +232,22 @@ if (M.movimentoNullo && (/arrival void/.test(M.motivoNullo||'') || R.vuoti.index
   mecc.push('  └ PRECEDENZA: se sopra c\'è un 三合 completo o una combinazione del bersaglio, comanda quello, non il carattere della mobile');
   if (arrMascherato) mecc.push('  └ NB: l\'arrivo '+M.ramoArr+' è VUOTO ma l\'etichetta del motore è "'+M.motivoNullo+'" (il giorno sospende ANCHE): l\'arrivo-nel-vuoto vale comunque');
 }
+// ARRIVO IMPIGLIATO DAL GIORNO — regola CONFERMATA (Edu 22/08/2026; richiamata su
+// USDCHF 21/01/2021, sessione 25): "B e P fanno perdere la squadra della propria sede —
+// vale anche per il carattere di ARRIVO della mobile". Quando la mobile e' sospesa perche'
+// il giorno COMBINA l'ARRIVO (arrivo impigliato), la mobile si muove nell'arrivo e vi resta
+// LEGATA: la linea E' il carattere d'arrivo, fermo li'. B/P d'arrivo fanno perdere la sede
+// della mobile (verso opposto); G/W la fanno vincere (sede); C tace.
+if (M.movimentoNullo && M.casoMut===-1 && COMBINA[dayB]===M.ramoArr && R.vuoti.indexOf(M.ramoArr)<0) {
+  const aEl2 = WX[M.ramoArr], pEl2 = R.palEl;
+  const parA = aEl2===pEl2?'B': GEN[aEl2]===pEl2?'P': GEN[pEl2]===aEl2?'C': CTRL[aEl2]===pEl2?'G':'W';
+  const seat2 = p => p<=3 ? 'SHORT' : 'LONG';
+  let dir=null, spieg;
+  if (parA==='G'||parA==='W') { dir=seat2(mob.pos); spieg=parA+' d\'arrivo legato → vince la sede della mobile'; }
+  else if (parA==='B'||parA==='P') { dir=(seat2(mob.pos)==='SHORT'?'LONG':'SHORT'); spieg=parA+' d\'arrivo legato lì → fa perdere la sede della mobile'; }
+  else spieg='C d\'arrivo → tace';
+  mecc.push('ARRIVO IMPIGLIATO (regola confermata: il carattere d\'arrivo vale): L'+mob.pos+' si muove in '+M.ramoArr+' ('+parA+') che resta legato dal giorno — '+spieg+(dir?(' → '+dir+(dir===realDir?' ✓':' ✗')):''));
+}
 if (M.progressione) mecc.push('PROGRESSIONE: '+M.progressione+' ('+(M.progressione==='avanzante'?'進神':'退神')+')');
 // TAI SUI SUL MOVIMENTO (Edu, 23/08/2026, da EURGBP 22/05/2024 — DA OSSERVARE SEMPRE):
 // lo stelo dell'anno in casa sulla MOBILE + il ramo dell'anno che clasha l'ARRIVO

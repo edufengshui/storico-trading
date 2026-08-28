@@ -6064,6 +6064,42 @@ if (process.env.PBLY) {
         }
       }
     }
+    // §111 — L'ARRIVO CHE DIVENTA TAI SUI LIBERO (CABLATA 28/08/2026 sessione 25, guide
+    // EURGBP 03/06/2020 seme 88 — ramo penalita' — ed EURUSD 18/06/2020 seme 112 — ramo
+    // G/W; certificata da Edu). La mobile si muove davvero — oppure e' sospesa dal giorno
+    // ma il GIORNO INTERO cade sulla linea (mobile su L1, casa dello stelo del giorno,
+    // stelo radicato): non la sospende, la carica — e il suo ARRIVO e' il TAI SUI, LIBERO
+    // in carta (niente da combinare 六合 ne' da clashare 六冲 fra le altre linee).
+    // Gerarchia: G e W parlano per primi — arrivo G/W: la mobile lo diventa e fa VINCERE
+    // la propria squadra (la sua sede). Arrivo muto (P/B/C): agisce penalizzando (刑) —
+    // la squadra della penalizzata PERDE. (Edu: la penalita' 子卯 e' sensibile a
+    // timely/untimely — penalizza molto quando untimely.)
+    // Misura al cablaggio: 22 · 72,7% · z 2,13 · +517 · rami 12/66,7% e 10/80,0%.
+    // REGOLA DI CODA, congelata. Audit: TAISUILIBERO=off.
+    if (process.env.TAISUILIBERO!=='off') {
+      const _arr=R.mutante.ramoArr;
+      let _ok = _arr && r.yearBranchUsed && _arr===r.yearBranchUsed;
+      if (_ok && R.mutante.casoMut===-1) {
+        const _SE={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+        const _rami=[r.yearBranchUsed,r.monthBranchUsed,r.dayBranchUsed,r.oraBranch].filter(Boolean);
+        const _dsRad=_rami.some(b=>WX[b]===_SE[r.dayStemUsed]);
+        const _perGiorno=String(R.mutante.motivoNullo||'').indexOf('day')>=0;
+        _ok = (R.mutante.pos===1 && _dsRad && _perGiorno);
+      }
+      if (_ok) {
+        const _HE6={'子':'丑','丑':'子','寅':'亥','亥':'寅','卯':'戌','戌':'卯','辰':'酉','酉':'辰','巳':'申','申':'巳','午':'未','未':'午'};
+        const _CL={'子':'午','午':'子','丑':'未','未':'丑','寅':'申','申':'寅','卯':'酉','酉':'卯','辰':'戌','戌':'辰','巳':'亥','亥':'巳'};
+        const _altre=R.linee.filter(l=>l.pos!==R.mutante.pos);
+        if (!_altre.some(l=>_HE6[_arr]===l.ramo||_CL[_arr]===l.ramo)) {
+          const _aEl=WX[_arr], _pEl=R.palEl;
+          const _par = _aEl===_pEl?'B': GEN[_aEl]===_pEl?'P': GEN[_pEl]===_aEl?'C': CTRL[_aEl]===_pEl?'G':'W';
+          if (_par==='G'||_par==='W') return R.mutante.pos<=3?'SHORT':'LONG';
+          const _XING={'寅':'巳','巳':'申','申':'寅','丑':'戌','戌':'未','未':'丑','子':'卯','卯':'子','辰':'辰','午':'午','酉':'酉','亥':'亥'};
+          const _pen=_altre.find(l=>_XING[_arr]===l.ramo);
+          if (_pen) return _pen.pos<=3?'LONG':'SHORT';
+        }
+      }
+    }
     // 0 — §101 BLOCCO DELLA MOBILE RICEVENTE UNTIMELY (Edu, 26/08/2026, da EURJPY 27/03/2025).
     //   Caso 6 (il giorno libera la mobile): se la mobile e' untimely e la BESTIA sulla sua linea
     //   la DRENA (泄: elemento bestia = figlio della mobile), radicata (>=1 radice di calendario)
@@ -6762,6 +6798,98 @@ if (process.env.PBLY) {
           const _l=_q[0];
           const _vs=(_l.par!=='B');
           return _vs ? (_l.pos<=3?'SHORT':'LONG') : (_l.pos<=3?'LONG':'SHORT');
+        }
+      }
+    }
+    // §112 — L'ORA INTERA SULLA LINEA (CABLATA 28/08/2026 sessione 25, guida USDCHF
+    // 15/06/2022 seme 99; gemella USDCHF 13/10/2022 letta lo stesso giorno). Nel RESIDUO —
+    // movimento nullo, il giorno non clasha ferme, niente trigono completo, nessuna linea
+    // incompatibile, nessun vuoto asimmetrico S/Y, e il duello per generazione non decide
+    // (niente generazione, o nutrito senza forza: nutrire un morto non lo fa vincere) —
+    // parla l'ORA: quando arriva INTERA su una linea (ramo che la clasha + bestia del
+    // proprio stelo seduta sopra), la linea non puo' andare da nessuna parte e fa PERDERE
+    // la propria squadra -> sede opposta. Azione batte forza statica: parla PRIMA delle
+    // bestie di §110. Misura al cablaggio: 7/7 · +431. CODA, congelata. ORAINTERA=off.
+    if (process.env.ORAINTERA!=='off' && R.mutante.movimentoNullo) {
+      const _CL2={'子':'午','午':'子','丑':'未','未':'丑','寅':'申','申':'寅','卯':'酉','酉':'卯','辰':'戌','戌':'辰','巳':'亥','亥':'巳'};
+      let _f2=false;
+      for (const l of R.linee) if (l.pos!==R.mutante.pos && _CL2[r.dayBranchUsed]===l.ramo) { _f2=true; break; }
+      if (!_f2) {
+        const _TRINI2=[['申','子','辰'],['寅','午','戌'],['巳','酉','丑'],['亥','卯','未']];
+        const _m2={};
+        for (const l of R.linee){ _m2[l.ramo]=1;
+          if (l.fushen && l.fushen.ramo && (R.vuoti||[]).indexOf(l.fushen.ramo)<0) _m2[l.fushen.ramo]=1; }
+        _m2[r.dayBranchUsed]=1;
+        if (_TRINI2.some(t=>t.every(b=>_m2[b]))) _f2=true;
+      }
+      if (!_f2) {
+        const _TR2={1:['戌','亥'],2:['酉'],3:['午'],4:['卯'],5:['辰','巳'],6:['子'],7:['丑','寅'],8:['未','申']};
+        for (const l of R.linee){ const _pp2=_TR2[l.pos<=3?r.inf:r.sup]||[];
+          if (_pp2.some(b=>_CL2[l.ramo]===b)) { _f2=true; break; } }
+      }
+      if (!_f2) {
+        const _S2=R.linee[R.shi-1], _Y2=R.linee[R.ying-1];
+        if (!_S2||!_Y2) _f2=true;
+        else if (!!_S2.vuoto !== !!_Y2.vuoto) _f2=true;
+        else {
+          let _ric=null;
+          if (GEN[_Y2.el]===_S2.el) _ric=_S2; else if (GEN[_S2.el]===_Y2.el) _ric=_Y2;
+          if (_ric && _ric.forte) _f2=true;   // il duello col nutrito vivo (in lettura, non cablato)
+        }
+      }
+      if (!_f2 && r.oraBranch) {
+        const _s0=CA_WUSHU[r.dayStemUsed], _hi=B.indexOf(r.oraBranch);
+        if (_s0 && _hi>=0) {
+          const _so=STEMS10[(STEMS10.indexOf(_s0)+_hi)%10];
+          const _BDI2={'甲':'青龍','乙':'青龍','丙':'朱雀','丁':'朱雀','戊':'勾陳','己':'螣蛇','庚':'白虎','辛':'白虎','壬':'玄武','癸':'玄武'};
+          const _bo=_BDI2[_so];
+          const _L2=_bo?R.linee.find(l=>_CL2[r.oraBranch]===l.ramo&&l.bestia&&l.bestia.cn===_bo):null;
+          if (_L2) return _L2.pos<=3?'LONG':'SHORT';
+        }
+      }
+    }
+    // §110 — LETTURA DEL RESIDUO (CABLATA 28/08/2026 sessione 25, guide EURGBP 05/05/2022
+    // seme 84 e EURGBP 18/11/2021 seme 83; certificata da Edu). Nel caso -1 la mobile non
+    // puo' muoversi: si legge in contemporanea e si lavora con quello che SI TROVA. Se non
+    // si trova NIENT'ALTRO — il giorno non clasha nessuna ferma, nessun trigono completo
+    // (linee + fushen non vuoti + ramo del giorno), nessuna linea incompatibile (clash con
+    // un ramo proprio del trigramma ospite), e fra Shi e Ying nessuna azione (vuoto
+    // asimmetrico, controllo o generazione: chi viene nutrito vince) — restano le BESTIE:
+    // la linea che porta la bestia dello STELO DEL MESE vince la propria sede.
+    // In linea di massima le bestie si leggono prima di ricorrere al duello Shi/Ying.
+    // Misura al cablaggio: cella 12 · 58,3% · disc. 6 a 3/3 · REGOLA DI CODA congelata.
+    // Audit: RESIDUOBESTIA=off.
+    if (process.env.RESIDUOBESTIA!=='off' && R.mutante.casoMut===-1) {
+      const _CL={'子':'午','午':'子','丑':'未','未':'丑','寅':'申','申':'寅','卯':'酉','酉':'卯','辰':'戌','戌':'辰','巳':'亥','亥':'巳'};
+      let _fuori=false;
+      for (const l of R.linee) if (l.pos!==R.mutante.pos && _CL[r.dayBranchUsed]===l.ramo) { _fuori=true; break; }
+      if (!_fuori) {
+        const _TRINI=[['申','子','辰'],['寅','午','戌'],['巳','酉','丑'],['亥','卯','未']];
+        const _mem={};
+        for (const l of R.linee){ _mem[l.ramo]=1;
+          if (l.fushen && l.fushen.ramo && (R.vuoti||[]).indexOf(l.fushen.ramo)<0) _mem[l.fushen.ramo]=1; }
+        _mem[r.dayBranchUsed]=1;
+        if (_TRINI.some(t=>t.every(b=>_mem[b]))) _fuori=true;
+      }
+      if (!_fuori) {
+        const _TR={1:['戌','亥'],2:['酉'],3:['午'],4:['卯'],5:['辰','巳'],6:['子'],7:['丑','寅'],8:['未','申']};
+        for (const l of R.linee){ const _pp=_TR[l.pos<=3?r.inf:r.sup]||[];
+          if (_pp.some(b=>_CL[l.ramo]===b)) { _fuori=true; break; } }
+      }
+      if (!_fuori) {
+        const _S=R.linee[R.shi-1], _Y=R.linee[R.ying-1];
+        if (!_S||!_Y) _fuori=true;
+        else if (!!_S.vuoto !== !!_Y.vuoto) _fuori=true;
+        else if (CTRL[_S.el]===_Y.el || CTRL[_Y.el]===_S.el) _fuori=true;
+        else if (GEN[_S.el]===_Y.el || GEN[_Y.el]===_S.el) _fuori=true;
+      }
+      if (!_fuori) {
+        const _pl110=pilastriDerivati(r.date||r.d, r.yearBranchUsed, r.monthBranchUsed);
+        const _BDI={'甲':'青龍','乙':'青龍','丙':'朱雀','丁':'朱雀','戊':'勾陳','己':'螣蛇','庚':'白虎','辛':'白虎','壬':'玄武','癸':'玄武'};
+        const _bm=_pl110.mese?_BDI[_pl110.mese]:null;
+        if (_bm) {
+          const _L=R.linee.find(l=>l.bestia&&l.bestia.cn===_bm);
+          if (_L) return _L.pos<=3 ? 'SHORT' : 'LONG';
         }
       }
     }
