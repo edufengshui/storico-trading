@@ -922,3 +922,34 @@ vicina: la W L5 亥. La nutrita vince → la sua sede → LONG ✓ (+70).
 verso una vicina: 18 carte · 50,0% — NON cablabile così. Aperte per l'affinamento: quali quiete
 contano, la vita del Tai Sui (qui raddoppiato dal mese) e della colpita, la parentela della
 nutrita (G 4/6, P 2/6).
+
+## Sessione 26 — 29/08/2026
+
+### L'ORA CHE DIROTTA L'ARRIVO (osservazione, NON cablata)
+Lo stelo dell'ora coincide con la bestia della linea mobile: l'ora arriva intera sulla
+linea e si porta dietro il proprio ramo. Se quel ramo e' amico dell'arrivo (mezzo trigono
+三合) ed e' nutrito dall'arrivo, l'arrivo va a nutrire il ramo dell'ora invece della
+partenza: il movimento non conclude. Guida: USDJPY 23/03/2023 (ora 丙戌, bestia 朱雀
+su L4, arrivo 午 -> nutre 戌).
+Perimetro: 38 carte. Letta come "la sede della mobile perde": 60,5% · z 1,30 · +548 pip,
+ma vecchio 52,4% (21) e recente 78,6% (14) -> INCOERENTE fra i periodi, non cablabile.
+NOTA: Edu non ha certificato un verso proprio per questa meccanica — potrebbe essere solo
+una PORTA (la mobile si spegne, parla chi c'e' sotto), nel qual caso la misura sopra non
+la riguarda. Da riprendere con una carta guida in cui sia lei l'attore.
+
+### ARRIVO DI CARATTERE B/P (dottrina di Edu, trascrizione INSUFFICIENTE)
+Legge di Edu: "B e P fanno perdere la propria squadra", applicata all'ARRIVO.
+Guida: GBPUSD 06/05/2020 — la mobile L3 W 辰 va su un P perdente (亥, in prigione nel
+mese 巳): l'arrivo non vale nulla, l'azione muore dove atterra e la mobile TIENE la
+propria sede -> SHORT.
+Trascrizione grossolana provata (movimento nullo + arrivo B/P -> vince la sede della
+mobile): 601 carte al 45,6%; sul residuo muto 73 al 45,2%. NON e' una falsificazione
+della dottrina: su quasi tutte quelle carte l'attore e' un altro (cfr. EURJPY 31/10/2023,
+letta da Edu il 25/08: arrivo B ma decide lo stallo Shi/Ying rotto dalla bestia nutrita
+dagli steli). Manca il CONTORNO che nella carta guida rende l'arrivo l'attore: senza
+quello la regola non si cabla. NON toccare la regola; serve una nuova carta guida.
+
+### STALLO SHI/YING ROTTO DALLA BESTIA NUTRITA DAGLI STELI
+Meccanica letta da Edu il 25/08/2026 (EURJPY 31/10/2023), NON ancora nel filtro di
+carta_check.js: per questo il checklist marca quella carta come "da leggere" quando in
+realta' e' gia' letta. Da inserire in [5] alla prossima occasione.

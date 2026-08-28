@@ -155,7 +155,7 @@ LYM.setCasaAttore(casaAtt);
 const R = LYM.readManual(sup, inf, linea, dayB, meseB, annoB, dayS);
 if (R.error) { console.log('ERRORE readManual: '+R.error); process.exit(1); }
 const ctx = { oraBranch: oraB, emaDir: emaDir==='up'?'up':'down', date: date,
-              yearStem: annoS, monthStem: meseS, hourStem: oraS, capolineaEl: capolinea };
+              yearStem: annoS, monthStem: meseS, hourStem: oraS, oraBranch: oraB, capolineaEl: capolinea };
 const mEl = WX[meseB];
 
 /* ---------- 4. VIE + RAFFORZATIVI ---------- */
@@ -623,8 +623,8 @@ const spiegataDaVia = vie.some(v=>v.ok);
 // una meccanica o un candidato "spiega" la carta se la sua lettura AZZECCA il verso reale
 // (riga che termina con ✓). Il filtro dichiara DA LEGGERE solo se NULLA la spiega —
 // né via cablata, né meccanica in [5], né candidato in [6] (regola Edu 24/08/2026).
-const meccOk = mecc.filter(m=>/✓\s*$/.test(m));
-const candOk = cand.filter(c=>/✓\s*$/.test(c));
+const meccOk = mecc.filter(m=>m.includes('✓'));
+const candOk = cand.filter(c=>c.includes('✓'));
 const etichetta = s => s.replace(/\s*→.*$/,'').replace(/\s*\(.*$/,'').trim();
 if (spiegataDaVia) {
   console.log('[ESITO FILTRO] SPIEGATA da via cablata ('+vie.filter(v=>v.ok).map(v=>'§'+v.sezione).join(', ')+') — verificare priorità nel termometro');

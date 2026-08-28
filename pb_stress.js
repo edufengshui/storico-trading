@@ -6725,6 +6725,35 @@ if (process.env.PBLY) {
         q:(!R.mutante.movimentoNullo?(retro95?'Q2':'Q1'):(retro95?'Q4':'Q3')),dir:dir95});
       return dir95;
     }
+    // §113 — IL PILASTRO DEL MESE CHE SCORRE INTERO SULLA LINEA (CABLATA 29/08/2026 sessione 26,
+    //      guida USDJPY 23/03/2023 seme 131). Il pilastro del mese arriva INTERO su una linea:
+    //      stelo e ramo dello STESSO elemento, e la BESTIA della linea e' di quell'elemento —
+    //      il mese vi si siede in tutta la sua forza. La linea lo GENERA (viene assorbita) e il
+    //      mese passa oltre generando il 伏神 NON VUOTO nascosto sotto: flusso non ostacolato e
+    //      per definizione in stagione -> quella sede VINCE (alto LONG, basso SHORT).
+    //      Sulla guida la mobile L4 sembra muoversi ma il suo G Terra e' schiacciato dal Legno
+    //      all'apice, e l'ora 丙戌 atterra sulla mobile (stelo dell'ora = bestia della linea)
+    //      portandosi il proprio ramo, amico dell'arrivo: 午 nutre 戌 invece della partenza.
+    //      Misura al cablaggio: 3/3 · +143 pip (due gia' vinte per altre vie: sposta la sola
+    //      carta guida, +34). CODA, congelata. MESEPIENO=off per spegnerla.
+    if (process.env.MESEPIENO!=='off') {
+      const _p113=r.date.split('-').map(Number);
+      const _ys113=yearStemAt(_p113[0],_p113[1],_p113[2]);
+      const _ms113=monthStemFrom(_ys113, Mo);
+      const _BEL113={'青龍':'Wood','朱雀':'Fire','勾陳':'Earth','螣蛇':'Earth','白虎':'Metal','玄武':'Water'};
+      const _mEl113 = Mo ? WX[Mo] : null;
+      if (_ms113 && _mEl113 && CA_SE[_ms113]===_mEl113) {
+        for (const L113 of R.linee) {
+          const f113 = L113.fushen; if (!f113) continue;
+          const fb113 = f113.ramo || f113.b; if (!fb113) continue;
+          if (!L113.bestia || _BEL113[L113.bestia.cn] !== _mEl113) continue;
+          if (GEN[L113.el] !== _mEl113) continue;
+          if (GEN[_mEl113] !== (f113.el || WX[fb113])) continue;
+          if (R.vuoti.indexOf(fb113) >= 0) continue;
+          return L113.pos<=3 ? 'SHORT' : 'LONG';
+        }
+      }
+    }
     // 41 — §99 LETTURA BASE DELLA MOBILE G/W (Edu, 26/08/2026, da USDCAD 08/03/2023 e
     //      USDJPY 02/08/2022). Finora "G e W fanno vincere la propria squadra" non esisteva
     //      come via generale: §64 CEDE il passo a G/W vive, ma sotto non c'era nessuna lettura,
@@ -6893,6 +6922,69 @@ if (process.env.PBLY) {
         }
       }
     }
+    // §114 — L'ARRIVO NEL VUOTO: CHI NON VINCE PERDE (CABLATA 29/08/2026 sessione 26).
+    //      Meccanica di lettura del 24/08/2026 promossa a via, certificata da Edu. L'arrivo
+    //      cade nel VUOTO (compreso l'arrivo mascherato: giorno sospende E arrivo vuoto): il
+    //      movimento non produce effetto, la mobile RESTA il carattere di partenza. G/W
+    //      reggono -> vince la loro sede; B/P fanno perdere la sede (opposto); C tace. Se la
+    //      mobile e' Shi o Ying, override del confronto Shi<->Ying: chi controlla l'altro
+    //      vince; senza controllo decide il carattere. PRECEDENZA: trigono completo (linee +
+    //      伏神 non vuoti + giorno) -> la via TACE. ULTIMA del termometro: parla solo sul
+    //      residuo muto (perimetro misurato: 79 · 64,6% · z 2,59 · +1.434 · vecchio 76%/34 ·
+    //      recente 59%/41). ARRIVOVUOTO=off per spegnerla.
+    if (process.env.ARRIVOVUOTO!=='off' && R.mutante.movimentoNullo) {
+      const _M4=R.mutante;
+      const _av4 = /arrival void/.test(_M4.motivoNullo||'') || R.vuoti.indexOf(_M4.ramoArr)>=0;
+      if (_av4) {
+        const _mob4=R.linee[_M4.pos-1];
+        let _trig4=false;
+        { // membri identici al checklist: linee visibili (vuote ferme escluse, mobile
+          // conta), tutti i 伏神, arrivo rianimato se mobile L1, rami di data non vuoti
+          // come terzo membro con almeno due membri su linee/nascosti (Edu 19+29/08/2026)
+          const _vf4={}, _es4={};
+          for (const l of R.linee){
+            if (!(R.vuoti.indexOf(l.ramo)>=0 && !l.isMobile)) _vf4[l.ramo]=1;
+            const fb=l.fushen && (l.fushen.ramo||l.fushen.b);
+            if (fb) _vf4[fb]=1; }
+          if (_M4.pos===1 && _M4.ramoArr) _vf4[_M4.ramoArr]=1;
+          const _ob4=r.oraBranch||LYM.oraDalSeme(r.seedUsed);
+          for (const rb of [D, Mo, r.yearBranchUsed, _ob4]) if (rb && R.vuoti.indexOf(rb)<0) _es4[rb]=1;
+          const _T4=[['申','子','辰'],['寅','午','戌'],['巳','酉','丑'],['亥','卯','未']];
+          _trig4=_T4.some(t=>{
+            const n=t.filter(b=>_vf4[b]).length;
+            return n===3 || (n>=2 && t.every(b=>_vf4[b]||_es4[b]));
+          });
+        }
+        if (_mob4 && !_trig4) {
+          const _seat4=p=>p<=3?'SHORT':'LONG';
+          // Duello di CONTROLLO Shi<->Ying PRIMA del vuoto (Edu 29/08/2026, NZDUSD
+          // 10/07/2024: lo Shi vuoto che controlla vince comunque); il vuoto di Shi/Ying
+          // decide senza controllo, o con mobile terza linea (EURUSD 04/05/2022).
+          const _sh4b=R.linee[R.shi-1], _yi4b=R.linee[R.ying-1];
+          const _shV4=_sh4b && _sh4b.vuoto && !_sh4b.isMobile;
+          const _yiV4=_yi4b && _yi4b.vuoto && !_yi4b.isMobile;
+          const _car4=_mob4.par, _tiene4=(_car4==='G'||_car4==='W'), _cade4=(_car4==='B'||_car4==='P');
+          if (_mob4.isShi || _mob4.isYing) {
+            const _al4=_mob4.isShi?_yi4b:_sh4b;
+            if (_al4) {
+              if (CTRL[_al4.el]===_mob4.el) return _seat4(_al4.pos);
+              if (CTRL[_mob4.el]===_al4.el) return _seat4(_mob4.pos);
+              if (_shV4 && _yiV4) { /* tace */ }
+              else if (_shV4) return _seat4(_yi4b.pos);
+              else if (_yiV4) return _seat4(_sh4b.pos);
+              else if (_tiene4) return _seat4(_mob4.pos);
+              else if (_cade4)  return _seat4(_al4.pos);
+            }
+          } else {
+            if (_shV4 && _yiV4) { /* tace */ }
+            else if (_shV4) return _seat4(_yi4b.pos);
+            else if (_yiV4) return _seat4(_sh4b.pos);
+            else if (_tiene4) return _seat4(_mob4.pos);
+            else if (_cade4)  return _seat4(_mob4.pos)==='SHORT'?'LONG':'SHORT';
+          }
+        }
+      }
+    }
     return null;
   }
   const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');
@@ -7022,7 +7114,16 @@ if (process.env.PBLY) {
         const s15 = ((r._aOra || r._wVirtu || r._wStelo || r._tsLegaGiorno || (r._dragoAlto===true)) && pbSegue) || ((r._dragoAlto===false) && !pbSegue) ? pb : ly;
         push('S15. S11 + Drago in entrambi i versi', s15, r); }
       setSerp(r);
-      { const sf=r._serpFav===true, ss=r._serpSfav===true;
+      // Il Serpente CEDE davanti a una via cablata (Edu 29/08/2026): il rafforzativo
+      // statistico non scavalca la dottrina. Se il termometro parla con una via cablata,
+      // lo scavalcamento del Serpente non opera; resta solo dove il termometro tace.
+      if (r._serpViaCab===undefined) { r._serpViaCab=false; try{
+          const _Rv=LYM.readManual(r.sup,r.inf,r.linea,r.dayBranchUsed,r.monthBranchUsed,
+                                   r.yearBranchUsed,r.dayStemUsed,r.oraBranch);
+          if(!_Rv.error){ const _t=LYM.termometro(_Rv,{oraBranch:r.oraBranch,emaDir:r.emaDir,date:r.date},{},{});
+            r._serpViaCab = !!(_t && _t.dir); }
+        }catch(e){} }
+      { const sf=r._serpFav===true, ss=(r._serpSfav===true) && !r._serpViaCab;
         const s16 = ((r._aOra || r._wVirtu || r._wStelo || r._tsLegaGiorno || sf) && pbSegue) ? pb : ly;
         push('S16. S11 + Serpente timely su Shi/Ying/mob sostiene chi segue', s16, r);
         push('S16p. S16 PESATO', s16, r, peso74(r));
@@ -7030,7 +7131,7 @@ if (process.env.PBLY) {
         push('S17. S11 + Serpente untimely sostiene chi NON segue', s17, r);
         push('S17p. S17 PESATO §74', s17, r, peso74(r));
         r._S17ref = s17;
-        if (process.env.DUMPS17) { (global.__s17dump = global.__s17dump || []).push({c:r.cross,d:r.date,dir:s17,move:r.move}); }
+        if (process.env.DUMPS17) { (global.__s17dump = global.__s17dump || []).push({c:r.cross,d:r.date,dir:s17,move:r.move,s11:s11,peso:peso74(r)}); }
         const s18 = ((r._aOra || r._wVirtu || r._wStelo || r._tsLegaGiorno || sf) && pbSegue) || (ss && !pbSegue) ? pb : ly;
         push('S18. S11 + Serpente in entrambi i versi', s18, r);
         push('S18p. S18 PESATO', s18, r, peso74(r));

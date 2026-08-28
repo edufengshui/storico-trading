@@ -1012,5 +1012,83 @@
   "quando": "2026-08-28",
   "esito": "LONG +70",
   "nota": "M-TSQ: Tai Sui clasha la quieta L6 che genera la W L5 → LONG"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2023-03-23",
+  "seme": 131,
+  "sup": 8,
+  "inf": 3,
+  "linea": 4,
+  "dayB": "辰",
+  "monthB": "卯",
+  "quando": "2026-08-28",
+  "esito": "SHORT -34",
+  "nota": "SHORT (Edu 29/08/2026). L4 Shi mobile G 丑 Terra: movimento solo apparente, G molto untimely col Legno 卯 in piena stagione; l'ora 丙戌 atterra sulla linea (casa dello stelo 丙 su L4) e ASSORBE il Fuoco della W 午 in arrivo -> l'arrivo non nutre. Lo stesso Fuoco 午 e' W nascosta (伏神) sotto L3, dove la bestia Drago Verde riceve il mese 卯 in tutta la sua forza e lo genera: la W trova ambiente migliore in basso. Vince la sede di L3 -> SHORT."
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2026-01-23",
+  "seme": 158,
+  "sup": 3,
+  "inf": 6,
+  "linea": 1,
+  "dayB": "酉",
+  "monthB": "丑",
+  "quando": "2026-08-28",
+  "esito": "SHORT -278",
+  "nota": "SHORT (Edu 29/08/2026, falsificante 1 della §114). Il giorno 丁酉 arriva su L1 (casa dello stelo 丁, radicato) e RIANIMA il 巳 vuoto dell'arrivo: si chiude il trigono di Metallo 巳酉丑 con il giorno e il mese. La testa del trigono e' 酉 = W nell'esagramma: fa vincere la squadra della sede dove l'azione atterra (L1, basso) -> SHORT. Il trigono comanda sulla mappatura del carattere (precedenza della §114): i membri possono includere l'ARRIVO RIANIMATO dal giorno e il ramo del MESE."
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2022-05-04",
+  "seme": 105,
+  "sup": 5,
+  "inf": 1,
+  "linea": 6,
+  "dayB": "巳",
+  "monthB": "辰",
+  "quando": "2026-08-28",
+  "esito": "LONG +100",
+  "nota": "LONG (Edu 29/08/2026, falsificante 2 della §114). Quando lo Shi o l'Ying e' VUOTO, questo ha la PRECEDENZA sulla mappatura del carattere della mobile: il vuoto non agisce e non puo' vincere. Qui lo Shi L1 子 e' vuoto e dormiente -> vince la sede dell'Ying (L4, alto) -> LONG. Stessa famiglia del principio di §107 (Ying vuoto cede allo Shi)."
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2023-06-01",
+  "seme": 106,
+  "sup": 5,
+  "inf": 2,
+  "linea": 4,
+  "dayB": "寅",
+  "monthB": "巳",
+  "quando": "2026-08-28",
+  "esito": "LONG +66",
+  "nota": "LONG (Edu 29/08/2026, falsificante 3 della §114). Stesso caso della prima: il trigono di Metallo 巳酉丑 e' COMPLETO col terzo membro dal ramo dell'ORA (酉) — i rami di data chiudono i trigoni, la §114 tace. Nessun'altra via disponibile -> priorita' residua: lettura base, l'Ying 巳 Fuoco GENERA lo Shi 未 Terra -> vince la sede dello Shi (alto) -> LONG."
+ },
+ {
+  "cross": "NZDUSD",
+  "date": "2024-07-10",
+  "seme": 61,
+  "sup": 7,
+  "inf": 5,
+  "linea": 6,
+  "dayB": "亥",
+  "monthB": "未",
+  "quando": "2026-08-28",
+  "esito": "SHORT -45",
+  "nota": "SHORT (Edu 29/08/2026, falsificante 5 della §114). Stesso caso: lo SHI CONTROLLA l'Ying. La mobile Ying L6 寅 va nel vuoto (arrivo 酉 vuoto), resta se' stessa ed e' CONTROLLATA dallo Shi 酉 Metallo -> sede dello Shi -> SHORT. Ordine dentro la §114: mobile Shi/Ying -> PRIMA il duello di controllo; la precedenza del vuoto di Shi/Ying vale solo senza controllo, o quando la mobile e' una terza linea (EURUSD 04/05/2022)."
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2020-05-06",
+  "seme": 124,
+  "sup": 7,
+  "inf": 4,
+  "linea": 3,
+  "dayB": "酉",
+  "monthB": "巳",
+  "quando": "2026-08-28",
+  "esito": "SHORT -103",
+  "nota": "SHORT (Edu 29/08/2026). La mobile L3 W 辰 si muove verso un P PERDENTE: l'arrivo 亥 e' Genitori in prigione 囚 nel mese 巳 (lo controlla), quindi l'arrivo non vale nulla e l'azione muore dove atterra. Non portando via nulla alla sede di partenza, VINCE LA SEDE DELLA MOBILE (L3, basso) -> SHORT. Correzione alla lettura §99 del movimento nullo: se l'arrivo e' un carattere perdente e senza forza, la mobile tiene la propria sede invece di cederla."
  }
 ]
