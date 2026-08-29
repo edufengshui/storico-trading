@@ -983,3 +983,41 @@ resta qui col flag di misura MISURAPBVUOTO=1.
 a ogni carta letta. Tenere il conto dei casi positivi/negativi accanto a questa voce e
 promuovere quando il contorno si restringe e i casi confermano.
 Conto commenti PB-modificato: 1 letto / 1 vinto (EURJPY 27/12/2022, +74).
+
+## MOTORE A PRINCIPI v2 — misure per gradino (29/08/2026)
+Non sono vie: sono i gradini della catena di ragionamento di `motore_principi.js`.
+Totale: **2.581 carte · 53,31% · +11.531 pip · vecchio 51,71 · recente 54,71** (v1: 1.865 · 51,10 · +1.745).
+- arrivo penalizza la propria partenza (con forza)  42 · 71,4% · +1.560
+- arrivo penalizzato dal giorno                     59 · 61,0% · +779
+- arrivo trattenuto dal giorno (B)                  47 · 59,6% · +497
+- corridore che carica la destinazione (§94)        28 · 57,1% · −139
+- capannello (三合 completo sull'arrivo)             87 · 55,2% · +702
+- 伏神 rinforzato dal giorno                        18 · 55,6% · +268
+- controllo indietro senza forza (azione fallita)   89 · 55,1% · +444
+- partenza penalizzata dal giorno                   39 · 53,9% · −395
+- caricato dalla data (日建/月建/太歲/暗動)        1.137 · 53,7% · +6.161
+- corridore che clasha                              84 · 53,6% · +600
+- linea ferma penalizzata dal giorno               261 · 52,9% · +1.455
+- corridore che combina                            122 · 51,6% · −466
+- duello Shi/Ying col vuoto                        212 · 50,5% · −370
+- **DEBOLI, da leggere con carte**: mobile che conclude senza destinazione (solo carattere)
+  208 · 46,6% · −896 · e controllo indietro CON forza 44 · 45,5%.
+Flag: `PRINCIPI=1` (misura) · `TESTGUIDA=1` (91 carte guida: 42 giuste · 5 tace, contro
+termometro 35 giuste · 22 tace) · `MOSTRA=CROSS|YYYY-MM-DD` (lettura di una carta).
+
+## SEQUESTRO DA VUOTA (Edu) — in osservazione dal 29/08/2026
+**Ipotesi (Edu):** il ramo di data (giorno/mese/anno/ora) che si COMBINA (六合) con una
+linea VUOTA dell'esagramma cessa di essere operativo: non sostiene, non penalizza, non carica.
+**Carta guida: USDCHF 18/08/2022 s95** (旅→鼎, mobile L2 午 B → 亥 G, mese 申, vuoti 辰巳):
+il mese 申 combinato con la vuota 巳 di L6 smette di sostenere l'Acqua → l'arrivo 亥 perde
+l'energia e il 回頭剋 fallisce. Verificato nel motore a principi: senza sequestro forza 5 vs 4
+(controllo riesce, SHORT ✗); col sequestro l'energia cade (meccanismo confermato sulla guida).
+Oggi la carta è comunque letta giusta dalla regola A0 (Shi 辰 vuota → LONG ✓).
+**Misure sul mazzo (motore a principi):**
+- canale forza (`MPSEQ2=1`): cambiano 2 verdetti (ora/anno, mai il mese), entrambi da giusti
+  a sbagliati → nessun perimetro utile.
+- canale penalità+carico (`MPSEQ=1`): cambiano 36 verdetti, 58,3% senza → 41,7% con → bocciato
+  in questo perimetro.
+**Stato:** meccanica dottrinalmente osservata sulla guida, senza perimetro vincente nel mazzo.
+Da riesaminare quando l'imbuto trova una carta con questa forma (data combinata con vuota che
+decide da sola). n per z4: non applicabile (2 carte nel canale forza).

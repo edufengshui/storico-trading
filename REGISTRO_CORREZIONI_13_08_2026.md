@@ -4143,3 +4143,116 @@ legame del duello (cinque B): oggi lì parla prima il duello (§107/108 in testa
 rifinire con misura dedicata se serve. Nuovo baseline canonico:
 **2.788 carte · 59,94% · z 10,49 · +39.193 pip** (recente 59,34 · vecchio 60,18 · **46 vie**).
 Audit: `INCOMP24=off` → 59,90.
+
+---
+
+# DOTTRINA DELLE PENALITÀ (刑) — `FISSATA` · 29/08/2026 · REGISTRAZIONE DEFINITIVA
+
+Edu ha dovuto ripetere questa dottrina più volte perché era rimasta soltanto dentro
+il codice come condizione, mai scritta qui come **relazione**. Questa voce la chiude.
+
+## Enunciato di Edu (testuale, 29/08/2026)
+> "La penalità fa quella che la parola dice: **penalizza chi la riceve**."
+
+Non è una regola del giorno né una regola della mobile: è una **relazione fra due rami**.
+Va sempre cercata fra TUTTE le coppie presenti, non solo quelle a cui si sta pensando.
+
+## Tavola completa (unica, da usare ovunque)
+- **Autopenalità (自刑)**: 辰辰 · 午午 · 酉酉 · 亥亥
+- **Triangolo 寅巳申**: 寅→巳 · 巳→申 · 申→寅
+- **Triangolo 丑戌未**: 丑→戌 · 戌→未 · 未→丑
+- **子卯** (penalità senza cortesia): 子→卯 · 卯→子
+
+## Chi può mandarla, chi può riceverla
+Vanno controllate tutte queste coppie, non una sola:
+1. **ramo di data → partenza della mobile** — la partenza è colpita;
+2. **ramo di data → arrivo della mobile** — l'arrivo è colpito;
+3. **ramo di data → linea ferma** — quella linea è colpita;
+4. **arrivo → propria partenza** — la mobile penalizza se stessa.
+
+## Effetti (uno solo, sempre lo stesso)
+**Chi riceve la penalità è penalizzato: non fa vincere la propria squadra, la sua sede cade.**
+Con una sola conseguenza indiretta già certificata: se è l'ARRIVO a essere penalizzato,
+l'arrivo non agisce e **la partenza resta attiva ma ferma**, quindi parla lei col proprio
+carattere (guida EURUSD 14/07/2021 s117, giorno 亥 su arrivo 亥).
+
+## Condizione di forza (Edu, stessa sessione, dal controllo indietro)
+Chi penalizza deve **pesare almeno quanto chi riceve** (modello di preponderanza sulla data
+intera). Senza forza la penalità non abbatte. Misura: con la condizione 42 carte · 71,4%
+· +1.560 pip; senza, 67 carte · 62,7% · +1.411.
+
+## Carte guida
+- **EURUSD 22/07/2025 s116** — giorno 辰 sulla partenza 辰 (autopenalità): la sede della
+  mobile cade → LONG ✓
+- **EURUSD 14/07/2021 s117** — giorno 亥 sull'arrivo 亥: la partenza resta attiva ma ferma,
+  W in L5 vince la sede → LONG ✓
+- **EURUSD 25/05/2021 s122** — l'arrivo 寅 penalizza la partenza 巳: la sede bassa cade → LONG ✓
+
+## Misura registrata (non dottrina)
+Mese, anno e ora come mittenti della penalità: **peggiorano** il motore di oltre un punto
+(52,11% contro 53,31%). Il **giorno** penalizza; per gli altri rami servirebbe una condizione
+non ancora individuata. Flag di prova: `MPPENADATA=1`.
+
+---
+
+# CONTROLLO INDIETRO (回頭剋) — `FISSATA` · 29/08/2026
+
+## Enunciato di Edu (testuale)
+> "Se c'è un controllo indietro questo ha la **precedenza**, quindi l'arrivo non va da nessuna
+> parte se non a controllare indietro. Se la partenza genera l'arrivo, questo può andare dove
+> gli pare perché la linea è **lanciata in avanti**."
+> "Zi è generata dal giorno quindi **ha l'energia** per controllare indietro."
+> "Quando il metallo che genera l'acqua è così forte, **Xu non può controllare** P hai."
+
+## Lettura
+1. Il controllo indietro ha la precedenza su ogni destinazione: l'arrivo non corre.
+2. Riesce **solo se l'arrivo pesa almeno quanto la partenza** (preponderanza sulla data intera).
+   - riesce → l'arrivo controlla davvero e parla il suo carattere;
+   - non riesce → l'azione fallisce, chi non vince perde, la sede della mobile cade.
+3. Carte guida: **EURUSD 05/03/2025 s106** (4 a 4, riesce → LONG ✓) ·
+   **GBPUSD 22/04/2025 s133** (4 a 6, non riesce → SHORT ✓).
+
+---
+
+# MODELLO DI FORZA (preponderanza sulla data) — `FISSATA` · 29/08/2026
+
+Peso di un ramo, contato sulla **data intera**:
+- **stagione**: +2 se il ramo è dell'elemento del mese/stagione o da questi generato;
+- **rami di data** (anno, giorno, ora — il mese è già nella stagione): +1 ciascuno se dello
+  stesso elemento o se lo generano;
+- **steli** di anno, mese, giorno e ora: +1 ciascuno alle stesse condizioni. Gli steli di anno
+  e mese si derivano dai rami del motore (Cinque Tigri 五虎遁), l'ora dai Cinque Topi (五鼠遁),
+  **mai** dal pilastro di un'ora convenzionale;
+- **raccolte complete** (三合 e 三會): +2, **ma solo se l'elemento della raccolta è quello del
+  ramo**. 巳酉丑 è Metallo: chi ci entra si converte, non si ingrossa. 亥子丑 è Acqua e quella
+  sì rinforza il 亥. Questa distinzione viene dalla lettura di Edu su GBPUSD 22/04/2025.
+
+---
+
+# SHI O YING VUOTA: LA PARTE VUOTA PERDE SUBITO — `FISSATA` · 29/08/2026
+
+## Enunciato di Edu (test richiesto e approvato in sessione 28)
+> "Se Shi o Ying sono vuoti, questo diventa subito la **prima cosa da vedere** e fa perdere
+> immediatamente la parte vuota."
+
+Prima lettura della catena, prima ancora della mobile. Vuoti pari (entrambi o nessuno):
+la regola tace e si prosegue.
+
+## Eccezioni (mostrate da Edu sulle tre controcarte del test)
+La regola CEDE quando nella carta opera un meccanismo con precedenza:
+1. una **penalità (刑)** tocca gli attori (linee del duello, partenza o arrivo della mobile)
+   — EURUSD 14/01/2025 s102 (triangolo 丑戌未 fra mese, giorno e mobile);
+2. il **giorno combina la linea vuota** e la tiene (non è abbandonata)
+   — NZDUSD 05/02/2026 s59 (giorno 戌, stesso ramo della Ying, combina la Shi 卯 vuota,
+   e la bestia del giorno siede proprio lì);
+3. **tomba+penalità sulla mobile** (caso −4): decide quella lettura
+   — USDJPY 30/12/2024 s157 (spiegata anche dal raggruppamento di stagione col mese).
+
+Cercata in tutto il mazzo una G vuota che vinca SENZA altri meccanismi in carta: non esiste.
+Da qui l'approvazione ("se la prossima non lo è approviamo la regola").
+
+## Misura al cablaggio (in testa alla catena del motore a principi, con le eccezioni)
+Gradino: 499 carte · 51,70% · +1.263 pip. Motore intero: 2.581 · 53,20% · +11.416
+(vecchio 52,15 · recente 54,11). Cella nuda senza eccezioni, per memoria: 918 · 50,8%,
+con le W/P vuote a ~56% e le G vuote al contrario (38,9% sulla Ying) — le G "al contrario"
+sono risultate tutte carte con meccanismi a precedenza. Flag: MPSHIVUOTO=no per spegnere.
