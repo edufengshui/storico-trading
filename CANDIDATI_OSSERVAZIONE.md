@@ -953,3 +953,33 @@ quello la regola non si cabla. NON toccare la regola; serve una nuova carta guid
 Meccanica letta da Edu il 25/08/2026 (EURJPY 31/10/2023), NON ancora nel filtro di
 carta_check.js: per questo il checklist marca quella carta come "da leggere" quando in
 realta' e' gia' letta. Da inserire in [5] alla prossima occasione.
+
+## FASCICOLO TRIGRAMMI (sessione 27, 28/08/2026) — esperimenti PB nel verso LONG/SHORT
+Domanda di Edu: i due trigrammi come sedi (sopra=LONG, sotto=SHORT), letti come le linee LY.
+Tutti i perimetri misurati sul mazzo pieno (2.788):
+- **Duello dei trigrammi** (stagione+data+comb/clash sui rami Houtian+mutazione): 2.675 · 48,3% ·
+  vecchio 51,3 / recente 45,6. Varianti con i vuoti (malus, 旺不为空, arrivo nel vuoto): 47,8–48,0%.
+  Mutazione pura senza data: 49,1% con i periodi ROVESCIATI (46,7/51,0).
+- **Ponte fra i trigrammi** (l'arrivo combina una ferma dell'altro trigramma → sede raggiunta):
+  306 · 52,9% · vecchio 62,6 / recente 46,0. Sul residuo LY-tace: 48,2%.
+- **Drenaggio del trigramma** (l'arrivo della mutante drenato/drenante sui trigrammi): moneta
+  in ogni verso (46,8–52,4%), periodi in contraddizione.
+- **Ribaltamento** (il perdente del duello base vince?): fondo 51,96% MA vecchio 47,7 / recente
+  55,2 → **il segnale dei trigrammi si e' ROVESCIATO intorno al 2023**. Nessuna cella
+  (azione dell'arrivo, bestie dei pilastri su stelo/ramo di anno/mese/giorno/ora) si stacca
+  dal fondo; unica sopra 50/50 in entrambi i periodi: stelo dell'ora → bestia nel perdente,
+  1.452 · 54,0% (50,2/56,4) — troppo larga e sovrapposta per discriminare.
+- Come CONFERMA del LY nel contrasto (S20): il LY vince uguale confermato (57,0%) o
+  contraddetto (56,9%); il cancello S20 costa 10.249 pip. NON usare.
+
+## PB MODIFICATO (Edu) — in osservazione dal 28/08/2026
+**Regola letta sulla guida EURJPY 27/12/2022 (seme 141):** "il Yong che muta in un trigramma
+VUOTO (rami Houtian tutti nei vuoti del giorno) non puo' DRENARE l'altro trigramma
+(GEN[opposto]===trasformato): la sede dell'altro vince."
+Perimetro misurato: **83 carte · 53,0% · +529 pip · vecchio 52,8 / recente 54,8** — l'unica
+meccanica dei trigrammi che tiene su entrambi i periodi. Troppo larga e debole per il cablaggio;
+resta qui col flag di misura MISURAPBVUOTO=1.
+**Protocollo (Edu, 28/08/2026):** da ora Edu aggiunge un breve commento col suo "PB modificato"
+a ogni carta letta. Tenere il conto dei casi positivi/negativi accanto a questa voce e
+promuovere quando il contorno si restringe e i casi confermano.
+Conto commenti PB-modificato: 1 letto / 1 vinto (EURJPY 27/12/2022, +74).
