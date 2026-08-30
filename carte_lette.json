@@ -1181,5 +1181,57 @@
   "quando": "2026-08-29",
   "esito": "SHORT -131",
   "nota": "carta guida §122 — tomba nel mese + penalità dal giorno fermano la mobile; decide il duello Shi/Ying: la vuota è dormiente e non agisce, vince l'altra"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2021-10-21",
+  "seme": 133,
+  "sup": 8,
+  "inf": 5,
+  "linea": 4,
+  "dayB": "寅",
+  "monthB": "戌",
+  "quando": "2026-08-30",
+  "esito": "SHORT -75",
+  "nota": "Lettura Edu (29/08/2026, esito corretto SHORT -75). PENALITA' DENTRO LA DATA: l'anno 丑 penalizza (刑) il mese 戌, quindi 戌 penalizzato non svolge il suo ruolo nel trigono 寅午戌 e la L4 (W con fushen C 午) resta depotenziata. Il pilastro del mese 戊戌, avvelenato, cade via 勾陳 sulla Shi L4 e la depotenzia: nel confronto Shi vs Ying pari (entrambe 丑 Terra), la Shi perde -> sede bassa -> SHORT. PB: Kun (Yong alto) si muove in Zhen che controlla indietro -> il basso vince. NOTA DI SESSIONE: prima lettura avvenuta su esito da me trascritto al contrario (LONG anziche' SHORT); la regola derivata da quell'errore (genera-indietro-forte) e' stata spenta."
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2023-12-21",
+  "seme": 133,
+  "sup": 8,
+  "inf": 5,
+  "linea": 3,
+  "dayB": "丑",
+  "monthB": "子",
+  "quando": "2026-08-30",
+  "esito": "SHORT -77",
+  "nota": "Lettura Edu (29/08/2026): C DISTRUGGE G, con due condizioni alternative: (1) il C timely, oppure (2) la G untimely. Qui condizione 2: la G di partenza 酉 Metallo e' in 死 (morte) nel mese 子; il C 午 (untimely anche lui, fase 胎) controlla indietro con energia e la distrugge. La mobile esce; Shi e Ying pari (stesso ramo 丑, entrambe W); decide il nutrimento delle bestie: 玄武 (Acqua) della Ying nutrita da tre steli d'Acqua (癸 anno, 癸 giorno, 壬 ora) contro il 勾陳 (Terra) della Shi controllato dal 甲 -> vince lo Ying -> SHORT. Mercato SHORT -77. Timeliness della G giudicata per STAGIONE (rapporto col ramo del mese), il soccorso del giorno non conta per la distruzione."
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2020-06-24",
+  "seme": 106,
+  "sup": 5,
+  "inf": 2,
+  "linea": 6,
+  "dayB": "戌",
+  "monthB": "午",
+  "quando": "2026-08-30",
+  "esito": "LONG +60",
+  "nota": "Lettura Edu (29/08/2026): PROTEZIONE DEL PILASTRO. La mobile L6 (G 卯) non puo' nemmeno partire: combinata dal giorno (戌 combina 卯). Il pilastro del mese 壬午 sta su L4 via la bestia 玄武 (stelo 壬) ed elimina ogni problema: la penalita' del giorno (戌刑未) sulla Shi non opera. Resta la regola in testa alla catena: la Ying 巳 P e' VUOTA, la parte vuota perde subito -> vince la Shi -> sede alta -> LONG. Mercato LONG +60. PB concorde (regola certificata): Xun alto si muove in Kan che genera indietro, lo Yong si nutre muovendosi -> l'alto vince."
+ },
+ {
+  "cross": "USDCHF",
+  "date": "2024-02-29",
+  "seme": 87,
+  "sup": 2,
+  "inf": 7,
+  "linea": 3,
+  "dayB": "亥",
+  "monthB": "寅",
+  "quando": "2026-08-30",
+  "esito": "LONG +59",
+  "nota": "Lettura Edu (29/08/2026): L4 non sta facendo niente, non e' li' che si guarda. Il pilastro del mese 丙寅 (stelo 丙 = 朱雀 della mobile) clasha la Shi mobile L3 (B 申) e la ELIMINA. Se non c'e' azione e le bestie non dicono piu' nulla, si va a S vs Y: la Shi eliminata ha perso la propria linea e non puo' vincere la sua sede -> vince la Ying -> sede alta -> LONG. Mercato LONG +59. Da questa carta anche le 4 regole del C (genera W / drena B / senza W vince la squadra / se controlla G perde) e il confine eliminata-vs-bloccata (eliminata: sempre al duello; bloccata: resta seduta, duello solo nel pari)."
  }
 ]

@@ -4256,3 +4256,205 @@ Gradino: 499 carte · 51,70% · +1.263 pip. Motore intero: 2.581 · 53,20% · +1
 (vecchio 52,15 · recente 54,11). Cella nuda senza eccezioni, per memoria: 918 · 50,8%,
 con le W/P vuote a ~56% e le G vuote al contrario (38,9% sulla Ying) — le G "al contrario"
 sono risultate tutte carte con meccanismi a precedenza. Flag: MPSHIVUOTO=no per spegnere.
+
+---
+
+# LE BESTIE (六獸): QUANDO AGISCONO E QUANTO PESANO — `FISSATA` · 29/08/2026
+
+## Perché è registrata qui
+Questa dottrina era già stata enunciata da Edu e si era **persa**. Va tenuta come
+**relazione**, non come elenco di casi: è la ragione per cui il motore a principi
+sbaglia le carte guida di Edu quando la lettura passa dalla bestia
+(5 giuste / 15 sbagliate contro 34 / 25 delle carte senza bestia).
+
+## Il principio
+La bestia non è un attore autonomo: è la **porta attraverso cui l'energia della data
+entra in una linea**. Conta chi la nutre. A seconda di chi la nutre, la bestia ha
+poteri diversi, in tre gradi di forza decrescente.
+
+## Primo grado — un PILASTRO DELLA DATA cade sulla linea della bestia
+Quando uno dei quattro pilastri (anno, mese, giorno, ora) cade sulla linea che
+corrisponde alla propria bestia — esempio: giorno 戊子 (Wu Zi), si guarda la linea di
+勾陳 (GouChen, Terra yang, la bestia dello stelo 戊) e lì arriva il ramo 子 — quella
+linea ha **peso energetico maggiore**.
+
+Poteri pieni. La bestia può:
+- **far muovere** la linea, facendole superare combinazioni, blocchi, penalità, vuoti;
+- **bloccarla**, attraverso una combinazione;
+- **eliminarla**, attraverso un clash.
+
+## Secondo grado — lo STELO TERMINALE del flusso del Qi nella data, SE RADICATO nei rami
+La bestia corrispondente a quello stelo, sulla linea dell'esagramma, ha gli **stessi
+poteri del primo grado**. La condizione della radice è vincolante: stelo terminale non
+radicato nei rami → non si arriva a questo grado.
+
+## Terzo grado — il FLUSSO DEL QI GENERICO della data e il suo ELEMENTO TERMINALE
+La bestia corrispondente è **energetizzata** nella linea, ma **NON** ha i poteri di cui
+sopra: non muove, non blocca, non elimina. Pesa soltanto — vale come forza quando gli
+attori sono altrimenti pari.
+
+## Ordine operativo
+Primo grado prima del secondo, secondo prima del terzo. I primi due gradi intervengono
+**prima** che si decida se la mobile si muove (sbloccano o impediscono il movimento);
+il terzo interviene **dopo**, solo come peso fra attori pari.
+
+## Carte guida della dottrina (già lette da Edu, in carte_lette.json)
+- Primo grado, bestia che BLOCCA: USDJPY 09/10/2024 — giorno 丙午, pilastro omogeneo,
+  la bestia 朱雀 (Passero rosso, Fuoco) di L1 sta dentro il pilastro del giorno e blocca
+  la linea, che non parte proprio.
+- Distinzione del primo grado: USDJPY 29/11/2024 — giorno 丁酉, stelo Fuoco ma ramo
+  Metallo: la bestia Fuoco NON è il pilastro del giorno, quindi carica la linea e la fa
+  partire, non la blocca.
+- Primo grado, bestia che SBLOCCA: USDCHF 13/11/2025 — 朱雀, bestia dello stelo del
+  giorno 丙, radicata in anno 巳 e ora 午, fa muovere L1 malgrado il clash del giorno
+  sulla partenza.
+- Secondo grado: USDJPY 31/07/2024 — l'unico stelo radicato è di polarità opposta e non
+  conta; l'abbondanza di Terra del Bazi va alla bestia 勾陳 di L2 e potenzia la linea.
+- Secondo grado: EURGBP 21/01/2022 — la Terra sovrabbondante, tramite 螣蛇 su L4, attiva
+  e genera l'arrivo 申 benché vuoto.
+- Terzo grado, peso che rompe il pareggio: EURJPY 31/10/2023 — Shi e Ying stesso elemento
+  (Fuoco), stallo; vince chi ha la bestia nutrita dagli steli (白虎 nutrita da 辛 contro
+  朱雀 senza nutrimento).
+- Bestia SENZA radici, che quindi non salva: EURGBP 08/12/2021 · USDCHF 28/07/2025
+  (radici della bestia in penalità 戌刑未 fra loro: flusso avvelenato, non sblocca).
+
+## Aggiunta del 29/08/2026 — dove si va DOPO che la bestia ha tolto la mobile
+Carta guida: **USDJPY 09/10/2024, seme 148** (giorno 丙午, mese 戌, anno 辰, ora 卯).
+Lettura di Edu: l'intero pilastro del giorno arriva su L1 attraverso la bestia 朱雀 e,
+clashandola, **elimina completamente** la linea (che era anche untimely di suo). Per vedere
+chi vince si va altrove: Shi (L3 辰 W) e Ying (L6 未 W) sono entrambe Terra, **pari**; mese
+e anno portano entrambi lo stelo 甲, che corrisponde al 青龍 di L6, quindi il peso maggiore
+ce l'ha lo Ying, che vince la battaglia → sede alta → LONG (mercato LONG +104).
+
+**Vincolo trovato alla misura.** Il salto diretto al duello vale **solo quando Shi e Ying
+sono dello stesso elemento**. Applicato ogni volta che la bestia toglie la mobile, il motore
+scende a 40 giuste / 45 sbagliate sulle carte guida; ristretto alla parità, sale a 48/41.
+La ragione dottrinale è nelle parole stesse di Edu: il peso decide *fra S e Y che sono
+uguali*. Se non sono pari, la catena prosegue normalmente (caricati dalla data, 伏神,
+penalità) e il peso delle bestie interviene solo in coda.
+
+## Misura al cablaggio dello strato delle bestie (29/08/2026)
+Carte guida (91 lette da Edu): da **42 giuste / 44 sbagliate / 5 tace** a
+**48 giuste / 41 sbagliate / 2 tace**. Termometro sulle stesse: 35 / 34 / 22.
+Motore intero: da 2.581 carte · 53,20% · +11.416 pip a **2.953 carte · 53,20% · +12.418 pip**
+(vecchio 51,07% · recente 54,92%), con i silenzi da 458 a 86.
+Contributo separato dei gradi: 1° e 2° da soli portano 2.568 carte · 53,50% · +11.913 pip e
+migliorano quasi tutti i gradini (controllo indietro con forza da 53,1% a 58,5%, senza forza
+da 55,8% a 57,1%); il 3° grado aggiunge le carte del duello pari.
+Interruttori: `MPBESTIE=no` spegne tutto lo strato, `MPBESTIE3=no` solo il terzo grado.
+
+---
+
+# PENALITÀ DENTRO LA DATA — `FISSATA` · 29/08/2026
+
+## Enunciato di Edu (da EURJPY 21/10/2021, seme 133)
+Un ramo della data penalizzato (刑) da un **altro ramo della data** non è in grado di
+svolgere il suo ruolo: **non completa i trigoni** (三合) e il suo pilastro, portato dalla
+bestia su una linea, la **depotenzia** invece di rafforzarla. Sulla carta guida: l'anno 丑
+penalizza il mese 戌 → 戌 non fa la sua parte nel trigono 寅午戌 → la L4 resta depotenziata;
+il pilastro del mese 戊戌 cade via 勾陳 sulla Shi e, nel confronto Shi vs Ying **pari**,
+la Shi perde → SHORT (mercato SHORT −75). PB concorde: Kun si muove in Zhen che controlla
+indietro → il basso vince.
+
+## Confine con USDJPY 09/10/2024 (seme 148)
+Il 刑 come semplice relazione d'arrivo NON depotenzia: sul quel seme il mese 甲戌 tocca in
+刑 lo 青龍 di L6 (戌刑未) ma il mese NON è penalizzato dentro la data, e lì decide il
+**nutrimento degli steli** (i due 甲ø nutrono 青龍 → lo Ying vince → LONG). Il veleno
+viaggia solo col pilastro avvelenato; la penalità è anche la sua porta d'arrivo.
+
+## ERRORE DI SESSIONE, registrato per onestà del metodo
+La prima lettura di EURJPY 21/10/2021 è avvenuta con l'esito **trascritto al contrario da
+Claude** (presentato LONG +75 anziché SHORT −75). La regola derivata da quella lettura
+(generazione indietro con trigono → vince la sede della mobile, `B1-genera-indietro-forte`)
+misurava 1/14 nel suo perimetro ed è stata SPENTA (`MPGENFORTE=si` per riattivarla a fini
+di studio). Correzione di processo: le righe d'esito delle carte presentate a Edu vengono
+generate meccanicamente dai dati del motore, mai trascritte a mano.
+
+## Misura al cablaggio
+Guide: 48 / 41 / 2 (invariate al netto delle due carte guida della dottrina, entrambe lette
+correttamente). Motore: 2.958 carte · 52,94% · +11.224 pip. Perimetro del nuovo gradino
+`B4-bestia-avvelenata`: 11 carte · 27,27% · −467 pip — ATTENZIONE: nel suo perimetro la
+regola al momento perde; portare a Edu una carta falsificante completa (regola 10) prima
+di qualsiasi modifica.
+
+## Vincolo di ADIACENZA (Edu, 29/08/2026, da EURJPY 30/04/2020 s115)
+La penalità dentro la data funziona **solo se i rami sono vicini**: anno↔mese, mese↔giorno,
+giorno↔ora. Sulla carta del vincolo 子 sta nell'anno e 卯 nel giorno: non si toccano,
+nessun veleno — la carta esce dal perimetro dell'avvelenamento (e con lei il dubbio della
+penalità mutua, che si pone solo fra vicini). Misura dopo il vincolo: guide 49/41/2 (su 92),
+perimetro `B4-bestia-avvelenata` ridotto a 4 carte (la guida vinta; GBPUSD 28/10/2021 s137,
+GBPUSD 06/03/2026 s133, GBPUSD 17/03/2026 s133 perse — candidate a lettura, regola di coda
+congelata in attesa di falsificante nel perimetro).
+
+---
+
+# C DISTRUGGE G — `FISSATA` · 29/08/2026
+
+## Enunciato di Edu (da USDCAD 21/12/2023, seme 133)
+Nel controllo indietro riuscito, quando l'arrivo è un **C** e la partenza una **G**, il C
+distrugge la G a due condizioni **alternative**:
+1. il C è **timely**, oppure
+2. la G è **untimely**.
+La timeliness si giudica per **stagione** (rapporto dell'elemento col ramo del mese, come
+da registro sulla vita delle mobili): il soccorso del giorno non salva la G dalla
+distruzione. Distrutta la G, la mobile ESCE di scena e la lettura prosegue come per
+l'eliminazione della bestia (salto al duello pesato se Shi e Ying sono pari, altrimenti
+catena normale). Sulla guida: 酉 G in 死 nel mese 子, il C 午 la distrugge; Shi/Ying pari
+(entrambe W 丑), la 玄武 nutrita da tre steli d'Acqua vince → SHORT (mercato SHORT −77).
+
+## Nota di misura al cablaggio
+Sul mazzo la regola oggi NON sposta verdetti (2.957 · 52,93% · +11.286 identici con
+MPCDISTRUGGE=no): le carte instradate arrivavano alla stessa risposta per la via
+dell'atterraggio. Valore dottrinale: attore corretto, instradamento pronto per i gradini
+a valle. Interruttore: MPCDISTRUGGE=no.
+
+## PB alto/basso — due relazioni certificate da Edu (29/08/2026)
+Analisi PB obbligatoria su ogni carta nuova (logica alto/basso sul trigramma Yong che muta):
+- il trasformato **controlla indietro** l'originale → il lato che si muove PERDE
+  (guida EURJPY 21/10/2021: Kun alto → Zhen, il basso vince).
+- il trasformato **genera indietro** l'originale → lo Yong si nutre muovendosi e il suo
+  lato VINCE (guida USDCAD 21/12/2023: Xun basso → Kan, il basso vince, SHORT).
+Le altre relazioni (controllo/generazione in avanti, 比和) restano a lettura di Edu.
+
+---
+
+# PROTEZIONE DEL PILASTRO SULLA LINEA FERMA — `FISSATA` · 29/08/2026
+
+## Enunciato di Edu (da USDJPY 24/06/2020, seme 106)
+"Il mese 壬午 sta su L4 ed elimina ogni problema." Il pilastro di 1° o 2° grado seduto su
+una linea FERMA via la propria bestia le fa superare la penalità della data: la penalità
+non opera e la lettura prosegue come se la linea fosse sana (sulla guida: cade l'eccezione
+alla regola del vuoto, la Ying P vuota perde, LONG — mercato LONG +60).
+
+## Confine (dalla carta guida USDJPY 09/12/2024, già in registro)
+La protezione portata dalla COMBINAZIONE (il ramo del pilastro combina la linea) cade se un
+ramo della data CLASHA la linea: vale la regola fissata "1 clash rompe la combinazione".
+Sulla 09/12/2024 il mese 丙子 combina la Ying 丑 ma il giorno 未 la clasha: combinazione
+rotta, nessuna protezione, la penalizzata parla (LONG, corretto). Proteggono: arrivo dello
+stesso ramo (carica) sempre; combinazione solo se non clashata. Clash (elimina) e pilastro
+avvelenato (depotenzia) non proteggono mai.
+
+## Misura al cablaggio
+Guide: **50 / 41 / 2 su 93** (massimo di sessione). Motore: 2.959 carte · 52,86% · +10.697.
+Il gradino della penalizzata resta in perdita (188 · 47,87% · −480): prossimo ciclo di
+lettura. Interruttore: MPPROTEZ=no.
+
+---
+
+# IL C NON TACE — `FISSATA` · 29/08/2026 (da USDCHF 29/02/2024, seme 87)
+1. Il C può GENERARE la W → la W è nutrita e vince la sua sede.
+2. Il C può DRENARE il B → il malus si scarica e la sua squadra vince.
+3. In ASSENZA di W il C fa vincere la propria squadra, A MENO CHE
+4. il C controlli la G → allora la propria squadra perde.
+Cablate nel carattere dell'attore, valgono ovunque il C sia interrogato (MPCPARLA=no spegne).
+
+# ELIMINATA vs BLOCCATA, e il duello — `FISSATA` · 29/08/2026 (stessa guida)
+"Se non c'è azione e le bestie non dicono più nulla, vai a S vs Y."
+- Linea ELIMINATA (clash della bestia di 1°/2° grado, o C che distrugge la G): non esiste
+  più. Si va SEMPRE al duello, e se l'eliminata era Shi o Ying quella parte PERDE subito
+  (chi non c'è più non vince la sede) — gradino B4-eliminata-perde.
+- Linea BLOCCATA (combinazione della bestia): resta SEDUTA al suo posto; la catena prosegue
+  normale e si salta al duello solo se Shi e Ying sono pari.
+Il salto incondizionato anche per le bloccate rompe le guide (43/46 contro 51/41): il
+confine è la differenza fra non-esserci-più e non-potersi-muovere.
+Misura: guide 51/41/2 su 94 (massimo di sessione) · motore 2.965 · 52,61% · +10.115.

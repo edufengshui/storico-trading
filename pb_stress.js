@@ -159,7 +159,21 @@ function hourStemFrom(dayStem, hourBranch){
 // contesto degli steli per il motore a principi
 function steliPerPrincipi(r){
   const d = pilastriDerivati(r.date, r.yearBranchUsed, r.monthBranchUsed);
-  return { yearStem: d.anno, monthStem: d.mese, hourStem: hourStemFrom(r.dayStemUsed, r.oraBranch) };
+  const hs = hourStemFrom(r.dayStemUsed, r.oraBranch);
+  // --- LE BESTIE (Edu, 29/08/2026): servono i quattro pilastri interi e il capolinea
+  //     del flusso del Qi, con l'informazione se il suo stelo e' RADICATO nei rami.
+  const capEl = capolineaElFrom(r.date, r.dayStemUsed, r.oraBranch,
+                                r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed);
+  const cap = capolineaSteloFrom(r.date, r.dayStemUsed, r.oraBranch,
+                                 r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed);
+  return { yearStem: d.anno, monthStem: d.mese, hourStem: hs,
+           pilastri: [ { nome:'anno',  stelo:d.anno,          ramo:r.yearBranchUsed  },
+                       { nome:'mese',  stelo:d.mese,          ramo:r.monthBranchUsed },
+                       { nome:'giorno',stelo:r.dayStemUsed,   ramo:r.dayBranchUsed   },
+                       { nome:'ora',   stelo:hs,              ramo:r.oraBranch       } ],
+           capolineaStelo: cap ? cap.stelo : null,
+           capolineaRadicato: cap ? cap.radicato : false,
+           capolineaEl: capEl || null };
 }
 function monthStemFrom(yearStem, monthBranch){
   const start = STEMS10.indexOf(WUHU[yearStem]);
@@ -289,6 +303,41 @@ function capolinea24From(dateStr, dayStem, oraBranch, dayBranch, monthBranch, ye
     if (ultimo && passi>lung) { lung=passi; capolinea=ultimo; }
   }
   return capolinea;
+}
+
+// STELO TERMINALE del flusso del Qi + se e' RADICATO nei rami della data.
+// Secondo grado della dottrina delle bestie (Edu, 29/08/2026): la bestia di questo stelo,
+// SE radicato, ha gli stessi poteri del pilastro intero.
+function capolineaSteloFrom(dateStr, dayStem, oraBranch, dayBranch, monthBranch, yearBranch){
+  if (!dateStr || !dayStem) return null;
+  const p = dateStr.split('-').map(Number);
+  const ys = yearStemAt(p[0],p[1],p[2]);
+  const ms = monthStemFrom(ys, monthBranch);
+  const lad = (STEMS10.indexOf(dayStem)%2===0) ? CA_YANG : CA_YIN;
+  if (lad.indexOf(dayStem)<0) return null;
+  const so = (()=>{ const s0=CA_WUSHU[dayStem]; if(!s0||!oraBranch) return null;
+    const i=B.indexOf(oraBranch); return i<0?null:STEMS10[(STEMS10.indexOf(s0)+i)%10]; })();
+  const steliT=[ys,ms,dayStem,so].filter(Boolean);
+  const ramiT=[yearBranch,monthBranch,dayBranch,oraBranch].filter(Boolean);
+  const HE={'甲':'己','己':'甲','乙':'庚','庚':'乙','丙':'辛','辛':'丙','丁':'壬','壬':'丁','戊':'癸','癸':'戊'};
+  const legati=new Set();
+  for(let i=0;i<steliT.length;i++) for(let j=i+1;j<steliT.length;j++)
+    if(HE[steliT[i]]===steliT[j]){ legati.add(i); legati.add(j); }
+  const liberi=steliT.filter((s,i)=>!legati.has(i));
+  const pres={};
+  for (const s of steliT) (pres[CA_SE[s]]=pres[CA_SE[s]]||[]).push(s);
+  for (const b of ramiT) if(CA_ELB[b]) (pres[CA_ELB[b]]=pres[CA_ELB[b]]||[]).push(b);
+  const steloUtile = e => liberi.filter(s=>CA_SE[s]===e && lad.indexOf(s)>=0);
+  let capoS=null, lung=-1;
+  for (const part of Object.keys(pres)) {
+    let e=part, guard=0, ultimoS=null, passi=0;
+    while (guard++ < 6) { const g=GEN[e], su=steloUtile(g);
+      if (!pres[g] || !su.length) break; e=g; ultimoS=su[0]; passi++; }
+    if (ultimoS && passi>lung) { lung=passi; capoS=ultimoS; }
+  }
+  if (!capoS) return null;
+  const radicato = ramiT.some(b => CA_ELB[b] === CA_SE[capoS]);
+  return { stelo: capoS, radicato: radicato, el: CA_SE[capoS] };
 }
 
 /* lettura di base + regola del clash */
@@ -3457,7 +3506,8 @@ if (process.env.TESTGUIDA) {
     const v = MP.leggi(R, steliPerPrincipi(r));
     if (!v.dir) { tace++; bad.push('[TACE] ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' — ' + v.perche); continue; }
     const pnl = v.dir === 'LONG' ? r.move : -r.move;
-    if (pnl > 0) ok++; else { ko++; bad.push('[SBAGLIA] ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' dice ' + v.dir + ' (' + pnl.toFixed(0) + ') — ' + v.perche); }
+    if (pnl > 0) { ok++; if (process.env.TESTGUIDA === 'all') bad.push('[GIUSTA] ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' dice ' + v.dir + ' (' + pnl.toFixed(0) + ') — ' + v.perche); }
+    else { ko++; bad.push('[SBAGLIA] ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' dice ' + v.dir + ' (' + pnl.toFixed(0) + ') — ' + v.perche); }
   }
   console.log('\n=== TEST SULLE CARTE GUIDA (carte_lette.json) ===');
   console.log('  trovate ' + (ok + ko + tace) + ' · giuste ' + ok + ' · sbagliate ' + ko + ' · tace ' + tace);
@@ -3472,7 +3522,7 @@ if (process.env.TESTGUIDA) {
     }
     console.log('  termometro sulle stesse: giuste ' + a + ' · sbagliate ' + b + ' · tace ' + c);
   }
-  if (process.env.TESTGUIDA === 'dump') bad.forEach(b => console.log('  ' + b));
+  if (process.env.TESTGUIDA === 'dump' || process.env.TESTGUIDA === 'all') bad.forEach(b => console.log('  ' + b));
 }
 
 if (process.env.MOSTRA) {
@@ -3494,6 +3544,32 @@ if (process.env.MOSTRA) {
     console.log('  mutante: caso=' + R.mutante.casoMut + ' nullo=' + R.mutante.movimentoNullo + ' progressione=' + R.mutante.progressione);
     console.log('  PRINCIPI: ' + v.dir + ' [' + v.gradino + '] ' + v.perche);
     console.log('  TERMOMETRO: ' + (t.dir||'tace') + ' ' + (t.sezione||''));
+    // ---- FORMATO CARTA MECCANICO (righe d'esito MAI trascritte a mano) --------
+    const sys = r._S17ref || null;
+    const emaDir = r.emaDir === 'up' ? 'LONG' : 'SHORT';
+    const mkt = r.move > 0 ? 'LONG' : 'SHORT';
+    console.log('  --- FORMATO CARTA ---');
+    console.log('  ' + r.cross + ', ' + r.date.split('-').reverse().join('/'));
+    console.log('  Trend EMA: ' + emaDir);
+    if (sys) console.log('  il sistema dice: ' + sys + ' (' + (sys===emaDir?'segue':'non segue') + ' il trend)');
+    console.log('  Esito: il mercato è andato ' + mkt + '; ' + (r.move>0?'+':'') + r.move.toFixed(0) + ' pip');
+    console.log('  Il mercato ' + (mkt===emaDir?'ha':'non ha') + ' seguito il trend');
+    if (sys) console.log('  Conclusione: ' + (sys===mkt?'guadagno':'perdita'));
+    // ---- ANALISI PB (alto/basso) ----------------------------------------------
+    const TRE = {1:'Metal',2:'Metal',3:'Fire',4:'Wood',5:'Wood',6:'Water',7:'Earth',8:'Earth'};
+    const GENp = {Wood:'Fire',Fire:'Earth',Earth:'Metal',Metal:'Water',Water:'Wood'};
+    const KEp  = {Wood:'Earth',Earth:'Water',Water:'Fire',Fire:'Metal',Metal:'Wood'};
+    const yongNum = r.linea<=3 ? r.inf : r.sup, lato = r.linea<=3 ? 'basso' : 'alto';
+    const posT = r.linea<=3 ? r.linea : r.linea-3;
+    const usoT = (((yongNum-1) ^ (1<<(3-posT)))+1);
+    const yE = TRE[yongNum], tE = TRE[usoT];
+    let rel, esitoPB = null;
+    if (KEp[tE]===yE) { rel='il trasformato controlla indietro l\'originale'; esitoPB = (lato==='alto') ? 'il basso vince' : 'l\'alto vince'; }
+    else if (KEp[yE]===tE) rel='l\'originale controlla in avanti il trasformato';
+    else if (GENp[tE]===yE) { rel='il trasformato genera indietro l\'originale (lo Yong si nutre muovendosi)'; esitoPB = (lato==='alto') ? 'l\'alto vince' : 'il basso vince'; }
+    else if (GENp[yE]===tE) rel='l\'originale genera in avanti il trasformato';
+    else rel='stesso elemento (比和)';
+    console.log('  PB: Yong ' + TRI[yongNum] + ' (' + yE + ', ' + lato + ') si muove in ' + TRI[usoT] + ' (' + tE + ') · ' + rel + (esitoPB ? ' → ' + esitoPB : ' → lettura a Edu'));
   }
 }
 
@@ -3658,11 +3734,14 @@ if (process.env.PRINCIPI) {
     if (R.error) continue;
     const v=MP.leggi(R, steliPerPrincipi(r));
     const t=(LYM.termometro(R,{oraBranch:r.oraBranch,emaDir:r.emaDir,date:r.date},{},{})||{}).dir||null;
-    if (!v.dir){ tace++; continue; }
+    if (!v.dir){ tace++; if(process.env.DUMPTACE && v.gradino===process.env.DUMPTACE) console.log('  #TACE '+r.cross+' '+r.date+' seme'+r.seedUsed+' ema='+r.emaDir+' move='+r.move.toFixed(0)); continue; }
     parla++;
     const pnl=v.dir==='LONG'?r.move:-r.move;
     agg(M.tutto,pnl);
     const gk=v.gradino||'?'; if(!G[gk])G[gk]=mk(); agg(G[gk],pnl);
+    if (process.env.DUMPGRAD && gk===process.env.DUMPGRAD)
+      console.log('  #GRAD '+r.cross+' '+r.date+' seme'+r.seedUsed+' dice '+v.dir+
+                  ' ema='+r.emaDir+' esito '+(pnl>0?'+':'')+pnl.toFixed(0));
     const p2=r.date>='2023-05-01'?'recente':r.date<='2022-12-31'?'vecchio':null; if(p2)agg(M[p2],pnl);
     if (t===v.dir) agg(M.concTermo,pnl);
     else if (!t) agg(M.soloPrincipi,pnl);

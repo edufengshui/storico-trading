@@ -97,7 +97,30 @@ function creaMotore(LYM) {
         return { dir: sede(pos), nota: 'il ' + par + ' retrocede (退神): la sua squadra vince' };
       return { dir: opposto(sede(pos)), nota: 'il ' + par + ' agisce fermo: la sua squadra perde' };
     }
-    return null; // C tace
+    if (par === 'C' && opts.R && ENV_G.MPCPARLA !== 'no') {
+      // IL C NON TACE (Edu, 29/08/2026, da USDCHF 29/02/2024 s87):
+      //  1. il C può GENERARE la W → la W è nutrita e vince la sua sede;
+      //  2. il C può DRENARE il B → il malus si scarica e la sua squadra vince;
+      //  3. in ASSENZA di W il C fa vincere la propria squadra, A MENO CHE
+      //  4. il C controlli la G → allora la propria squadra perde.
+      var R0 = opts.R, cEl = opts.cEl || (R0.linee[pos-1] && R0.linee[pos-1].el);
+      if (!cEl) return null;
+      var vive = R0.linee.filter(function(l){
+        return l.pos !== pos && !(opts.esclusi && opts.esclusi.indexOf(l.pos) >= 0); });
+      var W0 = vive.filter(function(l){ return l.par === 'W'; });
+      var gen = W0.filter(function(l){ return GEN[cEl] === l.el; });
+      if (gen.length === 1)
+        return { dir: sede(gen[0].pos), nota: 'il C genera la W di L' + gen[0].pos + ': la W è nutrita e vince la sua sede' };
+      var dren = vive.filter(function(l){ return l.par === 'B' && GEN[l.el] === cEl; });
+      if (dren.length && dren.every(function(l){ return sede(l.pos) === sede(dren[0].pos); }))
+        return { dir: sede(dren[0].pos), nota: 'il C drena il B di L' + dren.map(function(l){return l.pos;}).join('/L') + ': il malus si scarica e la sua squadra vince' };
+      if (!W0.length) {
+        var ctrlG = vive.some(function(l){ return l.par === 'G' && KE[cEl] === l.el; });
+        if (ctrlG) return { dir: opposto(sede(pos)), nota: 'senza W in carta, il C controlla la G: la sua squadra perde' };
+        return { dir: sede(pos), nota: 'senza W in carta il C fa vincere la propria squadra' };
+      }
+    }
+    return null; // C senza appigli: tace
   }
 
   // ---- appoggi: vita dell'arrivo, capannello, linee ferme --------------------
@@ -125,11 +148,13 @@ function creaMotore(LYM) {
   }
   // raccolta completa: l'arrivo con altri due membri fra linee non vuote e rami di data
   function capannello(R, inv, arr) {
+    // un ramo di data penalizzato da un ALTRO ramo di data non completa il trigono
+    // (Edu, 29/08/2026, EURJPY 21/10/2021: l'anno 丑 penalizza il mese 戌)
     var pool = {};
     for (var i = 0; i < inv.length; i++) if (!inv[i].vuoto) pool[inv[i].ramo] = true;
-    if (R.dayBranch) pool[R.dayBranch] = true;
-    if (R.monthBranch) pool[R.monthBranch] = true;
-    if (R.yearBranch) pool[R.yearBranch] = true;
+    if (R.dayBranch && !penaDentroData(R, 'giorno')) pool[R.dayBranch] = true;
+    if (R.monthBranch && !penaDentroData(R, 'mese')) pool[R.monthBranch] = true;
+    if (R.yearBranch && !penaDentroData(R, 'anno')) pool[R.yearBranch] = true;
     for (var t = 0; t < TRIGONI.length; t++) {
       var T = TRIGONI[t];
       if (T.indexOf(arr) < 0) continue;
@@ -220,6 +245,130 @@ function creaMotore(LYM) {
     return null;
   }
 
+  // ---- LE BESTIE (六獸) — dottrina di Edu, 29/08/2026 -------------------------
+  // La bestia non e' un attore: e' la PORTA attraverso cui l'energia della data entra
+  // in una linea. Conta chi la nutre, e da chi la nutre discendono tre gradi.
+  //
+  //  1° grado — un PILASTRO DELLA DATA cade sulla linea della bestia: la bestia dello
+  //     stelo del pilastro siede su quella linea e vi arriva il ramo del pilastro.
+  //     POTERI PIENI: fa muovere la linea superando combinazioni, blocchi, penalita' e
+  //     vuoti; la BLOCCA con una combinazione; la ELIMINA con un clash.
+  //  2° grado — lo STELO TERMINALE del flusso del Qi, SE RADICATO nei rami: la bestia
+  //     di quello stelo ha gli STESSI poteri del primo grado.
+  //  3° grado — il flusso del Qi generico e il suo ELEMENTO terminale: la bestia
+  //     corrispondente e' ENERGIZZATA ma NON ha quei poteri — pesa soltanto, fra pari.
+  //
+  // I primi due gradi agiscono PRIMA che si decida se la mobile si muove; il terzo dopo.
+  var BEL = { '青龍':'Wood', '朱雀':'Fire', '勾陳':'Earth', '螣蛇':'Earth',
+              '白虎':'Metal', '玄武':'Water' };
+  var STEM_BESTIA = { '甲':'青龍','乙':'青龍','丙':'朱雀','丁':'朱雀','戊':'勾陳',
+                      '己':'螣蛇','庚':'白虎','辛':'白虎','壬':'玄武','癸':'玄武' };
+
+  // PENALITA' DENTRO LA DATA (Edu, 29/08/2026, EURJPY 21/10/2021 s133): un ramo della
+  // data penalizzato (刑) da un ALTRO ramo della data non svolge il suo ruolo — non
+  // completa trigoni e, portato dalla bestia su una linea, la DEPOTENZIA invece di
+  // rafforzarla.
+  // VINCOLO (Edu, 29/08/2026, da EURJPY 30/04/2020 s115): la penalità dentro la data
+  // funziona SOLO se i rami sono VICINI — anno↔mese, mese↔giorno, giorno↔ora.
+  // 子 nell'anno e 卯 nel giorno non si toccano: nessun veleno.
+  function penaDentroData(R, nomePilastro) {
+    var ord = [ ['anno', R.yearBranch], ['mese', R.monthBranch],
+                ['giorno', R.dayBranch], ['ora', R.oraBranch] ];
+    var idx = -1;
+    for (var i = 0; i < ord.length; i++) if (ord[i][0] === nomePilastro) { idx = i; break; }
+    if (idx < 0 || !ord[idx][1]) return null;
+    var me = ord[idx][1];
+    var vicini = [];
+    if (idx > 0 && ord[idx-1][1]) vicini.push(ord[idx-1][1]);
+    if (idx < ord.length-1 && ord[idx+1][1]) vicini.push(ord[idx+1][1]);
+    for (var v = 0; v < vicini.length; v++)
+      if (vicini[v] !== me && XING[vicini[v]] === me) return vicini[v];
+    return null;
+  }
+
+  function bestie(R, ctx) {
+    var out = { perLinea: {}, terzo: null };
+    if (!ctx || ENV_G.MPBESTIE === 'no') return out;
+    var canali = [];
+    var ramiData = [];
+    var pil = ctx.pilastri || [];
+    for (var p0 = 0; p0 < pil.length; p0++) if (pil[p0] && pil[p0].ramo) ramiData.push(pil[p0].ramo);
+    // 1° grado: i quattro pilastri della data — arriva il ramo del pilastro stesso
+    for (var i = 0; i < pil.length; i++) {
+      var P = pil[i];
+      if (!P || !P.stelo || !P.ramo) continue;
+      var bs = STEM_BESTIA[P.stelo]; if (!bs) continue;
+      var penDa = penaDentroData(R, P.nome);
+      canali.push({ grado: 1, bestia: bs, rami: [P.ramo], avvelenato: penDa,
+                    eti: 'il pilastro ' + P.nome + ' ' + P.stelo + P.ramo +
+                         (penDa ? ' (penalizzato in data da ' + penDa + ')' : '') });
+    }
+    // 2° grado: lo stelo terminale del flusso, se RADICATO — arrivano le sue radici
+    if (ctx.capolineaStelo && ctx.capolineaRadicato) {
+      var bs2 = STEM_BESTIA[ctx.capolineaStelo];
+      var elC = STEM_EL[ctx.capolineaStelo];
+      var radici = ramiData.filter(function(b){ return WX[b] === elC; });
+      if (bs2 && radici.length)
+        canali.push({ grado: 2, bestia: bs2, rami: radici,
+                      eti: 'lo stelo terminale del flusso ' + ctx.capolineaStelo + ' (radicato)' });
+    }
+    // assegna i canali alle linee che portano quella bestia. Il ramo del pilastro deve
+    // ARRIVARE davvero sulla linea, e il modo in cui vi arriva decide il potere:
+    //   stesso ramo  -> CARICA (la linea supera combinazioni, blocchi, penalità, vuoti)
+    //   六合         -> BLOCCA (la combinazione la trattiene)
+    //   冲           -> ELIMINA (il clash la scaccia)
+    for (var k = 0; k < canali.length; k++) {
+      var c = canali[k];
+      for (var z = 0; z < R.linee.length; z++) {
+        var L = R.linee[z];
+        if (!L.bestia || L.bestia.cn !== c.bestia) continue;
+        // Dove cade un pilastro della data, la linea è RAFFORZATA (Edu, 29/08/2026):
+        // il rafforzamento è il caso base. La combinazione blocca, il clash elimina.
+        // MPBESTIELARGHE=no ripristina la forma stretta (serve la relazione esatta).
+        var eff = (ENV_G.MPBESTIELARGHE === 'si') ? 'carica' : null;
+        for (var m = 0; m < c.rami.length; m++) {
+          var rb = c.rami[m];
+          if (rb === L.ramo) { eff = 'carica'; break; }
+          if (COMBINA[rb] === L.ramo) { eff = 'blocca'; break; }
+          if (CLASH[rb] === L.ramo) { eff = 'elimina'; break; }
+          // il 刑 e' una porta d'arrivo SOLO per il pilastro avvelenato: la penalita'
+          // interna alla data viaggia sulla penalita' (EURJPY 21/10/2021); un pilastro
+          // sano che 刑-toccasse la linea non depotenzia (USDJPY 09/10/2024: li' decide
+          // il nutrimento degli steli, non la penalita').
+          if (c.avvelenato && (XING[rb] === L.ramo || XING[L.ramo] === rb)) { eff = 'depotenzia'; break; }
+        }
+        if (!eff) continue;
+        // pilastro penalizzato DENTRO la data: qualunque cosa porti e' avvelenata
+        if (c.avvelenato) eff = 'depotenzia';
+        var pr = out.perLinea[L.pos];
+        // il grado piu' forte comanda; a parita' comandano blocco/eliminazione
+        if (!pr || c.grado < pr.grado || (c.grado === pr.grado && pr.eff === 'carica' && eff !== 'carica'))
+          out.perLinea[L.pos] = { grado: c.grado, bestia: c.bestia, eff: eff, eti: c.eti };
+      }
+    }
+    // 3° grado: il flusso del Qi generico e il suo elemento terminale ENERGIZZANO la
+    // bestia della linea. Nessun potere: pesa soltanto. Il peso e' il nutrimento che la
+    // bestia riceve dagli STELI della data (比和 stesso elemento, o stelo che la genera),
+    // come Edu legge lo stallo di EURJPY 31/10/2023; chi la controlla la spegne.
+    var steliD = [];
+    for (var s0 = 0; s0 < pil.length; s0++) if (pil[s0] && pil[s0].stelo) steliD.push(pil[s0].stelo);
+    out.peso = {};
+    for (var y = 0; y < R.linee.length; y++) {
+      var L3 = R.linee[y];
+      if (!L3.bestia) continue;
+      var bEl = BEL[L3.bestia.cn]; if (!bEl) continue;
+      var n = 0;
+      for (var t = 0; t < steliD.length; t++) {
+        var sEl2 = STEM_EL[steliD[t]]; if (!sEl2) continue;
+        if (sEl2 === bEl || GEN[sEl2] === bEl) n++;
+        else if (KE[sEl2] === bEl) n--;
+      }
+      if (ctx.capolineaEl === bEl) n++;      // il flusso vi termina: energizzata
+      out.peso[L3.pos] = n;
+    }
+    return out;
+  }
+
   // ---- B. la catena ---------------------------------------------------------
   var ENV_G = (typeof process !== 'undefined' && process.env) ? process.env : {};
   function leggi(R, ctx) {
@@ -229,6 +378,24 @@ function creaMotore(LYM) {
       R._hourStem  = ctx.hourStem  || null;      // ora con i Cinque Topi (五鼠遁)
     }
     var inv = inventario(R);
+    var BST = bestie(R, ctx);
+    var bstDi = function(pos){ var b = BST.perLinea[pos]; return (b && b.grado <= 2) ? b : null; };
+    var bstDepo = function(pos){ var b = BST.perLinea[pos]; return !!(b && b.grado <= 2 && b.eff === 'depotenzia'); };
+    // PROTEZIONE DEL PILASTRO (Edu, 29/08/2026, USDJPY 24/06/2020 s106): il pilastro
+    // che siede sulla linea via bestia "elimina ogni problema" — la linea ferma supera
+    // la penalita' della data. Proteggono carica e combinazione; clash e veleno no.
+    var bstProtegge = function(pos){ if (ENV_G.MPPROTEZ === 'no') return false;
+      var b = BST.perLinea[pos];
+      if (!b || b.grado > 2) return false;
+      if (b.eff === 'carica') return true;
+      if (b.eff !== 'blocca') return false;
+      // protezione per COMBINAZIONE: cade se un ramo della data clasha la linea
+      // (registro: 1 clash rompe la combinazione — USDJPY 09/12/2024, giorno 未 su 丑)
+      var ln = R.linee[pos - 1];
+      var rd = [R.dayBranch, R.monthBranch, R.yearBranch, R.oraBranch];
+      for (var q = 0; q < rd.length; q++)
+        if (rd[q] && CLASH[rd[q]] === ln.ramo) return false;
+      return true; };
     var tr0 = [];
 
     // ---- A0 (TEST di Edu, 29/08/2026): Shi o Ying VUOTI — prima cosa da vedere.
@@ -244,13 +411,23 @@ function creaMotore(LYM) {
         //  b) il giorno COMBINA la linea vuota (la lega e la tiene: non è abbandonata);
         //  c) tomba+penalità sulla mobile (caso -4): decide quella lettura.
         var _dep2 = R.mutante.ramoDep, _arr2 = R.mutante.ramoArr;
-        var _ecc = !!(pena(R, _perde.ramo) || pena(R, _vince.ramo) || pena(R, _dep2) || pena(R, _arr2) ||
+        // LE BESTIE, 1° e 2° grado: la bestia carica fa SUPERARE il vuoto alla linea
+        // (Edu 29/08/2026: "le fa superare combinazioni, blocchi, penalità, vuoti").
+        var _bv = bstDi(_perde.pos);
+        if (_bv && _bv.eff === 'carica') {
+          tr0.push('la ' + (_sv ? 'Shi' : 'Ying') + ' è vuota ma ' + _bv.eti + ' arriva sulla sua bestia ' +
+                   _bv.bestia + ': la linea supera il vuoto');
+        } else {
+        var _penP = pena(R, _perde.ramo) && !bstProtegge(_perde.pos);
+        var _penV = pena(R, _vince.ramo) && !bstProtegge(_vince.pos);
+        var _ecc = !!(_penP || _penV || pena(R, _dep2) || pena(R, _arr2) ||
                       XING[_arr2] === _dep2 || (R.dayBranch && COMBINA[R.dayBranch] === _perde.ramo) ||
                       R.mutante.casoMut === -4);
         if (!_ecc)
           return { dir: sede(_vince.pos), gradino: 'A0-vuoto-shi-ying',
                    perche: 'la ' + (_sv ? 'Shi' : 'Ying') + ' è vuota: la parte vuota perde subito — vince la sede della ' + (_sv ? 'Ying' : 'Shi') };
         tr0.push('Shi/Ying vuota ma un meccanismo con precedenza tocca la carta: la regola del vuoto cede');
+        }
       }
     }
 
@@ -260,10 +437,34 @@ function creaMotore(LYM) {
     var D = R.dayBranch, dEl = D ? WX[D] : null;
     var tr = tr0;
 
-    if (!R.mutante.movimentoNullo) {
-      if (iMob.vuoto) tr.push('la mobile è vuota e dorme');
-      else if (!iMob.timely && !iMob.generata) tr.push('la mobile è untimely e non generata: non agisce efficacemente');
+    // LE BESTIE, 1° e 2° grado, SULLA MOBILE — agiscono PRIMA che si decida se si muove.
+    // Carica: la linea supera combinazioni, blocchi, penalità e vuoti e agisce comunque.
+    // Blocca (六合 del ramo del pilastro): non parte. Elimina (冲): esce di scena.
+    var bMob = bstDi(mobPos), bSblocca = false, mobileDistrutta = false, mobileEliminata = false;
+    if (bMob && bMob.eff === 'depotenzia') { tr.push(bMob.eti + ' arriva sulla bestia ' + bMob.bestia + ' della mobile: la linea è depotenziata'); bMob = null; }
+    if (bMob) {
+      if (bMob.eff === 'blocca') {
+        tr.push(bMob.eti + ' arriva sulla bestia ' + bMob.bestia + ' della mobile e la combina: la linea non parte');
+        bMob = null; bSblocca = false;
+      } else if (bMob.eff === 'elimina') {
+        tr.push(bMob.eti + ' arriva sulla bestia ' + bMob.bestia + ' della mobile e la clasha: la linea è eliminata del tutto');
+        bMob = null; bSblocca = false; mobileEliminata = true;
+      } else {
+        bSblocca = true;
+      }
+    }
+    var bloccataDallaBestia = !!(BST.perLinea[mobPos] && BST.perLinea[mobPos].grado <= 2 &&
+                                 BST.perLinea[mobPos].eff !== 'carica');
+
+    if (!bloccataDallaBestia && (!R.mutante.movimentoNullo || bSblocca)) {
+      // UNA LINEA VUOTA CHE SI MUOVE NON È VUOTA (Edu, 29/08/2026). Il vuoto (旬空)
+      // vale per le linee FERME: il movimento stesso tira la linea fuori dal vuoto.
+      // Prima il motore la faceva dormire e passava oltre, buttando via la mobile.
+      if (!iMob.timely && !iMob.generata && !bSblocca && !iMob.vuoto)
+        tr.push('la mobile è untimely e non generata: non agisce efficacemente');
       else {
+        if (bSblocca && R.mutante.movimentoNullo)
+          tr.push(bMob.eti + ' arriva sulla bestia ' + bMob.bestia + ' della mobile: la linea supera il blocco e il passo si compie');
         var parArr = (mob.mut && mob.mut.parArr) || R.mutante.parArr || mob.par;
         var arr = R.mutante.ramoArr, arrEl = R.mutante.arrEl;
         var arrVivo = vivo(R, inv, arrEl);
@@ -277,6 +478,53 @@ function creaMotore(LYM) {
         var controlloIndietro = (KE[arrEl] === depEl);
         var lanciata = (GEN[depEl] === arrEl);
 
+        if (GEN[arrEl] === depEl && ENV.MPGENIETRO !== 'no') {
+          // 回頭生 GENERAZIONE INDIETRO (Edu, 29/08/2026, guida GBPUSD 05/05/2022 s126):
+          // "la linea si muove per generare indietro". Non è un movimento senza
+          // destinazione: la destinazione è la partenza stessa. Chi genera CEDE il Qi,
+          // quindi l'elemento dell'arrivo si SCARICA. Se un carattere di malus (B, che
+          // fa sempre perdere la propria squadra, oppure P) è di quell'elemento, perde
+          // energia: il malus si spegne e la SUA sede vince.
+          // CON FORZA (Edu, 29/08/2026, EURJPY 21/10/2021 s133): se l'arrivo ha un
+          // TRIGONO COMPLETO (三合) coi rami della data (o linee ferme non vuote), ha
+          // tutta la forza per generare indietro: la generazione SI COMPIE, la partenza
+          // viene nutrita e la sede della mobile VINCE.
+          var ramiTrig = [];
+          if (ENV.MPGENFORTE === 'si') {
+            var rdt = [['giorno',R.dayBranch],['mese',R.monthBranch],['anno',R.yearBranch],['ora',R.oraBranch]];
+            for (var rt = 0; rt < rdt.length; rt++)
+              if (rdt[rt][1] && !penaDentroData(R, rdt[rt][0])) ramiTrig.push(rdt[rt][1]);
+            if (ENV.MPGENFORTE === 'linee')
+              for (var lt = 0; lt < R.linee.length; lt++)
+                if (!R.linee[lt].isMobile && !inv[lt].vuoto) ramiTrig.push(R.linee[lt].ramo);
+          }
+          var trigArr = null;
+          for (var tt = 0; tt < TRIGONI.length; tt++) {
+            var T = TRIGONI[tt];
+            if (T.indexOf(arr) < 0) continue;
+            var altri = T.filter(function(b){ return b !== arr; });
+            if (altri.every(function(b){ return ramiTrig.indexOf(b) >= 0; })) { trigArr = T.join(''); break; }
+          }
+          if (trigArr)
+            return { dir: sede(mobPos), gradino: 'B1-genera-indietro-forte',
+                     perche: "la mobile si muove per generare indietro e l'arrivo " + arr +
+                             ' ha il trigono completo ' + trigArr + ' con la data: ha tutta la forza,' +
+                             ' la generazione si compie, la partenza è nutrita e la sede della mobile vince' };
+          var scarichi = [];
+          for (var gz = 0; gz < R.linee.length; gz++) {
+            var lg = R.linee[gz];
+            if (lg.pos === mobPos || !malus(lg.par)) continue;
+            if (WX[lg.ramo] !== arrEl) continue;
+            scarichi.push(lg);
+          }
+          if (scarichi.length === 1)
+            return { dir: sede(scarichi[0].pos), gradino: 'B1-genera-indietro',
+                     perche: "la mobile si muove per generare indietro (" + arr + ' genera ' +
+                             R.mutante.ramoDep + '): chi genera cede il Qi e il ' + arrEl +
+                             ' si scarica — il ' + scarichi[0].par + ' di L' + scarichi[0].pos +
+                             ' perde energia, il malus si spegne e la sua sede vince' };
+          tr.push('la mobile genera indietro ma nessun carattere di malus è di quell\'elemento');
+        }
         if (controlloIndietro) {
           // 回頭剋 (Edu, 29/08/2026, guida EURUSD 05/03/2025 s106): il controllo indietro
           // vale solo se l'arrivo HA L'ENERGIA per farlo (timely o generato dalla data).
@@ -288,7 +536,25 @@ function creaMotore(LYM) {
             if (cf2) return { dir: cf2.dir, gradino:'B1-ctrl-indietro-forte',
                               perche: "l'arrivo " + arr + ' (forza ' + fArr + ') pesa quanto la partenza ' +
                                       R.mutante.ramoDep + ' (forza ' + fDep + '): controlla davvero indietro — ' + cf2.nota };
-            tr.push('controllo indietro con energia ma il carattere è C: tace');
+            // C DISTRUGGE G (Edu, 29/08/2026, guida USDCAD 21/12/2023 s133): nel
+            // controllo indietro riuscito con arrivo C su partenza G, il C distrugge
+            // la G a due condizioni alternative: (1) il C è timely, oppure (2) la G è
+            // untimely. Distrutta la G, la mobile ESCE e si prosegue come per
+            // l'eliminazione della bestia (duello pesato se Shi/Ying pari).
+            if (parArr === 'C' && mob.par === 'G' && ENV.MPCDISTRUGGE !== 'no') {
+              var stC = stagione(R);
+              var cTimely = (arrEl === stC.mEl) || (arrEl === stC.sEl) ||
+                            (stC.mEl && GEN[stC.mEl] === arrEl) || (stC.sEl && GEN[stC.sEl] === arrEl);
+              // la timeliness della G si giudica per STAGIONE (rapporto col ramo del
+              // mese), come da registro: il soccorso del giorno non la rende timely
+              var gTimely = iMob.timely;
+              if (cTimely || !gTimely) {
+                tr.push('il C ' + arr + ' controlla indietro con energia e ' +
+                        (cTimely ? 'è timely' : 'la G è untimely') + ': il C distrugge la G — la mobile esce');
+                mobileDistrutta = true;
+              } else tr.push('controllo indietro del C senza le condizioni per distruggere la G: tace');
+            } else tr.push('controllo indietro con energia ma il carattere è C: tace');
+            if (ENV.MPMARCA==='ctrlC') return { dir:null, gradino:'X-ctrl-C', perche:'' };
           } else if (mob.par !== 'B') {
             return { dir: opposto(sede(mobPos)), gradino:'B1-ctrl-indietro-debole',
                      perche: "l'arrivo " + arr + ' (forza ' + fArr + ') non pesa abbastanza contro la partenza ' +
@@ -333,6 +599,7 @@ function creaMotore(LYM) {
             if (cq) return { dir: cq.dir, gradino:'B1-capannello',
                              perche: 'capannello: ' + trig + ' completo, il Qi si ferma — ' + cq.nota };
             tr.push('capannello ' + trig + ' ma il carattere è C: tace');
+            if (ENV.MPMARCA==='capC') return { dir:null, gradino:'X-capannello-C', perche:'capannello '+trig+' con arrivo C' };
           } else {
             // CORRIDORE: si guarda dove va
             var legata = (ENV.MPDEST === 'no') ? [] : fermeChe(R, inv, function(l){ return COMBINA[arr] === l.ramo; });
@@ -363,6 +630,7 @@ function creaMotore(LYM) {
                          perche: "corridore: l'arrivo " + arr + ' clasha L' + colpita[0].pos + ' e la scaccia — la sede colpita perde' };
               }
               tr.push("l'arrivo untimely non agisce sulla linea timely che clasha");
+              if (ENV.MPMARCA==='unt') return { dir:null, gradino:'X-unt-clash', perche:'' };
             }
             var c = carattere(parArr, mobPos, prog);
             if (c) return { dir: c.dir, gradino:'B1-carattere',
@@ -371,6 +639,8 @@ function creaMotore(LYM) {
           }
         }
       }
+    } else if (bloccataDallaBestia) {
+      /* la bestia ha gia' detto perche' la mobile e' fuori: nessuna altra traccia */
     } else {
       var dep = R.mutante.ramoDep, arr = R.mutante.ramoArr;
       if (R.mutante.casoMut === -1 && D) {
@@ -384,7 +654,21 @@ function creaMotore(LYM) {
       tr.push('il passo non si conclude (' + (R.mutante.motivoNullo || 'movimento nullo') + '): la mobile esce');
     }
 
+    // Il salto al duello vale quando la bestia ha tolto la mobile E Shi e Ying sono
+    // PARI (stesso elemento): allora l'atterraggio della data non scioglie nulla e
+    // decide il peso delle bestie (Edu, 29/08/2026, USDJPY 09/10/2024).
+    var _S0 = R.linee[R.shi - 1], _Y0 = R.linee[R.ying - 1];
+    // eliminata/distrutta: la linea NON ESISTE piu' -> sempre al duello.
+    // bloccata (combinata): resta seduta -> al duello solo se Shi e Ying sono pari.
+    var saltaAlDuello = mobileEliminata || mobileDistrutta ||
+                        (bloccataDallaBestia && (WX[_S0.ramo] === WX[_Y0.ramo]));
     var caricati = [];
+    // Quando la BESTIA (1° o 2° grado) ha tolto di mezzo la mobile — bloccandola o
+    // eliminandola col clash — non si cerca chi e' caricato dalla data: si va DIRITTI
+    // al duello Shi/Ying, pesato dalle bestie (Edu, 29/08/2026, USDJPY 09/10/2024:
+    // "l'intero pilastro arriva su L1 e, clashandola, elimina completamente la linea.
+    //  Per vedere chi vince devi andare altrove").
+    if (!saltaAlDuello)
     for (var k = 0; k < inv.length; k++) {
       var i = inv[k];
       if (i.pos === mobPos || !i.inCampo) continue;
@@ -398,12 +682,14 @@ function creaMotore(LYM) {
     if (caricati.length) {
       caricati.sort(function(a,b){ return rango(a.i.par) - rango(b.i.par); });
       for (var q = 0; q < caricati.length; q++) {
-        var cc = carattere(caricati[q].i.par, caricati[q].i.pos, {});
+        var cc = carattere(caricati[q].i.par, caricati[q].i.pos,
+                           { R: R, esclusi: bloccataDallaBestia || mobileDistrutta ? [mobPos] : [] });
         if (cc) return { dir: cc.dir, gradino:'B2-data', perche: tr.concat([caricati[q].fonte + ' — ' + cc.nota]).join(' → ') };
       }
       tr.push('i caricati dalla data sono tutti C: tacciono');
     }
 
+    if (!saltaAlDuello)
     for (var z = 0; z < R.linee.length; z++) {
       var l = R.linee[z];
       if (!l.fushen) continue;
@@ -413,18 +699,19 @@ function creaMotore(LYM) {
       var rinf = !!(D && (f.b === D || (dEl && (dEl === f.el || GEN[dEl] === f.el))));
       if (!rinf) continue;
       if (KE[f.el] !== l.el) continue;
-      var cf = carattere(f.par, l.pos, {});
+      var cf = carattere(f.par, l.pos, { R: R, cEl: f.el });
       if (cf) return { dir: cf.dir, gradino:'B3-fushen',
         perche: tr.concat(['il 伏神 ' + f.b + ' rinforzato dal giorno controlla la linea untimely che lo copre — ' + cf.nota]).join(' → ') };
     }
 
     // ---- B3-bis. la penalità del giorno su una linea ferma ---------------------
     // La penalità fa quello che dice la parola: penalizza chi la riceve (Edu, 29/08/2026).
-    if (D && ENV_G.MPPENALINEA !== 'no') {
+    if (D && ENV_G.MPPENALINEA !== 'no' && !saltaAlDuello) {
       var pen = [];
       for (var w = 0; w < R.linee.length; w++) {
         var lw = R.linee[w];
         if (lw.isMobile || inv[w].vuoto) continue;
+        if (bstProtegge(lw.pos)) continue;   // il pilastro seduto sulla linea elimina il problema
         var pl = pena(R, lw.ramo); if (pl) pen.push(lw);
       }
       if (pen.length === 1)
@@ -434,10 +721,48 @@ function creaMotore(LYM) {
     }
 
     var S = R.linee[R.shi - 1], Y = R.linee[R.ying - 1];
+    // CHI NON C'E' PIU' PERDE (Edu, 29/08/2026, USDCHF 29/02/2024 s87): se la mobile
+    // eliminata (clash della bestia o C che distrugge la G) e' la Shi o la Ying,
+    // quella parte ha perso la propria linea: vince l'altra.
+    if ((mobileEliminata || mobileDistrutta) && (mobPos === R.shi || mobPos === R.ying)) {
+      var _altra = mobPos === R.shi ? Y : S;
+      return { dir: sede(_altra.pos), gradino: 'B4-eliminata-perde',
+               perche: tr.concat(['la ' + (mobPos === R.shi ? 'Shi' : 'Ying') +
+                        ' eliminata non può vincere la sua sede: vince la ' +
+                        (mobPos === R.shi ? 'Ying' : 'Shi')]).join(' → ') };
+    }
     var sv = inv[R.shi - 1].vuoto, yv = inv[R.ying - 1].vuoto;
     if (sv !== yv)
-      return { dir: sede(sv ? Y.pos : S.pos), gradino:'B4-duello',
+      return { dir: sede(sv ? Y.pos : S.pos), gradino: 'B4-duello',
                perche: tr.concat(['duello Shi/Ying: la ' + (sv ? 'Shi' : 'Ying') + ' è vuota e dorme, vince l\'altra']).join(' → ') };
+
+    // LE BESTIE, 3° grado (Edu, 29/08/2026): l'elemento terminale del flusso del Qi
+    // ENERGIZZA la bestia della linea. Nessun potere: pesa soltanto, e qui che gli
+    // attori sono pari il peso decide. Se energizza entrambe o nessuna, tace.
+    // LA BESTIA AVVELENATA DECIDE IL PARI (Edu, 29/08/2026, EURJPY 21/10/2021): se il
+    // pilastro che cade sulla linea via bestia e' penalizzato dentro la data, la linea
+    // e' depotenziata: nel confronto Shi vs Ying pari, quella parte PERDE.
+    if (WX[S.ramo] === WX[Y.ramo]) {
+      var dS = bstDepo(S.pos), dY = bstDepo(Y.pos);
+      if (dS !== dY) {
+        var perde5 = dS ? S : Y, vince5 = dS ? Y : S;
+        return { dir: sede(vince5.pos), gradino: 'B4-bestia-avvelenata',
+                 perche: tr.concat(['Shi e Ying pari: ' + BST.perLinea[perde5.pos].eti +
+                          ' cade sulla bestia della ' + (dS ? 'Shi' : 'Ying') +
+                          ' e la depotenzia — quella parte perde']).join(' → ') };
+      }
+    }
+    if (BST.peso && ENV_G.MPBESTIE3 !== 'no') {
+      var pS = BST.peso[S.pos], pY = BST.peso[Y.pos];
+      // pesa soltanto: decide se una bestia e' nutrita e l'altra no (o e' spenta)
+      if (pS != null && pY != null && pS !== pY && (pS > 0 || pY > 0)) {
+        var vinc3 = pS > pY ? S : Y;
+        return { dir: sede(vinc3.pos), gradino: 'B4-bestia-nutrita',
+                 perche: tr.concat(['duello Shi/Ying pari: la bestia della ' + (pS > pY ? 'Shi' : 'Ying') +
+                          ' è nutrita dagli steli della data (' + Math.max(pS, pY) + ' contro ' + Math.min(pS, pY) +
+                          '), l\'altra no — quella sede vince']).join(' → ') };
+      }
+    }
     return { dir: null, perche: tr.concat(['duello Shi/Ying muto: TACE']).join(' → ') };
   }
 
