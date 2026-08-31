@@ -456,6 +456,20 @@ function creaMotore(LYM) {
     var bloccataDallaBestia = !!(BST.perLinea[mobPos] && BST.perLinea[mobPos].grado <= 2 &&
                                  BST.perLinea[mobPos].eff !== 'carica');
 
+    if (ENV_G.MPPROG !== 'no' && ENV_G.MPPROGPOS === 'presto' && !bloccataDallaBestia &&
+        (R.mutante.progressione === 'avanzante' || R.mutante.progressione === 'retrocedente') &&
+        (mob.par === 'G' || mob.par === 'W' || mob.par === 'B' || mob.par === 'P')) {
+      var _av0 = (R.mutante.progressione === 'avanzante');
+      var _bu0 = (mob.par === 'G' || mob.par === 'W');
+      var _vi0 = _bu0 ? _av0 : !_av0;
+      return { dir: _vi0 ? sede(mobPos) : opposto(sede(mobPos)),
+               gradino: 'A1-progressione-' + (_bu0 ? 'GW' : 'BP') + '-' + (_av0 ? 'avanza' : 'retrocede'),
+               perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos + ' ' +
+                        (_av0 ? 'avanza (進神)' : 'retrocede (退神)') + ': ' +
+                        (_vi0 ? 'fa vincere la propria squadra — la sua sede'
+                              : 'fa perdere la propria squadra — la sua sede cade')]).join(' → ') };
+    }
+
     if (!bloccataDallaBestia && (!R.mutante.movimentoNullo || bSblocca)) {
       // UNA LINEA VUOTA CHE SI MUOVE NON È VUOTA (Edu, 29/08/2026). Il vuoto (旬空)
       // vale per le linee FERME: il movimento stesso tira la linea fuori dal vuoto.
@@ -702,6 +716,57 @@ function creaMotore(LYM) {
       var cf = carattere(f.par, l.pos, { R: R, cEl: f.el });
       if (cf) return { dir: cf.dir, gradino:'B3-fushen',
         perche: tr.concat(['il 伏神 ' + f.b + ' rinforzato dal giorno controlla la linea untimely che lo copre — ' + cf.nota]).join(' → ') };
+    }
+
+    // ---- LA PROGRESSIONE DELLA MOBILE (Edu, 30/08/2026) -------------------------
+    // DOTTRINA. Quando la mobile si trasforma nello stesso elemento c'è progressione:
+    // 進神 avanza o 退神 retrocede. Chi avanza rafforza quello che è, chi retrocede lo
+    // indebolisce. Le due squadre buone (G e W) e le due cattive (B e P) reagiscono
+    // in verso opposto:
+    //   G o W che AVANZA  → fa vincere la propria squadra  → la sua sede
+    //   G o W che RETROCEDE → la fa perdere                → la sede cade
+    //   B o P che AVANZA  → fa perdere la propria squadra  → la sede cade
+    //   B o P che RETROCEDE → la fa vincere                → la sua sede
+    // Il C tace. MPPROG=no per spegnerla.
+    if (ENV_G.MPPROG !== 'no' && ENV_G.MPPROGPOS !== 'presto' && !saltaAlDuello &&
+        (R.mutante.progressione === 'avanzante' || R.mutante.progressione === 'retrocedente')) {
+      var _av = (R.mutante.progressione === 'avanzante');
+      var _buona = (mob.par === 'G' || mob.par === 'W');
+      var _cattiva = (mob.par === 'B' || mob.par === 'P');
+      if (_buona || _cattiva) {
+        var _vince = _buona ? _av : !_av;
+        return { dir: _vince ? sede(mobPos) : opposto(sede(mobPos)),
+                 gradino: 'B1-progressione-' + (_buona ? 'GW' : 'BP') + '-' + (_av ? 'avanza' : 'retrocede'),
+                 perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos + ' ' +
+                          (_av ? 'avanza (進神)' : 'retrocede (退神)') + ': ' +
+                          (_vince ? 'fa vincere la propria squadra — la sua sede'
+                                  : 'fa perdere la propria squadra — la sua sede cade')]).join(' → ') };
+      }
+    }
+
+    // ---- B3-ante. CHI NON VINCE PERDE, prima della penalità (prova, 30/08/2026) --
+    // Il termometro legge queste stesse carte al 62%: l'azione fallita della mobile
+    // (controllo indietro 回頭剋 o autocombinazione) e la lettura base della mobile
+    // G o W parlano PRIMA del gradino della linea penalizzata.
+    if (ENV_G.MPCHINONVINCE === 'si' && !saltaAlDuello) {
+      var _hui = (R.mutante.casoMut === 3);
+      var _aut = (mob.stato === 'autocombinata');
+      if ((_hui || _aut) && mob.par !== 'B')
+        return { dir: opposto(sede(mobPos)), gradino: 'B3a-azione-fallita',
+                 perche: tr.concat(['l\'azione della mobile L' + mobPos + ' ' + mob.par + ' fallisce (' +
+                          (_hui ? 'controllo indietro 回頭剋' : 'autocombinazione') +
+                          '): non porta la sua direzione — chi non vince perde, la sua sede cade']).join(' → ') };
+      if (mob.par === 'G' || mob.par === 'W') {
+        if (!R.mutante.movimentoNullo && ENV_G.MPCNV_RAMO === 'b') { /* ramo (a) muto */ }
+        else if (!R.mutante.movimentoNullo)
+          return { dir: sede(mobPos), gradino: 'B3a-mobile-GW-vera',
+                   perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos +
+                            ' si muove davvero ed è coinvolta nell\'azione: fa vincere la propria squadra — la sua sede']).join(' → ') };
+        if (R.mutante.movimentoNullo && !(_hui || _aut))
+          return { dir: opposto(sede(mobPos)), gradino: 'B3a-mobile-GW-nulla',
+                   perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos +
+                            ' tenta di agire ma il movimento è nullo: azione tentata e fallita — la sua sede cade']).join(' → ') };
+      }
     }
 
     // ---- B3-bis. la penalità del giorno su una linea ferma ---------------------

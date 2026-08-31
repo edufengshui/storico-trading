@@ -1021,3 +1021,43 @@ Oggi la carta è comunque letta giusta dalla regola A0 (Shi 辰 vuota → LONG �
 **Stato:** meccanica dottrinalmente osservata sulla guida, senza perimetro vincente nel mazzo.
 Da riesaminare quando l'imbuto trova una carta con questa forma (data combinata con vuota che
 decide da sola). n per z4: non applicabile (2 carte nel canale forza).
+
+### CABLATA COME CAUSA DI MOVIMENTO NULLO (30/08/2026) · Arrivo incompatibile col trigramma futuro
+Dottrina di Edu, dalla guida USDCHF 21/07/2021 (seme 92): 震 Zhen muta in 兌 Dui e l'arrivo 卯
+vi cade dentro clashando 酉, ramo proprio di 兌 — la linea PARTE MA NON ARRIVA. Cinque coppie,
+le stesse di §109. Cablata dentro readManual (caso -5), quindi valida per tutti e due i motori.
+Perimetro reale: 176 carte. Effetto su S17: 58,82% -> 58,75%, z 9,32 -> 9,24, +35.869 -> +36.005 pip.
+
+APERTO: "la Ying sta da sola" — chi decide dopo che il movimento e' fallito. Misura sulle 176:
+  la Ying tiene la sua sede     176 carte  52,3%  z 0,60  +1.444 pip  [vecchio 58,8% · recente 46,2%]
+  la mobile tiene la sua sede   176 carte  46,6%  z -0,90  -1.096 pip
+  la Shi tiene la sua sede      176 carte  47,7%  z -0,60  -1.444 pip
+  sottoinsieme mobile = Ying     10 carte  70,0%  z 1,26  +215 pip
+  n per z4: ~4.400 carte al 52,3%. Periodi DISCORDI: non cablabile allo stato.
+NOTA: una misura precedente dello stesso perimetro (109 carte) era SBAGLIATA — convenzione dei
+bit del trigramma invertita in uno script fuori motore. Vale solo il conto del motore, 176.
+
+
+[BLOCCO RITIRATO 30/08/2026: misure errate, sostituite dal blocco qui sopra.]
+
+### IN OSSERVAZIONE (30/08/2026) · Il DIREZIONALE (三會) che genera la Shi o la Ying
+Lettura di Edu sulla guida USDCHF 28/01/2026 (seme 76): sulla Ying L1 子 Acqua convergono lo
+stelo del giorno 壬 e quello dell'ora 癸, e 寅 (L2 e ramo del giorno) + 卯 (ora e arrivo della
+mobile) + 辰 (L3) formano il direzionale di Legno: il trigramma inferiore diventa Legno, che
+GENERA la Shi L4 午 Fuoco -> vince la Shi -> sede alta -> LONG. Esito reale LONG. Corretta.
+Quattro direzionali: 寅卯辰 Legno · 巳午未 Fuoco · 申酉戌 Metallo · 亥子丑 Acqua.
+NOTA: su questa carta il direzionale e' completo anche SENZA l'arrivo (il 卯 c'e' come ramo
+dell'ora), quindi la lettura vale sia a movimento compiuto sia a movimento fallito.
+
+Misura (membri presi da linee non vuote + quattro rami della data + arrivo se il moto si compie):
+  forma larga, >=1 membro dalle linee        679 carte  51,4%  z 0,73  -595 pip   [vec 49,8% rec 51,4%]
+    di cui "genera la Shi"                   343 carte  52,8%  z 1,03    -10 pip
+    di cui "genera la Ying"                  336 carte  50,0%  z 0,00   -585 pip
+  forma larga, >=2 membri dalle linee        538 carte  50,6%  z 0,26  -1.364 pip
+  forma larga, >=3 membri dalle linee        276 carte  51,4%  z 0,48   -913 pip
+  forma STRETTA (arrivo membro + 2 membri nel trigramma che ospita la mobile)
+                                               8 carte  50,0%  z 0,00    +77 pip
+  n per z4: ~1.800 carte al 52,8%. NON cablabile: nessun taglio separa, la forma stretta
+  e' troppo piccola, e la forma larga perde pip in tutti i tagli.
+Serve una condizione dottrinale in piu' (quale direzionale conta, o che cosa deve toccare)
+prima di poterla portare a via.

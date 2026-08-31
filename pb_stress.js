@@ -6849,20 +6849,6 @@ if (process.env.PBLY) {
                              r.yearBranchUsed, r.dayStemUsed, r.oraBranch);
     if (R.error) return null;
     r._ramoDep = R.mutante.ramoDep; r._mobPar = R.linee[R.mutante.pos-1].par;
-    { const lB = R.linee.find(l=>l.par==='B'); r._gongEl = lB ? lB.el : null; }
-    // §62 IN TESTA (prova GELIMTOP=1): G mobile eliminato da un C forte -> opposto della sede del G
-    if (process.env.GELIMTOP!=='off') {   // default ATTIVA (fissata 16/08/2026)
-      const _m=R.linee[R.mutante.pos-1];
-      if (_m.par==='G') {
-        const _vivo=l=>!['legata','rotta','dormiente','eliminata','autocombinata'].includes(l.stato);
-        const _Mo=r.monthBranchUsed, _mEl=WX[_Mo], _sEl=SEASON[_Mo];
-        const _st1=(el,m)=> el===m?'旺':GEN[m]===el?'相':GEN[el]===m?'休':CTRL[m]===el?'死':CTRL[el]===m?'囚':'休';
-        const _f1=x=>x==='旺'||x==='相'; const _timely=el=>_f1(_st1(el,_mEl))||_f1(_st1(el,_sEl));
-        const arrEl=WX[R.mutante.ramoArr];
-        if (R.linee.some(l=>l.par==='C' && !l.isMobile && !l.vuoto && _vivo(l) && _timely(l.el) && CTRL[l.el]===_m.el && l.el===arrEl))
-          return _m.pos<=3 ? 'LONG' : 'SHORT';
-      }
-    }
     const D=r.dayBranchUsed, Y=r.yearBranchUsed, Mo=r.monthBranchUsed, mEl=WX[Mo], sEl=SEASON[Mo];
     const bazi=[Y,Mo,D];
     const timely=el=>f1(st1(el,mEl))||f1(st1(el,sEl));   // doppia timeliness
@@ -7956,6 +7942,170 @@ if (process.env.PBLY) {
             else if (_cade4)  return _seat4(_mob4.pos)==='SHORT'?'LONG':'SHORT';
           }
         }
+      }
+    }
+
+    // ===== PARITA' 30/08/2026: §124..§129 cablate in liuyao.js e riportate qui =====
+    // §129 — il PILASTRO COMPLETO rende la linea dominante (guida AUDUSD 18/04/2022).
+    if (process.env.VIA129!=='off') {
+      const _p=r.date.split('-').map(Number);
+      const _ys=yearStemAt(_p[0],_p[1],_p[2]);
+      const _ms=monthStemFrom(_ys, r.monthBranchUsed);
+      const _ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+      const _BR=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+      const _WU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+      const _BD={'甲':'青龍','乙':'青龍','丙':'朱雀','丁':'朱雀','戊':'勾陳','己':'螣蛇','庚':'白虎','辛':'白虎','壬':'玄武','癸':'玄武'};
+      const _AU={'辰':1,'午':1,'酉':1,'亥':1};
+      let _os=null;
+      if (r.dayStemUsed && r.oraBranch){ const _hi=_BR.indexOf(r.oraBranch); if(_hi>=0) _os=_ST[(_ST.indexOf(_WU[r.dayStemUsed])+_hi)%10]; }
+      const _pl=(process.env.PILDOM==='tutti')
+        ? [[_ys,r.yearBranchUsed],[_ms,r.monthBranchUsed],[r.dayStemUsed,r.dayBranchUsed],[_os,r.oraBranch]]
+        : [[_ys,r.yearBranchUsed],[_ms,r.monthBranchUsed]];
+      const _dm=[];
+      for (const [stq,brq] of _pl){
+        if (!stq||!brq||_AU[brq]) continue;
+        const beq=_BD[stq];
+        for (const l of R.linee) if (l.ramo===brq && l.bestia && l.bestia.cn===beq) _dm.push(l);
+      }
+      const _dr={};
+      const _CT9={Wood:'Earth',Earth:'Water',Water:'Fire',Fire:'Metal',Metal:'Wood'};
+      for (const l of _dm){
+        let _sd=l.pos>3?'LONG':'SHORT';
+        if (l.par==='B'||l.par==='P') _sd=(_sd==='LONG')?'SHORT':'LONG';   // P e B fanno perdere
+        else if (l.par==='C'){
+          let fB=false,cG=false;
+          for (const l2 of R.linee){ if(l2.pos===l.pos) continue;
+            if (_CT9[l.el]===l2.el){ if(l2.par==='B')fB=true; if(l2.par==='G')cG=true; } }
+          if (fB===cG) continue;
+          if (cG) _sd=(_sd==='LONG')?'SHORT':'LONG';
+        }
+        _dr[_sd]=1; }
+      const _kk=Object.keys(_dr);
+      if (_kk.length===1) return _kk[0];
+    }
+    // §128 — la Shi o la Ying INCOMPATIBILE perde il duello (guida AUDUSD 23/11/2022).
+    if (process.env.VIA128!=='off' && R.sup!=null && R.inf!=null) {
+      const _PR={1:['戌','亥'],2:['酉'],3:['午'],4:['卯'],5:['辰','巳'],6:['子'],7:['丑','寅'],8:['未','申']};
+      const _CL8={'子':'午','午':'子','丑':'未','未':'丑','寅':'申','申':'寅','卯':'酉','酉':'卯','辰':'戌','戌':'辰','巳':'亥','亥':'巳'};
+      const _GN8={Wood:'Fire',Fire:'Earth',Earth:'Metal',Metal:'Water',Water:'Wood'};
+      const _CT8={Wood:'Earth',Earth:'Water',Water:'Fire',Fire:'Metal',Metal:'Wood'};
+      const _inc=(pos)=>{const pr=_PR[pos<=3?R.inf:R.sup]||[];const l=R.linee[pos-1];
+        let hit=null; for(const b of pr) if(_CL8[l.ramo]===b) hit=b;
+        if(!hit) return false;
+        // il ponte del pilastro salva l'incompatibile (guida EURJPY 07/12/2023)
+        if (_CT8[WX[hit]]===l.el){
+          const br=_GN8[WX[hit]];
+          if (_GN8[br]===l.el){
+            for (const [st,rb] of _pl8s){
+              if(!rb||WX[rb]!==br) continue;
+              if (rb===l.ramo || (st && l.bestia && _BD8[st]===l.bestia.cn)) return false;
+            }
+          }
+        }
+        return true; };
+
+      // attiva = non vuota-ferma e toccata dalla data (bestia d'uno stelo o ramo dei pilastri) o mobile
+      const _p8=r.date.split('-').map(Number);
+      const _ys8=yearStemAt(_p8[0],_p8[1],_p8[2]);
+      const _ms8=monthStemFrom(_ys8, r.monthBranchUsed);
+      const _ST8=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+      const _BR8=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+      const _WU8={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+      const _BD8={'甲':'青龍','乙':'青龍','丙':'朱雀','丁':'朱雀','戊':'勾陳','己':'螣蛇','庚':'白虎','辛':'白虎','壬':'玄武','癸':'玄武'};
+      let _os8=null;
+      if (r.dayStemUsed && r.oraBranch){const _h8=_BR8.indexOf(r.oraBranch); if(_h8>=0) _os8=_ST8[(_ST8.indexOf(_WU8[r.dayStemUsed])+_h8)%10];}
+      const _pl8s=[[_ys8,r.yearBranchUsed],[_ms8,r.monthBranchUsed],[r.dayStemUsed,r.dayBranchUsed],[_os8,r.oraBranch]];
+      const _st8=[_ys8,_ms8,r.dayStemUsed,_os8].filter(Boolean);
+      const _rm8=[r.yearBranchUsed,r.monthBranchUsed,r.dayBranchUsed,r.oraBranch].filter(Boolean);
+      const _att=(pos)=>{const l=R.linee[pos-1];
+        const vu=(R.vuoti||[]).indexOf(l.ramo)>=0;
+        if (vu && !l.isMobile) return false;
+        if (l.isMobile) return true;
+        if (l.bestia && _st8.some(st=>_BD8[st]===l.bestia.cn)) return true;
+        return _rm8.indexOf(l.ramo)>=0; };
+      const _incRaw=(pos)=>{const pr=_PR[pos<=3?R.inf:R.sup]||[];const rm=R.linee[pos-1].ramo;return pr.some(b=>_CL8[rm]===b);};
+      if (_incRaw(R.shi)||_incRaw(R.ying)) {
+      const _vS=(R.vuoti||[]).indexOf(R.linee[R.shi-1].ramo)>=0 && !R.linee[R.shi-1].isMobile;
+      const _vY=(R.vuoti||[]).indexOf(R.linee[R.ying-1].ramo)>=0 && !R.linee[R.ying-1].isMobile;
+      if (_vS!==_vY) { const _v=_vS?R.linee[R.ying-1]:R.linee[R.shi-1]; return _v.pos>3?'LONG':'SHORT'; }
+      const _iS=_inc(R.shi)&&_att(R.shi), _iY=_inc(R.ying)&&_att(R.ying);
+      if (_iS!==_iY) { const _v=_iS?R.linee[R.ying-1]:R.linee[R.shi-1]; return _v.pos>3?'LONG':'SHORT'; }
+      }
+    }
+    // §127 — L'AUTOPENALITA' DAL MESE: chi non vince perde (guida EURJPY 15/06/2023).
+    if (process.env.VIA127!=='off' && r.monthBranchUsed) {
+      const _AU={'辰':1,'午':1,'酉':1,'亥':1};
+      const _dp=R.mutante.ramoDep;
+      if (_AU[_dp] && r.monthBranchUsed===_dp) {
+        const _m=R.linee[R.mutante.pos-1];
+        return _m.pos<=3?'LONG':'SHORT';
+      }
+    }
+
+    { const lB = R.linee.find(l=>l.par==='B'); r._gongEl = lB ? lB.el : null; }
+    // §62 IN TESTA (prova GELIMTOP=1): G mobile eliminato da un C forte -> opposto della sede del G
+    if (process.env.GELIMTOP!=='off') {   // default ATTIVA (fissata 16/08/2026)
+      const _m=R.linee[R.mutante.pos-1];
+      if (_m.par==='G') {
+        const _vivo=l=>!['legata','rotta','dormiente','eliminata','autocombinata'].includes(l.stato);
+        const _Mo=r.monthBranchUsed, _mEl=WX[_Mo], _sEl=SEASON[_Mo];
+        const _st1=(el,m)=> el===m?'旺':GEN[m]===el?'相':GEN[el]===m?'休':CTRL[m]===el?'死':CTRL[el]===m?'囚':'休';
+        const _f1=x=>x==='旺'||x==='相'; const _timely=el=>_f1(_st1(el,_mEl))||_f1(_st1(el,_sEl));
+        const arrEl=WX[R.mutante.ramoArr];
+        if (R.linee.some(l=>l.par==='C' && !l.isMobile && !l.vuoto && _vivo(l) && _timely(l.el) && CTRL[l.el]===_m.el && l.el===arrEl))
+          return _m.pos<=3 ? 'LONG' : 'SHORT';
+      }
+    }
+
+    // §126 — LA LINEA SEDUTA SUL MESE NON SI LASCIA SVALUTARE (guida GBPUSD 15/12/2022).
+    if (process.env.VIA126!=='off' && r.oraBranch && r.dayStemUsed && Mo) {
+      const _XG={'寅':'巳','巳':'申','申':'寅','丑':'戌','戌':'未','未':'丑','子':'卯','卯':'子','辰':'辰','午':'午','酉':'酉','亥':'亥'};
+      const _WU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
+      const _ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+      const _BR=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+      const _BD={'甲':'青龍','乙':'青龍','丙':'朱雀','丁':'朱雀','戊':'勾陳','己':'螣蛇','庚':'白虎','辛':'白虎','壬':'玄武','癸':'玄武'};
+      const _s0=_WU[r.dayStemUsed], _hi=_BR.indexOf(r.oraBranch);
+      if (_s0 && _hi>=0) {
+        const _so=_ST[(_ST.indexOf(_s0)+_hi)%10], _bo=_BD[_so];
+        if (_bo) for (const l of R.linee) {
+          if (_XG[r.oraBranch]!==l.ramo) continue;
+          if (!l.bestia || l.bestia.cn!==_bo) continue;
+          if (l.ramo!==Mo) continue;
+          return l.pos>3?'LONG':'SHORT';
+        }
+      }
+    }
+    // §124 — LA YING CHE RESTA SOLA SI MISURA CON LA SHI (Edu, guida USDCHF 21/07/2021).
+    if (process.env.VIA124!=='off' && R.mutante.casoMut===-5 && R.mutante.pos===R.ying) {
+      const _S=R.linee[R.shi-1], _Y=R.linee[R.ying-1];
+      const _eS=WX[_S.ramo], _eY=WX[_Y.ramo];
+      const _sv=R.vuoti.indexOf(_S.ramo)>=0, _yv=R.vuoti.indexOf(_Y.ramo)>=0;
+      let _v=null;
+      if (_sv!==_yv) _v=_sv?_Y:_S;
+      else if (CTRL[_eS]===_eY) _v=_S;
+      else if (CTRL[_eY]===_eS) _v=_Y;
+      else if (GEN[_eS]===_eY) _v=_Y;
+      else if (GEN[_eY]===_eS) _v=_S;
+      if (_v) return _v.pos>3?'LONG':'SHORT';
+    }
+    // §125 — IL DIREZIONALE (三會) CHE GENERA LA SHI O LA YING (Edu, guida USDCHF 28/01/2026).
+    if (process.env.VIA125!=='off') {
+      const _DZ=[{r:['寅','卯','辰'],el:'Wood'},{r:['巳','午','未'],el:'Fire'},
+                 {r:['申','酉','戌'],el:'Metal'},{r:['亥','子','丑'],el:'Water'}];
+      const _pool={};
+      for (const l of R.linee){
+        const _vf=(!l.isMobile && R.vuoti.indexOf(l.ramo)>=0);
+        if (!_vf || process.env.DIREZVUOTI==='si') _pool[l.ramo]=1;
+      }
+      for (const rb of [r.yearBranchUsed, Mo, D, r.oraBranch]) if (rb) _pool[rb]=1;
+      if (!R.mutante.movimentoNullo && R.mutante.ramoArr) _pool[R.mutante.ramoArr]=1;
+      const _S=R.linee[R.shi-1], _Y=R.linee[R.ying-1];
+      for (const dz of _DZ){
+        if (!dz.r.every(b=>_pool[b])) continue;
+        const _gS=(GEN[dz.el]===WX[_S.ramo]), _gY=(GEN[dz.el]===WX[_Y.ramo]);
+        if (_gS===_gY) break;
+        const _v=_gS?_S:_Y;
+        return _v.pos>3?'LONG':'SHORT';
       }
     }
     return null;

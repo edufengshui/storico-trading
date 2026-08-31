@@ -4458,3 +4458,161 @@ Cablate nel carattere dell'attore, valgono ovunque il C sia interrogato (MPCPARL
 Il salto incondizionato anche per le bloccate rompe le guide (43/46 contro 51/41): il
 confine è la differenza fra non-esserci-più e non-potersi-muovere.
 Misura: guide 51/41/2 su 94 (massimo di sessione) · motore 2.965 · 52,61% · +10.115.
+
+---
+
+# LA PROGRESSIONE DELLA MOBILE — `FISSATA` · 30/08/2026 (dottrina enunciata da Edu)
+Quando la mobile si trasforma nello STESSO elemento c'e' progressione: 進神 avanza,
+退神 retrocede. Avanzare rafforza cio' che la linea e'; retrocedere lo indebolisce.
+Le due squadre reagiscono in verso opposto perche' una porta bene e l'altra porta male:
+- **G o W che AVANZA** -> fa VINCERE la propria squadra -> la sua sede (alto LONG, basso SHORT)
+- **G o W che RETROCEDE** -> la fa PERDERE -> la sede cade
+- **B o P che AVANZA** -> fa PERDERE la propria squadra -> la sede cade
+- **B o P che RETROCEDE** -> la fa VINCERE -> la sua sede
+Il C tace. Cablata nel motore a principi come gradino dopo la data e il 伏神
+(MPPROG=no la spegne; MPPROGPOS=presto la porta in testa alla catena).
+
+MISURA AL CABLAGGIO (30/08/2026)
+- Perimetro totale (tutte le carte con progressione, chiunque sia l'attore): 433 carte, 48,0%.
+- Dove la dottrina E' L'ATTORE nella catena: 56 carte.
+  G/W retrocede  18 carte  77,8%  +909 pip
+  B/P retrocede  10 carte  60,0%   -13 pip
+  G/W avanza      8 carte  37,5%    -7 pip
+  B/P avanza     20 carte  25,0%  -458 pip
+- In testa alla catena il perimetro sale a 316 carte ma la lettura scende al 45,6% e il
+  mazzo perde (52,49% contro 53,18%): la progressione NON e' un attore di prima istanza.
+- Effetto sul mazzo nella posizione scelta: 53,16% -> 53,18%, +12.781 -> +12.765 pip. Neutra.
+
+NOTA DI MISURA, non di dottrina: il ramo **B o P che avanza** e' quello che il mazzo
+contraddice piu' nettamente (25,0% su 20 carte dove agisce; 43,6% su 101 in testa alla
+catena). Nessuna carta guida e' ancora stata letta su questo ramo. Va in osservazione.
+
+---
+
+# §122 — LA YING CHE RESTA SOLA SI MISURA CON LA SHI · `CABLATA` 30/08/2026
+Guida: USDCHF 21/07/2021, seme 92 (震 Zhen + 離 Li, mutante L2, 寅→卯).
+Catena logica dettata da Edu, tre passaggi:
+1. L'arrivo 卯 e' incompatibile col trigramma FUTURO (震 muta in 兌, e 卯 clasha 酉, ramo
+   proprio di 兌) -> la linea PARTE MA NON ARRIVA. Caso -5, movimento nullo.
+2. Non arriva, quindi NON AVANZA: senza arrivo non c'e' 進神 ne' 退神. La progressione
+   viene azzerata sul caso -5, e le regole del malus che avanza non parlano piu' li'.
+3. La mobile era la YING: resta SOLA, e allora si misura con la SHI. Vince chi CONTROLLA
+   e la sua sede decide; se nessuna controlla, il vuoto asimmetrico; poi la generazione
+   (vince il nutrito). Sulla guida la Ying 寅 Legno controlla la Shi 未 Terra pur essendo
+   nella tomba del mese 未: IL CONTROLLO BATTE LA STAGIONE. Verdetto SHORT, esito SHORT.
+Il caso speculare (mobile = Shi) NON vale: 40,0% su 50 carte.
+Parla in PRIMA priorita': altrimenti la raccolta stagionale col mese parla sopra e dice LONG.
+
+MISURA
+  perimetro §122: 10 carte  60,0%  +85 pip  [vecchio 4/1 · recente 2/3]
+    di cui ramo del controllo: 7 carte 71,4%
+  S17 baseline                                  2.788  58,82%  z 9,32  +35.869
+  + "parte ma non arriva" (caso -5, 176 carte)  2.788  58,75%  z 9,24  +36.005
+  + "non arriva quindi non avanza"              2.788  58,64%  z 9,13  +35.505
+  + §122 in prima priorita'                     2.788  58,64%  z 9,13  +35.505
+COSTO NETTO sul mazzo: -0,18 punti e -364 pip rispetto alla baseline. Cablata perche'
+dottrina certificata da Edu, non perche' la statistica la chieda. REGOLA DI CODA, congelata.
+VIA122=off · INCFUT=off (per la causa di movimento nullo).
+
+# IL PONTE DELLA DATA — `FISSATA` 30/08/2026 (guida USDJPY 30/04/2024, seme 156)
+Gemella esatta della guida di §122: stesso 離 Li + 震 Zhen, stessa L2, stesso 寅→卯, esito
+opposto. Edu: "L'acqua e' molto piu' forte nella data e permette di far vivere 卯 dentro 兌,
+quindi la linea si muove."
+DOTTRINA. L'arrivo e' incompatibile col trigramma futuro perche' il ramo proprio di quel
+trigramma CONTROLLA l'arrivo (卯∈兌: 酉 Metallo controlla 卯 Legno). Ma se l'elemento IN MEZZO
+— generato dal primo e generatore del secondo, qui l'Acqua — e' forte nei RAMI della data, il
+controllo diventa generazione: l'arrivo vive laggiu' e la linea SI MUOVE davvero.
+Vale per le tre coppie con controllo: 卯∈兌 (ponte Acqua) · 午∈坎 (ponte Legno) · 申∈艮 (ponte
+Acqua). Su 丑∈坤 e 辰∈乾 non c'e' controllo, solo clash: nessun ponte.
+Forza contata sui QUATTRO RAMI della data (anno, mese, giorno, ora), non sugli steli — sugli
+steli il segno si rovescia: guida 1 stelo d'Acqua e 0 rami, gemella 0 steli e 2 rami.
+SOGLIA misurata: 2 rami. PONTE=0 la spegne.
+  soglia 0 (nessun ponte)  58,64%  z 9,13  +35.505
+  soglia 1                 58,61%  z 9,09  +35.157
+  soglia 2  <-- scelta     58,68%  z 9,17  +35.785
+  soglia 3                 58,64%  z 9,13  +35.505
+La gemella torna a vincere (+140). La guida continua a leggere SHORT con §122.
+
+# §126 — LA LINEA SEDUTA SUL MESE NON SI LASCIA SVALUTARE · `CABLATA` 30/08/2026
+Guida GBPUSD 15/12/2022 (seme 124) · gemella USDCHF 28/01/2026 (seme 76).
+L'ORA arriva INTERA su una linea: il ramo dell'ora la PENALIZZA (刑) e la bestia dello stelo
+dell'ora (五鼠遁) e' gia' seduta sopra. Se quella linea SIEDE SUL MESE (stesso ramo), e'
+CARICATA dal pilastro del mese: la penalita' non la scalfisce, tiene la propria sede e la sua
+squadra VINCE. Sulla gemella il mese 丑 COMBINA il 子 della Ying (六合): li' e' legata E
+penalizzata insieme, e cade -> sede bassa che cade -> LONG.
+Misura: 19 carte 78,9% z 2,52 +795 pip [vecchio 6/1 · recente 9/3].
+La forma senza guardia NON tiene (245 carte 49,8%): il numero forte e' la guardia, non la regola.
+VIA126=off.
+
+# IL PONTE: L'ACQUA SI CONTA TUTTA (correzione di Edu, 30/08/2026)
+Il ponte della data si conta sui rami PIU' gli steli del giorno e dell'ora (ora coi 五鼠遁).
+Soglia 2. Con questo conto la GBPUSD 15/12/2022 e la USDCHF 28/01/2026 hanno il ponte e la
+mobile ARRIVA; la guida USDCHF 21/07/2021 no. PONTEMODO=rami per l'audit sui soli rami.
+
+# STATO DEL MAZZO A FINE SESSIONE 30 — bilancio onesto
+  baseline di apertura                       2.788  58,82%  z 9,32  +35.869
+  §125 (direzionale) + §126, SENZA il caso -5 2.788  58,97%  z 9,47  +36.129
+  tutto acceso (col caso -5)                  2.788  58,79%  z 9,28  +35.463
+Le due vie nuove valgono +0,15 punti e +260 pip. Il caso -5 "parte ma non arriva" ne toglie
+-0,18 e -666: le ~150 carte che porta a movimento nullo non sono lette bene da nessuna via
+(dentro il caso -5: §65 24 carte 54,2%, §99 21 a 61,9%, silenzio 23 a 47,8%, il resto intorno
+al 50%). NON esiste un riordino di priorita' che lo recuperi: la perdita e' sparsa, non
+concentrata su una via. La decisione se tenerlo e' dottrinale, non statistica.
+§124 (la Ying sola contro la Shi) e' scesa a 6 carte al 50,0% e non muove piu' il mazzo.
+
+# §127 — L'AUTOPENALITA' DAL MESE: CHI NON VINCE PERDE · `CABLATA` 30/08/2026
+Guida EURJPY 15/06/2023 (seme 151). Quattro rami si penalizzano da soli (自刑): 辰辰, 午午,
+酉酉, 亥亥. Quando la PARTENZA della mobile e' uno di questi e il MESE e' lo stesso ramo,
+sedere sul mese NON e' una carica: e' un'autopenalita'. La mobile non porta a casa l'azione —
+chi non vince perde — la sua sede cade. Speculare della §126: per gli altri otto rami il mese
+carica, per questi quattro punisce. Sulla guida la G 午 sul mese 午 e sull'ora 午 sembrava
+fortissima: sede bassa caduta, LONG, esito LONG +173.
+Perimetro (catena liuyao): 83 carte 54,2% z 0,77 +659 pip [vec 21/20 · rec 24/18].
+S17 con la via: 58,75% z 9,24 +35.017. Nel motore di ricerca la via e' in coda (parla nel
+silenzio); nella catena della PWA parla davanti a §126. APERTO: allineare la posizione nelle
+due catene e' un conflitto di priorita' da sessione dedicata. VIA127=off.
+
+# §129 — IL PILASTRO COMPLETO RENDE LA LINEA DOMINANTE · `CABLATA` 30/08/2026
+Guide: AUDUSD 18/04/2022 (seme 73, Tai Sui 壬寅 su L2 W -> domina, SHORT) e AUDUSD 02/09/2020
+(seme 73, mese 甲申 completo su L5 B). Primo grado delle Sei Bestie portato a via: ramo del
+pilastro sulla linea E bestia dello stelo gia' seduta = pilastro COMPLETO, linea DOMINANTE.
+- G, P o W dominante -> la sua squadra vince la sua sede
+- B dominante -> il male a pieni poteri: la sua sede CADE (connessione dai principi, non dettata)
+- C dominante -> tace · due dominanti su sedi opposte -> tace
+- Dominano solo i pilastri GRANDI (anno e mese): l'ora intera su L1 nella 23/11 NON domina
+  (PILDOM=tutti per audit). Eccezione §127: ramo autopenalizzante (辰午酉亥) non carica.
+- Parla PRIMA dell'incompatibilita' (§128), come da dettato ("basta solo questo").
+Perimetro: 295 carte 51,5% +1.930 pip. VIA129=off.
+
+# §128 — AGGIORNATA: L'INCOMPATIBILE NON CONTA SE NON E' ATTIVA (Edu, 30/08/2026)
+Attiva = non vuota-ferma (il vuoto non agisce) E toccata dalla data (bestia di uno stelo dei
+pilastri seduta sopra, o ramo dei pilastri = suo ramo) oppure mobile. Sulla guida 23/11 la Shi
+G 卯 porta 玄武 e lo stelo d'anno 壬 e' Acqua: attiva, perde, LONG (giusto). Sulla 18/04 la
+Ying 辰 e' vuota e ferma: non andava nemmeno nominata.
+Perimetro dopo §129: 487 carte 46,6% -2.163 pip [vec 104/110 · rec 112/136]. Resta cablata e
+congelata (regola #10: la carta portata contro e' stata spiegata dalla dominanza). PRIMA
+INDIZIATA per la prossima lettura: nel suo perimetro la parte incompatibile attiva VINCE piu'
+spesso di quanto perda. S17 a fine sessione 30-bis: 58,39% z 8,86 +34.138.
+
+# PRINCIPIO FONDANTE — IL CARATTERE E IL DUELLO (Edu, 30/08/2026, dettato a fine S30-bis)
+Quando una linea AGISCE, il suo carattere decide il segno:
+- P e B fanno PERDERE la propria squadra
+- G e W la fanno VINCERE
+- C fa VINCERE se frena una B, fa PERDERE se controlla una G
+MA tutto questo NON vale nel confronto fra SHI e YING: nel duello si vede solo CHI VINCE,
+senza il carattere. Il duello e' forza contro forza; il carattere parla solo nell'azione.
+
+# §128 — TERZA STESURA (fine S30-bis): PONTE DEL PILASTRO + VUOTO AUTOMATICO
+Due dottrine di Edu sulla EURJPY 07/12/2023 (seme 158):
+1. IL PONTE DEL PILASTRO SALVA L'INCOMPATIBILE: se il ramo proprio del trigramma CONTROLLA
+   la linea, ma un pilastro della data le cade sopra (ramo uguale o bestia del suo stelo
+   seduta) col ramo dell'elemento IN MEZZO, il controllo diventa generazione: linea salvata.
+   Guida: Tai Sui 癸卯 -> 玄武 sulla Shi 午, il 卯 Legno fa ponte fra l'Acqua di 坎 e il Fuoco.
+2. IL VUOTO NEL DUELLO PERDE AUTOMATICAMENTE: quando si arriva al confronto Shi/Ying (qui:
+   almeno una delle due incompatibile, prima di salvezze e attivita'), chi e' vuoto perde,
+   primo criterio, prima del controllo. Applicato anche al duello di §124 (vuoto prima del
+   controllo). Nel duello NON conta il carattere (principio fondante).
+Catena di §128: (a) confronto invocato da incompatibilita' grezza; (b) vuoto asimmetrico ->
+il vuoto perde; (c) incompatibile ATTIVA e non salvata dal ponte -> perde, vince l'altra.
+Perimetro: 581 carte 49,9% -373 pip. Guide: 07/12 SHORT (vuoto automatico) · 23/11 LONG.
+S17 a chiusura: 2.788 · 58,50% · z 8,98 · +34.842. Parita' verificata sulle guide.
