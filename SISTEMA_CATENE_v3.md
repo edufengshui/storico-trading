@@ -21,10 +21,15 @@ cinese semplificato (惊蛰, 芒种) mentre la tabella di lookup usava il tradiz
 Conseguenza: i rami 卯 e 午 non comparivano mai come ramo del mese — circa 120 giorni sbagliati
 all'anno. Correzione applicata in `catena_v23.js` e `daliuren.js`.
 
-Ricalcolato dopo la correzione, il backtest DLR passa da −1.611 a **−2.565 pip**: il DLR come
-sistema direzionale autonomo resta **negativo e non utilizzabile**. Il suo valore nel progetto è
-un altro: fornisce **spiriti e strutture di calendario** (Generale del Mese, Cavallo 驛馬,
-Medico 天醫, sedi 寄宮 degli steli) che vengono usati dentro il Liu Yao e nel PB.
+Ricalcolato dopo la correzione, il backtest DLR passa da −1.611 a **−2.565 pip**.
+
+**SUPERATO il 31/08/2026 (S32).** Quel backtest misurava il DLR sulla domanda del **trend**
+(segue / non segue). Edu ha cambiato la domanda in **direzionale (LONG / SHORT)** e in quella
+forma il DLR risponde. Il verdetto "sistema direzionale autonomo negativo e non utilizzabile"
+è **ritirato**: non vale per la lettura direzionale, che è aperta e in costruzione.
+Tutta la dottrina DLR sta ora in **`REGISTRO_DLR_31_08_2026.md`**. Il DLR continua inoltre a
+fornire spiriti e strutture di calendario (Generale del Mese, Cavallo 驛馬, Medico 天醫,
+sedi 寄宮 degli steli) usati dentro il Liu Yao e nel PB.
 
 ---
 
@@ -80,8 +85,9 @@ Diverso il caso in cui il Tai Sui **muta nell'elemento** dell'Ufficiale e divent
 attore (§49): lì 57,89% con entrambi i periodi sopra. **Mutazione in elemento = attore
 misurabile; combinazione a distanza = solo percorso.**
 
-Altre misure DLR senza esito (nessuna cella oltre z 2,8): Tre Messaggi 三傳, le quattro letture
-四課, ramo celeste sopra anno/mese/ora.
+Le misure DLR sul "seguire" (Tre Messaggi 三傳, quattro letture 四課, ramo celeste sopra
+anno/mese/ora) sono state **spostate in `REGISTRO_DLR_31_08_2026.md` §8** e riaperte in chiave
+direzionale: erano misurate sulla domanda sbagliata.
 
 ---
 

@@ -1104,3 +1104,67 @@ parte e il campo opposto era vibrante (寅卯辰 col mese): il perimetro vero
 ha dentro il contesto delle forze, non la sola meccanica. Da riprendere
 dopo il ripeso della forza sui 12 stadi. La cella dell'anno (Tai Sui che
 distrugge) resta la piu' promettente.
+
+---------------------------------------------------------------------------
+CADUTO (31/08/2026, S32): LA WEALTH NUTRITA COME PRIMO MESSAGGIO (DLR) — NON PROMUOVERE
+---------------------------------------------------------------------------
+*** CADUTO LA SERA STESSA. Il nutrimento contava il 比和 come nutrimento: sbagliato.
+*** Rimisurato con la sola generazione vera: 10 carte al 40%. Il 64,6% era tutto 比和.
+*** Storia completa e correzione in REGISTRO_DLR_31_08_2026.md §4. NON RIAPRIRE.
+
+Digressione sul Da Liu Ren chiesta da Edu. Carte DLR costruite per tutto il
+mazzo (3.039): pilastro del giorno dall'istante, ora dal RAMO DEL SEME (stelo
+coi Cinque Topi), 月將 (Generale del mese) dal 中氣 corrente. Carta verificata
+con Edu su USDCAD 26/02/2025 seme 143 — COINCIDE.
+
+MECCANICA. Si guarda il primo messaggio (初傳) dei Tre messaggi (三傳):
+  · da quale delle quattro lezioni (四課) esce: 1a-2a = sezione dello STELO
+    del giorno, 3a-4a = sezione del RAMO. Sezione dello stelo -> LONG.
+  · il suo carattere dev'essere W (妻財 Ricchezza), relativo allo stelo del giorno.
+  · M2 e M3 devono NUTRIRLO entrambi: generarlo (子孫 Figli, che generano la
+    Ricchezza) oppure essergli pari (比和, stesso elemento).
+  · nessuno dei tre messaggi vuoto (旬空 del pilastro del giorno).
+  · la W dev'essere TEMPESTIVA nel mese Bazi, pesata coi 12 stadi (peso12 > 0).
+
+MISURA (flag WSPINTA):
+  STELO->LONG, W nutrita da entrambi          110 carte  58,2%  z 1,72  +513
+    di cui W timely + nessuno dei tre vuoto    31 carte  67,7%  z 1,98  +486
+                                                    [vec 66,7% / rec 66,7%]
+    W timely + solo la W piena                 40 carte  62,5%  z 1,58   +51
+    nutrita da due generatori (C)              22 carte  59,1%          +322
+    nutrita da due pari (altre W)              79 carte  55,7%           -91
+  n per z4 (cella da 31): ~130 carte a parita' di tasso.
+
+DUE REGOLE DI EDU RITROVATE DENTRO LA MECCANICA:
+  1. "W vince se non e' controllata dal B": nelle 110 carte il B non compare MAI
+     fra M2/M3. Non e' statistica, e' struttura — il B e' l'elemento dello stelo
+     del giorno, che CONTROLLA la W: non puo' nutrirla per definizione. Chiedere
+     il nutrimento e' una forma piu' stretta della regola 1.
+  2. "C che genera W fa vincere": i due generatori (C) portano +322 pip su 22
+     carte; i due pari fanno numero (79) ma perdono pip (-91). Nutrire e generare
+     non sono la stessa cosa.
+
+ATTENZIONE — NON CABLABILE ORA, DUE MOTIVI:
+  a) 31 carte, z 1,98. Lontano da z 4.
+  b) IL FILTRO "timely" POGGIA SUI PESI DELLA TERRA DETTATI OGGI (未 +3, mesi di
+     Terra +2, estate +2,5). 28 delle 31 carte sono Terra. Verificato che NON e'
+     un effetto-elemento (W di Terra nuda: 101 carte 56,4%; W di Terra con
+     nessuno vuoto: 57 carte 52,6%, in perdita) — il taglio che funziona e' il
+     TEMPO dentro la Terra, non la Terra. Ma la cella e la scala dei 12 stadi si
+     confermano a vicenda e nessuna delle due e' stata verificata contro l'altra
+     in modo indipendente. Da rifare con un campione che non dipenda dai pesi.
+  Le 9 carte di Metallo fanno 77,8% ma sono 9: non contano.
+
+CELLE MORTE DELLA STESSA DIGRESSIONE (non riaprire senza dottrina nuova):
+  · le 4 regole lette come semplice PRESENZA del carattere fra i tre messaggi:
+    W-senza-B 48,4% · C+W 47,6% · G-senza-C 48,2% · P-o-B 51,2% (z 1,1 su 2.313).
+    La presenza nuda non dice niente: conta la RELAZIONE fra i messaggi.
+  · esempio dettato da Edu (初傳 W · 中傳 C · 末傳 B, nessuno vuoto, W timely):
+    34 carte, 50,0% sia come "segue il trend" sia come "LONG". Piatto.
+  · M1 per sola sezione, senza carattere: stelo->LONG 48,8% (1.167), ramo->SHORT
+    50,3% (1.391). La sezione da sola non da' direzione.
+
+APERTO: 初傳 = G dalla sezione del RAMO, nutrito da entrambi: 32 carte al 28,1%
+z -2,47 (cioe' spinge LONG, contro l'etichetta della sezione). Se tiene, vuol
+dire che l'Ufficiale nutrito va LONG da ENTRAMBE le sezioni e la sezione non lo
+governa. Troppo piccolo per decidere: serve una carta guida.

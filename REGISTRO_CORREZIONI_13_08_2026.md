@@ -2818,9 +2818,9 @@ un'eventuale pesatura delle posizioni (LY più preciso quando Na Yin indebolisce
 concentrato nella via 我生 (253 carte, 60,47%, z 3,33). Sotto soglia, in osservazione.
 
 **Piste chiuse (18/08/2026, provate senza esito):**
-- Tre Messaggi 三傳 del DLR: nessuna cella oltre z 2 (ruolo nell'esagramma, Shi/Ying/mobile, palazzi PB)
-- 1a–4a lettura DLR (四課): nessuna cella oltre z 2,8
-- ramo celeste sopra anno/mese/ora (DLR): nessuna cella oltre z 2,3
+- ~~Tre Messaggi 三傳 del DLR · 1a–4a lettura 四課 · ramo celeste sopra anno/mese/ora~~
+  **SPOSTATE il 31/08/2026 in `REGISTRO_DLR_31_08_2026.md` §8.** Erano misurate sul "seguire il
+  trend"; la lettura direzionale (LONG/SHORT) è aperta e va in quel registro. Non citarle più da qui.
 - numerazione XKDG (Kun1 Xun2 Li3 Dui4 Zhen8 Gen6 Kan7 Qian9), somma Hetu 5/10/15, Sheng/Ke In-Out
   senza Terra: nessuna cella oltre z 3, nessun rinforzo combinato
 - risonanza (scala mobile) su tutto il dataset: pulita 49,8%, bloccata 44,9% → nessun edge; regge solo

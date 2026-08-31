@@ -24050,3 +24050,1196 @@ if (process.env.PILDMESE) {
   console.log('\n=== CELLA DEL MESE CHE DISTRUGGE — le peggiori 15 (lettura sbagliata) ===');
   out.slice(0,15).forEach(o=>console.log('  '+o.c.padEnd(7)+o.d+'  mese '+o.ms+o.mo+' su '+o.par+' '+o.ramo+' L'+o.pos+'  lettura '+o.dir+'  pnl '+o.pnl+'  seme '+o.seme));
 }
+
+// VIA67_69 — perimetro e resa delle due vie che consumano il modello di forza (diagnostico S32)
+if (process.env.VIA6769) {
+  const LYM = require('./liuyao.js');
+  const V={};
+  const add=(k,pnl)=>{V[k]=V[k]||{w:0,l:0,p:0};const o=V[k];if(pnl>0)o.w++;else if(pnl<0)o.l++;o.p+=pnl;};
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const R = LYM.readManual(r.sup,r.inf,r.linea,r.dayBranchUsed,r.monthBranchUsed,r.yearBranchUsed,r.dayStemUsed);
+    if (R.error||!R.mutante) continue;
+    for (const id of ['R31_67','R33_69']) {
+      const via = LYM.LY_VIE.find(v=>v.id===id); if(!via) continue;
+      const st={};
+      let d=null; try { d = via.test(R,{oraBranch:r.oraBranch,date:r.date},st); } catch(e){ d=null; }
+      if (!d) continue;
+      add(id, d==='LONG'? r.move : -r.move);
+    }
+  }
+  console.log('\n=== VIA6769 (FORZA12='+(process.env.FORZA12||'on')+') ===');
+  for(const k of Object.keys(V)){const o=V[k],m=o.w+o.l;
+    console.log('  '+k.padEnd(8)+String(m).padStart(4)+'  '+(m?(100*o.w/m).toFixed(1)+'%':'-')+'  pip '+o.p.toFixed(0));}
+}
+
+// V67CMP — carte in cui la §67 cambia verdetto fra peso piatto e 12 stadi (S32)
+if (process.env.V67CMP) {
+  const LYM = require('./liuyao.js');
+  const via = LYM.LY_VIE.find(v=>v.id==='R31_67');
+  const out=[];
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const R = LYM.readManual(r.sup,r.inf,r.linea,r.dayBranchUsed,r.monthBranchUsed,r.yearBranchUsed,r.dayStemUsed);
+    if (R.error||!R.mutante) continue;
+    const ctx={oraBranch:r.oraBranch,date:r.date};
+    process.env.FORZA12='off'; let a=null; try{a=via.test(R,ctx,{});}catch(e){}
+    delete process.env.FORZA12;   let b=null; try{b=via.test(R,ctx,{});}catch(e){}
+    if (a===b) continue;
+    const F=LYM.forzaModello(R,ctx,R.mutante.pos);
+    const mob=R.linee[R.mutante.pos-1];
+    out.push({cross:r.cross,date:r.date,sup:r.sup,inf:r.inf,linea:r.linea,seed:r.seedUsed,
+      a:a,b:b,move:r.move,mobPar:mob.par,mobRamo:mob.ramo,mobEl:mob.el,
+      f12:F.linee[R.mutante.pos-1].score,mese:r.monthBranchUsed});
+  }
+  console.log('\n=== §67: carte che cambiano verdetto ('+out.length+') ===');
+  let pA=0,pB=0;
+  out.forEach(o=>{
+    const pa=o.a==='LONG'?o.move:-o.move, pb=o.b==='LONG'?o.move:-o.move; pA+=pa; pB+=pb;
+    console.log('  '+o.cross+' '+o.date+' seme '+o.seed+' | mese '+o.mese+' | mobile '+o.mobPar+' '+o.mobRamo+
+      ' f12='+o.f12.toFixed(1)+' | piatto '+o.a+' ('+Math.round(pa)+')  ->  12stadi '+o.b+' ('+Math.round(pb)+')');
+  });
+  console.log('  totale: piatto '+Math.round(pA)+' pip · 12 stadi '+Math.round(pB)+' pip');
+}
+
+// V67CH — carte in cui la §67 cambia verdetto DENTRO la catena (§67 è quella che parla) — S32
+if (process.env.V67CH) {
+  const LYM = require('./liuyao.js');
+  console.log('\n=== §67 nella catena: perimetro reale ===');
+}
+
+// V67DET — dettaglio della forza della mobile sulle carte §67 che cambiano (S32)
+if (process.env.V67DET) {
+  const LYM = require('./liuyao.js');
+  const T=process.env.V67DET.split('|');
+  for (const r of rows) {
+    if (r.cross!==T[0]||r.date!==T[1]) continue;
+    const R = LYM.readManual(r.sup,r.inf,r.linea,r.dayBranchUsed,r.monthBranchUsed,r.yearBranchUsed,r.dayStemUsed);
+    const F = LYM.forzaModello(R,{oraBranch:r.oraBranch,date:r.date},R.mutante.pos);
+    const m = F.linee[R.mutante.pos-1];
+    console.log('\n>> '+r.cross+' '+r.date+'  mobile L'+m.pos+' '+m.par+' '+m.ramo+' ('+m.el+')  forza '+m.score);
+    m.det.forEach(d=>console.log('     · '+d));
+    console.log('   raduni: '+(F.raduni.length?F.raduni.map(g=>g.r.join('')+' '+g.el).join(' | '):'nessuno'));
+    console.log('   arrivo: '+(F.arrivo? F.arrivo.ramo+' '+F.arrivo.el+' forza '+F.arrivo.score : 'movimento nullo'));
+  }
+}
+
+// TREMESSAGGI — digressione DLR (Edu, S32 31/08/2026): caratteri dei Tre messaggi (三傳)
+// 1. W vince sempre se non e' controllata da B    2. C che genera W fa vincere
+// 3. G fa continuare il trend, ma non dev'essere controllato da C    4. P e B fanno perdere
+// "vince/fa continuare il trend" -> verdetto SEGUE; "fanno perdere" -> verdetto NON SEGUE.
+if (process.env.TREMSG) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js');
+  const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{ const c=rel.cn; if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P'; if(c==='妻財')return 'W'; return 'G'; };
+  const mk=()=>({w:0,l:0,p:0,re:{w:0,l:0},ve:{w:0,l:0}});
+  const M={}; const add=(k,segueOk,pnl,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    if(segueOk)o.w++; else o.l++; o.p+=pnl;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){ if(segueOk)o[per].w++; else o[per].l++; } };
+  let miss=0, noTre=0, tot=0;
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm){miss++;continue;}
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T){noTre++;continue;}
+    tot++;
+    const tre=[T.chu,T.zhong,T.mo].map(x=>code(x.relation));
+    const has=c=>tre.indexOf(c)>=0;
+    const sale=r.move>0, emaLong=r.emaDir==='up';
+    const segue=(emaLong&&sale)||(!emaLong&&!sale);           // il mercato ha seguito il trend?
+    const pnlSegue = segue? Math.abs(r.move)*1 : -1*Math.abs(r.move);  // placeholder, pip veri sotto
+    // pip del verdetto: SEGUE = direzione del trend; NON SEGUE = opposta
+    const dirSegue = emaLong?'LONG':'SHORT';
+    const pipOf = v => (v==='LONG'? r.move : -r.move);
+    const pipSegue = pipOf(dirSegue), pipNon = -pipSegue;
+    // ---- regola 1: W presente, non controllata da B (B assente) -> SEGUE
+    if (has('W')) {
+      if (!has('B')) add('R1  W nei tre, B assente -> SEGUE', segue, pipSegue, r);
+      else           add('R1b W nei tre ma B presente (controllata)', segue, pipSegue, r);
+    }
+    // ---- regola 2: C presente che genera W (C e W entrambi nei tre) -> SEGUE
+    if (has('C') && has('W')) add('R2  C+W nei tre (C genera W) -> SEGUE', segue, pipSegue, r);
+    if (has('C') && !has('W')) add('R2b C nei tre senza W', segue, pipSegue, r);
+    // ---- regola 3: G presente, non controllato da C (C assente) -> SEGUE
+    if (has('G')) {
+      if (!has('C')) add('R3  G nei tre, C assente -> SEGUE', segue, pipSegue, r);
+      else           add('R3b G nei tre ma C presente (controllato)', segue, pipSegue, r);
+    }
+    // ---- regola 4: P o B presenti -> NON SEGUE
+    if (has('P')||has('B')) add('R4  P o B nei tre -> NON SEGUE', !segue, pipNon, r);
+    if (has('P')&&!has('B')) add('R4a solo P (senza B) -> NON SEGUE', !segue, pipNon, r);
+    if (has('B')&&!has('P')) add('R4b solo B (senza P) -> NON SEGUE', !segue, pipNon, r);
+    // ---- celle informative: carattere del PRIMO messaggio (初傳)
+    add('chu '+tre[0]+' -> SEGUE?', segue, pipSegue, r);
+  }
+  const pc=o=>{const n=o.w+o.l; return n?(100*o.w/n).toFixed(2)+'%':'—';};
+  const zz=o=>{const n=o.w+o.l; return n?((o.w-n/2)/(0.5*Math.sqrt(n))).toFixed(2):'—';};
+  console.log('\n=== TRE MESSAGGI (三傳) — verdetto per carattere ===  carte '+tot+' (senza generale '+miss+', senza tre '+noTre+')');
+  console.log('cella'.padEnd(44)+'n'.padStart(5)+'giuste'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(9)+'rec'.padStart(9));
+  for(const k of Object.keys(M).sort()){ const o=M[k], n=o.w+o.l;
+    console.log(k.padEnd(44)+String(n).padStart(5)+pc(o).padStart(9)+zz(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(9)+pc(o.re).padStart(9)); }
+}
+
+// TREMSG2 — configurazione esatta dell'esempio di Edu: 初傳 W · 中傳 C · 末傳 B,
+// nessuno vuoto, W timely. Misurata in ENTRAMBE le letture: "segue il trend" e "LONG".
+if (process.env.TREMSG2) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js');
+  const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{ const c=rel.cn; if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P'; if(c==='妻財')return 'W'; return 'G'; };
+  const mk=()=>({n:0,seg:0,lng:0,pS:0,pL:0,ve:{n:0,seg:0,lng:0},re:{n:0,seg:0,lng:0}});
+  const M={}; const add=(k,segue,sale,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(segue)o.seg++; if(sale)o.lng++;
+    o.pS += (r.emaDir==='up'? r.move : -r.move);      // pip di "segui il trend"
+    o.pL += r.move;                                    // pip di "vai LONG"
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(segue)o[per].seg++; if(sale)o[per].lng++;} };
+  const ES=[];
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const tre=[T.chu,T.zhong,T.mo];
+    const cc=tre.map(x=>code(x.relation));
+    const sale=r.move>0, emaLong=r.emaDir==='up';
+    const segue=(emaLong&&sale)||(!emaLong&&!sale);
+    const nessunVuoto = tre.every(x=>!x.isVoid);
+    const elW = WX[tre[0].branch];
+    const wTimely = LYM.peso12(elW, r.monthBranchUsed) > 0;
+    if (cc[0]==='W'&&cc[1]==='C'&&cc[2]==='B') {
+      add('W·C·B  (qualunque)', segue, sale, r);
+      if (nessunVuoto) add('W·C·B  nessuno vuoto', segue, sale, r);
+      if (nessunVuoto && wTimely) { add('W·C·B  nessuno vuoto + W timely', segue, sale, r);
+        ES.push(r.cross+' '+r.date+' s'+r.seedUsed+' trend '+(emaLong?'LONG':'SHORT')+' mercato '+(sale?'SALE':'SCENDE')+' '+Math.round(r.move)); }
+    }
+    if (cc[0]==='W') { add('初傳 W (tutte)', segue, sale, r);
+      if (nessunVuoto && wTimely) add('初傳 W, nessuno vuoto + timely', segue, sale, r); }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(1)+'%':'—';
+  const z=(a,b)=>b?((a-b/2)/(0.5*Math.sqrt(b))).toFixed(2):'—';
+  console.log('\n=== ESEMPIO DI EDU: 初傳 W · 中傳 C · 末傳 B ===');
+  console.log('cella'.padEnd(34)+'n'.padStart(5)+'SEGUE'.padStart(9)+'z'.padStart(7)+'pip'.padStart(8)+'   |'+'LONG'.padStart(8)+'z'.padStart(7)+'pip'.padStart(8));
+  for(const k of Object.keys(M)){ const o=M[k];
+    console.log(k.padEnd(34)+String(o.n).padStart(5)+pc(o.seg,o.n).padStart(9)+z(o.seg,o.n).padStart(7)+String(Math.round(o.pS)).padStart(8)+'   |'+pc(o.lng,o.n).padStart(8)+z(o.lng,o.n).padStart(7)+String(Math.round(o.pL)).padStart(8)); }
+  console.log('\ncarte della cella piena:'); ES.forEach(e=>console.log('   '+e));
+}
+
+// DLRCARTA — stampa la carta DLR completa per data + seme (verifica con Edu, S32)
+if (process.env.DLRCARTA) {
+  const JQ = require('./jieqi-gmt.js');
+  const ORDER = JQ.TERM_ORDER;
+  const [dt, semeS] = process.env.DLRCARTA.split(' ');
+  const seme = parseInt(semeS,10);
+  const p = dt.split('-').map(Number);
+  const ch0 = DLR.buildChartFromForexSeed(mezzanotteTST(p[0],p[1],p[2]), 0, '子');
+  const c = JQ.currentJieQi(p[0],p[1],p[2]);
+  let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+  const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name;
+  const gm = DLR.MONTH_GENERAL_BY_ZHONGQI[name];
+  const ora = seedToBranch(seme);
+  const hs = DLR.hourStemFor(ch0.dayStem, ora);
+  const ch = DLR.buildChartFromPrimitives(ch0.dayStem, ch0.dayBranch, ora, gm, hs);
+  const IT={'兄弟':'Fratelli (B)','子孫':'Figli (C)','父母':'Genitori (P)','妻財':'Ricchezza (W)','官':'Ufficiale (G)','鬼':'Fantasma (G)'};
+  console.log('\n================ CARTA DLR  '+dt+'  seme '+seme+' ================');
+  console.log('giorno '+ch0.dayStem+ch0.dayBranch+' · mese Bazi '+ch0.monthBranch+' · 中氣 corrente '+name);
+  console.log('月將 Generale del mese: '+gm+' ('+DLR.MONTH_GENERAL_NAME[gm]+')');
+  console.log('占時 ora dal seme: '+ora+'  (stelo '+hs+', Cinque Topi)');
+  console.log('旬空 vuoti del giorno: '+(ch.hourVoid||[]).join(' '));
+  console.log('quadranti: delta '+ch.plates.delta+(ch.plates.isFuYin?'  伏吟':'')+(ch.plates.isFanYin?'  返吟':''));
+  console.log('\nQUATTRO LEZIONI (四課), dalla 1a alla 4a:');
+  ch.fourLessons.forEach((L,i)=>{
+    console.log('  '+(i+1)+'ª  sopra '+L.top.branch+' ('+(IT[L.top.general&&'']||'')+
+      (L.top.relation?IT[L.top.relation.cn]:'')+')  sotto '+L.bottom+
+      (L.top.isVoid?'  ✦vuota':'')+'   generale '+(L.top.general?L.top.general.cn||L.top.general:'—')+
+      (L.zei?'  下剋上':'')+(L.ke?'  上剋下':''));
+  });
+  const T = ch.transmission.threeDetailed;
+  console.log('\nTRE MESSAGGI (三傳) — metodo: '+ch.transmission.method+(ch.transmission.special?' ['+ch.transmission.special+']':''));
+  if (!T) { console.log('  nessuna trasmissione'); }
+  else {
+    [['初傳 primo',T.chu],['中傳 secondo',T.zhong],['末傳 terzo',T.mo]].forEach(([n,x])=>{
+      console.log('  '+n.padEnd(14)+x.branch+' '+WX[x.branch]+'   '+IT[x.relation.cn]+
+        '   generale '+(x.general?(x.general.cn||x.general):'—')+(x.isVoid?'   ✦VUOTO':''));
+    });
+  }
+}
+
+// M1SEZ — l'idea di Edu (S32): M1 dalla SEZIONE DELLO STELO del giorno -> LONG
+// (dalla sezione del RAMO -> SHORT); poi si guarda se M2 e M3 AIUTANO M1 (lo generano
+// o gli sono pari) o lo OSTACOLANO (lo controllano / lo drenano).
+if (process.env.M1SEZ) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js');
+  const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
+  const M={}; const add=(k,dir,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    const pnl = dir==='LONG'? r.move : -r.move;
+    o.n++; if(pnl>0)o.w++; o.p+=pnl;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(pnl>0)o[per].w++;} };
+  let amb=0, tot=0;
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const L=ch.fourLessons;
+    // da quale lezione esce il primo messaggio: 1-2 = sezione dello STELO, 3-4 = sezione del RAMO
+    const idxs=[]; for(let i=0;i<4;i++) if(L[i].top.branch===T.chu.branch) idxs.push(i);
+    if (!idxs.length) continue;
+    const basi=new Set(idxs.map(i=>L[i].base));
+    if (basi.size!==1) { amb++; continue; }               // il ramo compare in entrambe le sezioni: escluso
+    const sez=[...basi][0];                                // 'stem' | 'branch'
+    tot++;
+    const dir = sez==='stem' ? 'LONG' : 'SHORT';
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta = e => (GEN[e]===e1) || (e===e1);          // genera M1 o gli e' pari
+    const ostacola = e => (CTRL[e]===e1) || (GEN[e1]===e); // lo controlla o lo drena
+    const nA=[e2,e3].filter(aiuta).length, nO=[e2,e3].filter(ostacola).length;
+    const et = sez==='stem'?'STELO→LONG':'RAMO→SHORT';
+    add(et+'  (tutte)', dir, r);
+    if (nA===2) add(et+'  M2+M3 aiutano entrambi', dir, r);
+    if (nA===1) add(et+'  ne aiuta uno solo', dir, r);
+    if (nA===0&&nO===0) add(et+'  indifferenti', dir, r);
+    if (nO>=1) add(et+'  almeno uno ostacola', dir, r);
+    if (nA===2 && [T.chu,T.zhong,T.mo].every(x=>!x.isVoid)) add(et+'  aiutano entrambi + nessuno vuoto', dir, r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== M1 DALLA SEZIONE DELLO STELO -> LONG ===  carte '+tot+' (ambigue escluse '+amb+')');
+  console.log('cella'.padEnd(46)+'n'.padStart(5)+'giuste'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    console.log(k.padEnd(46)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+}
+
+// M1CAR — la cella "M2 e M3 aiutano M1" spaccata per CARATTERE di M1 (relativo allo stelo
+// del giorno) e per sezione di provenienza. Edu, S32.
+if (process.env.M1CAR) {
+  const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn; if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P'; if(c==='妻財')return 'W'; return 'G';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
+  const M={}; const add=(k,dir,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    const pnl = dir==='LONG'? r.move : -r.move; o.n++; if(pnl>0)o.w++; o.p+=pnl;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(pnl>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const L=ch.fourLessons;
+    const idxs=[]; for(let i=0;i<4;i++) if(L[i].top.branch===T.chu.branch) idxs.push(i);
+    if(!idxs.length) continue;
+    const basi=new Set(idxs.map(i=>L[i].base)); if(basi.size!==1) continue;
+    const sez=[...basi][0], dir = sez==='stem'?'LONG':'SHORT';
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1), ostacola=e=>(CTRL[e]===e1)||(GEN[e1]===e);
+    const nA=[e2,e3].filter(aiuta).length, nO=[e2,e3].filter(ostacola).length;
+    const car=code(T.chu.relation);
+    const et = sez==='stem'?'STELO→LONG':'RAMO→SHORT';
+    if (nA===2) add(et+'  M1='+car+'  aiutato da entrambi', dir, r);
+    if (nO>=1)  add(et+'  M1='+car+'  ostacolato', dir, r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== CARATTERE DI M1 dentro la cella dell aiuto ===');
+  console.log('cella'.padEnd(46)+'n'.padStart(5)+'giuste'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<8) continue;
+    console.log(k.padEnd(46)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+}
+
+// WSPINTA — la Wealth come primo messaggio, nutrita da M2 e M3. Spacco per: sezione,
+// tempestivita' della W (12 stadi), vuoto, chi la nutre (C o pari), presenza del B. Edu S32.
+if (process.env.WSPINTA) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn; if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P'; if(c==='妻財')return 'W'; return 'G';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
+  const M={}; const add=(k,dir,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    const pnl = dir==='LONG'? r.move : -r.move; o.n++; if(pnl>0)o.w++; o.p+=pnl;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(pnl>0)o[per].w++;} };
+  const EX=[];
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    if (code(T.chu.relation)!=='W') continue;            // M1 dev'essere la Wealth
+    const L=ch.fourLessons;
+    const idxs=[]; for(let i=0;i<4;i++) if(L[i].top.branch===T.chu.branch) idxs.push(i);
+    if(!idxs.length) continue;
+    const basi=new Set(idxs.map(i=>L[i].base)); if(basi.size!==1) continue;
+    const sez=[...basi][0], dir = sez==='stem'?'LONG':'SHORT';
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1);
+    const nA=[e2,e3].filter(aiuta).length;
+    if (nA!==2) continue;                                 // nutrita da entrambi
+    const et = sez==='stem'?'STELO→LONG':'RAMO→SHORT';
+    add(et+'  W nutrita (base)', dir, r);
+    // tempestivita' della W nel mese Bazi, coi 12 stadi
+    const wT = LYM.peso12(e1, r.monthBranchUsed);
+    add(et+'  W '+(wT>0?'timely':'untimely'), dir, r);
+    add(et+'  W '+(wT>=2?'MOLTO forte (>=2)':wT>0?'timely debole':'untimely'), dir, r);
+    // vuoto
+    const vuoti=[T.chu,T.zhong,T.mo].filter(x=>x.isVoid).length;
+    add(et+'  '+(T.chu.isVoid?'W VUOTA':'W piena'), dir, r);
+    add(et+'  '+(vuoti===0?'nessuno dei tre vuoto':'qualcuno vuoto'), dir, r);
+    // chi la nutre: C (che genera W) contro pari (B, stesso elemento)
+    const nutre = e => GEN[e]===e1 ? 'genera' : 'pari';
+    const tipo=[nutre(e2),nutre(e3)];
+    add(et+'  nutrita da '+(tipo[0]===tipo[1]?(tipo[0]==='genera'?'due generatori':'due pari'):'uno e uno'), dir, r);
+    // presenza del B fra M2/M3 (il controllore della W)
+    const cB=[T.zhong,T.mo].filter(x=>code(x.relation)==='B').length;
+    add(et+'  B fra M2/M3: '+(cB?cB:'nessuno'), dir, r);
+    // combinazione piena
+    if (wT>0 && !T.chu.isVoid) add(et+'  W timely e piena', dir, r);
+    if (wT>0 && vuoti===0)     add(et+'  W timely, nessuno vuoto', dir, r);
+    add(et+'  ELEMENTO W = '+e1, dir, r);
+    if (wT>0 && vuoti===0) add(et+'  timely+pieni, W = '+e1, dir, r);
+    if (e1!=='Earth') { add(et+'  W NON di Terra', dir, r);
+      if (wT>0 && vuoti===0) add(et+'  W non-Terra, timely, nessuno vuoto', dir, r); }
+    if (e1==='Earth' && vuoti===0) add(et+'  W di Terra, nessuno vuoto', dir, r);
+    if (sez==='stem' && wT>0 && !T.chu.isVoid)
+      EX.push(r.cross+' '+r.date+' s'+r.seedUsed+' W '+T.chu.branch+' ('+e1+', peso '+wT+') M2 '+T.zhong.branch+' M3 '+T.mo.branch+'  LONG '+Math.round(r.move));
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== LA WEALTH NUTRITA COME PRIMO MESSAGGIO ===');
+  console.log('cella'.padEnd(48)+'n'.padStart(5)+'giuste'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<6) continue;
+    console.log(k.padEnd(48)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+  console.log('\ncarte STELO + W timely e piena ('+EX.length+'):'); EX.forEach(e=>console.log('   '+e));
+}
+
+// WSEZ — la W nutrita governa la direzione DA SOLA? Confronto delle due sezioni
+// (STELO 干 = lezioni 1-2, RAMO 支/DB = lezioni 3-4) letto SEMPRE come LONG. Edu S32.
+if (process.env.WSEZ) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn; if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P'; if(c==='妻財')return 'W'; return 'G';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
+  const M={}; const add=(k,dir,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    const pnl = dir==='LONG'? r.move : -r.move; o.n++; if(pnl>0)o.w++; o.p+=pnl;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(pnl>0)o[per].w++;} };
+  const EXR=[];
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    if (code(T.chu.relation)!=='W') continue;
+    const L=ch.fourLessons;
+    const idxs=[]; for(let i=0;i<4;i++) if(L[i].top.branch===T.chu.branch) idxs.push(i);
+    if(!idxs.length) continue;
+    const basi=new Set(idxs.map(i=>L[i].base)); if(basi.size!==1) continue;
+    const sez=[...basi][0];
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1);
+    if ([e2,e3].filter(aiuta).length!==2) continue;         // nutrita da entrambi
+    const wT = LYM.peso12(e1, r.monthBranchUsed);
+    const vuoti=[T.chu,T.zhong,T.mo].filter(x=>x.isVoid).length;
+    const et = sez==='stem'?'干 STELO':'支 RAMO (DB)';
+    // TUTTO letto come LONG
+    add(et+'  W nutrita        -> LONG', 'LONG', r);
+    if (wT>0 && vuoti===0) { add(et+'  + timely, nessuno vuoto -> LONG', 'LONG', r);
+      if (sez!=='stem') EXR.push(r.cross+' '+r.date+' s'+r.seedUsed+' W '+T.chu.branch+' M2 '+T.zhong.branch+' M3 '+T.mo.branch+'  LONG '+Math.round(r.move)); }
+    // unione delle due sezioni: la sezione NON conta
+    add('UNIONE  W nutrita, qualunque sezione -> LONG', 'LONG', r);
+    if (wT>0 && vuoti===0) add('UNIONE  + timely, nessuno vuoto -> LONG', 'LONG', r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== LA W NUTRITA: LA SEZIONE CONTA? (tutto letto LONG) ===');
+  console.log('cella'.padEnd(48)+'n'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    console.log(k.padEnd(48)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+  console.log('\ncarte del lato RAMO (DB), timely e nessuno vuoto:'); EXR.forEach(e=>console.log('   '+e));
+}
+
+// M1TUTTI — il primo messaggio NUTRITO da entrambi, per ogni carattere, letto come LONG.
+// 官 Officer (polarita' opposta allo stelo del giorno) separato da 鬼 Ghost (stessa polarita').
+if (process.env.M1TUTTI) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B Fratelli'; if(c==='子孫')return 'C Figli'; if(c==='父母')return 'P Genitori';
+    if(c==='妻財')return 'W Ricchezza'; if(c==='官')return '官 Officer'; return '鬼 Ghost';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
+  const M={}; const add=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    const pnl=r.move; o.n++; if(pnl>0)o.w++; o.p+=pnl;                 // sempre letto LONG
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(pnl>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const car=code(T.chu.relation);
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1);
+    if ([e2,e3].filter(aiuta).length!==2) continue;        // nutrito da ENTRAMBI
+    const wT=LYM.peso12(e1, r.monthBranchUsed);
+    const vuoti=[T.chu,T.zhong,T.mo].filter(x=>x.isVoid).length;
+    add(car+'  |  nutrito', r);
+    if (wT>0 && vuoti===0) add(car+'  |  nutrito + timely + pieni', r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== IL PRIMO MESSAGGIO NUTRITO, PER CARATTERE — tutto letto LONG ===');
+  console.log('cella'.padEnd(44)+'n'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    console.log(k.padEnd(44)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+}
+
+// CONTA — quante carte entrano davvero nell'indagine DLR (S32)
+if (process.env.CONTA) {
+  const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  let tutte=0, conMove=0, conCarta=0, conTre=0, nutrite=0, piene=0;
+  const perCross={}, anni={};
+  for (const r of rows) {
+    tutte++;
+    if (r.move==null) continue; conMove++;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    conCarta++;
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue; conTre++;
+    perCross[r.cross]=(perCross[r.cross]||0)+1;
+    anni[r.date.slice(0,4)]=(anni[r.date.slice(0,4)]||0)+1;
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1);
+    if ([e2,e3].filter(aiuta).length===2) { nutrite++;
+      if ([T.chu,T.zhong,T.mo].every(x=>!x.isVoid)) piene++; }
+  }
+  console.log('\n=== QUANTE CARTE ===');
+  console.log('  righe nel mazzo              '+tutte);
+  console.log('  con esito di mercato         '+conMove);
+  console.log('  con carta DLR costruita      '+conCarta);
+  console.log('  con Tre messaggi             '+conTre+'   <- base dell indagine');
+  console.log('  di cui M1 nutrito da entrambi '+nutrite+'  ('+(100*nutrite/conTre).toFixed(1)+'%)');
+  console.log('     di cui nessuno vuoto      '+piene);
+  console.log('  per cross: '+JSON.stringify(perCross));
+  console.log('  per anno:  '+JSON.stringify(anni));
+}
+
+// M1NON — che fa il primo messaggio quando NON e' nutrito. Tre stati:
+//   indifferenti (nessuno dei due lo tocca) · uno ostacola · entrambi ostacolano.
+// Ostacolare = controllarlo (剋) oppure drenarlo (M1 lo genera). Tutto letto LONG.
+if (process.env.M1NON) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B Fratelli'; if(c==='子孫')return 'C Figli'; if(c==='父母')return 'P Genitori';
+    if(c==='妻財')return 'W Ricchezza'; if(c==='官')return '官 Officer'; return '鬼 Ghost';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
+  const M={}; const add=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const car=code(T.chu.relation);
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1);
+    const ostacola=e=>(CTRL[e]===e1)||(GEN[e1]===e);      // lo controlla o lo drena
+    const nA=[e2,e3].filter(aiuta).length, nO=[e2,e3].filter(ostacola).length;
+    if (nA===2) continue;                                  // i nutriti stanno in §4
+    const wT=LYM.peso12(e1, r.monthBranchUsed);
+    const vuoti=[T.chu,T.zhong,T.mo].filter(x=>x.isVoid).length;
+    let stato;
+    if (nO===2)      stato='2 ostacolano';
+    else if (nO===1) stato=(nA===1?'1 aiuta 1 ostacola':'1 ostacola 1 neutro');
+    else             stato=(nA===1?'1 aiuta 1 neutro':'nessuno tocca M1');
+    add('TUTTI  |  '+stato, r);
+    add(car+'  |  '+stato, r);
+    if (wT>0 && vuoti===0) add(car+'  |  '+stato+' + timely + pieni', r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== M1 NON NUTRITO — tutto letto LONG (soglia '+(process.env.SOGLIAPIP||25)+') ===');
+  console.log('cella'.padEnd(52)+'n'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<10) continue;
+    console.log(k.padEnd(52)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+}
+
+// M1TIPO — differenza per TIPOLOGIA DI CARTA (課體, i nove riti 九宗門). Edu S32.
+if (process.env.M1TIPO) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const IT={'重審':'重審 riesame','元首':'元首 capo di stato','比用':'比用 parallelo','涉害':'涉害 danno coinvolto',
+    '八專':'八專 otto specialita','別責':'別責 altre responsabilita','昴星':'昴星 testa pelosa','伏吟':'伏吟 ronzio nascosto',
+    '遙剋·蒿矢':'遙剋·蒿矢 freccia','遙剋·彈射':'遙剋·彈射 fionda'};
+  const nome=m=>{ if(!m) return '?'; if(IT[m]) return IT[m];
+    for(const k of Object.keys(IT)) if(m.indexOf(k)>=0) return (m.indexOf('返吟')===0?'返吟 + ':'')+IT[k];
+    return m; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
+  const M={}, MW={}; const put=(D,k,r)=>{ D[k]=D[k]||mk(); const o=D[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const tipo=nome(ch.transmission.method);
+    put(M, tipo, r);                                        // tutto il mazzo, letto LONG
+    const car=code(T.chu.relation);
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1);
+    if (car==='W' && [e2,e3].filter(aiuta).length===2) {
+      const wT=LYM.peso12(e1, r.monthBranchUsed);
+      const vuoti=[T.chu,T.zhong,T.mo].filter(x=>x.isVoid).length;
+      put(MW, tipo, r);
+      if (wT>0 && vuoti===0) put(MW, tipo+'  [+timely+pieni]', r);
+    }
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  const dump=(D,tit,min)=>{ console.log('\n'+tit);
+    console.log('tipologia'.padEnd(40)+'n'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+    for(const [k,o] of Object.entries(D).sort((a,b)=>b[1].n-a[1].n)){ if(o.n<min) continue;
+      console.log(k.padEnd(40)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); } };
+  dump(M,'=== TUTTO IL MAZZO, PER TIPOLOGIA DI CARTA (letto LONG, soglia '+(process.env.SOGLIAPIP||25)+') ===',10);
+  dump(MW,'=== SOLO LA W NUTRITA, PER TIPOLOGIA ===',5);
+}
+
+// M1TIPO2 — tipologie coi 格 di 伏吟 e 昴星 (Edu 31/08: usare gli stili, non le sottocategorie).
+// 伏吟: 杜傳格 (c'e' il 剋) · 自任格 (yang, niente 剋) · 自信格 (yin, niente 剋)
+// 昴星: 虎視格 (giorno yang) · 冬蛇掩目格 (giorno yin)
+// NON separati per decisione di Edu: 獨足/帷薄不脩 dentro 八專; 比用/知一; i 格 dentro 涉害.
+if (process.env.M1TIPO2) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const IT={'重審':'重審 riesame','元首':'元首 capo di stato','比用':'比用 parallelo','涉害':'涉害 danno coinvolto',
+    '八專':'八專 otto specialita','別責':'別責 altre responsabilita','伏吟':'伏吟 ronzio nascosto',
+    '遙剋·蒿矢':'遙剋·蒿矢 freccia','遙剋·彈射':'遙剋·彈射 fionda','昴星':'昴星 testa pelosa'};
+  function etichetta(ch){
+    const t=ch.transmission, m=t.method||'?';
+    const yang = ST.indexOf(ch.dayStem)%2===0;
+    const hasKe = (t.xiaKeShang&&t.xiaKeShang.length)||(t.shangKeXia&&t.shangKeXia.length);
+    if (m.indexOf('伏吟')>=0) return hasKe ? '伏吟 · 杜傳格 ostruzione'
+                                           : (yang?'伏吟 · 自任格 auto-incarico':'伏吟 · 自信格 auto-fiducia');
+    if (m.indexOf('昴星')>=0) return yang ? '昴星 · 虎視格 sguardo di tigre'
+                                          : '昴星 · 冬蛇掩目格 serpe d inverno';
+    if (m==='返吟·驛馬') return '返吟 · 井欄格 recinto del pozzo';
+    for(const k of Object.keys(IT)) if(m.indexOf(k)>=0) return (m.indexOf('返吟')===0?'返吟 + ':'')+IT[k];
+    return m;
+  }
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
+  const M={}, MW={}; const put=(D,k,r)=>{ D[k]=D[k]||mk(); const o=D[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const tipo=etichetta(ch);
+    put(M, tipo, r);
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1);
+    if (code(T.chu.relation)==='W' && [e2,e3].filter(aiuta).length===2) put(MW, tipo, r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  const dump=(D,tit,min)=>{ console.log('\n'+tit);
+    console.log('tipologia'.padEnd(42)+'n'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+    for(const [k,o] of Object.entries(D).sort((a,b)=>b[1].n-a[1].n)){ if(o.n<min) continue;
+      console.log(k.padEnd(42)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); } };
+  dump(M,'=== MAZZO INTERO PER TIPOLOGIA, COI 格 (letto LONG, soglia '+(process.env.SOGLIAPIP||25)+') ===',10);
+  dump(MW,'=== SOLO LA W NUTRITA ===',4);
+}
+
+// M1NUDO — ogni carattere come primo messaggio SENZA nessuna condizione. Edu S32.
+if (process.env.M1NUDO) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B Fratelli'; if(c==='子孫')return 'C Figli'; if(c==='父母')return 'P Genitori';
+    if(c==='妻財')return 'W Ricchezza'; if(c==='官')return '官 Officer'; return '鬼 Ghost';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0},anni:{}});
+  const M={}; const put=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move;
+    const y=r.date.slice(0,4); o.anni[y]=o.anni[y]||{n:0,w:0}; o.anni[y].n++; if(r.move>0)o.anni[y].w++;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    put(code(T.chu.relation), r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== M1 NUDO: carattere del primo messaggio, nessuna condizione (LONG, soglia '+(process.env.SOGLIAPIP||25)+') ===');
+  console.log('carattere'.padEnd(16)+'n'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const [k,o] of Object.entries(M).sort((a,b)=>b[1].n-a[1].n))
+    console.log(k.padEnd(16)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8));
+  console.log('\nanno per anno (LONG ok):');
+  console.log('carattere'.padEnd(16)+['2020','2021','2022','2023','2024','2025','2026'].map(y=>y.padStart(11)).join(''));
+  for(const [k,o] of Object.entries(M).sort((a,b)=>b[1].n-a[1].n))
+    console.log(k.padEnd(16)+['2020','2021','2022','2023','2024','2025','2026'].map(y=>{
+      const a=o.anni[y]; return (a? (100*a.w/a.n).toFixed(0)+'% ('+a.n+')' : '—').padStart(11); }).join(''));
+}
+
+// OFFLIST — elenco delle carte con 官 Officer come primo messaggio, per anno. S32.
+if (process.env.OFFLIST) {
+  const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const anno=process.env.OFFLIST;
+  const out=[];
+  for (const r of rows) {
+    if (r.move==null || r.date.slice(0,4)!==anno) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    if (T.chu.relation.cn!=='官') continue;
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1), ost=e=>(CTRL[e]===e1)||(GEN[e1]===e);
+    const nA=[e2,e3].filter(aiuta).length, nO=[e2,e3].filter(ost).length;
+    out.push({d:r.date,c:r.cross,s:r.seedUsed,m:Math.round(r.move),
+      chu:T.chu.branch,zh:T.zhong.branch,mo:T.mo.branch,nA:nA,nO:nO,
+      tipo:ch.transmission.method,v:[T.chu,T.zhong,T.mo].filter(x=>x.isVoid).length});
+  }
+  out.sort((a,b)=>a.m-b.m);
+  console.log('\n=== 官 Officer come M1 nel '+anno+' ('+out.length+' carte, ordinate per pip) ===');
+  out.forEach(o=>console.log('  '+o.c+' '+o.d+' s'+String(o.s).padStart(3)+
+    '  三傳 '+o.chu+o.zh+o.mo+'  aiuti '+o.nA+' ostacoli '+o.nO+' vuoti '+o.v+
+    '  '+o.tipo.padEnd(8)+'  mercato '+String(o.m).padStart(5)));
+}
+
+// CONTAOFF — quanti 官 Officer ci sono fra i TRE messaggi (non solo M1). Edu S32.
+if (process.env.CONTAOFF) {
+  const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const cn=x=>x.relation.cn;
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0},anni:{}});
+  const M={}; const put=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move;
+    const y=r.date.slice(0,4); o.anni[y]=o.anni[y]||{n:0,w:0}; o.anni[y].n++; if(r.move>0)o.anni[y].w++;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const tre=[T.chu,T.zhong,T.mo];
+    const nOff=tre.filter(x=>cn(x)==='官').length;
+    const nGh =tre.filter(x=>cn(x)==='鬼').length;
+    const nW  =tre.filter(x=>cn(x)==='妻財').length;
+    put('官 Officer x'+nOff, r);
+    put('官+鬼 insieme x'+(nOff+nGh), r);
+    put('W Ricchezza x'+nW, r);
+    if (nOff>=2) put('官 x'+nOff+'  [M1='+(cn(T.chu)==='官'?'官':'altro')+']', r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== QUANTI 官 FRA I TRE MESSAGGI (letto LONG, soglia '+(process.env.SOGLIAPIP||25)+') ===');
+  console.log('cella'.padEnd(30)+'n'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<8) continue;
+    console.log(k.padEnd(30)+String(o.n).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+  console.log('\nanno per anno, celle degli Ufficiali:');
+  console.log('cella'.padEnd(30)+['2020','2021','2022','2023','2024','2025','2026'].map(y=>y.padStart(11)).join(''));
+  for(const k of Object.keys(M).sort()){ if(k.indexOf('官 Officer')<0) continue; const o=M[k]; if(o.n<8) continue;
+    console.log(k.padEnd(30)+['2020','2021','2022','2023','2024','2025','2026'].map(y=>{
+      const a=o.anni[y]; return (a? (100*a.w/a.n).toFixed(0)+'% ('+a.n+')' : '—').padStart(11); }).join('')); }
+}
+
+// CONTAOFF — quanti 官 Officer ci sono fra i TRE messaggi (non solo M1). Edu S32.
+if (process.env.CONTAOFF) {
+  const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0},anni:{}});
+  const M={}; const put=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move;
+    const y=r.date.slice(0,4); o.anni[y]=o.anni[y]||{n:0,w:0}; o.anni[y].n++; if(r.move>0)o.anni[y].w++;
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const tre=[T.chu,T.zhong,T.mo].map(x=>code(x.relation));
+    const nOff=tre.filter(c=>c==='官').length;
+    const nGh =tre.filter(c=>c==='鬼').length;
+    const nW  =tre.filter(c=>c==='W').length;
+    put('官 fra i tre: '+nOff, r);
+    put('鬼 fra i tre: '+nGh, r);
+    put('W  fra i tre: '+nW, r);
+    put('官+鬼 insieme: '+(nOff+nGh), r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== QUANTI PER CARATTERE FRA I TRE MESSAGGI (letto LONG, soglia '+(process.env.SOGLIAPIP||25)+') ===');
+  console.log('cella'.padEnd(22)+'n'.padStart(6)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<10) continue;
+    console.log(k.padEnd(22)+String(o.n).padStart(6)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+  console.log('\nanno per anno — 官 fra i tre:');
+  console.log(''.padEnd(22)+['2020','2021','2022','2023','2024','2025','2026'].map(y=>y.padStart(11)).join(''));
+  for(const k of Object.keys(M).filter(x=>x.indexOf('官 fra')===0).sort()){ const o=M[k];
+    console.log(k.padEnd(22)+['2020','2021','2022','2023','2024','2025','2026'].map(y=>{
+      const a=o.anni[y]; return (a?(100*a.w/a.n).toFixed(0)+'% ('+a.n+')':'—').padStart(11);}).join('')); }
+}
+
+// COMBI23 — dottrina di Edu (31/08, guida USDJPY 23/10/2024): se M2 e M3 COMBINANO (六合)
+// fra loro, si legano l'uno all'altro e NON arrivano a M1: il primo messaggio resta solo.
+if (process.env.COMBI23) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0},gg:new Set()});
+  const M={}; const put=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move; o.gg.add(r.date);
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const b1=T.chu.branch, b2=T.zhong.branch, b3=T.mo.branch;
+    const legati = COMBINA[b2]===b3;                       // M2 e M3 combinano (六合)
+    const car=code(T.chu.relation);
+    const tre=[T.chu,T.zhong,T.mo].map(x=>code(x.relation));
+    const nOff=tre.filter(c=>c==='官').length;
+    put('TUTTI  |  M2-M3 '+(legati?'COMBINANO (M1 solo)':'liberi'), r);
+    put(car+'  |  M2-M3 '+(legati?'COMBINANO':'liberi'), r);
+    if (nOff>=1) put('almeno un 官  |  M2-M3 '+(legati?'COMBINANO':'liberi'), r);
+    if (nOff===2) put('due 官  |  M2-M3 '+(legati?'COMBINANO':'liberi'), r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== M2 e M3 COMBINANO FRA LORO: M1 resta solo? (letto LONG, soglia '+(process.env.SOGLIAPIP||25)+') ===');
+  console.log('cella'.padEnd(42)+'n'.padStart(6)+'gg'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<8) continue;
+    console.log(k.padEnd(42)+String(o.n).padStart(6)+String(o.gg.size).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+}
+
+// WOSTLIST — carte con W come M1 ostacolata da entrambi, timely e nessuno vuoto. S32.
+if (process.env.WOSTLIST) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const out=[];
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    if (T.chu.relation.cn!=='妻財') continue;
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const ost=e=>(CTRL[e]===e1)||(GEN[e1]===e);
+    if ([e2,e3].filter(ost).length!==2) continue;
+    if (LYM.peso12(e1, r.monthBranchUsed)<=0) continue;
+    if ([T.chu,T.zhong,T.mo].some(x=>x.isVoid)) continue;
+    out.push({d:r.date,c:r.cross,s:r.seedUsed,m:Math.round(r.move),
+      tre:T.chu.branch+T.zhong.branch+T.mo.branch, tipo:ch.transmission.method,
+      comb: COMBINA[T.zhong.branch]===T.mo.branch});
+  }
+  out.sort((a,b)=>a.m-b.m);
+  console.log('\n=== W ostacolata da entrambi, timely, nessuno vuoto ('+out.length+' carte) ===');
+  out.forEach(o=>console.log('  '+o.c+' '+o.d+' s'+String(o.s).padStart(3)+'  三傳 '+o.tre+
+    '  '+o.tipo.padEnd(8)+(o.comb?'  M2-M3 combinano':'                 ')+'  mercato '+String(o.m).padStart(5)));
+}
+
+// QIVIA — dottrina di Edu (31/08, guida EURUSD 22/04/2025): il Qi VA VIA da M1 quando M2 lo
+// DRENA (M1 genera M2). Il drenaggio e' cosa diversa dal controllo: li separo, e per posizione.
+if (process.env.QIVIA) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0},gg:new Set()});
+  const M={}; const put=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move; o.gg.add(r.date);
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const car=code(T.chu.relation);
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const drena2 = GEN[e1]===e2, drena3 = GEN[e1]===e3;    // M1 genera M -> il Qi va via
+    const ctrl2  = CTRL[e2]===e1, ctrl3  = CTRL[e3]===e1;  // M controlla M1
+    const wT = LYM.peso12(e1, r.monthBranchUsed);
+    const et = (wT>0 && ![T.chu,T.zhong,T.mo].some(x=>x.isVoid)) ? ' [timely+pieni]' : '';
+    const key = k => { put('TUTTI  '+k, r); put(car+'  '+k, r);
+                       if(et) { put('TUTTI  '+k+et, r); put(car+'  '+k+et, r); } };
+    if (drena2 && !ctrl3 && !drena3) key('M2 DRENA (solo)');
+    if (ctrl2  && !ctrl3 && !drena3) key('M2 controlla (solo)');
+    if (drena2 && (ctrl3||drena3))   key('M2 drena + M3 ostacola');
+    if (drena2)                      key('M2 drena (comunque)');
+    if (drena3 && !drena2 && !ctrl2) key('solo M3 drena');
+    if (!drena2&&!ctrl2&&!drena3&&!ctrl3) key('nessun drenaggio ne controllo');
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== IL QI CHE VA VIA: drenaggio contro controllo (letto LONG, soglia '+(process.env.SOGLIAPIP||25)+') ===');
+  console.log('cella'.padEnd(48)+'n'.padStart(6)+'gg'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<12) continue;
+    if(k.indexOf('TUTTI')!==0 && k.indexOf('W ')!==0) continue;
+    console.log(k.padEnd(48)+String(o.n).padStart(6)+String(o.gg.size).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+}
+
+// WCTRLU — W come M1 controllata da M2, con M2 UNTIMELY. Il controllore intempestivo controlla?
+if (process.env.WCTRLU) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0},gg:new Set()});
+  const M={}; const put=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move; o.gg.add(r.date);
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  const out=[];
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    if (T.chu.relation.cn!=='妻財') continue;
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    if (!(CTRL[e2]===e1)) continue;                        // M2 controlla M1
+    if (CTRL[e3]===e1 || GEN[e1]===e3) continue;           // M3 non deve pure ostacolare
+    const p2 = LYM.peso12(e2, r.monthBranchUsed);          // forza del CONTROLLORE
+    const stato = p2>0 ? 'controllore TIMELY' : 'controllore UNTIMELY';
+    put(stato, r);
+    if (p2<=0) out.push({d:r.date,c:r.cross,s:r.seedUsed,m:Math.round(r.move),
+      tre:T.chu.branch+T.zhong.branch+T.mo.branch, p2:p2, mese:r.monthBranchUsed,
+      st:LYM.stadio12Nome(e2,r.monthBranchUsed), tipo:ch.transmission.method});
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== W controllata da M2: il controllore intempestivo controlla lo stesso? ===');
+  console.log('cella'.padEnd(26)+'n'.padStart(5)+'gg'.padStart(5)+'SCENDE'.padStart(9)+'z'.padStart(7)+'pip LONG'.padStart(10)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    const scende=(100*(o.n-o.w)/o.n).toFixed(1)+'%';
+    console.log(k.padEnd(26)+String(o.n).padStart(5)+String(o.gg.size).padStart(5)+scende.padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(10)
+      +((100*(o.ve.n-o.ve.w)/o.ve.n).toFixed(1)+'%').padStart(8)+((100*(o.re.n-o.re.w)/o.re.n).toFixed(1)+'%').padStart(8)); }
+  out.sort((a,b)=>a.m-b.m);
+  console.log('\ncarte col controllore UNTIMELY ('+out.length+'), ordinate per pip:');
+  out.slice(0,12).forEach(o=>console.log('  '+o.c+' '+o.d+' s'+String(o.s).padStart(3)+'  三傳 '+o.tre+
+    '  mese '+o.mese+'  controllore in '+o.st.padEnd(22)+' '+o.tipo.padEnd(8)+' mercato '+String(o.m).padStart(5)));
+}
+
+// CLASHW — dottrina di Edu (31/08, guida USDJPY 17/07/2024): sul primo messaggio conta il
+// CLASH (六冲), non il controllo. Le 4 coppie 子午/寅申/卯酉/巳亥 sono clash E controllo;
+// 丑未 e 辰戌 sono clash SENZA controllo (Terra su Terra): la leva che li separa.
+if (process.env.CLASHW) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0},gg:new Set()});
+  const M={}; const put=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move; o.gg.add(r.date);
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const b1=T.chu.branch, b2=T.zhong.branch, b3=T.mo.branch;
+    const e1=WX[b1], e2=WX[b2], e3=WX[b3];
+    const car=code(T.chu.relation);
+    const cl2 = CLASH[b1]===b2, cl3 = CLASH[b1]===b3;      // M2 / M3 clashano M1
+    const ct2 = CTRL[e2]===e1;                              // M2 controlla M1
+    const fy  = (ch.transmission.method||'').indexOf('返吟')>=0;
+    let k=null;
+    if (cl2 &&  ct2) k='M2 CLASH + controllo';
+    else if (cl2 && !ct2) k='M2 CLASH puro (Terra su Terra)';
+    else if (!cl2 && ct2) k='M2 controllo SENZA clash';
+    else if (!cl2 && !ct2) k='ne clash ne controllo da M2';
+    put('TUTTI  '+k, r); put(car+'  '+k, r);
+    if (cl2) { put('TUTTI  M2 clash · '+(fy?'in 返吟':'non 返吟'), r);
+               put(car+'  M2 clash · '+(fy?'in 返吟':'non 返吟'), r); }
+    if (cl3 && !cl2) { put('TUTTI  solo M3 clasha M1', r); put(car+'  solo M3 clasha M1', r); }
+  }
+  const pc=o=>o.n?(100*(o.n-o.w)/o.n).toFixed(1)+'%':'—';   // % SCENDE
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== CLASH CONTRO CONTROLLO SUL PRIMO MESSAGGIO (soglia '+(process.env.SOGLIAPIP||25)+') ===');
+  console.log('cella'.padEnd(46)+'n'.padStart(6)+'gg'.padStart(5)+'SCENDE'.padStart(9)+'z'.padStart(7)+'pipLONG'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<12) continue;
+    if(k.indexOf('TUTTI')!==0 && k.indexOf('W ')!==0 && k.indexOf('官')!==0) continue;
+    const sv=o.ve.n?(100*(o.ve.n-o.ve.w)/o.ve.n).toFixed(1)+'%':'—', sr=o.re.n?(100*(o.re.n-o.re.w)/o.re.n).toFixed(1)+'%':'—';
+    console.log(k.padEnd(46)+String(o.n).padStart(6)+String(o.gg.size).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+sv.padStart(8)+sr.padStart(8)); }
+}
+
+// WNUTLIST — le carte della W nutrita (timely, nessuno vuoto): dove la regola FALLISCE. S32.
+if (process.env.WNUTLIST) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const out=[];
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    if (T.chu.relation.cn!=='妻財') continue;
+    const e1=WX[T.chu.branch], e2=WX[T.zhong.branch], e3=WX[T.mo.branch];
+    const aiuta=e=>(GEN[e]===e1)||(e===e1);
+    if ([e2,e3].filter(aiuta).length!==2) continue;
+    if (LYM.peso12(e1, r.monthBranchUsed)<=0) continue;
+    if ([T.chu,T.zhong,T.mo].some(x=>x.isVoid)) continue;
+    const gen=[e2,e3].filter(e=>GEN[e]===e1).length;
+    out.push({d:r.date,c:r.cross,s:r.seedUsed,m:Math.round(r.move),
+      tre:T.chu.branch+T.zhong.branch+T.mo.branch, gen:gen, tipo:ch.transmission.method});
+  }
+  out.sort((a,b)=>a.m-b.m);
+  console.log('\n=== W nutrita, timely, nessuno vuoto ('+out.length+' carte) — le peggiori in alto ===');
+  out.slice(0,14).forEach(o=>console.log('  '+o.c+' '+o.d+' s'+String(o.s).padStart(3)+'  三傳 '+o.tre+
+    '  generatori '+o.gen+'  '+o.tipo.padEnd(10)+' mercato '+String(o.m).padStart(5)));
+}
+
+// WGEN — nutrimento = SOLO generazione vera (il 比和 non nutre). Correzione dopo la carta
+// guida USDJPY 16/04/2025 (三傳 辰辰戌: tre Ricchezze, 伏吟 delta 0, nessuna generazione).
+if (process.env.WGEN) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0},gg:new Set()});
+  const M={}; const put=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move; o.gg.add(r.date);
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const b1=T.chu.branch, b2=T.zhong.branch, b3=T.mo.branch;
+    const e1=WX[b1], e2=WX[b2], e3=WX[b3];
+    const car=code(T.chu.relation);
+    const gen = [e2,e3].filter(e=>GEN[e]===e1).length;      // generazione VERA
+    const pari= [b2,b3].filter(b=>WX[b]===e1).length;
+    const wT=LYM.peso12(e1, r.monthBranchUsed);
+    const pieni=![T.chu,T.zhong,T.mo].some(x=>x.isVoid);
+    const ripet = (b2===b1)||(b3===b1)||(b2===b3);          // un ramo ripetuto: eco, non catena
+    let k;
+    if (gen===2) k='2 GENERANO';
+    else if (gen===1) k='1 genera';
+    else if (pari>=1) k='0 generano, solo pari (比和)';
+    else k='0 generano, nessun pari';
+    put(car+'  '+k, r);
+    if (wT>0 && pieni) put(car+'  '+k+' [timely+pieni]', r);
+    if (car==='W' && wT>0 && pieni) put('W  '+(ripet?'con RAMO RIPETUTO':'tutti rami distinti')+' [timely+pieni]', r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== NUTRIMENTO = SOLO GENERAZIONE VERA (letto LONG, soglia '+(process.env.SOGLIAPIP||25)+') ===');
+  console.log('cella'.padEnd(48)+'n'.padStart(5)+'gg'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<10) continue;
+    if(k.indexOf('W ')!==0 && k.indexOf('官')!==0) continue;
+    const sv=o.ve.n?pc(o.ve):'—', sr=o.re.n?pc(o.re):'—';
+    console.log(k.padEnd(48)+String(o.n).padStart(5)+String(o.gg.size).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+sv.padStart(8)+sr.padStart(8)); }
+}
+
+// TOPLONG — le carte col LONG piu' grosso del mazzo, con la loro carta DLR. S32.
+if (process.env.TOPLONG) {
+  const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const out=[];
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const tre=[T.chu,T.zhong,T.mo];
+    out.push({d:r.date,c:r.cross,s:r.seedUsed,m:Math.round(r.move),
+      tre:tre.map(x=>x.branch).join(''), car:tre.map(x=>code(x.relation)).join(' '),
+      tipo:ch.transmission.method});
+  }
+  out.sort((a,b)=>b.m-a.m);
+  console.log('\n=== I LONG PIU\' GROSSI DEL MAZZO ===');
+  out.slice(0,12).forEach(o=>console.log('  '+o.c+' '+o.d+' s'+String(o.s).padStart(3)+'  三傳 '+o.tre+
+    '  ['+o.car+']  '+o.tipo.padEnd(10)+' +'+o.m));
+}
+
+// WTSHORT — W come M1 TIMELY che va SHORT, coi pesi dei 12 stadi su tutti e tre i messaggi
+// (le stesse regole di forza del LY). S32.
+if (process.env.WTSHORT) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const out=[];
+  for (const r of rows) {
+    if (r.move==null || r.move>0) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    if (T.chu.relation.cn!=='妻財') continue;
+    const tre=[T.chu,T.zhong,T.mo];
+    const p=tre.map(x=>LYM.peso12(WX[x.branch], r.monthBranchUsed));
+    if (p[0]<2) continue;                                   // W MOLTO tempestiva
+    out.push({d:r.date,c:r.cross,s:r.seedUsed,m:Math.round(r.move),
+      tre:tre.map(x=>x.branch).join(''), car:tre.map(x=>code(x.relation)).join(' '),
+      p:p, st:tre.map(x=>LYM.stadio12Nome(WX[x.branch], r.monthBranchUsed).split(' ')[0]).join('/'),
+      tipo:ch.transmission.method, mese:r.monthBranchUsed});
+  }
+  out.sort((a,b)=>a.m-b.m);
+  console.log('\n=== W molto tempestiva (peso >= 2) che va SHORT ('+out.length+' carte) ===');
+  out.slice(0,12).forEach(o=>console.log('  '+o.c+' '+o.d+' s'+String(o.s).padStart(3)+'  三傳 '+o.tre+
+    ' ['+o.car+']  mese '+o.mese+'  pesi '+o.p.map(x=>(x>=0?'+':'')+x).join(' ')+'  '+o.st.padEnd(14)+
+    ' '+o.tipo.padEnd(10)+' '+o.m));
+}
+
+// SALTAVUOTO — dottrina di Edu (31/08, guida USDJPY 01/05/2024): un messaggio VUOTO non
+// agisce e si SALTA. Il rapporto di M1 e' col primo messaggio successivo NON VUOTO.
+// Regole di forza e di vuoto prese dal LY, non conteggi di relazioni.
+if (process.env.SALTAVUOTO) {
+  const LYM = require('./liuyao.js'); const JQ = require('./jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const code=rel=>{const c=rel.cn;
+    if(c==='兄弟')return 'B'; if(c==='子孫')return 'C'; if(c==='父母')return 'P';
+    if(c==='妻財')return 'W'; if(c==='官')return '官'; return '鬼';};
+  const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0},gg:new Set()});
+  const M={}; const put=(k,r)=>{ M[k]=M[k]||mk(); const o=M[k];
+    o.n++; if(r.move>0)o.w++; o.p+=r.move; o.gg.add(r.date);
+    const per=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null;
+    if(per){o[per].n++; if(r.move>0)o[per].w++;} };
+  for (const r of rows) {
+    if (r.move==null) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const T=ch.transmission && ch.transmission.threeDetailed; if(!T) continue;
+    const tre=[T.chu,T.zhong,T.mo];
+    if (tre[0].isVoid) { put('M1 VUOTO (non agisce)', r); continue; }
+    // il primo successivo NON VUOTO
+    const att = tre.slice(1).find(x=>!x.isVoid);
+    if (!att) { put('M1 solo: M2 e M3 entrambi vuoti', r); continue; }
+    const b1=tre[0].branch, b2=att.branch, e1=WX[b1], e2=WX[b2];
+    const car=code(tre[0].relation);
+    let rel;
+    if (CLASH[b1]===b2)      rel='lo CLASHA';
+    else if (CTRL[e2]===e1)  rel='lo controlla';
+    else if (GEN[e2]===e1)   rel='lo genera';
+    else if (GEN[e1]===e2)   rel='lo drena';
+    else if (e1===e2)        rel='pari (比和)';
+    else                     rel='indifferente';
+    const saltato = tre[1].isVoid;
+    put('TUTTI  '+rel, r);
+    put(car+'  '+rel, r);
+    if (saltato) put('TUTTI  '+rel+'  [dopo un salto]', r);
+    // forza: chi vince quando si toccano
+    const f1=LYM.peso12(e1,r.monthBranchUsed), f2=LYM.peso12(e2,r.monthBranchUsed);
+    if (rel==='lo CLASHA'||rel==='lo controlla')
+      put(car+'  '+rel+(f2>f1?' · attaccante PIU FORTE':' · attaccante piu debole'), r);
+  }
+  const pc=o=>o.n?(100*o.w/o.n).toFixed(1)+'%':'—';
+  const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  console.log('\n=== IL VUOTO SI SALTA: rapporto di M1 col primo NON VUOTO (LONG, soglia '+(process.env.SOGLIAPIP||25)+') ===');
+  console.log('cella'.padEnd(52)+'n'.padStart(5)+'gg'.padStart(5)+'LONG ok'.padStart(9)+'z'.padStart(7)+'pip'.padStart(9)+'vec'.padStart(8)+'rec'.padStart(8));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<12) continue;
+    console.log(k.padEnd(52)+String(o.n).padStart(5)+String(o.gg.size).padStart(5)+pc(o).padStart(9)+z(o).padStart(7)+String(Math.round(o.p)).padStart(9)+pc(o.ve).padStart(8)+pc(o.re).padStart(8)); }
+}
