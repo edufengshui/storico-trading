@@ -1350,5 +1350,83 @@
   "quando": "2026-08-31",
   "esito": "SHORT -288",
   "nota": "guida ponte del pilastro + vuoto automatico nel duello"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2025-03-11",
+  "seme": 159,
+  "sup": 3,
+  "inf": 7,
+  "linea": 2,
+  "dayB": "卯",
+  "monthB": "卯",
+  "quando": "2026-08-31",
+  "esito": "LONG +177",
+  "nota": "Guida §130: due pilastri interi (己卯 mese e giorno) sul nascosto P 卯 sotto la Shi L1 — emerge, sede bassa cade, LONG +177"
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2025-02-26",
+  "seme": 143,
+  "sup": 1,
+  "inf": 7,
+  "linea": 5,
+  "dayB": "寅",
+  "monthB": "寅",
+  "quando": "2026-08-31",
+  "esito": "LONG +34",
+  "nota": "Confine della §130 (letta 31/08/2026): nascosto W 寅 su mese e giorno ma UN SOLO pilastro completo (bestia del giorno 朱雀 altrove) — non emerge, la via tace; S17 raddrizza con §69"
+ },
+ {
+  "cross": "USDCHF",
+  "date": "2022-09-28",
+  "seme": 99,
+  "sup": 4,
+  "inf": 3,
+  "linea": 4,
+  "dayB": "申",
+  "monthB": "酉",
+  "quando": "2026-08-31",
+  "esito": "SHORT -154",
+  "nota": "Guida §131: W vuota, caso -5 (parte ma non arriva) — il vuoto non agisce, chi non vince perde, sede alta cade, SHORT +154"
+ },
+ {
+  "cross": "USDCHF",
+  "date": "2022-10-04",
+  "seme": 99,
+  "sup": 4,
+  "inf": 3,
+  "linea": 4,
+  "dayB": "寅",
+  "monthB": "酉",
+  "quando": "2026-08-31",
+  "esito": "SHORT -134",
+  "nota": "Gemella della guida §131 (stesso seme 99, stessa mutazione L4 午→丑): stessa lettura, SHORT +134"
+ },
+ {
+  "cross": "EURGBP",
+  "date": "2022-04-04",
+  "seme": 84,
+  "sup": 2,
+  "inf": 4,
+  "linea": 6,
+  "dayB": "亥",
+  "monthB": "卯",
+  "quando": "2026-08-31",
+  "esito": "SHORT -62",
+  "nota": "Lettura Edu 31/08: mese 癸卯 arriva INTERO su L5 (卯 clasha 酉, bestia 玄武 dello stelo 癸 seduta) e DISTRUGGE la G untimely — unica voce del LONG; sotto, 寅卯辰 col mese fa il trigramma inferiore vibrante contro la L6 untimely che avanza. SHORT +62. Grado di distruzione delle bestie su linea ferma"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-11-06",
+  "seme": 151,
+  "sup": 2,
+  "inf": 7,
+  "linea": 2,
+  "dayB": "戌",
+  "monthB": "戌",
+  "quando": "2026-08-31",
+  "esito": "LONG +320",
+  "nota": "Lettura Edu 31/08: L1 辰 non può essere clashata — il Tai Sui la difende (giorno e mese 戌 a vuoto). Carta nuda → duello: Shi 申 vuota, vince la Ying → sede alta, LONG +320. Dottrina di stato TSDIFENDE cablata in readManual"
  }
 ]

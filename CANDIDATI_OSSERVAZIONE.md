@@ -1061,3 +1061,46 @@ Misura (membri presi da linee non vuote + quattro rami della data + arrivo se il
   e' troppo piccola, e la forma larga perde pip in tutti i tagli.
 Serve una condizione dottrinale in piu' (quale direzionale conta, o che cosa deve toccare)
 prima di poterla portare a via.
+
+---------------------------------------------------------------------------
+CANDIDATO (31/08/2026, S31): LA B NASCOSTA PIU' FORTE DEL CAMPO
+---------------------------------------------------------------------------
+Emerso durante la misura larga per la §130 (due pilastri interi sul nascosto).
+Meccanica: col modello di forza v1 (FUDUE8, MARG=0), quando un 伏神 e' la cosa
+piu' forte di tutto il campo (linee visibili + arrivo, un solo nascosto in
+testa) e il suo carattere e' B, la sede della linea che lo copre CADE (B fa
+perdere la propria squadra): sede bassa -> LONG, alta -> SHORT.
+Misura: flag FUDUE8=1 MARG=0, solo carattere B
+  31 carte · 71,0% · z 2,33 · +648 pip · vec 69,2% (13) / rec 78,6% (14)
+  n per z4: ~91 carte a parita' di tasso.
+Gli altri caratteri sul medesimo perimetro NON funzionano (G 33%, W 43%, P 44%,
+totale 138 al 48,6%): o la B e' speciale (indicatore negativo puro, non serve
+che "agisca") o e' rumore. NON cablata: perimetro dipende dal modello di forza
+v1 che la §130 ha appena mostrato mal pesato (stadi piatti); da rimisurare col
+peso dei 12 stadi (FORZA12) prima di decidere. Attenzione a non promuoverla
+sul modello sbagliato.
+
+---------------------------------------------------------------------------
+CANDIDATO (31/08/2026, S31): IL PILASTRO GRANDE CHE DISTRUGGE LA LINEA FERMA
+---------------------------------------------------------------------------
+Dalla lettura di Edu su EURGBP 04/04/2022 (seme 84): il pilastro del mese
+癸卯 arriva INTERO su L5 — il ramo clasha la linea (卯 vs 酉) e la bestia
+dello stelo (癸 -> 玄武) siede sopra — e la DISTRUGGE. Distrutta la G,
+unica voce del LONG, la sede alta cade: "questo da solo garantisce lo
+SHORT". E' il grado di distruzione della dottrina delle bestie applicato
+alla linea FERMA (finora cablato solo per la mobile e nel duello).
+Generalizzazione meccanica provata (flag PILDISTR / PILDISTR2):
+  pilastro grande (anno o mese), clash + bestia seduta, linea ferma;
+  G/W distrutta -> sede cade, B/P distrutto -> sede vince.
+  larga:            300 carte 50,3% -566 pip
+  solo ANNO:        125 carte 57,6% z 1,70 +1.117  [vec 60,4 / rec 56,3]
+  solo MESE:        175 carte 45,1% -1.682
+  con filtro "solo linea untimely" (leggi di sopravvivenza): stesso quadro
+  (anno 57,9% su 76, mese 45,5% su 132).
+  n per z4 (cella anno): ~690 carte a parita' di tasso.
+NON CABLABILE cosi': la cella del mese — quella della guida — non separa.
+Sulla guida la distruzione decideva perche' la G era l'UNICA voce della sua
+parte e il campo opposto era vibrante (寅卯辰 col mese): il perimetro vero
+ha dentro il contesto delle forze, non la sola meccanica. Da riprendere
+dopo il ripeso della forza sui 12 stadi. La cella dell'anno (Tai Sui che
+distrugge) resta la piu' promettente.

@@ -34,7 +34,7 @@ REPO_AR="https://github.com/edufengshui/storico-trading.git"
 # BLOCCO 1: il software vivo del sito
 FILES_SW="liuyao.js app.js index.html plumblossom.js sw.js"
 # BLOCCO 2: motore di ricerca, script ausiliari, registri
-FILES_AR="pb_stress.js liuyao.js carta_check.js carte_lette.json parita_check2.js \
+FILES_AR="pb_stress.js liuyao.js carta_check.js carte_lette.json parita_check2.js motore_principi.js \
 daliuren.js jieqi-gmt.js solar-time.js trend.js nayin_map.json consegna.sh \
 CANDIDATI_OSSERVAZIONE.md REGISTRO_CORREZIONI_13_08_2026.md \
 REGISTRO_LIUYAO_11_08_2026_v2.md RIFERIMENTO_SOFTWARE_LY.md SISTEMA_CATENE_v3.md"

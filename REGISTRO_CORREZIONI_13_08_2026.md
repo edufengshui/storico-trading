@@ -4616,3 +4616,178 @@ Catena di §128: (a) confronto invocato da incompatibilita' grezza; (b) vuoto as
 il vuoto perde; (c) incompatibile ATTIVA e non salvata dal ponte -> perde, vince l'altra.
 Perimetro: 581 carte 49,9% -373 pip. Guide: 07/12 SHORT (vuoto automatico) · 23/11 LONG.
 S17 a chiusura: 2.788 · 58,50% · z 8,98 · +34.842. Parita' verificata sulle guide.
+
+===========================================================================
+31/08/2026 (S31) — §130: I DUE PILASTRI INTERI SUL NASCOSTO
+===========================================================================
+Dottrina di Edu (guida EURJPY 11/03/2025, seme 159, caso -5):
+"La nascosta P e' super forte e si prende pure i pilastri del mese e giorno.
+Niente nell'esagramma puo' competere con questa P che fa perdere la propria
+squadra."
+Il peso va fatto coi 12 STADI (十二長生), massimo agli stadi 4-5: sul mese 卯
+il Legno e' all'apice 帝旺 (stadio 5) e il Fuoco al bagno 沐浴 (stadio 2) —
+il vecchio peso piatto (旺+2/相+1) li faceva sembrare vicini. L'ora 寅
+aggiunge Legno. Le bestie degli steli di mese e giorno (己己 -> 螣蛇) sedute
+sulla linea del nascosto raddoppiano almeno la sua forza.
+VIA CABLATA (§130, R69_130, in TESTA alla catena — la dominanza parla prima
+delle vie d'azione; sulla guida batteva la §68): ramo del nascosto = ramo di
+mese E giorno, bestie di ENTRAMBI gli steli sedute sulla sua linea (due
+pilastri interi), unico nascosto candidato, ramo non autopenalizzante
+(辰午酉亥 esclusi da §127/§129). Il carattere decide per la sede della linea
+che lo copre: G/W vince, P/B cade, C tace in attesa di guida.
+Confine fissato da USDCAD 26/02/2025 (seme 143): stesso nascosto su mese e
+giorno ma UN SOLO pilastro completo (bestia del giorno altrove) -> tace.
+Perimetro alla nascita: 1 carta su 2.788.
+S17: da 58,50% +34.842 a 58,54% · z 9,01 · +35.196 (solo la guida).
+NOTA APERTA: sulla guida la catena della PWA tiene ancora SHORT perche' il
+rafforzativo del Serpente (§81) scatta li' nella forma larga; nel motore no.
+E' parte dello scarto residuo PWA/motore (0,25 punti) gia' in agenda.
+DA FARE: ripesare forzaModello coi 12 stadi (bozza FORZA12 in pb_stress).
+
+---------------------------------------------------------------------------
+31/08/2026 (S31, seguito) — IL SERPENTE CEDE ANCHE NELLA PWA
+---------------------------------------------------------------------------
+La dottrina del 29/08 ("il Serpente cede davanti a una via cablata: il
+rafforzativo statistico non scavalca la dottrina") era cablata nel motore
+(guardia _serpViaCab su S17) ma MAI arrivata in combinaS9 di liuyao.js: la
+PWA lasciava ancora vincere il PB nel contrasto quando il Serpente untimely
+toccava Shi/Ying/mobile. Scoperto perche' sulla guida della §130 la PWA
+teneva SHORT col Serpente mentre il motore dava LONG.
+Corretto: il ramo del Serpente in combinaS9 ora e' spento (ogni verdetto del
+termometro viene da una via cablata). SERPPWA=vecchio lo ripristina per audit.
+Aggiornata anche la ricostruzione dentro PARITA17.
+Catena PWA misurata da sola: da 58,75% +32.989 a 58,14% +33.243 (percentuale
+giu', pip su). Scarto residuo PWA/motore ora 0,40 punti (58,14 vs 58,54):
+sono le differenze della reimplementazione lyDir, in agenda.
+
+---------------------------------------------------------------------------
+31/08/2026 (S31, seguito) — §131: LA G/W VUOTA DEL CASO -5 NON VINCE, PERDE
+---------------------------------------------------------------------------
+Dottrina di Edu (guida USDCHF 28/09/2022, seme 99): "Chi non vince perde.
+Short." La W mobile parte e non arriva (caso -5) ED e' in vuoto (旬空): il
+vuoto non agisce, l'azione vincente non c'e', la sede della mobile CADE
+(alta -> SHORT, bassa -> LONG). Vale per G e W (chi doveva far vincere).
+E' l'eccezione di vuoto alla §99 e lo speculare della §114 (li' il carattere
+regge perche' la linea e' piena; qui la linea stessa dorme).
+Gemella verificata: USDCHF 04/10/2022 (stesso seme, stessa mutazione), +134.
+POSIZIONE (misurata, non solo dottrinale): prima del raduno stagionale R6
+(che sulla guida diceva LONG), quindi prima anche di §64 e §99; restano
+sopra le vie precedenti a R6 (fra cui §62). Nota: §68 nella catena sta DOPO
+R6, quindi la §131 parla anche prima di lei — il conflitto reale misurato
+li' era 1 raddrizzata / 1 rotta, neutro.
+Perimetro grezzo: 24 carte G/W vuote nel caso -5 (54,2%; vec 72,7 / rec
+38,5 — perimetro grezzo, sporco di carte gia' spiegate da vie certificate).
+S17: da 58,54% +35.196 a 58,57% · z 9,05 · +35.634 (+438 pip; vecchio
+58,60->58,76, recente 57,69->57,62: una carta recente rotta, a registro).
+Catena PWA da sola: 58,14% · +33.706.
+
+===========================================================================
+31/08/2026 (S31) — PRINCIPIO FONDANTE: "CIO' CHE SALTA ALL'OCCHIO"
+===========================================================================
+Dettato da Edu, testuale: "Per trovare le risposte giuste si deve cercare
+cio' che salta all'occhio. Una linea che si muove per diventare vuota salta
+all'occhio. Una linea che ha una grande forza salta all'occhio. Poi controlli
+anche il resto. Non mettere tutto sul tavolo come se tutto fosse uguale, non
+lo e'. Ci sono cose piu' importanti e cose meno importanti. Solo quando non
+vedi nulla di decisivo ti metti a guardare piu' in profondita'."
+
+Conseguenza architetturale: la lettura ha TRE PIANI, non una lista piatta.
+  PIANO 1 — la salienza (si guarda per primo):
+    · movimento verso il vuoto / vuoto che si muove (arrivo in vuoto §114,
+      G/W vuota del caso -5 §131, W in moto oscuro con arrivo vuoto §97)
+    · la grande forza (dominanti: pilastro completo §129, due pilastri sul
+      nascosto §130; in prospettiva la forza pesata sui 12 stadi)
+  PIANO 2 — il resto (le azioni ordinarie: casi di mutazione, clash e
+    combinazioni dell'arrivo, progressioni, raduni)
+  PIANO 3 — la profondita' (solo se nulla di decisivo sopra: residui §64,
+    duelli, silenzi, nascosti deboli).
+Le due vie di oggi sono nate gia' cosi': §130 in testa (grande forza),
+§131 sopra il raduno stagionale (vuoto che si muove). Conferma del pattern.
+
+DA FARE (agenda):
+  1. Riordinare il motore a principi (motore_principi.js) per piani di
+     salienza invece che per sequenza storica dei gradini.
+  2. Nel termometro NON riordinare le vie certificate esistenti (lo stato
+     sotto di loro e' gia' incarnato — lezione S30); il principio guida la
+     POSIZIONE DELLE VIE NUOVE da oggi in avanti.
+  3. Il ripeso della forza sui 12 stadi (gia' a registro) e' il prerequisito
+     del piano 1 lato "grande forza".
+
+---------------------------------------------------------------------------
+31/08/2026 (S31, seguito) — MOTORE A PRINCIPI v3: L'ORDINE DELLA SALIENZA
+---------------------------------------------------------------------------
+Applicato il principio fondante di oggi al motore a principi. Tre mosse,
+ognuna misurata da sola:
+1. A0 (Shi/Ying vuota, primo gradino dal 29/08) SCENDE NEL DUELLO: in
+   apertura assorbiva 440 carte al 50,68% (un sesto del mazzo per niente).
+   Il vuoto statico non salta all'occhio: decide nel confronto, dove per il
+   principio fondante del 30/08 chi e' vuoto perde automaticamente. Le sue
+   440 carte si ridistribuiscono bene (B4-bestia-nutrita 174 al 56,3%,
+   duello 106 al 51,9%, B2-data che sale a 53,3%). MPSHIVUOTO=si lo rialza.
+2. L'AZIONE CHE FALLISCE SOTTO GLI OCCHI (chi non vince perde: 回頭剋,
+   autocombinazione, moto nullo della G/W) SALE AL PIANO 1, prima della
+   data e del fushen: 219+382+179 carte, tutte sopra il 52%.
+3. La PROGRESSIONE resta al suo posto: provata al piano 1 PEGGIORA (345
+   carte, GW-avanza 33%) — e' una proprieta' del passo, si legge nel passo.
+   MPPROGPOS=presto per audit.
+MISURA: v3 53,76% · +14.813 pip (vecchio 52,79 / recente 54,56) contro
+v2 53,29% · +12.466 — +0,47 punti e +2.347 pip, meglio in entrambi i
+periodi. MPORDINE=v2 riproduce l'ordine storico esatto (verificato).
+Sulle carte guida: motore 54/52/2 · termometro 53/41/14.
+Comando di misura: PRINCIPI=1 MPCHINONVINCE=si (+ flag canonici S17).
+
+---------------------------------------------------------------------------
+31/08/2026 (S31, seguito) — LA PROGRESSIONE FUNZIONA: SE NON FUNZIONA
+C'E' UN MOTIVO, E IL MOTIVO E' SEMPRE VISIBILE
+---------------------------------------------------------------------------
+Domanda di Edu sulla misura del gradino presto (GW-avanza 3/16): "Se non
+funziona c'e' un motivo, come nella carta di sopra, altrimenti funziona!"
+Censimento (flag GWAV): TUTTE le G/W avanzanti a passo concluso del mazzo,
+19 carte, una per una. NESSUNA fallisce senza un motivo in vista:
+- 12 su 19 sono l'avanzamento 未->戌, dove l'arrivo PENALIZZA (刑) la
+  propria partenza: l'avanzata nasce avvelenata (triangolo 丑戌未 dentro
+  cui viaggiano le avanzate di Terra). Spesso col secondo colpo: l'arrivo
+  戌 clasha il 辰 di L3, e quando quel 辰 e' CARICO (sul mese o timely)
+  chi attacca il carico perde (lettura di Edu su EURGBP 04/04/2022 e
+  USDJPY 25/10/2022, 未->戌 contro 辰 timely).
+- famiglia 申->酉: l'arrivo 酉 clasha un 卯 nel campo;
+- piu' mobili VUOTE e mobili untimely.
+Le due che vincono nonostante il 刑 (EURGBP 21/06/2023, 03/10/2024) hanno
+anch'esse il quadro in vista, da leggere.
+La cella dell'avanzata PULITA — nessun veleno in vista — su questo mazzo
+e' VUOTA: non esiste una G/W avanzante senza niente intorno. La dottrina
+della progressione non ha mai parlato da sola e non e' mai stata smentita.
+CONSEGUENZA PER IL MOTORE: la progressione non si declassa — si guardano
+PRIMA i suoi killer (刑 fra partenza e arrivo, vuoto, chi viene colpito
+dall'arrivo e quanto e' carico). L'ordine v3 fa gia' questo: il suo
+vantaggio non e' che la progressione conta poco, e' che un'avanzata
+avvelenata non e' un'avanzata.
+Lettura guida collegata: EURGBP 04/04/2022 (in carte_lette): il mese 癸卯
+intero su L5 distrugge la G untimely (clash + bestia 玄武 dello stelo),
+unica voce del LONG -> SHORT. Il metodo della lettura, dettato da Edu:
+1) dove sta l'avanzamento; 2) dove va l'arrivo; 3) chi colpisce; 4) quanto
+e' carico chi viene colpito. Ogni passo pesa il successivo.
+
+---------------------------------------------------------------------------
+31/08/2026 (S31, seguito) — IL TAI SUI DIFENDE LA SUA LINEA (dottrina di stato)
+---------------------------------------------------------------------------
+Dottrina di Edu (guida USDJPY 06/11/2024, seme 151): "L1 non puo' essere
+clashata se il Tai Sui la difende. S e' vuota quindi vince Y."
+La linea su cui SIEDE il Tai Sui (ramo = ramo dell'anno) non puo' essere
+clashata dalla data: niente 暗動, niente rotta/mossa/eliminata da quel
+clash. Sulla guida il giorno 戌 (mese 戌 a potenziare) non tocca la L1 辰:
+la carta resta nuda, si va al duello, la Shi 申 e' vuota -> vince la Ying,
+sede alta, LONG +320 (il mio primo inquadramento — "timely clashata piu'
+forte", "attore in moto oscuro" — era sbagliato: il clash non avviene
+proprio).
+CABLATA in readManual (liuyao.js, dentro clashSu): vale per ENTRAMBE le
+catene perche' gli stati si fabbricano li'. TSDIFENDE=off per audit.
+APERTO: il clash dell'ARRIVO sulla linea del Tai Sui non e' toccato
+(shiValido/yingValido e stati da arrivo restano come prima) — da leggere
+con una guida.
+S17: da 58,57% +35.634 a 58,64% · z 9,13 · +35.800 (+166 pip, vecchio
+58,76 -> 58,93, recente invariato). Catena PWA da sola: 58,21% +33.872.
+La carta era gia' vinta da S17 (LONG): il guadagno viene dalle altre carte
+del perimetro. Carta e cella "mese che distrugge" collegate: il 45% della
+cella era fatto anche di linee DIFESE (Tai Sui) o cariche scambiate per
+vittime.

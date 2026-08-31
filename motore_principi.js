@@ -397,10 +397,18 @@ function creaMotore(LYM) {
         if (rd[q] && CLASH[rd[q]] === ln.ramo) return false;
       return true; };
     var tr0 = [];
+    // ---- ORDINE DELLA LETTURA (Edu, 31/08/2026): "cio' che salta all'occhio" ----
+    // v3 = piani di salienza: 1) forza dei pilastri (bestie) e progressione, azione
+    // che fallisce sotto gli occhi; 2) azioni ordinarie e data; 3) profondita' e
+    // duello (dove il vuoto di Shi/Ying perde automaticamente — principio 30/08).
+    // MPORDINE=v2 ripristina l'ordine storico per confronto.
+    var ORD = ENV_G.MPORDINE || 'v3';
 
     // ---- A0 (TEST di Edu, 29/08/2026): Shi o Ying VUOTI — prima cosa da vedere.
+    // Nel v3 SCENDE nel duello (misurato in apertura: 440 carte al 50,68% — assorbe
+    // senza spiegare; il vuoto statico non "salta all'occhio", decide nel confronto).
     // La parte vuota perde immediatamente.
-    if (ENV_G.MPSHIVUOTO !== 'no') {
+    if (ORD === 'v2' ? ENV_G.MPSHIVUOTO !== 'no' : ENV_G.MPSHIVUOTO === 'si') {
       var _sv = inv[R.shi - 1].vuoto, _yv = inv[R.ying - 1].vuoto;
       if (_sv !== _yv) {
         var _perde = _sv ? R.linee[R.shi - 1] : R.linee[R.ying - 1];
@@ -456,7 +464,14 @@ function creaMotore(LYM) {
     var bloccataDallaBestia = !!(BST.perLinea[mobPos] && BST.perLinea[mobPos].grado <= 2 &&
                                  BST.perLinea[mobPos].eff !== 'carica');
 
-    if (ENV_G.MPPROG !== 'no' && ENV_G.MPPROGPOS === 'presto' && !bloccataDallaBestia &&
+    // PROGRESSIONE PRESTO (corretta 31/08/2026 su EURJPY 06/03/2025 s160): chi NON
+    // ARRIVA non avanza — il gradino presto vale SOLO se il passo si conclude
+    // (movimento non nullo; il caso -5 azzera gia' la progressione a monte). La
+    // prima misura del presto (senza cancello) faceva avanzare linee vuote o con
+    // arrivo nel vuoto: 33% sulla GW-avanza. MPPROGPOS=presto per attivarla.
+    var progPresto = (ENV_G.MPPROGPOS === 'presto');
+    if (ENV_G.MPPROG !== 'no' && progPresto && !bloccataDallaBestia &&
+        !R.mutante.movimentoNullo &&
         (R.mutante.progressione === 'avanzante' || R.mutante.progressione === 'retrocedente') &&
         (mob.par === 'G' || mob.par === 'W' || mob.par === 'B' || mob.par === 'P')) {
       var _av0 = (R.mutante.progressione === 'avanzante');
@@ -676,6 +691,35 @@ function creaMotore(LYM) {
     // bloccata (combinata): resta seduta -> al duello solo se Shi e Ying sono pari.
     var saltaAlDuello = mobileEliminata || mobileDistrutta ||
                         (bloccataDallaBestia && (WX[_S0.ramo] === WX[_Y0.ramo]));
+
+    // ---- CHI NON VINCE PERDE (estratto in funzione, 31/08/2026): nel v3 e' PIANO 1
+    // — l'azione della mobile che fallisce sotto gli occhi (回頭剋, autocombinazione,
+    // moto nullo) "salta all'occhio" e si legge PRIMA della data; nel v2 resta al
+    // vecchio posto, dopo data e fushen.
+    function passoChiNonVince() {
+      if (ENV_G.MPCHINONVINCE !== 'si' || saltaAlDuello) return null;
+      var _hui = (R.mutante.casoMut === 3);
+      var _aut = (mob.stato === 'autocombinata');
+      if ((_hui || _aut) && mob.par !== 'B')
+        return { dir: opposto(sede(mobPos)), gradino: 'B3a-azione-fallita',
+                 perche: tr.concat(['l\'azione della mobile L' + mobPos + ' ' + mob.par + ' fallisce (' +
+                          (_hui ? 'controllo indietro 回頭剋' : 'autocombinazione') +
+                          '): non porta la sua direzione — chi non vince perde, la sua sede cade']).join(' → ') };
+      if (mob.par === 'G' || mob.par === 'W') {
+        if (!R.mutante.movimentoNullo && ENV_G.MPCNV_RAMO === 'b') { /* ramo (a) muto */ }
+        else if (!R.mutante.movimentoNullo)
+          return { dir: sede(mobPos), gradino: 'B3a-mobile-GW-vera',
+                   perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos +
+                            ' si muove davvero ed è coinvolta nell\'azione: fa vincere la propria squadra — la sua sede']).join(' → ') };
+        if (R.mutante.movimentoNullo && !(_hui || _aut))
+          return { dir: opposto(sede(mobPos)), gradino: 'B3a-mobile-GW-nulla',
+                   perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos +
+                            ' tenta di agire ma il movimento è nullo: azione tentata e fallita — la sua sede cade']).join(' → ') };
+      }
+      return null;
+    }
+    if (ORD === 'v3') { var _cnvP1 = passoChiNonVince(); if (_cnvP1) return _cnvP1; }
+
     var caricati = [];
     // Quando la BESTIA (1° o 2° grado) ha tolto di mezzo la mobile — bloccandola o
     // eliminandola col clash — non si cerca chi e' caricato dalla data: si va DIRITTI
@@ -728,7 +772,7 @@ function creaMotore(LYM) {
     //   B o P che AVANZA  → fa perdere la propria squadra  → la sede cade
     //   B o P che RETROCEDE → la fa vincere                → la sua sede
     // Il C tace. MPPROG=no per spegnerla.
-    if (ENV_G.MPPROG !== 'no' && ENV_G.MPPROGPOS !== 'presto' && !saltaAlDuello &&
+    if (ENV_G.MPPROG !== 'no' && !progPresto && !saltaAlDuello &&
         (R.mutante.progressione === 'avanzante' || R.mutante.progressione === 'retrocedente')) {
       var _av = (R.mutante.progressione === 'avanzante');
       var _buona = (mob.par === 'G' || mob.par === 'W');
@@ -745,29 +789,8 @@ function creaMotore(LYM) {
     }
 
     // ---- B3-ante. CHI NON VINCE PERDE, prima della penalità (prova, 30/08/2026) --
-    // Il termometro legge queste stesse carte al 62%: l'azione fallita della mobile
-    // (controllo indietro 回頭剋 o autocombinazione) e la lettura base della mobile
-    // G o W parlano PRIMA del gradino della linea penalizzata.
-    if (ENV_G.MPCHINONVINCE === 'si' && !saltaAlDuello) {
-      var _hui = (R.mutante.casoMut === 3);
-      var _aut = (mob.stato === 'autocombinata');
-      if ((_hui || _aut) && mob.par !== 'B')
-        return { dir: opposto(sede(mobPos)), gradino: 'B3a-azione-fallita',
-                 perche: tr.concat(['l\'azione della mobile L' + mobPos + ' ' + mob.par + ' fallisce (' +
-                          (_hui ? 'controllo indietro 回頭剋' : 'autocombinazione') +
-                          '): non porta la sua direzione — chi non vince perde, la sua sede cade']).join(' → ') };
-      if (mob.par === 'G' || mob.par === 'W') {
-        if (!R.mutante.movimentoNullo && ENV_G.MPCNV_RAMO === 'b') { /* ramo (a) muto */ }
-        else if (!R.mutante.movimentoNullo)
-          return { dir: sede(mobPos), gradino: 'B3a-mobile-GW-vera',
-                   perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos +
-                            ' si muove davvero ed è coinvolta nell\'azione: fa vincere la propria squadra — la sua sede']).join(' → ') };
-        if (R.mutante.movimentoNullo && !(_hui || _aut))
-          return { dir: opposto(sede(mobPos)), gradino: 'B3a-mobile-GW-nulla',
-                   perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos +
-                            ' tenta di agire ma il movimento è nullo: azione tentata e fallita — la sua sede cade']).join(' → ') };
-      }
-    }
+    // Nel v3 questo passo e' gia' stato fatto al PIANO 1 (vedi passoChiNonVince).
+    if (ORD !== 'v3') { var _cnvV2 = passoChiNonVince(); if (_cnvV2) return _cnvV2; }
 
     // ---- B3-bis. la penalità del giorno su una linea ferma ---------------------
     // La penalità fa quello che dice la parola: penalizza chi la riceve (Edu, 29/08/2026).
