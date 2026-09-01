@@ -1168,3 +1168,83 @@ APERTO: 初傳 = G dalla sezione del RAMO, nutrito da entrambi: 32 carte al 28,1
 z -2,47 (cioe' spinge LONG, contro l'etichetta della sezione). Se tiene, vuol
 dire che l'Ufficiale nutrito va LONG da ENTRAMBE le sezioni e la sezione non lo
 governa. Troppo piccolo per decidere: serve una carta guida.
+
+---
+
+## S33 (01/09/2026) — SOVRAPPOSIZIONE DLR/S17: la cella 官 cade dove S17 e' debole
+
+**Flag:** `OVERLAPDLR=1` (con la catena canonica attiva + `SOGLIAPIP=20`).
+Cella: 官 come M1, M2/M3 liberi (non combinano fra loro) → SHORT. Sul mazzo a
+soglia 20 con S17 disponibile: 210 carte, 184 giorni distinti.
+
+| cella | n | gg | giuste | z | pip | vec | rec |
+|---|---|---|---|---|---|---|---|
+| S17 sulla cella | 210 | 184 | 53,3% | 0,97 | +2.157 | 56,0% | 50,0% |
+| DLR SHORT sulla cella | 210 | 184 | 58,1% | 2,35 | +1.794 | 58,0% | 59,0% |
+| **CONFLITTO (S17 dice LONG): vince S17** | 100 | 97 | 45,0% | −1,00 | +182 | 47,7% | 41,2% |
+| **CONFLITTO: vincerebbe il DLR** | 100 | 97 | **55,0%** | 1,00 | **−182** | 52,3% | 58,8% |
+| accordo (S17 SHORT) | 110 | 105 | 60,9% | 2,29 | +1.976 | 62,5% | 59,2% |
+| LY TACE: DLR SHORT | 25 | 25 | 64,0% | 1,40 | +255 | 58,3% | 80,0% |
+
+**Cosa dice:** la cella NON si sovrappone al meglio di S17 — ci cade sopra dove
+S17 scende al 53,3% (contro il 58,5% generale). Nel conflitto testa a testa il
+DLR vince per numero di carte (55 contro 45, periodi entrambi sopra il 50) MA
+PERDE PER PIP (−182 contro +182): le LONG che S17 azzecca sono piu' grosse.
+E' la crepa principale: piu' carte giuste, meno pip.
+
+**n-to-z4:** conflitto al 55%: servono ~1.600 carte (ne arrivano ~35/anno: fuori
+portata). Cella intera al 58,1%: ~610 carte, ~3x l'attuale (anni, non mesi).
+
+**NON cablare.** Resta in osservazione come unico pezzo del registro DLR con un
+uso potenziale dentro il sistema (veto SHORT sul conflitto). Il bilancio pip in
+conflitto e' negativo: senza quello risolto, non c'e' guadagno da prendere.
+
+---
+
+## S33 (01/09/2026) — DUELLO HOST/GUEST DEL DLR: tre celle in osservazione
+
+Impianto nuovo (vedi `REGISTRO_DLR_31_08_2026.md`, sezione S33). Host = stelo del
+giorno incastonato nel suo palazzo, guest = ramo del giorno. Terna sede-cavaliere-arrivo.
+Tutte le misure su tutto il mazzo, `SOGLIAPIP=20`.
+
+### 1. G Ufficiale che RETROCEDE sul lato GUEST -> SHORT  (la migliore)
+**Flag:** `RITIRATA=1` · n **49** (41 giorni distinti) · **67,3%** · z **2,43** ·
++1.040 pip · vecchio **80,0%** · recente **64,0%**.
+**n-to-z4:** servono ~134 carte a questo tasso, cioe' ~2,7 volte l'attuale. Arrivano
+~7,5 carte l'anno: **circa 11 anni**. Fuori portata per attesa; serve una carta guida
+che allarghi il perimetro (per esempio la ritirata su altre posizioni).
+**Origine:** carta USDJPY 14/03/2023 seme 133 (+118), letta da Edu come "il carattere
+che si ritira porta via il suo peso". Non e' pesca: e' la lettura che spiega il
+controesempio alla regola delle direzionali.
+
+### 2. P che RETROCEDE sul lato HOST -> LONG
+**Flag:** `RITIRATA=1` · n **51** (45 gg) · **62,7%** · z **1,82** · +526 pip ·
+vec 72,2% · rec 62,1%. **n-to-z4:** ~248 carte (~5x). Stesso principio della cella 1,
+verso opposto e lato opposto: si tengono a vicenda come dottrina, non come statistica.
+
+### 3. B che AVANZA sul lato GUEST -> SHORT
+**Flag:** `RITIRATA=1` · n **41** (36 gg) · **61,0%** · z 1,41 · +677 pip ·
+vec 58,3% · rec 73,3%. **n-to-z4:** ~180 carte. Speculare alla ritirata: il carattere
+che avanza porta il proprio peso invece di portarlo via.
+
+### CELLE MORTE DELLA STESSA SESSIONE (non riaprire senza dottrina nuova)
+  · duello a quattro criteri su EURUSD: 182 carte, 49,5%
+  · direzionale sul solo host -> LONG: 181 carte, 52,5% · solo guest -> SHORT: 84, 50,0%
+  · due direzionali, chi controlla vince: 40 carte, 47,5% (periodi 50/50) — la carta
+    guida EURUSD 01/02/2023 e' letta giusta ma la regola in se' e' sul lancio di moneta
+  · B che retrocede sul lato host: 137 carte, 51,1%
+
+### S33 · altre celle del duello (aggiornamento di fine sessione)
+  · **P Genitori che si ritira sul 驛馬 Cavallo, lato guest -> LONG**: flag `CAVALLO=1`,
+    n **20** (17 gg), **75,0%**, z **2,24**, +505 pip, vec 60,0% rec 90,0%.
+    n-to-z4: ~64 carte (~3x). Nata dalla carta GBPUSD 20/03/2023 ma con carattere
+    DIVERSO da quello letto da Edu (che era il G, al 44,8% su 29): da certificare.
+  · **stelo dell'ora di carattere G, senza tomba -> LONG**: flag `ORAGIORNO=1`,
+    n **657** (502 gg), **54,9%**, z **2,54**, +3.263 pip, vec 52,1% rec 57,4%.
+    n-to-z4: ~1.630 carte (~2,5x). ATTENZIONE: nata da una tabella, non da una carta
+    guida. Non promuovere senza lettura dottrinale di Edu.
+  · **W dello stelo dell'ora in tomba nel ramo del giorno -> LONG** (lettura di Edu):
+    n 62 (43 gg), 41,9%, z −1,27, −613 pip, vec 48,0% rec 38,2%. SMENTITA dal mazzo
+    nel verso letto; controesempio pulito EURJPY 21/09/2022 seme 143 (−142), stessa
+    coppia 丁丑 / 庚 della carta guida. Resta aperta: la lettura opposta (e' il guest
+    che seppellisce) non e' stata adottata perche' spetta a Edu deciderla.

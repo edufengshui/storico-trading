@@ -391,3 +391,149 @@ usano strutture DLR, non letture del Da Liu Ren.
   del giorno (月將 Generale del Mese / 丁神 / 驛馬 Cavallo) → non segue. Cablata nel
   termometro, dentro il 58,64%.
 - Medico 天醫 (sede 寄宮 dello stelo + 2), sedi 寄宮 degli steli, Cavallo 驛馬.
+
+---
+
+# S33 — 01/09/2026 · IL DUELLO HOST/GUEST SUL GIORNO (metodo nuovo, dettato da Edu)
+
+Impianto nuovo, indipendente dai tre messaggi: il cross si legge come un duello fra
+i due lati del pilastro del giorno.
+  · HOST  = STELO del giorno, incastonato nel suo palazzo (癸 sta in 丑, 庚 in 申,
+            辛 in 戌): per EURUSD e' l'EUR, la valuta di base.
+  · GUEST = RAMO del giorno: per EURUSD e' l'USD, la valuta quotata.
+Ogni lato si legge sulla terna SEDE · CAVALIERE · ARRIVO, cioe' la sede piu' la testa
+della 1ª e della 2ª lezione per lo host, la sede piu' la testa della 3ª e della 4ª per
+il guest. Vince il lato messo meglio: host -> LONG, guest -> SHORT.
+
+## Carte guida (dettate da Edu, tutte e due lette giuste dal metodo)
+
+**EURUSD 05/03/2025 · seme 106 · LONG +166.** Giorno 癸酉, mese 寅, 旬空 戌亥.
+Host EUR = 癸 in 丑, cavalcato da 卯 C Figli col Nobile, che genera 巳 W Ricchezza
+con l'Uccello: il padrone di casa produce ricchezza. Guest USD = 酉, cavalcato da
+亥 B Fratelli VUOTO: l'ospite porta il niente. Vince lo host -> LONG.
+
+**EURUSD 06/11/2024 · seme 109 · SHORT −205.** Giorno 甲戌, mese 戌, 旬空 申酉.
+Host EUR = 甲 in 寅, cavalcato da 巳 C Figli che COMBINA (六合) con 申 G VUOTO: il
+Figlio si lega a un fantasma vuoto e si spreca. Guest USD = 戌, cavalcato da 丑 W
+Ricchezza che AVANZA dalla sede (戌->丑, passo della Terra). Vince il guest -> SHORT.
+
+Quattro criteri ricavati da queste due carte, cablati in `pb_stress.js` (flag
+`DUELLODLR=1`): sede o cavaliere vuoto −2 · cavaliere che genera un arrivo di W +2 ·
+cavaliere W che avanza dalla sede +2 · cavaliere che combina con un arrivo vuoto −2.
+MISURA: EURUSD, 430 carte, il duello parla su 182, **49,5% · z −0,15** (periodi
+53,7 / 44,6). Quattro criteri non bastano a leggere quattrocento carte: impianto da
+arricchire, non da buttare.
+
+## Le combinazioni direzionali (方合) sulle due terne
+
+**Carta guida — EURUSD 01/02/2023 · seme 108 · LONG +130** (carta su cui il duello
+a quattro criteri sbagliava). Giorno 庚寅, mese 丑, 旬空 午未.
+Host EUR = 申 (sede di 庚) · 酉 · 戌 = **申酉戌, direzionale del METALLO** completa.
+Guest USD = 寅 · 卯 · 辰 = **寅卯辰, direzionale del LEGNO** completa.
+Il Metallo taglia il Legno: vince lo host -> LONG. La W che avanzava sul guest non
+avanzava affatto, marciava dentro il Metallo.
+DOTTRINA DETTATA: con le direzionali su tutti e due i lati decide il rapporto fra i
+due elementi (chi controlla vince). Da confermare: se l'elemento del vincitore e'
+particolarmente untimely la regola potrebbe cadere.
+
+MISURA (flag `DIREZIONALE=1`, tutto il mazzo, soglia 20):
+  · una direzionale sul SOLO host: 181 carte (162 gg) — letta LONG 52,5% · z 0,67
+  · una direzionale sul SOLO guest: 84 carte (74 gg) — letta SHORT 50,0%
+  · direzionali su TUTTI E DUE: 109 carte, di cui 40 con controllo fra gli elementi
+    — "chi controlla vince": **47,5% · z −0,32** (periodi 50,0 / 50,0)
+  · nessuna direzionale (riferimento): 3.101 carte, 50,0%
+CORREZIONE DI FATTO: Edu riteneva che la direzionale su un lato solo non capitasse
+mai. Capita, ed e' il caso normale (265 carte contro 109).
+
+## La ritirata del cavaliere (dottrina che spiega il controesempio)
+
+**Controesempio pulito alla regola del controllo — USDJPY 14/03/2023 · seme 133 ·
+LONG +118** (regola: SHORT). Giorno 辛未, mese 卯, 旬空 戌亥.
+Host USD = 戌 · 酉 · 申 = 申酉戌 METALLO. Guest JPY = 未 · 午 · 巳 = 巳午未 FUOCO.
+Il Fuoco controlla il Metallo: la regola dice guest, SHORT. Il mercato sale di 118.
+Verificato per Regola #10: fra le 21 carte sbagliate dalla regola del controllo, 6
+sono spiegate dal duello a quattro criteri e **15 non le spiega nessuna regola del
+perimetro** (duello, cella 官 come M1, due 官 fra i messaggi).
+
+LETTURA DI EDU su questa carta: il cavaliere che RETROCEDE (stesso elemento, un passo
+indietro: 酉->申) porta via il proprio carattere. Qui il B Fratelli — bandiera
+negativa — arretra sul lato del dollaro, e l'Ufficiale arretra sul lato dello yen:
+tutti e due tolgono peso al dollaro avverso. Il dollaro sale.
+
+MISURA (flag `RITIRATA=1`, tutto il mazzo, soglia 20):
+  · **G Ufficiale che RETROCEDE sul lato GUEST -> SHORT: 49 carte (41 gg), 67,3%,
+    z 2,43, +1.040 pip, periodi 80,0 / 64,0** — il pezzo migliore di tutto l'impianto
+  · P che retrocede sul lato HOST -> LONG: 51 carte (45 gg), 62,7%, z 1,82, +526 pip,
+    periodi 72,2 / 62,1
+  · B che retrocede sul lato HOST: 137 carte, 51,1% — piatto (la lettura letterale
+    di Edu sulla carta guida, sul mazzo, non si conferma da sola)
+  · B che AVANZA sul lato guest -> SHORT: 41 carte, 61,0%, periodi 58,3 / 73,3
+
+NIENTE DI QUESTO E' CABLATO NEL TERMOMETRO DI PRODUZIONE. Tutto vive in `pb_stress.js`
+dietro i flag `DUELLODLR`, `DIREZIONALE`, `RITIRATA`, `REGOLA10`, `QUERYCROSS`,
+`SENZAW`, `DRENATO`, `DRENLIST`, `ARRIVODB`, `CLASHDB`, `GENM1`, `M3GIORNO`,
+`OVERLAPDLR`, riproducibili in qualunque sessione futura.
+
+## S33 — le altre letture della giornata (tutte misurate, nessuna cablata nel segnale)
+
+**La ritirata e il Cavallo postale.** Sulla carta GBPUSD 20/03/2023 il 亥 su cui
+finisce la ritirata 子->亥 e' insieme 月將 Generale del mese E 驛馬 Cavallo postale
+del giorno (giorno 丑, gruppo 巳酉丑 -> cavallo 亥): la ritirata e' veloce, il
+carattere se ne va davvero. MISURE (`CAVALLO=1`): ritirata del guest sul Cavallo
+-> LONG 96 carte 54,2% z 0,82 · Cavallo + Generale insieme 13 carte 38,5% · per
+carattere del cavaliere: **P 75,0% su 20 carte z 2,24 +505 pip (periodi 60/90)**,
+B 64,7% su 17, G 44,8% su 29 (cioe' il carattere della carta guida e' proprio
+quello che non funziona). Il Cavallo accelera la ritirata, ma conta CHI monta.
+
+**Il Lu e la timeliness delle figure** (`TRECONDIZIONI=1`): 祿 Lu dello stelo del
+giorno in sella allo host -> LONG 306 carte 52,3% ma −720 pip · figura dello host
+molto piu' timely -> LONG 47,0% su 166 · figura del guest molto piu' timely ->
+SHORT 50,0% su 168 · ritirata che finisce sul 月將: guest 36,8% su 19, host 36,4%
+su 22. NOTA DOTTRINALE: la riserva di Edu sulle direzionali ("vale il rapporto fra
+i due elementi a meno che il vincitore non sia molto untimely") e' misurata qui e
+NON si conferma: la timeliness dell'elemento non decide.
+
+**Ora e giorno: la W dell'ora in tomba nel ramo del giorno** (`ORAGIORNO=1`).
+Lettura di Edu sulla carta GBPUSD 20/03/2023 (Bazi 癸卯 乙卯 丁丑 庚子): 庚 e' la W
+di 丁 (bene per lo host) e il Metallo entra in tomba in 丑, ramo del guest ->
+vince lo host -> LONG. MISURA: **62 carte (43 gg), 41,9% LONG, z −1,27, −613 pip,
+periodi 48,0 / 38,2** — il mazzo va dalla parte opposta. Esiste una lettura
+dottrinale contraria (e' il GUEST che seppellisce la ricchezza dello host ->
+SHORT): NON adottata, la scelta spetta a Edu, non ai numeri.
+Collaterale dalla stessa tabella: stelo dell'ora di carattere G senza tomba ->
+LONG 54,9% su 657 carte, z 2,54, +3.263 pip, periodi 52,1/57,4 (nata da tabella,
+non da carta: solo appunto).
+
+**Controesempio per Regola #10 alla regola della tomba — EURJPY 21/09/2022 seme
+143, SHORT −142.** Stessa identica coppia della carta guida: giorno 丁丑, ora 庚戌,
+庚 = W di 丁 in tomba in 丑. Delle 36 carte sbagliate, 15 non le spiega nessuna
+regola del perimetro; questa e' la piu' stretta. Stesso giorno della carta guida,
+20/03/2023, su USDJPY (seme 132, ora 辛亥): SHORT −100, host perdente.
+LIMITE STRUTTURALE EMERSO: la coppia ora-giorno e' IDENTICA per tutti i cross dello
+stesso giorno, quindi da sola non puo' distinguere GBP che sale da USD che scende.
+Serve qualcosa che leghi la figura al cross, cioe' al seme.
+
+**L'assetto dei pilastri (confronto dettato da Edu fra le due carte).**
+Carta guida 癸卯 乙卯 丁丑 庚子: gli steli in catena generativa 癸->乙->丁 nutrono lo
+host, e i due rami alti 卯 卯 (Legno) controllano tutti e due il ramo del guest 丑.
+Controesempio 壬寅 己酉 丁丑 庚戌: 壬 CONTROLLA 丁 (l'anno attacca lo host) e 己 lo
+DRENA; sui rami 寅 controlla 丑 ma 酉 no — anzi 丑 genera 酉 e insieme fanno mezzo
+trigono di Metallo. Le due carte sono l'opposto, non l'uguale: la tomba non era la
+causa. MISURE (`PILASTRI=1`): catena degli steli -> LONG 133 carte 52,6% z 0,61 ·
+anno e mese che controllano il ramo del giorno -> LONG 172 carte 47,1% · le due
+condizioni INSIEME: 10 carte in 4 giorni (campione inesistente).
+
+## Il pannello del duello nella PWA (software)
+
+Aggiunto alla sezione DLR dell'app un riquadro **"Duello host/guest · lettura in
+osservazione (non entra nel segnale)"**, sotto la nota della carta. Per la carta a
+schermo mostra: la terna sede-cavaliere-arrivo dei due lati; sede o cavaliere
+vuoti; il cavaliere che genera Ricchezza; il 祿 Lu del giorno in sella; il trigono
+三合 o la direzionale 方合 presente su ciascun lato, completo o incompleto;
+l'avanzamento o la ritirata del cavaliere e se finisce sul 月將 o sul 驛馬; il
+verdetto delle figure; e la riga ora/giorno col carattere dello stelo dell'ora e
+la sua eventuale tomba nel ramo del giorno.
+E' un pannello di LETTURA: non tocca il segnale, non tocca il termometro, non
+cambia una sola carta del backtest. Verificato sulle tre carte guida (GBPUSD
+20/03/2023, EURUSD 01/02/2023, GBPUSD 05/05/2022): terne, vuoti, 月將 e 驛馬
+coincidono con quanto letto a mano in sessione.
