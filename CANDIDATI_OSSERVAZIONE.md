@@ -1248,3 +1248,29 @@ che avanza porta il proprio peso invece di portarlo via.
     nel verso letto; controesempio pulito EURJPY 21/09/2022 seme 143 (−142), stessa
     coppia 丁丑 / 庚 della carta guida. Resta aperta: la lettura opposta (e' il guest
     che seppellisce) non e' stata adottata perche' spetta a Edu deciderla.
+
+## 02/09/2026 — DLR, motore nuovo (sessione 34)
+
+Tutte le vie del motore DLR nuovo sono candidati, non regole confermate: i versi delle
+caselle sono stati scelti guardando i dati. Sotto i numeri per riverificarle.
+
+| flag | condizione | n | win% | z | vecchio | recente | n per z4 |
+|---|---|---|---|---|---|---|---|
+| DLR-V1 | legame fra steli: lo stelo del ramo del giorno combina 天干五合 con quello che abita R1 — se R1 è W → LONG, altrimenti SHORT | 130 | 61,54% | 2,63 | 51,9% | 69,0% | ~300 |
+| DLR-V1-W | solo il ramo W (verso in conflitto con la lettura di Edu) | 51 | 58,8% LONG | 1,26 | 61,5% | 52,2% | ~310 |
+| DLR-V1-noW | solo il ramo non-W | 187 | 59,4% SHORT | 2,56 | 55,7% | 61,8% | ~450 |
+| DLR-V2 | il pari su R1: R1 stesso elemento del ramo del giorno, decide il carattere di R1 | 467 | 59,31% | 4,03 | 57,0% | 61,0% | raggiunto |
+| DLR-V3 | sette caselle isolate relazione×carattere su R1 | 499 | 56,71% | 3,00 | 55,4% | 57,8% | ~890 |
+| DLR-V4 | coppia dei caratteri R1/R2, otto caselle cablate | 301 | 57,14% | 2,48 | 54,0% | 59,0% | ~700 |
+| DLR-V5 | R2 prende il posto di R1 vuoto | 158 | 58,23% | 2,07 | 61,9% | 58,6% | ~380 |
+| DLR-V5-pari | di cui la sola via del pari dopo la sostituzione | 74 | 63,5% | 2,32 | 71,4% | 61,0% | ~185 |
+
+Controprova fondamentale su DLR-V1 (dimostra che il segnale è della combinazione fra
+steli, non dell'assenza di W su R1):
+- senza combinazione, W su R1: 427 carte, 47,1% SHORT
+- senza combinazione, niente W su R1: 1.653 carte, 48,1% SHORT
+
+Caselle viste ma NON cablate perché i due periodi vanno in direzioni opposte:
+O/G, G/B, O/C, P/O, P/W, B/O, B/B nella griglia R1×R2.
+Casella W/G scartata solo per numerosità: 27 carte, 66,7% SHORT, vec 62,5 / rec 64,7 —
+da riprendere se il campione cresce.

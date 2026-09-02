@@ -537,3 +537,96 @@ E' un pannello di LETTURA: non tocca il segnale, non tocca il termometro, non
 cambia una sola carta del backtest. Verificato sulle tre carte guida (GBPUSD
 20/03/2023, EURUSD 01/02/2023, GBPUSD 05/05/2022): terne, vuoti, 月將 e 驛馬
 coincidono con quanto letto a mano in sessione.
+
+---
+
+# SESSIONE 34 — 02/09/2026 · NASCE IL MOTORE DLR NUOVO
+
+## Lingua comune fissata con Edu
+- **Caratteri:** B (兄弟 Fratelli) · C (子孫 Figli) · W (妻財 Ricchezza) · **O (官 Ufficiale)** · **G (鬼 Fantasma)** · P (父母 Genitori)
+- **Letture:** R1 R2 R3 R4 — R1 sta sopra lo stelo del giorno, R3 sopra il ramo del giorno
+- **Messaggi:** M1 M2 M3
+
+## Decisione di fondo
+Il vecchio motore DLR basato sul trend è abbandonato. Nasce `motore_dlr.js`, motore
+**direzionale**: host = prima valuta, guest = seconda; host vince → LONG. Se nessuna via
+riconosce un attore, il motore **tace** invece di inventare una direzione.
+LY (`liuyao.js`) e PB (`plumblossom.js`) non sono stati toccati: sistemi separati.
+
+## Tabella 寄宮 (stelo che abita ciascun ramo), dettata da Edu
+甲 in 寅 · 乙 in 辰 · 丙 e 戊 in 巳 · 丁 e 己 in 未 · 庚 in 申 · 辛 in 戌 · 壬 in 亥 · 癸 in 丑
+I rami 子 卯 午 酉 non ospitano stelo.
+NOTA: il motore DLR non calcolava questo strato; è stato aggiunto oggi. Le prime misure
+del riferimento incrociato erano sbagliate perché usavano gli steli nascosti (藏干).
+
+## Forme messe FUORI SELEZIONE da Edu
+- 八專 (Otto Specialità): palazzo dello stelo = ramo del giorno (甲寅, 丁未, 己未, 癸丑)
+- 冬蛇掩目 (Winter Snake): 昴星 in giorno yin — e la stessa famiglia in giorno yang
+- 伏吟 (il ronzio nascosto) e 返吟 (il ronzio che torna)
+Totale escluse: 942 carte sul mazzo a soglia 20.
+
+## LE CINQUE VIE CABLATE
+
+**Via 1 · il legame dello host** — n 130 · 61,54% · z 2,63 · +1.731 pip
+Lo stelo che abita il ramo del giorno combina 天干五合 con lo stelo che abita R1.
+Se R1 è W → LONG (il legame tiene lo host); altrimenti → SHORT.
+Carta guida: USDJPY 11/02/2026 seme 154, letta da Edu.
+**CONFLITTO APERTO:** sul ramo W il verso misurato (58,8% LONG) è opposto alla lettura
+di Edu, che legge la Ricchezza come bloccata e quindi host che perde. Da sciogliere.
+Controprova: senza combinazione le due caselle stanno entrambe a 47-48%, quindi il
+segnale è della combinazione, non dell'assenza di W.
+
+**Via 2 · il pari su R1** — n 467 · 59,31% · z 4,03 · +4.764 pip
+R1 dello stesso elemento del ramo del giorno: decide il carattere di R1.
+O 67,3% SHORT · G 60,3% SHORT · W 56,2% SHORT · C 59,4% LONG · P 58,4% LONG · B tace.
+È la via più solida: n alto, periodi allineati, ordine dottrinale leggibile.
+
+**Via 3 · caselle isolate** — n 499 · 56,71% · z 3,00 · +3.438 pip
+Sette combinazioni fra la relazione del ramo del giorno verso R1 e il carattere di R1.
+
+**Via 4 · la coppia R1/R2** — n 301 · 57,14% · z 2,48 · +2.766 pip
+Otto coppie di caratteri. Quattro coppie non esistono mai (B/G, G/G, G/O, O/O).
+Fili emersi: (a) quando R2 ripete il carattere di R1 il segnale è forte e stabile
+(W/W e P/P → LONG, C/C → SHORT; solo B/B è rotto); (b) un G su R2 aggrava sempre.
+Vuoto su R2: si salta (R2 condiziona, un condizionatore vuoto non condiziona).
+
+**Via 5 · R2 prende il posto di R1 vuoto** — n 158 · 58,23% · z 2,07 · +1.848 pip
+R1 vuoto non è da ignorare né da rovesciare: è ASSENTE, e il posto sopra lo stelo del
+giorno lo occupa R2. Le tre ipotesi si separano nettamente:
+leggerlo come pieno 51,2% · rovesciarlo 48,8% · farlo sostituire da R2 58,2%.
+
+## MOTORE COMPLETO
+**1.555 carte lette · 58,14% · z 6,42 · +14.546 pip · 9,4 pip/trade**
+vecchio 56,19% su 646 · recente 59,76% su 835 · tace 978 · fuori selezione 942
+
+**AVVERTENZA sullo z.** I versi delle caselle sono stati scelti guardando questi stessi
+dati, quindi z 6,42 è gonfiato e non misura come il motore andrà su dati nuovi. Quello
+che regge davvero è la coerenza fra i due periodi, presente su tutte e cinque le vie.
+Edu ha deciso di cablare comunque: "costruiamo con quello che abbiamo, se è falso
+salterà fuori". Da riverificare su holdout quando il motore sarà congelato.
+
+## MISURATO E SCARTATO (con numeri)
+- **Tre messaggi in ritirata (退連茹)**: 147 carte 51,0%. Come arbitro sulle sole carte
+  in parità di duello: 115 carte 50,4%. Muto.
+- **Tomba in sella**: lo host sepolto 56,1% (139), il guest sepolto 44,4% (126) — i due
+  lati asimmetrici. Dopo l'imbuto completo restano 6 carte, di cui 4 sono tutte la stessa
+  figura 八專. Non concludente.
+- **Riferimento incrociato (十二長生 incrociato)**: con la tabella 寄宮 corretta, 1.744
+  carte 48,7%. Accoppiato 2.430 carte 49,5%. Muto.
+- **Duello diretto fra i due cavalieri**: 1.343 carte 49,1%. Muto.
+- **Pilastro dell'ora su stelo e ramo del giorno**, tutti e cinque i casi su entrambi:
+  dieci caselle da ~500 carte, tutte fra 45,8% e 52,9%. **Non conta.**
+- **M1 sullo stadio 1 (長生) dello stelo del giorno**: 237 carte 54,0%, periodi separati.
+  Sullo stelo che abita R1: 144 carte 53,5%, periodi opposti (64,1 / 44,9). Muto.
+- **Le cinque relazioni di R2 verso R1**: tutte fra 47,4% e 51,3%. Come condizionamento
+  lo spirito Yin non produce direzione; conta il suo CARATTERE, non la sua azione.
+- **冲空 (clash del giorno sul vuoto)**: su R1 vuoto sono 19 carte, su R2 vuoto 4.
+  Troppo raro in questo motore per misurarlo.
+
+## APERTO PER LA PROSSIMA SESSIONE
+1. Sciogliere il conflitto di verso sulla via 1, ramo W (lettura di Edu contro i numeri)
+2. Le 978 carte su cui il motore tace: il blocco più grosso restano quelle dove nessuna
+   coppia R1/R2 cablata risponde
+3. Le carte con ramo del giorno vuoto: mai testate, perché le vie non trovano casella
+4. Decidere se 八專, Winter Snake, 伏吟 e 返吟 restano fuori per sempre o vanno lette
+5. Portare il motore DLR nella PWA (oggi vive solo nella ricerca)
