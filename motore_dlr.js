@@ -275,9 +275,244 @@ function via5_R2prendeIlPostoDiR1(c) {
   return null;
 }
 
+// ============================================================================
+//  VIA DEL GRUPPO COMPLETO NEI TRE MESSAGGI  —  dottrina certificata da Edu 03/09/2026
+// ============================================================================
+// I Tre Messaggi formano un gruppo completo, direzionale 三會 o trigono 三合.
+// L'elemento del gruppo si legge come parentela verso lo stelo del giorno.
+// Quando quell'elemento e' G (鬼 Fantasma), il movimento intero si raccoglie nella cosa
+// che uccide lo host: lo host e' circondato e perde -> SHORT.
+// Carta d'origine: USDJPY 09/10/2024 s148 (申酉戌 = Metallo = W per 丙), dove Edu ha visto
+// che il gruppo completo nei messaggi comanda la lettura; misurando le classi, l'unica
+// che regge in entrambi i periodi e' il Fantasma.
+//   n 34   73,5%  z 2,74  +1.523 pip   vec 76,5 / rec 73,3
+//   di cui 三合 trigono      n 17  76,5%   ·   三會 direzionale  n 17  70,6%
+// Le altre parentele (W, C, P, O, B) non danno segnale stabile: la via tace.
+const GRUPPI_TRE_MESSAGGI = [
+  { rami: '寅卯辰', el: '木', tipo: '三會 direzionale' },
+  { rami: '巳午未', el: '火', tipo: '三會 direzionale' },
+  { rami: '申酉戌', el: '金', tipo: '三會 direzionale' },
+  { rami: '亥子丑', el: '水', tipo: '三會 direzionale' },
+  { rami: '申子辰', el: '水', tipo: '三合 trigono' },
+  { rami: '亥卯未', el: '木', tipo: '三合 trigono' },
+  { rami: '寅午戌', el: '火', tipo: '三合 trigono' },
+  { rami: '巳酉丑', el: '金', tipo: '三合 trigono' }
+];
+const RAPPRESENTANTE = { '木':'寅', '火':'巳', '土':'辰', '金':'申', '水':'亥' };
+
+function gruppoNeiTreMessaggi(c) {
+  const T = c.treMessaggi;
+  if (!T) return null;
+  const set = [T.chu, T.zhong, T.mo];
+  if (set.some(function(b){ return !b; })) return null;
+  if (new Set(set).size !== 3) return null;                 // gruppo incompleto: due messaggi uguali
+  for (var i = 0; i < GRUPPI_TRE_MESSAGGI.length; i++) {
+    var g = GRUPPI_TRE_MESSAGGI[i];
+    if (set.every(function(b){ return g.rami.indexOf(b) >= 0; })) return g;
+  }
+  return null;
+}
+
+function via0_gruppoCompletoFantasma(c) {
+  const g = gruppoNeiTreMessaggi(c);
+  if (!g) return null;
+  const par = parentela(c.steloGiorno, RAPPRESENTANTE[g.el]);
+  if (par !== 'G') return null;                             // solo il Fantasma parla
+  const T = c.treMessaggi;
+  return { dir: 'SHORT', via: 'gruppo completo nei Tre Messaggi = G',
+    perche: 'i Tre Messaggi ' + T.chu + T.zhong + T.mo + ' formano un ' + g.tipo +
+            ' completo di ' + g.el + ', che per lo stelo del giorno ' + c.steloGiorno +
+            ' e\' G: il movimento intero si raccoglie nella cosa che uccide ' +
+            'lo host, che e\' circondato e perde' };
+}
+
 // Catena completa. La via 5 sta in fondo: interviene solo quando le altre hanno taciuto
 // perche' R1 era vuoto.
-const CATENA = VIE.concat([ via5_R2prendeIlPostoDiR1 ]);
+// ============================================================================
+//  VIA ULTIMA · LA RICCHEZZA SUL PRIMO MESSAGGIO  —  dottrina certificata da Edu 03/09/2026
+// ============================================================================
+// Quando tutte le vie di casella hanno taciuto, si guarda il primo messaggio (初傳):
+// se e' W (妻財 Ricchezza) per lo stelo del giorno, la carta va LONG.
+// Quello che fanno M2 e M3 non conta: aiutino o ostacolino M1, il verso e' lo stesso
+// (non ostacolano 59,4% su 96 · ostacolano 58,6% su 87).
+// Due cose la spengono:
+//   - M1 vuoto (旬空): un ramo vuoto non agisce  (36 carte, 55,6%, vec 40 -> tace)
+//   - M1 in cima a una lezione dello stelo E a una del ramo del giorno insieme:
+//     la Ricchezza contesa dai due lati non arriva a nessuno (65 carte, 43,1% LONG -> tace)
+// Sulle carte gia' lette dalle altre vie non aggiunge nulla (dove concorda 61,8%, dove
+// contraddice 50/50): per questo sta IN FONDO alla catena, come condizione ultima.
+//   n 139   62,6%  z 2,97  +1.253 pip   vec 58,1 / rec 65,7   (misurata sulle mute, soglia 20)
+function via6_ricchezzaSulPrimoMessaggio(c) {
+  const T = c.treMessaggi;
+  if (!T || !T.chu) return null;
+  const m1 = T.chu;
+  if (parentela(c.steloGiorno, m1) !== 'W') return null;
+  const V = c.vuoti || [];
+  if (V.indexOf(m1) >= 0) return null;                                  // vuoto: non agisce
+  const ds = (m1 === c.R1 || m1 === c.R2), db = (m1 === c.R3 || m1 === c.R4);
+  if (ds && db) return null;                                            // contesa dai due lati
+  // Nutrimento = GENERAZIONE VERA (il 比和 non nutre — lezione S32, da non ripetere).
+  // Edu (S35): la via prende tutte, ma va guardato se la Ricchezza e' nutrita da entrambi,
+  // da uno solo o da nessuno dei due messaggi che seguono.
+  //   nessuno   61 carte  55,7%  vec 50,0 / rec 60,6
+  //   uno       70 carte  67,1%  vec 66,7 / rec 65,6
+  //   entrambi   8 carte  75,0%
+  const elM1 = EL_RAMO[m1];
+  const genera = function(b){ return b && GENERA[EL_RAMO[b]] === elM1; };
+  const nutrimento = (genera(T.zhong) ? 1 : 0) + (genera(T.mo) ? 1 : 0);
+  // Ostacolo = M2 o M3 CONTROLLANO l'elemento di M1. Da solo non cambia il verso (60,0% su 65),
+  // ma se la Ricchezza e' anche NON nutrita, la via non regge: 36 carte 52,8% -471 pip.
+  // Se e' nutrita dall'altro messaggio, l'ostacolo e' neutralizzato (29 carte 69,0% +283).
+  // Integrato su indicazione di Edu (S35): dove la Ricchezza e' ostacolata e nessuno la genera, la via TACE.
+  const controlla = function(b){ return b && CONTROLLA[EL_RAMO[b]] === elM1; };
+  const ostacolo = (controlla(T.zhong) ? 1 : 0) + (controlla(T.mo) ? 1 : 0);
+  if (ostacolo > 0 && nutrimento === 0) return null;
+  const NUTR = ['non nutrita da M2 ne\' da M3', 'nutrita da uno solo fra M2 e M3', 'nutrita da entrambi M2 e M3'];
+  return { dir: 'LONG', via: 'W sul primo messaggio', nutrimento: nutrimento, ostacolo: ostacolo,
+    perche: 'nessuna casella parla; M1 ' + m1 + ' e\' W per lo stelo ' +
+            'del giorno ' + c.steloGiorno + (ds ? ', esce dal lato dello stelo' : db ? ', esce dal lato del ramo del giorno' : '') +
+            ', non e\' vuoto e non e\' conteso: la W arriva allo host (' + NUTR[nutrimento] + (ostacolo ? ', ostacolata ma il generatore la sostiene' : '') + ')' };
+}
+
+// ============================================================================
+//  VIA 7 · IL FRATELLO SU R1 LEGATO IN 六合  —  costruita con Edu 03/09/2026
+// ============================================================================
+// B (兄弟 Fratelli) su R1 fa perdere lo host. Se R2 lo LEGA in 六合, il B e' fermato e la carta
+// va LONG. Carta guida EURUSD 04/06/2020 s112 (R1 戌 B, R2 卯 O, 卯戌合). Ma il B si lascia
+// legare solo se e' fermabile. Due carte lette da Edu dicono quando NON lo e':
+//   - USDCAD 31/03/2021 s126: il B su R1 E' IL GENERALE DEL MESE, ramo mai vuoto e sempre
+//     timely -> troppo forte, non si ferma (4 carte, 3/4 SHORT)
+//   - EURJPY 11/07/2024 s175: il RAMO DEL GIORNO CLASHA R1 mentre lo stelo siede su 巳午未
+//     completo -> il B timely clashato si rinforza, il legame non lo tiene (5 carte, 3/5 SHORT)
+// Chi lega non conta: con R2 = O (il caso della carta guida) 54,3%, con qualunque R2 61,4%.
+// Il legame conta piu' della parentela di chi lega.
+//   n 39   64,1%  z 1,76  +881 pip   vec 69,6 / rec 56,3   (misurata sulle mute, soglia 20)
+// Dove il B e' il generale del mese o e' clashato dal giorno la via TACE (n troppo piccoli per un verso).
+const LIUHE = { '子':'丑','丑':'子','寅':'亥','亥':'寅','卯':'戌','戌':'卯','辰':'酉','酉':'辰','巳':'申','申':'巳','午':'未','未':'午' };
+const CLASH = { '子':'午','午':'子','丑':'未','未':'丑','寅':'申','申':'寅','卯':'酉','酉':'卯','辰':'戌','戌':'辰','巳':'亥','亥':'巳' };
+
+function via7_fratelloLegato(c) {
+  if (!c.R1 || !c.R2) return null;
+  const V = c.vuoti || [];
+  if (V.indexOf(c.R1) >= 0 || V.indexOf(c.R2) >= 0) return null;
+  if (parentela(c.steloGiorno, c.R1) !== 'B') return null;
+  if (LIUHE[c.R1] !== c.R2) return null;                       // nessun legame
+  if (c.R1 === c.generaleMese) return null;                    // il B e' il generale del mese: non si ferma
+  if (CLASH[c.ramoGiorno] === c.R1) return null;               // il giorno lo clasha: si rinforza
+  return { dir: 'LONG', via: 'B su R1 legato in 六合',
+    perche: 'R1 ' + c.R1 + ' e\' B e farebbe perdere lo host, ma R2 ' + c.R2 +
+            ' (' + parentela(c.steloGiorno, c.R2) + ') lo lega in 六合 e lo ferma; il B non e\' il ' +
+            'generale del mese e il ramo del giorno non lo clasha, quindi si lascia legare' };
+}
+
+// ============================================================================
+//  VIA 8 · IL FIGLIO VUOTO CHE PROMETTE LA RICCHEZZA IN FONDO  —  S35, 03/09/2026
+// ============================================================================
+// M1 e' C (子孫 Figli) per lo stelo del giorno; C genera W. Edu ha chiesto cosa succede quando
+// la W sta in M2 o M3. Con tutto pieno non succede nulla (M2 55,6% · M3 56,0%). La forma che
+// parla e' col Figlio VUOTO (旬空) e la Ricchezza PIENA sul TERZO messaggio: il generatore non
+// c'e', la Ricchezza promessa in fondo non arriva, lo host resta a mani vuote -> SHORT.
+//   n 13   84,6% SHORT  z 2,50  +716 pip   vec 100 / rec 71,4   (mute, soglia 20)
+// Il rovescio (Figlio vuoto, W piena subito in M2) tende a LONG (14 carte 64,3%) ma e' debole:
+// resta in osservazione, la via non lo legge.
+// Integrata su indicazione di Edu ("integra i fenomeni"), n piccolo: da riverificare.
+function via8_figlioVuotoRicchezzaInFondo(c) {
+  const T = c.treMessaggi;
+  if (!T || !T.chu || !T.mo) return null;
+  if (parentela(c.steloGiorno, T.chu) !== 'C') return null;
+  const V = c.vuoti || [];
+  if (V.indexOf(T.chu) < 0) return null;                       // il Figlio deve essere vuoto
+  if (parentela(c.steloGiorno, T.mo) !== 'W') return null;     // la Ricchezza sul terzo
+  if (V.indexOf(T.mo) >= 0) return null;                       // e piena
+  if (parentela(c.steloGiorno, T.zhong) === 'W') return null;  // se la W e' gia' in M2 non e' questo caso
+  return { dir: 'SHORT', via: 'C vuoto con W sul terzo messaggio',
+    perche: 'il primo messaggio ' + T.chu + ' e\' C ma e\' vuoto (旬空): non genera; ' +
+            'la W ' + T.mo + ' sta sul terzo messaggio ma senza chi la genera ' +
+            'non arriva allo host' };
+}
+
+// ============================================================================
+//  VIA 9 · P SUL PRIMO MESSAGGIO DAL LATO DELLO STELO  —  S35, 03/09/2026
+// ============================================================================
+// M1 e' P per lo stelo del giorno ed esce dalle lezioni dello stelo (1-2). Per il carattere
+// (regola LY di Edu: B e P fanno perdere il loro lato), un P sul lato dello host fa perdere lo host.
+// Vale se il P non e' ostacolato: se M2 o M3 lo controllano, e' contenuto e non parla.
+//   dal lato dello stelo, mute:            44 carte  63,6% SHORT   vec 64,3 / rec 64,3
+//   di cui NON ostacolato:                 19 carte  78,9% SHORT   vec 75,0 / rec 80,0   <- la via
+//   di cui ostacolato:                     25 carte  52,0% SHORT   -> tace
+//   dal lato del ramo del giorno, mute:    80 carte  51,2%          -> tace
+// M1 vuoto: 9 carte, non agisce, tace.
+function via9_pDalLatoDelloStelo(c) {
+  const T = c.treMessaggi;
+  if (!T || !T.chu) return null;
+  const m1 = T.chu;
+  if (parentela(c.steloGiorno, m1) !== 'P') return null;
+  const V = c.vuoti || [];
+  if (V.indexOf(m1) >= 0) return null;
+  const ds = (m1 === c.R1 || m1 === c.R2), db = (m1 === c.R3 || m1 === c.R4);
+  if (!ds || db) return null;                                          // solo dal lato dello stelo
+  const elM1 = EL_RAMO[m1];
+  const controlla = function(b){ return b && CONTROLLA[EL_RAMO[b]] === elM1; };
+  if (controlla(T.zhong) || controlla(T.mo)) return null;              // ostacolato: contenuto
+  return { dir: 'SHORT', via: 'P sul primo messaggio dal lato dello stelo',
+    perche: 'il primo messaggio ' + m1 + ' e\' P per lo stelo del giorno ' + c.steloGiorno +
+            ' ed esce dal lato dello stelo, senza che M2 o M3 lo controllino: il P fa perdere il suo lato, che e\' lo host' };
+}
+
+// ============================================================================
+//  VIA 10 · O SUL PRIMO MESSAGGIO DAL LATO DELLO STELO, NON NUTRITO  —  S35, 03/09/2026
+// ============================================================================
+// M1 e' O per lo stelo del giorno ed esce dalle lezioni dello stelo. L'O controlla lo host.
+//   dal lato del ramo del giorno, mute:   25 carte 52,0%          -> tace
+//   dal lato dello stelo, mute:          106 carte 54,7% SHORT     debole
+//     di cui NON nutrito (nessun generatore fra M2/M3): 39 carte 64,1% SHORT  vec 68,7 / rec 65  <- la via
+//     di cui nutrito:                                   58 carte 48,3%        -> tace
+// NOTA: sulle carte gia' lette SHORT dal motore, l'O NUTRITO su M1 conferma lo SHORT all'88% (34 carte),
+// mentre l'O non nutrito lo lascia al 46%. Sulle mute succede il contrario. Le due cose non si spiegano
+// insieme: cablata la forma delle mute su indicazione di Edu, da rileggere con una carta.
+function via10_oDalLatoDelloSteloNonNutrito(c) {
+  const T = c.treMessaggi;
+  if (!T || !T.chu) return null;
+  const m1 = T.chu;
+  if (parentela(c.steloGiorno, m1) !== 'O') return null;
+  const V = c.vuoti || [];
+  if (V.indexOf(m1) >= 0) return null;
+  const ds = (m1 === c.R1 || m1 === c.R2), db = (m1 === c.R3 || m1 === c.R4);
+  if (!ds || db) return null;
+  const elM1 = EL_RAMO[m1];
+  const genera = function(b){ return b && GENERA[EL_RAMO[b]] === elM1; };
+  if (genera(T.zhong) || genera(T.mo)) return null;                    // nutrito: tace
+  return { dir: 'SHORT', via: 'O sul primo messaggio dal lato dello stelo, non nutrito',
+    perche: 'il primo messaggio ' + m1 + ' e\' O per lo stelo del giorno ' + c.steloGiorno +
+            ' ed esce dal lato dello stelo; ne\' M2 ne\' M3 lo generano: l\'O controlla lo host' };
+}
+
+// ============================================================================
+//  VIA 11 · G VUOTO SUL PRIMO MESSAGGIO  —  S35, 03/09/2026
+// ============================================================================
+// M1 e' G per lo stelo del giorno ma e' nei 旬空: la cosa che uccide lo host apre il movimento
+// ma non c'e'. Il pericolo e' vuoto, lo host sopravvive -> LONG.
+// G pieno su M1 non da' verso in nessun taglio (142 carte 52,1%, lato, nutrimento, ostacolo: niente).
+//   n 17   70,6% LONG  z 1,70  +331 pip   vec 83,3 / rec 70,0   (mute, un lato solo, soglia 20)
+function via11_gVuotoSulPrimoMessaggio(c) {
+  const T = c.treMessaggi;
+  if (!T || !T.chu) return null;
+  const m1 = T.chu;
+  if (parentela(c.steloGiorno, m1) !== 'G') return null;
+  const V = c.vuoti || [];
+  if (V.indexOf(m1) < 0) return null;                                  // deve essere vuoto
+  const ds = (m1 === c.R1 || m1 === c.R2), db = (m1 === c.R3 || m1 === c.R4);
+  if (ds && db) return null;
+  return { dir: 'LONG', via: 'G vuoto sul primo messaggio',
+    perche: 'il primo messaggio ' + m1 + ' e\' G per lo stelo del giorno ' + c.steloGiorno +
+            ' ma e\' vuoto (旬空): il pericolo che apre il movimento non c\'e\', lo host sopravvive' };
+}
+
+// La via del gruppo completo sta in TESTA: legge il movimento intero, non una singola casella,
+// e quando parla comanda su tutte le letture di casella.
+// La via 6 sta in FONDO: condizione ultima, parla solo quando tutto il resto ha taciuto.
+// La via 7 legge ancora una casella (R1/R2): sta dopo la 5 e prima della condizione ultima.
+const CATENA = [ via0_gruppoCompletoFantasma ].concat(VIE, [ via5_R2prendeIlPostoDiR1, via7_fratelloLegato, via6_ricchezzaSulPrimoMessaggio, via8_figlioVuotoRicchezzaInFondo, via9_pDalLatoDelloStelo, via10_oDalLatoDelloSteloNonNutrito, via11_gVuotoSulPrimoMessaggio ]);
 
 // ============================================================================
 //  LETTURA
@@ -295,5 +530,8 @@ function leggi(carta) {
   return { dir: null, via: null, perche: 'nessun attore riconosciuto: il motore tace' };
 }
 
-module.exports = { leggi, fuoriSelezione, parentela, STELI_DENTRO, COMBINA_STELI,
+const _API = { leggi, fuoriSelezione, parentela, gruppoNeiTreMessaggi, via0_gruppoCompletoFantasma, via6_ricchezzaSulPrimoMessaggio, STELI_DENTRO, COMBINA_STELI,
                    EL_STELO, EL_RAMO, GENERA, CONTROLLA, VIE, CATENA };
+
+if (typeof module !== 'undefined' && module.exports) module.exports = _API;
+if (typeof window !== 'undefined') window.XKDGMotoreDLR = _API;

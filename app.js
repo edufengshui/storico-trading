@@ -123,9 +123,114 @@ function render(pillars, c) {
     ', arrives at earth ' + c.generals.earthPalace + ', generals run ' + c.generals.direction +
     '. 驛馬 Post-Horse ' + c.postHorse + '.';
 
+  renderDuello(c);
+
   ['pillars', 'three', 'methodWrap', 'lessons', 'grid'].forEach(function (id) {
     var n = $(id); n.classList.remove('fade'); void n.offsetWidth; n.classList.add('fade');
   });
+}
+
+/* ============================================================================
+ * DUELLO HOST/GUEST — lettura del DLR dettata da Edu il 01/09/2026 (S33).
+ * Host = stelo del giorno nel suo palazzo (癸→丑, 庚→申, 辛→戌): per EURUSD è EUR.
+ * Guest = ramo del giorno: per EURUSD è USD.
+ * Ogni lato si legge sulla terna SEDE · CAVALIERE · ARRIVO (1ª-2ª lezione per lo
+ * host, 3ª-4ª per il guest). Il pannello MOSTRA la lettura, non decide il trade:
+ * nessuna di queste regole è nel segnale, sono tutte in osservazione.
+ * ========================================================================== */
+function renderDuello(c) {
+  var box = $('duello'); if (!box) return;
+  var WXB = { '子':'Water','丑':'Earth','寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire',
+              '午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water' };
+  var GENN = { Wood:'Fire', Fire:'Earth', Earth:'Metal', Metal:'Water', Water:'Wood' };
+  var CTRLL = { Wood:'Earth', Earth:'Water', Water:'Fire', Fire:'Metal', Metal:'Wood' };
+  var STEMEL = { '甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth',
+                 '庚':'Metal','辛':'Metal','壬':'Water','癸':'Water' };
+  var TOMBA = { Wood:'未', Fire:'戌', Metal:'丑', Water:'辰' };
+  var LU = { '甲':'寅','乙':'卯','丙':'巳','戊':'巳','丁':'午','己':'午','庚':'申','辛':'酉','壬':'亥','癸':'子' };
+  var TRI = { '申子辰':'Water', '亥卯未':'Wood', '寅午戌':'Fire', '巳酉丑':'Metal' };
+  var DIR = { '寅卯辰':'Wood', '巳午未':'Fire', '申酉戌':'Metal', '亥子丑':'Water' };
+  var IT = { Wood:'Legno', Fire:'Fuoco', Earth:'Terra', Metal:'Metallo', Water:'Acqua' };
+  var BR = '子丑寅卯辰巳午未申酉戌亥';
+  var L = c.fourLessons; if (!L || L.length < 4) { box.innerHTML = ''; return; }
+  var vuoti = c.hourVoid || [];
+  var vuota = function (b) { return vuoti.indexOf(b) >= 0; };
+
+  function figura(rami) {
+    var out = [];
+    [[TRI, '三合 trigono'], [DIR, '方合 direzionale']].forEach(function (par) {
+      for (var t in par[0]) {
+        var dentro = 0, pieni = 0;
+        for (var i = 0; i < 3; i++) {
+          if (rami.indexOf(t.charAt(i)) >= 0) { dentro++; if (!vuota(t.charAt(i))) pieni++; }
+        }
+        if (dentro >= 2) out.push({ fig: t, el: par[0][t], grado: (dentro === 3 && pieni === 3) ? 3 : 2, tipo: par[1] });
+      }
+    });
+    out.sort(function (a, b) { return b.grado - a.grado; });
+    return out[0] || null;
+  }
+  function moto(cav, arr) {
+    if (WXB[cav] !== WXB[arr]) return null;
+    var d = (BR.indexOf(arr) - BR.indexOf(cav) + 12) % 12, p = (WXB[cav] === 'Earth') ? 3 : 1;
+    return d === p ? 'avanza' : (d === 12 - p ? 'retrocede' : null);
+  }
+  function lato(nome, sede, cav, arr) {
+    var note = [];
+    if (vuota(sede)) note.push('sede vuota');
+    if (cav.isVoid) note.push('cavaliere vuoto');
+    else {
+      if (GENN[WXB[cav.branch]] === WXB[arr.branch] && arr.relation.cn === '妻財') note.push('genera Ricchezza');
+      if (cav.branch === LU[c.dayStem]) note.push('祿 Lu del giorno in sella');
+    }
+    var f = figura([sede, cav.branch, arr.branch]);
+    if (f) note.push(f.tipo + ' ' + f.fig + ' ' + IT[f.el] + (f.grado === 3 ? ' COMPLETO' : ' incompleto'));
+    var m = moto(cav.branch, arr.branch);
+    if (m) {
+      var dove = [];
+      if (arr.branch === c.monthGeneral.branch) dove.push('sul 月將');
+      if (arr.branch === c.postHorse) dove.push('sul 驛馬 Cavallo');
+      note.push('il ' + cav.relation.cn + ' ' + m + (dove.length ? ' ' + dove.join(' e ') : ''));
+    }
+    return { nome: nome, sede: sede, cav: cav, arr: arr, fig: f, note: note };
+  }
+  var H = lato('HOST · stelo del giorno ' + c.dayStem, L[0].bottom, L[0].top, L[1].top);
+  var G = lato('GUEST · ramo del giorno ' + c.dayBranch, L[2].bottom, L[2].top, L[3].top);
+
+  var verdetto = '—', perche = 'nessuna figura decide';
+  if (H.fig && G.fig && H.fig.grado === 3 && G.fig.grado === 3) {
+    if (CTRLL[H.fig.el] === G.fig.el) { verdetto = 'HOST'; perche = IT[H.fig.el] + ' controlla ' + IT[G.fig.el]; }
+    else if (CTRLL[G.fig.el] === H.fig.el) { verdetto = 'GUEST'; perche = IT[G.fig.el] + ' controlla ' + IT[H.fig.el]; }
+  } else if (H.fig && H.fig.grado === 3 && (!G.fig || G.fig.grado < 3)) { verdetto = 'HOST'; perche = 'figura completa contro incompleta'; }
+  else if (G.fig && G.fig.grado === 3 && (!H.fig || H.fig.grado < 3)) { verdetto = 'GUEST'; perche = 'figura completa contro incompleta'; }
+
+  // ora e giorno: il carattere dello stelo dell'ora e la sua tomba nel ramo del giorno
+  var oraRiga = '';
+  if (c.hourStem) {
+    var eO = STEMEL[c.hourStem], eD = STEMEL[c.dayStem], ch;
+    if (eD === eO) ch = 'B Fratelli';
+    else if (GENN[eD] === eO) ch = 'C Figli';
+    else if (GENN[eO] === eD) ch = 'P Genitori';
+    else if (CTRLL[eD] === eO) ch = 'W Ricchezza';
+    else ch = 'G Ufficiale';
+    oraRiga = 'ora ' + c.hourStem + ' = ' + ch + ' per lo host' +
+      (TOMBA[eO] === c.dayBranch ? ' · va in TOMBA 墓 nel ramo del guest' : '');
+  }
+  var cel = 'padding:6px 8px;vertical-align:top;font-size:13px;line-height:1.45';
+  box.innerHTML =
+    '<div style="margin-top:14px;border:1px solid rgba(128,128,128,.35);border-radius:8px;overflow:hidden">' +
+    '<div style="padding:6px 8px;font-weight:600;background:rgba(128,128,128,.12);font-size:13px">' +
+      'Duello host/guest · lettura in osservazione (non entra nel segnale)</div>' +
+    '<table style="width:100%;border-collapse:collapse">' +
+    [H, G].map(function (S) {
+      return '<tr><td style="' + cel + ';width:38%"><b>' + S.nome + '</b><br>' +
+        S.sede + ' → ' + S.cav.branch + ' → ' + S.arr.branch + '</td>' +
+        '<td style="' + cel + '">' + (S.note.length ? S.note.join('<br>') : '—') + '</td></tr>';
+    }).join('') +
+    '<tr><td style="' + cel + '"><b>Verdetto delle figure</b></td><td style="' + cel + '">' +
+      (verdetto === '—' ? '—' : 'vince ' + verdetto + ' (' + perche + ')') +
+      (oraRiga ? '<br>' + oraRiga : '') + '</td></tr>' +
+    '</table></div>';
 }
 
 function centerCell(c) {
@@ -1086,83 +1191,57 @@ function renderTrend(cross, chart, dArr, row) {
   // Da Liu Ren: il pannello Liu Yao (correttivo del PB) resta nascosto
   var lyp = $('lypanel'); if (lyp) lyp.style.display = 'none';
 
-  if (!window.XKDGTrend || !chart.transmission || !chart.transmission.three) { p.style.display = 'none'; return; }
-  var t3 = chart.transmission.three;
-  var season = seasonElementFor(dArr[0], dArr[1], dArr[2]);
-  var v = window.XKDGTrend.evaluateTrend(t3.chu, t3.zhong, t3.mo,
-    { dayStem: chart.dayStem, voidBranches: chart.hourVoid, seasonElement: season,
-      monthGeneral: chart.monthGeneral && chart.monthGeneral.branch,
-      monthBranch: chart.monthBranch, dayBranch: chart.dayBranch, hourBranch: chart.hourBranch, fourLessons: chart.fourLessons,
-      isFanYin: chart.transmission.special === '返吟' });
+  // ---- MOTORE DLR, nuova edizione (S34-S35): lettura direzionale, host = prima valuta ----
+  // Stessa carta e stessi attori del backtest (pb_stress.js, MOTOREDLR=1): stelo e ramo del
+  // giorno, palazzo dello host (寄宮), R1..R4, vuoti (旬空) del pilastro del giorno, generale
+  // del mese, ramo dell'ora, metodo, tre messaggi. Il verdetto NON dipende dall'EMA.
+  if (!window.XKDGMotoreDLR || !chart.transmission || !chart.transmission.three || !chart.fourLessons) { p.style.display = 'none'; return; }
+  var MD = window.XKDGMotoreDLR, L = chart.fourLessons, t3 = chart.transmission.three;
+  var carta = {
+    steloGiorno: chart.dayStem, ramoGiorno: chart.dayBranch,
+    palazzoHost: (L[0].bottom && L[0].bottom.branch) || L[0].bottom,
+    R1: L[0].top.branch, R2: L[1].top.branch, R3: L[2].top.branch, R4: L[3].top.branch,
+    metodo: chart.transmission.method, vuoti: chart.hourVoid || [],
+    generaleMese: chart.monthGeneral && chart.monthGeneral.branch, oraRamo: chart.hourBranch,
+    treMessaggi: t3
+  };
+  var lettura = MD.leggi(carta);
 
-  var dir = row && row.direction ? row.direction : null;         // 'up' | 'down' | 'flat' | null
-  var filterKnown = row && (row.emaConsolidated === true || row.emaConsolidated === false);
-  var choppy = row && row.emaConsolidated === false;             // consolidation filter
-  // Seed boundary guard. This comes FIRST because it does not question the verdict, it questions
-  // the chart: a price within 3 pip of the bucket edge could belong to the neighbouring 地支 on a
-  // different feed, so every reading downstream — 返吟 included — is built on a branch that is not
-  // reproducible. Backtested with GUARD=3, which discards 6.4% of the days.
   var fragile = !!(row && row.seedFragile === true);
   var guardKnown = !!(row && ('seedEdgePips' in row));
-  var signal = null;
-  if (fragile) signal = 'NO TRADE';
-  else if (v.noTrade) signal = 'NO TRADE';
-  else if (choppy) signal = 'NO TRADE';
-  else if (dir === 'up') signal = v.confirmed ? 'LONG' : 'SHORT';
-  else if (dir === 'down') signal = v.confirmed ? 'SHORT' : 'LONG';
+  var signal = fragile ? 'NO TRADE' : (lettura.dir || 'TACE');
+  var signalBadge = signal === 'NO TRADE' ? '<span class="sig notrade">NO TRADE</span>'
+    : signal === 'TACE' ? '<span class="sig na">TACE · il motore non legge</span>'
+    : '<span class="sig ' + signal.toLowerCase() + '">' + signal + '</span>';
+  var head = '<div class="trendhead"><span>' + cross + ' — Motore DLR</span>' + signalBadge + '</div>';
 
-  var verdictBadge = fragile
-    ? '<span class="tv no">SEED ON THE EDGE · no trade</span>'
-    : (v.noTrade
-      ? '<span class="tv no">返吟 FAN YIN · no trade</span>'
-      : (choppy
-        ? '<span class="tv no">EMA not consolidated · no trade</span>'
-        : (v.confirmed
-          ? '<span class="tv ok">CONFIRMED · follows EMA</span>'
-          : '<span class="tv no">NOT CONFIRMED · against EMA</span>')));
-  var signalBadge = signal
-    ? '<span class="sig ' + (signal === 'NO TRADE' ? 'notrade' : signal.toLowerCase()) + '">' + signal + '</span>'
-    : '<span class="sig na">signal n/a — EMA trend missing</span>';
-  var head = '<div class="trendhead"><span>' + cross + ' — Level 1</span>' + signalBadge + '</div>';
-
-  // seed derivation, shown so it can be checked by hand
   var seedLine = '';
   if (row && row.price != null) {
     var rem = ((row.seed % 12) + 12) % 12; rem = (rem === 0 ? 12 : rem);
     seedLine = '<div class="trendmsgs seedline">00:00 GMT open <b class="px">' + row.price + '</b>' +
-      ' → first ' + String(row.digits).length + ' significant digits <b class="px">' + row.digits + '</b>' +
-      ' → ' + row.digits + ' mod 12 = remainder <b class="px">' + rem + '</b>' +
-      ' → 地支 <b>' + row.branch + '</b> (' + row.branchPinyin + ')' +
-      ' <span class="hint">counting 子=1</span>';
-    // Seed bucket is 100 pip wide; show how far the price sits from its nearest edge.
+      ' → ' + row.digits + ' mod 12 = ' + rem + ' → 地支 <b>' + row.branch + '</b>';
     if (guardKnown && row.seedEdgePips != null) {
-      seedLine += '<br>distance from the seed-bucket edge <b class="px">' + row.seedEdgePips + ' pip</b>' +
-        (fragile
-          ? ' — <b class="down">under the 3 pip guard: another feed could give a different 地支 → NO TRADE</b>'
-          : ' <span class="hint">guard 3 pip · bucket 100 pip wide</span>');
-    } else {
-      seedLine += '<br><b class="down">seed boundary guard unavailable (old feed — redeploy the Worker and call /run): ' +
-        'this reading is NOT checked against the seed edge</b>';
+      seedLine += ' · bordo del seme a <b class="px">' + row.seedEdgePips + ' pip</b>' +
+        (fragile ? ' — <b class="down">sotto la guardia di 3 pip: un altro feed darebbe un altro ramo → NO TRADE</b>' : '');
     }
     seedLine += '</div>';
   }
+  var dir = row && row.direction ? row.direction : null;
+  var emaLine = '<div class="trendmsgs">EMA(12): <b class="' + (dir || '') + '">' + (dir === 'up' ? '↑ up' : dir === 'down' ? '↓ down' : 'n/a') +
+    '</b> <span class="hint">solo per informazione: il motore DLR non la usa</span></div>';
 
-  var arrow = dir === 'up' ? '↑ up (blue)' : dir === 'down' ? '↓ down (red)' : (dir ? dir : 'n/a');
-  var emaLine = '<div class="trendmsgs">EMA(12) daily trend: <b class="' + (dir || '') + '">' + arrow + '</b>' +
-    (row && row.ema != null ? ' · ema ' + row.ema + ' (prev ' + row.emaPrev + ')' : '') +
-    (row && row.emaDirs ? ' · last 10 days ' + row.emaDirs.replace(/u/g, '↑').replace(/d/g, '↓').replace(/f/g, '–') +
-      ' · ' + row.emaChanges + ' reversal' + (row.emaChanges === 1 ? '' : 's') +
-      (row.emaConsolidated ? ' → consolidated' : ' → NOT consolidated (filtered out)')
-      : ' · <b class="down">consolidation filter unavailable (old feed — redeploy the Worker and call /run)</b>') +
-    (row && (row.emaError || row.emaNote) ? ' · ' + (row.emaError || row.emaNote) : '') + '</div>';
-
-  var msgs = '<div class="trendmsgs">初傳 M1 <b>' + v.M1 + '</b> (' + v.elements.M1 + ') → 中傳 M2 <b>' + v.M2 +
-    '</b> (' + v.elements.M2 + ') → 末傳 M3 <b>' + v.M3 + '</b> (' + v.elements.M3 + ')' +
-    (season ? ' · season ' + season : '') + (v.m1Void ? ' · M1 空(void)' : '') +
-    (v.combo ? ' · 三會 ' + v.combo.cn + ' ' + v.combo.en + ' (' + (v.combo.order === 'clockwise' ? 'clockwise' : 'anticlockwise → reversed') + ')' : '') +
-    (v.substituted ? ' · 月將 M2 takes over the trend' : '') + ' — ' + verdictBadge + '</div>';
-  var trace = '<ul class="trendtrace">' + v.trace.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>';
-  p.innerHTML = head + seedLine + emaLine + msgs + trace;
+  var V = carta.vuoti || [];
+  function ramo(b) { return b ? ('<b>' + b + '</b> ' + MD.parentela(carta.steloGiorno, b) + (V.indexOf(b) >= 0 ? ' <span class="hint">vuoto</span>' : '')) : '—'; }
+  var attori = '<div class="trendmsgs">giorno <b>' + carta.steloGiorno + carta.ramoGiorno + '</b> · palazzo dello host <b>' + carta.palazzoHost + '</b>' +
+    ' · generale del mese <b>' + (carta.generaleMese || '—') + '</b> · ora <b>' + carta.oraRamo + '</b>' +
+    ' · vuoti <b>' + (V.join(' ') || '—') + '</b> · metodo ' + (carta.metodo || '—') + '</div>' +
+    '<div class="trendmsgs">R1 ' + ramo(carta.R1) + ' · R2 ' + ramo(carta.R2) + ' · R3 ' + ramo(carta.R3) + ' · R4 ' + ramo(carta.R4) + '</div>' +
+    '<div class="trendmsgs">M1 ' + ramo(t3.chu) + ' → M2 ' + ramo(t3.zhong) + ' → M3 ' + ramo(t3.mo) + '</div>';
+  var verdetto = lettura.dir
+    ? '<div class="trendmsgs">via: <b>' + lettura.via + '</b>' + (lettura.nutrimento != null ? ' <span class="hint">nutrimento ' + lettura.nutrimento + '/2</span>' : '') +
+      '<br>' + lettura.perche + '</div>'
+    : '<div class="trendmsgs"><b>tace</b> — ' + lettura.perche + '</div>';
+  p.innerHTML = head + seedLine + emaLine + attori + verdetto;
   p.style.display = 'block';
 }
 

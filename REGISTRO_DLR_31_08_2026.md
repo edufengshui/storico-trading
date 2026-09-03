@@ -630,3 +630,156 @@ salterà fuori". Da riverificare su holdout quando il motore sarà congelato.
 3. Le carte con ramo del giorno vuoto: mai testate, perché le vie non trovano casella
 4. Decidere se 八專, Winter Snake, 伏吟 e 返吟 restano fuori per sempre o vanno lette
 5. Portare il motore DLR nella PWA (oggi vive solo nella ricerca)
+
+
+# ================================================================
+# SESSIONE S35 · 03/09/2026 — due vie nuove, una in testa e una in coda
+# ================================================================
+
+## VIA 0 · IL GRUPPO COMPLETO NEI TRE MESSAGGI = G  →  SHORT
+**n 34 · 73,53% · z 2,74 · +1.523 pip · vecchio 76,5% / recente 73,3%**
+I Tre Messaggi formano un gruppo completo, direzionale 三會 (寅卯辰 / 巳午未 / 申酉戌 / 亥子丑)
+o trigono 三合 (申子辰 / 亥卯未 / 寅午戌 / 巳酉丑). L'elemento del gruppo si legge come
+parentela verso lo stelo del giorno. Quando è G (鬼 Fantasma), il movimento intero si
+raccoglie nella cosa che uccide lo host: lo host è circondato e perde. SHORT.
+Trigono 17 carte 76,5% · direzionale 17 carte 70,6% — stesso verso in entrambe le forme.
+Sta IN TESTA alla catena: legge il movimento intero, non una casella. Ha preso solo carte
+mute: le cinque vie precedenti non hanno perso una carta.
+Carta d'origine: USDJPY 09/10/2024 s148 (申酉戌 = Metallo = W per 丙), dove Edu ha visto
+che il gruppo completo comanda. Misurate tutte le parentele: **solo il Fantasma regge.**
+La Ricchezza direzionale (il caso della carta) fa 51 carte 56,9% ma vec 47,4 / rec 65,5;
+il gruppo completo senza parentela 681 carte 50,1%. "Prendere non è forte come essere presi."
+
+## VIA 6 · W SUL PRIMO MESSAGGIO  →  LONG   (condizione ultima)
+**n 139 · 62,59% · z 2,97 · +1.253 pip · vecchio 58,1% / recente 65,7%**
+Quando tutte le vie di casella tacciono: se M1 (初傳) è W (妻財 Ricchezza) per lo stelo
+del giorno, LONG. Quello che fanno M2 e M3 NON conta (non ostacolano 59,4% su 96 ·
+ostacolano 58,6% su 87). Da che lato esce M1 non conta (DS 60,7% · DB 61,3%).
+Due cose la spengono e la via tace:
+- M1 vuoto (旬空): un ramo vuoto non agisce (36 carte 55,6%, vec 40)
+- M1 in cima a una lezione dello stelo E a una del ramo insieme: la Ricchezza contesa
+  dai due lati non arriva a nessuno (65 carte 43,1% LONG su tutte, 7/8 SHORT sulle mute)
+Sulle carte già lette non aggiunge nulla: dove concorda col motore 61,8%, dove lo
+contraddice 50/50 esatto. Per questo sta IN FONDO, come condizione ultima.
+Nata dalla richiesta di Edu "M1 Wealth con M2 e M3 che aiutano o non ostacolano":
+quel taglio dà 98 carte 59,2% ma per due terzi già lette dal motore, e nelle 48 in
+conflitto le due letture si annullano. L'ostacolo (M2/M3 che controllano M1) non separa.
+**NUTRIMENTO — contato come SOLA GENERAZIONE VERA** (il 比和 non nutre, lezione §4 S32;
+la prima misura di oggi aveva rifatto quell'errore ed è stata corretta):
+- non nutrita da M2 né da M3     61 carte  55,74%   −216 pip   vec 50,0 / rec 60,6
+- nutrita da UNO solo            70 carte  67,14%  +1.319 pip  vec 66,7 / rec 65,6
+- nutrita da ENTRAMBI             8 carte  75,00%   +151 pip
+Edu (S35): la via prende tutte e tre le forme, ma la lettura deve dire quale si presenta.
+Il motore riporta il campo `nutrimento` (0/1/2) e lo scrive nel perché.
+Rapporto con la regola caduta di S32 ("Ricchezza nutrita", NON RIAPRIRE): quella era su
+TUTTE le carte con condizione di nutrimento obbligatoria; questa vive solo dove le vie di
+casella tacciono. Sono regole diverse; la vecchia resta caduta. Sulle carte già lette dal
+motore la Ricchezza su M1 non porta nulla, e questo è coerente con la caduta di S32.
+
+### Via 6 · integrazione dell'OSTACOLO (Edu: "quando vedi il fenomeno, integralo")
+Ostacolo = M2 o M3 controllano l'elemento di M1. Da solo non cambia il verso (65 carte 60,0%
+ma −188 pip). Se la Ricchezza è ostacolata E nessuno la genera, la via non regge:
+36 carte 52,8% −471 pip → la via TACE. Se è ostacolata ma nutrita dall'altro messaggio,
+l'ostacolo è neutralizzato: 29 carte 69,0% +283 pip → resta LONG.
+Via 6 dopo l'integrazione: **n 99 · 64,65% · z 2,91 · +1.453 pip**
+(non nutrita 25 · 60,0% · nutrita da uno 66 · 65,2% · nutrita da entrambi 8 · 75,0%)
+
+## VIA 7 · B SU R1 LEGATO IN 六合  →  LONG   (dopo la 5, prima della 6)
+**n 39 · 64,10% · z 1,76 · +881 pip · vecchio 69,6% / recente 56,3%**
+B su R1 fa perdere lo host; se R2 lo lega in 六合, il B è fermato → LONG. Chi lega non conta
+(con R2=O 54,3%, con qualunque R2 61,4%): il legame conta più della parentela di chi lega.
+Il B si lascia legare solo se è fermabile. Tace quando:
+- il B su R1 È IL GENERALE DEL MESE (mai vuoto, sempre timely — Edu su USDCAD 31/03/2021 s126)
+- il RAMO DEL GIORNO CLASHA R1 (B timely clashato si rinforza — Edu su EURJPY 11/07/2024 s175)
+Cablata sotto z 4 su indicazione di Edu: "stiamo costruendo il motore, integra i fenomeni".
+Da riverificare sulle carte nuove: il recente è tiepido (56,3%).
+
+## M1 = C (子孫 Figli) — stessa analisi della Ricchezza: NIENTE, tranne il vuoto
+Tutte 367 carte 51,5% · mute 155 carte 49,0% · lato DS 51,0 / DB 48,1 · nutrito, ostacolato,
+nutrito-e-ostacolato: tutto fra 44 e 56%, periodi opposti. I Figli su M1 non muovono il mercato.
+Edu: "C genera W, che succede se W è M2 o M3?" Con tutto pieno, nulla (W in M2 55,6% su 18 ·
+W in M3 56,0% su 25). Il segnale sta nei VUOTI:
+- Figlio VUOTO su M1, Ricchezza PIENA su M3: **13 carte · 84,6% SHORT · z 2,50 · +716** vec 100 / rec 71,4
+- Figlio vuoto su M1, Ricchezza piena su M2: 14 carte 64,3% LONG (vec 66,7 / rec 62,5) — in osservazione
+- Figlio pieno, Ricchezza vuota su M3: 20 carte 60% SHORT (40/40) — in osservazione
+- Figlio vuoto senza W nei messaggi: 8 carte, niente
+
+## VIA 8 · C VUOTO CON W SUL TERZO MESSAGGIO  →  SHORT   (coda della catena)
+**n 13 · 84,62% · z 2,50 · +716 pip · vecchio 100% / recente 71,4%**
+M1 = C vuoto (旬空), M3 = W piena, W non già in M2. Il generatore non c'è: la Ricchezza promessa
+in fondo non arriva, lo host resta a mani vuote. Cablata su indicazione di Edu ("integra i
+fenomeni") con n piccolo: da riverificare quando il campione cresce.
+
+## M1 = P — stessa analisi
+Tutte 363 carte 48,5% LONG. Mute 132 carte 43,9%. Il lato qui CONTA:
+- dal lato del ramo del giorno, mute: 80 carte 51,2% → niente
+- dal lato dello stelo, mute: **44 carte 63,6% SHORT** vec 64,3 / rec 64,3
+  - non ostacolato (M2/M3 non lo controllano): **19 carte 78,9% SHORT** vec 75 / rec 80
+  - ostacolato: 25 carte 52,0% → niente
+Coerente con la regola LY del carattere: B e P fanno perdere il proprio lato. P sul lato dello
+host fa perdere lo host. Se M2/M3 lo controllano, è contenuto e non parla.
+
+## VIA 9 · P SUL PRIMO MESSAGGIO DAL LATO DELLO STELO  →  SHORT   (coda della catena)
+**n 19 · 78,95% · z 2,52 · +748 pip · vecchio 75% / recente 80%**
+M1 = P, non vuoto, esce dalle lezioni dello stelo e non dal ramo, M2 e M3 non lo controllano.
+
+## M1 = O — stessa analisi
+Tutte 269 carte 44,6% LONG (55,4% SHORT). Mute 131 carte 46,6%.
+- dal lato del ramo del giorno, mute: 25 carte 52,0% → niente
+- dal lato dello stelo, mute: 106 carte 54,7% SHORT, debole
+  - NON nutrito (nessun generatore fra M2/M3): **39 carte 64,1% SHORT** vec 68,7 / rec 65,0
+  - nutrito: 58 carte 48,3% → niente
+Sulle carte già lette SHORT dal motore, M1 = O nutrito conferma lo SHORT all'88% (34 carte);
+non nutrito lo lascia al 46%. Sulle mute è il contrario. CONTRADDIZIONE APERTA: da rileggere
+con una carta. Cablata la forma delle mute.
+
+## VIA 10 · O SUL PRIMO MESSAGGIO DAL LATO DELLO STELO, NON NUTRITO  →  SHORT   (coda)
+**n 39 · 64,10% · z 1,76 · +827 pip · vecchio 68,7% / recente 65,0%**
+
+## M1 = G — stessa analisi
+Tutte 459 carte 50,5%. Mute 159 carte 54,1%. Lato, nutrimento, controllo, drenaggio: niente
+(tutto fra 47 e 61%, periodi non allineati). G pieno su M1 non dà verso.
+- **G VUOTO su M1: 17 carte 70,6% LONG** vec 83,3 / rec 70,0. Il pericolo è vuoto, lo host sopravvive.
+
+## VIA 11 · G VUOTO SUL PRIMO MESSAGGIO  →  LONG   (coda)
+**n 17 · 70,59% · z 1,70 · +331 pip · vecchio 83,3% / recente 70,0%**
+
+## MOTORE COMPLETO (nuova edizione S35)
+**1.796 carte lette · 59,41% · z 7,98 · +20.141 pip · 11,2 pip/trade**
+vecchio 57,79% su 751 · recente 60,91% su 962 · tace 737 · fuori selezione 942
+Dodici vie (le vecchie cinque, più via 0 Fantasma 34 · via 6 W su M1 99 · via 7 B legato 39 ·
+via 8 C vuoto 13 · via 9 P dallo stelo 19 · via 10 O dallo stelo non nutrito 39 · via 11 G vuoto 17): casella isolata 490 · pari su R1 457 · coppia R1/R2 301 · R2 al posto di R1 vuoto 158 ·
+legame dello host 130 · Ricchezza sul primo messaggio 99 · Fratello legato 39 · Fantasma nei Tre Messaggi 34
+(era 1.555 · 58,14% · z 6,42 · +14.546 · tace 978)
+Vale la stessa AVVERTENZA sullo z della sessione S34.
+
+## MISURATO E SCARTATO O IN OSSERVAZIONE (S35)
+- **B su R1 bloccato da O in 六合** (carta guida EURUSD 04/06/2020 s112, dettata da Edu):
+  35 carte 54,3%, vec 59,1 / rec 41,7. Falsificata da USDCAD 31/03/2021 s126, quadro
+  IDENTICO (giorno 戊寅, stesse lezioni, stessi messaggi, stessi generali), andata SHORT.
+  Edu: lì il B è il generale del mese, troppo forte per essere fermato (4 carte, 3/4 SHORT).
+  Poi EURJPY 11/07/2024 s175: il ramo del giorno clasha R1 con 巳午未 completo sullo stelo,
+  il B timely clashato si rinforza (5 carte, 3/5 SHORT). Il ramo pulito
+  **R1 B legato in 六合 con qualunque R2, non generale del mese, non clashato dal giorno:
+  39 carte 64,1% z 1,76 +881 pip, vec 69,6 / rec 56,3** → CANDIDATO in osservazione.
+  Il legame conta più della parentela di chi lega; l'O era solo il caso della carta guida.
+- **R3 drena lo stelo del giorno** come motivo di SHORT: 4 carte, 4/4 LONG — ma sono lo
+  stesso quadro (丙午) ripetuto, e R2=R3=未: il drenante è il legante contato due volte.
+  Edu: quella carta va LONG per il trigono di Ricchezza nei messaggi. Non è una via.
+- **Origine di M1 (DS vs DB)**: nessun verso (49,5 / 50,7). Il motore ha ragione uguale
+  (59,1 / 58,1). Solo M1-O e M1-P dallo stelo tendono a SHORT (42,8% e 44,5% LONG), sotto z 2.
+  M1 su entrambi i lati: il motore ha ragione solo il 53,0% su 117 — l'unico gruppo dove
+  le vie di casella leggono male.
+
+## APERTO PER LA PROSSIMA SESSIONE
+1. Sciogliere il conflitto di verso sulla via 1, ramo W (lettura di Edu contro i numeri)
+2. Le 824 carte mute: il blocco grosso restano quelle senza coppia R1/R2 cablata
+3. Via 7 (Fratello legato): portare una perdente pulita del periodo recente
+4. Le carte con M1 su entrambi i lati (117 lette al 53%): il motore lì inciampa
+5. Le carte con ramo del giorno vuoto: mai testate
+6. Decidere se 八專, Winter Snake, 伏吟 e 返吟 restano fuori per sempre
+7. Portare il motore DLR nella PWA (oggi vive solo nella ricerca)
+
+
+**LINGUA (Edu, S35):** in conversazione e nei nomi delle vie si usano SOLO le lettere P/O/G/B/C/W.
+Niente "Figli", "Genitori", "Fratelli", "Ricchezza", "Fantasma". Non si scrive "pieno": si dice solo quando un ramo e' VUOTO.
