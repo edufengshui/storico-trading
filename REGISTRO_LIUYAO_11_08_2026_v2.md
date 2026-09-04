@@ -320,3 +320,87 @@ Uso: SEMPRE come conferma del PB, mai come sistema autonomo.
 - Celle sorelle restanti: Wealth, Children, Parents (mutante integrata da subito)
 - Mutante sfavorevole sugli altri parenti (tratto specifico dell'Officer o generale?)
 - Etichetta di confidenza in PWA quando i marcatori maturano il forward test
+
+## §111-bis · IL TAI SUI CON LE BESTIE SCENDE SU L1 E PENALIZZA — cablata S36 (03/09/2026), dottrina di Edu
+Carta guida **USDJPY 28/03/2022 s122** (41 Sun, sup 7 inf 2, L2 mobile; giorno 庚辰, mese 卯, anno 寅, ora 丑, vuoti 申酉).
+La mobile L2 G 卯 muta in 寅 = Tai Sui, libero in carta. Il ramo G/W della §111 darebbe la sede della mobile → SHORT (sbagliata, +163 LONG).
+Lettura di Edu: il Tai Sui arriva **con le bestie su L1** — casa dello stelo del giorno, dove cade l'intera data — e la **penalizza** (寅刑巳).
+La P 巳 su L1 è **timely** nel mese 卯 (il Legno genera il Fuoco): la penalità morde e comanda sul ramo G/W.
+La penalizzata non fa vincere la sua squadra; L1 è in basso → **LONG**. Conferma: la Ying 寅 (Legno) controlla lo Shi 丑 (Terra) — conferma, non l'attore.
+**Gemella negativa GBPUSD 05/12/2022 s122** (stessa carta, stessa mutazione, giorno 壬辰, mese 亥, vuoti 午未): la P 巳 su L1 è
+**non timely** (l'Acqua del mese uccide il Fuoco), la penalità non morde, resta la §111 normale → SHORT, giusta (−102).
+Misura (pen111.js, dentro il ramo G/W della §111 con penalità presente): **penalizzata su L1 e timely 3 carte 3/3, periodi 100/100**
+(USDJPY 28/03/2022 +163 · GBPUSD 15/03/2022 +28 · USDCAD 02/01/2024 +78) · penalizzata su L1 non timely 9 carte 44% ·
+penalizzata su altra linea 10 carte 30% · la §111 così com'era in questo sottoinsieme 22 carte 40,9% (vec 25).
+Cablata DENTRO §111, prima del ramo G/W. **S17 invariato: 2788 · 58.54% · z 9.01 · +35454** (le tre carte erano già lette giuste
+dalla catena PB+LY; cambia il verdetto del LY da solo su di esse). `VIA111BIS=off` per disattivarla.
+**Perché il motore non l'aveva trovata:** nella §111 il ramo G/W usciva subito con `return` e il controllo della penalità
+veniva raggiunto SOLO quando l'arrivo era muto (P/B/C). Con l'arrivo G o W la penalità non era mai guardata.
+
+## S36 (03/09/2026) — TRE VIE DI CODA E UNA CORREZIONE DI GUARDIA
+- **§132 · duello finale Shi/Ying** (Edu: "ultima verifica prima di dire che una carta è muta"). ULTIMA della catena. Solo forza:
+  controllo (vale anche se il controllore è vuoto) → vuoto asimmetrico → generazione (chi è nutrito vince) → timely vs untimely. Pari: tace.
+  Sul residuo muto (132 carte): 50,0%, vec 57 / rec 44; controllo 47-51%, generazione-Shi 60%, vuoto 31% (la vuota vince 9/13, contro dottrina).
+  Cablata su dottrina; le carte perdenti vanno lette (regola 10). Prima perdente letta: EURJPY 29/04/2024 s169 → §133.
+- **§133 · il trigono completo serve al suo elemento** (Edu, guida EURJPY 29/04/2024 s169: 亥卯未 Legno = B in Xun, membri in alto → SHORT −188 ✓).
+  Membri come la guardia §114. Carattere vs palazzo: G/W vince la sede, B/P perde, C tace. Sede = maggioranza dei membri visibili. PRIMA della §114.
+  Perimetro 109 carte 49,5%: B 17/25 (68%), P 16/27 (59%), G 11/26 (42%), W 10/31 (32%). Prima perdente letta: EURJPY 22/09/2022 s141 → §52-bis.
+- **§52-bis · la B mobile controllata indietro (回頭剋) vince la propria sede** (Edu, guida EURJPY 22/09/2022 s141: L3 B 酉→午, sede bassa → SHORT −176 ✓).
+  ERRORE TROVATO: la guardia G52B (25/08, audit) zittiva la §52 con mobile B ("§52 sbaglia con B") SENZA mettere la lettura giusta: il malus
+  ucciso libera la squadra, che vince la sede. Cablata dentro §52. Perimetro dove parla: 35 carte 57,1% (LONG 21 · SHORT 14).
+- **Stato S17 a fine giro:** 2788 · 58,29% · z 8,75 · **+36.014** (inizio S36: 58,54% · +35.454). LY parla su 2691 carte (tace 97, era 232).
+- Flag: `VIA132=off` · `VIA133=off` · `VIA52BIS=off` · misure: `DUELLO132=1|perse` · `VIA133MIS=1|perse` · `VIA52BISMIS=1` · guardia §114: `GUARDIA114=off`.
+
+## S36 · RIORDINO DETTATO DA EDU — "prima l'azione della mobile"
+- **La via del ritiro (R5) tace col movimento nullo** (AUDUSD 05/12/2023 s66: la G L2 卯 clashata dal giorno non parte, quindi non
+  può indietreggiare). Ora quella carta la legge §49 (la mobile Tai Sui muta nell'elemento G del palazzo → sede) → SHORT ✓. `RETRONULLO=off` ripristina.
+- **§114 spostata PRIMA di R6** (raduno stagionale) e di tutto ciò che segue: l'arrivo nel vuoto è l'AZIONE della mobile e parla prima
+  (USDCAD 16/03/2020 s137: L3 P 辰→丑 vuoto, la P resta e fa perdere la sua squadra → LONG ✓; prima la leggeva il raduno 寅卯辰 → SHORT).
+- **Guardia del trigono nella §114 ristretta:** il trigono comanda sulla mobile SOLO se la mobile ne fa parte (EURJPY 29/04/2024: 卯 dentro
+  亥卯未 → trigono; USDCAD 16/03/2020: 辰 fuori da 寅午戌 → la P "sta da sola", §114). `GUARDIA114=tutti` ripristina la guardia larga.
+- Le quattro carte guida di oggi leggono tutte giuste: USDCAD 16/03/2020 §114 LONG · EURJPY 29/04/2024 §133 SHORT · AUDUSD 05/12/2023 §49 SHORT · EURJPY 22/09/2022 §52-bis SHORT.
+- **Stato S17 dopo il riordino:** 2788 · 57,68% · z 8,11 · +34.077 (inizio S36: 58,54% · +35.454). LY tace su 86 carte. PWA↔motore: 140 diverse (5,0%).
+  Regola 10: le perdenti create dal riordino si leggono una per una, non si torna indietro sui numeri.
+
+## S36 · §114 RIMESSA IN ORDINE — "Y vs S si guarda alla fine"
+Edu (03/09/2026, EURJPY 07/08/2024 s158: la P L1 si muove nel vuoto e fa perdere la propria squadra → LONG +215 ✓):
+dentro la §114 il codice guardava PRIMA il vuoto di Shi/Ying (mobile terza linea) e PRIMA il controllo Shi↔Ying (mobile = Shi/Ying),
+e SOLO DOPO il carattere della mobile. Ordine corretto: la mobile e' l'azione, il suo CARATTERE decide (G/W regge → vince la sua sede;
+B/P fa perdere la propria squadra); C tace e la carta va avanti fino al duello finale (§132), che e' l'ultima cosa che si guarda.
+Il controllo/vuoto fra Shi e Ying che stava dentro la §114 (NZDUSD 10/07/2024, EURUSD 04/05/2022) vive ora solo nella §132.
+Verifica: EURJPY 07/08/2024 LONG ✓ · USDJPY 29/03/2023 LONG ✓ · NZDUSD 10/07/2024 SHORT ✓ · USDJPY 07/08/2024 SHORT ✗ (G su Shi, +198) ·
+EURUSD 04/05/2022 SHORT ✗ (B terza linea, +100). Stato S17: 2788 · 57,28% · +32.164 (motore unico).
+
+## S36-bis (04/09/2026) · DUE BESTIE SU SHI O YING — §136 in TESTA, priorità sul resto (Edu)
+Enunciato di Edu: "Se due bestie arrivano su S o Y la loro azione ha priorità sul resto" (prima anche della mobile; limitata a Shi e Ying).
+Letta sulle carte: i RAMI dei pilastri caduti su una sede agiscono sull'ALTRA sede. Nutrono → l'altra vince (USDJPY 02/07/2026: 午巳 su Ying
+戌 nutrono lo Shi 丑 → SHORT ✓). Colpiscono (刑/冲/剋/drenaggio) → l'altra perde (NZDUSD 10/08/2023, GBPUSD 08/01/2025).
+Esclusioni di Edu: Shi/Ying vuoti · nascosto sotto Shi/Ying · rami dei pilastri che clashano fra loro. Misto/neutro: tace.
+Forma sbagliata provata prima (mia): "vince la sede dove cadono" → 983 carte 47,5%; pulita 264 · 48,9%. Non è la regola.
+**Misura della regola letta bene (duebestie_sy.js, 218 carte pulite):** NUTRE → l'altra vince: **su Ying 17 carte 88,2% z 3,15 (vec 100 / rec 82)**,
+su Shi 18 carte 61,1%; COLPISCE → l'altra perde: **183 carte 45,4%** (non regge). Cablata intera su dottrina; `VIA136COLPI=off` spegne il ramo "colpisce".
+S17 con tutta la §136: 57,14% · +31.214 · con solo il ramo "nutre": 57,71% · +33.190. Carte guida 73 in entrambi i casi.
+Errore mio di metodo: avevo aggiunto io l'esclusione "mobile che agisce" che Edu non ha mai dato, e per questo non trovavo la carta (regola 10).
+Anche §135 (pilastro doppio, 13 carte 7 giuste) resta, DOPO la §114, coi 6 perdenti da leggere.
+
+## §137 · IL POSSESSO DI SHI O YING — cablata 04/09/2026 come PRIMA via, precedenza su tutto (Edu)
+Testo di Edu: "1. Se due bestie arrivano su una linea qualsiasi prendono possesso. 2. Se la bestia del mese arriva su una linea qualsiasi prende
+possesso. 3. Se un'altra bestia arriva su una linea lavora con la linea. 4. Se quanto sopra capita con S e Y questo ha la precedenza su ogni
+altra cosa inclusa linea mobile." Precisazione (USDJPY 06/05/2026): il mese si impone solo se ha la stessa polarità della maggioranza degli
+altri steli. Dopo il possesso Shi e Ying si confrontano coi nuovi elementi: chi viene generato vince (EURJPY 13/06/2023 ✓).
+Esclusioni di Edu: Shi/Ying vuoti · nascosto sotto Shi/Ying · rami arrivati che clashano fra loro · penalità su Shi/Ying.
+Misure (possesso.js): possesso con polarità 138 carte 58,7% (vec 58,5 / rec 58,8); "la Ying genera lo Shi" 55 · 65,5%; "lo Shi genera la Ying"
+83 · 54,2%. Bestia singola che lavora: 196 · 46,9% (non entra). Controllo: peggiora (non entra). Clash che fa muovere (clash_muove.js):
+su Shi/Ying 59 · 42,4%, su altra linea 64 · 48,4% (non cablato; tiene solo "la mossa controlla l'altra" 21 · 57%).
+**Tolte le §135 e §136** che contenevano aggiunte mie ("colpisce", "pilastro doppio che si impadronisce").
+**Stato:** carte guida 76 giuste (ieri mattina 65) · S17 2788 · 58,18% · z 8,64 · +33.767 (motore unico).
+
+## S36-bis · CHIUSURA 04/09/2026 — stato finale
+- **Motore unico**: `pb_stress.js` chiama il termometro di `liuyao.js` (LYUNICO); la riscrittura interna di lyDir resta solo per audit (`LYUNICO=off`).
+  Contesto passato identico a quello della PWA (steli anno/mese/ora, capolinea, corpo, ramo dell'anno). **Parità PWA↔motore: 0 differenze su 465 carte** (era 136/2.788).
+- **Regressione carte guida** ora nel motore: `<flag baseline> SOGLIAPIP=0 CARTEGUIDA=1 node pb_stress.js` (anche `CARTEGUIDA=tutte`). Da lanciare dopo OGNI modifica al LY.
+  Stato: **110 carte · 76 giuste · 0 mute · 34 storte** (ieri mattina 65 giuste, 8 mute, 37 storte).
+- **S17 finale: 2788 · 58,18% · z 8,64 · +33.767** · LY parla su 2.772 carte.
+- **Scala A/B/C**: A 419 · 67,8% · B 396 · 64,9% · C (DLR tace) 661 · 62,3% → 1.476 carte. Il caso "DLR contrasta" resta fuori (368 · 52,5%).
+- **Motore DLR: 1.859 carte · 59,76% · z 8,42 · +21.427** (vie 12, 13, 14 cablate oggi; via 15 provata e CANCELLATA: 66% sulla casella intera
+  ma 27% sulle 11 carte che leggeva davvero in coda — d'ora in poi si valuta una via SEMPRE nella sua posizione reale in catena, mai sulla casella).

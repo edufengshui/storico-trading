@@ -783,3 +783,87 @@ Vale la stessa AVVERTENZA sullo z della sessione S34.
 
 **LINGUA (Edu, S35):** in conversazione e nei nomi delle vie si usano SOLO le lettere P/O/G/B/C/W.
 Niente "Figli", "Genitori", "Fratelli", "Ricchezza", "Fantasma". Non si scrive "pieno": si dice solo quando un ramo e' VUOTO.
+
+---
+# SESSIONE S36 · 03/09/2026 — I TRE SISTEMI INSIEME (PB · LY · DLR)
+
+Misura: `RAFFORZA=1 VUOTO=1 SOPRAF=1 VUOTOSTAG=wang DRENA=1 FLUSSOTI=1 NAYINDEB=1 SKIPCLASH=gm RISCATTO=b PBLY=1 TRESIST=1 node pb_stress.js`
+(2.788 carte, soglia 25; a soglia 20 stesso quadro). "Sistema attuale" = PB con override LY e rafforzativi (S17).
+
+**Quanto parlano:** PB sempre (2.788) · LY 2.556 · DLR 1.473 · tutti e tre 1.352 · solo PB 111.
+
+**Accordo sistema attuale ↔ DLR (1.473 carte):** concordi 792 → 67,3% · contrasto 681 → moneta (attuale 48,6 / DLR 51,4).
+
+**Due contro uno (dove parlano tutti e tre):** tutti concordi 382 → 68,3% · LY+DLR contro PB 356 → 64,9% ·
+PB+DLR contro LY 299 → 56,2% · PB+LY contro DLR 315 → 53,0% (moneta).
+Precedenza: NESSUN sistema da solo; vince la maggioranza. Nel contrasto a due, fermo.
+
+**Combinazioni a copertura piena:** attuale 58,54% +35.454 · maggioranza a tre 59,58% z 10,11 +37.139 ·
+attuale saltando il contrasto col DLR 2.107 carte 61,75% +34.909.
+
+## SCALA A → B → C (decisa da Edu, 03/09/2026) — IN PRODUZIONE NELLA PWA
+| Livello | Definizione | Carte | Giuste | Pip |
+|---|---|---|---|---|
+| A | PB, LY e DLR concordano | 382 | 68,3% | +9.712 |
+| B | sistema attuale e DLR concordano (non A) | 410 | 66,3% | +9.398 |
+| C | PB e LY concordano e il DLR TACE (non A, non B) | 646 | 62,4% | +11.241 |
+| **A+B+C** | | **1.438** | **65,1%** | **+30.351** |
+| fermo | DLR contrasta PB e LY concordi (315 · 53,0%), contrasti a due, solo PB | 1.350 | | |
+
+PWA: bottone **"Tre sistemi · A/B/C"** (index.html `report3`, app.js `reportTreSistemi` / `livelloTreSistemi`).
+`analizzaCrossPerReport` ora annota per ogni cross pbDir, lyDir, attuale (combinaS9 canonico), dlrDir, dlrVia.
+Il registro dei trade salva livello e le tre voci; "Copia i trade perdenti" li riporta.
+Il vecchio bottone "Report giornaliero · 9 cross" (politica C→S2) resta, per confronto.
+
+**Parità PWA ↔ motore** (`node parita_tre.js 400`, 465 carte campionate): PB 0 differenze · DLR 0 differenze ·
+LY 13 differenze (il disallineamento noto del termometro, CHKLY: 136/2.788 = 4,9%) → 9 livelli diversi su 465.
+Il disallineamento LY è PREESISTENTE e resta aperto.
+
+## VIA 12 · O SOPRA LO STELO, HOST SEDUTO SUL VUOTO — cablata S36 (03/09/2026), dettata da Edu
+Carta guida **USDJPY 01/12/2022 s137** (giorno 戊子, ora 辰, generale 寅, vuoti 午未, palazzo 巳; R1 卯 O, R2 丑 B;
+messaggi 丑→亥→酉; SHORT −201, PB e LY dicevano LONG, DLR taceva).
+Lettura di Edu: l'O sopra lo stelo del giorno preme sullo host; il palazzo dello host 巳, portato sul piatto del
+cielo, siede sopra 未 di terra che è vuoto: sotto non c'è terra per reggere, lo host perde → SHORT.
+Misure (soglia 20): O su R1 da solo 53,0% su 279 (moneta) · host seduto sul vuoto da solo 52,7% su 427 (moneta) ·
+O vuoto su R1 → LONG 63% su 51 (l'O vuoto non preme) · **insieme: 29 carte 75,9% z 2,79 +1.036, vec 63,6 / rec 83,3**;
+sulle sole mute 13 carte 76,9% (vec 50,0 su 4 / rec 88,9). Con gli altri caratteri su R1 il vuoto sotto non fa nulla.
+Cablata in CODA (dopo la via 11): parla solo dove tutto il resto tace. Richiede O NON vuoto.
+Flag di misura: `SEDEVUOTA=1 SOGLIAPIP=20` · `R1PAR=O SOGLIAPIP=20`.
+**Motore dopo il cablaggio:** `MOTOREDLR=1 SOGLIAPIP=20` → carte lette 1809 · tace 724 · fuori selezione 942 ·
+giuste 59,54% · z 8,11 · pip 20657 · vecchio 57,75% su 755 · recente 61,17% su 971.
+Scala A/B/C dopo il cablaggio (soglia 25): A 386 · 68,1% · B 412 · 66,5% · C 638 · 62,7% → 1.436 carte, +30.756 pip.
+
+## PROVA DEGLI SPIRITI (天將) su R1 — S36, chiesta da Edu sulla carta USDJPY 28/03/2022 s122
+Carta: giorno 庚辰, ora 丑, generale 戌, vuoti 申酉, palazzo 申 (vuoto); R1 巳 O con 朱雀, R2 寅 W; messaggi 巳→寅→亥;
+LONG +163, PB e LY SHORT, DLR tace. Flag: `SPIRITI=R1 SPIRITIPAR=O SOGLIAPIP=20` (anche `SPIRITI=M1`).
+- **朱雀 sull'O (R1):** 41 carte 58,5% LONG, vec 68,2 / rec 47,1 → si ribalta, NON regge. Sulle mute 23 carte 73,9% ma vec 100 / rec 37,5.
+- Letture scartate sulla stessa carta: palazzo vuoto legato in 六合 da R1 con R2 W che sostituisce (23 carte 43,5% LONG; mute 13 · 53,8%) —
+  `PALVUOTO=1`. Palazzo vuoto da solo 466 · 50,9%. In osservazione: palazzo NON vuoto legato da R1, R2 B → LONG, mute 31 · 74,2% ma vec 53,8 / rec 86,7.
+- La carta USDJPY 28/03/2022 resta MUTA.
+
+## VIA 13 · O SOPRA LO STELO CON 勾陳 — cablata S36 (03/09/2026), fenomeno netto integrato (regola di Edu S35)
+Dalla stessa prova degli spiriti: **勾陳 sull'O di R1 → SHORT: 63 carte 69,8% z 3,15 +1.168, vec 70,4 / rec 68,6**;
+sulle mute 37 carte 64,9% (vec 66,7 / rec 61,1). Vale anche con O vuoto (9 carte, 7 SHORT). In CODA, dopo la via 12.
+Le carte portano ora `spiritoR1` (generale sopra R1) in tutti i costruttori (pb_stress.js, app.js).
+**Motore dopo il cablaggio:** `MOTOREDLR=1 SOGLIAPIP=20` → carte lette 1846 · tace 687 · fuori selezione 942 ·
+giuste 59,64% · z 8,29 · pip 21129 · vecchio 57,96% su 773 · recente 61,17% su 989.
+
+## PROVA DEGLI SPIRITI su tutte le parentele (R1 e M1) — S36
+`SPIRITI=R1 SOGLIAPIP=20` e `SPIRITI=M1 SOGLIAPIP=20`, 12 generali × 6 parentele. Caselle con |z| ≥ 2 e verso uguale nei due periodi:
+- **R1 O · 勾陳 → SHORT** 63 · 69,8% · z 3,15 (via 13, già cablata).
+- **R1 B · 青龍 → LONG** 32 · 75,0% · z 2,83 · vec 81,8 / rec 68,4; mute 13 · 76,9% (80/75) → **cablata come VIA 14**, in coda.
+- R1 W · 玄武 → LONG 48 · 64,6% · z 2,02 (61/66): tutte già lette dal motore, in coda non aggiunge nulla. Non cablata.
+- R1 W · 青龍 → SHORT 38 · 68,4% · z 2,27 ma vec 50,0 / rec 79,2: non regge.
+- R1 P · 白虎 → LONG 65 · 61,5% · z 1,86 (60/63): sotto soglia, in osservazione.
+- Su M1 nessuna casella regge (le migliori: C·青龍 60% su 65 z 1,6; G·六合 65% su 37 ma vec 45).
+**Motore dopo la via 14:** `MOTOREDLR=1 SOGLIAPIP=20` → vedi riga sotto.
+    carte lette 1859   ·   tace 674   ·   fuori selezione 942
+    giuste 59.76%   z 8.42   pip 21427   (11.5 pip/trade)
+    vecchio 58.10% su 778   ·   recente 61.28% su 997
+
+## DETOUR LY su USDJPY 28/03/2022 s122 (S36) — APERTO
+Lettura di Edu: la G mobile L2 卯→寅 retrocede, lo SHORT non può vincere → LONG (esito +163). Il termometro dice SHORT (§111).
+Gemella che contraddice: GBPUSD 05/12/2022 s122 (stessa carta 41→27, L2 G 卯→寅, giorno 壬辰, mese 亥, vuoti 午未) andata SHORT −102, letta giusta da §111.
+Perimetro §111 ramo G/W con mobile retrocedente: 3 carte, 2 giuste 1 sbagliata. Misura generale (retro111.js): G/W mobile che retrocede →
+sede opposta 52 carte 51,9% (moneta). Osservazione uscita a lato: G/W mobile che AVANZA → sede propria solo 28% su 25 (vec 22 / rec 31), contro dottrina.
+Edu ha chiuso la carta come interpretata; NON cablata (romperebbe la gemella). Resta aperta.
