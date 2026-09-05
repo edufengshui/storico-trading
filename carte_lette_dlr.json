@@ -291,6 +291,24 @@
   "nota": "Lettura di Edu sulla ritirata e il Cavallo postale (Bazi 癸建 乙建 丁丑 庚子)."
  },
  {
+  "cross": "EURUSD",
+  "date": "2023-05-04",
+  "seme": 110,
+  "sistema": "DLR",
+  "tipo": "origine",
+  "pilastro": "壬戌",
+  "mese": "辰",
+  "ora": "丑",
+  "piatto": "亥未卯 / 戌午寅",
+  "vuoti": "子丑",
+  "metodo": "涉害",
+  "tre": "未卯亥",
+  "esito": "SHORT -56",
+  "viaDLR": "due trigoni · sede del guest rotta da mese e ora",
+  "quando": "2026-09-05",
+  "nota": "Lettura di Edu 05/09/2026: il ramo del giorno 戌 e' la SEDE del trigono del guest; il mese 辰 lo clasha (辰戌冲) e l'ora 丑 lo penalizza (丑戌, dentro 丑戌未). La sede della ricchezza e' rotta e la W non si incassa, ma la generazione in uscita (Legno dello host che alimenta il Fuoco del guest) regge -> SHORT. Serve la CONGIUNZIONE: la sola penalita' dell'ora dentro il punto 2 sta al 25% su 4 carte. Misura: 2 carte 2/2 +85 pip, ma sono lo stesso piatto su EURUSD e USDJPY dello stesso giorno."
+ },
+ {
   "cross": "USDCAD",
   "date": "2023-06-13",
   "seme": 133,
@@ -541,6 +559,24 @@
   "dirDLR": "tace",
   "quando": "ricostruita 2026-09-05 dalle fonti scritte",
   "nota": "Carta guida: 三傳 辰 辰 戌, tutte e tre tombe. Ha fatto cadere una regola."
+ },
+ {
+  "cross": "EURGBP",
+  "date": "2025-08-07",
+  "seme": 87,
+  "sistema": "DLR",
+  "tipo": "origine",
+  "pilastro": "戊申",
+  "mese": "未",
+  "ora": "寅",
+  "piatto": "巳酉丑 / 申子辰",
+  "vuoti": "寅卯",
+  "metodo": "元首",
+  "tre": "辰申子",
+  "esito": "SHORT -53",
+  "viaDLR": "il punto 2 tace: tomba all'inizio con le fasi in avanti",
+  "quando": "2026-09-05",
+  "nota": "Dubbio di Edu 05/09/2026: la tomba all'inizio dei tre messaggi, con le fasi che corrono in avanti (墓 > 長生 > 帝旺), non qualifica il trigono del ramo come trigono di ricchezza. Verificato: il ramo W spaccato per ordine delle fasi da 帝旺>長生>墓 16 carte 63% LONG +185, 墓>長生>帝旺 5 carte 40% LONG +3 pip (piatto). Cablato: su quel pattern il punto 2 TACE e le carte scendono alle vie a valle. Motore da 60,83% a 60,87%, punto 2 da 28 carte 60,71% a 23 carte 65,22%."
  },
  {
   "cross": "USDJPY",

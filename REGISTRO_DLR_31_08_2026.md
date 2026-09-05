@@ -960,3 +960,157 @@ punto 2 le carte che non gli appartenevano.
 
 L'interruttore `P2` resta per le misure, ma la tabella P2 della sezione precedente è
 ormai vecchia: si riferisce al punto 2 prima dell'invalidazione.
+
+---
+
+## LA SEDE DEL GUEST ROTTA DA MESE E ORA — Edu, 05/09/2026
+
+**Carta d'origine: EURUSD 04/05/2023 seme 110.** Giorno 壬戌, mese 辰, ora 丑,
+vuoti 子丑. Piatto 亥未卯 / 戌午寅 (Legno sullo stelo, Fuoco sul ramo). Metodo 涉害,
+tre messaggi 未 → 卯 → 亥. Mercato SHORT −56, il DLR diceva LONG.
+
+**Dottrina di Edu.** Il ramo del giorno 戌 è la **sede del trigono del guest**. Il mese
+辰 lo clasha (辰戌冲) e l'ora 丑 lo penalizza (丑戌, dentro il 三刑 丑戌未). Con la sede
+rotta la ricchezza non si incassa, e cade il "cede per incassare" del punto 2. Ma la
+**generazione in uscita** — il trigono dello stelo che alimenta quello del ramo — regge,
+e quella fa lo SHORT.
+
+**Dove sta.** Nel ramo W della via T, insieme all'altra invalidazione, prima della
+posizione della W. Anche questa non è una via a sé.
+
+**Misura.** Dentro il punto 2 la congiunzione prende 2 carte, 2/2, +85 pip — ma sono
+**lo stesso identico piatto** (壬戌, ora 丑) visto su EURUSD e USDJPY dello stesso
+giorno: di piatti distinti ce n'è uno solo. Va detto.
+
+Quello che regge davvero è la **congiunzione**, non i due pezzi:
+
+| condizione, letta SHORT | dove | n | giuste | pip |
+|---|---|---|---|---|
+| clash del mese E penalità dell'ora | dentro il punto 2 | 2 | 100% | +85 |
+| solo penalità dell'ora | dentro il punto 2 | 4 | 25% | −65 |
+| solo clash del mese | dentro il punto 2 | 0 | — | — |
+| clash del mese E penalità dell'ora | tutto il motore | 25 | 48% | +1 |
+
+Il 48% fuori dai due trigoni è la firma giusta di una invalidazione: fuori non dice
+niente, perché fuori nessuno sta leggendo la ricchezza.
+
+**Effetto sul punto 2.** Da 30 carte · 56,67% · +101 pip a **28 carte · 60,71% · +186 pip**.
+Contando anche l'invalidazione di M1 sulla propria tomba, il punto 2 nella giornata è
+passato da 32 carte · 53,13% · −14 pip a 28 carte · 60,71% · +186 pip, senza che gli
+sia stata aggiunta una sola regola sopra: gli sono state tolte le carte che non gli
+appartenevano.
+
+**Cifre canoniche a fine giornata (05/09/2026)**
+
+| | inizio S38 | fine S38 |
+|---|---|---|
+| Motore DLR | 2494 · 60,67% · z 10,65 · +32.621 | 2494 · **60,83% · z 10,81 · +33.022** |
+| Scala A/B/C | 1964 · 62,63% · z 11,19 · +36.880 | 1964 · **62,68% · z 11,24 · +36.995** |
+| S17 (Liu Yao nel sistema) | 2788 · 58,57% · z 9,05 · +35.544 | invariato |
+| Carte guida | 110 · 78 giuste · 32 storte | invariato |
+
+---
+
+## LA TOMBA ALL'INIZIO CON LE FASI IN AVANTI NON QUALIFICA LA RICCHEZZA — Edu, 05/09/2026
+
+**Carta d'origine: EURGBP 07/08/2025 seme 87.** Giorno 戊申, mese 未, ora 寅, vuoti 寅卯.
+Piatto 巳酉丑 / 申子辰 (Metallo sullo stelo, Acqua sul ramo). Metodo 元首, tre messaggi
+辰 → 申 → 子. Mercato SHORT −53, il DLR diceva LONG.
+
+**Dubbio di Edu.** Non è detto che la tomba all'inizio dei tre messaggi, con le fasi che
+corrono in avanti, qualifichi il trigono del ramo come trigono di **ricchezza**.
+
+**Verifica.** Tutto il ramo W della via T (54 carte con i due trigoni e il guest W per lo
+stelo), spaccato per dove stanno i tre messaggi e per l'ordine delle loro fasi. Solo le
+carte con la W sopra:
+
+| messaggi dentro il GUEST · ordine delle fasi | n | LONG giusto | pip letti LONG |
+|---|---|---|---|
+| 帝旺 → 長生 → 墓 | 16 | **63%** | +185 |
+| 墓 → 長生 → 帝旺 | 5 | 40% | **+3** |
+| 帝旺 → 墓 → 長生 | 2 | 0% | −115 |
+| 墓 → 帝旺 → 長生 | 2 | 0% | −78 |
+
+| messaggi dentro lo HOST · ordine delle fasi | n | LONG giusto | pip letti LONG |
+|---|---|---|---|
+| 墓 → 長生 → 帝旺 | 8 | 50% | −110 |
+| 墓 → 帝旺 → 長生 | 4 | 50% | −16 |
+
+Il punto 2 lo regge da solo l'ordine che parte dal **culmine**. L'ordine che parte dalla
+tomba e corre in avanti sta a +3 pip netti su 5 carte: piatto, non qualifica né in un
+verso né nell'altro. Non va letto SHORT: va lasciato stare.
+
+**Cablaggio.** Se i tre messaggi SONO il trigono del guest e le loro fasi corrono
+墓 → 長生 → 帝旺, il punto 2 **tace** e la carta scende alle vie a valle.
+
+**Misura.** Motore da 60,83% · z 10,81 · +33.022 a **60,87% · z 10,85 · +33.134**.
+Il punto 2 da 28 carte · 60,71% · +186 pip a **23 carte · 65,22% · +182 pip**: perde
+5 carte e 4 pip, il motore ne guadagna 112. Quelle carte non erano sue.
+
+**Cifre canoniche aggiornate (05/09/2026)**
+
+| | inizio S38 | adesso |
+|---|---|---|
+| Motore DLR | 2494 · 60,67% · z 10,65 · +32.621 | 2494 · **60,87% · z 10,85 · +33.134** |
+| Scala A/B/C | 1964 · 62,63% · z 11,19 · +36.880 | 1965 · **62,70% · z 11,26 · +37.052** |
+| di cui livello B | 511 · 64,97% · +11.463 | 512 · **65,23% · +11.634** |
+| S17 (Liu Yao nel sistema) | 2788 · 58,57% · z 9,05 · +35.544 | invariato |
+| Carte guida | 110 · 78 giuste · 32 storte | invariato |
+
+---
+
+## LA SCALA A/B/C: TOLTO IL VECCHIO C2 — Edu, 05/09/2026
+
+**Gerarchia misurata dei tre sistemi.** Sullo stesso insieme di carte, ciascuno da solo:
+
+| sistema | n | accuratezza | z | pip | vecchio | recente |
+|---|---|---|---|---|---|---|
+| DLR | 2.033 | 60,94% | 9,87 | +29.930 | 60,8% | 61,5% |
+| Liu Yao | 2.773 | 58,64% | 9,10 | +34.936 | 60,2% | 57,0% |
+| Plum Blossom | 2.788 | 53,77% | 3,98 | +16.127 | 54,1% | 53,9% |
+
+**Duelli diretti**, quando due si contraddicono: DLR batte PB 57,30% su 993 carte;
+LY batte PB 55,15% su 1.320; DLR batte LY 53,26% su 965.
+
+**Arbitraggio a tre**, quando uno sta contro gli altri due:
+
+| | n | vince il solitario | vince la coppia |
+|---|---|---|---|
+| DLR contro LY+PB | 491 | 48,47% | 51,53% |
+| LY contro DLR+PB | 474 | 41,77% | 58,23% |
+| PB contro DLR+LY | 497 | 34,00% | 66,00% |
+
+La gerarchia è **DLR > LY > PB**. Il Plum Blossom da solo contro gli altri due ha torto
+due volte su tre: è a lui che va tolta la parola nei conflitti, non al DLR.
+
+**Il cambio.** Il livello C vale ora SOLO dove il DLR tace. La casella dove PB e LY
+concordano ma il DLR contrasta (vecchio C2) esce dalla scala: 491 carte al 51,53%,
+z 0,68, con i due periodi opposti (vecchio 55,56% / recente 47,86%).
+
+| | carte | accuratezza | z | pip | pip/trade | vecchio | recente |
+|---|---|---|---|---|---|---|---|
+| scala vecchia | 1.965 | 62,70% | 11,26 | +37.052 | 18,9 | 64,19% | 61,56% |
+| **scala nuova** | 1.474 | **66,42%** | **12,61** | +34.409 | **23,3** | **66,92%** | **66,23%** |
+
+Il guadagno più importante non sono i quattro punti: è che i due periodi si sono
+allineati. Prima c'erano 2,6 punti di distacco fra vecchio e recente, adesso 0,7.
+Quasi tutta l'instabilità della scala stava dentro C2.
+
+Costo: da 5,85 a 4,39 trade a settimana, da 110 a 102 pip a settimana.
+
+**Nota importante.** `app.js` implementava GIÀ la regola giusta (livello C solo con
+il DLR muto) fin dalla S36. Era `pb_stress.js` a misurare un livello C più largo di
+quello che il software esegue. Quindi il comportamento del sistema non è cambiato:
+è stata la misura ad essere allineata all'app. Le cifre viste a schermo erano già
+quelle della scala buona. Parità dopo la modifica: 465 carte, 0 differenze su pb, ly,
+attuale, dlr, livello e direzione.
+
+**Cifre canoniche a fine S38 (05/09/2026)**
+
+| | inizio S38 | fine S38 |
+|---|---|---|
+| Motore DLR | 2494 · 60,67% · z 10,65 · +32.621 | 2494 · **60,87% · z 10,85 · +33.134** |
+| Scala A/B/C | 1965 · 62,63% · z 11,19 · +36.880 | 1474 · **66,42% · z 12,61 · +34.409** |
+| S17 (Liu Yao nel sistema) | 2788 · 58,57% · z 9,05 · +35.544 | invariato |
+| Carte guida | 110 · 78 giuste · 32 storte | invariato |
+| Parità PWA ↔ motore | 0 differenze | 0 differenze |

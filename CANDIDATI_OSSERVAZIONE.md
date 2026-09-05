@@ -1274,3 +1274,35 @@ Caselle viste ma NON cablate perché i due periodi vanno in direzioni opposte:
 O/G, G/B, O/C, P/O, P/W, B/O, B/B nella griglia R1×R2.
 Casella W/G scartata solo per numerosità: 27 carte, 66,7% SHORT, vec 62,5 / rec 64,7 —
 da riprendere se il campione cresce.
+
+---
+
+## 05/09/2026 — DLR, sessione 38
+
+**B su R1 con 天空 sopra dentro il punto 2 della via T** — sensazione di Edu:
+il Fratello (兄弟) con il Cielo Vuoto sopra non va bene per ottenere la ricchezza.
+
+Misurato dentro il punto 2, cioè dove la ricchezza si sta effettivamente leggendo:
+
+| R1 | n | LONG giusto | pip letti LONG |
+|---|---|---|---|
+| B con 天空 | 6 | 50,0% | −19 |
+| B senza 天空 | 8 | 75,0% | +167 |
+| né B né 天空 | 9 | 66,7% | +34 |
+| 天空 senza B | 0 | — | — |
+
+Fuori dal punto 2, su tutto il motore: B con 天空 su R1 = 109 carte al 53,2%.
+
+**Perché non è cablabile.** Il verso della sensazione si vede — il 天空 sopra il B porta
+il punto 2 da 75% a 50% — ma il 50% è piatto e non indica nessuna direzione. Peggio:
+due delle sei carte (USDJPY e USDCAD del 12/09/2022) sono **lo stesso identico piatto**
+(戊辰, mese 酉, ora 酉, 巳丑酉 / 辰子申, tre 子申辰, vuoti 戌亥) e fanno +25 e −38, cioè
+vanno nei due versi opposti. Le carte distinte sono quattro: due SHORT e due LONG.
+
+Da rimisurare quando il perimetro del punto 2 cresce. Serve arrivare almeno a una
+dozzina di piatti distinti prima di poter dire qualcosa.
+
+**Nota trasversale emersa oggi.** Lo stesso piatto DLR compare su cross diversi nello
+stesso giorno e può dare esiti opposti (12/09/2022 USDJPY +25 / USDCAD −38;
+04/05/2023 EURUSD −56 / USDJPY −29 concordi). Quando si conta la numerosità di una via
+DLR va sempre detto quanti sono i **piatti distinti**, non solo quante sono le carte.

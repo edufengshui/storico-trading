@@ -28234,14 +28234,21 @@ if (process.env.TRESIST) {
     if (dlr && dlr===s17)  put('P8. solo dove S17 e DLR concordano', s17, r);
     if (ly && dlr && ly===dlr) put('P9. solo dove LY e DLR concordano', ly, r);
     // --- SCALA A/B/C (Edu 03/09/2026): A tutti e tre concordi; B sistema attuale e DLR concordi; C PB e LY concordi.
+    // Modifica di Edu 05/09/2026: il livello C vale SOLO dove il DLR TACE. Dove il DLR contrasta la coppia PB+LY
+    // (vecchio C2) il sistema sta FERMO: 491 carte al 51,53%, z 0,68, con i due periodi opposti (vec 55,56 / rec 47,86).
+    // Il duello lo conferma: in quella casella il solitario DLR vince nel 48,47% e la coppia nel 51,53%, cioe' nessuno
+    // dei due sa niente. Scala da 1965 carte 62,70% z 11,26 +37.052 (18,9 pip/trade) a 1474 carte 66,42% z 12,61
+    // +34.410 (23,3 pip/trade). Costo: 8 pip a settimana e 1,5 trade a settimana, per quasi 4 punti di accuratezza.
     { const A = !!(ly && dlr && pb===ly && ly===dlr);
       const B = !A && !!(dlr && s17===dlr);
-      const Cc = !A && !B && !!(ly && pb===ly);
+      const Cpieno = !A && !B && !!(ly && pb===ly);       // il vecchio livello C, tenuto solo per misura
+      const Cc = Cpieno && !dlr;                          // livello C nuovo: solo dove il DLR tace
+      const Cscartato = Cpieno && !!dlr;                  // vecchio C2: fuori scala
       if (A) put('Z-A. tutti e tre concordi', pb, r);
       if (B) put('Z-B. sistema attuale e DLR concordi (non A)', s17, r);
-      if (Cc) put('Z-C. PB e LY concordi (non A, non B)', pb, r);
-      if (Cc && !dlr) put('Z-C1.   di cui DLR tace', pb, r);
-      if (Cc && dlr)  put('Z-C2.   di cui DLR contrasta', pb, r);
+      if (Cc) put('Z-C. PB e LY concordi e DLR tace', pb, r);
+      if (Cpieno) put('Z-Cvecchio. PB e LY concordi (vecchio C, per confronto)', pb, r);
+      if (Cscartato) put('Z-C2. escluso dal 05/09/2026: PB e LY concordi ma DLR contrasta', pb, r);
       if (A||B||Cc) put('Z-TOT. scala A+B+C', A?pb:B?s17:pb, r);
       if (!(A||B||Cc)) put('Z-0. fuori scala (fermo) — pnl del sistema attuale evitato', s17, r); }
     if (process.env.TRESISTDUMP) { const ca=r._dlrCarta||{}; const par=(b)=>ca.steloGiorno&&b?MD.parentela(ca.steloGiorno,b):null;
