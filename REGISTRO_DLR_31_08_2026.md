@@ -867,3 +867,96 @@ Gemella che contraddice: GBPUSD 05/12/2022 s122 (stessa carta 41→27, L2 G 卯�
 Perimetro §111 ramo G/W con mobile retrocedente: 3 carte, 2 giuste 1 sbagliata. Misura generale (retro111.js): G/W mobile che retrocede →
 sede opposta 52 carte 51,9% (moneta). Osservazione uscita a lato: G/W mobile che AVANZA → sede propria solo 28% su 25 (vec 22 / rec 31), contro dottrina.
 Edu ha chiuso la carta come interpretata; NON cablata (romperebbe la gemella). Resta aperta.
+
+---
+
+## REGISTRO DELLE CARTE LETTE NEL DLR — S38, 05/09/2026
+
+Fino a oggi `carte_lette.json` copriva solo il Liu Yao (110 record, zero DLR): ogni
+lettura DLR fatta in chat spariva a fine sessione, e la stessa carta poteva essere
+ripresentata a Edu all'infinito. Successo davvero in S38, con la carta d'origine
+della via T.
+
+**`carte_lette_dlr.json`** — 26 record ricostruiti dalle fonti scritte
+(commenti di `motore_dlr.js` e questo registro). Per ogni carta: croce, data, seme,
+pilastro, mese, ora, piatto completo, vuoti, metodo, tre messaggi, esito reale,
+via che la legge oggi e verso. Campo `tipo`:
+
+| tipo | significato |
+|---|---|
+| `origine` | la via o la regola è NATA da questa carta — ripresentarla significa chiedere di rifondare la regola |
+| `guida` | carta su cui la regola è stata dettata |
+| `controesempio` | carta che ha falsificato o limitato una regola |
+| `verifica` | usata per controllare il motore, non per fare dottrina |
+| `ipotesi` | ipotesi formulata e non ancora chiusa |
+| `lettura` | letta da Edu senza che ne sia nata una via |
+| `muta` | letta e rimasta senza verdetto |
+
+Le quattro carte d'origine oggi in registro: USDJPY 11/02/2026 (gruppo del fantasma),
+USDJPY 09/10/2024 (terna che forma W), EURJPY 06/08/2024 (via T, e §133m nel LY),
+USDCAD 13/06/2023 (via U).
+
+**`carta_libera.js`** — filtro OBBLIGATORIO prima di presentare qualsiasi carta.
+Blocca: già letta nel LY, già letta nel DLR, carta d'origine, sabato/domenica,
+1 gennaio e 24/25/26/31 dicembre. Avvisa sotto i 25 pip.
+
+    node carta_libera.js USDCHF 2021-05-20 -69
+    node carta_libera.js --lista perdenti.txt
+    node carta_libera.js --registra CROSS DATA --sistema DLR --tipo guida --nota "..."
+
+Nessuna carta va presentata a Edu se questo script non dice LIBERA. Dopo ogni
+lettura di Edu sul DLR la carta va registrata subito, nella stessa sessione.
+
+**`motore_dlr.js`** — aggiunto l'interruttore `P2` sul punto 2 della via T
+(`long` = comportamento attuale e default, `short`, `tace`). Misura del 05/09/2026:
+
+| P2 | carte lette | giuste | z | pip |
+|---|---|---|---|---|
+| `long` (attuale) | 2494 | 60,67% | 10,65 | +32.621 |
+| `tace` | 2494 | 60,75% | 10,73 | +32.807 |
+| `short` | 2494 | 60,59% | 10,57 | +32.650 |
+
+Il punto 2 da solo sta a 32 carte · 53,13% · −14 pip. Sotto la soglia del 55% di Edu.
+Con il punto 2 muto le carte le raccolgono le vie a valle e il motore guadagna 186 pip.
+Non spento: aspetta la lettura di Edu.
+
+---
+
+## LA W INVALIDATA DAL PRIMO MESSAGGIO SEDUTO SULLA PROPRIA TOMBA — Edu, 05/09/2026
+
+**Carta d'origine: USDCHF 20/05/2021 seme 90.** Giorno 戊辰, mese 巳, ora 巳,
+vuoti 戌亥. Piatto 巳酉丑 / 辰申子 (Metallo sullo stelo, Acqua sul ramo). Metodo
+遙剋·彈射, tre messaggi 子 → 辰 → 申. Mercato SHORT −69, il DLR diceva LONG.
+
+**Dottrina di Edu.** Nei tre messaggi la W M1 (子, Acqua, W per 戊) è seduta sopra
+la propria tomba M2 (辰, tomba dell'Acqua). Questo **invalida la W**. Con la
+ricchezza invalidata cade il "lo host cede per incassare" del punto 2 della via T,
+e la relazione fra il lato dello stelo e il lato del ramo si legge in modo normale:
+il trigono dello stelo genera il trigono del ramo, quindi lo host si scarica → SHORT.
+
+**Dove sta.** Nel ramo W della via T, **prima** della posizione della W (punti 1-2-3).
+Non è una via a sé: è una invalidazione, e vale solo dove la ricchezza viene
+effettivamente letta.
+
+**Misura.** Perimetro vero, dentro i due trigoni: **2 carte, 2/2, +115 pip**
+(USDCHF 20/05/2021 −69 e la gemella EURGBP 16/11/2021 −46, entrambe LONG sbagliate
+prima). Fuori dai due trigoni la stessa condizione (M1 è W e M2 è la sua tomba)
+prende 116 carte al **49,14%**: fuori non dice niente, come deve essere.
+
+**Effetto sul punto 2.** Tolte le due carte invalidate, il punto 2 "W sopra" passa da
+32 carte · 53,13% · −14 pip a **30 carte · 56,67% · +101 pip**: sopra la soglia del
+55% di Edu. La lettura non ha aggiunto una regola sopra il punto 2, ha tolto dal
+punto 2 le carte che non gli appartenevano.
+
+**Cifre canoniche dopo il cablaggio (05/09/2026)**
+
+| | prima | dopo |
+|---|---|---|
+| Motore DLR | 2494 · 60,67% · z 10,65 · +32.621 | 2494 · **60,75% · z 10,73 · +32.851** |
+| Scala A/B/C | 1964 · 62,63% · z 11,19 · +36.880 | 1964 · **62,68% · z 11,24 · +36.995** |
+| di cui livello B | 511 · 64,97% · +11.463 | 511 · **65,17% · +11.578** |
+| S17 (Liu Yao nel sistema) | 2788 · 58,57% · z 9,05 · +35.544 | invariato |
+| Carte guida | 110 · 78 giuste · 32 storte | invariato |
+
+L'interruttore `P2` resta per le misure, ma la tabella P2 della sezione precedente è
+ormai vecchia: si riferisce al punto 2 prima dell'invalidazione.
