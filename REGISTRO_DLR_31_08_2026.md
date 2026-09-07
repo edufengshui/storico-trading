@@ -1238,3 +1238,126 @@ comportamento del sistema: i due campi viaggiano nella carta e nessuno li legge.
 
 **Attenzione al caricamento:** `motore_dlr.js` e `app.js` vanno caricati insieme.
 Caricandone uno solo la parità PWA ↔ motore si rompe.
+
+---
+
+# S40 — 07/09/2026 · Il seme entra nel motore, e la polarità viene messa alla prova
+
+Sessione in tre tempi: si chiude il candidato lasciato aperto in S39, si cerca volume
+nuovo sulle sole carte mute, e si mette alla prova l'assioma su cui è costruito tutto.
+
+## Cifre canoniche a fine S40
+
+| | inizio S40 (= fine S39) | fine S40 |
+|---|---|---|
+| Motore DLR | 3052 · 60,62% · z 11,73 · +39.281 | **3253 · 60,81% · z 12,33 · +41.467** |
+| carte mute | 423 (384 fuori selezione + 39 tace) | **222 (204 + 18)** |
+| Scala A/B/C | 1473 · 67,14% · z 13,16 · +35.304 | **1470 · 68,03% · z 13,82 · +36.529** |
+| Livello A | 688 · 70,64% | **735 · 71,02%** |
+| Livello B | ~618 · 64,40% | **654 · 65,14%** |
+| Livello C | 167 · 62,87% | **81 · 64,20%** |
+| S17 (Liu Yao) | 2788 · 58,57% · z 9,05 · +35.544 | invariato |
+| Carte guida | 110 · 78 giuste · 32 storte | invariato |
+| Parità PWA ↔ motore | 0 differenze | 0 differenze |
+
+Duecentouno carte lette in più e 2.186 pip in più. Questa volta salgono tutti e quattro
+i numeri insieme — volume, percentuale, z e pip — cosa che in S39 non era successa.
+
+## Le tre vie nuove
+
+**VIA 46 · 返吟 · lo stelo del giorno controlla il ramo del mese → SHORT**
+Candidato misurato in S39 e lasciato in sospeso, rimisurato prima di cablarlo.
+Lo stelo letto direttamente contro il ramo del mese, senza passare dai palazzi (寄宮):
+con i palazzi la casella crolla al 54,17%.
+Posizione: sotto le quattro vie 八專, appena prima della catena principale.
+- sotto le 八專: 33 carte · 25 piatti · 69,70% · z 2,26 · +315 pip · vec 75,00/16 · rec 69,23/13
+- sopra le 八專: 36 carte · 63,89% · z 1,67 · **−109 pip**; ruba tre carte alla via 39,
+  che scende da 39 carte al 56,41% e +760 pip a 36 al 52,78% e +336. Il motore intero
+  passa da +39.596 a +38.748 pip.
+
+Seconda conferma della lezione della via 40 in S39: la regola è vera, la posizione decide
+se vale. Verificarla sempre sulla posizione reale, mai sul perimetro isolato.
+
+**VIA 47 · 返吟 · il giorno genera chi cavalca il ramo del mese → LONG**
+Prima via nata dall'impianto dottrinale dei quattro pilastri (Edu, 07/09/2026): le
+relazioni si leggono fra ciò che cavalca ogni pilastro, cioè il ramo del cielo sopra il
+suo palazzo. Ciò che cavalca lo stelo del giorno è per costruzione R1.
+Trovata scandendo **le sole carte mute**: sul dataset intero le carte già lette gonfiano
+il risultato (vedi la sezione sulle cinque caselle chiuse).
+Posizione: sotto la via 46.
+- sotto: 28 carte · 21 piatti · 67,86% · z 1,89 · +478 pip · vec 77,78/9 · rec 58,82/17
+- sopra le 八專: 44 carte · 61,36%; ruba 15 carte alla via 46, che scenderebbe a 18.
+
+Avvertenza a verbale: il verso è LONG, opposto alle due vie 返吟 già cablate (44 e 46,
+entrambe SHORT). Sulle carte mute del ronzio che torna l'impianto dei pilastri dice il
+contrario della stagione. Campione piccolo: il periodo vecchio sta su nove carte.
+
+Nelle 八專 e nelle 伏吟 nessuna casella dei quattro pilastri arriva a 25 carte mute.
+
+**VIA 50 · il seme diviso per 60 → il pilastro del ciclo sessagesimale**
+Regola di Edu (07/09/2026): il seme diviso per 60 dà un pilastro (seme 153 → pilastro 33
+→ 丙申). Lo stelo di quel pilastro vota LONG, il ramo vota SHORT, vince chi controlla.
+Misurata sulle carte mute la regola è risultata **rovesciata** rispetto alla lettura, ed
+Edu ha fatto cablare il verso misurato — stessa cosa già avvenuta per la via 41 in S39.
+Su sua indicazione la via vale **anche sulle 昴星** (冬蛇掩目 e 虎視轉蓬), che restano
+fuori selezione per tutto il resto del motore.
+Posizione: **in coda a tutto**, sia dopo la selezione sia dopo la catena. Legge solo le
+carte che nessun'altra via legge.
+- lo stelo controlla il ramo → SHORT: 76 carte · 74 piatti · 59,21% · z 1,61 · +315 pip
+  · vec 63,64/22 · rec 60,87/46
+- stelo e ramo dello stesso elemento → LONG: 64 carte · 63 piatti · 64,06% · z 2,25 ·
+  +1.078 pip · vec 60,87/23 · rec 65,85/41
+
+**Misurata e lasciata fuori:** il ramo che controlla lo stelo → LONG, 84 carte · 54,76% ·
+z 0,87 · **−184 pip** · rec 53,49%. È l'altra metà della regola di Edu e non regge:
+cablandola il motore scende da 60,81% a 60,59% e perde 1.261 pip. Scelta di Edu: tenere
+solo ciò che rende.
+
+**Riserva dottrinale a verbale:** il 比和 non era nella regola — Edu lo dava come pari —
+ed è cablato su un numero, non su una lettura. La ragione dottrinale manca ancora.
+
+## Novità tecnica: il seme entra nella carta
+
+Come l'anno a fine S39, ora la carta porta anche **`seme`**: due punti di costruzione in
+`app.js` e trentadue in `pb_stress.js`. Serve alla via 50.
+**`motore_dlr.js` e `app.js` vanno caricati insieme**, altrimenti la parità si rompe.
+
+## La prova sulla polarità (Edu, 07/09/2026)
+
+Domanda di Edu: tutto il motore è costruito su "lo stelo del giorno è il LONG, il ramo è
+lo SHORT". Il risultato rovesciato del seme fa sospettare che la polarità sia invertita.
+
+Misurata la polarità nuda — senza catena e senza vie — su sei assi. Sul **pilastro del
+giorno** (quote LONG, soglia 20, dataset intero):
+
+| | LONG | vec / rec |
+|---|---|---|
+| lo stelo controlla il ramo | 47,49% su 697 | 48,07 / 46,59 |
+| il ramo controlla lo stelo | 47,07% su 699 | 47,99 / 45,25 |
+| lo stelo genera il ramo | 54,76% su 694 · z 2,51 | 53,04 / 55,30 |
+| il ramo genera lo stelo | 53,30% su 681 | 48,40 / 57,53 |
+| pari | 48,86% su 704 | 48,57 / 48,25 |
+
+**Le due righe di controllo stanno tutte e due sotto il 50%.** Se la polarità fosse
+semplicemente rovesciata starebbero una sopra e una sotto, specularmente. L'asse vero non
+è host contro guest: è **controllo contro generazione** — dove c'è controllo il mercato
+scende, dove c'è generazione sale.
+
+**E l'assioma non porta peso.** L'asse su cui il motore è davvero costruito, R1 sopra lo
+stelo contro R3 sopra il ramo, non dice niente: cinque caselle fra 48,35% e 53,32% su
+3.475 carte, nessuna con z sopra 1,82. Il 60,81% del motore viene dalle vie, una per una,
+ciascuna misurata sul proprio verso. La polarità è il racconto che le tiene insieme, non
+la fonte del segnale — e proprio per questo non può averne rovesciata nessuna.
+
+Controprova: mese, anno e seme presi interi stanno tutti fra 46,44% e 55,26%, senza
+disegno coerente. L'effetto controllo/generazione è solo del pilastro del giorno.
+
+## I gruppi ancora muti a fine S40
+
+返吟 63 · 八專 58 · 伏吟 42 · 冬蛇掩目 26 · senza attore riconosciuto 24 · 虎視轉蓬 15.
+
+**Avvertenza per S41.** Il motore ormai tace su 18 carte su 3.475. Un motore che non tace
+quasi mai perde la sua informazione più onesta, cioè il silenzio, e la scala lo mostra
+già: il livello C — PB e LY concordi col DLR muto — è passato da 167 a 81 carte in una
+sola sessione. Prima di cablare altro volume conviene guardare che cosa succede alla
+scala, non solo al motore.

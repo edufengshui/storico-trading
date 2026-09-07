@@ -27260,7 +27260,7 @@ if (process.env.MOTOREDLR) {
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
-      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     void 0;
     if (!v.dir) { if(v.perche.indexOf('fuori selezione')>=0) fuori++; else tace++; continue; }
@@ -27303,7 +27303,7 @@ if (process.env.DLRMUTE) {
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
-      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.dir) continue;
     if (v.perche.indexOf('fuori selezione')>=0) continue;
@@ -27362,7 +27362,7 @@ if (process.env.BSUR1) {
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
-      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.dir) continue;
     if (v.perche.indexOf('fuori selezione')>=0) continue;
@@ -27446,7 +27446,7 @@ if (process.env.TRIG3M) {
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
-      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const T=ch.transmission.three; const set=[T.chu,T.zhong,T.mo];
@@ -27494,7 +27494,7 @@ if (process.env.M1ORIGINE) {
     const L=ch.fourLessons; if(!L||L.length<4) continue;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const m1=ch.transmission.three.chu;
@@ -27541,7 +27541,7 @@ if (process.env.M1WEALTH) {
     const L=ch.fourLessons; if(!L||L.length<4) continue;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const T=ch.transmission.three; const m1=T.chu;
@@ -27619,7 +27619,7 @@ if (process.env.M1PAR) {
     const L=ch.fourLessons; if(!L||L.length<4) continue;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const T=ch.transmission.three; const m1=T.chu;
@@ -28192,7 +28192,7 @@ if (process.env.TRESIST) {
     const L=ch.fourLessons; if(!L||L.length<4) return null;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta); r._dlrVia=v.via||null; r._dlrCarta=carta; return v.dir||null; };
   const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
   const M={}; const ORD=[];
@@ -28304,7 +28304,7 @@ if (process.env.R1PAR) {
     const L=ch.fourLessons; if(!L||L.length<4) continue;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const muta=!v.dir;
@@ -28358,7 +28358,7 @@ if (process.env.SEDEVUOTA) {
     const L=ch.fourLessons; if(!L||L.length<4) continue;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const muta=!v.dir;
@@ -28411,7 +28411,7 @@ if (process.env.PALVUOTO) {
     const L=ch.fourLessons; if(!L||L.length<4) continue;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const muta=!v.dir; const V=carta.vuoti||[];
@@ -28461,7 +28461,7 @@ if (process.env.SPIRITI) {
     const L=ch.fourLessons; if(!L||L.length<4) continue;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const muta=!v.dir; const V=carta.vuoti||[];
@@ -28544,7 +28544,7 @@ if (process.env.R1DRENA) {
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three,
-      spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const muta=!v.dir;
@@ -28594,7 +28594,7 @@ if (process.env.M1DASTELO) {
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three,
-      spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const muta=!v.dir; const T=carta.treMessaggi; const V=carta.vuoti||[];
@@ -28645,7 +28645,7 @@ if (process.env.CONCETTO) {
     const L=ch.fourLessons; if(!L||L.length<4) continue;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (v.perche.indexOf('fuori selezione')>=0) continue;
     const muta=!v.dir; const V=carta.vuoti||[];
@@ -28967,7 +28967,7 @@ if (process.env.BAZHUAN) {
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
-      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     if (carta.palazzoHost !== carta.ramoGiorno) continue;   // solo 八專
     out.push({r,carta,ch,L, pil:r.dayStemUsed+r.dayBranchUsed});
   }
@@ -29288,7 +29288,7 @@ if (process.env.VIEPER) {
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
-      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta); if(!v.dir) continue;
     if (FILT!=='1' && v.via.indexOf(FILT)<0) continue;
     const ok=(v.dir==='LONG')===(r.move>0);
@@ -29404,7 +29404,7 @@ if (process.env.BZRESTO) {
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
-      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     if (carta.palazzoHost !== carta.ramoGiorno) continue;
     const v = MD.leggi(carta); if (v.dir) continue;              // solo le 八專 ancora fuori
     const DS=r.dayStemUsed, DB=r.dayBranchUsed, V=r.vuoti||[];
@@ -29567,7 +29567,7 @@ if (process.env.SEMEPILASTRO) {
         R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
         metodo:ch.transmission.method, vuoti:q.vuoti, generaleMese:gm, oraRamo:q.ora,
         treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-        ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, q.ora) };
+        ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, q.ora) };
       const v=MD.leggi(carta);
       pt.add(q.ds+q.db+'|'+q.ora+'|'+gm);
       if(!v.dir){ if(/fuori selezione/.test(v.perche)) fuori++; else tace++; continue; }
@@ -29637,7 +29637,7 @@ if (process.env.SEMEORA) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti, generaleMese:gm, oraRamo:ramoOra,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, ramoOra) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, ramoOra) };
     if (process.env.SEMESCAN) {
       const F={ 'R1':MD.parentela(carta.steloGiorno,carta.R1), 'R2':MD.parentela(carta.steloGiorno,carta.R2),
         'metodo':carta.metodo, 'M1':MD.parentela(carta.steloGiorno,ch.transmission.three.chu),
@@ -29693,7 +29693,7 @@ if (process.env.STELOORA) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     if (SOLO && v.dir) continue;
     const DS=r.dayStemUsed, pal=PAL[hs], V=r.vuoti||[], T=ch.transmission.three||{};
@@ -29748,7 +29748,7 @@ if (process.env.MUTE) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     tot++;
     const v=MD.leggi(carta); if(v.dir) continue;
     const k=v.perche.replace('carta fuori selezione: ','');
@@ -29784,7 +29784,7 @@ if (process.env.FORMA) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const f=MD.fuoriSelezione(carta); if(!f||f.indexOf(process.env.FORMA)<0) continue;
     out.push({r,carta,ch,L,hs});
   }
@@ -29836,7 +29836,7 @@ if (process.env.FUYIN) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const f=MD.fuoriSelezione(carta); if(!f||f.indexOf('伏吟')<0) continue;
     tot++; if(carta.R1===carta.R2) ugualiR1R2++;
     const V=r.vuoti||[], pt=carta.steloGiorno+carta.ramoGiorno+'|'+carta.oraRamo+'|'+gm;
@@ -29885,7 +29885,7 @@ if (process.env.FUYIN2) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const f=MD.fuoriSelezione(carta); if(!f||f.indexOf('伏吟')<0) continue;   // solo quelle ancora fuori
     const pt=carta.steloGiorno+carta.ramoGiorno+'|'+carta.oraRamo+'|'+gm;
     const k=rel(carta.R1, carta.R3);
@@ -29933,7 +29933,7 @@ if (process.env.INERZIA) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     let forma=null;
     if (carta.palazzoHost===carta.ramoGiorno) forma='八專';
     else if (String(carta.metodo).indexOf('伏吟')>=0) forma='伏吟';
@@ -29982,7 +29982,7 @@ if (process.env.FANYIN) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const f=MD.fuoriSelezione(carta); if(!f||f.indexOf('返吟')<0) continue;
     const mel = ER[process.env.FYGEN ? gm : r.monthBranchUsed];
     const sH=stag(ER[carta.R1],mel), sG=stag(ER[carta.R3],mel);
@@ -30029,7 +30029,7 @@ if (process.env.STAGGEN) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     const v=MD.leggi(carta);
     const f=MD.fuoriSelezione(carta);
     let per;
@@ -30103,7 +30103,7 @@ if (process.env.FANYIN2) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     if (String(carta.metodo).indexOf('返吟')<0) continue;
     if (!TUTTE) { const f=MD.fuoriSelezione(carta); if(!f) continue; }   // solo quelle ancora mute
     const T=ch.transmission.three; const msg=[T.chu,T.zhong,T.mo];
@@ -30172,7 +30172,7 @@ if (process.env.FANYIN3) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     if (String(carta.metodo).indexOf('返吟')<0) continue;
     if (!TUTTE) { const f=MD.fuoriSelezione(carta); if(!f) continue; }
     const vH=vince(carta.R1, carta.palazzoHost);
@@ -30222,7 +30222,7 @@ if (process.env.FANYIN4) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     if (String(carta.metodo).indexOf('返吟')<0) continue;
     if (!TUTTE) { const f=MD.fuoriSelezione(carta); if(!f) continue; }
     const S=steliPerPrincipi(r); if(!S.pilastri) continue;
@@ -30278,7 +30278,7 @@ if (process.env.FANYIN5) {
       R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
       metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
       treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
-      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+      ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
     if (String(carta.metodo).indexOf('返吟')<0) continue;
     if (!TUTTE) { const f=MD.fuoriSelezione(carta); if(!f) continue; }
     const S=steliPerPrincipi(r); if(!S.pilastri) continue;
@@ -30742,4 +30742,421 @@ if (process.env.MESETREND2) {
   for(const k of Object.keys(M).sort()){ const o=M[k];
     const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
     console.log(k.padEnd(60)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+'  z '+z.padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+pc(o.ve.w,o.ve.n)+'  rec '+pc(o.re.w,o.re.n)); }
+}
+
+
+// QP — S40, 07/09/2026: le cinque caselle dell'impianto dei quattro pilastri di Edu,
+// rimisurate con l'anno incluso e SCOMPOSTE fra carte che il motore legge gia' e carte
+// mute. La lezione di S39 (la prima casella sembrava al 63,16% ma 34 carte su 57 erano
+// gia' lette meglio) impone la scomposizione prima di qualsiasi proposta di cablaggio.
+// QP=1 stampa le cinque caselle; QPVIE=1 aggiunge il dettaglio delle vie che le leggono.
+if (process.env.QP) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||20);
+  const R=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const PAL={'甲':'寅','乙':'辰','丙':'巳','戊':'巳','丁':'未','己':'未','庚':'申','辛':'戌','壬':'亥','癸':'丑'};
+  const ER=MD.EL_RAMO, GE=MD.GENERA, CO=MD.CONTROLLA;
+  const rel=(a,b)=>{ if(a===b) return 'stesso ramo'; const A=ER[a],B=ER[b];
+    if(A===B) return '比和'; if(GE[A]===B) return 'GENERA'; if(GE[B]===A) return "E' GENERATO";
+    if(CO[A]===B) return 'CONTROLLA'; return "E' CONTROLLATO"; };
+  const CASELLE = [
+    { id:1, forma:'八專', bers:'ramo del MESE',   rel:'GENERA',         dir:'LONG'  },
+    { id:2, forma:'伏吟', bers:'ramo del MESE',   rel:"E' CONTROLLATO", dir:'LONG'  },
+    { id:3, forma:'返吟', bers:'stelo del MESE',  rel:'CONTROLLA',      dir:'SHORT' },
+    { id:4, forma:'返吟', bers:"ramo dell'ANNO",  rel:'GENERA',         dir:'SHORT' },
+    { id:5, forma:'八專', bers:"ramo dell'ANNO",  rel:'CONTROLLA',      dir:'LONG'  } ];
+  const mk=()=>({n:0,w:0,p:0,pt:new Set(),ve:{n:0,w:0},re:{n:0,w:0},vie:{}});
+  const ST = CASELLE.map(()=>({tot:mk(), lette:mk(), mute:mk()}));
+  const add=(o,ok,r,pt,via)=>{ o.n++; if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    o.pt.add(pt); if(via){ o.vie[via]=o.vie[via]||{n:0,w:0}; o.vie[via].n++; if(ok)o.vie[via].w++; }
+    const per=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(per){per.n++; if(ok)per.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const S=steliPerPrincipi(r); if(!S.monthStem||!S.yearStem) continue;
+    const palDS=PAL[r.dayStemUsed], palMS=PAL[S.monthStem], palYS=PAL[S.yearStem];
+    if(!palDS||!palMS||!palYS) continue;
+    const sh=((R.indexOf(gm)-R.indexOf(r.oraBranch))%12+12)%12;
+    const H=e=>R[(R.indexOf(e)+sh)%12];
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const ph=(L[0].bottom.branch||L[0].bottom);
+    let forma=null;
+    if(ph===r.dayBranchUsed) forma='八專';
+    else if(String(ch.transmission.method).indexOf('伏吟')>=0) forma='伏吟';
+    else if(String(ch.transmission.method).indexOf('返吟')>=0) forma='返吟';
+    if(!forma) continue;
+    const cDS=H(palDS);
+    const B={ 'ramo del MESE':H(r.monthBranchUsed), 'stelo del MESE':H(palMS),
+              "ramo dell'ANNO":H(r.yearBranchUsed), "stelo dell'ANNO":H(palYS) };
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed, palazzoHost:ph,
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, ramoMese:r.monthBranchUsed||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:S.yearStem||null };
+    const v=MD.leggi(carta);
+    const pt=r.dayStemUsed+r.dayBranchUsed+'|'+r.oraBranch+'|'+gm;
+    CASELLE.forEach((cs,i)=>{
+      if(cs.forma!==forma) return;
+      const b=B[cs.bers]; if(!b) return;
+      if(rel(cDS,b)!==cs.rel) return;
+      const ok = cs.dir==='LONG' ? r.move>0 : r.move<0;
+      add(ST[i].tot, ok, r, pt, null);
+      if(v && v.dir) add(ST[i].lette, ok, r, pt, v.via+'  ['+v.dir+']');
+      else add(ST[i].mute, ok, r, pt, null);
+    });
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  const z=(o)=>o.n?Math.abs((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
+  const riga=(et,o)=>et.padEnd(14)+'n '+String(o.n).padStart(4)+'  piatti '+String(o.pt.size).padStart(4)+
+    '  giuste '+pc(o.w,o.n).padStart(7)+'  z '+String(z(o)).padStart(5)+'  '+String(Math.round(o.p)).padStart(6)+
+    ' pip   vec '+pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7);
+  console.log('\n=== I QUATTRO PILASTRI — le cinque caselle, scomposte — soglia '+SOG+' ===');
+  console.log('(cio\' che cavalca lo stelo del giorno = R1, contro cio\' che cavalca il bersaglio)');
+  CASELLE.forEach((cs,i)=>{
+    console.log('\n['+cs.id+'] '+cs.forma+' · il giorno '+cs.rel+' chi cavalca il '+cs.bers+'  →  '+cs.dir);
+    console.log(riga('  TOTALE', ST[i].tot));
+    console.log(riga('  già lette', ST[i].lette));
+    console.log(riga('  MUTE', ST[i].mute));
+    if(process.env.QPVIE && ST[i].lette.n){
+      const vv=Object.keys(ST[i].lette.vie).sort((a,b)=>ST[i].lette.vie[b].n-ST[i].lette.vie[a].n);
+      for(const k of vv) console.log('      · '+k.padEnd(64)+'n '+String(ST[i].lette.vie[k].n).padStart(3)+'  '+pc(ST[i].lette.vie[k].w,ST[i].lette.vie[k].n)); }
+  });
+}
+
+
+// QPSCAN — S40, 07/09/2026: la scansione dell'impianto dei quattro pilastri fatta
+// SOLO sulle carte che il motore lascia mute. Cinque bersagli per sei relazioni = 30
+// caselle per forma. Sul dataset intero le carte gia' lette gonfiano il risultato
+// (vedi le cinque caselle di S39); qui una casella che regge e' volume vero.
+// QPSCAN=1 · NMIN=<n minimo, default 25> · TOP=<righe, default 20>
+if (process.env.QPSCAN) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||20);
+  const R=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const PAL={'甲':'寅','乙':'辰','丙':'巳','戊':'巳','丁':'未','己':'未','庚':'申','辛':'戌','壬':'亥','癸':'丑'};
+  const ER=MD.EL_RAMO, GE=MD.GENERA, CO=MD.CONTROLLA;
+  const rel=(a,b)=>{ if(a===b) return 'stesso ramo'; const A=ER[a],B=ER[b];
+    if(A===B) return '比和'; if(GE[A]===B) return 'GENERA'; if(GE[B]===A) return "E' GENERATO";
+    if(CO[A]===B) return 'CONTROLLA'; return "E' CONTROLLATO"; };
+  const M={}; const CONTA={};
+  const add=(k,r,pt)=>{ M[k]=M[k]||{n:0,up:0,p:0,pt:new Set(),ve:{n:0,up:0},re:{n:0,up:0}};
+    const o=M[k]; o.n++; if(r.move>0){o.up++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move); o.pt.add(pt);
+    const per=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(per){per.n++; if(r.move>0)per.up++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const S=steliPerPrincipi(r); if(!S.monthStem||!S.yearStem) continue;
+    const palDS=PAL[r.dayStemUsed], palMS=PAL[S.monthStem], palYS=PAL[S.yearStem];
+    if(!palDS||!palMS||!palYS) continue;
+    const sh=((R.indexOf(gm)-R.indexOf(r.oraBranch))%12+12)%12;
+    const H=e=>R[(R.indexOf(e)+sh)%12];
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const ph=(L[0].bottom.branch||L[0].bottom);
+    const met=String(ch.transmission.method);
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed, palazzoHost:ph,
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:met, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, ramoMese:r.monthBranchUsed||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:S.yearStem||null };
+    if (MD.leggi(carta).dir) continue;                 // la carta e' gia' letta: fuori
+    let forma='senza attore';
+    if(ph===r.dayBranchUsed) forma='八專';
+    else if(met.indexOf('伏吟')>=0) forma='伏吟';
+    else if(met.indexOf('返吟')>=0) forma='返吟';
+    else if(met.indexOf('昴星')>=0) forma=['乙','丁','己','辛','癸'].includes(r.dayStemUsed)?'冬蛇掩目':'虎視轉蓬';
+    CONTA[forma]=(CONTA[forma]||0)+1;
+    const cDS=H(palDS);
+    const B={ 'ramo del MESE':H(r.monthBranchUsed), 'stelo del MESE':H(palMS),
+              "ramo dell'ANNO":H(r.yearBranchUsed), "stelo dell'ANNO":H(palYS),
+              "l'ORA (generale)":gm };
+    const pt=r.dayStemUsed+r.dayBranchUsed+'|'+r.oraBranch+'|'+gm;
+    for(const k of Object.keys(B)){ const b=B[k]; if(!b) continue;
+      add(forma+' · il giorno '+rel(cDS,b)+' chi cavalca '+k, r, pt); }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  const NMIN=Number(process.env.NMIN||25);
+  const righe=Object.keys(M).filter(k=>M[k].n>=NMIN)
+    .map(k=>{const o=M[k]; const up=o.up/o.n; const long=up>=0.5;
+      return {k,o,perc:long?up:1-up,verso:long?'LONG':'SHORT',pip:long?o.p:-o.p,
+              z:Math.abs((o.up-o.n/2)/(0.5*Math.sqrt(o.n)))};})
+    .sort((a,b)=>b.perc-a.perc);
+  console.log('\n=== QUATTRO PILASTRI, SOLO CARTE MUTE — soglia '+SOG+' · n>='+NMIN+' ===');
+  console.log('carte mute per forma: '+Object.keys(CONTA).sort((a,b)=>CONTA[b]-CONTA[a]).map(k=>k+' '+CONTA[k]).join(' · '));
+  console.log('caselle sopra n minimo: '+righe.length+' (scansione: 5 bersagli x 6 relazioni per forma)');
+  for(const x of righe.slice(0,Number(process.env.TOP||20))){const o=x.o;
+    const vw=x.verso==='LONG'?o.ve.up:o.ve.n-o.ve.up, rw=x.verso==='LONG'?o.re.up:o.re.n-o.re.up;
+    console.log(x.k.padEnd(56)+'n '+String(o.n).padStart(3)+'  pt '+String(o.pt.size).padStart(3)+'  '+x.verso.padStart(5)+' '+
+      (100*x.perc).toFixed(2).padStart(6)+'%  z '+x.z.toFixed(2).padStart(5)+'  '+String(Math.round(x.pip)).padStart(6)+
+      ' pip   vec '+pc(vw,o.ve.n).padStart(7)+'/'+String(o.ve.n).padStart(3)+'  rec '+pc(rw,o.re.n).padStart(7)+'/'+String(o.re.n).padStart(3)); }
+}
+
+
+// QPAPP — S40, 07/09/2026: le due regole nuove (via 46 · lo stelo del giorno controlla il
+// ramo del mese; via 47 · il giorno genera chi cavalca il ramo del mese) applicate alle
+// carte che restano MUTE, forma per forma. Serve a vedere se sono regole del 返吟 soltanto
+// o se parlano anche altrove. Verso preso come lo trova la misura, non imposto.
+if (process.env.QPAPP) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||20);
+  const R=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const PAL={'甲':'寅','乙':'辰','丙':'巳','戊':'巳','丁':'未','己':'未','庚':'申','辛':'戌','壬':'亥','癸':'丑'};
+  const ES=MD.EL_STELO, ER=MD.EL_RAMO, GE=MD.GENERA, CO=MD.CONTROLLA;
+  const M={}, CONTA={};
+  const add=(k,r,pt)=>{ M[k]=M[k]||{n:0,up:0,p:0,pt:new Set(),ve:{n:0,up:0},re:{n:0,up:0}};
+    const o=M[k]; o.n++; if(r.move>0){o.up++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move); o.pt.add(pt);
+    const per=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(per){per.n++; if(r.move>0)per.up++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const S=steliPerPrincipi(r); if(!S.monthStem||!S.yearStem) continue;
+    const palDS=PAL[r.dayStemUsed]; if(!palDS) continue;
+    const sh=((R.indexOf(gm)-R.indexOf(r.oraBranch))%12+12)%12;
+    const H=e=>R[(R.indexOf(e)+sh)%12];
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const ph=(L[0].bottom.branch||L[0].bottom); const met=String(ch.transmission.method);
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed, palazzoHost:ph,
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:met, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, ramoMese:r.monthBranchUsed||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:S.yearStem||null };
+    if (MD.leggi(carta).dir) continue;
+    let forma='senza attore';
+    if(ph===r.dayBranchUsed) forma='八專';
+    else if(met.indexOf('伏吟')>=0) forma='伏吟';
+    else if(met.indexOf('返吟')>=0) forma='返吟';
+    else if(met.indexOf('昴星')>=0) forma=['乙','丁','己','辛','癸'].includes(r.dayStemUsed)?'冬蛇掩目':'虎視轉蓬';
+    CONTA[forma]=(CONTA[forma]||0)+1;
+    const pt=r.dayStemUsed+r.dayBranchUsed+'|'+r.oraBranch+'|'+gm;
+    const cav=H(r.monthBranchUsed);
+    if (CO[ES[r.dayStemUsed]] === ER[r.monthBranchUsed]) add(forma+' · [46] lo stelo del giorno controlla il ramo del mese', r, pt);
+    if (ER[carta.R1] !== ER[cav] && GE[ER[carta.R1]] === ER[cav])  add(forma+' · [47] il giorno genera chi cavalca il ramo del mese', r, pt);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  const NMIN=Number(process.env.NMIN||12);
+  console.log('\n=== LE DUE REGOLE NUOVE SULLE CARTE ANCORA MUTE — soglia '+SOG+' · n>='+NMIN+' ===');
+  console.log('carte mute per forma: '+Object.keys(CONTA).sort((a,b)=>CONTA[b]-CONTA[a]).map(k=>k+' '+CONTA[k]).join(' · '));
+  const righe=Object.keys(M).filter(k=>M[k].n>=NMIN).sort();
+  for(const k of righe){ const o=M[k]; const up=o.up/o.n, long=up>=0.5;
+    const perc=long?up:1-up, verso=long?'LONG':'SHORT', pip=long?o.p:-o.p;
+    const z=Math.abs((o.up-o.n/2)/(0.5*Math.sqrt(o.n)));
+    const vw=long?o.ve.up:o.ve.n-o.ve.up, rw=long?o.re.up:o.re.n-o.re.up;
+    console.log(k.padEnd(62)+'n '+String(o.n).padStart(3)+'  pt '+String(o.pt.size).padStart(3)+'  '+verso.padStart(5)+' '+
+      (100*perc).toFixed(2).padStart(6)+'%  z '+z.toFixed(2).padStart(5)+'  '+String(Math.round(pip)).padStart(6)+
+      ' pip   vec '+pc(vw,o.ve.n).padStart(7)+'/'+String(o.ve.n).padStart(3)+'  rec '+pc(rw,o.re.n).padStart(7)+'/'+String(o.re.n).padStart(3)); }
+}
+
+
+// QSEME — S40, 07/09/2026, idea di Edu: il SEME diviso per 60 da' un pilastro del ciclo
+// sessagesimale (seme 153 -> pilastro 33 = 丙申). Lo stelo di quel pilastro vota LONG,
+// il ramo vota SHORT: vince chi controlla l'altro (丙 Fuoco controlla 申 Metallo -> LONG).
+// Misurato sulle sole carte MUTE, con controprova sul dataset intero.
+if (process.env.QSEME) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||20);
+  const STELI=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const RAMI =['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const ES=MD.EL_STELO, ER=MD.EL_RAMO, GE=MD.GENERA, CO=MD.CONTROLLA;
+  const M={}, CONTA={};
+  const add=(k,ok,r,pt)=>{ M[k]=M[k]||{n:0,w:0,p:0,pt:new Set(),ve:{n:0,w:0},re:{n:0,w:0}};
+    const o=M[k]; o.n++; if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move); o.pt.add(pt);
+    const per=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(per){per.n++; if(ok)per.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG) continue;
+    const seme=r.seedUsed; if(seme==null) continue;
+    let p = seme % 60; if(p===0) p=60;
+    const st=STELI[(p-1)%10], ra=RAMI[(p-1)%12];
+    const A=ES[st], B=ER[ra]; if(!A||!B) continue;
+    let rel, dir=null;
+    if(A===B) rel='比和 (pari)';
+    else if(CO[A]===B){ rel='lo stelo CONTROLLA il ramo'; dir='LONG'; }
+    else if(CO[B]===A){ rel='il ramo CONTROLLA lo stelo'; dir='SHORT'; }
+    else if(GE[A]===B) rel='lo stelo GENERA il ramo';
+    else rel='il ramo GENERA lo stelo';
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const S=steliPerPrincipi(r);
+    const ph=(L[0].bottom.branch||L[0].bottom); const met=String(ch.transmission.method);
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed, palazzoHost:ph,
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:met, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, ramoMese:r.monthBranchUsed||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(S&&S.yearStem)||null };
+    const muta = !MD.leggi(carta).dir;
+    let forma='resto';
+    if(ph===r.dayBranchUsed) forma='八專';
+    else if(met.indexOf('伏吟')>=0) forma='伏吟';
+    else if(met.indexOf('返吟')>=0) forma='返吟';
+    else if(met.indexOf('昴星')>=0) forma='昴星';
+    const pt=r.dayStemUsed+r.dayBranchUsed+'|'+r.oraBranch+'|'+gm;
+    const su=r.move>0;
+    const dove = muta?'MUTE':'gia lette';
+    if(muta) CONTA[forma]=(CONTA[forma]||0)+1;
+    // riga per relazione (verso preso come lo trova la misura: giusto = LONG)
+    add(dove+' · '+rel, su, r, pt);
+    // la regola di Edu: parla solo quando uno controlla l'altro
+    if(dir) add(dove+' · REGOLA DEL SEME ('+dir+')', dir==='LONG'?su:!su, r, pt);
+    if(dir && muta) add('   MUTE per forma · '+forma+' · regola del seme', dir==='LONG'?su:!su, r, pt);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  const NMIN=Number(process.env.NMIN||15);
+  console.log('\n=== IL SEME DIVISO PER 60 — lo stelo vota LONG, il ramo vota SHORT — soglia '+SOG+' ===');
+  console.log('carte mute per forma: '+Object.keys(CONTA).sort((a,b)=>CONTA[b]-CONTA[a]).map(k=>k+' '+CONTA[k]).join(' · '));
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<NMIN) continue;
+    const z=Math.abs((o.w-o.n/2)/(0.5*Math.sqrt(o.n)));
+    console.log(k.padEnd(50)+'n '+String(o.n).padStart(4)+'  pt '+String(o.pt.size).padStart(4)+'  giuste '+
+      pc(o.w,o.n).padStart(7)+'  z '+z.toFixed(2).padStart(5)+'  '+String(Math.round(o.p)).padStart(6)+
+      ' pip   vec '+pc(o.ve.w,o.ve.n).padStart(7)+'/'+String(o.ve.n).padStart(4)+'  rec '+pc(o.re.w,o.re.n).padStart(7)+'/'+String(o.re.n).padStart(4)); }
+}
+
+
+// POLARITA — S40, 07/09/2026, dubbio di Edu: tutto il motore e' costruito su "lo stelo
+// del giorno (host) e' il LONG, il ramo del giorno (guest) e' lo SHORT". Il pilastro del
+// seme e' risultato rovesciato. Qui si misura la polarita' NUDA, senza catena e senza vie:
+// chi controlla chi dentro un pilastro (o dentro l'asse host/guest del piatto), e da che
+// parte va il mercato. Verso preso come lo trova la misura: "giuste" = quante volte LONG.
+// POLARITA=1 · POLFORMA=1 per lo spaccato per forma · NMIN=<n minimo, default 60>
+if (process.env.POLARITA) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||20);
+  const STELI=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+  const RAMI =['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const PAL={'甲':'寅','乙':'辰','丙':'巳','戊':'巳','丁':'未','己':'未','庚':'申','辛':'戌','壬':'亥','癸':'丑'};
+  const ES=MD.EL_STELO, ER=MD.EL_RAMO, GE=MD.GENERA, CO=MD.CONTROLLA;
+  // rel(A,B) col primo termine nel ruolo che la dottrina chiama "host"
+  const rel=(A,B)=>{ if(A===B) return 'pari (stesso elemento)';
+    if(CO[A]===B) return 'lo HOST controlla il guest';
+    if(CO[B]===A) return 'il guest controlla lo HOST';
+    if(GE[A]===B) return 'lo HOST genera il guest';
+    return 'il guest genera lo HOST'; };
+  const M={};
+  const add=(k,r,pt)=>{ M[k]=M[k]||{n:0,up:0,p:0,pt:new Set(),ve:{n:0,up:0},re:{n:0,up:0}};
+    const o=M[k]; o.n++; if(r.move>0){o.up++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move); o.pt.add(pt);
+    const per=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(per){per.n++; if(r.move>0)per.up++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const S=steliPerPrincipi(r);
+    const ph=(L[0].bottom.branch||L[0].bottom); const met=String(ch.transmission.method);
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed, palazzoHost:ph,
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:met, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, ramoMese:r.monthBranchUsed||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null),
+      ramoAnno:r.yearBranchUsed||null, steloAnno:(S&&S.yearStem)||null };
+    const letta = !!MD.leggi(carta).dir;
+    const pt=r.dayStemUsed+r.dayBranchUsed+'|'+r.oraBranch+'|'+gm;
+    const ASSI={};
+    // 1. il pilastro del giorno nudo: stelo contro ramo
+    ASSI['1. pilastro del GIORNO  (stelo vs ramo)'] = [ES[r.dayStemUsed], ER[r.dayBranchUsed]];
+    // 2. l'asse host/guest del piatto: R1 (sopra lo stelo) contro R3 (sopra il ramo)
+    ASSI['2. asse del PIATTO      (R1 vs R3)']      = [ER[carta.R1], ER[carta.R3]];
+    // 3. il palazzo dello stelo contro il ramo del giorno
+    ASSI['3. palazzo dello stelo  (寄宮 vs ramo)']  = [ER[PAL[r.dayStemUsed]], ER[r.dayBranchUsed]];
+    // 4. il pilastro del SEME, per confronto
+    if(r.seedUsed!=null){ let p=r.seedUsed%60; if(p<=0)p+=60;
+      ASSI['4. pilastro del SEME    (stelo vs ramo)'] = [ES[STELI[(p-1)%10]], ER[RAMI[(p-1)%12]]]; }
+    // 5. il pilastro del MESE e 6. quello dell'ANNO, come controprova
+    if(S&&S.monthStem) ASSI['5. pilastro del MESE    (stelo vs ramo)'] = [ES[S.monthStem], ER[r.monthBranchUsed]];
+    if(S&&S.yearStem)  ASSI['6. pilastro dell\'ANNO   (stelo vs ramo)'] = [ES[S.yearStem], ER[r.yearBranchUsed]];
+    let forma='resto';
+    if(ph===r.dayBranchUsed) forma='八專';
+    else if(met.indexOf('伏吟')>=0) forma='伏吟';
+    else if(met.indexOf('返吟')>=0) forma='返吟';
+    else if(met.indexOf('昴星')>=0) forma='昴星';
+    for(const k of Object.keys(ASSI)){ const [A,B]=ASSI[k]; if(!A||!B) continue;
+      add(k+'  ·  '+rel(A,B), r, pt);
+      if(process.env.POLDOVE) add(k+'  ·  '+rel(A,B)+'  ['+(letta?'lette':'MUTE')+']', r, pt);
+      if(process.env.POLFORMA) add(k+'  ·  '+rel(A,B)+'  {'+forma+'}', r, pt); }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  const NMIN=Number(process.env.NMIN||60);
+  console.log('\n=== LA POLARITA NUDA — quante volte il mercato va LONG — soglia '+SOG+' · n>='+NMIN+' ===');
+  console.log('(lettura attuale del motore: lo HOST vince = LONG. Se la polarita fosse rovesciata,');
+  console.log(' le righe "lo HOST controlla il guest" starebbero sotto il 50%.)');
+  for(const k of Object.keys(M).sort()){ const o=M[k]; if(o.n<NMIN) continue;
+    const up=o.up/o.n; const z=Math.abs((o.up-o.n/2)/(0.5*Math.sqrt(o.n)));
+    console.log(k.padEnd(64)+'n '+String(o.n).padStart(4)+'  pt '+String(o.pt.size).padStart(4)+'  LONG '+
+      (100*up).toFixed(2).padStart(6)+'%  z '+z.toFixed(2).padStart(5)+'  '+String(Math.round(o.p)).padStart(6)+
+      ' pip   vec '+pc(o.ve.up,o.ve.n).padStart(7)+'/'+String(o.ve.n).padStart(4)+'  rec '+pc(o.re.up,o.re.n).padStart(7)+'/'+String(o.re.n).padStart(4)); }
+}
+
+
+// POLVIA — S40, 07/09/2026: l'asse controllo/generazione del PILASTRO DEL GIORNO messo
+// sopra il verdetto del motore. Serve a capire se e' un attore di secondo livello (aggiunge
+// informazione a cio' che il motore gia' dice) o se il motore lo contiene gia'.
+if (process.env.POLVIA) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||20);
+  const ES=MD.EL_STELO, ER=MD.EL_RAMO, GE=MD.GENERA, CO=MD.CONTROLLA;
+  const M={};
+  const add=(k,ok,r)=>{ M[k]=M[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}};
+    const o=M[k]; o.n++; if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const per=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(per){per.n++; if(ok)per.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const S=steliPerPrincipi(r);
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
+      palazzoHost:(L[0].bottom.branch||L[0].bottom),
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:String(ch.transmission.method), vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, ramoMese:r.monthBranchUsed||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null),
+      ramoAnno:r.yearBranchUsed||null, steloAnno:(S&&S.yearStem)||null };
+    const v=MD.leggi(carta); if(!v.dir) continue;
+    const A=ES[r.dayStemUsed], B=ER[r.dayBranchUsed]; if(!A||!B) continue;
+    let asse; if(A===B) asse='pari';
+      else if(CO[A]===B||CO[B]===A) asse='CONTROLLO';
+      else asse='GENERAZIONE';
+    const su=r.move>0, ok=(v.dir==='LONG')===su;
+    add('motore '+v.dir.padEnd(5)+' · pilastro in '+asse, ok, r);
+    add('motore (tutto)  · pilastro in '+asse, ok, r);
+    // controprova: il motore concorda o no con l'asse? (asse: controllo=SHORT, generazione=LONG)
+    if(asse!=='pari'){ const dirAsse = asse==='CONTROLLO' ? 'SHORT' : 'LONG';
+      add('motore '+(v.dir===dirAsse?'D\'ACCORDO con l\'asse':'CONTRO l\'asse')+'    ', ok, r); }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== L\'ASSE DEL PILASTRO DEL GIORNO SOPRA IL MOTORE — soglia '+SOG+' ===');
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log(k.padEnd(46)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+'  z '+String(z).padStart(6)+
+      '  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
 }

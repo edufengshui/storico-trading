@@ -1456,3 +1456,98 @@ resta sotto soglia. Con la EMA a 30 giorni peggiora (51,85%).
 
 **Regolarità confermata per la quinta volta in S39:** chiedere alla carta il verso
 funziona (60-63%), chiederle di filtrare un trend no (50-53%).
+
+---
+
+# S40 — 07/09/2026 · Candidati aperti e filoni chiusi
+
+## Candidati APERTI
+
+**伏吟 · lo stelo del giorno controlla il ramo del mese → LONG.**
+È la stessa regola della via 46, applicata al ronzio nascosto invece che a quello che
+torna, e con il verso opposto. In coda, sotto le 八專 e sotto la via 47:
+14 carte · 9 piatti · 64,29% · z 1,07 · +317 pip · vec 71,43%/7 · rec 57,14%/7.
+Sopra le 八專 ne prende 22 ma ruba otto carte a tre vie 八專: va in coda.
+Passa la regola dei 55% su entrambi i periodi, ma sono nove piatti e sette carte per
+periodo: la più sottile della sessione. Misurata e non cablata, in attesa di decisione.
+n per z 4: circa 196 carte.
+Interesse dottrinale: sarebbe il **terzo** caso in cui la stessa misura dà versi opposti
+fra 伏吟 e 返吟, dopo la stagione (vie 44/45) e il controllo dallo stelo (via 46).
+
+**seme · il ramo controlla lo stelo → LONG.**
+L'altra metà della regola del seme, misurata e lasciata fuori dal motore:
+84 carte · 76 piatti · 54,76% · z 0,87 · −184 pip · vec 66,67%/33 · rec 53,49%/43.
+Cablandola il motore scende da 60,81% a 60,59% e perde 1.261 pip. Da riprendere solo se
+compare una lettura che spieghi perché quella metà è muta mentre l'altra parla.
+n per z 4: circa 1.764 carte.
+
+**返吟 · il giorno controlla chi cavalca l'ora (il generale) → LONG.**
+Da sola vale 28 carte al 67,86% · z 1,89 · +288 pip · vec 63,64%/11 · rec 66,67%/15,
+esattamente come la via 47. Ma provate insieme le due aggiungono 38 carte, non 56: sono
+in gran parte le stesse carte. Sotto la via 47 le restano 10 carte al 70,00%.
+Non è un filone a sé, è la stessa cosa vista da un altro lato. Archiviata come
+sovrapposta, non come candidato indipendente.
+
+## Filoni CHIUSI in S40 (non riaprire senza un motivo nuovo)
+
+**Le cinque caselle dei quattro pilastri misurate in S39.** Rimisurate con l'anno incluso
+e scomposte fra carte già lette e carte mute (totale → già lette → mute):
+- 八專 · il giorno GENERA chi cavalca il ramo del mese → LONG:
+  57 al 63,16% → 34 al 67,65% → **23 al 56,52%**, vecchio 45,45%
+- 伏吟 · il giorno È CONTROLLATO da chi cavalca il ramo del mese → LONG:
+  53 al 62,26% → 37 al 62,16% → **16 al 62,50%**, ma vecchio 80,00% su 5 e recente 50,00%
+- 返吟 · il giorno CONTROLLA chi cavalca lo stelo del mese → SHORT:
+  54 al 61,11% → 32 al 68,75% → **22 al 50,00%**
+- 返吟 · il giorno GENERA chi cavalca il ramo dell'anno → SHORT:
+  70 al 60,00% → 47 al 65,96% → **23 al 47,83%**, recente 22,22%
+- 八專 · il giorno CONTROLLA chi cavalca il ramo dell'anno → LONG:
+  69 al 60,87% → 47 al 63,83% → **22 al 54,55%**, vecchio 50,00%
+
+Motivo della chiusura: **il volume sta nelle carte che il motore legge già, e quasi sempre
+nello stesso verso.** Nelle due 返吟 la sovrapposizione è totale — le 32 e le 47 carte
+già lette sono tutte via 44 e via 46, tutte SHORT. Tolte le carte già lette, quattro
+caselle su cinque scendono fra il 47% e il 56%.
+
+**Regola metodologica che ne esce, e che vale da qui in avanti:** una casella misurata su
+una forma va **sempre** scomposta fra carte già lette e carte mute prima di proporne il
+cablaggio, e la scansione va fatta direttamente sulle sole carte mute. Sul dataset intero
+le carte già lette gonfiano il risultato e fanno sembrare nuovo ciò che è un'eco.
+
+**Le due regole nuove (46 e 47) applicate alle altre forme mute.** Non viaggiano:
+- 八專 · [47] il giorno genera chi cavalca il ramo del mese: 23 carte, LONG 56,52%,
+  vecchio 45,45% (è la casella già scartata in S39)
+- 八專 · [46] lo stelo del giorno controlla il ramo del mese: 14 carte, SHORT 57,14%,
+  vecchio 50,00%
+- 伏吟 · [47]: 15 carte, LONG 53,33%, vecchio 33,33%
+- carte senza attore · [46]: 13 carte, SHORT 69,23% ma **−38 pip**: azzecca spesso e
+  perde soldi, le poche sbagliate sono le grosse. Il pip smentisce la percentuale.
+
+**L'asse controllo/generazione del pilastro del giorno come via.** L'asse esiste (vedi il
+registro), ma il motore lo contiene già e cablarlo lo distrugge:
+- messo sopra il verdetto del motore non separa niente: pilastro in controllo 60,93% su
+  1318, in generazione 60,25% su 1298, pari 58,95% su 631, contro un motore al 60,81%.
+  Anzi, quando il motore **contraddice** l'asse è giusto il 61,06%, quando è d'accordo il
+  60,38%: un attore di secondo livello vero fa il contrario.
+- cablato in testa alla catena: motore da 3253 al 60,81% e +41.467 pip a **3375 al 56,39%
+  e +27.321 pip**. Prende 122 carte a vie che le leggono venti punti meglio.
+- cablato in coda: restano dodici carte (nove sulla generazione, tre sul controllo).
+  La via 50 col seme ha già preso quasi tutto il muto.
+
+**La polarità host/guest come fonte del segnale.** L'asse R1 contro R3 — l'assioma su cui
+è costruito il motore — sta a zero: cinque caselle fra 48,35% e 53,32% su 3.475 carte,
+nessuna con z sopra 1,82. Chiuso come domanda: la polarità non porta segnale, quindi non
+può averne rovesciato nessuno. Il valore del motore è tutto nelle singole vie.
+
+## Regolarità da ricordare
+
+**Una regola vera può distruggere valore se messa nel posto sbagliato — terza e quarta
+conferma.** Via 46 sopra le 八專: da 69,70% a 63,89% e da +315 a −109 pip. Asse del giorno
+in testa: −4,4 punti e −14.146 pip. Si aggiungono alla via 40 sopra la 37 e all'incrocio
+del mese in testa, entrambe di S39.
+
+**La percentuale e il pip possono dire cose opposte.** Le carte senza attore col controllo
+dello stelo stanno al 69,23% e perdono 38 pip. Guardare sempre tutti e due.
+
+**Il segnale nuovo si cerca sulle carte mute, non sul dataset.** Vale per tutta S40: le
+tre vie cablate sono nate lì, e le cinque caselle di S39 sono morte appena tolte le carte
+già lette.
