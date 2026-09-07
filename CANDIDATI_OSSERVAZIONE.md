@@ -1409,3 +1409,50 @@ torna al 49%.
 **Una regola vera può distruggere valore se messa nel posto sbagliato.** Via 40 sopra la
 37: da 65,71% a 54,55%. Incrocio del mese in testa: −479 pip. Va sempre misurata sulla
 posizione reale in catena, non sul perimetro isolato.
+
+## S39 — coda: l'impianto dottrinale dei quattro pilastri (da riprendere in S40)
+
+Edu, 07/09/2026: il **giorno** è l'energia del giorno nelle sue parti host e guest; il
+**mese** è l'influenza generale dei trader, incluso il trend che il mercato segue;
+l'**anno** è l'influenza degli istituzionali, banche e governi; l'**ora** è l'onda
+emotiva del momento. Le relazioni non vanno lette stelo contro stelo o ramo contro ramo,
+ma incrociate passando dai **rami ospitati** (寄宮) negli steli, e soprattutto guardando
+**ciò che cavalca** ogni pilastro — cioè il ramo del cielo sopra il suo palazzo.
+Ciò che cavalca lo stelo del giorno è per costruzione R1.
+
+Misurato su tutto il dataset, il bersaglio che parla è l'ANNO, non il mese:
+il giorno che controlla chi cavalca il ramo dell'anno → LONG 54,29% su 652 carte e
+569 piatti, z 2,19, vecchio 54,34 / recente 53,73. Il mese non arriva (53,11%).
+
+Dentro le forme mute (30 caselle scandite per forma, quindi soglia effettiva più alta):
+- 八專 · il giorno GENERA chi cavalca il ramo del mese → LONG 63,16% · 57 carte · 47 piatti
+- 伏吟 · il giorno È CONTROLLATO da chi cavalca il ramo del mese → LONG 62,26% · 53 · 42
+- 返吟 · il giorno CONTROLLA chi cavalca lo stelo del mese → SHORT 61,11% · 54 · 44
+- 返吟 · il giorno GENERA chi cavalca il ramo dell'anno → SHORT 60,00% · 70 · 62
+- 八專 · il giorno CONTROLLA chi cavalca il ramo dell'anno → LONG 60,87% · 69 · 58
+
+**Perché non è stata cablata la prima.** Delle 57 carte, 34 il motore le legge già, e
+meglio: 75% con l'ora G, 75% su 丁未, 66,67% su 甲寅 e col G dal lato guest — tutte LONG,
+stessa direzione. Il volume nuovo sono 23 carte mute: 19 piatti, 56,52% LONG, ma
+**vecchio 45,45%** contro recente 72,73%. Sotto il 50% nella prima metà.
+Regola generale che questo episodio conferma: una casella misurata su una forma va sempre
+scomposta fra carte già lette e carte mute prima di proporne il cablaggio.
+
+**La sintesi "vince il giorno → SHORT, vincono gli altri → LONG" non regge.**
+Raggruppando le cinque relazioni in vincitore/perdente i numeri crollano a 50-57% e in
+tre forme su quattro le due caselle danno lo STESSO verso: 八專 entrambe LONG (55,56 e
+56,90), 返吟 entrambe SHORT (54,26 e 50,83). Si separa in due versi opposti solo nelle
+伏吟 contro il ramo del mese (giorno vince SHORT 55,56 / altro vince LONG 56,14), e lì
+ciascun lato cede in uno dei due periodi.
+Conclusione: generare non è perdere, è spendersi; essere controllati non è scaricarsi.
+Ogni relazione ha un verso proprio e cambia da forma a forma. Va cablata la singola
+relazione dentro la singola forma, mai la regola generale del vincitore.
+
+**Il mese come portatore del trend, con l'anno che conferma.** Se vince il mese il giorno
+segue la EMA, se vince il giorno non la segue: 52,03% su 2708 carte; con la conferma del
+ramo dell'anno sale a 53,53% su 1076 (vecchio 53,86 / recente 55,39). Il fatto che la
+conferma dell'anno MIGLIORI il risultato dà ragione alla stratificazione, ma il livello
+resta sotto soglia. Con la EMA a 30 giorni peggiora (51,85%).
+
+**Regolarità confermata per la quinta volta in S39:** chiedere alla carta il verso
+funziona (60-63%), chiederle di filtrare un trend no (50-53%).
