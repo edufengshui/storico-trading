@@ -1361,3 +1361,142 @@ quasi mai perde la sua informazione più onesta, cioè il silenzio, e la scala l
 già: il livello C — PB e LY concordi col DLR muto — è passato da 167 a 81 carte in una
 sola sessione. Prima di cablare altro volume conviene guardare che cosa succede alla
 scala, non solo al motore.
+
+---
+
+# S40 — seconda parte · Le gemelle, il Trend, e gli Spiriti
+
+## Il problema delle gemelle, misurato
+
+Stesso piatto, stesso giorno, cross diversi. Su 3.144 gruppi:
+- **2.833 gruppi da una carta sola** — motore 60,66% su 2.649 carte lette
+- **311 gruppi da due o più carte**, di cui **174 spaccati** (55,95%)
+- carte in gruppi concordi: 260 · **66,15%**
+- carte in gruppi spaccati: 338 · **52,66%** — lì il motore non può vincere: piatto identico,
+  verso identico, una carta giusta e una sbagliata per costruzione
+- 44 carte mute dentro i gruppi
+
+Sono 338 carte, il 9,7% del dataset, dove il motore lascia otto punti sul tavolo.
+
+**Che cosa NON separa le gemelle** (misurato dentro i gruppi spaccati):
+pilastro del seme, tutte e cinque le caselle fra 39,22% e 55,77% · seme pari/dispari 50,89% ·
+la EMA del cross 46,15% (dentro questi gruppi il mercato va contro il trend più spesso).
+
+**Che cosa separa:** il **Liu Yao**, perché nasce dall'esagramma del seme ed è quindi diverso
+per ogni cross anche a piatto identico. Dentro i gruppi spaccati 56,25% su 336 carte, z 2,29.
+Forma usabile ex ante (il piatto condiviso si sa in anticipo, lo spaccarsi no) su tutte le
+594 carte lette in gruppi da 2+:
+- il Liu Yao conferma il DLR: **310 carte · 65,48%** · z 5,45
+- il Liu Yao contraddice: **284 carte · 50,35%** — il DLR da solo vale una monetina
+
+**Ma la scala è già immune**, perché il livello A pretende già l'accordo del Liu Yao:
+scala su piatto unico 1221 al 68,39%, su piatto condiviso 249 al **66,27%**. Livello A 69,05%
+contro 71,43%; livello B 65,45% contro 65,07%; livello C su piatto condiviso 13 carte al 46,15%.
+Provata la regola "sul piatto condiviso il DLR conta solo col LY": mettere il DLR a tacere
+**peggiora** (1470 al 68,03% → 1574 al 66,71%), perché riammette il vecchio C2. Far stare
+ferme quelle carte cambia nove carte. L'unica variante utile è minuscola: fuori il livello C
+sul piatto condiviso, 1470 · 68,03% · +36.529 → **1457 · 68,22% · z 13,91 · +36.745**.
+
+**Conclusione:** le gemelle costano al motore, non al sistema. Il 60,81% è depresso dalle 338
+carte spaccate; il sistema che si tradia non le vede mai col DLR da solo.
+
+## Il Trend come lingua del motore — CHIUSO con tre prove
+
+Domanda di Edu: il DLR è l'unico dei tre che dice "sale o scende" invece di "segue o non
+segue il trend"; un piatto identico non può dare due versi, ma può dare due esiti se ciò che
+dice è relativo al trend del cross.
+
+**Prova 1 — traduzione via per via, col verso scelto dalla misura** (quindi generosa):
+3247 carte · lettura attuale **60,27%** e +40.080 pip · lettura a trend **54,54%** e +17.616.
+
+**Prova 2 — le due assegnazioni dottrinali, col verso dettato dalla regola:**
+- lo host vince → SEGUE il trend: **51,06%** · z 1,21 · vec 50,85 / rec 51,18
+- lo host vince → NON segue: 48,94% (è il complemento)
+Con il verso dichiarato in anticipo, come si deve, il segnale sparisce del tutto.
+
+**Prova 3 — l'ipotesi dell'immobilità.** Se il trend fosse la sola risposta che resta a una
+carta che dice "nessuno si muove", doveva funzionare sulle forme immobili. Famiglie dichiarate
+in anticipo per criterio dottrinale: immobilità 994 carte trend **51,01%** · scontro obbligato
+189 · **52,38%** · movimento 2064 · **50,97%**. Indistinguibili. Dentro l'immobilità le vie
+stanno fra 38,10% e 55%, sparse in tutte e due le direzioni.
+
+**La finestra della EMA non salva niente:** provate 3, 5, 8, 12, 20, 30, 45, 60, 90, 120 giorni.
+Il motore a trend va da 50,08% a 52,66%, e sale **monotonicamente** con la finestra — segno che
+non trova un trend ma scivola verso un bias di lungo periodo. Nessun massimo interno.
+
+**Quello che resta:** la **prosperità incrociata fra stelo e ramo** (祿 Lu, la posizione in cui
+lo stelo è a casa propria; incrociata = ciascun lato siede sulla prosperità dell'altro).
+65 carte: 61,54% letta sale/scende, **75,38%** letta come "lo host vince → segue il trend",
+vec 71,43% / rec 76,47%. E ha un **massimo di finestra** attorno ai 20 giorni (75,38% a 20,
+69,23% a 12, 70,77% a 30, 63,08% a 120): firma di un aggancio vero, non di un artefatto.
+Sui piatti condivisi compare solo 4 volte: la prova di non-contraddizione non è eseguibile.
+Isolata e non spiegata. NON cablata.
+
+## GLI SPIRITI — la scoperta della sessione
+
+Intuizione di Edu: uno Spirito potrebbe essere l'indicatore del Trend. Misura CRUDA, senza vie
+di mezzo: dove siede lo Spirito, e se il mercato ha seguito il trend. **Fondo del dataset: 48,40%.**
+
+**Il Nobile (貴人 Gui Ren), provato per primo: no.** In tutte le posizioni fra 48% e 52%.
+Unica cosa viva: sul terzo messaggio 255 carte al 43,14% (z −2,19, vec 44,12 / rec 44,44),
+cioè il mercato NON segue; e sul primo messaggio 45,83%. Il Nobile alla fine del movimento
+come segnale di rottura, debole.
+
+**Il Serpente (螣蛇 Teng She): sì.** Indicato da Edu prima di vedere i numeri.
+- su **R3** (il cielo sopra il ramo del giorno, la sua sede sul lato del guest) → il mercato
+  **segue** il trend: 291 carte · 55,67% · vec 59,84 / rec 54,93
+- su **R4** (un gradino oltre) → **non segue**: 460 carte · 43,04% · z −2,98 · vec 45,09 / rec 41,96
+- su R1 e R2 **tace**: 49,55% e 45,79%. Parla solo sul lato del guest.
+
+Regola come indicatore autonomo (R3 segue, R4 non segue):
+**655 carte · 506 piatti · 57,40% · z 3,79 · +4.609 pip · vec 58,08%/260 · rec 57,97%/345.**
+
+**Le Sei Unioni (六合 Liu He): sì, e indipendenti dal Serpente.** Trovate nella matrice.
+- su **R2** 42,1% e su **R3** 42,4%, due celle consecutive nello stesso verso → **non segue**
+Regola: **442 carte · 344 piatti · 57,24% · z 3,04 · +3.360 pip · vec 55,56% · rec 58,49%.**
+Sovrapposizione col Serpente: solo 78 carte su 442 (18%).
+
+**La matrice completa** — dodici Spiriti per sette posizioni (R1-R4, M1-M3) — è piatta:
+la stragrande maggioranza delle 84 celle sta entro tre punti dal fondo. Nessuno Spirito
+tranne il Serpente tiene lo stesso verso cambiando posizione: le Sei Unioni sono a 52,3 su R1
+e 42,1 su R2; la Grande Yin a 54,0 su R1 e 43,4 su M1. Cambiare segno cambiando sedia è la
+firma del rumore.
+
+## Che cosa gli Spiriti sono, e che cosa non sono
+
+**Non sono un quarto sistema.** Accordo Serpente / Liu Yao: 53,96% su 543 carte — quasi
+indipendenti, quindi l'informazione è loro. Ma quando contraddicono il Liu Yao perdono
+(47,20% contro 52,80%) e quando contraddicono il motore perdono (48,32% contro 51,68%).
+Non possono decidere da soli.
+
+**Non si sommano fra loro.** I due Spiriti parlano insieme solo su 73 carte; concordi 59, al
+57,63%, cioè come ciascuno da solo. Nessun rinforzo.
+
+**Non migliorano il livello A.** Livello A 730 carte al 70,96%; senza Spiriti 499 al 71,54%;
+con uno Spirito che conferma 140 al 72,86%; che contraddice 69 al 66,67%.
+
+**SONO un filtro sul motore, ed è lì che valgono.** Su tutte le carte in cui parla **un solo**
+Spirito e concorda col motore: **372 carte · 69,09% · z 7,36 · +9.229 pip · vec 68,06% ·
+rec 72,45%.** Quasi il livello A, senza usare né Plum Blossom né Liu Yao.
+Quando lo Spirito contraddice il motore, seguendo il motore si scende a 54,78% su 356 carte.
+
+Il Serpente in accordo col motore: 321 carte · 66,36%. Le Sei Unioni in accordo: 197 · 71,07%.
+
+## Il clash del primo messaggio sulla sede dello Spirito
+
+Lettura di Edu su due carte estreme (EURJPY 01/08/2024 e USDJPY 13/09/2022).
+- **Serpente su R3, primo messaggio che lo clasha:** 22 carte · 27,27% contro 57,99% senza
+  clash. Il verso è quello letto da Edu, ma il periodo vecchio sta su sei carte al 50%:
+  tutto il segnale viene dal recente. NON confermato.
+- **Serpente su R4, col clash:** 30 carte · 33,33% — rafforza il verso che la posizione ha già.
+- **Sei Unioni, col clash sulla sede:** 48 carte · **68,75%** contro 55,84% senza. Il clash
+  qui RAFFORZA invece di spegnere. Ipotesi (formulata dopo il numero, quindi debole): le Sei
+  Unioni sono lo Spirito del legame, e un clash che rompe il legame conferma la rottura.
+- Controprove: secondo messaggio 52,27%, terzo 56,78%, ora 57,33%. È specifico del primo.
+
+## L'idea "il trend ha casa sul ramo del giorno, il Maestro è R3" — NON confermata
+
+Se R3 fosse la sede del Trend, gli Spiriti seduti lì dovrebbero separarsi più che altrove.
+Dispersione fra i dodici Spiriti: R3 3,09 · R2 3,09 · R1 2,71 · R4 2,58. Scarto massimo:
+R3 13,28 punti, R2 11,96, R4 10,59, R1 9,48. Non c'è una sedia privilegiata.
+Il Serpente non è "lo Spirito in sede": è il Serpente, dovunque stia sul lato del guest.

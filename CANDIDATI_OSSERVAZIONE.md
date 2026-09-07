@@ -1551,3 +1551,113 @@ dello stelo stanno al 69,23% e perdono 38 pip. Guardare sempre tutti e due.
 **Il segnale nuovo si cerca sulle carte mute, non sul dataset.** Vale per tutta S40: le
 tre vie cablate sono nate lì, e le cinque caselle di S39 sono morte appena tolte le carte
 già lette.
+
+---
+
+# S40 — seconda parte · Gli Spiriti come indicatori del Trend
+
+## Candidati APERTI — i due Spiriti
+
+**Il Serpente (螣蛇 Teng She) come indicatore di trend.**
+Su R3 (cielo sopra il ramo del giorno) → il mercato SEGUE il trend.
+Su R4 (un gradino oltre) → NON segue. Su R1 e R2 tace.
+**655 carte · 506 piatti · 57,40% · z 3,79 · +4.609 pip · vec 58,08%/260 · rec 57,97%/345.**
+Bracci separati: R3 243 carte 57,20% (vec 59,81 / rec 59,48) · R4 412 carte 57,52% (56,86 / 57,21).
+Fondo del dataset 48,40%. n per z 4: circa 730 carte.
+NON cablato: sarebbe il primo verdetto relativo al trend dentro il motore, e cambierebbe la
+natura della parità e della scala. Da decidere se va nel motore o accanto ad esso.
+
+**Le Sei Unioni (六合 Liu He) come indicatore di trend.**
+Su R2 o su R3 → il mercato NON segue il trend.
+**442 carte · 344 piatti · 57,24% · z 3,04 · +3.360 pip · vec 55,56%/189 · rec 58,49%/212.**
+Bracci: R3 259 carte 56,76% (vec 50,88 debole / rec 60,33) · R2 166 carte 56,63% (62,69 / 54,12).
+Indipendenti dal Serpente: sovrapposizione 78 carte su 442.
+n per z 4: circa 770 carte.
+
+**La forma usabile di entrambi — UN SOLO Spirito che conferma il motore.**
+**372 carte · 69,09% · z 7,36 · +9.229 pip · vec 68,06% · rec 72,45%.**
+È il modo migliore trovato di usarli: non come giudici ma come filtro sul motore. Vale quasi
+quanto il livello A senza usare né Plum Blossom né Liu Yao. Da riguardare come possibile
+livello nuovo della scala.
+
+## Candidati APERTI — filtri, tutti su campioni piccoli
+
+**Il clash del primo messaggio sulla sede dello Spirito.**
+- Serpente su R3 clashato: 22 carte · 27,27% contro 57,99% senza clash. Verso letto da Edu.
+  Il periodo vecchio sta su SEI carte al 50%: non confermato, tutto il segnale è nel recente.
+- Sei Unioni clashate sulla sede: 48 carte · 68,75% contro 55,84%. Qui il clash RAFFORZA.
+  Meccanismo ipotizzato dopo il numero, quindi da trattare come sospetto.
+n per z 4 su entrambi: sopra le 200 carte. Riguardarli quando il campione cresce.
+
+**La prosperità incrociata fra stelo e ramo, letta a trend.**
+祿 (Lu) = la posizione in cui uno stelo è a casa propria; incrociata = ciascun lato siede sulla
+prosperità dell'altro. 65 carte: 61,54% come sale/scende, **75,38%** come "lo host vince →
+segue il trend", vec 71,43% / rec 76,47%.
+Ha un MASSIMO di finestra EMA attorno ai 20 giorni (69,23% a 12 giorni, 70,77% a 30, 63,08% a
+120): firma di un aggancio temporale vero, non di un artefatto.
+Ma: è l'unica via su cinquanta che guadagni con la lettura a trend, il verso è stato scelto sui
+suoi stessi dati, e sui piatti condivisi compare 4 volte soltanto — la prova di
+non-contraddizione non è eseguibile. **Isolata e non spiegata**, e la spiegazione più ovvia
+(il trend come lingua dell'immobilità) è già stata provata e scartata. NON cablare.
+
+**Il Nobile (貴人 Gui Ren) sul terzo messaggio.** 255 carte · il mercato segue solo il 43,14%,
+z −2,19, vec 44,12 / rec 44,44. Non è il Nobile come indicatore del trend: è il Nobile alla
+fine del movimento come segnale di rottura. Debole ma coerente. n per z 4: circa 850 carte.
+
+**Fuori dalla scala, il Serpente.** Sulle carte dove oggi il sistema sta fermo: 246 carte ·
+55,28% · +1.765 pip, ma vec 50,53% contro rec 59,26%: non passa la regola dei due periodi.
+È però l'unica cosa che dica qualcosa dove tutto il resto tace.
+
+**Il livello C sul piatto condiviso, da buttare fuori dalla scala.** 13 carte al 46,15%,
+−216 pip. Corretto dottrinalmente (col DLR muto e il piatto condiviso, PB e LY non hanno nulla
+che distingua i due cross) ma senza peso statistico: scala da 1470 · 68,03% · +36.529 a
+1457 · 68,22% · z 13,91 · +36.745.
+
+## Filoni CHIUSI in S40, seconda parte
+
+**Il Trend come lingua del motore.** Tre prove indipendenti:
+1. traduzione via per via col verso scelto dalla misura (generosa): 54,54% contro 60,27%
+2. le due assegnazioni dottrinali col verso dettato dalla regola: **51,06%**, cioè zero
+   informazione; l'altra assegnazione è il complemento, 48,94%
+3. l'ipotesi dell'immobilità: immobilità 51,01% · scontro 52,38% · movimento 50,97%,
+   indistinguibili
+Più: nessuna finestra EMA da 3 a 120 giorni porta il motore a trend vicino al 60%, e il fatto
+che migliori monotonicamente allungando la finestra dice che pesca un bias di lungo periodo,
+non un trend. **Il motore che abbiamo non si può convertire: se si vuole il Trend, va
+costruito, non tradotto.**
+
+**"Il trend ha casa sul ramo del giorno, il Maestro del Trend è R3".** Non confermata.
+Dispersione fra i dodici Spiriti per posizione: R3 3,09 · R2 3,09 · R1 2,71 · R4 2,58.
+Nessuna sedia privilegiata, e nessuno Spirito tranne il Serpente tiene lo stesso verso
+cambiando posizione.
+
+**I due Spiriti sommati.** Parlano insieme solo su 73 carte; concordi 59 al 57,63%, cioè come
+ciascuno da solo. Nessun rinforzo. Le celle a tre (Spiriti + motore) hanno 25 e 32 carte:
+aneddoti, non misure.
+
+**Gli Spiriti come rinforzo del livello A.** Livello A 730 al 70,96%; senza Spiriti 499 al
+71,54%; con Spirito concorde 140 al 72,86%; contrario 69 al 66,67%. Il livello A funziona già
+da solo.
+
+**Mettere a tacere il DLR sui piatti condivisi senza conferma del Liu Yao.** Peggiora la scala:
+1470 al 68,03% → 1574 al **66,71%**, z da 13,82 a 13,26, perché rende il DLR muto e riammette
+nel livello C esattamente le carte escluse il 05/09 (il vecchio C2), che scende da 81 al
+64,20% a 194 al 55,15%.
+
+**Il pilastro del seme come separatore delle gemelle.** Tutte e cinque le caselle fra 39,22% e
+55,77% dentro i gruppi spaccati. Niente. Idem seme pari/dispari (50,89%) e la EMA del cross
+(46,15%, cioè peggio del caso).
+
+## Regolarità da ricordare
+
+**Il verso va dichiarato prima di misurare.** La differenza fra il 54,54% e il 51,06% delle due
+prove sul Trend è tutta lì: nella prima il verso di ogni via è stato scelto guardando i suoi
+dati, nella seconda l'ha dettato la regola. Un verso scelto sui dati vale tre punti di regalo.
+
+**Una spiegazione costruita per far tornare un numero va provata, non accettata.** L'ipotesi
+del trend come lingua dell'immobilità è stata formulata per spiegare 65 carte ed è caduta alla
+prima misura per famiglie. È esattamente ciò che vieta il decimo principio.
+
+**Un'intuizione dichiarata prima dei numeri vale più di uno z.** Il Serpente è stato indicato
+da Edu prima di qualunque misura, su 108 caselle scandite. Questo cambia il conto delle prove
+più di qualsiasi correzione statistica.
