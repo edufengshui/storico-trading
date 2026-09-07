@@ -1306,3 +1306,106 @@ dozzina di piatti distinti prima di poter dire qualcosa.
 stesso giorno e può dare esiti opposti (12/09/2022 USDJPY +25 / USDCAD −38;
 04/05/2023 EURUSD −56 / USDJPY −29 concordi). Quando si conta la numerosità di una via
 DLR va sempre detto quanti sono i **piatti distinti**, non solo quante sono le carte.
+
+---
+
+# S39 — 07/09/2026 · Candidati aperti e filoni chiusi
+
+## Candidati misurati e NON cablati (da riprendere)
+
+**Lo stelo del giorno controllato dal ramo del mese → LONG.** 729 carte · 590 piatti ·
+54,87% · z 2,63 · vecchio 54,30 / recente 54,98. È la casella più solida misurata in
+S39 — grande, stabile, coerente — ma sta sotto il 55% di un decimo e mezzo. Nel
+linguaggio della stagione è lo stelo del giorno in stato 死 nel mese.
+
+**返吟 · lo stelo del giorno controlla il ramo del mese → SHORT.** 59 carte · 47 piatti ·
+66,10% · z 2,47 · vecchio 66,67 / recente 72,00. Migliora nel recente. Non cablata solo
+perché la sessione è finita prima: è il primo candidato da riprendere in S40.
+
+**八專 · il ramo del giorno controlla il ramo del mese → LONG.** 64 carte · 43 piatti ·
+60,94% · vecchio 66,67 / recente 58,33.
+
+**伏吟 · il ramo del giorno genera il ramo del mese → LONG.** 55 carte · 41 piatti ·
+60,00%, ma vecchio 50,00%.
+
+**八專 · "stesso ramo": il palazzo dello stelo dell'ora coincide col ramo del giorno.**
+27 carte · 19 piatti · 62,96% LONG · vecchio 61,54 / recente 64,29. Troppo poche.
+
+**返吟 · lettura dei due scontri (Edu, USDCHF 16/06/2022).** Su ogni lato vince chi
+controlla; se uno genera l'altro vince il generato. Poi i due vincitori si affrontano.
+Verso giusto sulla carta d'origine, ma si pronuncia solo su 20 carte delle 162 rimaste,
+e le due caselle opposte danno **entrambe SHORT** (guest 66,67%, host 63,64%): il pezzo
+che funziona e quello che non funziona si annullano, totale 10 su 20.
+Restano due domande dottrinali aperte, e sono loro a governare il 72% del perimetro:
+- quando lo scontro è Terra contro Terra (辰/戌, 丑/未) chi vince? 117 carte su 162.
+- nel passaggio finale, chi genera si scarica e perde, o vale altro?
+
+## Filoni CHIUSI in S39 (non riaprire senza un motivo nuovo)
+
+**Il seme che genera tutta la carta DLR, prima versione** (seme mod 60 = pilastro del
+giorno, ora = ramo di quel pilastro). 2665 carte · 653 piatti · **49,12%** · −2.600 pip.
+Tre obiezioni strutturali, indipendenti dalla catena: la terza lezione diventa sempre il
+generale del mese (verificato su tutte e 720 le combinazioni); lo spazio delle carte
+crolla da 2.661 piatti a 653; il pilastro diventa un travestimento del livello di prezzo
+(in sei anni EURGBP toccherebbe 10 pilastri, NZDUSD 18, AUDUSD 21, con run fino a 25
+carte di fila). Nota utile: l'ora attuale (seme mod 12) È GIÀ il ramo del pilastro
+seme mod 60, quindi la proposta aggiungeva solo lo stelo e spostava il ramo del giorno.
+
+**Il seme che dà il pilastro dell'ora, seconda versione** (giorno = l'ultimo giorno
+compatibile per i Cinque Topi dentro il periodo del generale). 2453 carte · 2058 piatti ·
+**49,00%**. Il giorno compatibile cade a 1-5 giorni indietro in modo uniforme; nell'11%
+dei casi non esiste. Controprova indipendente dalla catena: le caratteristiche GREZZE di
+quelle carte (R1, R2, messaggi, metodo, spirito) non superano z 1,77.
+
+**Lo stelo dell'ora come attore autonomo.** Nove caratteristiche misurate sulle carte
+vere: relazione col giorno, combinazione 五合, palazzo e suo carattere, palazzo vuoto,
+palazzo uguale a R1/R2/messaggi/ramo del giorno. Massimo 54,38% e 55,31%, entrambe col
+periodo vecchio piatto. Lo stelo dell'ora conta per dove si ospita, e solo dentro forme
+che rendono quel palazzo significativo (è il caso della via 39).
+
+**Il generale del mese dentro LY e PB.** Sostituita la stagione in tutti i 17 punti che
+la usano: S17 passa da 58,57% · 35.544 a 58,54% · 35.481; S2 da 61,78% a 61,62%.
+Diciannove righe, tre centesimi di punto. Come attore autonomo (stagione dello stelo e
+del ramo del giorno, generale uguale all'ora, generale vuoto) nulla supera z 1,72.
+Il generale conta dove è costruttivo — nel DLR — e solo dove cielo e terra si allineano.
+
+**L'inerzia delle forme immobili.** 八專 e 伏吟 seguono sempre il trend o l'esito del
+giorno prima; 返吟 mai. Tutte e tre le forme stanno fra 45% e 51% su entrambe le misure
+e vanno nella STESSA direzione, non in direzioni opposte; il resto del dataset fa 48,15%
+sul trend, cioè come loro. Se l'immobilità producesse inerzia le forme si staccherebbero
+dal fondo: non si staccano.
+
+**Il trend allungato al periodo del generale.** Verso del prezzo dall'inizio del periodo
+(48,80%) ed EMA a 30 giorni sui prezzi giornalieri (48,62%) contro la EMA attuale
+(48,15%). Meno di due punti di differenza, mai sopra il 50% in nessuna forma.
+
+**M1, DS, DB e il pilastro del mese come indicatore del trend segue/non-segue.**
+"Se la carta aiuta l'indicatore il cross segue". Contro EMA attuale, 12, 30 e 60 giorni:
+tutte fra 49,3% e 52,1%. Il solo che guadagna allungando la finestra è il DS (51,21% a
+12 giorni, 52,05% a 30), ma resta lontanissimo. Provato anche il pilastro del mese con
+la relazione incrociata sui palazzi ospitati (DS→MB e DB→MS): dodici combinazioni fra
+49,3% e 51,1%, nessuna che regga sui periodi. Il verdetto di un mese fa non dipendeva
+dalla lunghezza della finestra.
+
+**L'incrocio col pilastro del mese messo in testa alla catena.** Le tre caselle che sul
+dataset intero superano il 55% in entrambi i periodi — controlla/generato 60,53% LONG,
+genera/genera 60,20% LONG, controlla/genera 57,50% SHORT — messe davanti a tutto portano
+il motore da 60,62% a 60,38% e da +39.281 a +38.802 pip. Non sono rumore: sul loro
+perimetro fanno 60,00%, 58,56% e 56,47%, cioè **meno della media del motore**, e tolgono
+carte a vie che le leggono meglio. L'incrocio è un attore autentico di secondo livello.
+Avvertenza: quella scansione copriva 35 caselle, quindi tre sopra soglia sono attese
+anche senza alcun effetto.
+
+## Regolarità da ricordare
+
+**Chiedere alla carta il verso funziona, chiederle di filtrare un trend no.** In S39,
+ogni misura del tipo "segue / non segue" è rimasta intorno al 50% (quattro prove
+indipendenti); ogni misura del tipo "sale / scende" ha trovato caselle dal 56% al 72%.
+
+**Il legame fra la carta e il giorno reale è portante.** Tolto il giorno vero (prima
+versione del seme) o spostato indietro di 1-5 giorni (seconda versione), il sistema
+torna al 49%.
+
+**Una regola vera può distruggere valore se messa nel posto sbagliato.** Via 40 sopra la
+37: da 65,71% a 54,55%. Incrocio del mese in testa: −479 pip. Va sempre misurata sulla
+posizione reale in catena, non sul perimetro isolato.

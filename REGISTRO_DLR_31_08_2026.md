@@ -1114,3 +1114,109 @@ attuale, dlr, livello e direzione.
 | S17 (Liu Yao nel sistema) | 2788 · 58,57% · z 9,05 · +35.544 | invariato |
 | Carte guida | 110 · 78 giuste · 32 storte | invariato |
 | Parità PWA ↔ motore | 0 differenze | 0 differenze |
+
+---
+
+# S39 — 07/09/2026 · Le forme fuori selezione rientrano nel motore
+
+Sessione dedicata alle carte che il motore non leggeva perché la forma rendeva
+illeggibile la distinzione host/guest. Erano 981 carte, il 28,2% del dataset.
+A fine sessione sono 423, il 12,2%.
+
+## Cifre canoniche a fine S39
+
+| | inizio S39 | fine S39 |
+|---|---|---|
+| Motore DLR | 2494 · 60,87% · z 10,85 · +33.134 | **3052 · 60,62% · z 11,73 · +39.281** |
+| Scala A/B/C | 1474 · 66,42% · z 12,61 · +34.409 | **1473 · 67,14% · z 13,16 · +35.304** |
+| Livello A | 582 · 69,76% | **688 · 70,64%** |
+| S17 (Liu Yao) | 2788 · 58,57% · z 9,05 · +35.544 | invariato |
+| Carte guida | 110 · 78 giuste · 32 storte | invariato |
+| Parità PWA ↔ motore | 0 differenze | 0 differenze |
+
+Sono 558 carte lette in più e 6.147 pip in più. La percentuale scende di due decimi
+perché le vie nuove stanno sotto la media del motore: quello che sale è z, da 10,85
+a 11,73, che è la misura giusta quando cresce il volume.
+
+## Le nove vie nuove
+
+Tutte in testa alla catena, prima delle 36 vie storiche. Le carte di queste forme non
+attraversano la catena principale: le vie a valle sono nate su carte dove host e guest
+sono distinti e il cielo non è allineato alla terra, e applicate qui peggiorano.
+Verificato: la via 39 fatta passare dalla catena porta il motore da 60,88% a 60,54%.
+
+**八專 (Otto Specialità)** — host e guest nello stesso palazzo. Cinque pilastri,
+non quattro: 甲寅, 丁未, 己未, 庚申 e anche **癸丑**; il più numeroso è 庚申 con 72 carte.
+
+- VIA 38 · l'ora è G (鬼) per lo stelo del giorno → LONG. 29 carte · 23 piatti ·
+  72,41% · z 2,41. Vale su tutti e cinque i pilastri, precede la 37.
+  È la via più forte trovata nella sessione.
+- VIA 37 · pilastri 甲寅 e 丁未 → LONG. 51 e 49 carte, 60,78% e 59,18%.
+  Gli altri tre pilastri restano fuori: 庚申 54,17%, 己未 51,67%, 癸丑 SHORT 52,63%
+  con i periodi opposti (58,33 vecchio contro 44,83 recente).
+- VIA 40 · il lato del guest (R2) è G (鬼) per lo stelo del giorno → SHORT.
+  35 carte · 24 piatti · 65,71% · z 1,86. Sta SOTTO la via 37: provata sopra crolla
+  al 54,55% perché toglie a 甲寅 e 丁未 carte che quelle vie leggono meglio.
+- VIA 39 · il palazzo (寄宮) dello stelo dell'ora genera il ramo del giorno → LONG.
+  39 carte · 29 piatti · 56,41% · z 0,80 · +760 pip. La più fragile: recente 50,00%.
+  Edu l'ha dichiarata valida salvo che una regola dimostri di essere più efficiente
+  sullo stesso perimetro; la via 40 lo ha fatto in parte e le sta sopra.
+
+**伏吟 (il ronzio nascosto)** — scarto zero fra generale del mese e ramo dell'ora:
+il cielo cade sulla terra e ogni ramo siede su se stesso.
+Due fatti strutturali verificati su tutte e 293 le carte: **R1 è sempre uguale a R2**,
+e **il lato guest non può mai essere vuoto**, perché R3 è il ramo del giorno e i due
+rami vuoti sono per definizione fuori dalla decade. Solo lo host può cadere nel vuoto.
+
+- VIA 45 · lo host è più in stagione del guest, stagione presa dal GENERALE → LONG.
+  86 carte · 71 piatti · 60,47% · z 1,94 · vecchio 60,53 / recente 58,97.
+- VIA 43 · il lato guest è W (妻財) per lo stelo del giorno → SHORT.
+  47 carte · 33 piatti · 61,70% · z 1,60. La ricchezza ferma davanti a uno stelo
+  immobile è ricchezza che non si prende. Da notare: il G dal lato guest, che nelle
+  八專 dà la via 40 al 65,71%, qui è muto (47,62%).
+- VIA 42 · i due lati sono dello stesso elemento (rami diversi) → SHORT.
+  33 carte · 22 piatti · 57,58%.
+- VIA 41 · il palazzo dello host è nel vuoto → LONG. 61 carte · 39 piatti · 55,74%.
+  Nata da una lettura di Edu che dava SHORT: la misura ha dato il verso opposto in
+  entrambi i periodi ed Edu ha fatto cablare il verso misurato.
+
+**返吟 (il ronzio che torna)** — scarto sei: il cielo è ruotato di mezzo giro e ogni
+ramo siede sul proprio opposto.
+
+- VIA 44 · lo host è più in stagione del guest, stagione dal GENERALE → SHORT.
+  128 carte · 97 piatti · 56,25% · vecchio 58,18 / recente 55,56.
+  **Verso opposto alla stessa misura nelle 伏吟**, ed è il cuore dottrinale della
+  sessione: dove niente si scontra (伏吟) essere in stagione fa tenere; dove lo scontro
+  è obbligato (返吟) chi è in stagione lo perde.
+  Due riserve a verbale: la via vive solo sulla stagione presa dal generale (con quella
+  presa dal ramo del mese, che è la fonte canonica, l'asse sparisce: host 53,10%,
+  guest 54,47%), ed è il rovescio della lettura di Edu, che dava vincente il più timely.
+
+## La scoperta trasversale: la stagione presa dal generale del mese
+
+Estesa a tutti i perimetri, si comporta così:
+- carte che il motore già legge (2966): host 50,77%, guest 51,49%, pari 46,00% — nulla.
+- 八專: non applicabile. R1 e R3 stanno sopra lo stesso ramo, quindi il rango è pari
+  in tutte e 92 le carte. Strutturale.
+- 冬蛇掩目 e 虎視轉蓬: caselle da 10-17 carte, periodi che oscillano di trenta punti.
+Non è una tendenza del dataset: è una firma delle due forme dove cielo e terra
+sono allineati.
+
+## Che cosa resta muto (423 carte, 12,2%)
+
+| forma | carte | piatti | il mercato sale |
+|---|---|---|---|
+| 返吟 | 159 | 123 | 49,69% |
+| 八專 | 92 | 63 | 51,09% |
+| 伏吟 | 66 | 52 | 51,52% |
+| 冬蛇掩目 | 47 | 37 | 40,43% |
+| nessun attore riconosciuto | 39 | 31 | 58,97% |
+| 虎視轉蓬 | 20 | 18 | 65,00% |
+
+## Nota di metodo
+
+Sette delle nove vie hanno z fra 0,80 e 1,94. Prese una a una sono deboli; l'aggregato
+regge (z del motore da 10,85 a 11,73). Cablando tutto ciò che supera il 55% su caselle
+da 30-60 carte, la soglia diventa fragile: su venti caselle innocue misurate a caso,
+tre o quattro la superano per solo effetto del campione. Va tenuta d'occhio la somma,
+non la singola via.
