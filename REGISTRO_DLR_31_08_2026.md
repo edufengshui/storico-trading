@@ -1220,3 +1220,21 @@ regge (z del motore da 10,85 a 11,73). Cablando tutto ciò che supera il 55% su 
 da 30-60 carte, la soglia diventa fragile: su venti caselle innocue misurate a caso,
 tre o quattro la superano per solo effetto del campione. Va tenuta d'occhio la somma,
 non la singola via.
+
+## S39 — coda tecnica: l'anno entra nella carta (07/09/2026)
+
+A fine sessione la carta che il motore riceve porta due campi nuovi, **`ramoAnno` e
+`steloAnno`**, aggiunti sia in `app.js` (due punti di costruzione della carta) sia in
+`pb_stress.js` (32 punti). Nessuna via li usa ancora.
+
+Servono all'impianto dottrinale dei quattro pilastri formulato da Edu il 07/09/2026 —
+giorno, mese, anno e ora come piani distinti, letti attraverso ciò che li cavalca sul
+piano del cielo — che senza l'anno non è cablabile per intero. Il dettaglio di quel
+impianto e le cinque caselle già misurate stanno nella coda di `CANDIDATI_OSSERVAZIONE.md`.
+
+Verifica dopo la modifica: motore 3052 carte · 60,62% · z 11,73 · +39.281 pip,
+carte guida 110 · 78 giuste, parità 465 carte e 0 differenze. Nulla è cambiato nel
+comportamento del sistema: i due campi viaggiano nella carta e nessuno li legge.
+
+**Attenzione al caricamento:** `motore_dlr.js` e `app.js` vanno caricati insieme.
+Caricandone uno solo la parità PWA ↔ motore si rompe.
