@@ -777,6 +777,17 @@ function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
     const sostTi = (GEN[huTi.el] === corpo.el), sostTrasf = (GEN[huYong.el] === trasf.el);
     if (sostTrasf && !sostTi) { huGua = 'concorrente'; finale = false; }
     else if (sostTi && !sostTrasf) { huGua = 'ti'; finale = true; }
+    // S43, regola di Edu (08/09/2026, dalla EURJPY 23/07/2024 seme 170): nel Plum Blossom il
+    // ciclo di assistenza (stesso elemento) e' considerato POSITIVO, quindi vale come sostegno
+    // e non solo la generazione. In questo perimetro il trasformato e il Ti sono dello stesso
+    // elemento per definizione, quindi un nucleare di quell'elemento li sosterrebbe entrambi:
+    // Edu ha stabilito che in quel caso il sostegno va al Ti. Vale solo per il trigramma
+    // nucleare ATTIVO, cioe' quello che contiene la linea mutante. Regola generale su tutti
+    // e cinque gli elementi (Edu, 08/09/2026). HUGUAPAR=off la disattiva.
+    if (process.env.HUGUAPAR !== 'off') {
+      const huAttivo = (linea >= 2 && linea <= 4) ? huInf : ((linea >= 3 && linea <= 5) ? huSup : null);
+      if (huAttivo && huAttivo.el === corpo.el) { huGua = 'ti'; finale = true; }
+    }
   }
   // RISCATTO DEL TRASFORMATO MORTO (Edu, 10/08/2026, da USDJPY 31/07/2024):
   // quando la base dice "non segue" ma il ramo attivo del palazzo del Yong ORIGINALE

@@ -58,9 +58,29 @@ function stagione(el, mEl){ if(!mEl) return '—';
 const timely = (el, mEl) => { const s = stagione(el, mEl); return s==='旺'||s==='相'; };
 
 /* ---------- 1. DATI PB VERBATIM DAL MOTORE ---------- */
+/* La base canonica sta in UN SOLO POSTO: base_canonica.json. Prima di questa
+ * correzione (S43) la checklist chiamava il motore senza flag: il verdetto del
+ * Plum Blossom risultava diverso su 311 carte su 2788 e il Liu Yao non parlava
+ * affatto. Se il file manca ci si ferma: meglio nessuna carta che una carta
+ * letta con impostazioni sbagliate. */
+const BASEFILE = path.join(HERE, 'base_canonica.json');
+if (!fs.existsSync(BASEFILE)) {
+  console.log('ERRORE: manca base_canonica.json — senza la base canonica la carta verrebbe letta con impostazioni diverse dal backtest. Fermo qui.');
+  process.exit(1);
+}
+const BASE_FILE_VALS = JSON.parse(fs.readFileSync(BASEFILE, 'utf8')).liuyao;
+/* Un flag esportato a mano VINCE sulla base: serve per gli audit (es. VUOTO=0
+ * per vedere la carta senza quella regola). La base copre solo cio' che non e'
+ * stato deciso a mano. */
+const BASE = {}; const OVERRIDE = [];
+for (const k of Object.keys(BASE_FILE_VALS)) {
+  if (process.env[k] !== undefined && process.env[k] !== BASE_FILE_VALS[k]) { BASE[k] = process.env[k]; OVERRIDE.push(k); }
+  else BASE[k] = BASE_FILE_VALS[k];
+}
+const BASE_STR = Object.keys(BASE).map(k => k + '=' + BASE[k]).join(' ');
 let pbOut;
 try {
-  pbOut = execSync(`CARTA="${cross} ${date}" node pb_stress.js`, { cwd: HERE, encoding: 'utf8', stdio: ['pipe','pipe','pipe'] });
+  pbOut = execSync(`${BASE_STR} CARTA="${cross} ${date}" node pb_stress.js`, { cwd: HERE, encoding: 'utf8', stdio: ['pipe','pipe','pipe'], env: Object.assign({}, process.env, BASE) });
 } catch (e) { console.log('ERRORE: il motore non ha prodotto la carta.', e.message.split('\n')[0]); process.exit(1); }
 const pick = re => { const m = pbOut.match(re); return m ? m[1] : null; };
 const seme = parseInt(pick(/seme (\d+)/), 10);
@@ -152,9 +172,18 @@ const casaAtt = caseAttore.length ? caseAttore : null;
 
 /* ---------- 3. STRUTTURA LY (con eccezione §93-bis attiva) ---------- */
 LYM.setCasaAttore(casaAtt);
-const R = LYM.readManual(sup, inf, linea, dayB, meseB, annoB, dayS);
+/* S43: il backtest passa anche il ramo dell'ORA a readManual (ottavo argomento);
+ * qui mancava, quindi la lettura interna (vuoto dell'ora, forza, Tai Sui) era
+ * costruita senza l'ora e alcune vie scattavano in modo diverso dal motore. */
+const R = LYM.readManual(sup, inf, linea, dayB, meseB, annoB, dayS, oraB);
 if (R.error) { console.log('ERRORE readManual: '+R.error); process.exit(1); }
-const ctx = { oraBranch: oraB, emaDir: emaDir==='up'?'up':'down', date: date,
+/* S43: il contesto deve essere lo STESSO che il backtest passa al termometro
+ * (pb_stress.js, blocco LYUNICO). Mancavano corpoEl (elemento del Ti, dal PB)
+ * e yearBranch: senza corpoEl la §54b (il mese controlla il Tai Sui e nutre
+ * il Ti) non poteva mai scattare qui, e la checklist dava un'altra via. */
+const corpoEl = pick(/Trend = \S+ \S+ \((Wood|Fire|Earth|Metal|Water)\)/);
+const ctx = { oraBranch: oraB, emaDir: emaDir==='up'?'up':'down', date: date, yearBranch: annoB,
+              corpoEl: corpoEl || null,
               yearStem: annoS, monthStem: meseS, hourStem: oraS, oraBranch: oraB, capolineaEl: capolinea };
 const mEl = WX[meseB];
 
@@ -580,6 +609,8 @@ cand.push('§85 elastico×forza: da valutare A MANO se c\'è una liberata (serve
 const li = s => console.log('  ' + s);
 console.log('='.repeat(78));
 console.log('CARTA CHECK · '+cross+' '+date.split('-').reverse().join('/'));
+console.log('base canonica in uso (base_canonica.json): '+BASE_STR);
+if (OVERRIDE.length) console.log('⚠ ATTENZIONE: questa NON e\' la base canonica — forzato a mano: '+OVERRIDE.join(', '));
 console.log('='.repeat(78));
 if (giaLetta) console.log('⚠⚠ CARTA GIÀ LETTA il '+giaLetta.quando+(giaLetta.nota?' — '+giaLetta.nota:''));
 for (const g of gemelle) console.log('⚠ GEMELLA già letta: '+g.cross+' '+g.date+' (stesso seme+trigrammi+giorno)'+(g.nota?' — '+g.nota:''));

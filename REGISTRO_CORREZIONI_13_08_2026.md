@@ -4791,3 +4791,77 @@ La carta era gia' vinta da S17 (LONG): il guadagno viene dalle altre carte
 del perimetro. Carta e cella "mese che distrugge" collegate: il 45% della
 cella era fatto anche di linee DIFESE (Tai Sui) o cariche scambiate per
 vittime.
+
+## S43 — 08/09/2026 · La checklist leggeva le carte con impostazioni diverse dal motore · `CORRETTA`
+
+**Il difetto.** `carta_check.js` chiamava il motore senza la base canonica. Misurato su tutte
+e 2.788 le carte: il verdetto del Plum Blossom risultava diverso su **311 carte (11,2%)** e il
+Liu Yao non parlava affatto, perche' la sua voce si accende solo con `PBLY=1`. Su quelle 311
+carte si ribaltava anche la riga dell'esito. Esempio: EURUSD 04/03/2020 seme 111 — la checklist
+diceva che il PB segue il trend e perde 42 pip, il sistema vero dice il contrario e la vince.
+Il difetto peggiorava a ogni sessione: la base canonica e' cambiata in S41 (tolto RAFFORZA) e
+in S42 (tolta l'eccezione del ramo prospero) e la checklist non se ne accorgeva.
+
+**Altri due difetti trovati nella stessa correzione**, tutti e due sul contesto del Liu Yao:
+1. mancava l'elemento del Ti (`corpoEl`), quindi la via del mese che controlla il Tai Sui e
+   nutre il Ti (§54b) non poteva mai scattare nella checklist. Carta: EURJPY 03/12/2025 s116.
+2. mancava il ramo dell'ora nell'ottavo argomento della lettura, quindi vuoto dell'ora, forza
+   e Tai Sui erano costruiti senza l'ora. Carta: EURUSD 06/11/2024 s109.
+
+**La correzione.** La base canonica sta ora in **un solo file**, `base_canonica.json`, che la
+checklist legge all'avvio; se manca, la checklist si ferma invece di leggere con impostazioni
+sbagliate; se un flag e' forzato a mano lo dichiara in testa con un avviso. Quando la base
+cambia, si cambia li' e basta.
+
+**Verifica.** Scansione completa delle 2.788 carte con la checklist corretta: **zero differenze**
+fra motore e checklist su verdetto del Plum Blossom, verdetto del Liu Yao, via che comanda e
+direzione.
+
+**Nota di igiene.** Una via cablata non ha numero di sezione (si stampa `§—`, "il raduno
+stagionale col mese"). Comanda 461 carte al 57,9% e senza numero non e' cercabile nei registri.
+
+## S43 — 08/09/2026 · Lo Hu Gua: il ciclo di assistenza vale come sostegno · `CABLATA`
+
+**La dottrina** (Edu, 08/09/2026): nel Plum Blossom il ciclo di assistenza — lo stesso elemento
+— e' considerato **positivo**, quindi vale come sostegno e non solo la generazione. La regola
+dello Hu Gua cablata in S41 contava come sostegno la sola generazione.
+
+**Carta guida: EURJPY 23/07/2024, seme 170** (sup 5 Xun · inf 2 Dui · mutante L2 · giorno 戊子
+· mese 辛未 · anno 甲辰). Il Yong Dui (Metallo) controlla il Ti Xun (Legno) e la base va LONG,
+ma il Yong trasformato e' Zhen (Legno), lo stesso elemento del Ti: il concorrente. Nessuno dei
+due nucleari genera la propria parte, quindi la regola di S41 non interveniva e la carta
+perdeva 197 pip. Il nucleare inferiore e' Zhen (Legno), lo stesso elemento del Ti, e contiene
+la linea mutante: il Ti e' sostenuto, segue il trend, SHORT. Lettura di Edu: "Zhen e Xun sono
+una coppia marito moglie, quindi e' come fossero una cosa sola".
+
+**Come e' cablata.** In questo perimetro il trasformato e il Ti sono dello stesso elemento per
+definizione, quindi un nucleare di quell'elemento li sosterrebbe entrambi: Edu ha stabilito che
+il sostegno va al **Ti**. Vale solo per il nucleare **attivo**, quello che contiene la linea
+mutante. Regola **generale** su tutti e cinque gli elementi (scelta esplicita di Edu).
+Flag `HUGUAPAR=off` per spegnerla. Cablata in `pb_stress.js` e in `plumblossom.js`.
+
+**Misure sul perimetro dei 608** (il caso del concorrente):
+
+| lettura del sostegno | giuste | pip | vecchio | recente | girati |
+|---|---|---|---|---|---|
+| come cablato in S41 (solo genera) | 54,77% | 4.794 | 54,6% | 54,9% | — |
+| nucleare **attivo** stesso elemento del Ti | **55,76%** | **5.417** | 56,8% | 54,9% | 54 (30 giuste, 24 no) |
+| nucleare attivo = Ti o la sua coppia | 54,11% | 4.144 | 56,0% | 52,5% | 66 (31 giuste, 35 no) |
+| uno dei due nucleari = Ti o la sua coppia | 50,49% | 1.533 | 50,9% | 50,1% | 148 (61 giuste, 87 no) |
+
+Il legame di coppia fra elementi diversi (Qian-Kun, Dui-Gen, Li-Kan) **peggiora**: conta lo
+stesso elemento, non la coppia. Dei 54 verdetti girati, 28 hanno il Ti di Legno (467 dei 623
+pip guadagnati), 18 di Metallo (150 pip), 8 di Terra (6 pip); nessuno di Fuoco o Acqua, perche'
+li' il trigramma e' uno solo. Il guadagno viene quasi tutto dalla coppia Zhen-Xun: i numeri su
+Metallo e Terra sono troppo pochi per sapere se la regola valga davvero su tutti gli elementi.
+
+**Effetto sul sistema.** Plum Blossom da solo: da 54,20% · 19.033 pip a **54,41% · 19.656**,
+in salita su tutti e due i periodi (vecchio 54,53→54,67, recente 54,09→54,59). Le 110 carte
+guida non cambiano di una (78 giuste, 32 storte). Il motore DLR non e' toccato (3.253 carte,
+60,81%, 41.467 pip). **Ma il sistema peggiora**: la base canonica del Liu Yao scende da 59,22%
+a 59,15% e da 37.026 a 36.885 pip; nella scala a voci le cinque voci concordi scendono da 221
+carte al 76,02% (8.005 pip) a 211 al 75,36% (7.366 pip), mentre le sei voci restano 51 all'84,31%.
+E' lo stesso caso del rafforzamento ritirato in S41: il Plum Blossom nel sistema fa da filtro,
+non da voce. **Edu ha scelto di tenerla accesa**: la dottrina e' giusta e il PB da solo migliora.
+
+**Parita PWA/backtest dopo la modifica:** 465 carte, 0 differenze su tutti i campi.
