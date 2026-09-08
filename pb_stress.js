@@ -631,7 +631,14 @@ function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
     const oraY2 = (B.indexOf(oraBranch) % 2) === 0;
     ramoTrend = palTrend.find(b => ((B.indexOf(b) % 2) === 0) === oraY2);
   }
-  else { const lineaYang = (linea % 2 === 1); ramoTrend = palTrend.find(b => ((B.indexOf(b) % 2) === 0) === lineaYang); }
+  else if (process.env.VUOTOSEL === 'linea') { const lineaYang = (linea % 2 === 1); ramoTrend = palTrend.find(b => ((B.indexOf(b) % 2) === 0) === lineaYang); }
+  else {
+    // CABLATO (Edu, 08/09/2026, dalla EURJPY 21/10/2025 seme 175): nei palazzi a due rami il
+    // ramo attivo lo sceglie lo yin/yang del GIORNO. Prima lo sceglieva la posizione della
+    // linea mutante; VUOTOSEL=linea rimette il criterio vecchio per l'audit.
+    const gY = (B.indexOf(dayBranch) % 2) === 0;
+    ramoTrend = palTrend.find(b => ((B.indexOf(b) % 2) === 0) === gY);
+  }
   const trendVuotoRaw = ramoTrend != null && vuoti.indexOf(ramoTrend) >= 0;
   // 旺不为空: un ramo prospero di stagione non è davvero vuoto
   const stagRamoTrend = ramoTrend != null ? stagione(WX[ramoTrend], monthEl) : null;
@@ -643,7 +650,10 @@ function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
   // Eccezione: se il ramo del Trend e' CLASHATO, il vuoto e' risvegliato e non vale.
   //   VUOTOTUTTO=giorno   clash valido solo dal giorno
   //   VUOTOTUTTO=1|pieno  clash dal giorno (sempre) o dall'anno se il ramo dell'anno e' 旺/相
-  const VT = process.env.VUOTOTUTTO;
+  // CABLATA l'08/09/2026 (Edu, dalla EURJPY 21/10/2025 seme 175): default 'pieno'. Il vuoto
+  // c'e' anche quando il ramo e' prospero di stagione; si esce dal vuoto solo col clash.
+  // VUOTOTUTTO=no rimette il comportamento vecchio per l'audit.
+  const VT = process.env.VUOTOTUTTO === 'no' ? null : (process.env.VUOTOTUTTO || 'pieno');
   let vuotoSempre = false;
   if (VT && trendVuoto && ramoTrend != null) {
     const stagAnno = stagione(WX[yearBranch], monthEl);
@@ -667,10 +677,16 @@ function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
   // TRASFORMATO finisce per controllare il Ti (剋 nella lettura trasformata), il corpo è
   // sopraffatto → non segue. Vale per qualsiasi caso di mutazione (non solo il caso 2).
   const sopraffTrasf = !!process.env.SOPRAF && CTRL[trasf.el] === corpo.el;
-  // FLUSSO DEL QI DISCRETO (Edu, 10/08/2026): fra gli elementi dei tre rami del Bazi il qi
+  // FLUSSO DEL QI DISCRETO (Edu, 10/08/2026): fra gli elementi dei rami del Bazi il qi
   // corre lungo la catena generativa. CAPOLINEA = elemento che riceve e non cede a un altro
   // presente: il qi converge su di lui e lo nutre. SORGENTE = cede senza ricevere: si svuota.
-  const elsPres0 = Array.from(new Set([yearBranch, monthBranch, dayBranch].map(b => WX[b])));
+  // ALLARGATO AI QUATTRO PILASTRI (Edu, 08/09/2026, dalla EURJPY 28/11/2023 seme 162): la
+  // catena prende anche l'ORA. Su quella carta i tre rami soli davano il capolinea sul Legno
+  // del Ti; con l'ora 巳 il capolinea passa al Fuoco e il Ti risulta drenato, che e' la
+  // lettura giusta. FLUSSO3=1 rimette i tre rami per l'audit.
+  const ramiFlusso = process.env.FLUSSO3 ? [yearBranch, monthBranch, dayBranch]
+                                         : [yearBranch, monthBranch, dayBranch, oraBranch];
+  const elsPres0 = Array.from(new Set(ramiFlusso.filter(Boolean).map(b => WX[b])));
   const conLib = (TM === 'flusso' || TM === 'tutto');
   const elsPres = conLib ? Array.from(new Set(elsPres0.concat(liberati))) : elsPres0;
   const fRiceve = e => elsPres.some(x => GEN[x] === e);

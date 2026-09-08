@@ -1807,3 +1807,78 @@ Nato perché in S41 il modello a 12 stadi è stato ricostruito da zero benché f
 registro dal 25/08/2026 (REGISTRO_CORREZIONI, "MODELLO A 12 STADI"), insieme alla voce ancora
 aperta "DA FARE: ripesare forzaModello coi 12 stadi". **Da girare prima di misurare o proporre
 qualunque cosa.**
+
+# S42 — 08/09/2026
+
+## Candidato APERTO — il ponte dentro l'esagramma nucleare
+
+Lettura di Edu dell'08/09/2026 sulla **USDJPY 20/02/2020, seme 111** (sup 5 巽 Xun · inf 7
+艮 Gen · mutante L6, via 剋我): il Yong Xun muta in 坎 Kan, Acqua, che genera all'indietro il
+Legno, quindi il Yong esce dalla mutazione piu' forte e il controllo sulla Terra del Ti e' piu'
+netto. Ma l'esagramma nucleare ha 離 Li, il Fuoco, dalla parte del Yong, sostenuto dal ramo del
+giorno 巳 (Si), Fuoco. Il Fuoco e' l'elemento in mezzo — il Legno lo genera, lui genera la
+Terra — quindi la forza del Yong non colpisce il Ti: gli passa attraverso e lo nutre. Segue il
+trend, LONG. Il mercato e' andato LONG di 92 pip.
+
+**Perimetro dettato da Edu:** il ponte va sostenuto da un ramo qualunque dei quattro pilastri,
+non specificamente dal giorno.
+
+**Misura** (`ponte_hugua.js`, la percentuale e' quella del verdetto nuovo "segue il trend"):
+
+| perimetro | n | segue giusto | pip | vecchio | recente |
+|---|---|---|---|---|---|
+| ponte presente, senza condizioni | 23 | 34,78% | −458 | 57,14% / 7 | 25,00% / 16 |
+| ponte sostenuto da un ramo del Bazi | 9 | 33,33% | −89 | 66,67% / 3 | 16,67% / 6 |
+| sostenuto, ponte dal lato del Yong | 3 | 66,67% | +59 | 100% / 2 | 0% / 1 |
+| sostenuto, ponte dal lato del Ti | 6 | 16,67% | −147 | 0% / 1 | 20,00% / 5 |
+
+Le tre carte del lato del Yong sono due copie dello stesso piatto (mese 寅 · giorno 巳 · ora 寅
+· anno 子, giuste) piu' una diversa (sbagliata).
+
+**LIMITE DI STRUTTURA — e' il fatto che conta piu' dei numeri.** Su tutte le configurazioni
+possibili, non solo quelle che capitano nei dati: quando il Yong controlla il Ti ci sono **78
+combinazioni** possibili di trigrammi e linea mutante, e **solo 6** hanno l'elemento del ponte
+dentro l'esagramma nucleare. E accade solo quando il ponte e' Acqua o Fuoco: con ponte Legno,
+Terra o Metallo non e' raro, e' geometricamente impossibile (Terra 0 su 12 · Legno 0 su 6 ·
+Metallo 0 su 12 · Acqua 3 su 24 · Fuoco 3 su 24). La regola, comunque la si giri, puo' toccare
+al massimo sei quadri su settantotto.
+
+**NON chiuso, e adesso con una condizione in piu'.** Per il principio decimo i numeri da soli
+non bastano. Sono state portate due carte, e nessuna delle due lo falsifica:
+- **EURJPY 21/10/2025, seme 175** — gemella esatta della carta d'origine, ponte piu' sostenuto
+  (anno 巳 e ora 午), mercato dall'altra parte. Spiegata: il **Ti era vuoto** (vedi REGISTRO_DLR,
+  S42), e col Ti vuoto il ponte non ha piu' niente da nutrire.
+- **EURJPY 28/11/2023, seme 162** — ponte Acqua prospero nel mese 亥, Ti pieno e per di piu' Tai
+  Sui, giorno 寅 che nutre il Ti, nessun'altra regola attiva, mercato contro. Spiegata da Edu:
+  il qi della data va 亥 Acqua → 寅 Legno → 巳 Fuoco e **non si ferma sul Ti**; il Fuoco e' 離 Li
+  nell'esagramma nucleare, che esaurisce il Legno invece di nutrirlo.
+
+**La condizione che ne esce:** non basta che l'elemento in mezzo arrivi al Ti, va guardato dove
+va il qi DOPO il Ti. Se prosegue oltre, il ponte porta via invece di portare. Da questa lettura
+e' nato l'allargamento della catena del qi ai quattro pilastri (REGISTRO_DLR, S42).
+
+Da rimisurare col nuovo perimetro prima di riproporre qualunque cosa sul ponte.
+
+## Il ponte sulla relazione, allargato a tutti i pilastri — MISURATO, NON ALLARGARE
+
+La stessa lettura del ponte esiste gia' cablata dall'08/08/2026 (nata dalla EURJPY 07/12/2023),
+ma col ponte su un **ramo vivo del Bazi** invece che su un trigramma dell'esagramma nucleare, e
+oggi conta solo quando quel ramo e' il **Tai Sui**, cioe' l'anno.
+
+Allargarla a un ramo qualunque dei quattro pilastri (`PONTEREL=largo`) e' peggio:
+
+| impostazione | carte | giuste / sbagliate | pip della regola | sistema |
+|---|---|---|---|---|
+| solo Tai Sui (default) | 60 | 29 / 31 | +198 | 58,90% · +35.819 |
+| un ramo qualunque | 212 | 95 / 117 | −1.861 | 58,86% · +35.413 |
+| regola spenta (`NOPONTEREL=1`) | 0 | — | — | 58,93% · +35.896 |
+
+Sulle sole carte che l'allargamento aggiunge (227, dove il ponte non e' il Tai Sui): 106 giuste
+e 121 sbagliate. **Il default resta il Tai Sui.** Da notare che spegnere del tutto la regola dà
+77 pip in piu' del default: il perimetro e' quasi inerte anche cosi' com'e'.
+
+## Le 358 carte ferme per pareggio — il gruppo grosso che non rende niente
+
+Vedi REGISTRO_DLR, S42, per la scomposizione. Nessuna voce esistente le risolve. Le due voci
+sottili sono lo Spirito (parla sul 27,6% del perimetro) e lo stelo del giorno debole (36,3%):
+e' la loro assenza a lasciare quattro voci che si dividono due a due. **Da riprendere.**

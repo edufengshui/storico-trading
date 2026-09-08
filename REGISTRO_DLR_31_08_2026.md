@@ -1632,3 +1632,130 @@ quelle erano già il vecchio livello C. Le altre 85 valgono 61,18%.
 Sul trend crudo le Otto Specialità sono l'unica cella che sporge (58 carte, segue il trend il
 62,07% contro un fondo del 48,40%), ma lette dal sistema attuale sono penultime (59,18%),
 mentre il ronzio nascosto — il peggiore sul trend — è il primo (33 carte al 69,70%).
+
+---
+
+# S42 — 08/09/2026 · Il Ti vuoto vale in ogni relazione
+
+Sessione partita dalle carte che il sistema non porta a casa. Nel perimetro delle 2.788 carte
+nessuna e' del tutto muta — Plum Blossom e sistema attuale parlano sempre — ma **358 restano
+ferme per pareggio delle voci**: il 12,8% del perimetro, 22.647 pip di movimento reale, 63 pip
+a carta. Di quelle, 296 hanno solo quattro voci che parlano, due contro due; lo Spirito tace su
+290 e lo stelo del giorno debole su 272, il motore DLR solo su 29. Tenendo una voce qualunque
+come arbitro sulle 358 nessuna si stacca dalla moneta (motore 51,06% · sistema attuale 49,44% ·
+Plum Blossom 50,00% · Liu Yao 49,02%, tutte con i due periodi allineati sul niente): per
+sbloccare quel gruppo non basta ripesare le voci esistenti, serve una voce nuova.
+
+Sulle 358 il Plum Blossom fa 179 giuste e 179 sbagliate e lascia 11.516 pip.
+
+## LA REGOLA CABLATA — IL TI VUOTO IN QUALSIASI RELAZIONE
+
+Carta d'origine: **EURJPY 21/10/2025, seme 175** (sup 5 巽 Xun · inf 7 艮 Gen · mutante L6).
+Letta da Edu l'08/09/2026. Il palazzo del Ti e' Gen, che ha due rami, 丑 (Chou) e 寅 (Yin). Il
+giorno e' yin (stelo 癸 Gui, ramo 亥 Hai), quindi il ramo attivo e' 丑; i vuoti del giorno sono
+子丑, quindi 丑 e' vuoto e il Ti e' vuoto. Non segue. Il mercato e' andato LONG di 62 pip contro
+un trend EMA in discesa: verdetto di base confermato.
+
+La stessa carta era stata portata come falsificazione del ponte nell'esagramma nucleare (vedi
+CANDIDATI, S42) e non lo era: la gemella su cui la lettura del ponte era nata — USDJPY
+20/02/2020, seme 111, stessi trigrammi e stessa mutante — ha lo stesso ramo attivo 丑 ma i
+vuoti 午未, quindi il Ti e' pieno e regge. **Le due gemelle si separano sul vuoto del Ti, non
+sul ponte.**
+
+Tre punti, tutti dettati da Edu:
+1. nei palazzi a due rami il ramo attivo lo sceglie **lo yin/yang del giorno**, non la posizione
+   della linea mutante (criterio vecchio: linee 1,3,5 = yang · 2,4,6 = yin);
+2. il vuoto c'e' **anche quando il ramo e' prospero di stagione**: l'eccezione 旺不为空 qui non
+   vale;
+3. dal vuoto **si esce solo col clash**, che lo risveglia: dal giorno sempre, dall'anno solo se
+   il ramo dell'anno e' 旺 (prospero) o 相 (crescente).
+
+Il vuoto del Ti valeva finora solo nel pareggio 比和. Da oggi vale in **qualsiasi** relazione.
+La regola era gia' stata scritta il 13/08/2026 dalla USDCAD 18/03/2020 e messa da parte perche'
+reggeva su un periodo solo: col ramo attivo preso dal giorno e senza l'eccezione della stagione
+regge su tutti e due. E' la stessa regola, letta meglio.
+
+Cablata in `pb_stress.js` (default `VUOTOTUTTO=pieno`, selettore dal giorno) e in
+`plumblossom.js`. Audit: `VUOTOSEL=linea` rimette il criterio vecchio, `VUOTOTUTTO=no` spegne
+l'allargamento, `VUOTOSTAG=wang` rimette l'eccezione della stagione.
+
+### Le tre parti, pesate
+
+| pezzo | vale |
+|---|---|
+| il vuoto fuori dal pareggio | ~800 pip |
+| il ramo attivo preso dal giorno | ~170 pip |
+| togliere l'eccezione della stagione | ~60 pip |
+
+Il selettore dal giorno, **da solo**, gira zero verdetti su 2.788: con la regola ristretta al
+pareggio il perimetro e' troppo stretto perche' i due criteri si vedano. Vale solo dentro il
+perimetro allargato. Le due gemelle non lo dimostrano — su entrambe i due criteri danno 丑 —
+quindi serve ancora una carta dove i due criteri divergano.
+
+Verdetti girati in tutto: 130, il nuovo giusto il 55,38%.
+
+## Cifre canoniche a fine S42
+
+| | inizio S42 (= fine S41) | fine S42 |
+|---|---|---|
+| Liu Yao (riga S17) | 2788 · 58,90% · z 9,39 · +35.819 | **2788 · 59,22% · z 9,73 · +37.026** |
+| di cui vecchio / recente | 57,49 / 60,35 | **57,69 / 60,77** |
+| Motore DLR | 3253 · 60,81% · z 12,33 · +41.467 | invariato |
+| Carte guida | 110 · 78 giuste · 32 storte | invariato |
+| Scala a voci | 2390 · 62,43% · +43.644 | **2389 · 62,70% · z 12,42 · +44.300** |
+| unanimi a sei voci | 46 · 82,61% | **51 · 84,31%** |
+| Parita' PWA ↔ ricerca | 0 differenze | 0 differenze |
+
+**ATTENZIONE AL COMANDO.** Il comando canonico del Liu Yao non porta piu' `VUOTOSTAG=wang`:
+quella era l'eccezione della stagione, che non vale piu'. Se resta nel comando rimette il
+comportamento vecchio e i numeri tornano indietro.
+
+```
+VUOTO=1 SOPRAF=1 DRENA=1 FLUSSOTI=1 NAYINDEB=1 SKIPCLASH=gm RISCATTO=b PBLY=1 node pb_stress.js
+```
+
+
+## SECONDA REGOLA CABLATA — IL FLUSSO DEL QI SUI QUATTRO PILASTRI
+
+Carta d'origine: **EURJPY 28/11/2023, seme 162** (sup 4 震 Zhen, Legno · inf 2 兌 Dui, Metallo ·
+mutante L3, via 剋我). Portata come falsificazione del ponte nell'esagramma nucleare — ponte
+Acqua prospero nel mese 亥, Ti pieno e per di piu' Tai Sui (palazzo 卯 = ramo dell'anno), giorno
+寅 Legno che nutre pure lui il Ti, nessun'altra regola cablata attiva — e il mercato e' andato
+SHORT contro un trend EMA di sedici giorni, cioe' contro il ponte.
+
+**Lettura di Edu (08/09/2026):** il qi della data va 亥 Acqua → 寅 Legno → 巳 Fuoco dell'ora. Non
+si ferma sul Legno del Ti, ci passa attraverso e finisce nel Fuoco, che nell'esagramma nucleare
+e' 離 Li. Li esaurisce la forza di Zhen invece di nutrirla: il Ti si svuota e non segue. SHORT.
+
+Il ponte quindi non e' falsificato: acquista una condizione. Non basta che l'elemento in mezzo
+arrivi al Ti, va guardato dove va il qi DOPO il Ti. Se prosegue oltre, il ponte porta via.
+
+**Il problema tecnico che ha fatto emergere.** La catena del flusso del qi, cablata il
+10/08/2026 come guardia sulla sopraffazione, leggeva **tre rami soli** — anno, mese, giorno —
+senza l'ora. Su questa carta quei tre danno Acqua e Legno: il Legno riceve e non cede, quindi il
+capolinea e' il Legno del Ti e il flusso convergerebbe SUL Ti, il contrario della lettura. E'
+solo aggiungendo l'ora 巳 che il capolinea passa al Fuoco.
+
+Su indicazione di Edu la catena e' stata portata ai **quattro pilastri**. Cablata in
+`pb_stress.js` e in `plumblossom.js` (dove l'ora e' quella derivata dal seme, la stessa che usa
+il motore di ricerca). Audit: `FLUSSO3=1` rimette i tre rami.
+
+Effetto: Liu Yao da 59,15% e +36.778 pip a **59,22% e +37.026**, z da 9,66 a 9,73; vecchio
+invariato a 57,69, recente da 60,60 a 60,77. Carte guida invariate (78 su 110). Parita' 0.
+
+## DOTTRINA RICEVUTA — IL NUCLEARE PIU' ATTIVO (non ancora cablata)
+
+Edu, 08/09/2026. Nell'esagramma nucleare, il trigramma che **ospita la linea mutante al proprio
+centro** e' il piu' attivo. Piu' attivo non vuol dire che l'altro sparisca: agiscono tutti e
+due, ma quello che ospita la mutante al centro **non puo' essere vuoto** e svolge la propria
+parte con piu' forza — la stessa esenzione che vale per la linea mobile (動不為空).
+
+Il nucleare inferiore si costruisce sulle linee 2-3-4, il superiore sulle 3-4-5. Quindi:
+mutante sulla 2ª → l'inferiore; sulla 3ª → l'inferiore (la mutante e' al suo centro); sulla 4ª →
+il superiore; sulla 5ª → il superiore; sulla 1ª o sulla 6ª → nessuno dei due la contiene.
+Nella EURJPY 28/11/2023 la mutante e' la terza, al centro di Li: e' Li il nucleare attivo, ed e'
+per questo che prosciuga il Legno del Ti con forza piena.
+
+Questa lettura NON cambia la regola dello Hu Gua cablata in S41 (il concorrente del Ti), che
+guarda entrambi i nucleari e li assegna ai due lati secondo la posizione della mutante. Da
+misurare a parte.
