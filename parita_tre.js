@@ -13,11 +13,34 @@ const vm=require('vm'); vm.runInThisContext(src+'\n;global.__A=analizzaCrossPerR
 const cards=JSON.parse(fs.readFileSync('/tmp/tresist.json','utf8'));
 const N=Number(process.argv[2]||300); const step=Math.max(1,Math.floor(cards.length/N));
 let tot=0, d={pb:0,ly:0,at:0,dlr:0,liv:0,dir:0}; const ex=[];
-function livBT(c){ const pb=c.pb,ly=c.ly,at=c.at,dlr=c.dlr;
-  if(ly&&dlr&&pb===ly&&ly===dlr) return {liv:'A',dir:pb};
-  if(dlr&&at===dlr) return {liv:'B',dir:at};
-  if(ly&&pb===ly&&!dlr) return {liv:'C',dir:pb};
-  return {liv:null,dir:null}; }
+// S41 — lo Spirito unico, come nell'app: Serpente (螣蛇 Teng She) su R3 -> il mercato segue
+// il trend, su R4 -> non segue; Sei Unioni (六合 Liu He) su R2 o R3 -> non segue.
+function spiritoBT(c){ if(!c.ema) return null;
+  const segue = c.ema==='up' ? 'LONG' : 'SHORT', nonSegue = c.ema==='up' ? 'SHORT' : 'LONG';
+  const s3=c.spR3==='螣蛇', s4=c.spR4==='螣蛇';
+  let ser=null; if(s3&&!s4) ser=segue; else if(s4&&!s3) ser=nonSegue;
+  const uni=(c.spR2==='六合'||c.spR3==='六合') ? nonSegue : null;
+  if(ser&&!uni) return ser; if(uni&&!ser) return uni; return null; }
+// S41 — lo stelo del giorno debole, come nell'app: Legno, Terra o Acqua fuori stagione
+// dicono che il mercato NON segue il trend.
+const SELp={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+const WXp={'子':'Water','丑':'Earth','寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire','午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water'};
+const GENp={Wood:'Fire',Fire:'Earth',Earth:'Metal',Metal:'Water',Water:'Wood'};
+function steloBT(c){ if(!c.ema) return null;
+  const sEl=SELp[c.steloGiorno], mEl=WXp[c.ramoMese]; if(!sEl||!mEl) return null;
+  if(sEl!=='Wood'&&sEl!=='Earth'&&sEl!=='Water') return null;
+  if(sEl===mEl||GENp[mEl]===sEl) return null;
+  return c.ema==='up' ? 'SHORT' : 'LONG'; }
+function livBT(c){
+  // S41 — la scala a voci, come nell'app.
+  const sp=spiritoBT(c), st=steloBT(c);
+  const tutte=[c.pb,c.ly,c.at,c.dlr,sp,st].filter(Boolean);
+  if(!tutte.length) return {liv:null,dir:null};
+  const nL=tutte.filter(v=>v==='LONG').length, nS=tutte.length-nL;
+  if(nL===nS) return {liv:null,dir:null};
+  const dir=nL>nS?'LONG':'SHORT', contr=Math.min(nL,nS);
+  if(contr===0 && tutte.length<4) return {liv:null,dir:null};   // S41: unanimita' debole, fermo
+  return {liv: contr===0 ? 'U'+tutte.length : contr===1 ? 'M1' : 'M2', dir:dir}; }
 for(let i=0;i<cards.length;i+=step){ const c=cards[i];
   const row={cross:c.cross,status:'ok',seed:c.seed,branch:c.ora,direction:c.ema,emaRun:c.emaRun,emaConsolidated:true,seedFragile:false,seedEdgePips:99};
   const dArr=c.date.split('-').map(Number); const utc=__I(dArr);

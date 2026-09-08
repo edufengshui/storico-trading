@@ -1661,3 +1661,149 @@ prima misura per famiglie. È esattamente ciò che vieta il decimo principio.
 **Un'intuizione dichiarata prima dei numeri vale più di uno z.** Il Serpente è stato indicato
 da Edu prima di qualunque misura, su 108 caselle scandite. Questo cambia il conto delle prove
 più di qualsiasi correzione statistica.
+
+---
+
+# S41 — 07/09/2026 · Candidati aperti, filoni chiusi, e il metodo di lettura
+
+## PRINCIPIO DI LETTURA (Edu, 07/09/2026) — vale per tutte le misure future
+
+Non sono "regole" assolute che danno ciascuna un sì o un no indipendente dalle altre: sono
+**condizioni**, e più condizioni producono una tendenza. L'immagine di Edu: non è l'ultima
+goccia a far traboccare la tazza, sono le condizioni che hanno prodotto l'accumulo.
+
+Precisazione che Edu ha dovuto ripetere: **nessuna condizione è determinante da sola — è la
+presenza di TUTTE insieme a esserlo.** Quindi la forma da cercare nelle misure è uno
+**scalino** sulla soglia, non una pendenza che sale col numero.
+
+Prova sul caso 我剋 (il Ti controlla il Yong), quattro condizioni dettate da Edu — 1) il Ti
+fuori stagione · 2) il Ti senza sostegno vivo · 3) il Yong da controllare è forte · 4) il
+giorno controlla il Ti ed è alimentato dal Yong (peso doppio):
+
+| | carte | giuste |
+|---|---|---|
+| tutte e quattro insieme | 23 | **65,22%** (vec 66,67 / rec 64,71) |
+| tre su quattro | 142 | 50,70% |
+| due su quattro | 273 | 49,82% |
+
+Con tre condizioni non succede niente; con quattro si sale al 65%. Lo scalino, non la pendenza.
+
+**Lo stesso principio un piano sopra ha prodotto la scala a voci** (vedi REGISTRO_DLR, S41):
+le condizioni sono i sistemi, e la soglia è l'unanimità.
+
+**Avvertenza operativa.** Cinque volte in S41 una traduzione fatta da Claude delle condizioni
+di Edu — per analogia o per simmetria — non ha retto alla misura, mentre le condizioni dettate
+da Edu hanno prodotto lo scalino. Le condizioni devono uscire dalla dottrina, non da un
+parallelismo formale.
+
+## IN OSSERVAZIONE
+
+**Il secondo messaggio del Serpente.** Nei tre messaggi il Serpente (螣蛇) sul secondo dice
+"non segue": 281 carte al 41,99% (fondo 48,17%), z −2,68, i due periodi dalla stessa parte.
+Ma metà è la sede che si ripete: dove R3 o R4 già parlano sono 138 carte al 39,86%, dove la
+sede tace restano 143 al 44,06% con z −1,42. Aggiungendolo alla regola cablata il livello
+alto peggiora (81 carte all'81,48% → 83 al 78,31%), e le carte nuove sono 20 al 60% con il
+vecchio al 50%. **Non entra.** Flag `SPMSG=1`, `SPMSGTUTTI=1` per tutti e dodici gli Spiriti.
+
+**Quattro celle dei messaggi, verso preso dai dati.** Grande Yin (太陰) sul primo messaggio
+173 carte 40,46% · Drago Azzurro (青龍) sul secondo 292 al 43,15% · Nobile (貴人) sul secondo
+184 al 57,07% · Guerriero Oscuro (玄武) sul secondo 203 al 55,67%. Tutte e quattro coi due
+periodi dalla stessa parte, ma provate sul livello alto crollano a 9-36 carte con i periodi
+divaricati. Scandite 36 celle: una o due a z 2,5 escono per caso. Da riguardare quando il
+campione cresce. `SPCAND=1`.
+
+**Lo stelo del giorno per elemento e stagione.** Fuori stagione: Legno 331 carte 39,58% ·
+Terra 285 al 41,05% · Acqua 397 al 44,58% · Metallo 305 al 48,52% · Fuoco 333 al 58,56%
+(fondo 48,17%). In stagione tutti e cinque fra 46,76% e 53,11%: nessuno parla. La Terra era
+invisibile presa intera (46,44%) e si vede solo spaccando per stagione. **Cablati Legno,
+Terra e Acqua**; il Fuoco resta fuori perché va dalla parte opposta agli altri tre e il suo
+verso è stato preso dai dati, non dedotto. `LYSTAG=1`, `STELOB=1`.
+
+**Le forme escluse, riammesse.** Le 85 carte fuori scala valgono 61,18% con +1.294 pip, ma
+il periodo recente scende al 58%. Adesso entrano nella scala a voci con una voce in meno.
+Per forma, lette dal sistema attuale: 伏吟 33 al 69,70% · 虎視轉蓬 12 al 66,67% · 返吟 49 al
+63,27% · 八專 49 al 59,18% · 冬蛇掩目 20 al 55,00%. `ESCLUSE=1`.
+
+**PB modificato (Edu, dal 28/08/2026) — ancora fermo.** Il conto dei commenti è sempre
+1 letto / 1 vinto. Il flag `MISURAPBVUOTO=1` gira e dà sempre 83 carte · 53,0% · +529 pip ·
+vecchio 52,8 / recente 54,8.
+
+## FILONI CHIUSI IN S41 (non riaprire senza un motivo nuovo)
+
+**Le Sei Bestie del Liu Yao come indicatore di trend — CHIUSO, e per un errore di impianto.**
+Nel Liu Yao le bestie girano in ordine fisso a partire dallo stelo del giorno: la bestia sulla
+linea 1 decide tutte le altre. Quindi "bestia X sulla linea N" è **lo stelo del giorno
+travestito** — stesse 547 carte, stesso 42,41%, per cinque bestie diverse. Verificato: i sei
+gruppi di stelo danno esattamente le cifre della scansione. Le uniche sedi che cambiano
+davvero con la bestia sono la Shi, la Ying e la mobile, e lì il Serpente è piatto (46,99% ·
+47,36% · 46,74% contro un fondo del 48,17%); la migliore di tutte è la Tigre Bianca sulla Shi
+al 51,87% con z 0,77. Il motivo dottrinale: nel Da Liu Ren il Serpente si muove col piatto,
+nel Liu Yao no. `LYBESTIE=1`, controprova `LYSTELO=1`.
+
+**Il verso dentro lo Hu Gua (estensione oltre il caso del concorrente) — CHIUSO.**
+Ipotesi: se il trigramma nucleare dalla parte del Yong genera quello dalla parte del Ti, il
+flusso va verso il Ti e il Ti tiene. Misura: flusso al Ti 185 carte al 45,95% · flusso al Yong
+153 al 54,90% · nessun verso 2.450 al 53,47%. Dove ribalterebbe un verdetto di oggi: 107 carte
+al **42,06%** con tutti e due i periodi sotto. Carta che lo falsifica: **USDJPY 03/01/2024,
+seme 142** — identica alla USDCAD 18/03/2020 su cui l'ipotesi era nata (sup 1 乾 · inf 6 坎 ·
+mutante L4), stesso Hu Gua (Li sotto, Xun sopra), stesso flusso verso il Ti, ma qui il Ti cede
+e il drenaggio ha ragione. E il Ti è 旺 nella carta che perde e 休 in quella che tiene: la
+forza va nel verso opposto. `HUGUA2=1`.
+
+**Il drenaggio del Ti — perimetro dichiarato INERTE.** Togliendo l'intera regola il sistema
+cambia di **quindici pip** su trentaseimila. Dentro quel perimetro non c'è informazione, in
+nessuna forma: né col cancello di forza, né senza, né per accumulo di condizioni, né coi 12
+stadi. Le misure fatte, tutte su 574 carte:
+- per forza del trasformato: forte 283 al 54,8% · debole 291 al 48,8% (sei punti, ma senza
+  una linea che si possa giustificare dottrinalmente: l'aggregato la vuole sopra zero, la
+  carta guida di Edu ha forza 1 e la vuole a 2 o 3)
+- il trasformato tagliato da un ramo della data: 263 carte al 54,37% ma vecchio 46,56 e
+  recente 62,16
+- accumulo di quattro condizioni sulla forza: nessuno scalino (4 su 4 = 87 carte al 51,72%
+  con i periodi a 38% e 63%, peggio di 3 su 4)
+- **coi 12 stadi**: trasformato timely → drenare dà 48,93%; trasformato **untimely** → drenare
+  dà 54,42%. Cioè il contrario dell'intuizione della forza. L'unica cella coerente è il
+  trasformato timely nei tre stadi migliori (1, 4, 5): 110 carte al 54,55% coi periodi allineati.
+Flag: `DRENAGATE=1`, `DRENACONTROLLO=1`, `LEGNOFORTE=1`, `TAZZADRENA=1`, `STADIDRENA=1`.
+
+**La bilancia simmetrica delle condizioni sul Plum Blossom — CHIUSO.** Quattro coppie di
+condizioni con segno, sommate su tutte le 2.788 carte: quando la bilancia conferma la lettura
+di base, seguire la base dà 49,16%; quando la contraddice, seguire la base dà 52,34%.
+Rovesciato. E le carte col Ti fortissimo (bilancia −5) leggendo "non segue" danno il 57,75%,
+il valore più alto della tabella. Le 142 carte a −5 stanno metà nelle caselle che dicono
+"segue" e metà in quelle che dicono "non segue" (73 contro 69), quindi non è la casella a
+spiegarlo. `BILANCIA=1`, `BILPROVA=1`.
+
+**L'accumulo portato sulla casella 生我 — CHIUSO nella traduzione fatta da Claude.** Nessun
+gradiente (44,44 · 52,76 · 49,51 · 50,45 · 61,11 · 35,71 per peso da 0 a 5). L'unica cosa che
+viaggia dall'altra casella è il giorno che colpisce la fonte: 111 carte al 54,95%, e al peso 4
+sono 54 carte al 61,11% coi due periodi sopra il pareggio. La condizione "la mutazione taglia
+la fonte", scritta da Claude per analogia, punta nel verso opposto (267 carte al 46,44%).
+Da rifare con le condizioni dettate da Edu per quel caso. `TAZZA2=1`.
+
+## LA TABELLA DI BASE DEL PLUM BLOSSOM — questione aperta, non chiusa
+
+Le quattro relazioni misurate come le legge il software oggi:
+
+| relazione | come la legge | carte | giuste | vecchio | recente |
+|---|---|---|---|---|---|
+| il Ti controlla il Yong (我剋) | segue | 631 | **47,54%** | 49,43% | 47,15% |
+| il Yong genera il Ti (生我) | segue | 674 | **49,41%** | 48,34% | 51,52% |
+| il Ti genera il Yong (我生) | non segue | 650 | 53,38% | 50,60% | 56,85% |
+| il Yong controlla il Ti (剋我) | non segue | 585 | 52,65% | 55,81% | 49,48% |
+
+**La tabella sbaglia solo quando dice "segue".** Le due caselle dove il Ti dovrebbe prevalere
+non prevalgono, e non dipende dalla forza del Ti: col Ti in stagione leggere "segue" dà
+48,63%, col Ti fuori stagione 48,40%. Girarle in blocco porta al 51,49% — non una regola
+migliore, solo meno peggio. Da decidere con Edu: è la tabella di base, non una regola accessoria.
+
+## STRUMENTO NUOVO — cerca.js
+
+`node cerca.js <termine>` cerca in tutti i .md dell'archivio e stampa file, sezione e riga di
+ogni riscontro. Ha un dizionario di sinonimi: cercando "forza" trova anche 十二長生, "stadi",
+"FORZA12", "timely". `node cerca.js --sinonimi` elenca le famiglie.
+
+Nato perché in S41 il modello a 12 stadi è stato ricostruito da zero benché fosse già a
+registro dal 25/08/2026 (REGISTRO_CORREZIONI, "MODELLO A 12 STADI"), insieme alla voce ancora
+aperta "DA FARE: ripesare forzaModello coi 12 stadi". **Da girare prima di misurare o proporre
+qualunque cosa.**

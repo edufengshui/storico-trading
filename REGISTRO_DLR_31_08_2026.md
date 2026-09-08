@@ -1500,3 +1500,135 @@ Se R3 fosse la sede del Trend, gli Spiriti seduti lì dovrebbero separarsi più 
 Dispersione fra i dodici Spiriti: R3 3,09 · R2 3,09 · R1 2,71 · R4 2,58. Scarto massimo:
 R3 13,28 punti, R2 11,96, R4 10,59, R1 9,48. Non c'è una sedia privilegiata.
 Il Serpente non è "lo Spirito in sede": è il Serpente, dovunque stia sul lato del guest.
+
+---
+
+# S41 — 07/09/2026 · La scala riscritta sulle voci, lo Hu Gua, e due regole ritirate
+
+## Cifre canoniche a fine S41
+
+| misura | valore |
+|---|---|
+| sistema attuale (S17) | 2.788 carte · 58,90% · z 9,39 · +35.819 pip |
+| motore DLR (soglia 20) | 3.253 lette · tace 18 · fuori selezione 204 · 60,81% · z 12,33 · +41.467 pip |
+| carte guida | 110 · 78 giuste · 0 tace · 32 storte · 0 fuori righe |
+| parità PWA/backtest | 465 carte · 0 differenze su pb, ly, attuale, dlr, livello, direzione |
+
+**ATTENZIONE — la base canonica è cambiata.** Il flag `RAFFORZA=1` non fa più parte della base:
+il sistema attuale a inizio S41 era 58,57% con +35.544 pip, adesso è 58,90% con +35.819.
+Le misure vanno lanciate senza `RAFFORZA`.
+
+## LA SCALA È STATA RISCRITTA — i livelli A/B/C non esistono più
+
+I livelli fissi sono stati sostituiti dal **consiglio delle voci**. Sei voci: Plum Blossom,
+Liu Yao, sistema attuale, motore Da Liu Ren, lo Spirito unico, lo stelo del giorno debole.
+Si contano quelle che parlano e si guarda se qualcuna dissente.
+
+La misura che ha imposto questa forma: **non conta quante voci sono d'accordo, conta che
+nessuna sia contraria.** Con una sola voce contraria si sta al 59% sia che le concordi siano
+tre sia che siano quattro (58,90% · 59,06% · 59,30% nelle tre celle).
+
+| livello | carte | giuste | pip | pip/trade | vecchio | recente |
+|---|---|---|---|---|---|---|
+| U6 sei voci concordi | 46 | 82,61% | 1.516 | 33,0 | 77,78% | 85,19% |
+| U5 cinque concordi | 213 | 75,59% | 7.699 | 36,1 | 74,16% | 78,57% |
+| U4 quattro concordi | 352 | 72,44% | 10.334 | 29,4 | 69,43% | 75,00% |
+| M1 una contraria | 1.153 | 59,41% | 16.987 | 14,7 | 64,48% | 55,13% |
+| M2 due o più contrarie | 626 | 56,39% | 7.107 | 11,4 | 58,68% | 53,16% |
+| **totale** | **2.390** | **62,43%** | **43.644** | 18,3 | 64,68% | 60,29% |
+
+- **Sotto le quattro voci si sta fermi**, anche se sono unanimi. Il vecchio U3 faceva 41 carte
+  al 63,41% col recente al 55,56%: tolto, e il totale non è peggiorato di niente.
+- Il vecchio livello D (forme escluse riammesse) è sparito assorbito: una carta di forma
+  esclusa ha semplicemente una voce in meno e cade in U4 o in M1.
+- Confronto con la scala vecchia: 1.470 carte · 68,03% · 36.529 pip. Adesso 920 trade in più
+  e 7.100 pip in più, ma il pip per trade scende da 24,8 a 18,3.
+
+**Il dissenso del motore è un veto.** Dentro M1, spaccando per chi dissente:
+Liu Yao 33 carte 69,70% · Plum Blossom 440 al 68,41% · Spirito 65 al 64,62% · stelo 75 al
+62,67% · **motore DLR 540 al 50,37% con 4,6 pip per trade.** Il 59,41% di M1 è la media fra
+un gruppo buono e un gruppo morto. Edu vuole comunque tradare M1 e M2.
+
+Cablata in `app.js` (`livelloTreSistemi`), in `pb_stress.js` (blocco TRESIST) e in
+`parita_tre.js` (`livBT`). Verifica: `TRESIST=1` e `node parita_tre.js 400`.
+
+## Le due voci nuove entrate nella scala
+
+**Lo Spirito unico.** Il Serpente (螣蛇 Teng She) su R3 dice che il mercato segue il trend,
+su R4 che non segue; le Sei Unioni (六合 Liu He) su R2 o R3 dicono che non segue. Vale solo
+quando ne parla UNO SOLO. Misurato sul vecchio livello B: 81 carte all'81,48% quando conferma
+il motore, 451 al 63,86% quando tace, 124 al 56,45% quando contraddice — i due periodi dalla
+stessa parte in tutti e tre. I due Spiriti fanno la stessa cosa: sul lato contrario danno
+56,52% e 56,36%, cioè il peggioramento non è di uno dei due, è della situazione.
+
+**Lo stelo del giorno debole.** Legno, Terra o Acqua fuori stagione dicono che il mercato NON
+segue il trend. Metallo e Fuoco tacciono, e tace ogni stelo in stagione. Sul vecchio livello A:
+196 carte al 76,53% (77,92 / 76,85) contro un livello A al 70,96%. Il braccio Legno/Terra/Acqua
+regge da solo e non ha bisogno del Fuoco, il cui verso era stato preso dai dati.
+
+Fondo del dataset: il mercato segue il trend il 48,17% delle volte (soglia 25).
+
+## HU GUA — struttura nuova, cablata
+
+Quando il Yong muta in un trigramma dello STESSO elemento del Ti, il trasformato non è un
+ospite ma un **concorrente**. A decidere chi vince è lo Hu Gua (互卦, l'esagramma nucleare:
+linee 2-3-4 il trigramma inferiore, 3-4-5 il superiore). Il trigramma dello Hu Gua che sta
+dalla parte del Ti lo genera o no; quello dalla parte del Yong genera o no il trasformato.
+Vince chi riceve il sostegno; se non ne sostiene nessuno o li sostiene entrambi, non interviene.
+
+Carta guida: **USDJPY 17/09/2024, seme 140** (sup 1 乾 · inf 4 震 · mutante L2 · giorno 甲申 ·
+mese 酉 · anno 辰). Hu Gua inferiore Gen 艮 (Terra) genera Dui 兌 (Metallo, il trasformato),
+Hu Gua superiore Xun 巽 (Legno) non genera Qian 乾 (Metallo, il Ti): vince il concorrente,
+non segue. Reale: non ha seguito, 158 pip.
+
+Perimetro 608 carte. Dove vince il concorrente 86 carte al 59,30% (vecchio 50,00 / recente
+70,27); dove vince il Ti 21 al 57,14%; dove lo Hu Gua non parla 501 al 50,10% — cioè dentro
+quel perimetro, senza lo Hu Gua, non c'è nessuna informazione.
+
+Effetto: Plum Blossom da solo da 53,41% · 14.501 pip a 53,66% · 16.576. Le 110 carte guida
+non cambiano di una. Cablata in `plumblossom.js` e in `pb_stress.js`.
+
+## Regole ritirate
+
+**Rafforzamento (RAFFORZA) — ritirata da Edu, non convinceva dottrinalmente.** Girava 485
+verdetti e ne girava bene il 53,61% contro il 46,39% della base, quindi come voce guadagnava
+5.485 pip. Ma il Plum Blossom nel sistema serve da filtro, non da voce: ogni verdetto girato
+lo faceva concordare col Liu Yao nel posto sbagliato. Tolta, il sistema attuale sale da 58,57%
+a 58,97% e la scala da 37.823 a 38.381 pip, mentre il PB da solo peggiora di 1.597 pip.
+Resta misurabile col flag `RAFFORZA=1`.
+
+**Il cancello di forza sul drenaggio del Ti — tolto.** Pretendeva che il trasformato fosse
+sostenuto da almeno tre rami del Bazi. Scattava su 43 carte con i due periodi a 37,50% e
+65,38%. Tolto, il sistema cambia di settanta pip. Resta regolabile con `DRENASOG`.
+
+## Il Plum Blossom: che cosa è, misurato
+
+| | carte | giuste | pip/trade |
+|---|---|---|---|
+| Da Liu Ren da solo | 2.613 | 61,16% | 14,5 |
+| Liu Yao da solo | 2.773 | 58,64% | 12,6 |
+| **Plum Blossom da solo** | 2.788 | **53,77%** | 5,8 |
+| sistema attuale (PB + LY + rafforzativi) | 2.788 | 58,57% | 12,7 |
+
+Il sistema attuale vale quanto il Liu Yao da solo. Dove PB e LY si contraddicono (1.320 carte),
+seguire il LY dà 55,15% e seguire il PB 44,85%.
+
+**Ma come filtro il Plum Blossom funziona.** Sulle 1.375 carte dove Liu Yao e motore concordano:
+quelle che il PB conferma sono 735 al 71,02% con 29,1 pip per trade, quelle che scarta sono
+640 al 65,63% con 21,4. Cinque punti e mezzo di separazione. Togliendolo del tutto: 1.550
+carte, 67,74%, 37.444 pip, ma il gradino alto sparisce (il livello A si gonfia a 1.375 al 68,51%).
+
+**Conclusione: il Plum Blossom non decide, seleziona.** Il 71% del gradino alto lo produce il
+filtro, non la voce. Togliere la sola voce vale un quarto di punto: è pulizia, non guadagno.
+
+## Che cosa resta da leggere col motore
+
+222 carte su 3.475, il 6,4%: 返吟 il ronzio che torna 63 · 八專 Otto Specialità 58 ·
+伏吟 il ronzio nascosto 42 · 冬蛇掩目 Serpente d'Inverno 26 · 虎視轉蓬 lo sguardo della tigre
+15 · nessun attore riconosciuto 18.
+
+Lette dal sistema attuale (soglia 25, 163 carte): 62,58% · z 3,21 · +2.393 pip. Ma 78 di
+quelle erano già il vecchio livello C. Le altre 85 valgono 61,18%.
+Sul trend crudo le Otto Specialità sono l'unica cella che sporge (58 carte, segue il trend il
+62,07% contro un fondo del 48,40%), ma lette dal sistema attuale sono penultime (59,18%),
+mentre il ronzio nascosto — il peggiore sul trend — è il primo (33 carte al 69,70%).

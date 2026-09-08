@@ -618,6 +618,8 @@ function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
 
   const spazzato = !eccitato && att > 0 && att > dif;
   // RAFFORZAMENTO: base=segue ma Yong rafforzato dalla mutazione (casi 1 生我, 5 比和) → non segue
+  // RAFFORZAMENTO — ritirata in S41 (07/09/2026). Vedi la nota in plumblossom.js. Resta
+  // misurabile col flag RAFFORZA=1 per poterla riaprire, ma non e' piu' nella base canonica.
   const rafforzato = !!process.env.RAFFORZA && base === true && (emaRun == null || emaRun < 20) &&
         (uso.el === trasf.el || GEN[trasf.el] === uso.el);
   // TREND VUOTO nel PAREGGIO: palazzo del Trend vuoto (旬空); ramo attivo scelto dalla posizione
@@ -696,7 +698,42 @@ function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
   const elsDrena = (TM === 'drena' || TM === 'tutto') ? baziRami.map(b=>WX[b]).concat(liberati) : baziRami.map(b=>WX[b]);
   const nsTrasf = elsDrena.filter(e => e === trasf.el || GEN[e] === trasf.el).length
                 - elsDrena.filter(e => CTRL[e] === trasf.el).length;
-  const drenaggio = !!process.env.DRENA && GEN[corpo.el] === trasf.el && nsTrasf >= 3;
+  // S41: cancello tolto. Resta regolabile con DRENASOG per poterlo riaprire.
+  const DRSOG = process.env.DRENASOG != null ? Number(process.env.DRENASOG) : -99;
+  const drenaggio = !!process.env.DRENA && GEN[corpo.el] === trasf.el && nsTrasf >= DRSOG;
+  const drenaPossibile = (GEN[corpo.el] === trasf.el) ? true : null;
+  const drenaForza = nsTrasf;
+  const giornoControllaTrasf = (CTRL[WX[dayBranch]] === trasf.el);
+  // S41 — le condizioni che dicono se il trasformato ha davvero la forza di drenare il Ti.
+  const ramiData = [yearBranch, monthBranch, dayBranch];
+  const trasfNonControllato = !ramiData.some(b => CTRL[WX[b]] === trasf.el);
+  const stTrasf = stagione(trasf.el, WX[monthBranch]);
+  const trasfInStagione = (stTrasf === '旺' || stTrasf === '相');
+  const nSostegniTrasf = ramiData.filter(b => WX[b] === trasf.el || GEN[WX[b]] === trasf.el).length;
+  const gTiTrasf = (GEN[corpo.el] === trasf.el);
+  const gTrasfYong = (GEN[trasf.el] === uso.el);
+  // S41 — lettura di Edu sulla USDJPY 15/08/2024: il corpo fuori stagione, il giorno che lo
+  // controlla, e il sostegno che gli arriverebbe dal trasformato reso vuoto dai vuoti del giorno.
+  const stTi = stagione(corpo.el, WX[monthBranch]);
+  const tiFuoriStagione = !(stTi === '旺' || stTi === '相');
+  const giornoControllaTi = (CTRL[WX[dayBranch]] === corpo.el);
+  const ramiTrasf = HOUTIAN[usoTrasf] || [];
+  const trasfVuoto = ramiTrasf.length > 0 && ramiTrasf.every(b => (vuoti || []).indexOf(b) >= 0);
+  const trasfSostieneTi = (GEN[trasf.el] === corpo.el);
+  // S41 — le condizioni che spingono verso "il Ti non prevale", contate insieme.
+  const stYong = stagione(uso.el, WX[monthBranch]);
+  const yongInStagione = (stYong === '旺' || stYong === '相');
+  const nSostegniYong = (sostegni || []).length;
+  // S41 — le quattro condizioni di Edu sul Ti che controlla un Yong forte.
+  const nSostegniTi = bazi.filter(x => WX[x.b] === corpo.el || GEN[WX[x.b]] === corpo.el).length;
+  const trasfAiutaTi = (GEN[trasf.el] === corpo.el) && !trasfVuoto;
+  // il giorno controlla il Ti ED e' alimentato dall'elemento del Yong: il Yong nutre chi uccide il Ti
+  const giornoNutritoDalYong = (CTRL[WX[dayBranch]] === corpo.el) && (GEN[uso.el] === WX[dayBranch]);
+  // S41 — versione per la casella 生我, dove il Yong ALIMENTA il Ti: qui il colpo non arriva
+  // sul Ti ma sulla linea di alimentazione.
+  const yongFuoriStagione = !(stYong === '旺' || stYong === '相');
+  const trasfTagliaYong = (GEN[uso.el] === trasf.el) || (CTRL[trasf.el] === uso.el);
+  const giornoControllaYong = (CTRL[WX[dayBranch]] === uso.el);
   let finale = (ponteYong || scarico || ponteRel || protetto || yongDebole) ? true
              : ((spazzato || bloccato || autopen || rafforzato) ? false : base);
   if (tsProtegge && (TSNB==='tutto'||TSNB==='segue') && spazzato) finale = base;
@@ -705,6 +742,26 @@ function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
   if (vuotoSempre && finale === true && !(tsProtegge && (TSNB==='vuoto'||TSNB==='tutto'||TSNB==='segue'))) finale = false;
   if (sopraffAttiva && finale === true && !(tsProtegge && (TSNB==='tutto'||TSNB==='segue'))) finale = false;
   if (drenaggio && finale === true && !(tsProtegge && (TSNB==='drena'||TSNB==='tutto'||TSNB==='segue'))) finale = false;
+  // HU GUA — IL CONCORRENTE DEL TI (Edu, 07/09/2026, da USDJPY 17/09/2024 seme 140).
+  // Quando il Yong muta in un trigramma dello STESSO elemento del Ti, il trasformato non e'
+  // piu' un ospite: e' un concorrente. A decidere chi vince e' lo Hu Gua (互卦, l'esagramma
+  // nucleare: linee 2-3-4 il trigramma inferiore, linee 3-4-5 il superiore). Il trigramma
+  // dello Hu Gua che sta dalla parte del Ti lo genera o no; quello dalla parte del Yong
+  // genera o no il trasformato. Vince chi riceve il sostegno.
+  // Misura: 86 carte 59,30% (vecchio 50,00 / recente 70,27) dove vince il concorrente;
+  // 21 carte 57,14% dove vince il Ti; 501 carte al 50,10% dove lo Hu Gua non sostiene nessuno.
+  let huGua = null;
+  if (trasf.el === corpo.el) {
+    const yinL = (n,p) => ((((n-1) >> (3-p)) & 1) === 1);
+    const trigDa = (a,b,c) => 1 + ((a?1:0)<<2) + ((b?1:0)<<1) + (c?1:0);
+    const Lg = [null, yinL(inf,1), yinL(inf,2), yinL(inf,3), yinL(sup,1), yinL(sup,2), yinL(sup,3)];
+    const huInf = TRIGRAM[trigDa(Lg[2],Lg[3],Lg[4])], huSup = TRIGRAM[trigDa(Lg[3],Lg[4],Lg[5])];
+    const tiSopra = (linea <= 3);
+    const huTi = tiSopra ? huSup : huInf, huYong = tiSopra ? huInf : huSup;
+    const sostTi = (GEN[huTi.el] === corpo.el), sostTrasf = (GEN[huYong.el] === trasf.el);
+    if (sostTrasf && !sostTi) { huGua = 'concorrente'; finale = false; }
+    else if (sostTi && !sostTrasf) { huGua = 'ti'; finale = true; }
+  }
   // RISCATTO DEL TRASFORMATO MORTO (Edu, 10/08/2026, da USDJPY 31/07/2024):
   // quando la base dice "non segue" ma il ramo attivo del palazzo del Yong ORIGINALE
   // (scelto dall'ORA per polarita', se l'ora non e' vuota) e' dell'elemento prospero
@@ -1010,7 +1067,7 @@ function leggi(seed, dayBranch, monthBranch, yearBranch, dayStem, emaRun){
     else if (LV==='v4') { const a2=verd(shiEl,yingEl), b2=verd(shiEl,mutEl); v = (a2!==null && a2===b2) ? a2 : null; }
     base = v; finale = v;
   }
-  return { via, base, soccorso, trendVuoto, vuotoPareggio, vuotoSempre, trendEtaiSui, sopraffTrasf, drenaggio, finale, spazzato, rafforzato, usoTrasf,
+  return { via, base, soccorso, trendVuoto, vuotoPareggio, vuotoSempre, trendEtaiSui, sopraffTrasf, drenaggio, drenaPossibile, drenaForza, trasfEl:trasf.el, giornoControllaTrasf, trasfNonControllato, trasfInStagione, nSostegniTrasf, gTiTrasf, gTrasfYong, viaBase:via, huGua, tiFuoriStagione, giornoControllaTi, trasfVuoto, trasfSostieneTi, yongInStagione, nSostegniYong, nSostegniTi, trasfAiutaTi, giornoNutritoDalYong, yongFuoriStagione, trasfTagliaYong, giornoControllaYong, finale, spazzato, rafforzato, usoTrasf,
            corpo, uso, trasf, yong, sup, inf, linea, liu, palazzo, palazzoYong, bloccato, autopen, ponteYong, scarico, ponteRel, ramiPonte, protetto, ramiProt, yongDebole, sostegni, dettForze, oraVuota, vuoti, att, dif, dettAtt, dettDif, dettPonte, dettVuoti, dettComb, eccitato, statoTrend, monthEl, oraBranch };
 }
 
@@ -1164,7 +1221,7 @@ Object.keys(hist.crosses).forEach(cross => {
     // per il baseline. Audit: SOGLIAPIP=0 (o altro valore) riproduce i campioni storici.
     const _soglia = process.env.SOGLIAPIP!==undefined ? Number(process.env.SOGLIAPIP) : 25;
     if (Math.abs(move) < _soglia) continue;
-    rows.push({cross,date:d,move,emaDir:ema.direction,corpoEl:r.corpo.el,yongElem:r.yong.el,via:r.via,linea:r.linea,sup:r.sup,inf:r.inf,usoTrasf:r.usoTrasf,rafforzato:r.rafforzato,trendEtaiSui:r.trendEtaiSui,seedUsed:seed,
+    rows.push({cross,date:d,move,emaDir:ema.direction,corpoEl:r.corpo.el,yongElem:r.yong.el,via:r.via,linea:r.linea,sup:r.sup,inf:r.inf,usoTrasf:r.usoTrasf,rafforzato:r.rafforzato,drenaPossibile:r.drenaPossibile,drenaForza:r.drenaForza,trasfEl:r.trasfEl,giornoControllaTrasf:r.giornoControllaTrasf,trasfNonControllato:r.trasfNonControllato,trasfInStagione:r.trasfInStagione,nSostegniTrasf:r.nSostegniTrasf,gTiTrasf:r.gTiTrasf,gTrasfYong:r.gTrasfYong,viaBase:r.viaBase,tiFuoriStagione:r.tiFuoriStagione,giornoControllaTi:r.giornoControllaTi,trasfVuoto:r.trasfVuoto,trasfSostieneTi:r.trasfSostieneTi,yongInStagione:r.yongInStagione,nSostegniYong:r.nSostegniYong,nSostegniTi:r.nSostegniTi,trasfAiutaTi:r.trasfAiutaTi,giornoNutritoDalYong:r.giornoNutritoDalYong,yongFuoriStagione:r.yongFuoriStagione,trasfTagliaYong:r.trasfTagliaYong,giornoControllaYong:r.giornoControllaYong,trendEtaiSui:r.trendEtaiSui,seedUsed:seed,
                liu:r.liu, casaAttore:G_CASA_ATTORE,
                yearBranchUsed:yb, dayStemUsed:ch.dayStem,
                base:r.base, finale:r.finale, soccorso:r.soccorso, emaRun:runLen, trendVuoto:r.trendVuoto, oraBranch:r.oraBranch, vuoti:r.vuoti, dayBranchUsed:ch.dayBranch, monthBranchUsed:ch.monthBranch, spazzato:r.spazzato, bloccato:r.bloccato, autopen:r.autopen, ponteYong:r.ponteYong, scarico:r.scarico, ponteRel:r.ponteRel, protetto:r.protetto, yongDebole:r.yongDebole,
@@ -28192,8 +28249,25 @@ if (process.env.TRESIST) {
     const L=ch.fourLessons; if(!L||L.length<4) return null;
     const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
       palazzoHost:(L[0].bottom.branch||L[0].bottom), R1:L[0].top.branch, R3:L[2].top.branch, R2:L[1].top.branch, R4:L[3].top.branch,
-      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
-    const v=MD.leggi(carta); r._dlrVia=v.via||null; r._dlrCarta=carta; return v.dir||null; };
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch, treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null, spiritoR2:(L[1].top.general&&L[1].top.general.cn)||null, spiritoR3:(L[2].top.general&&L[2].top.general.cn)||null, spiritoR4:(L[3].top.general&&L[3].top.general.cn)||null, ramoMese:r.monthBranchUsed||null, steloMese:(steliPerPrincipi(r)||{}).monthStem||null, seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null, steloAnno:(steliPerPrincipi(r)||{}).yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+    const v=MD.leggi(carta); r._dlrVia=v.via||null; r._dlrCarta=carta;
+    r._dlrEscluso = (!v.dir && String(v.perche||'').indexOf('fuori selezione')>=0); return v.dir||null; };
+  // S41 — lo Spirito unico: Serpente (螣蛇 Teng She) su R3 -> il mercato segue il trend, su R4 ->
+  // non segue; Sei Unioni (六合 Liu He) su R2 o R3 -> non segue. Vale solo se ne parla UNO SOLO.
+  // S41 — lo stelo del giorno debole: Legno, Terra o Acqua fuori stagione dicono che il
+  // mercato NON segue il trend. Metallo e Fuoco tacciono, e tace ogni stelo in stagione.
+  const SELt={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const steloVoce=(r)=>{ if(!r.emaDir) return null;
+    const sEl=SELt[r.dayStemUsed], mEl=WX[r.monthBranchUsed]; if(!sEl||!mEl) return null;
+    if(sEl!=='Wood'&&sEl!=='Earth'&&sEl!=='Water') return null;
+    const st=stagione(sEl,mEl); if(st==='旺'||st==='相') return null;
+    return r.emaDir==='up' ? 'SHORT' : 'LONG'; };
+  const spiritoSolo=(r)=>{ const ca=r._dlrCarta; if(!ca||!r.emaDir) return null;
+    const segue = r.emaDir==='up' ? 'LONG' : 'SHORT', nonSegue = r.emaDir==='up' ? 'SHORT' : 'LONG';
+    const s3=ca.spiritoR3==='螣蛇', s4=ca.spiritoR4==='螣蛇';
+    let ser=null; if(s3&&!s4) ser=segue; else if(s4&&!s3) ser=nonSegue;
+    const uni=(ca.spiritoR2==='六合'||ca.spiritoR3==='六合') ? nonSegue : null;
+    if(ser&&!uni) return ser; if(uni&&!ser) return uni; return null; };
   const mk=()=>({n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}});
   const M={}; const ORD=[];
   const put=(k,dir,r)=>{ if(!dir) return; const win=dir==='LONG'?r.move>0:r.move<0, pnl=dir==='LONG'?r.move:-r.move;
@@ -28265,9 +28339,80 @@ if (process.env.TRESIST) {
       const Cpieno = !A && !B && !!(ly && pb===ly);       // il vecchio livello C, tenuto solo per misura
       const Cc = Cpieno && !dlr;                          // livello C nuovo: solo dove il DLR tace
       const Cscartato = Cpieno && !!dlr;                  // vecchio C2: fuori scala
+      // S41: i tre sistemi da soli, sulle stesse carte, per vedere dove c'e' margine
+      if (process.env.TRESOLI) {
+        put('Y-1. Plum Blossom da solo', pb, r);
+        if (ly) put('Y-2. Liu Yao da solo', ly, r);
+        if (dlr) put('Y-3. Da Liu Ren da solo', dlr, r);
+        put('Y-4. sistema attuale (PB+LY con i rafforzativi)', s17, r);
+        if (ly) put('Y-5. Liu Yao dove il DLR parla', ly, r);
+        if (ly && dlr && ly!==dlr) put('Y-6. LY e DLR in contrasto · seguo il LY', ly, r);
+        if (ly && dlr && ly!==dlr) put('Y-7. LY e DLR in contrasto · seguo il DLR', dlr, r);
+        if (ly && pb!==ly) put('Y-8. LY contro PB · seguo il LY', ly, r);
+        if (ly && pb!==ly) put('Y-9. LY contro PB · seguo il PB', pb, r);
+      }
+      // S41 — il Plum Blossom: voce o filtro? Quattro scale a confronto, stesse carte.
+      if (process.env.PBFILTRO) {
+        // 1) scala di oggi
+        if (A) put('W-1A. OGGI · A (PB=LY=DLR)', pb, r);
+        if (B) put('W-1B. OGGI · B (attuale=DLR)', s17, r);
+        if (Cc) put('W-1C. OGGI · C (PB=LY, DLR tace)', pb, r);
+        if (A||B||Cc) put('W-1T. OGGI · totale', A?pb:B?s17:pb, r);
+        // 2) il PB resta filtro ma il livello B segue il LY invece del sistema attuale
+        const B2 = !A && !!(dlr && ly && ly===dlr);
+        if (A)  put('W-2A. SENZA VOCE · A (invariato)', pb, r);
+        if (B2) put('W-2B. SENZA VOCE · B (LY=DLR)', ly, r);
+        if (Cc) put('W-2C. SENZA VOCE · C (invariato)', pb, r);
+        if (A||B2||Cc) put('W-2T. SENZA VOCE · totale', A?pb:B2?ly:pb, r);
+        // 3) il PB esce anche dal filtro: A = LY e DLR concordi, C = LY parla e DLR tace
+        const A3 = !!(ly && dlr && ly===dlr);
+        const C3 = !A3 && !!(ly && !dlr);
+        if (A3) put('W-3A. FUORI DEL TUTTO · A (LY=DLR)', ly, r);
+        if (C3) put('W-3C. FUORI DEL TUTTO · C (LY parla, DLR tace)', ly, r);
+        if (A3||C3) put('W-3T. FUORI DEL TUTTO · totale', ly, r);
+        // 4) quanto vale il filtro: dentro A3, le carte che il PB conferma e quelle che scarta
+        if (A3 && pb===ly) put('W-4a. il filtro PB tiene questa carta (= livello A di oggi)', ly, r);
+        if (A3 && pb!==ly) put('W-4b. il filtro PB SCARTA questa carta', ly, r);
+        if (Cc) put('W-4c. C di oggi (il PB conferma)', pb, r);
+        if (C3 && pb!==ly) put('W-4d. il filtro PB scarta questa carta dal C', ly, r);
+      }
+      // S41 — LA SCALA RISCRITTA SUL CONSIGLIO DELLE VOCI (vedi la nota in app.js).
+      { const sp = spiritoSolo(r), st = steloVoce(r);
+        const tutte = [pb, ly, s17, dlr, sp, st].filter(Boolean);
+        if (tutte.length) {
+          const nL = tutte.filter(v=>v==='LONG').length, nS = tutte.length - nL;
+          if (nL !== nS) {
+            const dv = nL > nS ? 'LONG' : 'SHORT', contr = Math.min(nL, nS);
+            if (contr===0 && tutte.length < 4) { /* S41: unanimita' sotto le 4 voci: fermo */ }
+            else {
+            const liv = contr===0 ? 'U'+tutte.length : contr===1 ? 'M1' : 'M2';
+            put('V-'+liv+'. '+(contr===0?('tutte e '+tutte.length+' le voci concordi'):
+                contr===1?'una voce contraria':'due o piu voci contrarie'), dv, r);
+            put('V-TOT. la scala a voci', dv, r);
+            if (contr === 1) {   // S41: chi e' la voce che dissente, dentro M1
+              const nomi = [['Plum Blossom',pb],['Liu Yao',ly],['sistema attuale',s17],
+                            ['motore DLR',dlr],['Spirito',sp],['stelo del giorno',st]];
+              const chi = nomi.filter(x=>x[1] && x[1]!==dv).map(x=>x[0]).join('+');
+              put('W-M1 · dissente: '+chi, dv, r);
+              if (process.env.M1DUMP && (dv==='LONG')!==(r.move>0))
+                (global.__m1=global.__m1||[]).push({c:r.cross,d:r.date,chi,pip:Math.abs(r.move),
+                  sup:r.sup,inf:r.inf,lin:r.linea,seme:r.seedUsed,ema:r.emaDir,dv});
+            }
+            }
+          }
+        } }
       if (A) put('Z-A. tutti e tre concordi', pb, r);
+      // S41: il livello A spaccato con lo stelo del giorno debole
+      if (A) { const sv = steloVoce(r); const sub = !sv ? 'A ' : (sv===dlr ? 'A+' : 'A-');
+        put('Z-'+sub+'. livello A · '+(!sv?'lo stelo tace':(sv===dlr?'lo stelo debole conferma':'lo stelo debole contraddice')), pb, r); }
       if (B) put('Z-B. sistema attuale e DLR concordi (non A)', s17, r);
+      // S41: il livello B spaccato con gli Spiriti (Serpente 螣蛇 / Sei Unioni 六合)
+      if (B) { const sp = spiritoSolo(r); const sub = !sp ? 'B ' : (sp===dlr ? 'B+' : 'B-');
+        put('Z-'+sub+'. livello B · '+(!sp?'nessuno Spirito o due':(sp===dlr?'lo Spirito conferma':'lo Spirito contraddice')), s17, r); }
       if (Cc) put('Z-C. PB e LY concordi e DLR tace', pb, r);
+      // S41: le carte fuori selezione riammesse. Il motore non le legge per forma, non per
+      // silenzio: se il PB e il LY non concordano si segue il sistema attuale. 85 carte 61,18%.
+      if (!A && !B && !Cc && !dlr && r._dlrEscluso && s17) put('Z-D. forma esclusa riammessa · sistema attuale', s17, r);
       if (Cpieno) put('Z-Cvecchio. PB e LY concordi (vecchio C, per confronto)', pb, r);
       if (Cscartato) put('Z-C2. escluso dal 05/09/2026: PB e LY concordi ma DLR contrasta', pb, r);
       let fermo = !!r._gemFermo;
@@ -28283,12 +28428,16 @@ if (process.env.TRESIST) {
       (global.__tsd=global.__tsd||[]).push({cross:r.cross,date:r.date,seed:r.seedUsed,ora:r.oraBranch,ema:r.emaDir,emaRun:r.emaRun,pb:pb,ly:ly,at:s17,dlr:dlr,move:Math.round(r.move),
         dlrVia:r._dlrVia||null, lyVia:r._lyVia||null, lySez:r._lySez||null, stelo:ca.steloGiorno, ramo:ca.ramoGiorno, pal:ca.palazzoHost, R1:ca.R1,R2:ca.R2,R3:ca.R3,R4:ca.R4,
         pR1:par(ca.R1),pR2:par(ca.R2),pR3:par(ca.R3),pR4:par(ca.R4),pOra:par(ca.oraRamo), M1:ca.treMessaggi&&ca.treMessaggi.chu, pM1:par(ca.treMessaggi&&ca.treMessaggi.chu),
-        metodo:ca.metodo, vuoti:(ca.vuoti||[]).join(''), spR1:ca.spiritoR1, genOra:ca.generaleOra, mese:ca.ramoMese, gm:ca.generaleMese, wd:new Date(r.date+'T00:00:00Z').getUTCDay() }); }
+        metodo:ca.metodo, vuoti:(ca.vuoti||[]).join(''), steloGiorno:ca.steloGiorno, ramoMese:ca.ramoMese, escluso:!!r._dlrEscluso, spR1:ca.spiritoR1, spR2:ca.spiritoR2, spR3:ca.spiritoR3, spR4:ca.spiritoR4, genOra:ca.generaleOra, mese:ca.ramoMese, gm:ca.generaleMese, wd:new Date(r.date+'T00:00:00Z').getUTCDay() }); }
   }
   const pc=o=>o.n?(100*o.w/o.n).toFixed(2)+'%':'—';
   const z=o=>o.n?((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2):'—';
   if (process.env.GEMSCALA) console.log('\n[GEMSCALA] carte in cui il DLR e\' stato messo a tacere per piatto condiviso senza conferma del LY: '+gemZitto);
   if (process.env.TRESISTDUMP) require('fs').writeFileSync(process.env.TRESISTDUMP, JSON.stringify(global.__tsd||[]));
+  if (process.env.M1DUMP && global.__m1) { global.__m1.sort((a,b)=>b.pip-a.pip);
+    console.log('  --- M1, le peggiori perse ---');
+    global.__m1.slice(0,8).forEach(o=>console.log('    '+o.c+' '+o.d+'  dissente '+o.chi+
+      '  scala '+o.dv+'  -'+Math.round(o.pip)+' pip  sup '+o.sup+' inf '+o.inf+' linea '+o.lin+' seme '+o.seme)); }
   console.log('\n############## I TRE SISTEMI INSIEME — PB · LY · DLR — soglia '+SOG+' pip ##############');
   console.log('carte '+C.tot+' · LY parla '+C.lyParla+' · DLR parla '+C.dlrParla+' · parlano tutti e tre '+C.tutti+' · solo PB '+C.soloPB);
   console.log('');
@@ -31894,8 +32043,8 @@ if (process.env.SERPENTE2) {
   for(const k of Object.keys(M).sort()){ const o=M[k];
     const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
     console.log('  '+k.padEnd(60)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
-      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
-      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   piatti '+
+      String(o.pt.size).padStart(4)+'   vec '+pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
 }
 
 
@@ -32225,9 +32374,9 @@ if (process.env.DUESPIRITI) {
   const SOG=Number(process.env.SOGLIAPIP||25);
   const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');
   const M={};
-  const add=(k,dir,r)=>{ if(!dir) return; const ok=(dir==='LONG')===(r.move>0);
-    M[k]=M[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}};
-    const o=M[k]; o.n++; if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+  const add=(k,dir,r,pt)=>{ if(!dir) return; const ok=(dir==='LONG')===(r.move>0);
+    M[k]=M[k]||{n:0,w:0,p:0,pt:new Set(),ve:{n:0,w:0},re:{n:0,w:0}};
+    const o=M[k]; o.n++; if(pt) o.pt.add(pt); if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
     const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
   for (const r of rows) {
     if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
@@ -32235,6 +32384,7 @@ if (process.env.DUESPIRITI) {
     const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
     const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
     const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const PT=r.dayStemUsed+r.dayBranchUsed+'|'+r.oraBranch+'|'+gm;
     const nome=(x)=>(x&&x.general&&(x.general.cn||x.general))||null;
     const up=(r.emaDir==='up');
     const s3=nome(L[2].top)==='螣蛇', s4=nome(L[3].top)==='螣蛇';
@@ -32277,6 +32427,1352 @@ if (process.env.DUESPIRITI) {
   for(const k of Object.keys(M).sort()){ const o=M[k];
     const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
     console.log('  '+k.padEnd(56)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   piatti '+
+      String(o.pt.size).padStart(4)+'   vec '+pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// SPSCALA — S41, 07/09/2026: le carte con UN SOLO Spirito concorde col motore, scomposte
+// per livello attuale della scala. Serve a decidere se meritano un livello nuovo o se sono
+// carte che il sistema gia' prende. Stessi flag di DUESPIRITI.
+if (process.env.SPSCALA) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');
+  const M={};
+  const add=(k,dir,r,pt)=>{ if(!dir) return; const ok=(dir==='LONG')===(r.move>0);
+    M[k]=M[k]||{n:0,w:0,p:0,pt:new Set(),ve:{n:0,w:0},re:{n:0,w:0}};
+    const o=M[k]; o.n++; if(pt) o.pt.add(pt); if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const PT=r.dayStemUsed+r.dayBranchUsed+'|'+r.oraBranch+'|'+gm;
+    const nome=(x)=>(x&&x.general&&(x.general.cn||x.general))||null;
+    const up=(r.emaDir==='up');
+    const s3=nome(L[2].top)==='螣蛇', s4=nome(L[3].top)==='螣蛇';
+    let ser=null; if(s3&&!s4) ser= up?'LONG':'SHORT'; else if(s4&&!s3) ser= up?'SHORT':'LONG';
+    const u2=nome(L[1].top)==='六合', u3=nome(L[2].top)==='六合';
+    let uni=null; if(u2||u3) uni= up?'SHORT':'LONG';
+    const S=steliPerPrincipi(r);
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
+      palazzoHost:(L[0].bottom.branch||L[0].bottom),
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:String(ch.transmission.method), vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, ramoMese:r.monthBranchUsed||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null),
+      ramoAnno:r.yearBranchUsed||null, steloAnno:(S&&S.yearStem)||null };
+    const dlr=(MD.leggi(carta)||{}).dir||null;
+    const pb=pbSig(r), ly=r._lyRef||null, s17=r._S17ref||pb;
+    const A=!!(ly&&dlr&&pb===ly&&ly===dlr), B=!A&&!!(dlr&&s17===dlr);
+    const Cc=!A&&!B&&!!(ly&&pb===ly)&&!dlr;
+    const inScala = A||B||Cc;
+    const liv = A?'A':B?'B':Cc?'C':'fuori';
+    const nSpiriti=(ser?1:0)+(uni?1:0);
+    const solo = (nSpiriti===1) ? (ser||uni) : null;
+    // riferimenti
+    if(inScala) add('0. scala A+B+C (riferimento)', A?pb:B?s17:pb, r, PT);
+    if(A) add('0a. livello A (riferimento)', pb, r, PT);
+    if(B) add('0b. livello B (riferimento)', s17, r, PT);
+    if(Cc) add('0c. livello C (riferimento)', pb, r, PT);
+    if(!inScala) add('0d. fuori scala, oggi fermo (riferimento, verso del motore o PB)', dlr||pb, r, PT);
+    if(solo && dlr && dlr===solo){
+      add('1. UN SOLO Spirito concorde col motore — tutte', solo, r, PT);
+      add('1'+liv+'. un solo Spirito concorde · livello '+liv, solo, r, PT);
+      if(!inScala) add('2. CARTE NUOVE: un solo Spirito + motore, fuori scala oggi', solo, r, PT);
+      if(inScala) add('3. gia' + ' presa dalla scala', solo, r, PT);
+    }
+    if(solo && dlr && dlr!==solo && !inScala) add('4. fuori scala, un solo Spirito CONTRO il motore -> seguo il motore', dlr, r, PT);
+    // VARIANTE S41: il Serpente sul secondo messaggio, quando R3 e R4 tacciono, vale come R4
+    // (non segue). Verso dettato dalla regola gia' esistente, non scelto sui dati.
+    if(B && dlr){
+      const T3v=ch.transmission&&ch.transmission.threeDetailed;
+      const sedeS = s3||s4;
+      let serV = ser;
+      if(!sedeS && T3v && nome(T3v.zhong)==='螣蛇') serV = up?'SHORT':'LONG';
+      const nV=(serV?1:0)+(uni?1:0); const soloV=(nV===1)?(serV||uni):null;
+      const subV = !soloV ? 'B ' : (soloV===dlr ? 'B+' : 'B-');
+      add('V'+subV+'. VARIANTE col secondo messaggio · livello '+subV, soloV?(soloV===dlr?soloV:s17):s17, r, PT);
+      if(!sedeS && T3v && nome(T3v.zhong)==='螣蛇' && !uni)
+        add('V!. le carte NUOVE portate dal secondo messaggio', dlr===serV?serV:s17, r, PT);
+    }
+    // quale dei due Spiriti, dentro la scala
+    if(solo && dlr && inScala){ const chi = ser?'Serpente':'SeiUnioni';
+      if(dlr===solo) add('8'+liv+'. livello '+liv+' · '+chi+' concorde col motore', solo, r, PT);
+      else           add('9'+liv+'. livello '+liv+' · '+chi+' CONTRO il motore -> seguo la scala', A?pb:B?s17:pb, r, PT); }
+    // controprova: lo Spirito che contraddice, dentro la scala
+    if(solo && dlr && dlr!==solo && inScala) add('6'+liv+'. livello '+liv+' · un solo Spirito CONTRO -> seguo la scala', A?pb:B?s17:pb, r, PT);
+    if(!solo && inScala) add('7'+liv+'. livello '+liv+' · nessuno Spirito o due', A?pb:B?s17:pb, r, PT);
+    if(!solo && dlr && !inScala) add('5. fuori scala, nessuno Spirito o due -> motore da solo', dlr, r, PT);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== UN SOLO SPIRITO CONCORDE COL MOTORE, PER LIVELLO DELLA SCALA — soglia '+SOG+' ===');
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(62)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   piatti '+
+      String(o.pt.size).padStart(4)+'   vec '+pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// SPMSG — S41: i due Spiriti nei TRE MESSAGGI, al netto delle quattro lezioni. Serve a
+// sapere se i messaggi aggiungono qualcosa o se ripetono la sede. Stessi flag del baseline.
+if (process.env.SPMSG) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,haSeguito,r)=>{ A[k]=A[k]||{n:0,s:0,ve:{n:0,s:0},re:{n:0,s:0}}; const o=A[k]; o.n++; if(haSeguito)o.s++;
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(haSeguito)pr.s++;} };
+  let fondo={n:0,s:0};
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const T3=ch.transmission&&ch.transmission.threeDetailed; if(!T3) continue;
+    const nm=(x)=>(x&&x.general&&(x.general.cn||x.general))||null;
+    const su=r.move>0, up=(r.emaDir==='up'), haSeguito=(up===su);
+    fondo.n++; if(haSeguito) fondo.s++;
+    const TUTTI=[['貴人','Nobile'],['螣蛇','Serpente'],['朱雀','Passero Rosso'],['六合','Sei Unioni'],
+      ['勾陳','Gancio'],['青龍','Drago Azzurro'],['天空','Vuoto Celeste'],['白虎','Tigre Bianca'],
+      ['太常','Grande Costanza'],['玄武','Guerriero Oscuro'],['太陰','Grande Yin'],['天后','Regina del Cielo']];
+    for (const [SP,ET] of (process.env.SPMSGTUTTI?TUTTI:[['螣蛇','Serpente'],['六合','Sei Unioni']])) {
+      const inLez = [0,1,2,3].some(i=>nm(L[i].top)===SP);
+      const sede = (SP==='螣蛇') ? (nm(L[2].top)===SP||nm(L[3].top)===SP)
+                                : (SP==='六合' ? (nm(L[1].top)===SP||nm(L[2].top)===SP) : inLez);
+      const m1=nm(T3.chu)===SP, m2=nm(T3.zhong)===SP, m3=nm(T3.mo)===SP;
+      const nomi=['primo','secondo','terzo'];
+      [m1,m2,m3].forEach((c,i)=>{ if(!c) return;
+        add(ET+' · '+nomi[i]+' messaggio (tutte)', haSeguito, r);
+        add(ET+' · '+nomi[i]+' messaggio, FUORI dalla sede', haSeguito, r*1===0?haSeguito:r); });
+      // versione pulita: fuori dalla sede che gia parla
+      [m1,m2,m3].forEach((c,i)=>{ if(!c) return;
+        if(!sede) add(ET+' · '+nomi[i]+' msg · la sede TACE', haSeguito, r);
+        else      add(ET+' · '+nomi[i]+' msg · la sede parla gia', haSeguito, r); });
+      if((m1||m2||m3) && !inLez) add(ET+' · nei messaggi ma in NESSUNA lezione', haSeguito, r);
+    }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== I DUE SPIRITI NEI TRE MESSAGGI — soglia '+SOG+' ===');
+  console.log('  fondo del dataset: '+pc(fondo.s,fondo.n)+' su '+fondo.n+' carte (quante volte il mercato ha SEGUITO il trend)');
+  for(const k of Object.keys(A).sort()){ const o=A[k]; if(/FUORI dalla sede/.test(k)) continue;
+    const z=((o.s-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(52)+'n '+String(o.n).padStart(4)+'  segue '+pc(o.s,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'   vec '+pc(o.ve.s,o.ve.n).padStart(7)+'  rec '+pc(o.re.s,o.re.n).padStart(7)); }
+}
+
+// SPCAND — S41: i candidati usciti dalla scansione dei messaggi, provati sul livello B con
+// lo stesso schema del cablaggio. ATTENZIONE: il verso di questi e' stato scelto sui dati,
+// quindi i numeri sono generosi per costruzione.
+if (process.env.SPCAND) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');
+  // [nome cn, etichetta, posizione, verso: 'segue' | 'nonSegue']
+  const CAND=[['青龍','Drago Azzurro','zhong','nonSegue'],['太陰','Grande Yin','chu','nonSegue'],
+              ['貴人','Nobile','zhong','segue'],['玄武','Guerriero Oscuro','zhong','segue']];
+  const M={};
+  const add=(k,dir,r)=>{ if(!dir) return; const ok=(dir==='LONG')===(r.move>0);
+    M[k]=M[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=M[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const T3=ch.transmission&&ch.transmission.threeDetailed; if(!T3) continue;
+    const nm=(x)=>(x&&x.general&&(x.general.cn||x.general))||null;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const S=steliPerPrincipi(r);
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
+      palazzoHost:(L[0].bottom.branch||L[0].bottom),
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:String(ch.transmission.method), vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, ramoMese:r.monthBranchUsed||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null),
+      ramoAnno:r.yearBranchUsed||null, steloAnno:(S&&S.yearStem)||null };
+    const dlr=(MD.leggi(carta)||{}).dir||null;
+    const pb=pbSig(r), ly=r._lyRef||null, s17=r._S17ref||pb;
+    const A=!!(ly&&dlr&&pb===ly&&ly===dlr), B=!A&&!!(dlr&&s17===dlr);
+    if(!B||!dlr) continue;
+    for(const [cn,et,pos,verso] of CAND){
+      if(nm(T3[pos])!==cn) continue;
+      const v = (verso==='segue')?segue:nonSegue;
+      add(et+' ('+(pos==='chu'?'1o':pos==='zhong'?'2o':'3o')+' msg) · conferma il motore', v===dlr?v:null, r);
+      if(v!==dlr) add(et+' ('+(pos==='chu'?'1o':pos==='zhong'?'2o':'3o')+' msg) · contraddice -> seguo la scala', s17, r);
+    }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== I CANDIDATI DEI MESSAGGI, SUL LIVELLO B — soglia '+SOG+' (verso scelto sui dati: numeri generosi) ===');
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(58)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
       '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
       pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// LYBESTIE — S41, richiesta di Edu: il Serpente e' un indicatore di trend nel Da Liu Ren.
+// Le stesse Sei Bestie stanno anche nel Liu Yao, sedute sulle sei linee. Misura CRUDA e
+// identica a quella del DLR: dove siede la bestia, e se il mercato ha seguito il trend.
+if (process.env.LYBESTIE) {
+  const LYM = require('./liuyao.js');
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={}; let fondo={n:0,s:0};
+  const add=(k,haSeguito,r)=>{ A[k]=A[k]||{n:0,s:0,ve:{n:0,s:0},re:{n:0,s:0}}; const o=A[k]; o.n++; if(haSeguito)o.s++;
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(haSeguito)pr.s++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed,
+                             r.yearBranchUsed, r.dayStemUsed);
+    if (R.error || !R.linee) continue;
+    const su=r.move>0, up=(r.emaDir==='up'), haSeguito=(up===su);
+    fondo.n++; if(haSeguito) fondo.s++;
+    for (const l of R.linee) {
+      if (!l.bestia) continue;
+      const b=l.bestia.it||l.bestia.cn;
+      add(b+' · linea '+l.pos, haSeguito, r);
+      if (l.isShi)    add(b+' · sulla Shi', haSeguito, r);
+      if (l.isYing)   add(b+' · sulla Ying', haSeguito, r);
+      if (l.isMobile) add(b+' · sulla mobile', haSeguito, r);
+    }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  const F=100*fondo.s/fondo.n;
+  console.log('\n=== LE SEI BESTIE DEL LIU YAO COME INDICATORE DI TREND — soglia '+SOG+' ===');
+  console.log('  fondo: '+pc(fondo.s,fondo.n)+' su '+fondo.n+' carte   ·   * = i due periodi stanno dalla stessa parte del fondo');
+  const MINN=Number(process.env.LYMINN||120);
+  for(const k of Object.keys(A).sort()){ const o=A[k]; if(o.n<MINN) continue;
+    const p=100*o.s/o.n, z=((o.s-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    const pv=o.ve.n?100*o.ve.s/o.ve.n:null, pr=o.re.n?100*o.re.s/o.re.n:null;
+    const st=(pv!=null&&pr!=null&&((pv-F)*(pr-F)>0)&&Math.abs(p-F)>3)?' *':'  ';
+    console.log('  '+k.padEnd(34)+'n '+String(o.n).padStart(4)+'  segue '+pc(o.s,o.n).padStart(7)+st+
+      ' z '+String(z).padStart(6)+'   vec '+pc(o.ve.s,o.ve.n).padStart(7)+'  rec '+pc(o.re.s,o.re.n).padStart(7)); }
+}
+
+// LYSTELO — controprova: le bestie del Liu Yao girano in ordine fisso dallo stelo del giorno,
+// quindi "bestia X sulla linea N" e' solo lo stelo del giorno travestito. Qui la misura nuda.
+if (process.env.LYSTELO) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const GRP={'甲':'甲乙','乙':'甲乙','丙':'丙丁','丁':'丙丁','戊':'戊','己':'己','庚':'庚辛','辛':'庚辛','壬':'壬癸','癸':'壬癸'};
+  const A={}; let fondo={n:0,s:0};
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const g=GRP[r.dayStemUsed]; if(!g) continue;
+    const haSeguito=((r.emaDir==='up')===(r.move>0));
+    fondo.n++; if(haSeguito) fondo.s++;
+    A[g]=A[g]||{n:0,s:0,ve:{n:0,s:0},re:{n:0,s:0}}; const o=A[g]; o.n++; if(haSeguito)o.s++;
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(haSeguito)pr.s++;}
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL TREND PER STELO DEL GIORNO (controprova delle bestie del Liu Yao) — soglia '+SOG+' ===');
+  console.log('  fondo: '+pc(fondo.s,fondo.n)+' su '+fondo.n+' carte');
+  for(const k of Object.keys(A)){ const o=A[k];
+    const z=((o.s-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  stelo '+k.padEnd(8)+'n '+String(o.n).padStart(4)+'  segue '+pc(o.s,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'   vec '+pc(o.ve.s,o.ve.n).padStart(7)+'  rec '+pc(o.re.s,o.re.n).padStart(7)); }
+}
+
+
+// LYSTAG — S41: lo stelo del giorno come indicatore di trend, spaccato per stagione.
+// Timely = lo stelo e' prospero (旺) o in crescita (相) nell'elemento del mese.
+if (process.env.LYSTAG) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const SEL={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const A={}; let fondo={n:0,s:0};
+  const add=(k,haSeguito,r)=>{ A[k]=A[k]||{n:0,s:0,ve:{n:0,s:0},re:{n:0,s:0}}; const o=A[k]; o.n++; if(haSeguito)o.s++;
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(haSeguito)pr.s++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const sEl=SEL[r.dayStemUsed]; if(!sEl) continue;
+    const mEl=WX[r.monthBranchUsed]; if(!mEl) continue;
+    const st=stagione(sEl, mEl);
+    const timely=(st==='旺'||st==='相');
+    const haSeguito=((r.emaDir==='up')===(r.move>0));
+    fondo.n++; if(haSeguito) fondo.s++;
+    const nome={Wood:'Legno',Fire:'Fuoco',Earth:'Terra',Metal:'Metallo',Water:'Acqua'}[sEl];
+    add(nome+' · tutte', haSeguito, r);
+    add(nome+' · '+(timely?'in stagione':'fuori stagione'), haSeguito, r);
+    add(nome+' · stato '+st, haSeguito, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== LO STELO DEL GIORNO E IL TREND, PER STAGIONE — soglia '+SOG+' ===');
+  console.log('  fondo: '+pc(fondo.s,fondo.n)+' su '+fondo.n+' carte');
+  console.log('  in stagione = prospero 旺 o in crescita 相 nell elemento del mese');
+  for(const k of Object.keys(A).sort()){ const o=A[k]; if(o.n<60) continue;
+    const z=((o.s-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(28)+'n '+String(o.n).padStart(4)+'  segue '+pc(o.s,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'   vec '+pc(o.ve.s,o.ve.n).padStart(7)+'  rec '+pc(o.re.s,o.re.n).padStart(7)); }
+}
+
+// STELOB — S41: lo stelo del giorno fuori stagione come voce di trend, portato sul livello B
+// con lo stesso schema del Serpente. Verso: Legno/Terra/Acqua deboli -> NON segue il trend;
+// Fuoco debole -> segue; Metallo e tutti gli steli in stagione tacciono.
+if (process.env.STELOB) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const SEL={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');
+  const M={};
+  const add=(k,dir,r)=>{ if(!dir) return; const ok=(dir==='LONG')===(r.move>0);
+    M[k]=M[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=M[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const mEl=WX[r.monthBranchUsed], sEl=SEL[r.dayStemUsed]; if(!mEl||!sEl) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const st=stagione(sEl,mEl), timely=(st==='旺'||st==='相');
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    let voce=null;
+    if(!timely){ if(sEl==='Wood'||sEl==='Earth'||sEl==='Water') voce=nonSegue; else if(sEl==='Fire'&&!process.env.NOFUOCO) voce=segue; }
+    let voce3=null; if(!timely && (sEl==='Wood'||sEl==='Earth'||sEl==='Water')) voce3=nonSegue;
+    let voceF=null; if(!timely && sEl==='Fire') voceF=segue;
+    const nome=(x)=>(x&&x.general&&(x.general.cn||x.general))||null;
+    const s3=nome(L[2].top)==='螣蛇', s4=nome(L[3].top)==='螣蛇';
+    let ser=null; if(s3&&!s4) ser=segue; else if(s4&&!s3) ser=nonSegue;
+    const u2=nome(L[1].top)==='六合', u3=nome(L[2].top)==='六合';
+    const uni=(u2||u3)?nonSegue:null;
+    const nSp=(ser?1:0)+(uni?1:0); const spirito=(nSp===1)?(ser||uni):null;
+    const S=steliPerPrincipi(r);
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
+      palazzoHost:(L[0].bottom.branch||L[0].bottom),
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:String(ch.transmission.method), vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, ramoMese:r.monthBranchUsed||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null),
+      ramoAnno:r.yearBranchUsed||null, steloAnno:(S&&S.yearStem)||null };
+    const dlr=(MD.leggi(carta)||{}).dir||null;
+    const pb=pbSig(r), ly=r._lyRef||null, s17=r._S17ref||pb;
+    const A=!!(ly&&dlr&&pb===ly&&ly===dlr), B=!A&&!!(dlr&&s17===dlr);
+    if(!dlr) continue;
+    if(B){
+      add('0. livello B (riferimento)', s17, r);
+      if(voce3) add((voce3===dlr?'A1. SOLO Legno/Terra/Acqua deboli · conferma':'A2. SOLO Legno/Terra/Acqua deboli · contraddice'), voce3===dlr?voce3:s17, r);
+      if(voceF) add((voceF===dlr?'A3. SOLO Fuoco debole · conferma':'A4. SOLO Fuoco debole · contraddice'), voceF===dlr?voceF:s17, r);
+      if(!voce) add('1. stelo muto (in stagione, o Metallo)', s17, r);
+      else if(voce===dlr) add('2. lo STELO conferma il motore', voce, r);
+      else add('3. lo STELO contraddice -> seguo la scala', s17, r);
+      // incrocio con lo Spirito gia cablato
+      if(voce&&spirito){
+        if(voce===dlr&&spirito===dlr) add('4. stelo E Spirito, tutti e due confermano', voce, r);
+        else if(voce!==dlr&&spirito!==dlr) add('5. stelo E Spirito, tutti e due contro', s17, r);
+        else add('6. stelo e Spirito in disaccordo fra loro', s17, r);
+      }
+      if(voce&&!spirito) add('7. parla solo lo STELO · '+(voce===dlr?'conferma':'contraddice'), voce===dlr?voce:s17, r);
+      if(!voce&&spirito) add('8. parla solo lo SPIRITO · '+(spirito===dlr?'conferma':'contraddice'), spirito===dlr?spirito:s17, r);
+    }
+    if(A){ add('9. livello A (riferimento)', pb, r);
+      if(voce) add(voce===dlr?'9a. livello A · lo stelo conferma':'9b. livello A · lo stelo contraddice', pb, r);
+      if(voce3) add(voce3===dlr?'9c. livello A · Legno/Terra/Acqua deboli conferma':'9d. livello A · Legno/Terra/Acqua deboli contraddice', pb, r);
+      if(voceF) add(voceF===dlr?'9e. livello A · Fuoco debole conferma':'9f. livello A · Fuoco debole contraddice', pb, r); }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== LO STELO DEL GIORNO FUORI STAGIONE, SUL LIVELLO B — soglia '+SOG+' ===');
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(52)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// DLRRESTA — S41: che cosa resta da leggere. Le carte fuori selezione, per forma.
+if (process.env.DLRRESTA) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||20);
+  const F={}; let lette=0, mute=0, fuori=0, tot=0;
+  const FM={}; // forma -> {n, seguito}
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const S=steliPerPrincipi(r)||{};
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
+      palazzoHost:(L[0].bottom.branch||L[0].bottom),
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
+      ramoMese:r.monthBranchUsed||null, steloMese:S.monthStem||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null),
+      ramoAnno:r.yearBranchUsed||null, steloAnno:S.yearStem||null,
+      generaleOra:generaleSopraOra(ch, r.oraBranch) };
+    const v=MD.leggi(carta)||{}; tot++;
+    const met=String(ch.transmission.method||'?');
+    if (v.dir) { lette++; continue; }
+    const p=String(v.perche||'');
+    if (p.indexOf('fuori selezione')>=0) { fuori++; const kk=p.replace(/\s+/g,' ').trim().slice(0,60);
+      FM[kk]=FM[kk]||{n:0,s:0};
+      FM[kk].n++; if(r.emaDir && ((r.emaDir==='up')===(r.move>0))) FM[kk].s++; }
+    else { mute++; F[p]=(F[p]||0)+1; }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== CHE COSA RESTA DA LEGGERE COL MOTORE — soglia '+SOG+' ===');
+  console.log('  carte totali '+tot+'  ·  lette '+lette+'  ·  mute '+mute+'  ·  fuori selezione '+fuori);
+  console.log('  --- le forme fuori selezione (e quante volte il mercato ha seguito il trend) ---');
+  Object.keys(FM).sort((a,b)=>FM[b].n-FM[a].n).forEach(k=>
+    console.log('    '+k.padEnd(28)+String(FM[k].n).padStart(4)+' carte   segue '+pc(FM[k].s,FM[k].n)));
+  console.log('  --- i motivi del silenzio ---');
+  Object.keys(F).sort((a,b)=>F[b]-F[a]).slice(0,8).forEach(k=>console.log('    '+String(F[k]).padStart(3)+'  '+k.slice(0,90)));
+}
+
+// ESCLUSE — S41: le carte fuori selezione, riammesse. Dove cadono nella scala, e se le due
+// regole cablate (Spirito e stelo debole) le recuperano. Il motore su queste tace per forma,
+// quindi i livelli A e B non possono scattare: si guarda che cosa resta.
+if (process.env.ESCLUSE) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const SELt={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');
+  const M={};
+  const add=(k,dir,r)=>{ if(!dir) return; const ok=(dir==='LONG')===(r.move>0);
+    M[k]=M[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=M[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const S=steliPerPrincipi(r)||{};
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
+      palazzoHost:(L[0].bottom.branch||L[0].bottom),
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
+      ramoMese:r.monthBranchUsed||null, steloMese:S.monthStem||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null,
+      steloAnno:S.yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+    const v=MD.leggi(carta)||{};
+    const escl = !v.dir && String(v.perche||'').indexOf('fuori selezione')>=0;
+    if (!escl) continue;
+    const forma = String(v.perche||'').replace(/.*fuori selezione: /,'').split(' ')[0];
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const pb=pbSig(r), ly=r._lyRef||null, at=r._S17ref||pb;
+    // le due voci cablate
+    const nome=(x)=>(x&&x.general&&(x.general.cn||x.general))||null;
+    const s3=nome(L[2].top)==='螣蛇', s4=nome(L[3].top)==='螣蛇';
+    let ser=null; if(s3&&!s4) ser=segue; else if(s4&&!s3) ser=nonSegue;
+    const uni=(nome(L[1].top)==='六合'||nome(L[2].top)==='六合')?nonSegue:null;
+    const nSp=(ser?1:0)+(uni?1:0); const spirito=(nSp===1)?(ser||uni):null;
+    let stelo=null; const sEl=SELt[r.dayStemUsed], mEl=WX[r.monthBranchUsed];
+    if(sEl&&mEl&&(sEl==='Wood'||sEl==='Earth'||sEl==='Water')){ const st=stagione(sEl,mEl);
+      if(st!=='旺'&&st!=='相') stelo=nonSegue; }
+    add('0. tutte le escluse · verdetto del sistema attuale', at, r);
+    add('0b. tutte le escluse · '+forma+' · sistema attuale', at, r);
+    if(ly&&pb===ly) add('1. livello C oggi (PB e LY concordi)', pb, r);
+    else add('1b. escluse FUORI dal livello C (PB e LY discordi, o LY tace)', at, r);
+    if(!(ly&&pb===ly) && stelo) add(stelo===at?'1c. fuori dal C + lo stelo conferma':'1d. fuori dal C + lo stelo contraddice', at, r);
+    // le due voci da sole
+    if(spirito) add('2. lo Spirito da solo', spirito, r);
+    if(stelo)   add('3. lo stelo debole da solo', stelo, r);
+    // le due voci come conferma del sistema attuale
+    if(spirito) add(spirito===at?'4. lo Spirito conferma il sistema attuale':'5. lo Spirito contraddice il sistema attuale', at, r);
+    if(stelo)   add(stelo===at?'6. lo stelo conferma il sistema attuale':'7. lo stelo contraddice il sistema attuale', at, r);
+    if(ly&&pb===ly&&spirito) add(spirito===pb?'8. livello C + lo Spirito conferma':'9. livello C + lo Spirito contraddice', pb, r);
+    if(ly&&pb===ly&&stelo)   add(stelo===pb?'8b. livello C + lo stelo conferma':'9b. livello C + lo stelo contraddice', pb, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== LE CARTE ESCLUSE, RIAMMESSE — soglia '+SOG+' ===');
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(52)+'n '+String(o.n).padStart(3)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// PBFALLISCE — S41: le carte dove il Plum Blossom sbaglia mentre Liu Yao e motore hanno
+// ragione. Sono le carte che il filtro PB butta via dal livello A pur essendo buone.
+if (process.env.PBFALLISCE) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');
+  const TRIG={'乾':'Qian','兌':'Dui','離':'Li','震':'Zhen','巽':'Xun','坎':'Kan','艮':'Gen','坤':'Kun'};
+  const out=[];
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const S=steliPerPrincipi(r)||{};
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
+      palazzoHost:(L[0].bottom.branch||L[0].bottom),
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
+      ramoMese:r.monthBranchUsed||null, steloMese:S.monthStem||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null,
+      steloAnno:S.yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+    const dlr=(MD.leggi(carta)||{}).dir||null;
+    const pb=pbSig(r), ly=r._lyRef||null;
+    if(!ly||!dlr) continue;
+    if(!(ly===dlr && pb!==ly)) continue;         // il filtro PB scarta la carta
+    const vero = r.move>0 ? 'LONG' : 'SHORT';
+    if(vero!==ly) continue;                       // e LY+DLR avevano ragione
+    out.push({c:r.cross,d:r.date,ema:r.emaDir,pb,ly,dlr,vero,pip:Math.abs(r.move),
+      sup:r.sup,inf:r.inf,lin:r.linea,seme:r.seedUsed});
+  }
+  out.sort((a,b)=>b.pip-a.pip);
+  console.log('\n=== IL PLUM BLOSSOM SBAGLIA, LIU YAO E MOTORE NO — '+out.length+' carte, soglia '+SOG+' ===');
+  out.slice(0,6).forEach(o=>console.log('  '+o.c+' '+o.d+'  EMA '+o.ema+'  PB '+o.pb+'  LY/DLR '+o.ly+
+    '  reale '+o.vero+' '+o.pip+' pip   sup '+o.sup+' ('+(TRIG[o.sup]||'')+')  inf '+o.inf+' ('+(TRIG[o.inf]||'')+
+    ')  linea '+o.lin+'  seme '+o.seme));
+}
+
+// RAFFMIS — S41: quanto vale la regola del rafforzamento. Le carte che gira (base "segue"
+// -> "non segue"), quante gira bene e quante male, e quanto costa o rende in pip.
+if (process.env.RAFFMIS) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  let n=0, giusteCon=0, giusteSenza=0, pipCon=0, pipSenza=0; const PERL={};
+  const per={ve:{n:0,c:0},re:{n:0,c:0}};
+  const peggiori=[];
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (!r.rafforzato) continue;
+    n++;
+    const up=(r.emaDir==='up');
+    // col rafforzamento il verdetto e' "non segue"; senza sarebbe "segue"
+    const dirCon  = up ? 'SHORT' : 'LONG';
+    const dirSenza= up ? 'LONG'  : 'SHORT';
+    const vero = r.move>0 ? 'LONG' : 'SHORT';
+    const okCon=(dirCon===vero), okSenza=(dirSenza===vero);
+    if(okCon){giusteCon++; pipCon+=Math.abs(r.move);} else pipCon-=Math.abs(r.move);
+    if(okSenza){giusteSenza++; pipSenza+=Math.abs(r.move);} else pipSenza-=Math.abs(r.move);
+    const pr = r.date<'2022-12-01'?per.ve:(r.date>'2023-05-01'?per.re:null);
+    if(pr){pr.n++; if(okCon)pr.c++;}
+    if(!okCon) peggiori.push({c:r.cross,d:r.date,pip:Math.abs(r.move),sup:r.sup,inf:r.inf,lin:r.linea,seme:r.seedUsed});
+    const kL='linea '+r.linea; PERL[kL]=PERL[kL]||{n:0,c:0,ve:{n:0,c:0},re:{n:0,c:0}};
+    PERL[kL].n++; if(okCon)PERL[kL].c++;
+    const prL=r.date<'2022-12-01'?PERL[kL].ve:(r.date>'2023-05-01'?PERL[kL].re:null);
+    if(prL){prL.n++; if(okCon)prL.c++;}
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== LA REGOLA DEL RAFFORZAMENTO — soglia '+SOG+' ===');
+  console.log('  carte girate: '+n);
+  console.log('  col rafforzamento : '+giusteCon+' giuste  ('+pc(giusteCon,n)+')   '+Math.round(pipCon)+' pip');
+  console.log('  senza (base)      : '+giusteSenza+' giuste  ('+pc(giusteSenza,n)+')   '+Math.round(pipSenza)+' pip');
+  console.log('  guadagno della regola: '+Math.round(pipCon-pipSenza)+' pip');
+  console.log('  periodi col rafforzamento: vecchio '+pc(per.ve.c,per.ve.n)+' su '+per.ve.n+
+              '  ·  recente '+pc(per.re.c,per.re.n)+' su '+per.re.n);
+  console.log('  --- per linea mutante ---');
+  Object.keys(PERL).sort().forEach(k=>{ const o=PERL[k];
+    console.log('    '+k+'   n '+String(o.n).padStart(3)+'  giuste '+pc(o.c,o.n).padStart(7)+
+      '   vec '+pc(o.ve.c,o.ve.n).padStart(7)+'  rec '+pc(o.re.c,o.re.n).padStart(7)); });
+  peggiori.sort((a,b)=>b.pip-a.pip);
+  console.log('  le cinque girate peggio:');
+  peggiori.slice(0,5).forEach(o=>console.log('    '+o.c+' '+o.d+'  -'+Math.round(o.pip)+
+    ' pip   sup '+o.sup+' inf '+o.inf+' linea '+o.lin+' seme '+o.seme));
+}
+
+// DRENAGATE — S41: le carte dove il Ti genera il Yong trasformato (quindi si svuota) ma la
+// forza del trasformato sta sotto la soglia, e la regola del drenaggio non scatta.
+if (process.env.DRENAGATE) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.drenaPossibile == null) continue;       // solo le carte dove Ti genera il trasformato
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const forza = r.drenaForza;
+    const k = forza>=3 ? 'forza >= 3 (la regola scatta oggi)' :
+              forza>=1 ? 'forza 1 o 2 (la regola NON scatta)' : 'forza 0 o meno (la regola NON scatta)';
+    add(k+' · si applica il drenaggio -> non segue', nonSegue, r);
+    add(k+' · non si applica -> segue il trend',     segue,    r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL CANCELLO DI FORZA SUL DRENAGGIO — soglia '+SOG+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(58)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// VANTAGGIO — S41, regola di Edu: il primo esagramma e' la partenza, il secondo l'evoluzione.
+// Quando il Ti controlla il Yong all'inizio (我剋) ma la mutazione produce un trasformato che
+// sta IN MEZZO ai due nel ciclo di generazione — il Ti lo genera (e si drena) e lui genera
+// indietro il Yong — il vantaggio passa al Yong: non segue il trend.
+if (process.env.VANTAGGIO) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.viaBase !== '我剋') continue;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const ponte = (r.gTiTrasf === true && r.gTrasfYong === true);   // il trasformato sta in mezzo
+    if (ponte) {
+      add('1. IL VANTAGGIO PASSA AL YONG · non segue (regola di Edu)', nonSegue, r);
+      add('2. le stesse carte lette come oggi · segue', segue, r);
+    } else {
+      add('3. 我剋 senza il ponte · segue (come oggi)', segue, r);
+    }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL VANTAGGIO CHE PASSA AL YONG — soglia '+SOG+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(56)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// TABELLABASE — S41: le cinque relazioni della tabella di base, misurate come le legge oggi
+// il software (segue / non segue), sul mazzo pieno.
+if (process.env.TABELLABASE) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  const IT={'生我':'il Yong genera il Ti (生我) · oggi segue','我剋':'il Ti controlla il Yong (我剋) · oggi segue',
+            '我生':'il Ti genera il Yong (我生) · oggi non segue','剋我':'il Yong controlla il Ti (剋我) · oggi non segue'};
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const v=r.viaBase; if(!IT[v]) continue;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const comeOggi = (v==='生我'||v==='我剋') ? segue : nonSegue;
+    add(IT[v], comeOggi, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== LA TABELLA DI BASE, RELAZIONE PER RELAZIONE — soglia '+SOG+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(46)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// PEGGIORIWOKE — S41: le carte 我剋 (il Ti controlla il Yong) dove leggerle "segue" perde di piu'.
+if (process.env.PEGGIORIWOKE) {
+  const SOG=Number(process.env.SOGLIAPIP||25); const out=[];
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.viaBase !== '我剋') continue;
+    if (r.finale !== true) continue;              // solo dove anche il verdetto finale dice "segue"
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT';
+    const vero = r.move>0 ? 'LONG' : 'SHORT';
+    if (segue===vero) continue;
+    out.push({c:r.cross,d:r.date,pip:Math.abs(r.move),sup:r.sup,inf:r.inf,lin:r.linea,seme:r.seedUsed,ema:r.emaDir});
+  }
+  out.sort((a,b)=>b.pip-a.pip);
+  console.log('\n=== 我剋 · le peggiori lette come "segue" — '+out.length+' perse su soglia '+SOG+' ===');
+  out.slice(0,8).forEach(o=>console.log('  '+o.c+' '+o.d+'  EMA '+o.ema+'  -'+Math.round(o.pip)+
+    ' pip   sup '+o.sup+' inf '+o.inf+' linea '+o.lin+' seme '+o.seme));
+}
+
+// TIESAUSTO — S41, lettura di Edu sulla USDJPY 15/08/2024: il Ti non prevale per relazione se
+// e' esausto. Tre condizioni, tutte dichiarate prima di misurare, tutte nello stesso verso
+// (non segue): il Ti fuori stagione · il ramo del giorno che controlla il Ti · il sostegno
+// che il Ti riceverebbe dal trasformato reso vuoto dai vuoti del giorno.
+if (process.env.TIESAUSTO) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  const SOLOWOKE = !!process.env.SOLOWOKE;
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const baseSegue = (r.viaBase==='我剋'||r.viaBase==='生我');
+    if (!baseSegue) continue;                       // solo le caselle che oggi dicono "segue"
+    if (SOLOWOKE && r.viaBase!=='我剋') continue;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    add('0. tutte le caselle che dicono "segue" (riferimento)', segue, r);
+    if (r.tiFuoriStagione) add('1. il Ti fuori stagione -> non segue', nonSegue, r);
+    if (r.tiFuoriStagione && r.giornoControllaTi) add('2. + il giorno controlla il Ti -> non segue', nonSegue, r);
+    if (r.tiFuoriStagione && r.giornoControllaTi && r.trasfSostieneTi && r.trasfVuoto)
+      add('3. + il sostegno dal trasformato e vuoto -> non segue', nonSegue, r);
+    if (r.giornoControllaTi) add('4. solo il giorno controlla il Ti -> non segue', nonSegue, r);
+    if (!r.tiFuoriStagione) add('5. il Ti in stagione -> segue (come oggi)', segue, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL TI ESAURITO — soglia '+SOG+(SOLOWOKE?' · solo 我剋':' · 我剋 e 生我')+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(52)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// ACCUMULO — S41, impostazione di Edu: le condizioni non danno un verdetto ciascuna, si
+// sommano in una tendenza. Qui si contano quante spingono verso "il Ti non prevale", e si
+// guarda se la precisione sale col numero. Tutte dichiarate prima, tutte nello stesso verso.
+if (process.env.ACCUMULO) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={}; const PESO={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (!(r.viaBase==='我剋'||r.viaBase==='生我')) continue;   // le caselle che oggi dicono "segue"
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const C = [
+      ['il Ti e fuori stagione',            !!r.tiFuoriStagione],
+      ['il giorno controlla il Ti',         !!r.giornoControllaTi],
+      ['il Yong e in stagione',             !!r.yongInStagione],
+      ['il Yong ha sostegni nella data',    (r.nSostegniYong||0) >= 2],
+      ['il Ti si drena nel trasformato',    !!r.gTiTrasf],
+      ['il sostegno del Ti e vuoto',        !!(r.trasfSostieneTi && r.trasfVuoto)]
+    ];
+    const k = C.filter(c=>c[1]).length;
+    add('livello '+k+' · '+k+' condizioni su 6', k>=3 ? nonSegue : segue, r);
+    add('SOLO CONTEGGIO livello '+k+' · leggo sempre "non segue"', nonSegue, r);
+    C.forEach(c=>{ if(c[1]){ PESO[c[0]]=PESO[c[0]]||{n:0,w:0}; PESO[c[0]].n++;
+      if((nonSegue==='LONG')===(r.move>0)) PESO[c[0]].w++; } });
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== L ACCUMULO DELLE CONDIZIONI — soglia '+SOG+' ===');
+  console.log('  (leggendo sempre "non segue", per vedere se la precisione sale col numero)');
+  for(const k of Object.keys(A).filter(x=>/^SOLO/.test(x)).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.replace('SOLO CONTEGGIO ','').padEnd(46)+'n '+String(o.n).padStart(4)+
+      '  giuste '+pc(o.w,o.n).padStart(7)+'  z '+String(z).padStart(6)+'  '+
+      String(Math.round(o.p)).padStart(6)+' pip   vec '+pc(o.ve.w,o.ve.n).padStart(7)+
+      '  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+  console.log('  --- quanto pesa ciascuna condizione da sola (leggendo "non segue") ---');
+  Object.keys(PESO).sort((a,b)=>PESO[b].n-PESO[a].n).forEach(k=>
+    console.log('    '+k.padEnd(36)+'n '+String(PESO[k].n).padStart(4)+'  giuste '+pc(PESO[k].w,PESO[k].n)));
+}
+
+// TAZZA — S41, le quattro condizioni di Edu, solo sulle carte dove il Ti controlla il Yong
+// (我剋), cioe' dove il controllo costa fatica. Non sono regole: si contano e si pesano.
+//   1) il Ti parte fuori stagione                                        peso 1
+//   2) il Ti non ha sostegno vivo (ne dai rami, ne dal trasformato)      peso 1
+//   3) il Yong da controllare e' forte (in stagione o sostenuto)         peso 1
+//   4) il giorno controlla il Ti ed e' alimentato dal Yong               peso 2
+if (process.env.TAZZA) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={}, SING={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.viaBase !== '我剋') continue;
+    const up=(r.emaDir==='up'), nonSegue= up?'SHORT':'LONG';
+    const c1 = !!r.tiFuoriStagione;
+    const c2 = (r.nSostegniTi||0) === 0 && !r.trasfAiutaTi;
+    const c3 = !!r.yongInStagione || (r.nSostegniYong||0) >= 2;
+    const c4 = !!r.giornoNutritoDalYong;
+    const peso = (c1?1:0)+(c2?1:0)+(c3?1:0)+(c4?2:0);
+    add('peso '+peso, nonSegue, r);
+    const quante=(c1?1:0)+(c2?1:0)+(c3?1:0)+(c4?1:0);
+    add(quante===4?'TUTTE E QUATTRO insieme':quante===3?'tre su quattro':quante===2?'due su quattro':quante===1?'una sola':'nessuna', nonSegue, r);
+    [['1 il Ti fuori stagione',c1],['2 il Ti senza sostegno vivo',c2],
+     ['3 il Yong da controllare e forte',c3],['4 il giorno alimentato dal Yong',c4]]
+      .forEach(([k,v])=>{ if(v){ SING[k]=SING[k]||{n:0,w:0}; SING[k].n++;
+        if((nonSegue==='LONG')===(r.move>0)) SING[k].w++; } });
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== LA TAZZA — le quattro condizioni di Edu su 我剋, soglia '+SOG+' ===');
+  console.log('  (lettura sempre "non segue"; se l accumulo funziona, la precisione sale col peso)');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(12)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+  console.log('  --- ciascuna condizione da sola ---');
+  Object.keys(SING).sort().forEach(k=>
+    console.log('    '+k.padEnd(34)+'n '+String(SING[k].n).padStart(4)+'  giuste '+pc(SING[k].w,SING[k].n)));
+}
+
+// TAZZA2 — S41: la tazza portata sulla casella 生我 (il Yong genera il Ti). Li' il Ti non
+// spende per controllare, riceve: quindi il colpo non arriva sul Ti, arriva sulla fonte.
+//   1) il Ti parte fuori stagione                             peso 1
+//   2) la fonte e' secca: il Yong fuori stagione               peso 1
+//   3) la mutazione taglia la fonte: il trasformato drena o controlla il Yong   peso 1
+//   4) il giorno controlla il Yong: la linea di alimentazione viene recisa      peso 2
+if (process.env.TAZZA2) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={}, SING={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.viaBase !== '生我') continue;
+    const up=(r.emaDir==='up'), nonSegue= up?'SHORT':'LONG';
+    const c1 = !!r.tiFuoriStagione;
+    const c2 = !!r.yongFuoriStagione;
+    const c3 = !!r.trasfTagliaYong;
+    const c4 = !!r.giornoControllaYong;
+    const peso = (c1?1:0)+(c2?1:0)+(c3?1:0)+(c4?2:0);
+    add('peso '+peso, nonSegue, r);
+    [['1 il Ti fuori stagione',c1],['2 la fonte e secca (Yong fuori stagione)',c2],
+     ['3 la mutazione taglia la fonte',c3],['4 il giorno controlla il Yong',c4]]
+      .forEach(([k,v])=>{ if(v){ SING[k]=SING[k]||{n:0,w:0}; SING[k].n++;
+        if((nonSegue==='LONG')===(r.move>0)) SING[k].w++; } });
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== LA TAZZA SU 生我 — soglia '+SOG+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(12)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+  console.log('  --- ciascuna condizione da sola ---');
+  Object.keys(SING).sort().forEach(k=>
+    console.log('    '+k.padEnd(40)+'n '+String(SING[k].n).padStart(4)+'  giuste '+pc(SING[k].w,SING[k].n)));
+}
+
+// CONSIGLIO — S41: il metodo di Edu applicato all'intero sistema. Non piu' livelli fissi
+// (A, B, C) ma un conteggio: quante voci puntano nello stesso verso. Le voci sono sei —
+// Plum Blossom, Liu Yao, sistema attuale, motore Da Liu Ren, lo Spirito unico, lo stelo del
+// giorno debole. Nessuna decide da sola: si guarda dove si accumulano.
+if (process.env.CONSIGLIO) {
+  const MD = require('./work_trading/pwa/motore_dlr.js');
+  const JQ = require('./work_trading/pwa/jieqi-gmt.js'); const ORDER = JQ.TERM_ORDER;
+  const genFor = (date)=>{ const [y,m,d]=date.split('-').map(Number); const c=JQ.currentJieQi(y,m,d); if(!c) return null;
+    let idx=c.index, name=c.name; if (c.isJie) { idx=(idx+23)%24; name=ORDER[idx]; }
+    const map={'穀雨':'谷雨','小滿':'小满','處暑':'处暑'}; name=map[name]||name; return DLR.MONTH_GENERAL_BY_ZHONGQI[name]||null; };
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const SELt={'甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water'};
+  const pbSig=r=> r.emaDir==='up' ? (r.finale?'LONG':'SHORT') : (r.finale?'SHORT':'LONG');
+  const M={};
+  const add=(k,dir,r)=>{ if(!dir) return; const ok=(dir==='LONG')===(r.move>0);
+    M[k]=M[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=M[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    const gm=genFor(r.date); if(!gm) continue;
+    const hs=DLR.hourStemFor(r.dayStemUsed, r.oraBranch);
+    const ch=DLR.buildChartFromPrimitives(r.dayStemUsed, r.dayBranchUsed, r.oraBranch, gm, hs);
+    const L=ch.fourLessons; if(!L||L.length<4) continue;
+    const S=steliPerPrincipi(r)||{};
+    const carta={ steloGiorno:r.dayStemUsed, ramoGiorno:r.dayBranchUsed,
+      palazzoHost:(L[0].bottom.branch||L[0].bottom),
+      R1:L[0].top.branch, R2:L[1].top.branch, R3:L[2].top.branch, R4:L[3].top.branch,
+      metodo:ch.transmission.method, vuoti:r.vuoti||[], generaleMese:gm, oraRamo:r.oraBranch,
+      treMessaggi:ch.transmission.three, spiritoR1:(L[0].top.general&&L[0].top.general.cn)||null,
+      ramoMese:r.monthBranchUsed||null, steloMese:S.monthStem||null,
+      seme:(r.seedUsed!=null?r.seedUsed:null), ramoAnno:r.yearBranchUsed||null,
+      steloAnno:S.yearStem||null, generaleOra:generaleSopraOra(ch, r.oraBranch) };
+    const dlr=(MD.leggi(carta)||{}).dir||null;
+    const pb=pbSig(r), ly=r._lyRef||null, at=r._S17ref||pb;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const nome=(x)=>(x&&x.general&&(x.general.cn||x.general))||null;
+    const s3=nome(L[2].top)==='螣蛇', s4=nome(L[3].top)==='螣蛇';
+    let ser=null; if(s3&&!s4) ser=segue; else if(s4&&!s3) ser=nonSegue;
+    const uni=(nome(L[1].top)==='六合'||nome(L[2].top)==='六合')?nonSegue:null;
+    const nSp=(ser?1:0)+(uni?1:0); const spirito=(nSp===1)?(ser||uni):null;
+    let stelo=null; const sEl=SELt[r.dayStemUsed], mEl=WX[r.monthBranchUsed];
+    if(sEl&&mEl&&(sEl==='Wood'||sEl==='Earth'||sEl==='Water')){ const st=stagione(sEl,mEl);
+      if(st!=='旺'&&st!=='相') stelo=nonSegue; }
+    const voci=[pb,ly,at,dlr,spirito,stelo].filter(Boolean);
+    if(!voci.length) continue;
+    const nL=voci.filter(v=>v==='LONG').length, nS=voci.length-nL;
+    const dir = nL>nS ? 'LONG' : nS>nL ? 'SHORT' : null;
+    const conc = Math.max(nL,nS);
+    if(!dir) { add('pareggio fra le voci · fermo', null, r); continue; }
+    add(conc+' voci concordi su '+voci.length, dir, r);
+    add('B. margine '+(Math.abs(nL-nS)), dir, r);
+    const contrarie = voci.length - conc;
+    add('C. voci contrarie: '+contrarie, dir, r);
+    add('D. LIVELLO '+(contrarie===0 ? 'U'+voci.length : contrarie===1 ? 'M1' : 'M2+'), dir, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL CONSIGLIO DELLE VOCI — soglia '+SOG+' ===');
+  for(const k of Object.keys(M).sort()){ const o=M[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(28)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// BILANCIA — S41: la logica dell'accumulo applicata a tutto il Plum Blossom, non a una casella.
+// Quattro coppie di condizioni, simmetriche: quelle che spingono verso il Yong (il mercato non
+// segue) contano positivo, quelle che spingono verso il Ti contano negativo. Il giorno pesa 2.
+//   1) il Ti fuori stagione  /  il Ti in stagione
+//   2) il Ti senza sostegno vivo  /  il Ti sostenuto
+//   3) il Yong forte (in stagione o sostenuto)  /  il Yong debole
+//   4) il giorno controlla il Ti  /  il giorno controlla il Yong        (peso 2)
+if (process.env.BILANCIA) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={}, CONF={};
+  const add=(T,k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    T[k]=T[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=T[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (!r.viaBase) continue;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    let t=0;
+    t += r.tiFuoriStagione ? 1 : -1;
+    t += ((r.nSostegniTi||0)===0 && !r.trasfAiutaTi) ? 1 : -1;
+    t += (r.yongInStagione || (r.nSostegniYong||0)>=2) ? 1 : -1;
+    if (r.giornoControllaTi) t += 2; else if (r.giornoControllaYong) t -= 2;
+    const baseDice = (r.viaBase==='我剋'||r.viaBase==='生我') ? segue :
+                     (r.viaBase==='我生'||r.viaBase==='剋我') ? nonSegue : null;
+    if (!baseDice) continue;
+    const bilancia = t>0 ? nonSegue : t<0 ? segue : null;
+    add(A,'bilancia '+(t>0?'+':'')+t+' · leggo "non segue"', nonSegue, r);
+    if (bilancia) add(CONF, bilancia===baseDice
+        ? 'la bilancia CONFERMA la lettura di base · seguo la base'
+        : 'la bilancia CONTRADDICE la base · seguo la base', baseDice, r);
+    if (bilancia && bilancia!==baseDice) add(CONF,'  ... e se invece seguissi la bilancia', bilancia, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  const stampa=(T,tit)=>{ console.log('\n'+tit);
+    for(const k of Object.keys(T).sort()){ const o=T[k];
+      const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+      console.log('  '+k.padEnd(54)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+        '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+        pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); } };
+  stampa(A,'=== LA BILANCIA DELLE CONDIZIONI — soglia '+SOG+' ===');
+  stampa(CONF,'=== LA BILANCIA CONTRO LA LETTURA DI BASE ===');
+}
+
+// BILPROVA — S41: le carte con la bilancia a -5 (tutte le condizioni a favore del Ti).
+// Dove stanno per casella di base, e quali perdono.
+if (process.env.BILPROVA) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const CELLA={}; const perse=[];
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (!r.viaBase) continue;
+    let t=0;
+    t += r.tiFuoriStagione ? 1 : -1;
+    t += ((r.nSostegniTi||0)===0 && !r.trasfAiutaTi) ? 1 : -1;
+    t += (r.yongInStagione || (r.nSostegniYong||0)>=2) ? 1 : -1;
+    if (r.giornoControllaTi) t += 2; else if (r.giornoControllaYong) t -= 2;
+    if (t !== -5) continue;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT';
+    const vero = r.move>0 ? 'LONG' : 'SHORT';
+    CELLA[r.viaBase]=CELLA[r.viaBase]||{n:0,persa:0};
+    CELLA[r.viaBase].n++;
+    const baseDice = (r.viaBase==='我剋'||r.viaBase==='生我') ? segue :
+                     (r.viaBase==='我生'||r.viaBase==='剋我') ? (up?'SHORT':'LONG') : null;
+    if (baseDice && baseDice!==vero) { CELLA[r.viaBase].persa++;
+      perse.push({c:r.cross,d:r.date,via:r.viaBase,pip:Math.abs(r.move),sup:r.sup,inf:r.inf,
+                  lin:r.linea,seme:r.seedUsed,fin:r.finale}); }
+  }
+  console.log('\n=== BILANCIA -5 · dove stanno, per casella di base (soglia '+SOG+') ===');
+  Object.keys(CELLA).forEach(k=>console.log('  '+k+'   carte '+CELLA[k].n+'   perse dalla base '+CELLA[k].persa));
+  perse.sort((a,b)=>b.pip-a.pip);
+  console.log('  --- le peggiori ---');
+  perse.slice(0,8).forEach(o=>console.log('    '+o.c+' '+o.d+'  '+o.via+'  -'+Math.round(o.pip)+
+    ' pip   sup '+o.sup+' inf '+o.inf+' linea '+o.lin+' seme '+o.seme+'  verdetto finale '+(o.fin?'segue':'non segue')));
+}
+
+// HUGUA — S41, regola di Edu (07/09/2026, dalla USDJPY 17/09/2024, seme 140):
+// quando il Yong muta in un trigramma dello STESSO elemento del Ti, il trasformato non e' piu'
+// un ospite ma un CONCORRENTE del Ti. A decidere chi vince e' lo Hu Gua (互卦, l'esagramma
+// nucleare, linee 2-3-4 sotto e 3-4-5 sopra): il trigramma dello Hu Gua che sta dalla parte
+// del Ti lo sostiene o no, quello che sta dalla parte del Yong sostiene o no il trasformato.
+// Vince chi riceve sostegno. Nella carta guida: Hu Gua inferiore Gen (Terra) genera Dui
+// (Metallo, il trasformato), Hu Gua superiore Xun (Legno) non genera Qian (Metallo, il Ti).
+// Vince il trasformato -> il mercato non segue il trend. Reale: non ha seguito, 158 pip.
+if (process.env.HUGUA) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const yin=(num,p)=>(((num-1) >> (3-p)) & 1) === 1;          // p 1=basso, 2=mezzo, 3=alto
+  const trigDa=(l1,l2,l3)=>1 + ((l1?1:0)<<2) + ((l2?1:0)<<1) + ((l3?1:0)<<0);
+  const A={}; const esempi=[];
+  const add=(k,dir,r)=>{ if(!dir) return; const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.sup==null || r.inf==null || !r.linea) continue;
+    const usoNum = r.linea<=3 ? r.inf : r.sup, corpoNum = r.linea<=3 ? r.sup : r.inf;
+    const posT = ((r.linea-1)%3)+1;
+    const usoTrasf = (((usoNum-1) ^ (1 << (3-posT))) + 1);
+    const corpo=TRIGRAM[corpoNum], trasf=TRIGRAM[usoTrasf];
+    if (!corpo||!trasf) continue;
+    if (trasf.el !== corpo.el) continue;                      // solo il caso del concorrente
+    // le sei linee, dal basso: 1-3 trigramma inferiore, 4-6 superiore
+    const L=[null, yin(r.inf,1), yin(r.inf,2), yin(r.inf,3), yin(r.sup,1), yin(r.sup,2), yin(r.sup,3)];
+    const huInf = trigDa(L[2],L[3],L[4]), huSup = trigDa(L[3],L[4],L[5]);
+    const tiSopra = (r.linea<=3);                             // muta sotto -> il Ti e' sopra
+    const huTi   = TRIGRAM[tiSopra ? huSup : huInf];
+    const huYong = TRIGRAM[tiSopra ? huInf : huSup];
+    const sostTi    = (GEN[huTi.el]   === corpo.el);
+    const sostTrasf = (GEN[huYong.el] === trasf.el);
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    add('0. tutte le carte col concorrente (riferimento, come oggi)', r.finale?segue:nonSegue, r);
+    if (sostTrasf && !sostTi) { add('1. lo Hu Gua sostiene il CONCORRENTE -> non segue', nonSegue, r);
+      if(esempi.length<6) esempi.push(r.cross+' '+r.date+' seme '+r.seedUsed); }
+    else if (sostTi && !sostTrasf) add('2. lo Hu Gua sostiene il TI -> segue', segue, r);
+    else if (sostTi && sostTrasf)  add('3. lo Hu Gua sostiene tutti e due', segue, r);
+    else                            add('4. lo Hu Gua non sostiene nessuno', segue, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== LO HU GUA DECIDE FRA IL TI E IL SUO CONCORRENTE — soglia '+SOG+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(52)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+  console.log('  esempi del caso 1: '+esempi.join(' · '));
+}
+
+// HUGUA2 — S41, estensione di Edu (dalla USDCAD 18/03/2020, seme 142): lo Hu Gua non serve
+// solo quando c'e' il concorrente. Conta il verso della generazione DENTRO lo Hu Gua: se il
+// trigramma nucleare dalla parte del Yong genera quello dalla parte del Ti, il flusso va verso
+// il Ti e il Ti tiene; se e' il contrario, il Ti cede. Nella carta guida: Hu inferiore Li
+// (Fuoco, parte del Ti perche' muta la linea 4), Hu superiore Xun (Legno, parte del Yong),
+// Xun genera Li -> il Ti vince -> segue il trend. Reale: ha seguito, 266 pip.
+if (process.env.HUGUA2) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const yinL=(n,p)=>((((n-1) >> (3-p)) & 1) === 1);
+  const trigDa=(a,b,c)=>1 + ((a?1:0)<<2) + ((b?1:0)<<1) + (c?1:0);
+  const A={};
+  const add=(k,dir,r)=>{ if(!dir) return; const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.sup==null || r.inf==null || !r.linea) continue;
+    const Lg=[null, yinL(r.inf,1), yinL(r.inf,2), yinL(r.inf,3), yinL(r.sup,1), yinL(r.sup,2), yinL(r.sup,3)];
+    const huInf=TRIGRAM[trigDa(Lg[2],Lg[3],Lg[4])], huSup=TRIGRAM[trigDa(Lg[3],Lg[4],Lg[5])];
+    const tiSopra=(r.linea<=3);
+    const huTi = tiSopra ? huSup : huInf, huYong = tiSopra ? huInf : huSup;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const versoTi   = (GEN[huYong.el] === huTi.el);
+    const versoYong = (GEN[huTi.el]   === huYong.el);
+    add('0. tutte (come le legge oggi il sistema)', r.finale?segue:nonSegue, r);
+    if (versoTi && !versoYong)      add('1. dentro lo Hu Gua il flusso va al TI -> segue', segue, r);
+    else if (versoYong && !versoTi) add('2. dentro lo Hu Gua il flusso va al YONG -> non segue', nonSegue, r);
+    else                            add('3. lo Hu Gua non ha verso', r.finale?segue:nonSegue, r);
+    // dove cambierebbe il verdetto di oggi
+    if (versoTi && !versoYong && r.finale === false) {
+      add('4. LO HU GUA RIBALTA: oggi non segue, il flusso dice segue', segue, r);
+      if (process.env.HG2DUMP && (segue==='LONG')!==(r.move>0))
+        (global.__hg2=global.__hg2||[]).push({c:r.cross,d:r.date,pip:Math.abs(r.move),
+          sup:r.sup,inf:r.inf,lin:r.linea,seme:r.seedUsed,ema:r.emaDir,via:r.viaBase}); }
+    if (versoYong && !versoTi && r.finale === true)
+      add('5. LO HU GUA RIBALTA: oggi segue, il flusso dice non segue', nonSegue, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  if (process.env.HG2DUMP && global.__hg2) { global.__hg2.sort((a,b)=>b.pip-a.pip);
+    console.log('  --- le carte dove il flusso verso il Ti sbaglia ---');
+    global.__hg2.slice(0,8).forEach(o=>console.log('    '+o.c+' '+o.d+'  '+o.via+'  -'+
+      Math.round(o.pip)+' pip  sup '+o.sup+' inf '+o.inf+' linea '+o.lin+' seme '+o.seme)); }
+  console.log('\n=== IL VERSO DENTRO LO HU GUA — soglia '+SOG+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(54)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// FORZALEGNO — S41: la forza del trasformato nelle due carte gemelle, e cosa faceva il cancello.
+if (process.env.FORZALEGNO) {
+  for (const r of rows) {
+    if (!((r.cross==='USDCAD' && r.date==='2020-03-18') || (r.cross==='USDJPY' && r.date==='2024-01-03'))) continue;
+    console.log('  '+r.cross+' '+r.date+'  seme '+r.seedUsed+
+      '   anno '+r.yearBranchUsed+' mese '+r.monthBranchUsed+' giorno '+r.dayBranchUsed+
+      '   forza del trasformato = '+r.drenaForza+
+      '   col vecchio cancello (>=3) il drenaggio '+(r.drenaForza>=3?'SCATTAVA':'NON scattava')+
+      '   movimento '+Math.round(r.move)+' pip  EMA '+r.emaDir);
+  }
+}
+
+// DRENAGIORNO — S41: sulle carte dove il Ti genera il trasformato (drenaggio possibile),
+// il ramo del GIORNO che controlla l'elemento del trasformato gli toglie la forza di drenare.
+// Dalla USDCAD 18/03/2020 (seme 142): giorno 申 Metallo che controlla il Legno trasformato,
+// e lo stesso 申 sostiene il Yong. Confronto con la gemella USDJPY 03/01/2024, dove il giorno
+// e' 寅 Legno e il drenaggio invece funziona.
+if (process.env.DRENAGIORNO) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.drenaPossibile == null) continue;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const giornoBlocca = !!r.giornoControllaTrasf;
+    if (giornoBlocca) {
+      add('1. il giorno controlla il trasformato · NON drenare -> segue', segue, r);
+      add('2. le stesse carte · drenare comunque -> non segue', nonSegue, r);
+    } else {
+      add('3. il giorno non lo controlla · drenare -> non segue', nonSegue, r);
+      add('4. le stesse carte · non drenare -> segue', segue, r);
+    }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL GIORNO CHE TOGLIE FORZA AL DRENAGGIO — soglia '+SOG+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(54)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// TAZZADRENA — S41: il drenaggio letto per accumulo, non come legge. Quattro condizioni che
+// dicono se il trasformato ha davvero la forza di svuotare il Ti. Tutte dichiarate prima,
+// tutte nello stesso verso. Si cerca lo SCALINO: tutte e quattro presenti, non una pendenza.
+//   1) nessun ramo della data controlla il trasformato
+//   2) il trasformato e' in stagione nel mese
+//   3) almeno due rami della data lo sostengono
+//   4) il trasformato non e' vuoto
+if (process.env.TAZZADRENA) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={}, SING={};
+  const add=(T,k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    T[k]=T[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=T[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.drenaPossibile == null) continue;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    const c1=!!r.trasfNonControllato, c2=!!r.trasfInStagione,
+          c3=(r.nSostegniTrasf||0)>=2, c4=!r.trasfVuoto;
+    const q=(c1?1:0)+(c2?1:0)+(c3?1:0)+(c4?1:0);
+    add(A, q===4 ? 'TUTTE E QUATTRO · il drenaggio morde -> non segue'
+                 : q+' su 4 · il drenaggio non morde -> segue', q===4?nonSegue:segue, r);
+    add(A, 'z. controllo: '+q+' su 4, leggendo sempre "non segue"', nonSegue, r);
+    [['1 nessun ramo controlla il trasformato',c1],['2 il trasformato in stagione',c2],
+     ['3 almeno due rami lo sostengono',c3],['4 il trasformato non e vuoto',c4]]
+      .forEach(([k,v])=>{ if(v){ SING[k]=SING[k]||{n:0,w:0}; SING[k].n++;
+        if((nonSegue==='LONG')===(r.move>0)) SING[k].w++; } });
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL DRENAGGIO PER ACCUMULO — soglia '+SOG+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(50)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+  console.log('  --- ciascuna da sola (leggendo "non segue") ---');
+  Object.keys(SING).sort().forEach(k=>
+    console.log('    '+k.padEnd(40)+'n '+String(SING[k].n).padStart(4)+'  giuste '+pc(SING[k].w,SING[k].n)));
+}
+
+// LEGNOFORTE — S41: la cosa semplice. Sul perimetro del drenaggio, quanto e' forte il
+// trasformato, e quanto bene funziona "non segue". Una riga per ogni livello di forza.
+if (process.env.LEGNOFORTE) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.drenaPossibile == null) continue;
+    const up=(r.emaDir==='up'), nonSegue= up?'SHORT':'LONG';
+    const f=r.drenaForza;
+    add('forza '+(f>=0?'+':'')+f, nonSegue, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL TRASFORMATO CHE DRENA, PER FORZA — soglia '+SOG+' (lettura "non segue") ===');
+  Object.keys(A).sort((a,b)=>Number(a.split(' ')[1])-Number(b.split(' ')[1])).forEach(k=>{ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(12)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); });
+}
+
+// DRENACONTROLLO — S41: niente soglie inventate. Il drenaggio vale se il trasformato non e'
+// tagliato da nessun ramo della data (anno, mese, giorno); non vale se qualcuno lo controlla.
+if (process.env.DRENACONTROLLO) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.drenaPossibile == null) continue;
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    if (r.trasfNonControllato) {
+      add('1. il trasformato non e tagliato · drena -> non segue', nonSegue, r);
+      add('2. le stesse carte · non drenare -> segue', segue, r);
+    } else {
+      add('3. il trasformato e tagliato dalla data · non drena -> segue', segue, r);
+      add('4. le stesse carte · drenare comunque -> non segue', nonSegue, r);
+    }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL DRENAGGIO VALE SE IL TRASFORMATO NON E TAGLIATO — soglia '+SOG+' ===');
+  for(const k of Object.keys(A).sort()){ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(54)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }
+}
+
+// DODICISTADI — S41, indicazione di Edu: la forza di un elemento non si conta coi rami, si
+// legge coi dodici stadi della vita. Partenze (長生) yang: Legno 亥, Fuoco 寅, Terra 寅,
+// Metallo 巳, Acqua 申; si procede in avanti lungo i rami.
+//   1 長生 nascita · 2 沐浴 bagno · 3 冠帶 veste · 4 臨官 carica · 5 帝旺 apice · 6 衰 declino
+//   7 病 malattia · 8 死 morte · 9 墓 tomba · 10 絕 estinzione · 11 胎 concepimento · 12 養 nutrimento
+// Verifica sulla parola di Edu: nel mese 子 il Legno sta al 2 (bagno) e il Fuoco all'11 (concepimento).
+const RAMI12=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+const NASCITA={Wood:'亥',Fire:'寅',Earth:'寅',Metal:'巳',Water:'申'};
+const NOMI12=['長生 nascita','沐浴 bagno','冠帶 veste','臨官 carica','帝旺 apice','衰 declino',
+              '病 malattia','死 morte','墓 tomba','絕 estinzione','胎 concepimento','養 nutrimento'];
+// La TERRA non segue il ciclo (regola di Edu, 25/08/2026): timely nei quattro mesi dei rami
+// di Terra, vibrante anche in estate (巳 e 午), untimely altrove.
+const TERRA_TIMELY=['丑','辰','未','戌','巳','午'];
+function terraTimely(ramo){ return TERRA_TIMELY.indexOf(ramo) >= 0; }
+// Timely = stadi 1-6 (i migliori 1, 4, 5). Untimely = stadi 7-12 (i peggiori 8, 9, 10).
+function timely12(el, ramo){ if(el==='Earth') return terraTimely(ramo);
+  const st=stadio12(el,ramo); return st==null ? null : (st <= 6); }
+function stadio12(el, ramo){ const n=NASCITA[el]; if(!n||!ramo) return null;
+  const i=RAMI12.indexOf(n), j=RAMI12.indexOf(ramo); if(i<0||j<0) return null;
+  return ((j-i+12)%12)+1; }
+if (process.env.DODICISTADI) {
+  console.log('\n=== CONTROLLO SULLA PAROLA DI EDU ===');
+  console.log('  nel mese 子: Legno stadio '+stadio12('Wood','子')+' ('+NOMI12[stadio12('Wood','子')-1]+
+              ')  ·  Fuoco stadio '+stadio12('Fire','子')+' ('+NOMI12[stadio12('Fire','子')-1]+')');
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const MESE={}, GIORNO={};
+  const add=(T,k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    T[k]=T[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=T[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.drenaPossibile == null || !r.trasfEl) continue;
+    const up=(r.emaDir==='up'), nonSegue= up?'SHORT':'LONG';
+    const sm=stadio12(r.trasfEl, r.monthBranchUsed), sg=stadio12(r.trasfEl, r.dayBranchUsed);
+    if(sm) add(MESE, String(sm).padStart(2,'0')+' '+NOMI12[sm-1], nonSegue, r);
+    if(sg) add(GIORNO, String(sg).padStart(2,'0')+' '+NOMI12[sg-1], nonSegue, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  const stampa=(T,tit)=>{ console.log('\n'+tit+'   (lettura "non segue", cioe il drenaggio morde)');
+    Object.keys(T).sort().forEach(k=>{ const o=T[k];
+      const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+      console.log('  '+k.padEnd(24)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+        '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+        pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); }); };
+  stampa(MESE,'=== IL TRASFORMATO, STADIO SUL RAMO DEL MESE ===');
+  stampa(GIORNO,'=== IL TRASFORMATO, STADIO SUL RAMO DEL GIORNO ===');
+}
+
+// FORZA12 — S41, regola di Edu: la stagionalita' la fanno il MESE (70%) e l'ORA (30%).
+// Giorno e anno non decidono se una cosa e' in stagione: distribuiscono il qi.
+// Valore di forza per stadio (scala convenzionale, da correggere se Edu la vuole diversa):
+//   帝旺 apice 1.00 · 臨官 carica 0.90 · 冠帶 veste 0.80 · 長生 nascita 0.70 · 沐浴 bagno 0.50
+//   養 nutrimento 0.40 · 衰 declino 0.40 · 墓 tomba 0.30 · 病 malattia 0.20 · 死 morte 0.15
+//   胎 concepimento 0.10 · 絕 estinzione 0.05
+const VAL12=[0.70,0.50,0.80,0.90,1.00,0.40,0.20,0.15,0.30,0.05,0.10,0.40];
+function forza12(el, ramoMese, ramoOra){
+  const sm=stadio12(el,ramoMese), so=stadio12(el,ramoOra);
+  if(!sm) return null;
+  return so ? 0.7*VAL12[sm-1] + 0.3*VAL12[so-1] : VAL12[sm-1];
+}
+if (process.env.FORZA12) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.drenaPossibile == null || !r.trasfEl) continue;
+    const f=forza12(r.trasfEl, r.monthBranchUsed, r.oraBranch);
+    if (f==null) continue;
+    const up=(r.emaDir==='up'), nonSegue= up?'SHORT':'LONG';
+    const b = f>=0.80 ? 'A. forza 0.80-1.00  il trasformato e vivo' :
+              f>=0.60 ? 'B. forza 0.60-0.79' :
+              f>=0.40 ? 'C. forza 0.40-0.59' :
+              f>=0.20 ? 'D. forza 0.20-0.39' :
+                        'E. forza sotto 0.20  il trasformato e spento';
+    add(b, nonSegue, r);
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL DRENAGGIO PER FORZA DEL TRASFORMATO (mese 70%, ora 30%) — soglia '+SOG+' ===');
+  console.log('  lettura "non segue": il drenaggio morde');
+  Object.keys(A).sort().forEach(k=>{ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(40)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); });
+}
+
+// STADIDRENA — S41: il drenaggio letto col modello a 12 stadi come sta a registro dal
+// 25/08/2026 — stadio sul ramo del MESE, timely = stadi 1-6, untimely = 7-12, Terra con la
+// sua regola dei mesi di Terra piu' l'estate. Niente pesi inventati.
+if (process.env.STADIDRENA) {
+  const SOG=Number(process.env.SOGLIAPIP||25);
+  const A={};
+  const add=(k,dir,r)=>{ const ok=(dir==='LONG')===(r.move>0);
+    A[k]=A[k]||{n:0,w:0,p:0,ve:{n:0,w:0},re:{n:0,w:0}}; const o=A[k]; o.n++;
+    if(ok){o.w++;o.p+=Math.abs(r.move);} else o.p-=Math.abs(r.move);
+    const pr=r.date<'2022-12-01'?o.ve:(r.date>'2023-05-01'?o.re:null); if(pr){pr.n++; if(ok)pr.w++;} };
+  for (const r of rows) {
+    if (r.move==null || Math.abs(r.move)<SOG || !r.emaDir) continue;
+    if (r.drenaPossibile == null || !r.trasfEl) continue;
+    const t=timely12(r.trasfEl, r.monthBranchUsed); if(t==null) continue;
+    const st=stadio12(r.trasfEl, r.monthBranchUsed);
+    const up=(r.emaDir==='up'), segue= up?'LONG':'SHORT', nonSegue= up?'SHORT':'LONG';
+    if (t) { add('1. il trasformato e TIMELY · drena -> non segue', nonSegue, r);
+             add('2. le stesse carte · non drenare -> segue', segue, r);
+             if(r.trasfEl!=='Earth' && (st===1||st===4||st===5))
+               add('1a. ... e sta nei tre stadi migliori (1, 4, 5)', nonSegue, r); }
+    else    { add('3. il trasformato e UNTIMELY · non drena -> segue', segue, r);
+              add('4. le stesse carte · drenare comunque -> non segue', nonSegue, r);
+              if(r.trasfEl!=='Earth' && (st===8||st===9||st===10))
+                add('3a. ... e sta nei tre stadi peggiori (8, 9, 10)', segue, r); }
+  }
+  const pc=(a,b)=>b?(100*a/b).toFixed(2)+'%':'—';
+  console.log('\n=== IL DRENAGGIO COI 12 STADI (modello a registro) — soglia '+SOG+' ===');
+  Object.keys(A).sort().forEach(k=>{ const o=A[k];
+    const z=((o.w-o.n/2)/(0.5*Math.sqrt(o.n))).toFixed(2);
+    console.log('  '+k.padEnd(52)+'n '+String(o.n).padStart(4)+'  giuste '+pc(o.w,o.n).padStart(7)+
+      '  z '+String(z).padStart(6)+'  '+String(Math.round(o.p)).padStart(6)+' pip   vec '+
+      pc(o.ve.w,o.ve.n).padStart(7)+'  rec '+pc(o.re.w,o.re.n).padStart(7)); });
 }
