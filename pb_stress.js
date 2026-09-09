@@ -3593,7 +3593,7 @@ if (process.env.MISURA120) {
 if (process.env.TESTGUIDA) {
   // Le carte guida di carte_lette.json come TEST del ragionamento a principi.
   const LYM = require('./liuyao.js');
-  const MP = require('./motore_principi.js').creaMotore(LYM);
+  const MP = require(process.env.MOTORE==='lettura' ? './motore_lettura.js' : './motore_principi.js').creaMotore(LYM);
   const guide = require('./carte_lette.json');
   const key = g => g.cross + '|' + g.date;
   const set = new Map(guide.map(g => [key(g), g]));
@@ -3626,7 +3626,7 @@ if (process.env.TESTGUIDA) {
 
 if (process.env.MOSTRA) {
   const LYM = require('./liuyao.js');
-  const MP = require('./motore_principi.js').creaMotore(LYM);
+  const MP = require(process.env.MOTORE==='lettura' ? './motore_lettura.js' : './motore_principi.js').creaMotore(LYM);
   const [cx, dt] = process.env.MOSTRA.split('|');
   const TRI = {1:'乾 Qian',2:'兌 Dui',3:'離 Li',4:'震 Zhen',5:'巽 Xun',6:'坎 Kan',7:'艮 Gen',8:'坤 Kun'};
   for (const r of rows) {
@@ -3642,6 +3642,7 @@ if (process.env.MOSTRA) {
     R.linee.slice().reverse().forEach(l => console.log('   L' + l.pos + ' ' + l.ramo + ' ' + l.el + ' ' + l.par + (l.isMobile?' MOBILE→'+R.mutante.ramoArr+' '+R.mutante.arrEl+' '+R.mutante.parArr:'') + (l.isShi?' [Shi]':'') + (l.isYing?' [Ying]':'') + (l.vuoto?' VUOTO':'') + ' bestia=' + l.bestia.it + (l.fushen?' fushen='+l.fushen.b+' '+l.fushen.par:'')));
     console.log('  mutante: caso=' + R.mutante.casoMut + ' nullo=' + R.mutante.movimentoNullo + ' progressione=' + R.mutante.progressione);
     console.log('  PRINCIPI: ' + v.dir + ' [' + v.gradino + '] ' + v.perche);
+    if (v.racconto) console.log('  --- RACCONTO (v4, raccolta delle prove) ---\n  ' + v.racconto.replace(/\n/g, '\n  '));
     console.log('  TERMOMETRO: ' + (t.dir||'tace') + ' ' + (t.sezione||''));
     // ---- FORMATO CARTA MECCANICO (righe d'esito MAI trascritte a mano) --------
     const sys = r._S17ref || null;
@@ -3676,7 +3677,7 @@ if (process.env.SEQ) {
   // TEST di Edu (29/08/2026): il ramo di data che combina una linea VUOTA cessa di operare.
   // Misuro SOLO le carte dove il verdetto del motore cambia col sequestro attivo.
   const LYM = require('./liuyao.js');
-  const MPa = require('./motore_principi.js').creaMotore(LYM);
+  const MPa = require(process.env.MOTORE==='lettura' ? './motore_lettura.js' : './motore_principi.js').creaMotore(LYM);
   const mk=()=>({w:0,l:0,p:0}); const agg=(o,p)=>{if(p>0)o.w++;else if(p<0)o.l++;o.p+=p;};
   const SENZA=mk(), CON=mk(); let cambiate=0, perRamo={};
   for (const r of rows) {
@@ -3786,7 +3787,7 @@ if (process.env.DUBBIO) {
   // Dump delle carte del gradino corridore-combina: la sede raggiunta vince,
   // senza guardare CHI e' la linea raggiunta. Cerco le perdenti.
   const LYM = require('./liuyao.js');
-  const MP = require('./motore_principi.js').creaMotore(LYM);
+  const MP = require(process.env.MOTORE==='lettura' ? './motore_lettura.js' : './motore_principi.js').creaMotore(LYM);
   const out = [];
   for (const r of rows) {
     const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed, r.oraBranch);
@@ -3822,7 +3823,7 @@ if (process.env.PRINCIPI) {
   // Non tocca nulla: misura quanto il ragionamento a principi spiega da solo.
   // ============================================================================
   const LYM = require('./liuyao.js');
-  const MP = require('./motore_principi.js').creaMotore(LYM);
+  const MP = require(process.env.MOTORE==='lettura' ? './motore_lettura.js' : './motore_principi.js').creaMotore(LYM);
   const mk=()=>({w:0,l:0,p:0});
   const agg=(o,p)=>{if(p>0)o.w++;else if(p<0)o.l++;o.p+=p;};
   const M={tutto:mk(),vecchio:mk(),recente:mk(),concTermo:mk(),soloPrincipi:mk(),discP:mk(),discT:mk()};
@@ -3838,9 +3839,9 @@ if (process.env.PRINCIPI) {
     const pnl=v.dir==='LONG'?r.move:-r.move;
     agg(M.tutto,pnl);
     const gk=v.gradino||'?'; if(!G[gk])G[gk]=mk(); agg(G[gk],pnl);
-    if (process.env.DUMPGRAD && gk===process.env.DUMPGRAD)
+    if (process.env.DUMPGRAD && (gk===process.env.DUMPGRAD || (process.env.DUMPGRAD.slice(-1)==='*' && gk.indexOf(process.env.DUMPGRAD.slice(0,-1))===0)))
       console.log('  #GRAD '+r.cross+' '+r.date+' seme'+r.seedUsed+' dice '+v.dir+
-                  ' ema='+r.emaDir+' esito '+(pnl>0?'+':'')+pnl.toFixed(0));
+                  ' ema='+r.emaDir+' esito '+(pnl>0?'+':'')+pnl.toFixed(0)+(process.env.DUMPPERCHE?' | '+String(v.perche||'').split(' → ').pop():'')+(process.env.DUMPDETT&&v.dettaglio?' || '+v.dettaglio:''));
     const p2=r.date>='2023-05-01'?'recente':r.date<='2022-12-31'?'vecchio':null; if(p2)agg(M[p2],pnl);
     if (t===v.dir) agg(M.concTermo,pnl);
     else if (!t) agg(M.soloPrincipi,pnl);

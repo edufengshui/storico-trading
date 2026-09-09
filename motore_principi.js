@@ -1,5 +1,16 @@
 /*
- * MOTORE A PRINCIPI — v2 (sessione 28, 29/08/2026)
+ * MOTORE A PRINCIPI — v4 (sessione 44, 09/09/2026): LA RACCOLTA DELLE PROVE
+ * ----------------------------------------------------------------------------
+ * Edu (09/09/2026): davanti a una carta non si scorrono le regole finche' una
+ * combacia; si vede cosa salta all'occhio, si segue la traccia, si raccolgono
+ * le prove lungo la strada e si conclude quando bastano. Le condizioni si
+ * sommano in una tendenza (principio del 07/09/2026). Con MPRACCOLTA=1 il
+ * motore NON si ferma al primo gradino che parla: ogni gradino che parla e' una
+ * PROVA (una per ambito: passo della mobile, azione fallita, data, nascosto,
+ * penalita', duello, progressione) con un peso di salienza; la conclusione e'
+ * la somma. MPPESI=piatti pesa tutto 1; MPCONCLUDI=primo decide col gradino
+ * piu' saliente invece che con la somma. Senza flag: v3 identica a prima.
+ * (v2, sessione 28, 29/08/2026)
  * ============================================================================
  * Idea di Edu: "Basta fare dei collegamenti logici." Nessuna ricetta per carta:
  * una catena di ragionamento che collega i principi atomici gia' certificati.
@@ -372,6 +383,59 @@ function creaMotore(LYM) {
   // ---- B. la catena ---------------------------------------------------------
   var ENV_G = (typeof process !== 'undefined' && process.env) ? process.env : {};
   function leggi(R, ctx) {
+    var RACC = (ENV_G.MPRACCOLTA === '1');
+    var prove = [], _E = null;
+    // ESITO: nel v3 e' il ritorno immediato; nella raccolta registra la prova e prosegue.
+    function ESITO(o){ if (!RACC) { _E = o; return true; } if (o && o.dir) prove.push(o); return false; }
+
+    // ---- LA CONCLUSIONE (v4): dalle prove raccolte alla tendenza ---------------
+    function CONCLUDI(fine){
+      if (!RACC) return fine;
+      var AMB = function(g){ g = g || '';
+        if (g.indexOf('B3a-') === 0) return 'fallimento';
+        if (g.indexOf('progressione') >= 0) return 'progressione';
+        if (g.indexOf('B0-') === 0 || g.indexOf('B1-') === 0) return 'passo';
+        if (g.indexOf('B2-') === 0) return 'data';
+        if (g.indexOf('B3-') === 0) return 'nascosto';
+        if (g.indexOf('B3b-') === 0) return 'penalita';
+        return 'duello'; };
+      var PESO = function(amb){ if (ENV_G.MPPESI === 'piatti') return 1;
+        return ({ fallimento:3, passo:2, progressione:2, data:2, penalita:2, nascosto:1, duello:1 })[amb] || 1; };
+      var visti = {}, usate = [];
+      for (var q = 0; q < prove.length; q++) {
+        var amb = AMB(prove[q].gradino);
+        if (visti[amb]) continue;                 // una prova per ambito: la prima trovata
+        visti[amb] = true;
+        usate.push({ dir: prove[q].dir, gradino: prove[q].gradino, ambito: amb, peso: PESO(amb),
+                     perche: String(prove[q].perche || '').split(' → ').pop() });
+      }
+      if (!usate.length) return { dir: null, gradino: 'tace', perche: fine.perche, prove: usate, racconto: racconto(null, usate) };
+      var sL = 0, sS = 0;
+      for (var w = 0; w < usate.length; w++) { if (usate[w].dir === 'LONG') sL += usate[w].peso; else sS += usate[w].peso; }
+      var dir = null, come = '';
+      if (ENV_G.MPCONCLUDI === 'primo') {
+        var top = usate.slice().sort(function(a,b){ return b.peso - a.peso; })[0];
+        dir = top.dir; come = 'decide la prova piu\' saliente (' + top.ambito + ')';
+      } else if (sL !== sS) { dir = sL > sS ? 'LONG' : 'SHORT'; come = 'somma delle prove: LONG ' + sL + ' contro SHORT ' + sS; }
+      else {
+        var top2 = usate.slice().sort(function(a,b){ return b.peso - a.peso; })[0];
+        if (ENV_G.MPPARI === 'tace') { dir = null; come = 'prove in parita\': tace'; }
+        else { dir = top2.dir; come = 'prove in parita\' (' + sL + ' e ' + sS + '): decide la piu\' saliente (' + top2.ambito + ')'; }
+      }
+      var concordi = usate.filter(function(u){ return u.dir === dir; }).length;
+      return { dir: dir, gradino: dir ? ('V4-' + usate.length + 'prove-' + concordi + 'concordi') : 'tace',
+               perche: come, prove: usate, somma: { LONG: sL, SHORT: sS }, racconto: racconto(dir, usate, come) };
+    }
+    // il racconto della lettura, come lo farebbe Edu: cosa salta all'occhio, le tracce, le prove, la conclusione
+    function racconto(dir, usate, come){
+      var righe = [];
+      var ord = usate.slice().sort(function(a,b){ return b.peso - a.peso; });
+      if (ord.length) righe.push('Cosa salta all\'occhio: ' + ord[0].perche + ' [' + ord[0].ambito + ' → ' + ord[0].dir + ']');
+      if (tr.length) righe.push('Lungo la strada: ' + tr.join('; '));
+      if (ord.length > 1) righe.push('Altre prove: ' + ord.slice(1).map(function(u){ return u.perche + ' [' + u.ambito + ' → ' + u.dir + ']'; }).join(' | '));
+      righe.push('Conclusione: ' + (dir || 'TACE') + (come ? ' — ' + come : ''));
+      return righe.join('\n');
+    }
     if (ctx) {                                   // steli derivati dai rami del motore:
       R._yearStem  = ctx.yearStem  || null;      // anno dall'anno civile + ramo d'anno
       R._monthStem = ctx.monthStem || null;      // mese con i Cinque Tigri (五虎遁)
@@ -432,8 +496,8 @@ function creaMotore(LYM) {
                       XING[_arr2] === _dep2 || (R.dayBranch && COMBINA[R.dayBranch] === _perde.ramo) ||
                       R.mutante.casoMut === -4);
         if (!_ecc)
-          return { dir: sede(_vince.pos), gradino: 'A0-vuoto-shi-ying',
-                   perche: 'la ' + (_sv ? 'Shi' : 'Ying') + ' è vuota: la parte vuota perde subito — vince la sede della ' + (_sv ? 'Ying' : 'Shi') };
+          if (ESITO({ dir: sede(_vince.pos), gradino: 'A0-vuoto-shi-ying',
+                   perche: 'la ' + (_sv ? 'Shi' : 'Ying') + ' è vuota: la parte vuota perde subito — vince la sede della ' + (_sv ? 'Ying' : 'Shi') })) return _E;
         tr0.push('Shi/Ying vuota ma un meccanismo con precedenza tocca la carta: la regola del vuoto cede');
         }
       }
@@ -477,12 +541,12 @@ function creaMotore(LYM) {
       var _av0 = (R.mutante.progressione === 'avanzante');
       var _bu0 = (mob.par === 'G' || mob.par === 'W');
       var _vi0 = _bu0 ? _av0 : !_av0;
-      return { dir: _vi0 ? sede(mobPos) : opposto(sede(mobPos)),
+      if (ESITO({ dir: _vi0 ? sede(mobPos) : opposto(sede(mobPos)),
                gradino: 'A1-progressione-' + (_bu0 ? 'GW' : 'BP') + '-' + (_av0 ? 'avanza' : 'retrocede'),
                perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos + ' ' +
                         (_av0 ? 'avanza (進神)' : 'retrocede (退神)') + ': ' +
                         (_vi0 ? 'fa vincere la propria squadra — la sua sede'
-                              : 'fa perdere la propria squadra — la sua sede cade')]).join(' → ') };
+                              : 'fa perdere la propria squadra — la sua sede cade')]).join(' → ') })) return _E;
     }
 
     if (!bloccataDallaBestia && (!R.mutante.movimentoNullo || bSblocca)) {
@@ -535,10 +599,10 @@ function creaMotore(LYM) {
             if (altri.every(function(b){ return ramiTrig.indexOf(b) >= 0; })) { trigArr = T.join(''); break; }
           }
           if (trigArr)
-            return { dir: sede(mobPos), gradino: 'B1-genera-indietro-forte',
+            if (ESITO({ dir: sede(mobPos), gradino: 'B1-genera-indietro-forte',
                      perche: "la mobile si muove per generare indietro e l'arrivo " + arr +
                              ' ha il trigono completo ' + trigArr + ' con la data: ha tutta la forza,' +
-                             ' la generazione si compie, la partenza è nutrita e la sede della mobile vince' };
+                             ' la generazione si compie, la partenza è nutrita e la sede della mobile vince' })) return _E;
           var scarichi = [];
           for (var gz = 0; gz < R.linee.length; gz++) {
             var lg = R.linee[gz];
@@ -547,11 +611,11 @@ function creaMotore(LYM) {
             scarichi.push(lg);
           }
           if (scarichi.length === 1)
-            return { dir: sede(scarichi[0].pos), gradino: 'B1-genera-indietro',
+            if (ESITO({ dir: sede(scarichi[0].pos), gradino: 'B1-genera-indietro',
                      perche: "la mobile si muove per generare indietro (" + arr + ' genera ' +
                              R.mutante.ramoDep + '): chi genera cede il Qi e il ' + arrEl +
                              ' si scarica — il ' + scarichi[0].par + ' di L' + scarichi[0].pos +
-                             ' perde energia, il malus si spegne e la sua sede vince' };
+                             ' perde energia, il malus si spegne e la sua sede vince' })) return _E;
           tr.push('la mobile genera indietro ma nessun carattere di malus è di quell\'elemento');
         }
         if (controlloIndietro) {
@@ -562,9 +626,9 @@ function creaMotore(LYM) {
           var fArr = forza(R, arr, arrEl), fDep = forza(R, R.mutante.ramoDep, depEl);
           if (fArr >= fDep) {
             var cf2 = carattere(parArr, mobPos, prog);
-            if (cf2) return { dir: cf2.dir, gradino:'B1-ctrl-indietro-forte',
+            if (cf2) if (ESITO({ dir: cf2.dir, gradino:'B1-ctrl-indietro-forte',
                               perche: "l'arrivo " + arr + ' (forza ' + fArr + ') pesa quanto la partenza ' +
-                                      R.mutante.ramoDep + ' (forza ' + fDep + '): controlla davvero indietro — ' + cf2.nota };
+                                      R.mutante.ramoDep + ' (forza ' + fDep + '): controlla davvero indietro — ' + cf2.nota })) return _E;
             // C DISTRUGGE G (Edu, 29/08/2026, guida USDCAD 21/12/2023 s133): nel
             // controllo indietro riuscito con arrivo C su partenza G, il C distrugge
             // la G a due condizioni alternative: (1) il C è timely, oppure (2) la G è
@@ -582,13 +646,13 @@ function creaMotore(LYM) {
                         (cTimely ? 'è timely' : 'la G è untimely') + ': il C distrugge la G — la mobile esce');
                 mobileDistrutta = true;
               } else tr.push('controllo indietro del C senza le condizioni per distruggere la G: tace');
-            } else tr.push('controllo indietro con energia ma il carattere è C: tace');
-            if (ENV.MPMARCA==='ctrlC') return { dir:null, gradino:'X-ctrl-C', perche:'' };
+            } else if (!cf2) tr.push('controllo indietro con energia ma il carattere è C: tace');
+            if (ENV.MPMARCA==='ctrlC') if (ESITO({ dir:null, gradino:'X-ctrl-C', perche:'' })) return _E;
           } else if (mob.par !== 'B') {
-            return { dir: opposto(sede(mobPos)), gradino:'B1-ctrl-indietro-debole',
+            if (ESITO({ dir: opposto(sede(mobPos)), gradino:'B1-ctrl-indietro-debole',
                      perche: "l'arrivo " + arr + ' (forza ' + fArr + ') non pesa abbastanza contro la partenza ' +
                              R.mutante.ramoDep + ' (forza ' + fDep + '): l\'azione fallisce, ' +
-                             'chi non vince perde — la sede della mobile cade' };
+                             'chi non vince perde — la sede della mobile cade' })) return _E;
           } else {
             tr.push('controllo indietro senza energia con mobile B: la lettura non regge');
           }
@@ -597,26 +661,26 @@ function creaMotore(LYM) {
           // L'ARRIVO PENALIZZA LA PROPRIA PARTENZA (Edu, 29/08/2026, guida EURUSD
           // 25/05/2021 s122: 寅 penalizza 巳). La penalità penalizza chi la riceve:
           // la partenza è colpita e non fa vincere la sua squadra.
-          return { dir: opposto(sede(mobPos)), gradino:'B1-arrivo-penalizza-partenza',
+          if (ESITO({ dir: opposto(sede(mobPos)), gradino:'B1-arrivo-penalizza-partenza',
                    perche: "l'arrivo " + arr + ' penalizza (刑) la propria partenza ' + R.mutante.ramoDep +
-                           ': la penalizzata non fa vincere la sua squadra — la sua sede cade' };
+                           ': la penalizzata non fa vincere la sua squadra — la sua sede cade' })) return _E;
         } else if (pena(R, R.mutante.ramoDep) && ENV.MPPENA !== 'no') {
           var pD = pena(R, R.mutante.ramoDep);
           // PENALITA' SULLA PARTENZA (Edu, 29/08/2026, guida EURUSD 22/07/2025 s116:
           // giorno 辰 e partenza 辰, autopenalita' 自刑). La linea penalizzata non fa
           // vincere la propria squadra: la sua sede cade.
-          return { dir: opposto(sede(mobPos)), gradino:'B1-partenza-penalizzata',
+          if (ESITO({ dir: opposto(sede(mobPos)), gradino:'B1-partenza-penalizzata',
                    perche: 'la partenza ' + R.mutante.ramoDep + ' riceve la penalità (刑) dal ' + pD.chi + ' ' + pD.ramo +
-                           ': la linea penalizzata non fa vincere la sua squadra — la sua sede cade' };
+                           ': la linea penalizzata non fa vincere la sua squadra — la sua sede cade' })) return _E;
         } else if (pena(R, arr) && ENV.MPPENA !== 'no') {
           var pA = pena(R, arr);
           // PENALITA' SULL'ARRIVO (Edu, 29/08/2026, guida EURUSD 14/07/2021 s117):
           // l'arrivo riceve il 刑 dal giorno: la linea di PARTENZA resta attiva ma ferma,
           // e parla lei col proprio carattere.
           var cp = carattere(mob.par, mobPos, {});
-          if (cp) return { dir: cp.dir, gradino:'B1-arrivo-penalizzato',
+          if (cp) if (ESITO({ dir: cp.dir, gradino:'B1-arrivo-penalizzato',
                            perche: "l'arrivo " + arr + ' riceve la penalità (刑) dal ' + pA.chi + ' ' + pA.ramo +
-                                   ': la partenza resta attiva ma ferma — ' + cp.nota };
+                                   ': la partenza resta attiva ma ferma — ' + cp.nota })) return _E;
           tr.push('arrivo penalizzato ma il carattere della partenza è C: tace');
         } else if (!arrVivo && ENV.MPMORTO === 'si') {
           tr.push("l'arrivo " + arr + " è morto in stagione e non nutrito: la corsa non arriva");
@@ -625,10 +689,10 @@ function creaMotore(LYM) {
           var trig = (ENV.MPDEST === 'no') ? null : capannello(R, inv, arr);
           if (trig) {
             var cq = carattere(parArr, mobPos, prog);
-            if (cq) return { dir: cq.dir, gradino:'B1-capannello',
-                             perche: 'capannello: ' + trig + ' completo, il Qi si ferma — ' + cq.nota };
+            if (cq) if (ESITO({ dir: cq.dir, gradino:'B1-capannello',
+                             perche: 'capannello: ' + trig + ' completo, il Qi si ferma — ' + cq.nota })) return _E;
             tr.push('capannello ' + trig + ' ma il carattere è C: tace');
-            if (ENV.MPMARCA==='capC') return { dir:null, gradino:'X-capannello-C', perche:'capannello '+trig+' con arrivo C' };
+            if (ENV.MPMARCA==='capC') if (ESITO({ dir:null, gradino:'X-capannello-C', perche:'capannello '+trig+' con arrivo C' })) return _E;
           } else {
             // CORRIDORE: si guarda dove va
             var legata = (ENV.MPDEST === 'no') ? [] : fermeChe(R, inv, function(l){ return COMBINA[arr] === l.ramo; });
@@ -643,27 +707,50 @@ function creaMotore(LYM) {
               } else if (GEN[depEl] === WX[dest.ramo]) {
                 // il mosso GENERA la destinazione: si scarica caricandola e non si impone,
                 // e allora si deve vedere chi ci guadagna: la squadra della caricata perde.
-                return { dir: opposto(sede(dest.pos)), gradino:'B1-corridore-carica',
+                if (ESITO({ dir: opposto(sede(dest.pos)), gradino:'B1-corridore-carica',
                          perche: "corridore: l'arrivo " + arr + ' combina L' + dest.pos + ' ma la partenza ' +
-                                 R.mutante.ramoDep + ' la GENERA: si scarica caricandola — la squadra della caricata perde' };
+                                 R.mutante.ramoDep + ' la GENERA: si scarica caricandola — la squadra della caricata perde' })) return _E;
               } else {
-                return { dir: sede(dest.pos), gradino:'B1-corridore-combina',
-                         perche: "corridore: l'arrivo " + arr + ' combina L' + dest.pos + ' e la tiene — la sede raggiunta vince' };
+                if (ESITO({ dir: sede(dest.pos), gradino:'B1-corridore-combina',
+                         perche: "corridore: l'arrivo " + arr + ' combina L' + dest.pos + ' e la tiene — la sede raggiunta vince' })) return _E;
               }
             }
             var colpita = (ENV.MPDEST === 'no') ? [] : fermeChe(R, inv, function(l){ return CLASH[arr] === l.ramo; });
             if (colpita.length === 1) {
               var b = inv[colpita[0].pos - 1];
               if (!(b.timely && !arrForte(R, inv, arrEl))) {
-                return { dir: opposto(sede(colpita[0].pos)), gradino:'B1-corridore-clash',
-                         perche: "corridore: l'arrivo " + arr + ' clasha L' + colpita[0].pos + ' e la scaccia — la sede colpita perde' };
+                if (ESITO({ dir: opposto(sede(colpita[0].pos)), gradino:'B1-corridore-clash',
+                         perche: "corridore: l'arrivo " + arr + ' clasha L' + colpita[0].pos + ' e la scaccia — la sede colpita perde' })) return _E;
               }
               tr.push("l'arrivo untimely non agisce sulla linea timely che clasha");
-              if (ENV.MPMARCA==='unt') return { dir:null, gradino:'X-unt-clash', perche:'' };
+              if (ENV.MPMARCA==='unt') if (ESITO({ dir:null, gradino:'X-unt-clash', perche:'' })) return _E;
+            }
+            // LA TERZA PORTA: GENERARE (Edu, 09/09/2026, S44, USDCHF 15/07/2026 s80).
+            // La mobile libera cerca qualcosa da fare: combinare, clashare, o semplicemente
+            // GENERARE. Se l'arrivo non combina e non clasha nessuna linea ferma, nutre la
+            // linea ferma del suo elemento figlio — e parla CHI RICEVE: la W nutrita vince la
+            // sua sede (anche untimely), G nutrito vince la sede, P/B nutriti fanno perdere la
+            // loro squadra, C nutrito tace. Serve una sede sola. MPGENERA=no per spegnerla.
+            if (ENV.MPGENERA !== 'no') {
+              var nutrite = fermeChe(R, inv, function(l){ return GEN[arrEl] === l.el; });
+              if (nutrite.length && nutrite.every(function(l){ return sede(l.pos) === sede(nutrite[0].pos); })) {
+                var nu = nutrite.slice().sort(function(a,b){ return rango(a.par) - rango(b.par); })[0];
+                var dn = null, nota = '';
+                // Misura al cablaggio (S44): W nutrita 26 carte 57,7%; G nutrito 17 al 23,5% (l'estensione
+                // alla G era MIA, non di Edu: bocciata); P 35 al 51,4%; B 21 al 42,9%. Si cabla SOLO la W,
+                // come letta da Edu. MPGENERA=tutti riapre G/P/B per audit.
+                if (nu.par === 'W') { dn = sede(nu.pos); nota = 'la W nutrita vince la sua sede'; }
+                else if (ENV.MPGENERA === 'tutti' && nu.par === 'G') { dn = sede(nu.pos); nota = 'la G nutrita vince la sua sede'; }
+                else if (ENV.MPGENERA === 'tutti' && malus(nu.par)) { dn = opposto(sede(nu.pos)); nota = 'il ' + nu.par + ' nutrito fa perdere la sua squadra'; }
+                if (dn && ESITO({ dir: dn, gradino:'B1-genera',
+                       perche: tr.concat(["la mobile conclude: l'arrivo " + arr + ' (' + arrEl + ') non combina e non clasha nessuna linea ferma, ma GENERA L' +
+                                nu.pos + ' ' + nu.par + ' ' + nu.ramo + ' — ' + nota]).join(' → ') })) return _E;
+                if (!dn) tr.push("l'arrivo genera L" + nu.pos + ' ' + nu.par + ' (non W): questa porta tace');
+              }
             }
             var c = carattere(parArr, mobPos, prog);
-            if (c) return { dir: c.dir, gradino:'B1-carattere',
-                            perche: "la mobile conclude senza destinazione, agisce l'arrivo — " + c.nota };
+            if (c) if (ESITO({ dir: c.dir, gradino:'B1-carattere',
+                            perche: "la mobile conclude senza destinazione, agisce l'arrivo — " + c.nota })) return _E;
             tr.push("la mobile conclude ma il suo arrivo è C: tace");
           }
         }
@@ -674,11 +761,11 @@ function creaMotore(LYM) {
       var dep = R.mutante.ramoDep, arr = R.mutante.ramoArr;
       if (R.mutante.casoMut === -1 && D) {
         if (COMBINA[D] === dep && malus(mob.par))
-          return { dir: opposto(sede(mobPos)),
-                   gradino:'B0-partenza', perche: 'partenza trattenuta dal giorno: il ' + mob.par + ' resta seduto e fa perdere la sua squadra' };
+          if (ESITO({ dir: opposto(sede(mobPos)),
+                   gradino:'B0-partenza', perche: 'partenza trattenuta dal giorno: il ' + mob.par + ' resta seduto e fa perdere la sua squadra' })) return _E;
         if (COMBINA[D] === arr && mob.par === 'B')
-          return { dir: sede(mobPos),
-                   gradino:'B0-arrivo', perche: "arrivo trattenuto dal giorno: l'azione del B non si compie, la sua sede vince" };
+          if (ESITO({ dir: sede(mobPos),
+                   gradino:'B0-arrivo', perche: "arrivo trattenuto dal giorno: l'azione del B non si compie, la sua sede vince" })) return _E;
       }
       tr.push('il passo non si conclude (' + (R.mutante.motivoNullo || 'movimento nullo') + '): la mobile esce');
     }
@@ -701,20 +788,20 @@ function creaMotore(LYM) {
       var _hui = (R.mutante.casoMut === 3);
       var _aut = (mob.stato === 'autocombinata');
       if ((_hui || _aut) && mob.par !== 'B')
-        return { dir: opposto(sede(mobPos)), gradino: 'B3a-azione-fallita',
+        if (ESITO({ dir: opposto(sede(mobPos)), gradino: 'B3a-azione-fallita',
                  perche: tr.concat(['l\'azione della mobile L' + mobPos + ' ' + mob.par + ' fallisce (' +
                           (_hui ? 'controllo indietro 回頭剋' : 'autocombinazione') +
-                          '): non porta la sua direzione — chi non vince perde, la sua sede cade']).join(' → ') };
+                          '): non porta la sua direzione — chi non vince perde, la sua sede cade']).join(' → ') })) return _E;
       if (mob.par === 'G' || mob.par === 'W') {
         if (!R.mutante.movimentoNullo && ENV_G.MPCNV_RAMO === 'b') { /* ramo (a) muto */ }
         else if (!R.mutante.movimentoNullo)
-          return { dir: sede(mobPos), gradino: 'B3a-mobile-GW-vera',
+          if (ESITO({ dir: sede(mobPos), gradino: 'B3a-mobile-GW-vera',
                    perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos +
-                            ' si muove davvero ed è coinvolta nell\'azione: fa vincere la propria squadra — la sua sede']).join(' → ') };
+                            ' si muove davvero ed è coinvolta nell\'azione: fa vincere la propria squadra — la sua sede']).join(' → ') })) return _E;
         if (R.mutante.movimentoNullo && !(_hui || _aut))
-          return { dir: opposto(sede(mobPos)), gradino: 'B3a-mobile-GW-nulla',
+          if (ESITO({ dir: opposto(sede(mobPos)), gradino: 'B3a-mobile-GW-nulla',
                    perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos +
-                            ' tenta di agire ma il movimento è nullo: azione tentata e fallita — la sua sede cade']).join(' → ') };
+                            ' tenta di agire ma il movimento è nullo: azione tentata e fallita — la sua sede cade']).join(' → ') })) return _E;
       }
       return null;
     }
@@ -739,12 +826,13 @@ function creaMotore(LYM) {
     }
     if (caricati.length) {
       caricati.sort(function(a,b){ return rango(a.i.par) - rango(b.i.par); });
+      var _dataParla = false;
       for (var q = 0; q < caricati.length; q++) {
         var cc = carattere(caricati[q].i.par, caricati[q].i.pos,
                            { R: R, esclusi: bloccataDallaBestia || mobileDistrutta ? [mobPos] : [] });
-        if (cc) return { dir: cc.dir, gradino:'B2-data', perche: tr.concat([caricati[q].fonte + ' — ' + cc.nota]).join(' → ') };
+        if (cc) { _dataParla = true; if (ESITO({ dir: cc.dir, gradino:'B2-data', perche: tr.concat([caricati[q].fonte + ' — ' + cc.nota]).join(' → ') })) return _E; }
       }
-      tr.push('i caricati dalla data sono tutti C: tacciono');
+      if (!_dataParla) tr.push('i caricati dalla data sono tutti C: tacciono');
     }
 
     if (!saltaAlDuello)
@@ -758,8 +846,8 @@ function creaMotore(LYM) {
       if (!rinf) continue;
       if (KE[f.el] !== l.el) continue;
       var cf = carattere(f.par, l.pos, { R: R, cEl: f.el });
-      if (cf) return { dir: cf.dir, gradino:'B3-fushen',
-        perche: tr.concat(['il 伏神 ' + f.b + ' rinforzato dal giorno controlla la linea untimely che lo copre — ' + cf.nota]).join(' → ') };
+      if (cf) if (ESITO({ dir: cf.dir, gradino:'B3-fushen',
+        perche: tr.concat(['il 伏神 ' + f.b + ' rinforzato dal giorno controlla la linea untimely che lo copre — ' + cf.nota]).join(' → ') })) return _E;
     }
 
     // ---- LA PROGRESSIONE DELLA MOBILE (Edu, 30/08/2026) -------------------------
@@ -779,12 +867,12 @@ function creaMotore(LYM) {
       var _cattiva = (mob.par === 'B' || mob.par === 'P');
       if (_buona || _cattiva) {
         var _vince = _buona ? _av : !_av;
-        return { dir: _vince ? sede(mobPos) : opposto(sede(mobPos)),
+        if (ESITO({ dir: _vince ? sede(mobPos) : opposto(sede(mobPos)),
                  gradino: 'B1-progressione-' + (_buona ? 'GW' : 'BP') + '-' + (_av ? 'avanza' : 'retrocede'),
                  perche: tr.concat(['la mobile ' + mob.par + ' L' + mobPos + ' ' +
                           (_av ? 'avanza (進神)' : 'retrocede (退神)') + ': ' +
                           (_vince ? 'fa vincere la propria squadra — la sua sede'
-                                  : 'fa perdere la propria squadra — la sua sede cade')]).join(' → ') };
+                                  : 'fa perdere la propria squadra — la sua sede cade')]).join(' → ') })) return _E;
       }
     }
 
@@ -803,9 +891,9 @@ function creaMotore(LYM) {
         var pl = pena(R, lw.ramo); if (pl) pen.push(lw);
       }
       if (pen.length === 1)
-        return { dir: opposto(sede(pen[0].pos)), gradino:'B3b-linea-penalizzata',
+        if (ESITO({ dir: opposto(sede(pen[0].pos)), gradino:'B3b-linea-penalizzata',
                  perche: tr.concat(['la data penalizza (刑) L' + pen[0].pos + ' ' + pen[0].par +
-                                    ': la penalizzata non fa vincere la sua squadra — la sua sede cade']).join(' → ') };
+                                    ': la penalizzata non fa vincere la sua squadra — la sua sede cade']).join(' → ') })) return _E;
     }
 
     var S = R.linee[R.shi - 1], Y = R.linee[R.ying - 1];
@@ -814,15 +902,15 @@ function creaMotore(LYM) {
     // quella parte ha perso la propria linea: vince l'altra.
     if ((mobileEliminata || mobileDistrutta) && (mobPos === R.shi || mobPos === R.ying)) {
       var _altra = mobPos === R.shi ? Y : S;
-      return { dir: sede(_altra.pos), gradino: 'B4-eliminata-perde',
+      if (ESITO({ dir: sede(_altra.pos), gradino: 'B4-eliminata-perde',
                perche: tr.concat(['la ' + (mobPos === R.shi ? 'Shi' : 'Ying') +
                         ' eliminata non può vincere la sua sede: vince la ' +
-                        (mobPos === R.shi ? 'Ying' : 'Shi')]).join(' → ') };
+                        (mobPos === R.shi ? 'Ying' : 'Shi')]).join(' → ') })) return _E;
     }
     var sv = inv[R.shi - 1].vuoto, yv = inv[R.ying - 1].vuoto;
     if (sv !== yv)
-      return { dir: sede(sv ? Y.pos : S.pos), gradino: 'B4-duello',
-               perche: tr.concat(['duello Shi/Ying: la ' + (sv ? 'Shi' : 'Ying') + ' è vuota e dorme, vince l\'altra']).join(' → ') };
+      if (ESITO({ dir: sede(sv ? Y.pos : S.pos), gradino: 'B4-duello',
+               perche: tr.concat(['duello Shi/Ying: la ' + (sv ? 'Shi' : 'Ying') + ' è vuota e dorme, vince l\'altra']).join(' → ') })) return _E;
 
     // LE BESTIE, 3° grado (Edu, 29/08/2026): l'elemento terminale del flusso del Qi
     // ENERGIZZA la bestia della linea. Nessun potere: pesa soltanto, e qui che gli
@@ -834,10 +922,10 @@ function creaMotore(LYM) {
       var dS = bstDepo(S.pos), dY = bstDepo(Y.pos);
       if (dS !== dY) {
         var perde5 = dS ? S : Y, vince5 = dS ? Y : S;
-        return { dir: sede(vince5.pos), gradino: 'B4-bestia-avvelenata',
+        if (ESITO({ dir: sede(vince5.pos), gradino: 'B4-bestia-avvelenata',
                  perche: tr.concat(['Shi e Ying pari: ' + BST.perLinea[perde5.pos].eti +
                           ' cade sulla bestia della ' + (dS ? 'Shi' : 'Ying') +
-                          ' e la depotenzia — quella parte perde']).join(' → ') };
+                          ' e la depotenzia — quella parte perde']).join(' → ') })) return _E;
       }
     }
     if (BST.peso && ENV_G.MPBESTIE3 !== 'no') {
@@ -845,13 +933,13 @@ function creaMotore(LYM) {
       // pesa soltanto: decide se una bestia e' nutrita e l'altra no (o e' spenta)
       if (pS != null && pY != null && pS !== pY && (pS > 0 || pY > 0)) {
         var vinc3 = pS > pY ? S : Y;
-        return { dir: sede(vinc3.pos), gradino: 'B4-bestia-nutrita',
+        if (ESITO({ dir: sede(vinc3.pos), gradino: 'B4-bestia-nutrita',
                  perche: tr.concat(['duello Shi/Ying pari: la bestia della ' + (pS > pY ? 'Shi' : 'Ying') +
                           ' è nutrita dagli steli della data (' + Math.max(pS, pY) + ' contro ' + Math.min(pS, pY) +
-                          '), l\'altra no — quella sede vince']).join(' → ') };
+                          '), l\'altra no — quella sede vince']).join(' → ') })) return _E;
       }
     }
-    return { dir: null, perche: tr.concat(['duello Shi/Ying muto: TACE']).join(' → ') };
+    return CONCLUDI({ dir: null, perche: tr.concat(['duello Shi/Ying muto: TACE']).join(' → ') });
   }
 
   return { leggi: leggi, inventario: inventario };

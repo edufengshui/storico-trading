@@ -4865,3 +4865,235 @@ E' lo stesso caso del rafforzamento ritirato in S41: il Plum Blossom nel sistema
 non da voce. **Edu ha scelto di tenerla accesa**: la dottrina e' giusta e il PB da solo migliora.
 
 **Parita PWA/backtest dopo la modifica:** 465 carte, 0 differenze su tutti i campi.
+
+## S44 — 09/09/2026 · Il raduno stagionale (R6, via senza numero) · `RIDEFINITO DA EDU`
+
+R6 e' una delle sei regole originali del motore (R1-R6, senza numero di sezione: nate prima
+della numerazione, dalla dottrina classica del raduno dei tre rami della stagione 三會). Non ha
+carta guida. Edu ha ridefinito COME SI COMPONE: due rami nella data e uno in una linea, o due
+nelle linee e uno nella data; la linea che porta il ramo deve FARE QUALCOSA (mobile, Shi o Ying,
+ferma clashata dal giorno, combinata, oppure con sopra la bestia dello stelo di un pilastro); e
+l'ELEMENTO del raduno nel suo insieme deve essere timely. Lista di "linee che fanno qualcosa"
+diversa da quella del 27/08 ("linee attive"): restano separate.
+Misure (S17, 2.788 carte, base 59,15% · 36.885): regola completa con "timely" letto come 旺 o 相
+58,86% · 36.254 (vec 57,01 / rec 60,85); solo filtro delle linee attive col mese fra i tre
+59,00% · 36.691 (rec 60,77) — NON 59,15 come detto a Edu in chat: quel numero era il vecchio
+R6 coi quattro pilastri (R6TIMELY=off R6ATTIVA=off). R6 SPENTA del tutto: 59,00% · 36.677. Col filtro la via
+comanda 209 carte al 50,7% (mazzo 4.111): **la via da sola vale zero**. Cablata in liuyao.js
+con flag: R6=vecchia (versione precedente), R6=off, R6TIMELY=off (mese fra i tre), R6ATTIVA=off,
+R6COMB=mobile. Le carte guida restano 110/78.
+**Lezione di Edu:** il raduno non e' un verdetto, e' una traccia; cablarlo come interruttore
+che decide con la maggioranza di linee sopra/sotto e' l'errore rigido. Su USDJPY 08/02/2024
+Edu lo legge col CARATTERE del suo elemento nel palazzo sulla linea che tocca (Legno = B nel
+palazzo 震 -> fa perdere la squadra di L3); su USDCHF 15/07/2026 non lo usa affatto.
+
+## S44 — 09/09/2026 · Il motore a principi v4: la raccolta delle prove · `MISURATA, BOCCIATA`
+
+Impegno preso una settimana prima e lasciato cadere per dodici sessioni (v3 del 31/08, S31).
+Cablato in motore_principi.js dietro MPRACCOLTA=1: ogni gradino che parla e' una prova (una per
+ambito, con peso di salienza), conclusione sulla somma. MOSTRA=CROSS|data stampa il RACCONTO
+(cosa salta all'occhio, lungo la strada, altre prove, conclusione). v3 riverificata: 53,80%.
+Misure: somma pesata 52,60% · +9.065; pesi piatti 52,53%; prova piu' saliente 53,36%; parita'
+= tace 51,99%. Tre o quattro prove concordi: 54-55%, come una sola. Carte guida: 53 giuste
+contro 55 (termometro 64).
+**Conclusione:** i gradini dopo il primo NON sono osservazioni indipendenti, sono ripieghi
+("se non c'e' altro, il duello"); sommarli somma rumore. Il difetto e' COSA il motore vede.
+La forma di Edu (dalle sue letture, sotto) NON e' una somma: protagonista -> conclusione
+provvisoria -> cercare chi puo' ROVESCIARLA -> se nessuno la rovescia, e' fatta.
+
+## S44 — 09/09/2026 · Tre carte lette da Edu e da Claude nella forma di Edu · `LETTURE GUIDA`
+
+**USDJPY 08/02/2024 s148 (ema LONG, mercato LONG +123; catena SHORT via R6 ✗).** Edu: 1) la
+prima cosa e' la Shi con W che si muove (mobile, Shi, W = spesso vittoria); 2) si muove in una
+P perdente; 3) e' bloccata in posizione dal giorno (寅 combina l'arrivo 亥): non puo' saltare,
+arriva e si ferma — sembra la fine; 4) cerca chi smentisce; 5) la bestia del mese cade su L3:
+potrebbe sostituire la mobile col ramo del mese 寅, ma 寅 nel palazzo 震 e' un B perdente, non
+cambia; 6) raduno di Legno 寅(mese)卯(ora)辰(L3): il Legno e' B, non cambia; 7) LONG.
+**USDCHF 15/07/2026 s80 (ema LONG, mercato SHORT -40; catena SHORT via R6 ✓ per un'altra
+strada).** Claude LONG ✗ (ha messo a dormire il raduno per i vuoti della data e ha fatto parlare
+il carattere della PARTENZA, P). Edu: 1) L1 si muove per trasformarsi in C 子; 2) niente la
+blocca, quindi cerca di fare qualcosa; 3) cosa? combinare, clashare O SEMPLICEMENTE GENERARE;
+4) l'unica disponibile e' L3 W (子 genera 卯): SHORT, anche se la W e' untimely; 5) trigono
+亥卯未 col mese, L3, L4: sostiene poco (Legno untimely, 亥 di L4 dell'altro campo) ma nulla
+smentisce; 6) le bestie arrivano su quelle stesse linee: conferma; SHORT. **La mancanza di
+energia = il trade manca di energia: va SHORT ma si muove poco** (-40).
+**AUDUSD 22/12/2025 s66 (ema SHORT, mercato LONG +46; catena LONG via R6).** Claude LONG ✓:
+L6 C -> 寅 timely, libera; l'arrivo combina la Ying W 亥 vuota ma svegliata dall'ora 辛巳 che
+cade su L5 (clash 巳-亥) — W all'apice, tenuta: vince l'alto; Shi G ferma e non caricata non
+smentisce; raduno d'Acqua e trigono di Metallo confermano. In attesa della lettura di Edu.
+
+**Quattro correzioni di Edu (da cablare, non solo da annotare):**
+ 1. La mobile libera CERCA qualcosa da fare; tre porte: combinare, clashare, GENERARE.
+ 2. Parla chi RICEVE l'azione (la linea nutrita/tenuta), non il carattere della partenza.
+ 3. Il vuoto della data non addormenta la carta: pesa sulla linea che dovrebbe agire.
+ 4. L'energia decide la MISURA del movimento, non il verso.
+
+**Cablaggi dalle correzioni (S44, stesso giorno):**
+- Motore a principi, la terza porta GENERARE (MPGENERA, default acceso): se l'arrivo non combina
+  e non clasha nessuna linea ferma, nutre la linea ferma del suo elemento figlio e parla chi
+  riceve. Misura per carattere della nutrita: W 26 carte 57,7% +256 · G 17 al 23,5% -521 ·
+  P 35 al 51,4% · B 21 al 42,9%. L'estensione a G/P/B era di Claude, non di Edu: bocciata,
+  si cabla SOLO la W (MPGENERA=tutti la riapre). Mazzo 53,76% (da 53,80, dentro il rumore);
+  carte guida 55 invariate.
+- R6 col carattere (R6DIR=carattere, ancora dietro flag): il raduno agisce col carattere del suo
+  elemento nel palazzo sulla linea toccata (G/W: la sede toccata vince; P/B: perde; C tace;
+  serve una sede sola). Con il mese fra i tre: S17 59,15% · z 9,66 · 37.340 pip (vec 57,21 /
+  rec 61,44) contro 59,15 · 36.885 (vec 57,76 / rec 60,60) della maggioranza; la via comanda
+  199 carte al 55,3% (+1.512) contro 209 al 50,7% (+484) della maggioranza col filtro attive.
+  Da decidere con Edu se diventa il default.
+
+## S44 — 09/09/2026 · EURUSD 28/05/2026 s116: la guerra fra titani sulla mobile · `DOTTRINA DI EDU, CABLATA nel motore di lettura`
+
+Carta: ema SHORT, mercato LONG +34; catena LONG per R4 "capolinea del flusso su una G sola"
+(regola originale di Claude, non di Edu). Edu: "se il flusso finisce sulla Terra perche' non
+il G 未 che e' anche mobile? Se la regola vale deve farlo per tutte le linee, specialmente
+quelle mobili che sono quelle che agiscono." Cablato FLUSSOARR (l'arrivo della mobile entra
+nel flusso di R2/R4): S17 da 59,15 a 58,79% (-1.500 pip): la regola tace su 55 carte (44 -> 33
+giuste) e sull'arrivo come capolinea fa 6/14. Claude ha proposto di togliere R4; Edu: "ecco il
+tuo errore, vedi che la % diminuisce e pensi subito che devi tagliare. Perche' non pensi che
+quella traccia era una falsa pista e ce n'e' un'altra che ti e' sfuggita?"
+La traccia vera (validata da Edu): la Ying 戌 G riceve il trigono di Fuoco 寅午戌 timely
+(Fuoco genera Terra) -> la G nutrita vince la sede alta -> LONG, energia poca (mese 巳 vuoto).
+Ma prima serve chi da' il COLPO FINALE a L1, perche' "una mobile che diventa G controllando
+indietro la B salta all'occhio": Claude ha proposto l'anno 午 che clasha la partenza 子 e
+combina l'arrivo 未. **Edu: NO — anno e mese non hanno la forza di clashare una linea, solo
+il giorno puo' farlo. Ma le BESTIE hanno capacita' di intervento e intromissione.** Su L1
+(玄武, bestia di 壬 e 癸) cadono il giorno 壬寅 e il mese 癸巳: 寅巳 e' una penalita' (刑), e
+poiche' le bestie sono due e' una cosa grossa che salta all'occhio. **Uno scontro fra titani
+in una linea la blocca completamente: nessun G, annullato causa guerra.**
+Cablato in motore_lettura.js (MLGUERRA): due pilastri sulla stessa linea con rami in penalita'
+o in clash fra loro -> linea annullata (la mobile non agisce, la ferma non e' bersaglio ne'
+attore). Insieme: la linea ROTTA (untimely + clashata dal giorno) non agisce e non e' bersaglio
+(MLROTTA); il trigono/raduno che non decide per sede NUTRE le G/W del suo figlio (MLNUTRE).
+Il motore di lettura ora rifa' la lettura di Edu su questa carta (L1 annullata, L4 rotta,
+il trigono di Fuoco nutre la Ying G -> LONG). Mazzo: 51,55% (invariato nel rumore); 486 carte
+hanno una guerra su qualche linea. Correzione a chat: Claude aveva presentato il 未 come P;
+nel palazzo 坎 la Terra e' G.
+
+**PRINCIPIO DI RAGIONAMENTO (Edu, 09/09/2026, ripetuto due volte perche' Claude non l'aveva
+scritto come principio):** trovare una traccia che porta alla vittoria NON basta se in carta
+resta in piedi un segnale forte che dice il contrario (qui: la mobile che diventa G controllando
+indietro la B, che "salta all'occhio"). Bisogna trovare anche CHI ANNULLA quel segnale (qui: la
+guerra fra titani su L1). Finche' non lo si trova, la lettura non e' completa. "E' questo il
+modo di ragionare, lascia stare i numeri." Nel motore di lettura: una traccia secondaria non
+puo' scavalcare la mobile per 'forza' (MLSMENTITA=forza per l'audit); la mobile che parla decide,
+e le altre confermano; solo l'ANNULLAMENTO della mobile (guerra, blocco del giorno con arrivo
+muto, vuoto, autocombinazione...) apre la strada alla traccia successiva.
+
+## S44 — 09/09/2026 · EURJPY 28/07/2025 s173: la mobile si occupa prima di se' stessa · `LETTURA DI EDU, CABLATA nel motore di lettura`
+
+Carta: ema LONG, sistema LONG (§50d/e, l'arrivo combina la W di L4), mercato SHORT -159. Motore di
+lettura: la Ying G va in 午 e tiene la W 未 di L4 -> LONG ✗. Edu: 1) la Ying si muove, salta
+all'occhio; 2) PRIMA di occuparsi di altro si occupa di se' stessa: controlla indietro (回頭剋)
+il G, negativo per la propria squadra; 3) poiche' e' la Ying, linea importante, e il Fuoco e'
+forte, il G e' ANNULLATO e il C 午 ne prende il posto; 4) NON va a combinarsi con L4 perche'
+una linea mobile non puo' fare due cose contemporaneamente; 5) il C resta sulla Ying, si
+confronta con la Shi (B 卯, legata dal giorno, nella tomba) e vince -> sede bassa -> SHORT.
+Principi: (a) il controllo indietro con arrivo forte e' l'AZIONE della mobile, e sostituisce il
+carattere di partenza con quello d'arrivo; (b) una mobile non fa due cose: niente combinazioni
+o clash su altre linee dopo il controllo indietro; (c) poi la linea col nuovo carattere, se e'
+Shi o Ying, si confronta con l'altra e vince la piu' forte. Cablato MLINDIETRO (arrivo timely
+che controlla la partenza -> nuovo carattere; Shi/Ying -> confronto di forza; altrimenti parla
+il nuovo carattere). Il motore rifa' la lettura di Edu. Mazzo 51,14%, 153 carte per questa via.
+Regola di presentazione (Edu, ripetuta): il SEME va scritto in testa alla carta, con cross e data.
+**Precisazione di Edu (subito dopo): il principio (a) vale SOLO se avviene sulla Shi o sulla Ying.**
+Altrove la mobile segue la strada normale. Cablato: MLINDIETRO solo con mobile Shi/Ying.
+
+## S44 — 09/09/2026 · EURUSD 22/01/2026 s116: il pilastro sulla mobile si intromette nel passo · `LETTURA DI EDU, CABLATA nel motore di lettura`
+
+Carta: ema LONG, sistema SHORT (§52), mercato LONG +83. Edu: 1) il pilastro 丙申 (il giorno)
+arriva su L1 con la sua bestia e toglie al G 未 la possibilita' di controllare indietro — anche
+perche' 申 Metallo assorbe la Terra di 未; 2) il B resta vincitore e fa perdere la propria
+squadra -> il basso perde -> LONG. "Questa era facile, perche' non l'hai vista?" — perche' il
+pilastro che cade sulla mobile era trattato solo come una CARICA (+forza), mai come una
+INTROMISSIONE nel suo passo. Principio: il pilastro che cade sulla mobile, se il suo ramo drena
+o controlla l'arrivo, neutralizza l'arrivo; la mobile resta col carattere di partenza e agisce
+come tale. Cablato MLINTROMISSIONE (prima del controllo indietro e delle porte). Il motore
+rifa' la lettura di Edu.
+
+## S44 — 09/09/2026 · EURUSD 17/06/2026 s116: "e' sempre lo stesso meccanismo" · `VALIDATA DA EDU, CABLATA`
+
+Carta: ema LONG, sistema LONG (§137), mercato SHORT -106. Mobile L3 G 辰 -> 亥, il giorno 戌
+clasha la partenza; su L3 (朱雀) cadono 丙午 e 丁未. Edu: "il mese arriva su L3 e fa vincere la
+squadra. Ma il motivo spiegamelo tu." Motivo (Claude, validato da Edu: "giusto, mi fa piacere
+che inizi a pensare"): il 午 e' Fuoco e nutre la partenza 辰 direttamente sulla linea (anno e
+mese 午, ora 未 Terra: la G e' alimentata tre volte); l'arrivo 亥 e' Acqua in prigione nel mese
+di Fuoco e non ha la meglio sul 午 seduto sulla linea: la trasformazione in B non prende, la G
+resta G nutrita e fa vincere la sua sede, il basso -> SHORT. Il clash del giorno sulla partenza
+piena e nutrita non la rompe: la sveglia (暗動). Stesso meccanismo di EURUSD 22/01/2026 letto
+dall'altro lato: la' il pilastro toglieva forza all'arrivo, qui ne da' alla partenza. Principio
+allargato e cablato (MLINTROMISSIONE): il pilastro non vuoto che cade sulla mobile si intromette
+nel passo quando il suo ramo assorbe o controlla l'arrivo, nutre la partenza o e' controllato
+dall'arrivo — sempre, salvo quando nutre l'arrivo o e' del suo stesso elemento; la mobile resta
+col carattere di partenza e agisce come tale.
+**Correzione dello stesso giorno (Claude, verificata sulle sette carte lette in S44):** cablare
+"la mobile resta col carattere di partenza" faceva sbagliare USDJPY 08/02/2024 (la W 辰 di L3
+sarebbe rimasta W -> SHORT ✗). Il meccanismo generale e' quello che Edu aveva gia' detto su quella
+carta: il pilastro che cade sulla mobile LA ANNULLA E SI SOSTITUISCE A LEI — il ramo del pilastro
+prende la sede della mobile e parla col SUO carattere nel palazzo (G/W: la sede vince; P/B: perde;
+C: tace). Verifica: 寅 = B -> LONG (08/02/2024 ✓), 申 = P -> LONG (22/01/2026 ✓), 午 = W -> SHORT
+(17/06/2026 ✓). Ordine: dopo il blocco del giorno sull'arrivo, prima delle porte. Il giorno che
+clasha una partenza piena e timely la sveglia (暗動), non la ferma; una partenza untimely e'
+fermata. Il motore di lettura rifa' ora tutte e sette le carte di S44 come Edu.
+
+## S44 — 09/09/2026 · USDJPY 09/02/2026 s157: letta da Claude da solo (Edu: "prosegui a cercare e trovare la via giusta da solo") · `VALIDATA CON COMPLETAMENTO`
+
+Carta: ema LONG, sistema LONG (§137), mercato SHORT -135. Palazzo 離 Fuoco, mobile L5 C 未 Ying
+-> 申 W. Lettura di Claude: 1) la Ying si muove: C che diventa W, salta all'occhio; 2) ma
+l'arrivo 申 e' nato morto nel mese 寅 (絕) e il giorno 寅 lo clasha: la trasformazione in W non
+prende, la linea parte e non arriva; 3) chi toglie di mezzo la mobile: il mese 庚寅 cade sulla
+Ying con la Tigre Bianca e si sostituisce a lei — 寅 Legno nel palazzo di Fuoco e' un P, e il
+P fa perdere la sua squadra: l'alto perde -> SHORT; 4) chi potrebbe smentire: la Shi G 亥 con
+l'anno 丙午 sopra (午 = B qui, direbbe LONG) — ma e' legata dal giorno e untimely, non ha forza;
+il trigono di Legno 亥卯未 col mese nutre il B 巳 di L6 (Legno genera Fuoco): B nutrito fa
+perdere l'alto, conferma; 5) SHORT, con energia (pilastro intero del mese sulla Ying): -135.
+Cablato nel motore di lettura la distinzione: il giorno che COMBINA l'arrivo lo tiene (arriva e
+si ferma, parla il suo carattere); il giorno che CLASHA l'arrivo lo distrugge (parte e non
+arriva: sostituzione se c'e' un pilastro sulla mobile, altrimenti resta se' stessa). Con questo
+il motore rifa' tutte e otto le carte lette in S44.
+**Edu: "Analisi giusta ma non fino alla fine. Se le bestie prendono possesso di Y o S poi si passa
+al CONFRONTO DIRETTO."** Qui: il mese 庚寅 possiede la Ying (porta il Legno), l'anno 丙午 possiede
+la Shi (porta il Fuoco); Legno genera Fuoco: la Shi e' nutrita e vince -> sede bassa -> SHORT.
+Cablato (MLPOSSESSO): dopo la sostituzione su una Shi o una Ying, confronto diretto con l'altra,
+ognuna col suo elemento (quello del pilastro che la possiede, altrimenti il proprio ramo): chi
+riceve la generazione vince, chi controlla vince, altrimenti la piu' forte; pari -> nessuno. Vale
+anche per la Shi/Ying FERMA posseduta da un pilastro (prima "agiva da sola", 50%). Le otto
+carte di S44 restano lette come Edu.
+
+## S44 — 09/09/2026 · USDJPY 30/09/2025 s148: gemella della prima carta, letta da Claude da solo · `BOCCIATA DA EDU (il legame), LETTA DA EDU COL RADUNO`
+
+Stesso esagramma, stessa mobile (L3 W 辰 Shi -> 亥), stesso giorno 壬寅 e stessa ora 癸卯 di
+USDJPY 08/02/2024 (+123 LONG, letta da Edu). Qui: anno 乙巳, mese 乙酉; ema LONG, sistema LONG
+(§99), mercato SHORT -77. Lettura di Claude: 1) come nella gemella, la Shi W va in P e il giorno
+la ferma: provvisoria LONG; 2) chi la annulla: il mese 乙酉 cade su L2 col Drago, accanto alla
+Shi, e il suo 酉 combina la partenza 辰 (辰酉合): la Shi e' LEGATA PRIMA DI PARTIRE dalla bestia
+del mese e presa dal Metallo, il re del mese; 3) confronto diretto con la Ying 未 Terra: Terra
+genera Metallo, la Shi e' nutrita e vince -> sede bassa -> SHORT; 4) conferme: L5 酉 G all'apice
+e' il vero padrone della carta; i raduni di Legno che a febbraio erano timely qui non lo sono e
+non contano; il trigono 亥卯未 (B) sta in alto e fa perdere l'alto. Cio' che cambia fra le due
+gemelle e' SOLO il mese: 寅 che cadeva sulla Shi e non cambiava nulla (B), 酉 che cade su L2 e
+lega la Shi. Cablato MLLEGAME (pilastro non vuoto su un'altra linea il cui ramo combina la
+partenza della mobile: mobile legata e posseduta da quell'elemento; Shi/Ying -> confronto
+diretto), SUBORDINATO al possesso diretto (un pilastro sulla mobile stessa viene prima; senza
+questa precedenza sbagliava USDJPY 09/02/2026 e EURUSD 22/01/2026). Le nove carte di S44 lette
+come Edu (o come Claude, dove in attesa di validazione).
+**Edu: "il mese 酉 che cade accanto NON combina."** Il legame da bestia su un'altra linea e' un'ipotesi
+sbagliata di Claude: MLLEGAME spento (solo audit). Lettura di Edu: il raduno 寅卯辰 sta tutto con le
+bestie nel trigramma inferiore (寅 su L2, 卯 dell'ora su L1, 辰 la Shi mobile su L3); un membro e' la
+mobile, quindi il raduno SERVE LA LINEA (§133m del 04/09, estesa dal trigono al raduno): prende il
+carattere della Shi, W, il basso vince -> SHORT. APERTO: nella gemella di febbraio (stesse bestie su
+L1, stessa mobile) Edu aveva letto lo stesso raduno per ELEMENTO (Legno = B, "non cambia nulla") e
+la carta era LONG. Cosa decide fra "serve la mobile" e "si legge per elemento" non e' ancora detto.
+
+**LA DIFFERENZA FRA LE DUE GEMELLE s148 (Edu, 09/09/2026, risposta alla domanda aperta sopra):**
+in USDJPY 08/02/2024 il mese 丙寅 arriva COMPLETAMENTE sulla linea mobile e la ANNULLA — "Chen non
+c'e' piu'" — quindi 辰 non e' piu' membro del raduno 寅卯辰, che non serve la linea e resta un
+contorno letto per elemento (Legno = B, non cambia il responso; il sostituto 寅 e' B e fa perdere
+il basso -> LONG). In USDJPY 30/09/2025 nessun pilastro cade su L3: 辰 NON e' interferito, resta,
+e il raduno — tutto con le bestie nel trigramma inferiore — HA LA MOBILE FRA I MEMBRI e serve la
+linea: prende il carattere della Shi, W, il basso vince -> SHORT.
+Cablato: (a) la mobile su cui cade un pilastro non vuoto e' ANNULLATA e non e' membro di raduni o
+trigoni; (b) un raduno/trigono che ha la mobile fra i membri serve la linea e ne prende il
+carattere (MLSERVE); (c) il confronto diretto dopo il possesso vale quando le bestie possiedono
+ENTRAMBE le sedi (USDJPY 09/02/2026), altrimenti parla il carattere del ramo sostituito
+(USDJPY 08/02/2024). Con questi tre, il motore rifa' tutte e dieci le letture di S44.
