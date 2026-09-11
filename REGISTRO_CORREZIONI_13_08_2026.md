@@ -5735,3 +5735,19 @@ rispetto alle tre (50,93% -> 50,78% a parita' di tutto il resto).
    LONG (+46). Messa in testa, subito dopo la guerra fra titani.
 2. Il G che retrocede fa perdere la propria sede: e' la regola ricavata da Claude su EURGBP
    18/03/2020 (MLPROGBEN), qui confermata da Edu su una seconda mobile. Vale da conferma.
+
+# REGOLA SOPRA IL METODO — fissata da Edu l'11/09/2026 · `DEFINITIVA`
+"Mi stai portando dove vuoi tu e questo non funziona perche' tu non usi una logica incrementale
+come farei io che, individuo una traccia, vedo dove porta, verifico che non ci sia altro che
+dimostra il contrario e solo alla fine mi pronuncio. Voglio vederti fare cosi'."
+Questo e' SEMPRE il percorso, per ogni carta, ogni regola, ogni misura:
+  1. individuare una traccia
+  2. vedere dove porta
+  3. verificare che non ci sia altro che dimostri il contrario
+  4. solo alla fine pronunciarsi
+Vietato: proporre piani propri al posto della lettura; generalizzare una regola oltre il
+perimetro che una carta letta autorizza; estrapolare per simmetria o per statistica senza una
+carta che lo dimostri. Se una regola sembra valere piu' in largo non si allarga: si cerca la
+carta che lo dimostri. Le regole di Edu si tengono anche se costano; le estrapolazioni di Claude
+che misurano peggio restano dietro interruttore spento e dichiarate come proprie.
+Scritta anche nella memoria di progetto, che Claude legge prima di ogni sessione.
