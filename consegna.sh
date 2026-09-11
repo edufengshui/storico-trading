@@ -37,7 +37,7 @@ FILES_SW="liuyao.js app.js index.html plumblossom.js sw.js motore_dlr.js"
 # NOTA (Edu, 07/09/2026): l'archivio tiene una copia dei file del software, quindi app.js,
 # plumblossom.js, index.html e sw.js devono finire ANCHE nel blocco 2 quando cambiano.
 # Senza questo l'archivio resta indietro di una sessione (successo l'08/09/2026).
-FILES_AR="pb_stress.js liuyao.js motore_dlr.js app.js plumblossom.js index.html sw.js ponte_hugua.js \
+FILES_AR="pb_stress.js liuyao.js motore_dlr.js app.js plumblossom.js index.html sw.js ponte_hugua.js motore_lettura.js \
 REGISTRO_DLR_31_08_2026.md carta_check.js carte_lette.json parita_check2.js parita_tre.js motore_principi.js \
 daliuren.js jieqi-gmt.js solar-time.js trend.js nayin_map.json consegna.sh \
 CANDIDATI_OSSERVAZIONE.md REGISTRO_CORREZIONI_13_08_2026.md \

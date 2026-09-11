@@ -5097,3 +5097,641 @@ trigoni; (b) un raduno/trigono che ha la mobile fra i membri serve la linea e ne
 carattere (MLSERVE); (c) il confronto diretto dopo il possesso vale quando le bestie possiedono
 ENTRAMBE le sedi (USDJPY 09/02/2026), altrimenti parla il carattere del ramo sostituito
 (USDJPY 08/02/2024). Con questi tre, il motore rifa' tutte e dieci le letture di S44.
+
+## S45 — 09/09/2026 · Il motore di lettura ricostruito · `RICOSTRUZIONE`
+
+Il `motore_lettura.js` scritto in S44 non e' mai arrivato nell'archivio: non era nell'elenco di
+consegna.sh, quindi non e' finito nello zip e non e' stato spinto sul repo. pb_stress.js lo
+richiedeva e si fermava con un errore. Ricostruito da questa sezione del registro e verificato
+sulle NOVE carte lette in S44: le rifa' tutte, ognuna per la traccia con cui era stata letta.
+Ordine delle tracce: guerra fra titani (T0) · il malus che retrocede o avanza (T1a) · la
+sostituzione (T1) · il confronto diretto (T1b) · la mobile si occupa di se' (T2) · il raduno che
+serve la linea (T3) · il giorno sull'arrivo (T4) · le tre porte (T5) · il trigono che nutre (T6).
+Mazzo intero 50,54% · +4.610 pip (la versione di S44 stava fra 50,5 e 51,5).
+
+**Tre correzioni fatte da Claude in S45, tutte DA VALIDARE:**
+1. *L'intromissione del pilastro vale solo a passo chiuso.* Il pilastro si intromette nel PASSO
+   della mobile: puo' farlo solo quando il passo non esce verso un'altra linea — movimento nullo
+   (il giorno lo ferma) o controllo indietro sulla partenza (回頭剋, caso 3). Se la mobile e'
+   libera e va ad agire fuori, il pilastro non la ferma. E' la differenza fra USDCHF 15/07/2026
+   (libera, caso 4: Edu la legge con le tre porte) e USDJPY 08/02/2024, EURUSD 22/01/2026,
+   EURUSD 17/06/2026, USDJPY 09/02/2026 (passo gia' fermo o controllo indietro: Edu usa il
+   pilastro). La relazione fra pilastro e arrivo e' la stessa in tutte — 寅 Legno assorbe
+   l'Acqua sia in USDCHF sia in USDJPY 08/02/2024 — quindi non e' li' la differenza.
+   Con questo USDCHF torna a essere letta con le porte come l'ha letta Edu.
+2. *Il pilastro che CLASHA il ramo della linea non ne prende possesso.* Dottrina gia' di Edu
+   (29/08/2026: stesso ramo carica, la combinazione blocca, il clash scaccia); nel motore
+   mancava, e ogni pilastro caduto su una linea contava come possesso. Tocca la sostituzione
+   e il confronto diretto fra le due sedi.
+3. *Il malus che retrocede o avanza era rimasto fuori.* Rimesso, e messo PRIMA della
+   sostituzione, perche' nella regola sopra le regole "ritirata/avanzata" sta dentro l'azione
+   della mobile, che viene per prima. Nessuna delle nove carte di S44 ha una progressione,
+   quindi lo spostamento non le tocca.
+
+**Carta letta da Claude da solo · USDJPY 01/12/2022 seme 137 · `DA VALIDARE`**
+E' la peggiore delle 25 perdenti del gradino "confronto diretto fra le due sedi possedute"
+(-201 pip). Palazzo 乾 Qian (Metallo), mese 亥 (Acqua di stagione), giorno 戊子, ora 丙辰,
+anno 壬寅. Mobile L3, la Ying, Genitori 辰 Terra che va in 丑 Terra.
+Lettura di Claude: 1) il protagonista e' la Ying che si muove, e la prima cosa che salta
+all'occhio e' che si muove DENTRO il proprio elemento, all'indietro: 辰 → 丑 e' una ritirata
+(退神); 2) un Genitori e' un danno per la propria squadra, e un danno che si ritira porta via
+se stesso: la sede bassa vince → SHORT; 3) chi puo' smentire: il mese 辛亥 cade sulla Ying
+con la Tigre Bianca e potrebbe sostituirsi a lei, ma 亥 Acqua nel palazzo di Metallo e' un
+Figli, che tace, quindi non rovescia niente; l'ora 丙辰 cade sulla Shi ma il suo 辰 clasha il
+戌 della Shi, quindi la disperde invece di possederla — il confronto diretto fra le due sedi
+non si apre; 4) conferma: le uniche linee vive del basso sono la Ricchezza 寅 di L2, di stagione
+e con il Tai Sui, e i Figli 子 di L1 caricati dal giorno — il basso e' la parte in forza;
+5) SHORT. Esito: SHORT -201.
+**VALIDATA da Edu** (09/09/2026): "Analisi giusta, il pezzo forte e' la P che retrocede che fa
+vincere la propria squadra. Il resto sono conferme che convalidano." Quindi: la traccia che
+decide e' la ritirata del Genitori; il mese che non riesce a sostituirsi, l'ora che clasha la
+Shi invece di possederla e la forza del basso NON sono voti che si sommano — sono conferme che
+non smentiscono la conclusione provvisoria. Confermato anche l'ordine: la ritirata della mobile
+viene prima della sostituzione del pilastro.
+
+Il gradino del malus che retrocede, misurato da solo, sta al 47,8% su 161 carte: la forma e'
+giusta su questa carta ma su molte altre la traccia seguita e' una falsa pista, da cercare
+carta per carta.
+
+**Carta letta da Claude da solo · USDJPY 28/04/2025 seme 143 · `DA VALIDARE`**
+Peggiore delle perdenti del gradino "il malus che retrocede" (-178 pip). Palazzo 乾 Qian
+(Metallo), mese 辰 (Terra e Legno di stagione), giorno 丁卯, ora 戌, anno 巳, vuoti 戌 亥.
+Mobile L6, Genitori 戌 Terra che va in 未 Terra: e' la stessa ritirata (退神) validata da Edu
+su USDJPY 01/12/2022, ma qui il verdetto e' rovesciato.
+Lettura di Claude: la differenza sta in COSA il giorno tiene. Su USDJPY 01/12/2022 il giorno
+子 combinava l'ARRIVO 丑: la linea partiva, arrivava e si fermava — la ritirata si compiva, il
+danno si portava via, la sede vinceva. Qui il giorno 卯 combina la PARTENZA 戌 (卯戌合): la
+linea resta impigliata dov'e' e non parte affatto. Non si ritira nulla. Il Genitori resta al
+suo posto, pieno e di stagione, e un danno che resta fa perdere la propria squadra: la sede
+alta perde -> SHORT. Esito: SHORT -178.
+Cablato come `T1a il malus impigliato` (interruttore MLIMPIGLIO), dentro il gradino della
+progressione, prima della ritirata. Vale su 21 carte al 47,6%: la carta e' giusta e il
+meccanismo regge, ma il gradino della ritirata resta al 47,6% su 143 carte — sulle altre
+perdenti la falsa pista e' un'altra e va cercata carta per carta, non con un filtro.
+
+**Carta letta da Claude da solo · USDJPY 11/07/2024 seme 161 · `DA VALIDARE`**
+Peggiore delle 383 perdenti del gradino "le tre porte" (-263 pip). Palazzo 坤 Kun (Terra),
+mese 未, giorno 丙子, ora 辰, anno 辰, vuoti 申 酉. Mobile L6, Fratelli 戌 Terra di stagione
+che va in 巳 Fuoco. Caso 1: l'arrivo GENERA la partenza (回頭生).
+Lettura di Claude: e' il gemello del controllo indietro che Edu ha letto su EURJPY 28/07/2025.
+Li' l'arrivo tornava indietro e CONTROLLAVA la partenza; qui torna indietro e la NUTRE. In
+entrambi i casi la mobile si occupa prima di se' stessa, e una linea mobile non puo' fare due
+cose insieme (parole di Edu su quella carta): quindi NON va alle porte a cercare qualcosa da
+combinare o da generare. Resta se' stessa, rinforzata. La linea e' un Fratelli, cioe' un danno
+per la propria squadra, e sta in alto: l'alto perde -> SHORT. Esito: SHORT -263.
+Differenza con la carta di Edu: li' l'arrivo sostituiva il carattere della partenza, e per
+questo Edu aveva limitato il principio alla Shi e alla Ying. Qui non c'e' nessuna sostituzione
+di carattere - la partenza viene nutrita e resta quello che era - quindi la limitazione a
+Shi/Ying non serve.
+Cablato come `T2b nutrita dall'arrivo` (interruttore MLNUTRITA), accanto al gradino "si occupa
+di se'". Comanda 252 carte al 54,76% (+1.178 pip); il gradino delle tre porte scende da 760 a
+579 carte. Mazzo intero da 50,25% a 50,91% (+4.948 pip), periodo recente 51,77%.
+
+## S45 · CORREZIONE DI EDU su USDJPY 11/07/2024 — `CONFERMATA DA EDU`
+La lettura di Claude (l'arrivo nutre la partenza, la B resta se' stessa rinforzata) arrivava al
+verso giusto per la ragione sbagliata: quella B non parte nemmeno.
+Parole di Edu (09/09/2026): "B Xu L6 non puo' neanche partire perche' il Tai Sui con la bestia
+arriva su quella linea. Clasha e blocca tutto. Se non l'avesse fatto il risultato sarebbe stato
+long perche' P si generando indietro sarebbe entrato nella sua tomba (Xu e' la tomba del fuoco),
+e se P o B entrano nella tomba non fanno piu' perdere la propria squadra."
+
+**Regola 1 — il Tai Sui che clasha blocca.** L'anno 甲辰 arriva su L6 con il Drago Azzurro
+(stelo 甲) e il suo 辰 clasha il 戌 della linea. Non e' lo scacciamento di un pilastro qualunque
+(che toglie il possesso ma lascia agire): il Tai Sui ferma il passo in partenza. La linea resta
+quello che era — una B in alto — e la B fa perdere la propria squadra: l'alto perde -> SHORT.
+Cablata come `T0b il Tai Sui blocca` (MLTAISUI), subito dopo la guerra fra titani e prima di
+ogni altra traccia. 34 carte, 44,12%, +165 pip.
+
+**Regola 2 — P o B nella tomba non nuocciono piu'.** Senza il blocco, il passo sarebbe stato:
+l'arrivo 巳 Fuoco e' un P nel palazzo 坤 (il Fuoco genera la Terra) e generando indietro finisce
+in 戌, che e' la TOMBA del Fuoco. Un P o una B che entrano nella propria tomba smettono di far
+perdere la loro squadra: la sede su cui stanno vince -> sarebbe stato LONG.
+Tombe: Legno 未 · Fuoco 戌 · Metallo 丑 · Acqua 辰 · Terra 辰.
+Cablata come `T2b sepolto nella tomba` (MLTOMBA), dentro il ritorno che nutre. 4 carte.
+
+DA CHIARIRE CON EDU (Claude ha cablato stretto per non inventare):
+- il blocco del Tai Sui vale solo sulla mobile o su qualunque linea su cui il Tai Sui cade
+  clashando? E vale solo il Tai Sui, o anche mese/giorno/ora che clashano la linea su cui cadono?
+- la tomba: cablata solo dentro il ritorno che nutre. La frase di Edu suona generale — ogni P o
+  B che entra nella propria tomba, comunque ci arrivi.
+Mazzo intero: 50,91% -> 50,67% (+4.365 pip), recente 51,40%. Le dodici carte di riferimento
+restano tutte giuste.
+
+## S45 · REGOLA DELLE BESTIE — parole di Edu (09/09/2026)
+"Se una bestia arriva e clasha una linea mobile la blocca e non puo' muoversi, se la controlla o
+la drena, si impadronisce della linea. Se clasha una linea ferma la fa muovere e se la controlla
+o la drena si impadronisce della linea."
+
+CABLATO — la parte del clash: il blocco della mobile non e' piu' riservato al Tai Sui, vale per
+qualunque pilastro che cada sulla linea con la sua bestia e ne clashi il ramo. Se piu' pilastri
+cadono sulla stessa linea comanda il piu' forte, giorno > mese > anno > ora. Il gradino passa da
+34 a 108 carte, dal 44,12% al 53,70% (+734 pip). Mazzo 50,77%, recente 51,29%. Dodici carte di
+riferimento tutte giuste. La linea ferma clashata da una bestia era gia' trattata come linea che
+"fa qualcosa".
+
+NON CABLATO — la parte del possesso, perche' contraddice tre carte lette da Edu stesso. In tutte
+e tre il pilastro che Edu usa NON controlla ne' drena la linea: la NUTRE, o e' controllato da lei.
+  · EURUSD 22/01/2026 — giorno 丙申 su L1 子: 申 Metallo genera l'Acqua 子, la nutre.
+  · EURUSD 17/06/2026 — anno 丙午 su L3 辰: 午 Fuoco genera la Terra 辰, la nutre.
+  · USDJPY 09/02/2026 — anno 丙午 sullo Shi L2 亥: e' 亥 che controlla 午, non il contrario.
+Domanda aperta per Edu: il nutrimento e' una terza via per impadronirsi della linea, oppure in
+quelle tre carte il pilastro fa qualcosa di diverso dall'impadronirsi?
+
+**Carta letta da Claude da solo · USDJPY 02/10/2024 seme 143 · `DA VALIDARE`**
+Peggiore perdente di tutto il motore (-265 pip), sul gradino "la mobile si occupa di se'".
+Palazzo 乾 Qian (Metallo), mese 酉 (Metallo di stagione), giorno 己亥, ora 戌, anno 辰,
+vuoti 辰 巳. Mobile L2, lo Shi, G 午 Fuoco che va in 亥 Acqua: controllo indietro (回頭剋).
+Il Fuoco nel mese di Metallo e' morto, l'Acqua e' in crescita: il controllo indietro riesce e
+lo Shi finisce ucciso dal proprio arrivo, diventando un C.
+Lettura di Claude: fin qui il motore faceva come sulla carta di Edu (EURJPY 28/07/2025) e poi
+decideva il confronto fra le due sedi con la relazione — il Metallo della Ying genera l'Acqua
+dello Shi, chi e' nutrito vince, quindi lo Shi -> SHORT. Sbagliato di 265 pip.
+Il punto: dopo un controllo indietro la linea non e' "diventata" l'arrivo per scelta sua, ci e'
+finita perche' il proprio arrivo l'ha uccisa. Li' non decide chi genera chi, decide chi delle
+due sedi resta piu' forte. Qui la Ying L5 e' una B 申 Metallo prospera e piena, lo Shi e' un C
+appena scampato: vince la Ying, sede alta -> LONG. Esito: LONG +265.
+Sulla carta di Edu la stessa prova da' lo stesso verdetto che aveva dato lui: la sua Ying era
+un 午 Fuoco prospero e lo Shi un B 卯 legato dal giorno e in tomba — vince la Ying, SHORT.
+Cablato: nel confronto dopo il controllo indietro decide la FORZA (peso di stagione 旺+2 相+1
+休0 囚-1 死-2, meno la linea vuota, meno la linea legata/rotta/dormiente, piu' o meno il giorno,
+piu' la bestia che ci cade). Nel possesso delle bestie invece resta la relazione, come l'ha
+letta Edu su USDJPY 09/02/2026.
+Gradino "si occupa di se'": da 42,86% a 75,00% su 24 carte (+963 pip).
+Mazzo intero da 50,99% a 51,46% (+5.528 pip), recente 52,46%. Dodici carte tutte giuste.
+
+**CORREZIONE DI EDU sulla stessa carta (USDJPY 02/10/2024) — `CONFERMATA DA EDU`**
+Parole di Edu: "Se C elimina G, W ne prende il posto e Shi vincerebbe comunque contro Ying.
+Quello che succede e' che C 亥 va a generare W 寅 che quindi diventa Shi e... perde."
+Claude aveva il verso giusto ma la sede sbagliata: aveva lasciato sullo Shi l'ARRIVO (il C 亥).
+Non e' cosi'. Quando il controllo indietro elimina il carattere della linea, il 伏神 nascosto
+sotto quella linea NE PRENDE IL POSTO, e ci arriva perche' l'arrivo lo tira fuori — qui il C 亥
+combina e genera il W 寅 nascosto sotto lo Shi. Da quel momento lo Shi e' un W 寅 Legno, non un
+C Acqua. E il Legno nel mese 酉 e' morto, mentre la Ying e' una B 申 Metallo prospera che lo
+clasha e lo controlla: lo Shi perde, la sede bassa perde -> LONG.
+Cablato dentro il gradino "si occupa di se'" (interruttore MLFUSHEN): se la linea ha un nascosto
+e l'arrivo lo combina o lo genera, il nascosto prende la sede col proprio elemento e carattere,
+e il confronto di forza si fa con lui.
+
+**Carta letta da Claude da solo · GBPUSD 15/12/2022 seme 124 · `DA VALIDARE`**
+Peggiore perdente del motore (-240 pip), sul gradino "il malus che avanza". Palazzo 巽 Xun
+(Legno), mese 子 (Acqua di stagione), giorno 壬寅, ora 卯, anno 寅, vuoti 辰 巳.
+Mobile L2, B 寅 Legno, Tai Sui e ramo del giorno, che avanza in 卯 (進神).
+Il motore diceva: un B che avanza fa crescere il proprio danno, la sua sede perde, il basso
+perde -> LONG. Sbagliato di 240 pip.
+Lettura di Claude: il B non se ne sta fermo a nuocere a casa propria. Avanza, e avanzando il suo
+arrivo 卯 va a combinare (卯戌合) la W 戌 di L4, che e' lo Shi. Un B e' il ladro della W: non la
+fa parlare, gliela porta via. Il danno non resta alla sede del B, va dove il B colpisce — la
+sede alta perde -> SHORT. Esito: SHORT -240.
+Conferma che non smentisce: su L1 cadono tutti e quattro i pilastri (stelo 壬 o 癸, tutti Tartaruga
+Nera), e fra i loro rami 子 e 卯 sono in penalita': scontro fra titani, la Ying e' annullata e
+non puo' rispondere del furto.
+Cablato come `T0c il B ruba la W` (MLLADRO), prima del gradino della progressione: vale quando
+l'arrivo della mobile e' un B nel palazzo e combina o controlla una W viva.
+195 carte al 52,82%. Il gradino "il malus avanza" scende da 87 a 69 carte e sale al 49,28%.
+Mazzo intero 51,48% (+4.785 pip), recente 52,17%. Dodici carte di riferimento tutte giuste.
+
+**CORREZIONE DI EDU su GBPUSD 15/12/2022 — `CONFERMATA DA EDU`**
+Parole di Edu: "Dal momento che S riceve una B avanzante 'diventa' legno. Ma anche Y diventa
+legno perche' tutti i pilastri convergono li'. La penalita' fra Mao e Zi non c'e' perche' Mao
+non e' da solo su L1 ma sta insieme a due Yin (la penalita' fra due rami esiste come rapporto
+univoco fra i due, se ce ne sono altri non c'e'). Quindi se Y e S sono entrambi legno, chi vince?
+Vince Y perche' 1) c'e' anche Zi acqua che genera il Legno, 2) i pilastri sono molto piu' forti
+delle singole linee."
+
+1. **La penalita' e' un rapporto univoco.** 刑 fra due rami vale solo se sono soli. Se sulla
+   linea ce ne sono altri, la penalita' non c'e'. Il "titano" di L1 in questa carta quindi non
+   esiste: 卯 sta insieme a due 寅. Cablato nella guerra fra titani: la penalita' vale solo con
+   esattamente due pilastri sulla linea (il clash resta come prima).
+2. **Il furto non chiude il conto: apre un confronto.** La W derubata non perde per il fatto di
+   essere derubata — "diventa" dell'elemento del B che l'ha presa. Se anche l'altra sede e'
+   stata presa dai pilastri, diventa a sua volta del loro elemento, e le due sedi si confrontano.
+   Qui tutti e quattro i pilastri cadono su L1 (steli 壬/癸, tutti Tartaruga Nera) e sono 寅寅卯,
+   Legno: la Ying diventa Legno. Lo Shi diventa Legno anche lui. Pari elemento, quindi decide la
+   forza, e vince la Ying perche' i pilastri pesano molto piu' delle singole linee e perche' c'e'
+   il 子 Acqua che nutre il Legno. Sede bassa -> SHORT.
+3. **I pilastri pesano.** Nella misura della forza ogni bestia che cade sulla linea conta una
+   volta (prima contava uno solo che ce ne fosse almeno una), piu' un punto se un ramo della
+   data genera l'elemento.
+Il confronto si apre solo quando ANCHE l'altra sede e' posseduta dai pilastri; se l'altra sede e'
+rimasta se stessa, la W derubata perde e basta (cablato cosi': aperto sempre costava 3 punti).
+Gradino T0c: 199 carte al 52,26% (+547 pip). Mazzo 51,42% (+5.022 pip), recente 51,86%.
+Dodici carte di riferimento tutte giuste.
+
+**Carta letta da Claude da solo · USDJPY 13/12/2023 seme 145 · `DA VALIDARE`**
+Peggiore perdente del motore (-240 pip), sul gradino nuovo "il B ruba la W". Palazzo 坤 Kun
+(Terra), mese 子 (Acqua di stagione), giorno 乙巳, ora 子, anno 卯, vuoti 寅 卯.
+Mobile L3, B 辰 Terra che va in 丑 Terra: stesso elemento, RETROCEDENTE (退神). L'arrivo 丑
+combina la W 子 di L1.
+Il motore leggeva il furto: il B raggiunge la W, gliela porta via, quella sede perde -> LONG.
+Sbagliato di 240 pip.
+Lettura di Claude: quel B non sta andando da nessuna parte, si sta RITIRANDO. Le parole di Edu
+sulla carta precedente erano precise: "S riceve una B AVANZANTE". Un B che avanza cresce e
+arriva addosso alla W; un B che si ritira porta via il proprio danno, ed e' la regola che Edu
+ha validato su USDJPY 01/12/2022. Qui il giorno 巳 non combina ne' clasha la partenza 辰, quindi
+la ritirata si compie davvero: il danno se ne va, la sede bassa vince -> SHORT. Esito: SHORT -240.
+Cablato alla lettera: ruba solo il B che AVANZA (進神). Misurate tutte e due le versioni:
+escludendo solo la ritirata il gradino fa 157 carte al 50,96% e il mazzo 51,32%; alla lettera
+(solo 進神) fa 13 carte al 53,85% e il mazzo 51,53% (+6.065 pip), recente 52,20%. Tenuta la
+versione alla lettera: le altre 144 carte si leggono meglio da sole, per altre tracce.
+Dodici carte di riferimento tutte giuste.
+
+**CORREZIONE DI EDU sulla stessa carta — `CONFERMATA DA EDU`**
+"Se la B si ritira perde energia quindi non si combina con niente a meno che sia Timely. In ogni
+caso la tua analisi e' giusta: B che si ritira fa vincere la propria squadra."
+E' la ragione fisica sotto la regola: non e' che il B "sceglie" di non rubare, e' che ritirandosi
+non ha piu' l'energia per combinarsi con nessuno. Se pero' e' di stagione, l'energia ce l'ha
+ancora e puo' agire lo stesso. Qui il 辰 Terra nel mese 子 e' 囚, quindi niente.
+Cablato come `MLRITIRATA`: la mobile che retrocede e non e' di stagione non arriva alle tre
+porte. Costa 14 carte e un decimo di punto sul mazzo (51,53% -> 51,43%, +5.745 pip, recente
+52,02%): non si taglia, e' una regola di Edu e la carta e' giusta.
+
+**Carta letta da Claude da solo · EURJPY 11/07/2024 seme 175 · `DA VALIDARE`**
+Peggiore perdente del motore (-233 pip). Palazzo 艮 Gen (Terra), mese 未, giorno 丙子, ora 午,
+anno 辰, vuoti 申 酉. Mobile L1, B 辰 Terra, Tai Sui, di stagione, che va in 卯.
+Caso -4: l'arrivo 卯 e' nella tomba del mese (未 e' la tomba del Legno) ed e' punito dal giorno
+(子刑卯). La linea NON SI MUOVE.
+Il motore la faceva servire da un raduno e leggeva la B: sede bassa perde -> LONG. Sbagliato.
+Lettura di Claude: una mobile che non si muove non e' un passo finito male, e' un passo che non
+parte. E' fuori dai giochi e non puo' nemmeno essere servita da un raduno. Tocca a chi resta.
+Sulla Ying L6 arrivano DUE bestie, l'anno 甲辰 e l'ora 甲午, tutte e due Drago Azzurro (stelo 甲):
+due bestie si impadroniscono sempre della linea. La Ying, che era un G 卯 Legno — per giunta in
+tomba nel mese e punito dal giorno — diventa 辰 Terra, che nel palazzo 艮 e' un B. Il B fa perdere
+la propria squadra: sede alta perde -> SHORT. Esito: SHORT -233.
+Cablati due pezzi: `MLFERMA` (il caso -4 mette la mobile fuori dai giochi) e `MLSEDEPRESA`
+(con la mobile ferma parla la sede di cui le bestie si sono impadronite; se sono prese tutte e
+due si confrontano con la relazione, come su USDJPY 09/02/2026).
+T4b la sede presa: 119 carte al 50,42%. T4b le due sedi prese: 26 carte al 46,15%.
+Mazzo da 51,43% a 51,33% (+5.428 pip), recente 52,22%. Dodici carte di riferimento tutte giuste.
+
+## S45 · CORREZIONE DI EDU su EURJPY 11/07/2024 — `CONFERMATA DA EDU`
+"Su Y arrivano le bestie e che si prende l'energia finale che parte da Mao va su Wu e finisce su
+Chen. Quindi Y e' Chen. E poiche' questo avviene su Y deve partire subito il confronto con S.
+E S vince."
+L'elemento che resta su una linea presa dalle bestie NON e' quello del pilastro piu' forte: e' il
+CAPOLINEA della catena dell'energia. Si parte dal ramo della linea e si passa di bestia in bestia
+seguendo la generazione: 卯 Legno -> 午 Fuoco -> 辰 Terra. La Ying e' 辰 Terra.
+E poiche' la presa avviene su una SEDE, parte subito il confronto con l'altra: la Terra della Ying
+genera il Metallo dello Shi, lo Shi e' nutrito e vince, sede bassa -> SHORT.
+
+## S45 · DUE RETTIFICHE DI CLAUDE
+1. **La stagione era misurata male.** Claude aveva detto a Edu che la divisione timely/untimely
+   su un gradino era artefatto di una prova sbagliata, e aveva messo al suo posto una prova che
+   guardava SOLO l'elemento della stagione: sbagliata in senso opposto (nel mese 未 il Metallo
+   risultava morto invece che in crescita). La regola vera e' quella di liuyao.js (stadioMese):
+   il migliore fra il conto sul ramo del mese e quello sulla stagione, e la Terra prospera nei
+   quattro mesi di Terra. Rimessa cosi'.
+2. **La linea impigliata dal giorno non "fa qualcosa".** Il giorno che COMBINA una linea la
+   impiglia: quella linea non agisce e non puo' essere membro di un raduno. Claude la contava
+   fra quelle attive, cioe' l'opposto. Per questo USDCHF 15/07/2026 (una delle nove di Edu) era
+   finita sul trigono 亥卯未, che prendeva il suo 亥 da L4 tenuta legata dal giorno 寅. Corretta:
+   la carta torna sulle tre porte come l'ha letta Edu.
+   Corretto anche il controllo delle dodici carte, che passava in silenzio quando il motore
+   andava in errore (zero righe di output = "tutte giuste").
+Stato: dodici carte di riferimento tutte giuste. Mazzo 50,45% (+665 pip), recente 51,56%.
+Il buco piu' grande e' ora il gradino del raduno: 477 carte al 48,64%, -1.416 pip.
+
+**Carta letta da Claude da solo · EURJPY 10/02/2026 seme 185 · `DA VALIDARE`**
+Peggiore perdente del gradino del raduno (-223 pip). Palazzo 艮 Gen (Terra), mese 寅 (Legno di
+stagione), giorno 乙卯, ora 辰, anno 午, vuoti 子 丑. Mobile L6, G 寅 Legno, di stagione.
+Caso -1: il giorno 卯 clasha l'arrivo 酉, che quindi non arriva.
+Il motore faceva servire la mobile dal raduno 寅卯辰 e leggeva il G: sede alta vince -> LONG.
+Lettura di Claude: quel raduno di Legno non fa vincere nessuna sede, perche' il Legno non sta
+solo su L6. Sta anche sullo Shi L2, che e' un G 寅 identico, di stagione e pieno. Lo stesso
+carattere seduto tutte e due le parti della carta non fa pendere niente. Lo stesso vale quando
+il giorno distrugge l'arrivo e parlerebbe la partenza: e' sempre lo stesso Legno da tutte e due
+le parti.
+Allora restano il soggetto e l'oggetto, ed e' l'ultimo gradino della regola sopra le regole.
+La Ying L5 e' una W 子 vuota ED ELIMINATA: non c'e'. Lo Shi L2 e' un G di stagione, pieno, con
+l'anno che ci cade sopra. Vince lo Shi, sede bassa -> SHORT. Esito: SHORT -223.
+Cablati due pezzi: `MLRADSEDE` (la mobile che NON e' una sede non fa vincere la propria sede se
+lo stesso elemento siede sullo Shi o sulla Ying dall'altra parte; se la mobile e' lei stessa una
+sede parla per se' e basta, come su USDJPY 30/09/2025) e `MLDUELLO` (l'ultimo gradino: il duello
+Shi/Ying, che decide SOLO quando una delle due sedi e' fuori dai giochi e l'altra no).
+Costo onesto: col duello acceso il mazzo fa 50,22% (recente 50,94%), spento 50,49% (recente
+51,14%). Il duello parla su 222 carte al 47,75%. Il pezzo e' mio, non di Edu: la carta e' giusta
+ma la mia versione del duello e' debole, ed e' il prossimo posto da cui prendere carte.
+Dodici carte di riferimento tutte giuste.
+
+**CORREZIONE DI EDU su EURJPY 10/02/2026 — `CONFERMATA DA EDU`**
+"Le bestie Geng Yin e Geng Chen arrivano su Y e prendono possesso. Bing Wu arriva su S e va a
+coincidere con la nascosta P 午. Fra S e Y vince S."
+Claude era arrivato a SHORT col duello fra le sedi misurato a forza. La strada vera e' un'altra:
+non un duello di forza, ma le due sedi prese dalle bestie e confrontate con la relazione.
+  · Ying L5: ci arrivano il mese 庚寅 e l'ora 庚辰, tutte e due Tigre Bianca (stelo 庚). Due
+    bestie prendono sempre possesso. Dal 子 Acqua l'energia passa in 寅 Legno: la Ying e' Legno.
+  · Shi L2: ci arriva l'anno 丙午 (Uccello Rosso) e il suo ramo 午 COINCIDE con la P 午 nascosta
+    sotto lo Shi: la tira fuori. Lo Shi diventa Fuoco.
+  · Legno genera Fuoco: la Ying nutre lo Shi, lo Shi e' nutrito e vince, sede bassa -> SHORT.
+NUOVO: il pilastro che arriva su una linea con lo STESSO RAMO del suo 伏神 ci coincide e lo tira
+fuori — la linea prende l'elemento e il carattere del nascosto. Cablato in elDopoLeBestie.
+Cablato anche che le sedi prese dalle bestie parlano non solo quando la mobile e' annullata, ma
+anche quando la mobile e' viva e non riesce a far pendere niente.
+Stato: dodici carte tutte giuste. Mazzo 50,28% (+3.110 pip), recente 50,91%; col duello spento
+50,47% e 51,00%.
+
+**ATTENZIONE — andamento da guardare prima di aggiungere altro.** Negli ultimi quattro giri il
+mazzo e' sceso da 51,53% a 50,28%. Ogni correzione di Edu e' giusta sulla sua carta, ma le
+generalizzazioni che ne ha tratto Claude girano sotto il 50%: T4b la sede presa 341 carte al
+47,80%, T3 il raduno serve 359 al 48,75%, T7 il duello 195 al 48,21%. Il problema non sono le
+regole di Edu, e' l'ampiezza con cui Claude le applica. Prossimo passo: non aggiungere tracce,
+ma ripassare queste tre e restringerle sulle carte che le autorizzano.
+
+## S45 · RIPASSO DEL GRADINO "la sede presa dalle bestie" (341 carte al 47,80%)
+Spaccato per numero di bestie sulla sede presa: 1 bestia ~51%, 2 bestie ~45%, 3 bestie ~30%.
+Cioe' piu' bestie ci sono, peggio va — il contrario di quello che dice la regola di Edu.
+
+**Carta letta da Claude da solo · USDCAD 18/03/2020 seme 142 · `DA VALIDARE`**
+Peggiore perdente del gradino (-266 pip). Palazzo 離 Li (Fuoco), mese 卯 (Legno di stagione),
+giorno 庚申, ora 酉, anno 子, vuoti 子 丑. Mobile L4, lo Shi, B 午 Fuoco, caso -4: si
+autocombina col proprio arrivo 未 e resta ferma.
+Il motore prendeva possesso della Ying L1 e concludeva SHORT. Due errori, tutti e due di Claude:
+1. **Una bestia col ramo VUOTO non prende possesso di niente.** Sulla Ying arrivano l'anno 庚子
+   e il giorno 庚申, tutte e due Tigre Bianca. Ma 子 e' VUOTO in questa decade: non prende niente.
+   E il giorno 申 CLASHA il 寅 della Ying, quindi non la possiede — la SVEGLIA (暗動), com'e'
+   scritto nella regola di Edu. Quindi la Ying non e' presa da nessuno: resta un P 寅 Legno,
+   di stagione e sveglio.
+2. **La linea svegliata dal giorno non veniva mai letta.** Con la mobile ferma, quella Ying
+   svegliata e' l'unica linea che sta agendo in tutta la carta. E' un P, e il P fa perdere la
+   propria squadra: sede bassa perde -> LONG. Esito: LONG +266.
+Cablati: il ramo vuoto non possiede (dentro l'azione delle bestie) e `T4c la svegliata dal
+giorno` (con la mobile fuori dai giochi parla l'unica linea svegliata dal clash del giorno).
+Effetto: le sedi prese da UNA bestia salgono a 52,8% e 54,9%; quelle da due o tre restano
+intorno al 45% e sono il prossimo posto da guardare — probabilmente sbaglia la catena
+dell'energia quando le bestie sono piu' d'una. T4c: 23 carte al 56,52% (+528 pip).
+Mazzo 50,24% ma +3.445 pip contro +3.110, recente 51,20%. Dodici carte tutte giuste.
+
+**CORREZIONE DI EDU su USDCAD 18/03/2020 — `CONFERMATA DA EDU` (ma vedi la nota finale)**
+"Innanzitutto una bestia che arriva non e' mai vuota. Zi e Shen arrivano su Y dove c'e' Yin e
+hanno scambio di Qi che finisce su Yin (Shen genera Zi che genera Yin), quindi la Y rimane legno.
+Su Shi: autocombinazione avviene se l'arrivo torna indietro a combinare e qui non succede. B 午
+si trasforma in 未 e basta. Confronto finale S e Y: vince Y, legno vince su terra, short."
+Tre regole, tutte cablate:
+1. **Una bestia che arriva non e' mai vuota.** Il vuoto non tocca i pilastri. Tolta la regola che
+   Claude aveva appena scritto (era sbagliata).
+2. **Con piu' bestie sulla linea c'e' scambio di qi.** La catena puo' finire sul ramo della linea
+   stessa: 申 genera 子 che genera 寅, quindi la Ying resta Legno. Con UNA sola bestia che prende
+   possesso invece la linea diventa quella bestia (come su USDJPY 09/02/2026, dove l'anno 丙午
+   fa Fuoco lo Shi 亥).
+3. **L'autocombinazione c'e' solo se l'arrivo torna indietro a combinare.** 午 che diventa 未 non
+   lo e': la linea si muove normalmente. Resta ferma solo l'altro caso -4, l'arrivo in tomba nel
+   mese e punito dal giorno (EURJPY 11/07/2024).
+Dodici carte di riferimento tutte giuste. Mazzo 49,92% (+1.923 pip), recente 50,45%.
+
+**NOTA IMPORTANTE — DA CHIARIRE CON EDU.** La lettura di Edu su questa carta conclude SHORT.
+Il mercato del 18/03/2020 e' andato LONG di 266 pip. Col cablaggio delle tre regole il motore
+adesso arriva anch'esso a SHORT (per il raduno 寅午戌 che serve la mobile) e la carta e' una
+perdita. Prima, con la mobile trattata come ferma e la Ying svegliata dal giorno, il motore
+arrivava a LONG e la prendeva. Quindi: le tre regole sono cablate perche' sono di Edu, ma su
+questa carta la conclusione a cui portano e' contraria all'esito.
+
+**EDU CORREGGE SE STESSO su USDCAD 18/03/2020 — `CONFERMATA DA EDU`**
+"Ho fatto io un errore. L4 si ricombina con L3. 未 non rimane da sola, cerca qualcosa da fare e
+trova L3 午, quindi si', S rimane 午 fuoco perche' raggiunge la copia di se' stesso su L3 e
+quindi il finale e' Long."
+NUOVA REGOLA: l'arrivo non resta mai da solo, cerca qualcosa da fare. Se quello che trova e' una
+linea ferma con lo STESSO RAMO della partenza, la mobile raggiunge una copia di se' stessa e
+RESTA QUELLO CHE ERA — non diventa l'arrivo. E se la mobile e' una sede, da li' parte il
+confronto con l'altra. Qui: 午 va in 未, 未 combina il 午 di L3, lo Shi resta Fuoco; la Ying e'
+Legno (catena 申->子->寅); il Legno genera il Fuoco, lo Shi e' nutrito e vince -> LONG, che e'
+l'esito (+266). Cablata come `T2c la copia di se'` (MLCOPIA), prima del raduno.
+Cablato anche che l'autocombinazione non conta come passo nullo in NESSUNA delle tracce della
+mobile (prima liuyao la segnava movimentoNullo e bloccava porte, ladro, copia).
+
+**STATO ALLA FINE DI QUESTO GIRO — da guardare prima di continuare.**
+Mazzo 49,52% (+876 pip), recente 49,84%. Stamattina era 51,53%. Le dodici carte di riferimento
+sono tutte giuste, quindi non e' un problema di regole di Edu: e' l'ampiezza con cui Claude le
+applica. Il buco principale e' uno solo:
+  T3 il raduno serve la mobile: 405 carte, 48,15%, -1.290 pip — il gradino piu' grande e il
+  peggiore. E' cresciuto da 127 a 405 carte man mano che le mobili smettevano di essere "ferme".
+  T7 il duello: 181 carte, 46,41%.  T2c la copia di se': 38 carte, 42,11%.
+Prossimo passo indicato: leggere le perdenti di T3, non aggiungere tracce.
+
+**Carta letta da Claude da solo · USDJPY 10/02/2026 seme 156 · `DA VALIDARE`**
+Peggiore perdente del gradino del raduno fra le carte in cui la mobile e' una W (-175 pip).
+Palazzo 巽 Xun (Legno), mese 寅 (Legno di stagione), giorno 乙卯, ora 亥, anno 午, vuoti 子 丑.
+Mobile L5, lo Shi, W 未 Terra, FUORI stagione, che si scarica in 申 (caso 2: la partenza genera
+l'arrivo).
+Il motore faceva servire la linea dal trigono 亥卯未 e le lasciava il carattere W: sede alta
+vince -> LONG. Sbagliato.
+Lettura di Claude: quel trigono e' di LEGNO, e il Legno nel mese 寅 e' prospero. Un raduno di
+stagione non si limita a servire la linea: se la tira dentro. Il 未 e' la fine del trigono di
+Legno, e viene inghiottito — L5 non e' piu' una W di Terra, e' Legno, che nel palazzo 巽 di
+Legno e' una B. La B fa perdere la propria squadra: sede alta perde -> SHORT. Esito: SHORT -175.
+La distinzione regge sulla carta di Edu: su USDJPY 30/09/2025 il raduno 寅卯辰 e' di Legno ma nel
+mese 酉 il Legno e' morto, quindi non ha la forza di trasformare niente e la serve soltanto,
+lasciandole la W. Quella carta resta giusta.
+Cablato come `MLRADTRASF`: raduno di stagione -> trasforma la linea nel proprio elemento e il
+carattere si rilegge nel palazzo; raduno fuori stagione -> serve la linea e le lascia il suo.
+Il gradino passa dal 48,15% al 50,00% su 410 carte. Mazzo da 49,52% a 50,19% (+2.971 pip contro
++876), recente 50,44%. Dodici carte di riferimento tutte giuste.
+DOVE PERDE ANCORA: dentro il gradino, le carte in cui un raduno FUORI stagione serve una mobile
+che e' una W fanno 72 carte al 34,7% — cioe' vanno quasi sempre al contrario. E' il prossimo
+posto da cui prendere una carta. (serve G 107 al 46,7%, serve B 87 al 59,8%, serve P 57 al 56,1%.)
+
+**CORREZIONE DI EDU su USDJPY 10/02/2026 — `CONFERMATA DA EDU`**
+"Shi si muove per combinarsi con L6 巳. Su Ying arrivano anno e ora e diventa 午. S e Y sono
+uguali ma chi ha le bestie dal suo lato vince sempre, short."
+Lettura di Edu passo per passo: lo Shi mobile 未 va in 申 e 申 combina il 巳 di L6, quindi lo Shi
+si lega al Fuoco. Sulla Ying L2 (寅 Legno) arrivano l'anno 丙午 e l'ora 丁亥, tutte e due Uccello
+Rosso: la catena 亥 -> 寅 -> 午 finisce sul Fuoco, la Ying e' 午. Le due sedi sono tutte e due
+Fuoco, quindi pari — e allora vince chi ha le bestie dalla propria parte, cioe' la Ying: SHORT.
+
+**NUOVA REGOLA cablata: chi ha le bestie dal suo lato vince sempre.** Quando il confronto fra le
+due sedi non si decide (stesso elemento, oppure nessuno dei due comanda e le forze pareggiano),
+vince la sede su cui sono cadute piu' bestie. Prima in quei casi il motore taceva.
+Mazzo da 50,19% a 50,29% (+3.267 pip), recente 50,68%. Dodici carte tutte giuste.
+
+**NON CABLATO, e va chiarito con Edu.** Il primo passo della lettura — "lo Shi si muove per
+combinarsi con L6, quindi prende quell'elemento" — non e' stato cablato perche' come regola
+generale rompe una carta di Edu: su USDJPY 30/09/2025 la mobile e' anche lei lo Shi (辰) e il
+suo arrivo 亥 combina il 寅 di L2, quindi scatterebbe la stessa strada e quella carta andrebbe
+persa, mentre Edu l'ha letta col raduno. Serve sapere che cosa distingue le due.
+Sulla carta di oggi comunque le due strade concordano: il raduno di stagione che trasforma la
+mobile in B da' SHORT come la lettura di Edu.
+
+**RISOLTO il punto aperto: che cosa distingue le due carte.**
+E' il passo. Su USDJPY 30/09/2025 il giorno 壬寅 COMBINA l'arrivo 亥 (寅亥合): il passo e' nullo,
+la mobile arriva e si ferma e non salta da nessuna parte — sono le parole di Edu su USDJPY
+08/02/2024. Quindi lo Shi non va a combinare il 寅 di L2, e la carta si legge col raduno, come
+l'ha letta Edu. Su USDJPY 10/02/2026 il passo e' vivo (caso 2, scarico), e allora lo Shi ci va.
+Cablato `T2d la sede si combina` (MLSEDECOMB), prima del raduno: se la mobile e' una SEDE e il
+passo NON e' nullo, va a combinare la linea ferma che trova e si lega al suo elemento; da li'
+parte il confronto con l'altra sede. Il bersaglio della combinazione non deve "fare qualcosa" —
+quel test serve per i membri di un raduno, non per chi riceve.
+Adesso USDJPY 10/02/2026 si legge esattamente come l'ha letta Edu: lo Shi si lega al Fuoco di
+L6, la Ying e' Fuoco per la catena 亥->寅->午, le due sedi si equivalgono e le bestie stanno dalla
+parte della Ying, 2 contro 1 -> SHORT.
+T2d: 99 carte al 55,56% (+902 pip). Mazzo 50,44% (+3.616 pip). Dodici carte tutte giuste.
+
+**Carta letta da Claude da solo · EURGBP 18/03/2020 seme 90 · `DA VALIDARE`**
+Peggiore perdente del gradino "il giorno distrugge l'arrivo" (-332 pip), che stava al 41,33% su
+75 carte mentre il suo gemello "il giorno tiene l'arrivo" stava al 60,67%.
+Palazzo 艮 Gen (Terra), mese 卯 (Legno di stagione), giorno 庚申, ora 巳, anno 子, vuoti 子 丑.
+Mobile L2, G 卯 Legno prospero, che RETROCEDE in 寅 (退神); il giorno 庚申 clasha l'arrivo 寅.
+Il motore diceva: l'arrivo e' distrutto, la linea resta se' stessa, il G fa vincere la propria
+sede -> SHORT. Sbagliato di 332 pip.
+Lettura di Claude: quel G si sta ritirando. La regola di Edu validata su USDJPY 01/12/2022 dice
+che un danno che si ritira porta via il danno e la sua squadra vince. Per simmetria un VANTAGGIO
+che si ritira porta via il vantaggio, e la sua squadra perde: sede bassa perde -> LONG.
+Esito: LONG +332.
+Cablato come `MLPROGBEN`, solo per la RITIRATA. La simmetria completa (anche l'avanzata) l'ho
+provata e misurata: "il vantaggio retrocede" fa 56,34% su 71 carte (+761 pip), ma "il vantaggio
+avanza" fa 28,57% su 28 carte (-639 pip) — cioe' un G o una W che avanza NON fa vincere la
+propria sede, anzi il contrario. Nessuna carta letta spiega perche', quindi l'avanzata resta
+fuori finche' non ne leggo una: e' un buon posto da cui prendere la prossima.
+Il gradino "il giorno distrugge" scende da 75 a 69 carte. Mazzo da 50,44% a 50,52% (+3.873 pip).
+Dodici carte di riferimento tutte giuste.
+
+## S45 · DOTTRINA RIVISTA DA EDU — LA LINEA INCOMPATIBILE · `CONFERMATA DA EDU`
+"La dottrina va cambiata perche' la linea incompatibile non puo' stare dove sta.
+1) linea incompatibile ferma: diventa mobile
+2) linea incompatibile mobile: non puo' essere fermata ne' da un clash ne' da una combinazione.
+Con il caso 2 L2 non puo' essere fermata."
+Sostituisce la vecchia lettura ("parte ma non arriva", movimento nullo, progressione azzerata).
+Le tre coppie restano quelle: 卯 in 兌 · 午 in 坎 · 申 in 艮, col ponte della data (Acqua, Legno,
+Acqua) che salva se l'elemento in mezzo sta in almeno due dei quattro rami.
+
+PESO SUL MAZZO: 174 carte su 2.788 (6,2%) hanno la mobile su una coppia incompatibile; il ponte
+ne salva 20, quindi 154 (5,5%) sono incompatibili davvero. 卯 in 兌: 63 (59 senza ponte) ·
+申 in 艮: 64 (54) · 午 in 坎: 47 (41). Di quelle senza ponte, 59 avevano una progressione.
+
+MISURA DELLE DUE CONDIZIONI, separate e insieme (baseline con la vecchia dottrina: 50,13%, +2.057):
+  solo caso 2 (la mobile incompatibile non si ferma)   50,51%  +3.928 pip  · recente 50,23%
+  solo caso 1 (la ferma incompatibile diventa mobile)  50,80%  +4.744 pip  · recente 50,35%
+  tutte e due                                          50,79%  +4.798 pip  · recente 50,42%
+Cablate tutte e due. Il gradino nuovo `T4d la ferma incompatibile` (con la mobile fuori dai
+giochi agisce la ferma incompatibile) fa 30 carte al 63,33% (+475 pip).
+EURGBP 18/03/2020 torna giusta col caso 2: la mobile L2 (卯 in 兌) non e' fermata dal clash del
+giorno sull'arrivo, quindi la ritirata si compie davvero e il G che si ritira porta via il
+vantaggio — sede bassa perde -> LONG (+332).
+Dodici carte di riferimento tutte giuste.
+
+## S45 · PROVA: DUE LINEE IN MOVIMENTO
+Se la ferma incompatibile "diventa mobile", quelle carte hanno DUE linee che si muovono. Provati
+tre modi di leggerle (interruttore DUEMOB), tutti misurati sul mazzo intero:
+  conferma  (decide la mobile; la incompatibile parla solo se la mobile non conclude)
+            2463 carte · 50,79% · +4.798 pip · DODICI CARTE DI RIFERIMENTO TUTTE GIUSTE
+  prima     (decide la incompatibile, prima di tutto)
+            2531 carte · 51,36% · +5.850 pip · MA rompe due carte di Edu
+  concordi  (si conclude solo se le due dicono la stessa cosa)
+            2164 carte · 51,25% · +5.366 pip · MA tace sulle stesse due carte di Edu
+Le due carte rotte sono sempre le stesse:
+  · USDJPY 28/04/2025 — L3 e' incompatibile ed e' un B; farla decidere da' LONG, ma Edu quella
+    carta l'ha letta sulla mobile L6 impigliata dal giorno, e l'esito e' SHORT.
+  · AUDUSD 22/12/2025 — L2 e' incompatibile ed e' un G; farla decidere da' SHORT, mentre la
+    lettura e' la mobile che combina la W di L5, ed e' LONG.
+CONCLUSIONE: la seconda linea in movimento NON ha la precedenza sulla mobile e non le mette il
+veto. Tenuto il modo `conferma`. I mezzo punto in piu' del modo `prima` sono un guadagno di
+statistica pagato con due letture certificate: non si prende.
+Resta aperto che cosa faccia davvero la seconda mobile quando la prima conclude — probabilmente
+non decide la direzione ma entra nel conto in altro modo (forza di una sede, bersaglio, energia).
+
+## S45 (11/09/2026) · TEST DI EDU: LA SECONDA MUTAZIONE
+Edu mostra la carta di USDJPY 28/04/2025 con DUE linee mobili, L6 e L3 (Tun 33 -> Cui 45): L3 e'
+la ferma incompatibile 申 in 艮, e mutando va in 卯. Nota di Edu: "se fosse cosi' L3 finirebbe
+per combinarsi con L6 (卯戌合) e il risultato short comunque non cambierebbe".
+CALCOLO: la seconda mutazione si ottiene senza toccare la catena, chiedendo a liuyao la mutazione
+della linea incompatibile come se fosse lei la mobile (l'arrivo dipende solo dal trigramma e
+dalla posizione). Verificato: L3 申 -> 卯 come nella carta di Edu. Nel mazzo 723 carte hanno
+esattamente una seconda mutazione.
+COSA FA IL SECONDO ARRIVO (sulle 723): combina una linea ferma 245 · niente 135 · combina la
+PARTENZA della prima mobile 93 · combina la Ying 91 · clasha una ferma 81 · clasha la Ying 49 ·
+clasha l'ARRIVO della prima 29 · combina l'ARRIVO della prima 26 · clasha la PARTENZA 23 ·
+clasha lo Shi 17 · combina lo Shi 5.
+TEST (interruttore DUEMUT), il secondo arrivo agisce sulla prima mobile come il giorno:
+  senza seconda mutazione                                    50,79%  +4.798 pip
+  il secondo arrivo TIENE o DISTRUGGE l'arrivo della prima    50,93%  +5.326 pip  (il migliore)
+  + il secondo arrivo IMPIGLIA o BLOCCA la partenza della     50,67%  +4.646 pip
+    prima, che resta se' stessa e parla (T0e)
+  T0e la seconda impiglia: 65 carte al 46,15% · T0e la seconda blocca: 21 al 52,38%.
+Dodici carte di riferimento giuste in tutte e tre le versioni. USDJPY 28/04/2025 si legge come
+l'ha descritta Edu: 卯 di L3 impiglia il 戌 di L6, il P resta e fa perdere la sua squadra, SHORT.
+Lasciato tutto cablato e ACCESO (versione completa) in attesa del giudizio di Edu: la parte che
+tiene/distrugge l'arrivo aiuta, la parte che impiglia la partenza e fa parlare la mobile costa.
+Non cablato ancora: il secondo arrivo che agisce su ALTRE linee (combina/clasha ferme, Shi, Ying),
+che sono i casi piu' numerosi (245+91+81+49+17+5).
+
+**TEST 2 (11/09/2026): il secondo arrivo sulle ALTRE linee — richiesto da Edu**
+Cablato dietro DUEMUT2=on, con le regole gia' in uso: il secondo arrivo che COMBINA una ferma la
+impiglia (non fa niente, non e' membro di raduno, se e' una sede e' fuori dal duello); che la
+CLASHA la sveglia (agisce come la svegliata dal giorno); e se la prima mobile non conclude, la
+seconda passa dalle tre porte e "parla chi riceve" (non puo' scavalcare la prima: i test "prima"
+e "concordi" l'hanno escluso).
+  senza (solo il secondo arrivo sulla prima mobile)   50,67%  +4.646 pip
+  con il secondo arrivo anche sulle altre linee        50,44%  +3.847 pip  · recente 50,34%
+  T5b le porte della seconda: 67 carte al 47,76%. T4c scende da 23 a 8 carte (piu' linee
+  svegliate -> piu' carte con due svegliate -> il gradino si astiene).
+Dodici carte di riferimento giuste in tutte e due. Lasciato SPENTO di default (DUEMUT2=on per
+riaccenderlo): e' un'estrapolazione di Claude e misura peggio. Decide Edu.
+
+**TEST 3 (11/09/2026): mutazione vera o 暗動? — domanda di Edu**
+"E' meglio la versione simile a una linea ferma clashata, che si muove ma non cambia da yin a
+yang nel nuovo esagramma?" Misurato: la seconda agisce col PROPRIO ramo (暗動, ANDONG=si) oppure
+con l'ARRIVO (mutazione vera), in tutte le combinazioni:
+  nessuna seconda in movimento                                50,79%  +4.798
+  暗動, agisce sulla prima mobile (partenza e arrivo)           50,71%  +4.417
+  暗動, agisce solo sull'arrivo della prima                     50,40%  +3.779  · recente 49,92%
+  暗動, anche sulle altre linee                                 50,44%  +3.481
+  mutazione vera, agisce sulla prima (partenza e arrivo)       50,67%  +4.646
+  mutazione vera, agisce SOLO sull'arrivo della prima          50,93%  +5.326  · recente 50,66%  <-- la migliore
+  mutazione vera, anche sulle altre linee                      50,44%  +3.847
+RISPOSTA: no, la versione 暗動 non e' migliore — sta sotto perfino al non far muovere niente.
+La versione buona e' la mutazione vera, cioe' L3 che cambia davvero in 卯 (Tun 33 -> Cui 45),
+ma limitata a quello che il suo arrivo fa all'ARRIVO della prima mobile: lo tiene se lo combina,
+lo distrugge se lo clasha. Tutto il resto (impigliare la partenza della prima, agire sulle altre
+linee) costa. Dodici carte giuste in tutte le versioni.
+Interruttori: DUEMUT (seconda mutazione), DUEMUTPART (impiglia/blocca la partenza), DUEMUT2=on
+(altre linee), ANDONG=si (暗動 invece di mutazione). Default lasciato: mutazione vera, solo
+sull'arrivo della prima (DUEMUTPART=off).
+
+**TEST 4 (11/09/2026): la seconda mobile resta col carattere dell'arrivo — domanda di Edu**
+"Se L3 si muove per diventare W 卯, questo puo' rimanere cosi' e fare vincere la propria
+squadra. Non va bene?" Provato (SECONDACAR): la seconda, compiuto il passo, parla col
+carattere dell'ARRIVO nel palazzo sulla propria sede.
+  decide PRIMA della prima mobile     49,55%     +74 pip · recente 48,42%  · rompe AUDUSD 22/12/2025
+  decide solo se la prima NON conclude 51,01%  +4.522 pip · recente 50,83%  · dodici carte giuste
+  (riferimento: 50,93%  +5.326)
+Dentro il secondo modo, per carattere dell'arrivo: diventa G 49 carte al 55,1% · diventa W 50
+carte al 46,0% (-717 pip) · diventa P 10 al 50% · diventa B 4 al 25%.
+Quindi: come decisione PRIMA della mobile no, e di molto. Come ultima voce, quando la prima non
+conclude, e' pari o poco sopra nella percentuale e sotto nei pip — e il pezzo che tira giu' e'
+proprio la seconda che diventa W: 46%. Cioe' la W nata dalla mutazione della incompatibile NON
+fa vincere la propria sede nella maggioranza dei casi. La G invece si'. Lasciato SPENTO
+(SECONDACAR=dopo per riaccenderlo).
+
+## S45 (11/09/2026) · AUDUSD 22/12/2025 — LE CINQUE COPPIE E IL FUTURO COMUNE
+Edu manda la carta vera (Lin 19 -> Shi He 21): girano TRE linee, L6 (la mobile), L4 e L2.
+"Le incompatibili sono due. Qui la vittoria del Long e' nettissima."
+1. **Le coppie incompatibili sono CINQUE, non tre.** Claude aveva cablato solo quelle col
+   controllo (卯 in 兌 · 午 in 坎 · 申 in 艮, con ponte). Mancavano le due col CLASH del ramo
+   proprio del trigramma, senza ponte: 丑 in 坤 (未丑冲) e 辰 in 乾 (戌辰冲), che stanno nel
+   registro dal 27/08 (§109). L4 丑 in 坤 e' la seconda incompatibile di questa carta. Cablate.
+2. **Piu' di una seconda mobile.** Il motore ne gestiva una sola; ora tutte.
+3. **L'esagramma futuro va calcolato con tutte le linee che girano insieme.** Mutando L4 da
+   sola 坤 fa 震 e L4 andrebbe in 午; con L6 e L4 insieme 坤 fa 離 e L4 va in 酉, come nella carta
+   di Edu. E cambia anche l'arrivo della PRIMA mobile: L6 non va in 寅 ma in 巳. Il calcolo
+   della carta di Edu ora e' riprodotto esattamente: L6 酉->巳, L4 丑->酉, L2 卯->寅.
+   Lettura del motore col futuro comune: l'arrivo 巳 clasha la W 亥 della Ying, parla chi
+   riceve, la W fa vincere l'alto -> LONG (+46). Prima ci arrivava con 寅 che COMBINAVA la
+   stessa W: stessa porta, altra chiave.
+MISURA (cinque coppie; interruttore FUTURO):
+  sola     (ogni seconda mutata da sola)                  50,78%  +4.369 · recente 50,96%
+  seconde  (le seconde dal futuro comune, la prima no)    50,70%  +3.770 · recente 50,80%
+  insieme  (tutto dal futuro comune, anche la prima)      50,76%  +2.518 · recente 51,80%
+Dodici carte giuste in tutte e tre. Messo `insieme` come default: e' il calcolo giusto per
+dottrina (riproduce la carta di Edu), a pari percentuale, con meno pip sul totale ma il recente
+migliore di tutta la giornata. Nota: le due coppie col clash da sole costano circa 0,15 punti
+rispetto alle tre (50,93% -> 50,78% a parita' di tutto il resto).
+
+**LETTURA DI EDU su AUDUSD 22/12/2025 (parte alta) — `CONFERMATA DA EDU`**
+"1. L4 ed L6 si muovono e insieme formano un trigono di metallo che circonda la W di Y. Long.
+ 2. L2 G si muove per retrocedere: Long."
+1. NUOVA REGOLA cablata (`T0g il trigono in movimento`, MLTRIGMOB): le linee che girano — la
+   mobile e le incompatibili — mettono in gioco partenze E arrivi. Se fra quei rami c'e' un
+   trigono intero, e le linee che lo portano stanno una sotto e una sopra una sede, il trigono
+   la CIRCONDA: se il suo elemento genera quello della sede, la nutre e la sede vince. Qui 酉
+   (partenza di L6, arrivo di L4), 巳 (arrivo di L6) e 丑 (partenza di L4) fanno 巳酉丑 di
+   Metallo; L4 e L6 stanno attorno alla Ying L5, W 亥 Acqua; il Metallo genera l'Acqua ->
+   LONG (+46). Messa in testa, subito dopo la guerra fra titani.
+2. Il G che retrocede fa perdere la propria sede: e' la regola ricavata da Claude su EURGBP
+   18/03/2020 (MLPROGBEN), qui confermata da Edu su una seconda mobile. Vale da conferma.

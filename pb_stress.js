@@ -3627,10 +3627,14 @@ if (process.env.TESTGUIDA) {
 if (process.env.MOSTRA) {
   const LYM = require('./liuyao.js');
   const MP = require(process.env.MOTORE==='lettura' ? './motore_lettura.js' : './motore_principi.js').creaMotore(LYM);
-  const [cx, dt] = process.env.MOSTRA.split('|');
+  // MOSTRA accetta piu' carte separate da ';' — "USDJPY|2024-02-08;EURUSD|2026-01-22".
+  // Prima ne accettava una sola e ogni carta costava un avvio del backtest (26s):
+  // controllare le nove carte di riferimento voleva dire quattro minuti di attesa.
+  const CARTE = process.env.MOSTRA.split(';').map(x => x.trim()).filter(Boolean)
+                 .map(x => { const [c, d] = x.split('|'); return { cx: c, dt: d }; });
   const TRI = {1:'乾 Qian',2:'兌 Dui',3:'離 Li',4:'震 Zhen',5:'巽 Xun',6:'坎 Kan',7:'艮 Gen',8:'坤 Kun'};
   for (const r of rows) {
-    if (r.cross !== cx || r.date !== dt) continue;
+    if (!CARTE.some(k => k.cx === r.cross && k.dt === r.date)) continue;
     const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed, r.oraBranch);
     const v = MP.leggi(R, steliPerPrincipi(r));
     const t = (LYM.termometro(R, {oraBranch:r.oraBranch, emaDir:r.emaDir, date:r.date}, {}, {})||{});
@@ -3840,7 +3844,7 @@ if (process.env.PRINCIPI) {
     agg(M.tutto,pnl);
     const gk=v.gradino||'?'; if(!G[gk])G[gk]=mk(); agg(G[gk],pnl);
     if (process.env.DUMPGRAD && (gk===process.env.DUMPGRAD || (process.env.DUMPGRAD.slice(-1)==='*' && gk.indexOf(process.env.DUMPGRAD.slice(0,-1))===0)))
-      console.log('  #GRAD '+r.cross+' '+r.date+' seme'+r.seedUsed+' dice '+v.dir+
+      console.log('  #GRAD '+r.cross+' '+r.date+' seme'+r.seedUsed+(process.env.SEGNAINC&&v.inccard?' INC['+v.inccard+']':'')+' dice '+v.dir+
                   ' ema='+r.emaDir+' esito '+(pnl>0?'+':'')+pnl.toFixed(0)+(process.env.DUMPPERCHE?' | '+String(v.perche||'').split(' → ').pop():'')+(process.env.DUMPDETT&&v.dettaglio?' || '+v.dettaglio:''));
     const p2=r.date>='2023-05-01'?'recente':r.date<='2022-12-31'?'vecchio':null; if(p2)agg(M[p2],pnl);
     if (t===v.dir) agg(M.concTermo,pnl);
