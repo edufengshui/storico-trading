@@ -5736,18 +5736,1669 @@ rispetto alle tre (50,93% -> 50,78% a parita' di tutto il resto).
 2. Il G che retrocede fa perdere la propria sede: e' la regola ricavata da Claude su EURGBP
    18/03/2020 (MLPROGBEN), qui confermata da Edu su una seconda mobile. Vale da conferma.
 
-# REGOLA SOPRA IL METODO — fissata da Edu l'11/09/2026 · `DEFINITIVA`
-"Mi stai portando dove vuoi tu e questo non funziona perche' tu non usi una logica incrementale
-come farei io che, individuo una traccia, vedo dove porta, verifico che non ci sia altro che
-dimostra il contrario e solo alla fine mi pronuncio. Voglio vederti fare cosi'."
-Questo e' SEMPRE il percorso, per ogni carta, ogni regola, ogni misura:
-  1. individuare una traccia
-  2. vedere dove porta
-  3. verificare che non ci sia altro che dimostri il contrario
-  4. solo alla fine pronunciarsi
-Vietato: proporre piani propri al posto della lettura; generalizzare una regola oltre il
-perimetro che una carta letta autorizza; estrapolare per simmetria o per statistica senza una
-carta che lo dimostri. Se una regola sembra valere piu' in largo non si allarga: si cerca la
-carta che lo dimostri. Le regole di Edu si tengono anche se costano; le estrapolazioni di Claude
-che misurano peggio restano dietro interruttore spento e dichiarate come proprie.
-Scritta anche nella memoria di progetto, che Claude legge prima di ogni sessione.
+## S46 (11/09/2026) · USDJPY 02/10/2024 seme 143 — CARTA DI RIFERIMENTO ROTTA DAL FUTURO COMUNE · `DA VALIDARE`
+Nel controllo d'avvio, delle venti carte di riferimento (dodici + otto da aggiungere) diciannove
+sono giuste; USDJPY 02/10/2024 (letta da Edu in S45, LONG +265) e' sbagliata. Si e' rotta col
+futuro comune (FUTURO=insieme, da AUDUSD 22/12/2025): con FUTURO=seconde le venti sono tutte
+giuste, ma AUDUSD non si legge piu' col trigono in movimento di Edu. Mazzo: insieme 50,74% +2.445 ·
+seconde 50,70% +3.770. Nessun cambio fatto.
+Lettura di Claude, col metodo di Edu (traccia -> dove porta -> chi smentisce -> solo alla fine):
+1. Protagonista: L2, lo Shi, G 午 Fuoco mobile, fuori stagione (Fuoco in prigione nel mese 酉).
+2. L3 申 nel trigramma 艮 e' incompatibile: ponte d'Acqua assente (rami: solo 亥 del giorno;
+   steli di giorno e ora 己 Terra e 甲 Legno). Ferma -> diventa mobile. Futuro con L2 e L3
+   insieme: 艮 -> 坎, e L2 non va in 亥 ma in 辰. (Edu aveva letto la carta PRIMA di dettare la
+   regola della ferma incompatibile che diventa mobile.)
+3. Traccia: 辰 e' vuoto e il giorno 亥 non lo clasha -> arrivo nel vuoto (§114, Edu 29/08/2026):
+   il passo non ha effetto, la mobile resta G, lo Shi fa vincere la sede bassa -> SHORT.
+   Smentita dal mercato (LONG +265).
+4. Chi toglie di mezzo la G: nessun pilastro su L2 (mese 癸酉 su L3, giorno 己亥 su L1, anno 甲辰
+   e ora 甲戌 su L4 in clash = guerra fra titani); il secondo arrivo di L3 e' 午, stesso ramo
+   della G: la carica. Unico candidato: il 亥 del giorno, che controlla il Fuoco dello Shi e
+   combina e genera la W 寅 nascosta sotto lo Shi — lo stesso gesto che nella lettura di Edu
+   faceva l'arrivo 亥. La W 寅 sullo Shi e' Legno morto nel mese 酉, la Ying B 申 Metallo di
+   stagione lo clasha e lo controlla -> lo Shi perde -> LONG.
+5. NON pronunciato: la regola di Edu fa prendere la sede al nascosto quando e' l'ARRIVO a
+   eliminare il carattere (controllo indietro, MLFUSHEN). Qui l'arrivo e' vuoto; farlo fare al
+   giorno sarebbe allargare la regola oltre la carta. Carta aperta, niente cablato.
+Due regole di Edu perse nella ricostruzione del motore di lettura (S45), da rimettere:
+ - l'arrivo nel vuoto non agisce (principio 6, §114): oggi il motore fa clashare L6 dall'arrivo
+   vuoto 辰;
+ - [RITIRATO, vedi sotto "CORREZIONE DI EDU su NZDUSD 10/08/2022"] il ponte coi rami PIU' gli
+   steli: la correzione di Edu del 30/08 riguarda il ponte dell'ARRIVO, non la linea
+   incompatibile di S45, che si conta sui quattro rami.
+
+**LETTURA DI EDU su USDJPY 02/10/2024 (seme 143) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu manda la sua carta: Tun 33 -> Song 6, girano L3 (O) e L2 (X); anno 辰, mese 酉, giorno 己亥,
+vuoti 辰 巳. Parole di Edu: "Effetto scala. L3 si muove in G w, L2 continua il movimento e arriva
+a P cn. Poiche' l'intero movimento finisce su P questo fa perdere la propria squadra. Long."
+1. La sua carta conferma il futuro comune: con L3 incompatibile in movimento, L2 va in 辰, non in
+   亥 (la lettura di S45 con 亥 era stata data prima della regola della ferma che diventa mobile).
+2. NUOVA REGOLA, l'EFFETTO SCALA: la seconda linea in movimento arriva sul ramo da cui parte la
+   mobile (qui L3 申 -> 午, e L2 parte da 午); il movimento non si ferma li': prosegue lungo la
+   mobile fino al suo arrivo, e parla il carattere dell'arrivo FINALE nel palazzo, sulla sede
+   della mobile. Qui 辰 e' P: la sede bassa perde -> LONG (+265).
+3. Sulla carta l'arrivo finale 辰 e' VUOTO e il giorno 亥 non lo clasha: Edu lo legge lo stesso.
+   Nella regola quindi nessuna condizione sul vuoto. Da tenere presente prima di rimettere nel
+   motore di lettura "l'arrivo nel vuoto non agisce": non puo' stare prima della scala.
+4. La lettura di Claude del turno precedente (il 亥 del giorno che tira fuori il nascosto 寅)
+   era una falsa pista: resta a registro come tale, non cablata.
+Cablato come `T0s l'effetto scala` (MLSCALA), SUBITO DOPO il trigono in movimento: su AUDUSD
+22/12/2025 la stessa scala c'e' (L4 arriva in 酉, da cui parte L6) ma Edu la legge col trigono che
+circonda la Ying; messa prima del trigono, la scala rompeva AUDUSD (fine su 巳 = P in alto -> SHORT).
+Perimetro solo quello della carta: seconda linea -> mobile, stesso ramo. Il verso contrario (la
+mobile che arriva sul ramo da cui parte la seconda) NON e' cablato.
+Estensione di Claude, SPENTA: la scala che finisce su G/W fa vincere la sede (MLSCALAGW=on) — non
+detta da Edu; misura peggio.
+MISURA (base LY canonica + MOTORE=lettura PRINCIPI=1):
+  prima della scala                  2489 carte  50,74%  +2.445 pip · recente 51,76%
+  con la scala (P/B)                 2490 carte  51,29%  +5.603 pip · recente 51,99%
+    gradino T0s                        97 carte  60,82%  +1.965 pip (z circa 2,1)
+  con anche G/W (Claude, spenta)     2494 carte  51,12%  +4.689 pip · T0s 158 carte 55,70%
+Venti carte di riferimento (dodici + otto di S45) TUTTE giuste: USDJPY 02/10/2024 torna LONG per
+la scala, AUDUSD 22/12/2025 resta LONG per il trigono.
+
+## S46 (11/09/2026) · LA BASE DEL LIU YAO — `DECISA DA EDU`
+Edu: "Tieni le nuove regole." La base del Liu Yao resta col software com'e': le due regole di S44
+accese (l'arrivo della mobile entra nel flusso del qi, FLUSSOARR; il raduno dei tre rami della
+stagione solo con linee che fanno qualcosa ed elemento di stagione, R6 nuova).
+Base: S17 58,54% · z 9,01 · +35.016 pip (vecchio 56,73 · recente 60,68). Il 59,15% della
+ripartenza di S44 si otteneva solo spegnendole: non e' piu' la base. base_canonica.json aggiornato
+nella storia (i flag non cambiano).
+
+## S46 (11/09/2026) · IL PONTE CONTATO ANCHE SUGLI STELI — `RITIRATO` (era un allargamento di Claude)
+Regola di Edu del 30/08/2026 ("l'Acqua si conta tutta": rami della data PIU' gli steli del giorno
+e dell'ora), persa nella ricostruzione di S45: la linea incompatibile del motore di lettura
+contava solo i rami, mentre liuyao.js conta anche gli steli. Rimessa (interruttore MLPONTE=rami
+per il vecchio conto; distinto da PONTEMODO, che tocca anche liuyao).
+  solo rami (S45)            2490 carte  51,29%  +5.603 pip · recente 51,99%
+  rami + steli (Edu)         2488 carte  51,00%  +4.715 pip · recente 51,88%
+Venti carte di riferimento tutte giuste. Costa 0,29 punti: regola di Edu, si tiene. Da cercare
+la carta (falsa pista) fra quelle che il ponte degli steli ha cambiato.
+
+**Carta letta da Claude · NZDUSD 10/08/2022 seme 62 · `DA VALIDARE` (NON CHIUSA)** · S46
+La peggiore delle carte che il ponte sugli steli ha ROTTO (era giusta, ora -115). Palazzo 離 Li
+(Fuoco), 艮 sopra 坎, mese 戊申, giorno 乙未, anno 壬寅, ora 丁丑, vuoti 辰 巳. Mobile L3, B 午
+Fuoco fuori stagione, verso 酉. Con gli steli il ponte di Legno regge (寅 dell'anno + stelo 乙
+del giorno): L3 non e' piu' incompatibile, quindi il giorno puo' fermarla.
+Lettura di Claude col metodo:
+1. Protagonista L3, B 午. Il giorno 未 combina la partenza: la linea resta impigliata e non parte
+   (come USDJPY 28/04/2025). Un B che resta fa perdere la propria squadra -> LONG, provvisoria.
+2. Salta all'occhio anche il trigono di Fuoco 寅午戌 completo (寅 dell'anno, 午 la mobile, 戌 lo
+   Shi): ha la mobile fra i membri, la serve e ne prende il carattere, B -> conferma LONG.
+3. Candidato a smentire: il mese 戊申 cade su L3 con la sua bestia; il 午 lo controlla ma e' fuori
+   stagione, quindi la bestia si impadronisce della linea: L3 diventa 申 Metallo = W -> SHORT.
+   E' quello che fa ora il motore (sostituzione), smentito dal mercato (LONG +115).
+4. Chi toglie di mezzo il mese: l'unico candidato trovato e' il trigono — il 午 non sta da solo,
+   ha intorno il suo trigono di Fuoco contro un 申 solo. Ma il trigono non rende il Fuoco di
+   stagione (la stagione la fanno mese e ora), quindi "la linea tenuta dal suo trigono non si
+   lascia prendere dalla bestia" sarebbe una regola di Claude. NON pronunciato, niente cablato.
+Prima del cambio la carta era giusta solo perche' L3, incompatibile, non poteva essere fermata e
+la sostituzione non entrava.
+Stesso nodo sul mazzo: 22 carte in cui la sostituzione e il raduno che serve la mobile dicono il
+contrario; giusta la sostituzione 10, giusto il raduno 12. I numeri non decidono.
+
+**CORREZIONE DI EDU su NZDUSD 10/08/2022 (seme 62) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "Non avevamo detto che una linea mobile incompatibile non puo' essere fermata da clash e
+combinazioni?"
+La carta si chiude con le regole che c'erano gia': L3 午 nel trigramma 坎 e' incompatibile (ponte
+di Legno: nei quattro rami della data un solo 寅), quindi il giorno 未 che combina la partenza
+non la ferma; e se il passo non e' chiuso il mese 戊申 non puo' sostituirsi alla mobile. Resta il
+trigono di Fuoco 寅午戌 con la mobile fra i membri: la serve e ne prende il carattere, B -> la
+sede bassa perde -> LONG (+115). Il nodo "pilastro contro trigono" era falso: nasceva dal mio
+cambio, non dalla carta.
+ERRORE DI CLAUDE, da non ripetere: in S46 avevo "rimesso" nel ponte della linea incompatibile gli
+steli del giorno e dell'ora, chiamandola una regola di Edu persa nella ricostruzione. Non lo era:
+la correzione del 30/08 ("l'acqua si conta tutta") riguarda il ponte dell'ARRIVO incompatibile
+col trigramma futuro (liuyao.js, dove resta); la dottrina di S45 sulla linea incompatibile dice
+"almeno due dei quattro rami". Ho portato una regola da un posto all'altro: allargamento vietato.
+Ritirato: il motore conta di nuovo i soli quattro rami; gli steli restano dietro MLPONTE=steli,
+spento, dichiarato come mio.
+Mazzo di nuovo 2490 carte 51,29% +5.603 pip (recente 51,99%). Carte di riferimento: le venti
+piu' NZDUSD 10/08/2022, ventuno su ventuno giuste.
+
+**LETTURA DI EDU su NZDUSD 10/08/2022 (seme 62) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "Aspetta, L3 si muove (non viene fermata) e arriva a combinarsi con una vuota C in L2. Il
+movimento finisce in niente. Long."
+Corregge la chiusura scritta sopra: la carta NON si legge col trigono 寅午戌 (quella era la
+strada del motore, giusta di verso ma non di motivo). La mobile incompatibile non si ferma,
+arriva in 酉, 酉 combina (辰酉合) il 辰 di L2, che e' VUOTO e nel palazzo 離 e' un C: il movimento
+finisce in niente. LONG (+115).
+NUOVA REGOLA cablata come `T2n finisce in niente` (MLNIENTE), prima della sede che combina (T2d)
+e del raduno: passo vivo; l'arrivo combina una linea ferma vuota non svegliata che e' C. La
+mobile resta quello che era e parla il suo carattere, come nell'arrivo nel vuoto (§114): B/P ->
+la sua sede perde; G/W -> vince; C -> tace. Sulla carta e' un B -> sede bassa perde -> LONG.
+NOTA: "perche' Long" Edu non l'ha detto; il carattere della partenza e' la lettura coerente con
+§114, e sulla carta coincide con l'altra possibile ("la sede che si muove perde sempre").
+MISURA:
+  prima                                   2490 carte  51,29%  +5.603 pip · recente 51,99%
+  con T2n (perimetro della carta)         2490 carte  51,33%  +5.356 pip · recente 52,07%
+    gradino T2n                              9 carte  66,67%  +37 pip
+  estensione Claude: qualunque vuota      T2n 46 carte 47,83% -502 pip -> SPENTA (MLNIENTE=tutte)
+  estensione Claude: la sede perde sempre T2n 12 carte 58,33% -123 pip -> SPENTA (MLNIENTE=perde)
+Ventuno carte di riferimento tutte giuste (NZDUSD 10/08/2022 ora per T2n).
+
+**PRECISAZIONE DI EDU sulla regola T2n — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "La regola e' una delle prime: chi non vince, perde. Se il movimento della linea non porta a
+niente quella squadra perde."
+E' il §25 dell'archivio (chi non vince perde). Il perche' del LONG su NZDUSD 10/08/2022 non e' il
+carattere B della mobile: e' che il movimento non porta a niente. Cambiato il default di T2n: la
+sede della mobile perde, qualunque carattere (anche C). La lettura col carattere (analogia di
+Claude col §114) resta dietro MLNIENTE=carattere, spenta.
+Perimetro invariato: l'arrivo combina una ferma vuota non svegliata che e' C.
+MISURA:
+  T2n col carattere (Claude)        9 carte  66,67%   +37 pip · mazzo 51,33% +5.356
+  T2n chi non vince perde (Edu)    12 carte  58,33%  -123 pip · mazzo 51,33% +5.206 · recente 51,92%
+Regola di Edu: si tiene. Ventuno carte di riferimento tutte giuste.
+
+**Carta letta da Claude · EURJPY 15/08/2024 seme 162 · `DA VALIDARE`** · S46
+Peggiore perdente del gradino peggiore del motore, "T4 il giorno distrugge l'arrivo" (63 carte al
+41,27%, -958 pip). Palazzo 兌 Dui (Metallo), 震 sopra 兌, mese 壬申, giorno 辛亥, anno 甲辰, ora
+癸巳, vuoti 寅 卯. Mobile L6, la Ying, P 戌 Terra fuori stagione, verso 巳.
+Il motore diceva: il giorno 亥 clasha l'arrivo 巳, la linea parte e non arriva, resta P, la sede
+alta perde -> SHORT. Mercato LONG +164.
+ORIGINE di quel gradino: "altrimenti resta se' stessa" e' un'aggiunta di Claude in S44 (Edu
+valido' solo la sostituzione col pilastro, USDJPY 09/02/2026). Per Edu il giorno che clasha
+l'arrivo SOSPENDE la mobile: movimento nullo (regola fissata, sospensione dal giorno).
+Lettura di Claude col metodo:
+1. Protagonista L6, la Ying, P 戌. Il giorno 亥 clasha l'arrivo 巳: la mobile e' sospesa, il
+   movimento e' nullo.
+2. L2 卯 nel trigramma 兌 e' incompatibile (una sola Acqua, 亥) e si muoverebbe, ma su L2 cadono
+   il mese 壬申 e l'ora 癸巳, in penalita': guerra fra titani, annullata. Niente si muove.
+3. Nessun raduno ne' trigono completo.
+4. L'unica azione: il giorno 亥 clasha L1, G 巳 Fuoco, PIENA e fuori stagione nel mese 申.
+   E' il §69 di Edu (17/08/2026, USDJPY 13/02/2024): "se non ci sono migliori alternative si va
+   verso l'unica disponibile... e' l'azione che guida l'interpretazione". Ferma piena clashata
+   dal giorno -> si rompe -> la sua sede (bassa) perde -> LONG.
+5. Chi potrebbe smentire: nessun pilastro possiede le sedi in modo che cambi (anno 甲辰 sullo Shi
+   丑: stesso elemento, lo carica, non lo prende); il giorno sveglia L1 con la bestia ma L1 e'
+   fuori stagione: non si muove, si rompe (come nella catena: clashata e untimely = rotta).
+   Esito LONG +164.
+Cablato come `T4z l'unica azione` (MLUNICA), prima del giorno che tiene/distrugge l'arrivo:
+mobile sospesa dal giorno (non incompatibile, nessuna seconda mobile viva), nessun raduno, il
+giorno clasha UNA sola ferma -> vuota: sua sede; piena: sede opposta. E' la regola di Edu come
+fissata nella catena; nessun allargamento.
+MISURA:
+  prima                        2490 carte  51,33%  +5.206 pip · recente 51,92%
+  con T4z                      2492 carte  51,36%  +5.683 pip · recente 52,11%
+    gradino T4z                  20 carte  50,00%  +135 pip
+    "il giorno distrugge"        da 63 carte 41,27% a 57 carte 40,35% (-843 pip)
+Carte di riferimento: le ventuno + EURJPY 15/08/2024 + le due carte sorgente del §69 (USDJPY
+13/02/2024, USDCHF 27/12/2023): ventiquattro su ventiquattro giuste.
+APERTO: "il giorno distrugge l'arrivo, parla la partenza" resta al 40% su 57 carte ed e' una
+regola di Claude, non di Edu.
+
+**CORREZIONI DI EDU su EURJPY 15/08/2024 (seme 162) — `CONFERMATE DA EDU`** · 11/09/2026, S46
+Edu: "Buona interpretazione ma alcune correzioni:
+1. Se l'arrivo e' clashato la linea rimane attiva ma non cambia. Quindi P Xu farebbe perdere la
+   propria squadra.
+2. La penalita' e' quando Yin penalizza Si, ma Si penalizza Shen solo se c'e' anche Yin,
+   altrimenti i due fanno una combinazione.
+4. Il clash del giorno su L1 non danneggia L1 perche' la combinazione con il mese la protegge. Si
+   spezza solo la combo a niente altro."
+(Il punto 3 di Claude, nessun raduno, non e' corretto.)
+CABLATO:
+1. "Il giorno distrugge l'arrivo, parla la partenza" (T4) e' CONFERMATA DA EDU: non e' piu' solo
+   un'aggiunta di Claude. Di conseguenza T4z (§69) non entra quando il giorno clasha l'arrivo: la
+   mobile non e' fuori dai giochi.
+2. Guerra fra titani: 巳 e 申 sulla stessa linea sono in penalita' solo se 寅 e' presente (fra i
+   quattro rami della data o i rami delle linee); altrimenti si combinano, nessuna guerra.
+   MLPEN3=off per il vecchio conto. (Perimetro: la sola coppia 巳申, come detto da Edu.)
+3. Una ferma combinata col ramo del mese e clashata dal giorno NON e' rotta: si spezza solo la
+   combinazione. Vale ovunque il motore di lettura usava lo stato "rotta" (forza, porte, sede che
+   combina, bersagli) e in T4z. MLMESEPROT=off per il vecchio stato.
+NON toccato: liuyao.js (la catena) ha ancora la penalita' 巳申 senza 寅 e lo stato "rotta" senza
+la protezione del mese.
+MISURA:
+  prima (T4z com'era)                      2492 carte  51,36%  +5.683 pip · recente 52,11%
+  con le tre correzioni                    2488 carte  51,45%  +5.687 pip · recente 52,15%
+    senza la 2 (MLPEN3=off)                            51,41%  +5.588
+    senza la 3 (MLMESEPROT=off)                        51,40%  +5.644
+  T4 il giorno distrugge: 63 carte 41,27% (-958) · T4z: 13 carte 46,15% (+85)
+Carte di riferimento (le ventuno + le due sorgenti del §69): ventitre su ventitre giuste.
+LA CARTA con le correzioni: L6 P 戌 attiva e immutata -> la sede alta perde -> SHORT (mercato
+LONG +164). Senza guerra L2 non e' annullata: incompatibile, si muove, W 卯 -> 寅 (retrocede);
+ma sopra ci sono le due bestie del mese 申 e dell'ora 巳 che si combinano. APERTO: che cosa fanno
+a L2, e se la W che retrocede conta (su AUDUSD 22/12/2025 il G che retrocede su una seconda
+mobile era una conferma).
+
+**LETTURA DI EDU su EURJPY 15/08/2024 (seme 162), CONCLUSIONE — `CONFERMATA DA EDU`** · 11/09/2026
+Edu: "Il trade va long perche' le bestie arrivano su L2 mobile che e' un W che retrocede. Questa
+indicazione e' piu' forte che la P su L6."
+L2 卯 nel trigramma 兌 e' incompatibile, quindi da ferma diventa mobile; nel futuro comune va in
+寅 (退神): e' una W che retrocede. Su di lei arrivano il mese 壬申 e l'ora 癸巳 (che si combinano,
+nessuna guerra). La W che retrocede porta via il vantaggio: la sede bassa perde -> LONG (+164).
+Comanda sulla P della Ying L6 (attiva e immutata, che da sola direbbe SHORT).
+NUOVA REGOLA cablata come `T0r le bestie sulla seconda che retrocede` (MLBESTIESEC), subito dopo
+l'effetto scala: seconda linea in movimento non annullata, con DUE o piu' bestie sopra, W, che
+retrocede nel futuro comune -> la sua sede perde; piu' forte della prima mobile.
+Estensioni di Claude provate e SPENTE (misurano peggio, fuori dal perimetro della carta):
+  anche il G (analogia con AUDUSD 22/12/2025)   T0r 12 carte 41,67%  -48 pip · mazzo 51,41%
+  basta una bestia, G o W                        T0r 57 carte 45,61% -158 pip · mazzo 51,54%
+MISURA (perimetro della carta, solo W con due bestie):
+  prima                        2488 carte  51,45%  +5.687 pip · recente 52,15%
+  con T0r                      2488 carte  51,53%  +6.121 pip · recente 52,30%
+    gradino T0r                   2 carte 100,00%  +217 pip (EURJPY 15/08/2024 +164, EURJPY 24/03/2025 +53)
+Carte di riferimento: ventiquattro su ventiquattro giuste (con EURJPY 15/08/2024).
+PRECISAZIONE DI EDU (11/09/2026): "Abbiamo gia' detto che una linea incompatibile si muove e si
+trasforma vero? Di cosa ti stupisci allora? L'unica differenza qui e' che le due bestie gli danno
+piu' energia e fanno uscire dal vuoto l'arrivo."
+Quindi T0r non e' una regola nuova sul movimento: e' la linea incompatibile che si muove e si
+trasforma (gia' detto), con la W che retrocede. Il pezzo nuovo e' solo questo: le due bestie le
+danno energia (per questo pesa piu' della P su L6) e fanno uscire dal vuoto l'arrivo 寅 (vuoto
+nel giorno 辛亥 — Claude non l'aveva notato). Nessun cambio al conto; aggiornato il racconto.
+
+## S46 · IL METODO DI EDU, SEMPRE (11/09/2026)
+Edu, dopo tre richiami: "Devi cambiare il modo in cui leggi la carta anche conoscendo gia' il
+risultato. Io individuo una traccia, vedo dove porta, verifico che non ci sia altro che dimostra il
+contrario e solo alla fine mi pronuncio. Voglio vederti fare cosi' SEMPRE."
+Causa degli errori di Claude in S46: leggeva la traccia del motore (stati della catena come
+"rotta", "movimento nullo", la tabella delle penalita') invece della carta, e si fermava appena
+trovava una strada che portava all'esito. D'ora in poi: carta nuda (dati, niente stati ne'
+verdetti), scheda linea per linea, traccia, verifica, conclusione; il motore solo alla fine. Una
+conclusione che non coincide con l'esito e' un risultato legittimo: non si cerca la strada per
+arrivarci.
+
+**Carta letta da Claude col metodo · EURJPY 10/08/2023 seme 157 · `DA VALIDARE`**
+Palazzo 離 (Fuoco), 離 sopra 巽 (鼎 50), mese 庚申, giorno 庚子, anno 癸卯, ora 丙子, vuoti 辰 巳.
+Scheda: L6 B 巳 vuota, combinata dal mese, niente la sveglia -> non agisce. L5 Ying C 未, nessuna
+bestia, Terra a riposo. L4 W 酉, l'ora 丙子 la drena e la prende -> 子 Acqua, G. L3 W 酉 mobile,
+di stagione, verso 午 B; il giorno 子 clasha l'arrivo. L2 Shi G 亥, di stagione; l'anno 癸卯 la
+drena e la prende -> 卯 Legno, P, morto nel mese. L1 C 丑 (nascosto 卯 P), giorno 庚子 e mese 庚申:
+nessuna guerra, due bestie, catena 丑->申->子 -> Acqua. Nessuna linea incompatibile; l'arrivo 午
+cade in 坎 senza ponte di Legno (un solo 卯), e comunque e' clashato dal giorno.
+Raduni: 亥子丑 d'Acqua completo e di stagione (Shi, data, L1); 亥卯未 di Legno completo e fuori
+stagione (Shi, anno, Ying); nessuno ha la mobile fra i membri.
+Traccia: la mobile, W di stagione, ha l'arrivo clashato: resta attiva e immutata (Edu), la W fa
+vincere la sede bassa -> SHORT.
+Verifica: nessuna bestia sulla mobile; lo Shi preso dall'anno diventa Legno e nel confronto il
+Legno controlla la Terra della Ying -> ancora SHORT; il raduno d'Acqua sta dalla parte dello Shi
+-> SHORT; il trigono di Legno e' fuori stagione e non serve nessuna mobile. Unica cosa dall'altra
+parte: L4 presa dall'ora diventa G in alto, ma e' una ferma non sede e nessuna regola la fa
+decidere.
+Conclusione: SHORT. Mercato LONG (-113). Con le regole che conosco la carta si legge SHORT e va
+persa; non ho trovato che cosa lo smentisca.
+
+**CORREZIONE DI EDU su EURJPY 10/08/2023 (seme 157) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "L2 Hai e' incompatibile."
+Sesta coppia della linea incompatibile: 亥 nel trigramma 巽 (巳亥冲). Edu non ha detto se ha un
+ponte: cablata SENZA ponte (MLPONTEHAI=legno prova il ponte di Legno, 亥->木->巳, come 申 in 艮).
+Sulla carta non cambia: nella data c'e' un solo Legno (卯 dell'anno).
+RILETTURA DI CLAUDE col metodo · `DA VALIDARE`
+Scheda nuova: L2, lo Shi G 亥, e' incompatibile: da ferma diventa mobile. Con L2 e L3 insieme
+巽 diventa 坤: L3 va in 卯, L2 va in 巳.
+- L3 W 酉 -> 卯 (P, morto): il giorno 子 penalizza l'arrivo 卯 (e pesa di piu', Acqua di
+  stagione): l'arrivo non agisce, la partenza resta attiva e ferma, W -> la sede bassa vince.
+- L2 Shi G 亥 -> 巳 (B), vuoto e non svegliato; sopra cade l'anno 癸卯, che drena il 亥 e si
+  prende la linea: lo Shi diventa 卯 Legno, P, morto nel mese.
+Traccia: lo Shi non puo' stare dove sta e l'anno se lo prende: P sullo Shi -> la sede bassa
+perde -> LONG. Anche contando l'arrivo 巳 sarebbe un B -> LONG.
+Verifica: contro c'e' la W di L3 attiva (SHORT); pesa di meno: e' ferma, senza bestie, col suo
+arrivo abbattuto dal giorno, mentre lo Shi e' la sede stessa e ha la bestia (come la seconda
+mobile con le bestie su EURJPY 15/08/2024). L4 presa dall'ora diventa G in alto -> LONG,
+concorde. Il raduno 亥子丑 perde il suo 亥 (lo Shi se ne va); il trigono di Legno e' fuori
+stagione.
+Conclusione: LONG (mercato LONG +113). Punto non coperto da una carta: una bestia sola (su
+EURJPY 15/08/2024 erano due). Non cablato: il motore su questa carta tace.
+MISURA della sola coppia 亥 in 巽:
+  prima                  2488 carte  51,53%  +6.121 pip · recente 52,30%
+  亥 in 巽, senza ponte   2498 carte  52,64%  +9.334 pip · recente 53,52%
+  亥 in 巽, ponte Legno   2498 carte  52,40%  +8.683 pip · recente 53,52%
+ROTTA: USDJPY 13/02/2024 (seme 149), la carta sorgente del §69. Stesso trigramma basso 巽 con L2
+亥: ora L2 si muove, il futuro comune porta L3 in 卯 (vuoto) e il motore dice SHORT (mercato
+LONG +137). Edu l'aveva letta il 17/08, prima della dottrina della linea incompatibile. Da
+rileggere col metodo.
+
+**CORREZIONE DI EDU sulla rilettura di EURJPY 10/08/2023 — `CONFERMATA DA EDU`** · 11/09/2026
+Edu: "Qui hai fatto un errore. Quando S o Y vengono presi dalle bestie da quel momento in poi la
+partita diventa esclusivamente fra S vs Y."
+Errore di Claude: presa la sede, l'aveva fatta parlare col carattere (P sullo Shi). Invece da li'
+conta solo il confronto fra le sedi.
+Rilettura: lo Shi preso dall'anno e' 卯 Legno; la Ying L5 未 Terra, senza bestie. Il Legno
+controlla la Terra: vince lo Shi, sede bassa -> SHORT. Nient'altro conta (ne' la W di L3, ne' L4).
+Conclusione: SHORT. Mercato LONG (-113): la carta si legge SHORT e si perde.
+CABLATO `T0y la sede presa si muove` (MLSEDESEC), prima di T0r: la seconda mobile (ferma
+incompatibile) e' lo Shi o la Ying e una bestia se la prende -> confronto diretto Shi/Ying.
+PROVATO IN LARGO e SPENTO (MLSOLOSY=tutto): "appena una sede qualunque e' presa, solo Shi contro
+Ying" in testa alla lettura -> 1.525 carte al 49,25%, rompe otto carte di riferimento di Edu
+(fra cui USDJPY 08/02/2024, dove Edu fa parlare col carattere il pilastro che prende lo Shi
+mobile: "寅 e' sempre un B perdente"). Il perimetro largo va chiarito con Edu.
+MISURA:
+  prima (con 亥 in 巽)       2498 carte  52,64%  +9.334 pip · recente 53,52%
+  con T0y                    2516 carte  52,86% +10.647 pip · recente 53,68%
+    gradino T0y               136 carte  47,06%   -274 pip
+Carte di riferimento: 23 su 25 (sbagliate USDJPY 13/02/2024, rotta da 亥 in 巽 e da rileggere,
+ed EURJPY 10/08/2023, che con le regole di Edu si legge SHORT e va persa).
+
+**LETTURA DI EDU su EURJPY 10/08/2023 (seme 157) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "Altro errore: quando arriva una bestia su una linea non ci sono piu' vuoti! Quindi arriva
+Mao che fa da ponte fra Hai e Si quindi il flusso arriva fino a Si che genera Ying con Wei e fa
+vincere il Long!"
+Lettura: lo Shi L2 亥 si muove (incompatibile) verso 巳; l'arrivo 巳 era vuoto, ma sulla linea
+arriva la bestia dell'anno 癸卯, quindi non c'e' piu' vuoto. 卯 fa da ponte: 亥 Acqua -> 卯
+Legno -> 巳 Fuoco. Lo Shi e' Fuoco; nel confronto il Fuoco genera la Terra della Ying 未: la Ying
+e' nutrita e vince -> LONG (+113).
+Due errori di Claude: aveva preso il vuoto del giorno per buono su una linea con la bestia, e
+aveva fermato lo Shi sull'elemento della bestia invece di seguire il flusso fino all'arrivo.
+CABLATO:
+1. `vuotaL` (MLBESTIAPIENA): una linea su cui cade un pilastro con la sua bestia non e' vuota.
+   Vale in tutti i punti in cui il motore di lettura guarda il vuoto di una linea (forza, bersagli
+   delle porte, sede che combina, finisce in niente, unica azione, svegliate).
+2. Nel T0y (sede in movimento presa dalle bestie): la bestia fa da PONTE — dal ramo della linea,
+   di bestia in bestia per generazione, fino all'arrivo se la catena lo genera. MLPONTEBESTIA=off
+   per fermarsi sulla bestia. Perimetro: la sede che si muove, come sulla carta.
+MISURA:
+  prima                              2516 carte  52,86% +10.647 pip · recente 53,68%
+  con le due regole                  2514 carte  52,78% +10.151 pip · recente 53,41%
+    senza la linea piena (1 spenta)              52,90% +10.582
+    senza il ponte (2 spenta)                    52,74% +10.216
+  T0y: 135 carte 48,15% (-312)
+Regole di Edu: si tengono. Carte di riferimento 24 su 25 (EURJPY 10/08/2023 ora giusta; resta
+USDJPY 13/02/2024).
+
+**Carta riletta da Claude col metodo · USDJPY 13/02/2024 seme 149 · `DA VALIDARE`** · S46
+Carta sorgente del §69 (Edu 17/08: mobile sospesa dal giorno, "due tentativi non riusciti, chi
+non vince perde", il giorno rompe la Ying piena -> LONG +137). Rotta da 亥 in 巽.
+Palazzo 震 (Legno), 兌 sopra 巽 (大過 28), mese 丙寅, giorno 丁未, anno 甲辰, ora 甲辰, vuoti 寅 卯.
+Scheda: L6 W 未, sul ramo del giorno, anno e ora 甲辰 sopra (stesso ramo, nessuna guerra) -> resta
+Terra. L5 G 酉, niente. L4 Shi P 亥, il mese 寅 lo combina, nessuna bestia. L3 G 酉 mobile, fuori
+stagione, nessuna bestia. L2 P 亥 in 巽: incompatibile (un solo Legno), da ferma diventa mobile.
+L1 Ying W 丑: giorno 丁未 (clasha: la fa muovere, non la prende) e mese 丙寅 (la controlla: la
+prende); nessuna guerra; con la bestia sopra non e' vuota.
+Futuro comune (L2+L3): 巽 -> 坤, L3 va in 卯 (vuoto, nessuna bestia su L3), L2 va in 巳 (C).
+Traccia 1, la mobile: l'arrivo 卯 e' vuoto, il movimento non porta a niente -> chi non vince
+perde (come Edu su questa carta il 17/08) -> sede bassa perde -> LONG. [Col §114 invece la G
+resterebbe e farebbe vincere la bassa -> SHORT.]
+Traccia 2, la Ying presa dal mese: da li' solo Shi contro Ying. Ying 寅 Legno (non vuoto sotto la
+bestia) contro Shi 亥 Acqua: l'Acqua nutre il Legno, vince la Ying, sede bassa -> SHORT. (Anche
+tenendo la Ying Terra: la Terra controlla l'Acqua, vince la Ying -> SHORT.)
+Verifica: su EURJPY 10/08/2023 Edu ha dato la precedenza al confronto fra le sedi sopra L3; qui
+lo stesso ordine da' SHORT. Raduno 寅卯辰 di Legno di stagione con l'arrivo 卯: chiuderebbe solo
+contando un arrivo vuoto come membro, non coperto.
+Conclusione: SHORT, contro il mercato e contro la lettura di Edu del 17/08. Punto aperto: che
+cosa viene prima, il movimento che finisce nel vuoto o la Ying presa dal mese.
+
+**LETTURA DI EDU su USDJPY 13/02/2024 (seme 149) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "Ying clashato dal giorno diventa mobile e questo trasforma l'intero trigramma inferiore in un
+total clash. Poiche' sotto e' in uno stato di confusione totale, vince il sopra."
+Si muovono tutte e tre le linee di 巽: L3 (la mobile), L2 (亥 incompatibile), L1 (la Ying, clashata
+dal giorno 丁未 che ci cade sopra con la sua bestia). Il trigramma basso e' in confusione totale:
+vince l'alto -> LONG (+137). La domanda di Claude (chi viene prima fra L3 e la Ying presa) era
+mal posta: la cosa che decide e' il trigramma intero.
+NUOVA REGOLA cablata come `T0z confusione totale` (MLCONFUSIONE), subito dopo la guerra fra
+titani: si muovono la mobile, le ferme incompatibili, le ferme clashate dal giorno (col pilastro
+del giorno e la sua bestia sopra, in ogni stagione; oppure di stagione) salvo se protette dalla
+combinazione col mese; le annullate dalla guerra no. Tutte e tre le linee del trigramma basso in
+movimento -> vince l'alto. L'alto nella stessa condizione (simmetria di Claude): MLCONFUSIONE=due,
+spenta — sul mazzo non capita mai.
+MISURA:
+  prima                        2514 carte  52,78% +10.151 pip · recente 53,41%
+  con T0z                      2518 carte  52,86% +10.245 pip · recente 53,45%
+    gradino T0z                  29 carte  48,28%    -21 pip
+Carte di riferimento: 25 su 25 giuste.
+PRECISAZIONE DI EDU (11/09/2026): "Aspetta, qui il problema e' che le tre linee si muovono per
+clashare se stesse, solo questo."
+Non basta che le tre linee del basso si muovano: ognuna si muove per clashare se stessa. L3 酉 ->
+卯, L2 亥 -> 巳 (arrivi del futuro comune che clashano la partenza), L1 丑 clashata dal giorno 未.
+Il cablaggio T0z ora conta solo il movimento che clasha la propria partenza (la mobile e la ferma
+incompatibile col loro arrivo; la ferma clashata dal giorno per il clash stesso). La versione
+larga ("basta che si muovano", mia lettura sbagliata) resta dietro MLCONFUSIONE=muovere.
+MISURA:
+  T0z largo (si muovono)        29 carte  48,28%   -21 pip · mazzo 52,86% +10.245
+  T0z di Edu (si clashano)       9 carte  66,67%  +323 pip · mazzo 52,96% +10.884 · recente 53,53%
+Carte di riferimento: 25 su 25.
+
+**Carta letta da Claude col metodo · EURJPY 17/07/2024 seme 172 · `DA VALIDARE`** · S46
+Peggiore perdente del gradino piu' debole ("T4b sede presa, mobile non decide, una sede, una
+bestia": 54 carte al 46,30%). STESSO ESAGRAMMA del §104 (巽 sopra 震, L4 未 -> 午; Edu 27/08).
+Palazzo 巽 (Legno), mese 辛未, giorno 壬午, anno 甲辰, ora 癸卯, vuoti 申 酉.
+Scheda: L6 Ying B 卯 (ramo dell'ora); il mese 辛未 ci cade sopra: il Legno lo controlla ma e'
+fuori stagione -> il mese la prende, Ying = 未 Terra. L5 C 巳, niente. L4 W 未 mobile, sul ramo
+del mese (caricata, §126), verso 午: il giorno 午 combina la partenza (impigliata) e siede
+sull'arrivo 午 (autopenalita': l'arrivo non agisce). L3 Shi W 辰, Tai Sui, nascosto G 酉 (vuoto).
+L2 B 寅, l'anno 甲辰 la prende -> Terra. L1 P 子: giorno 壬午 (clash, la muove) e ora 癸卯 (drena,
+la prende); nessuna guerra. Nessuna incompatibile. Raduno 寅卯辰 completo ma fuori stagione, senza
+la mobile. Nessuna confusione totale (L2 e L3 non si muovono).
+Traccia: la mobile e' una W forte sul mese; l'arrivo penalizzato non agisce, la partenza resta
+attiva e ferma e parla (regola certificata, EURUSD 14/07/2021): W -> sede alta vince -> LONG.
+Verifica: la Ying presa dal mese -> solo Shi contro Ying: Terra contro Terra, pari, le bestie
+stanno con la Ying -> LONG. Nel §104 la mobile usciva perche' fuori stagione e senza la
+generazione all'indietro; qui e' di stagione e non ne ha bisogno. L'unica strada per SHORT e' "chi
+non vince perde" sulla mobile tenuta ferma, ma contraddice la regola certificata dell'arrivo
+penalizzato (parla la partenza). La difesa col nascosto 酉 dello Shi e' il vicolo cieco gia'
+misurato sul §104: non usata.
+Conclusione: LONG. Mercato SHORT (-181): con le regole che conosco la carta si perde.
+
+**LETTURA DI EDU su EURJPY 17/07/2024 (seme 172) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "L4 rimane attiva ma con la bestia Mao che arriva su L1 si crea un trigono di legno nel
+trigramma inferiore, il Legno e' B che poi va ad alimentare la bestia di fuoco Wu che pure arriva
+su L1 e che e' una C. Quando B genera una C la propria squadra vince."
+Nel trigramma basso: 寅 (L2) + 卯 (bestia dell'ora 癸卯 su L1) + 辰 (L3) = 寅卯辰, Legno = B nel
+palazzo 巽; il Legno alimenta il 午 della bestia del giorno 壬午 su L1, Fuoco = C. B genera C: la
+squadra bassa vince -> SHORT (+181). Comanda sulla W di L4, attiva.
+Errore di Claude: il raduno 寅卯辰 l'aveva visto ma scartato perche' fuori stagione e senza la
+mobile; non aveva guardato che cosa alimentava.
+NUOVA REGOLA cablata come `T0t il B genera la C` (MLBGENC), prima di T0r: raduno o trigono chiuso
+dentro un trigramma (rami delle sue linee + rami delle bestie che ci cadono), di elemento B nel
+palazzo, che genera la C di una bestia caduta su una linea dello stesso trigramma -> quella
+squadra vince. Nessuna condizione di stagione (sulla carta il Legno e' fuori stagione).
+Estensione di Claude SPENTA: anche una linea C, non solo una bestia (MLBGENC=linea: 127 carte
+48,82%, mazzo 52,50%).
+MISURA:
+  prima                      2517 carte  52,96% +10.884 pip · recente 53,53%
+  con T0t                    2526 carte  52,77% +10.711 pip · recente 53,52%
+    gradino T0t                67 carte  59,70%  +1.039 pip
+Regola di Edu: si tiene. Carte di riferimento 26 su 26.
+APERTO: la Ying L6 卯 con sopra il mese 辛未 — il motore la dava presa (la linea controlla la
+bestia ma e' fuori stagione: regola del motore, non di Edu). Nella lettura di Edu non entra.
+
+**REGOLA DI EDU — LA LINEA CHE CONTROLLA LA BESTIA — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Domanda di Claude: quando e' la linea a controllare la bestia che le cade sopra, la bestia se la
+prende o no? Edu: "Se e' una bestia sola e la linea e' timely puo' opporsi alla presa, ma se la
+bestia e' il mese e' impossibile opporsi."
+Prima il motore decideva solo con la stagione della linea (regola del motore, non di Edu); ora il
+mese se la prende sempre. (Con due o piu' bestie la presa c'era gia' sempre.) MLMESEPRENDE=off
+per il vecchio conto.
+Su EURJPY 17/07/2024 la Ying 卯 col mese 辛未 sopra e' quindi presa comunque: la carta resta letta
+per il B che genera la C nel trigramma basso, che viene prima.
+MISURA: mazzo da 52,77% (+10.711) a 52,87% (+10.976), recente 53,48%. Carte di riferimento 26/26.
+
+**Carta letta da Claude col metodo · EURJPY 29/09/2022 seme 140 · `DA VALIDARE`** · S46
+Peggiore perdente di "T7 il duello" (118 carte al 46,61%). Palazzo 巽 (Legno), 乾 sopra 震
+(無妄 25), mese 己酉, giorno 乙酉, anno 壬寅, ora 癸未, vuoti 午 未.
+Scheda: L6 W 戌, anno 壬寅 e ora 癸未 sopra (nessuna guerra, presa in due, resta Terra). L5 G 申,
+di stagione, niente. L4 Shi C 午 vuota, il mese 己酉 ci cade sopra: la linea controlla il mese ma
+al mese non ci si oppone -> presa, e non piu' vuota: Shi = 酉 Metallo. L3 W 辰 mobile verso 亥: il
+giorno 酉 (e il mese) combina la partenza -> impigliata, resta W. L2 B 寅 sul ramo dell'anno.
+L1 Ying P 子, il giorno 乙酉 ci cade sopra e la nutre (non la prende). Nessuna incompatibile.
+Trigramma alto: 寅 (bestia su L6) + 午 (L4) + 戌 (L6) = trigono di Fuoco, C nel palazzo.
+Traccia: lo Shi e' preso dal mese -> da li' solo Shi contro Ying: il Metallo dello Shi genera
+l'Acqua della Ying, la Ying e' nutrita e vince, sede bassa -> SHORT.
+Verifica: la mobile, impigliata, resta W in basso -> SHORT, concorde (e comunque fuori dal
+confronto). Unica cosa dall'altra parte: il trigono di Fuoco chiuso nel trigramma alto e' una C
+che alimenta la W 戌 (L6) — sarebbe "C genera W" nell'alto, ma la regola di Edu e' "B genera C":
+non coperta, non usata.
+Conclusione: SHORT. Mercato LONG (-167): con le regole che conosco la carta si perde.
+
+**LETTURA DI EDU su EURJPY 29/09/2022 (seme 140) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "1a raccolta dati: con la Shi occupata dalla bestia Ji You, l'intero trigramma superiore
+diventa un trigono direzionale di metallo (Shen, You, Xu) estremamente timely, e quando l'altra
+bestia Yi You del giorno arriva su Ying, Shi penalizza Ying. Shi e' molto piu' forte perche' ha un
+trigono dal suo lato. 2a raccolta dati: Ying pero' e' sempre Zi Acqua e potrebbe farsi generare e
+vincere. Conclusione: Long. Perche'? Perche' i due You sono diversi. Ji You e' terra dello stelo
+che genera il metallo. Yi You e' stelo di legno che, con Zi acqua su Ying, viene generato. Quindi,
+su Y l'acqua di Zi perde energia generando il Legno dello stelo mentre su S la terra genera il
+metallo."
+IL METODO DI EDU, visto qui: prima raccolta dei dati di una parte, seconda raccolta dei dati che
+potrebbero ribaltare, poi il discriminante e la conclusione. Claude si era fermato alla prima
+relazione (il Metallo nutre l'Acqua) e NON aveva guardato gli STELI dei pilastri. Da ora nella
+scheda, per ogni bestia: elemento dello stelo e sua relazione col ramo e con la linea.
+CABLATO:
+1. Nel confronto fra le sedi, quando uno genera l'altro: se chi riceve e' drenato dallo stelo
+   della bestia che ha sopra (la linea genera lo stelo) e chi dona e' nutrito dallo stelo della
+   sua (lo stelo genera il suo elemento), vince chi dona. MLSTELI=off; MLSTELI=drena (basta il
+   drenaggio, estensione di Claude: peggio, spenta).
+2. T7: se nessuna traccia conclude e una sede e' presa dalle bestie, il duello e' il confronto
+   diretto Shi/Ying (regola di Edu: da quel momento solo S vs Y), non la sola forza.
+   MLDUELLOPRESA=off.
+3. Il duello non considera "fuori gioco" per vuoto una linea con la bestia sopra (lo stato
+   dormiente della catena conta solo se la linea e' davvero vuota).
+Non cablati (dati della prima raccolta): il trigono direzionale 申酉戌 dalla parte dello Shi e la
+penalita' 酉酉 dello Shi sulla Ying.
+MISURA:
+  prima                                   2527 carte  52,87% +10.976 pip · recente 53,48%
+  solo la 3                               2505 carte  52,85% +10.694
+  1+2+3                                   2626 carte  52,67% +10.142 pip · recente 53,71%
+    T7 duello (sede presa)                 161 carte  48,45%   -439 pip (senza steli 46,58%)
+  MLSTELI=drena (Claude)                               52,55%  +9.721 -> spenta
+Regole di Edu: si tengono. Il motore ora parla su 99 carte in piu'. Carte di riferimento 27/27.
+CABLATI ANCHE I DUE DATI DELLA PRIMA RACCOLTA (Edu: "Devi cablarli questi due!"):
+4. IL RADUNO DAL SUO LATO (MLRADLATO): raduno direzionale (三會) chiuso nel trigramma della sede,
+   coi rami delle sue linee e delle bestie che ci cadono, dello stesso elemento della sede e di
+   stagione -> +2 alla forza della sede (entra dove il motore pesa la forza).
+5. LA PENALITA' FRA LE SEDI (MLPENSEDI): i rami della sede (della bestia che l'ha presa,
+   altrimenti il suo) contro i rami dell'altra (il suo e quelli delle bestie che ci arrivano),
+   con la tavola di Edu (寅巳申 con la regola del 寅, 丑戌未, 子卯, autopenalita' 辰午酉亥); se va
+   nei due sensi penalizza la piu' forte; chi penalizza pesa almeno quanto chi riceve. Chi riceve
+   la penalita' non fa vincere la sua squadra. Posizione: DOPO generazione e controllo — nella
+   lettura di Edu la generazione ("Ying potrebbe farsi generare e vincere") puo' ribaltarla e
+   decidono gli steli. MLPENSEDI=prima la mette prima della generazione.
+MISURA:
+  nessuno dei due                2623 carte  52,69% +10.142 · recente 53,75%
+  solo raduno                                52,73% +10.204
+  solo penalita'                             52,70% +10.010
+  tutti e due, penalita' prima               52,74% +10.072 · recente 53,82%
+  tutti e due, penalita' dopo    2626 carte  52,74% +10.268 · recente 53,89%  <- default
+Carte di riferimento 27/27.
+
+**Carta letta da Claude col metodo · USDJPY 19/12/2024 seme 154 · `DA VALIDARE`** · S46
+La peggiore delle 60 carte nuove sbagliate (T7 duello con sede presa, SHORT, mercato LONG +277).
+Carta di controllo della dottrina della cattura (Edu, §72 ripresa): "Acqua dominante — 申子辰 ...
+l'Acqua controlla la Ying-Fuoco -> Ying spenta -> vince la Shi -> LONG".
+Palazzo 艮 (Terra), 離 sopra 兌 (睽 38), mese 丙子, giorno 丁巳, anno 甲辰, ora 己酉, vuoti 子 丑.
+Scheda: L6 P 巳 (ramo del giorno), l'anno 甲辰 la drena e la prende -> Terra. L5 B 未 mobile,
+fuori stagione, nascosto W 子, verso 申 (C); il giorno 巳 combina l'arrivo (senza 寅: combinazione)
+-> arriva e si ferma, parla l'arrivo: C, tace. L4 Shi C 酉 (ramo dell'ora), nessuna bestia.
+L3 B 丑 vuota, l'ora 己酉 la drena e la prende (non piu' vuota) -> Metallo. L2 G 卯, di stagione,
+niente. L1 Ying P 巳 (ramo del giorno): giorno 丁巳 (stesso ramo, carica) e mese 丙子 (la
+controlla); due bestie, nessuna guerra: presa, ma la catena dal 巳 non passa a nessuna bestia per
+generazione -> resta Fuoco. Steli sulla Ying 丁 e 丙: Fuoco, nessun drenaggio.
+Trigono d'Acqua 申子辰: 申 (arrivo di L5), 子 (nascosto di L5, e mese), 辰 (anno su L6) — tutto nel
+trigramma alto, dalla parte dello Shi; Acqua di stagione nel mese 子.
+1a raccolta (Shi): il trigono d'Acqua di stagione sta dalla sua parte e l'Acqua controlla il
+Fuoco della Ying; sulla Ying c'e' il mese stesso, 子, che la controlla.
+2a raccolta (Ying): la Ying e' Fuoco e il Fuoco controlla il Metallo dello Shi -> potrebbe
+vincere lei (e' quello che fa il motore: SHORT).
+Discriminante: il Fuoco della Ying e' morto nel mese 子 (死) e ha il mese sopra che lo controlla:
+non ha la forza di controllare il Metallo; l'Acqua dominante lo spegne. Vince lo Shi -> LONG.
+Conclusione: LONG (mercato LONG +277), come la lettura di Edu nella dottrina della cattura.
+PUNTO NON COPERTO: che nel confronto fra le sedi il controllo di un elemento morto non valga. La
+regola di Edu dice che la linea di stagione puo' opporsi alla bestia; per il controllo fra le
+sedi non c'e' una carta. Non cablato.
+
+**CORREZIONE DI EDU su USDJPY 19/12/2024 (seme 154) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "Ma non l'avevamo gia' letta? Non hai fatto muovere l'incompatibile L2?"
+Errore di Claude: nella scheda L2 G 卯 in 兌 era scritta "niente". E' incompatibile (ponte
+d'Acqua: nella data un solo 子), quindi da ferma diventa mobile: nel futuro comune va in 寅, cioe'
+RETROCEDE. Il G che retrocede su una seconda mobile fa perdere la propria sede (AUDUSD 22/12/2025,
+confermato da Edu): la sede bassa perde -> LONG (+277). Il "discriminante" di Claude (il Fuoco
+morto della Ying) e la domanda sul controllo di un elemento morto erano fuori strada: ritirati.
+Lezione: l'incompatibilita' va controllata su OGNI linea, sempre, prima di tutto il resto.
+CABLATO: T0r ora vale per la seconda mobile G o W che retrocede, anche SENZA bestie (le bestie
+servono a darle energia e a togliere il vuoto dell'arrivo, come su EURJPY 15/08/2024; senza
+bestie un arrivo vuoto non conta). MLBESTIESEC=bestie2 per la versione di prima.
+MISURA:
+  prima (solo W con due bestie)   2626 carte  52,74% +10.268 · recente 53,89%
+  G/W che retrocede               2642 carte  52,50%  +9.964 · recente 54,09%
+    gradino T0r                    130 carte  50,00%    +335 pip
+Carte di riferimento 28 su 28 (con USDJPY 19/12/2024).
+
+**Carta letta da Claude col metodo · EURUSD 03/01/2023 seme 106 · `DA VALIDARE`** · S46
+La peggiore delle 34 rotte dalla T0r allargata (prima SHORT giusta via "agisce la ferma
+incompatibile di L2, G"; ora LONG, mercato SHORT -129).
+Palazzo 艮 (Terra), 巽 sopra 兌 (中孚 61), mese 壬子, giorno 辛酉, anno 壬寅, ora 丁酉, vuoti 子 丑.
+Scheda (incompatibili per prime): L2 卯 in 兌 incompatibile (una sola Acqua, 子) -> mobile.
+L6 G 卯 di stagione, il giorno 酉 la clasha -> si sveglia. L5 P 巳 mobile, morto, nascosto W 子,
+verso 子 (W): arrivo vuoto, nessuna bestia su L5 -> il passo non porta a niente. L4 Shi B 未,
+l'ora 丁酉 la drena e la prende -> 酉. L3 B 丑 vuota, nascosto C 申, nessuna bestia. L2 G 卯 di
+stagione, incompatibile, mese 壬子 e anno 壬寅 sopra (nessuna guerra), il giorno 酉 la clasha (ma
+non la ferma); nel futuro comune va in 寅 = RETROCEDE, e l'anno siede proprio sul ramo del suo
+arrivo. L1 Ying P 巳 morta, il giorno 辛酉 ci cade sopra: la linea controlla la bestia ma e' fuori
+stagione -> presa -> 酉.
+1a raccolta (LONG): L2 G che retrocede con due bestie che le danno energia -> la sede bassa perde
+(come la W di EURJPY 15/08/2024 e il G di USDJPY 19/12/2024).
+2a raccolta (SHORT): la prima mobile P va in un arrivo vuoto: non vince, perde -> l'alto perde.
+Tutte e due le sedi sono prese da un 酉 -> solo Shi contro Ying; ma i due 酉 sono diversi: sulla
+Ying 辛酉 (stelo di Metallo sul Metallo), sullo Shi 丁酉 (stelo di Fuoco che controlla il suo
+Metallo) -> la Ying e' piu' forte e penalizza lo Shi (酉酉) -> vince la Ying, sede bassa -> SHORT.
+Conclusione di Claude: SHORT (mercato SHORT), ma NON e' coperta: su USDJPY 19/12/2024 la Ying era
+presa e ha deciso lo stesso L2 che retrocede. Differenze possibili: qui sono prese TUTTE E DUE le
+sedi; qui il giorno clasha L2; qui l'anno siede sul ramo dell'arrivo di L2. Non cablato.
+
+**CORREZIONE DI EDU su EURUSD 03/01/2023 (seme 106) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "L2 sebbene incompatibile e costretta a muoversi, e' clashata dal giorno e penalizzata dal
+mese e poiche' se la vede cosi' male, viene sostituita dalla bestia dell'anno Ren Yin. Quindi il
+problema che vedi tu non c'e'."
+L2 卯: il giorno 酉 la clasha, il mese 子 la penalizza (子刑卯) -> la sostituisce la bestia
+dell'anno 壬寅 (quella che non la attacca): L2 non retrocede. La conclusione SHORT resta (mercato
+SHORT +129). Il contrasto con USDJPY 19/12/2024 non c'era: li' L2 non era colpita cosi'.
+CABLATO (MLSOSTSEC), dentro T0r: la seconda mobile clashata dal giorno E penalizzata dal mese,
+con sopra una bestia che non la attacca (ne' il mese, ne' il giorno, ne' un ramo che la clasha o
+la controlla), e' sostituita da quella bestia e non retrocede.
+MISURA:
+  prima                         2642 carte  52,50%  +9.964 · recente 54,09%
+  con la sostituzione           2642 carte  52,54% +10.222 · recente 54,09%
+    T0r                          129 carte  50,39%    +464 pip
+Carte di riferimento 29 su 29 (con EURUSD 03/01/2023). NOTA: sulla carta il motore arriva a
+SHORT per la via "agisce la ferma incompatibile di L2, G" — il sostituto 寅 e' anch'esso un G,
+quindi il verdetto coincide, ma la via non e' quella della lettura (Shi contro Ying coi due 酉).
+CHIUSURA DI EDU su EURUSD 03/01/2023 (11/09/2026): "L2 ... viene sostituita dalla bestia dell'anno
+Ren Yin. Questo e' il motivo per cui va Short. Se bene la nascosta su L5 sia forte in realta' non
+fa nulla, mi ero sbagliato prima."
+Quindi: sostituita L2, parla la bestia che l'ha sostituita, col proprio carattere e dalla sede di
+L2 — 寅 nel palazzo 艮 e' un G -> la sede bassa vince -> SHORT (+129). Il nascosto 子 di L5, per
+quanto forte (ramo del mese, arrivo della mobile), NON agisce: la pista del nascosto e' chiusa su
+questa carta. La lettura Shi/Ying coi due 酉 resta un dato, non la via.
+Cablato `T0q la seconda sostituita dalla bestia` (MLSOSTPARLA), dentro T0r: 1 carta, giusta.
+Mazzo invariato 2642 · 52,54% · +10.222 · recente 54,09%. Carte di riferimento 29/29, ora per la
+via giusta.
+
+**Carta letta da Claude col metodo · USDJPY 12/01/2023 seme 131 · `DA VALIDARE`** · S46
+La peggiore del gradino piu' grosso che non risponde ("T7 il duello (sede presa)": 151 carte al
+46,36%). Motore LONG, mercato SHORT -264.
+Palazzo 坎 (Acqua), 坤 sopra 離 (明夷 36), mese 癸丑, giorno 庚午, anno 壬寅, ora 丙戌, vuoti 戌 亥.
+Scheda (incompatibili per prime): nessuna delle cinque coppie (卯兌 午坎 申艮 丑坤 辰乾 亥巽) —
+L2 丑 sta in 離, non in 坤; L4/L5 stanno in 坤 ma sono 丑 e 亥 di 坤? no: L4 丑 in 坤 SI'.
+  -> L4, lo Shi, 丑 nel trigramma 坤: INCOMPATIBILE (coppia senza ponte) -> da ferma diventa
+     mobile. Futuro comune con L6: 坤 -> 艮; L6 va in 寅 (non piu' 寅? verifica) e L4 va in 戌.
+L6 P 酉 mobile, di stagione? Metallo nel mese 丑 e' 養/休: fuori stagione; verso 寅; l'ora 丙戌 ci
+cade sopra (drena? 戌 Terra genera Metallo: la nutre, non la prende). L5 B 亥 vuota, nessuna
+bestia -> non agisce. L4 Shi C 丑, mese 癸丑 sopra (stesso ramo: la carica), incompatibile.
+L3 B 亥 vuota, nascosto W 午 (ramo del giorno, fortissimo). L2 C 丑, l'anno 壬寅 la controlla e la
+prende -> 寅 Legno. L1 Ying G 卯, il giorno 庚午 la drena e la prende -> 午 Fuoco.
+Traccia 1: lo Shi incompatibile si muove e va in 戌 — 丑戌 e' PENALITA': lo Shi si muove per
+penalizzare se stesso. Chi riceve la penalita' non fa vincere la sua squadra -> la sede alta
+perde -> SHORT.
+Traccia 2 (quella del motore): sedi prese, solo Shi contro Ying; Ying 午 Fuoco genera la Terra
+dello Shi -> Shi nutrito vince -> LONG. Ma lo Shi e' penalizzato dal proprio arrivo: non puo'
+far vincere la sua squadra.
+Verifica: L6, la prima mobile, arriva in 寅 che combina il 亥 vuoto di L3 -> il movimento finisce
+in niente -> chi non vince perde -> la sede alta perde -> SHORT, concorde. Il nascosto 午 di L3 e'
+forte ma la linea che lo copre (亥 vuota) non e' fuori stagione in modo da farlo uscire: non
+agisce (come su EURUSD 03/01/2023).
+Conclusione: SHORT (mercato SHORT +264). Da verificare con Edu: 1) L4 丑 in 坤 e' davvero
+incompatibile (il trigramma 坤 non compare fra le cinque coppie come trigramma ospite: la coppia
+"丑坤" e' il ramo 丑 nel trigramma 坤 — SI'); 2) la penalita' del proprio arrivo sulla sede.
+
+**LETTURA DI EDU su USDJPY 12/01/2023 (seme 131) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu (con la sua carta): "La tua lettura va bene, ma questa e' piu' veloce. Un trigono di metallo si
+forma nel trigramma superiore. Il metallo e' P che fa perdere la propria squadra."
+Trigramma alto: 酉 (L6, che si muove) + 亥 (L5) + 丑 (L4, 丑 in 坤 incompatibile, si muove) — il
+trigono 巳酉丑 si chiude coi rami del trigramma e gli arrivi. Metallo = P nel palazzo 坎: la sede
+alta perde -> SHORT (+264). La lettura di Claude (penalita' 丑戌 sullo Shi in movimento + il
+movimento che finisce in niente) e' confermata giusta ma piu' lunga; la domanda sulla penalita'
+del proprio arrivo resta aperta e non cablata.
+NUOVA REGOLA cablata come `T0u il trigono nel trigramma` (MLTRIGTRIG): dentro un trigramma, rami
+delle sue tre linee piu' gli arrivi delle linee che si muovono li'; se chiudono un trigono (三合)
+parla il suo carattere nel palazzo per quella squadra (P/B: quella sede perde; G/W: vince).
+Serve almeno una linea in movimento fra i portatori. POSIZIONE: dopo "la sede presa che si muove"
+— su EURJPY 10/08/2023 (letta da Edu) lo stesso 巳酉丑 si chiude nel basso, ma li' decide il
+flusso dello Shi che si muove con la bestia che fa da ponte; messo prima, rompeva quella carta.
+MISURA:
+  prima                        2642 carte  52,54% +10.222 · recente 54,09%
+  con T0u                      2653 carte  52,77% +11.219 · recente 54,54%
+    gradino T0u                  96 carte  54,17%    +491 pip
+Carte di riferimento: 30 su 30 giuste.
+
+**Carta letta da Claude col metodo · USDJPY 13/09/2022 seme 142 · `DA VALIDARE`** · S46
+La peggiore rimasta del gradino grosso (T7 duello con sede presa, 142 carte al 46%). Motore
+SHORT, mercato LONG +210.
+Palazzo 離 (Fuoco), 乾 sopra 坎 (訟 6), mese 己酉, giorno 己巳, anno 壬寅, ora 癸酉, vuoti 戌 亥.
+Scheda (incompatibili per prime): L3 午 in 坎 e' INCOMPATIBILE (ponte di Legno: un solo 寅 nella
+data) -> da ferma diventa mobile. Futuro comune (L1 + L3): 坎 -> 乾, quindi L1 寅 -> 子 (non piu'
+巳) e L3 午 -> 辰.
+L6 C 戌 vuota, nessuna bestia -> non agisce. L5 W 申 di stagione, nessuna bestia. L4 Shi B 午
+fuori stagione, nessuna bestia. L3 B 午 incompatibile, nascosto G 亥 (vuoto), verso 辰. L2 C 辰,
+nessuna bestia. L1 Ying P 寅 mobile, ramo dell'anno, verso 子; sopra l'anno 壬寅 (stesso ramo: la
+carica, non la prende).
+Traccia: la Ying, P, si muove e va in 子 Acqua, che GENERA il suo stesso 寅 Legno: l'arrivo nutre
+la partenza, la P resta se stessa e parla — il P fa perdere la propria squadra -> la sede bassa
+perde -> LONG (+210).
+Verifica: L3, la seconda mobile, e' un B che va in 辰: non retrocede (辰 non e' il passo indietro
+di 午), quindi la regola della seconda che retrocede non entra. Trigono 寅午戌 di Fuoco: non si
+chiude dentro un solo trigramma. Nessuna sede e' PRESA da una bestia (sull'anno su L1, stesso
+ramo = carica): il motore entra nel duello per una presa che non c'e', e li' assegna la vittoria
+a chi ha piu' bestie (SHORT).
+Conclusione: LONG. Punto da chiarire con Edu: il motore considera "presa" anche la bestia che
+carica col proprio stesso ramo — sulla carta non lo e'.
+
+**LETTURA DI EDU su USDJPY 13/09/2022 (seme 142) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "The reason for the Long is L3 moving to generate L5 W. Remember, when a line moves and is
+not combined or clashed it looks doing something. It can combine, clash or generate another line.
+If it doesn't do any of the above then it stays quiet at arrival."
+L3 (午 in 坎, incompatibile) si muove verso 辰 e non e' ne' combinata ne' clashata: cerca qualcosa
+da fare e GENERA la W 申 di L5 (Terra -> Metallo). Parla chi riceve: la W fa vincere la sede alta
+-> LONG (+210). La traccia di Claude (l'arrivo 子 che nutre la P della Ying) non era la via.
+NUOVA REGOLA cablata come `T0p le tre porte della seconda` (MLPORTESEC): le tre porte
+(combinare, clashare, generare) valgono anche per la seconda mobile — la ferma incompatibile —
+se non e' combinata ne' clashata dal giorno; parla chi riceve l'azione; se non trova niente resta
+zitta all'arrivo.
+POSIZIONE: dopo le regole della prima mobile e dopo T0r/T0u. Messa in testa (prima di T0r)
+rompeva EURJPY 15/08/2024, dove decide L2 che retrocede con le bestie, e il mazzo scendeva a
+51,94% (gradino 727 carte, 48,83%).
+MISURA:
+  prima                            2653 carte  52,77% +11.219 · recente 54,54%
+  con T0p in testa                 2703 carte  51,94%  +9.581 · recente 52,13%   (scartata)
+  con T0p dopo la prima mobile     2703 carte  52,35% +10.282 · recente 53,62%   <- cablata
+    gradino T0p                     210 carte  48,57%     -30 pip
+Regola di Edu: si tiene. Il motore parla su 50 carte in piu'. Carte di riferimento 31 su 31.
+
+## S46 · PIU' MOTIVI PER LA STESSA CARTA (Edu, 11/09/2026)
+Edu: "Ricorda che possono esserci piu' motivi e piu' interpretazioni per cui un esagramma va Short
+o Long."
+Conseguenze per il lavoro:
+1. Una carta letta per una via NON chiude le altre vie: la lettura di Edu e' la via giusta, non
+   l'unica. Le altre tracce trovate restano scritte come motivi concorrenti, non come errori
+   (esempio in questa sessione: NZDUSD 10/08/2022 — il trigono 寅午戌 e la combinazione con la C
+   vuota portano tutti e due a LONG).
+2. Un gradino che misura male non significa che la regola sia sbagliata: puo' essere l'ordine, cioe'
+   un altro motivo che su quelle carte viene prima (T0p, T0u, T0r spostati per questo).
+3. Quando due motivi danno la stessa direzione, l'ordine non conta: conta solo dove si
+   contraddicono. Sono quelle le carte da portare a Edu.
+4. Nel registro, per ogni carta: la via di Edu marcata come tale, e sotto gli altri motivi
+   trovati con la loro direzione.
+
+**Carta letta da Claude col metodo · EURJPY 23/10/2024 seme 163 · `DA VALIDARE`** · S46
+Peggiore rimasta del gradino grosso (T7 duello con sede presa, 90 carte). Motore SHORT, mercato
+LONG +146.
+Palazzo 坎 (Acqua), 震 sopra 離 (噬嗑 21), mese 甲戌, giorno 庚申, anno 甲辰, ora 壬午, vuoti 子 丑.
+Scheda (incompatibili per prime): nessuna delle sei coppie (卯兌 午坎 申艮 丑坤 辰乾 亥巽) —
+L4 午 sta in 震, L2 丑 in 離: nessuna incompatibile.
+L6 G 戌 (ramo del mese), nessuna bestia. L5 Shi P 申, sul ramo del giorno, di stagione; il giorno
+庚申 ci cade sopra con lo stesso ramo: lo carica. L4 W 午 mobile, sul ramo dell'ora, verso 丑
+(vuoto, nessuna bestia su L4 -> resta vuoto): l'arrivo combina 子, che non c'e' fra le linee.
+L3 B 亥: mese 甲戌 e anno 甲辰 sopra, coi rami in clash -> guerra fra titani, annullata.
+L2 Ying G 丑, VUOTA, l'ora 壬午 ci cade sopra: con la bestia non e' piu' vuota; il Fuoco controlla
+la Terra ed e' una bestia sola, ma la linea 丑 Terra e' di stagione nel mese 戌 -> puo' opporsi:
+NON presa (il motore invece la da' presa e la fa Fuoco). L1 C 卯, nessuna bestia.
+Motivi raccolti:
+ a) La mobile W va in 丑 vuoto e non trova nessun bersaglio (ne' combinare, ne' clashare, ne'
+    generare fra le ferme): il movimento non porta a niente -> chi non vince perde -> la sede
+    alta perde -> SHORT. [contro il mercato]
+ b) Confronto fra le sedi: Shi P 申 Metallo di stagione e caricato dal giorno, contro Ying G 丑
+    Terra di stagione: la Terra GENERA il Metallo -> lo Shi e' nutrito e vince -> sede alta ->
+    LONG. (Il motore fa vincere la Ying solo perche' la crede presa e la legge Fuoco.)
+ c) Il trigramma alto 戌申午 non chiude nessun trigono; nessun raduno completo.
+Conclusione: LONG per (b), se la Ying di stagione si oppone alla presa dell'ora — regola di Edu
+(11/09/2026) applicata a una linea che non e' una sede in movimento. Il punto debole e' (a), che
+dice SHORT: non so quale dei due venga prima.
+DOMANDA APERTA PER EDU: la mobile che arriva in una casella vuota senza bersagli, oppure il
+confronto fra le sedi dove la Terra nutre il Metallo?
+
+**CORREZIONE DI EDU su EURJPY 23/10/2024 (seme 163) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "Anche se la bestia dell'ora arriva su Y, la presenza contemporanea del vuoto e del mese
+fuoco nella tomba lo rende inutile. Per quanto riguarda il tuo dubbio su L4 devi usare l'effetto
+'scalino'. Se Wu in L4 si muove per diventare Chou, e Chou e' lo Y, allora e' come se Wu si muove
+per arrivare su Y. Questo non cambia il risultato nel caso sopra ma ti fa capire come funziona
+l'effetto 'scalino'."
+CABLATI:
+1. LA BESTIA IN TOMBA SU UNA LINEA VUOTA (MLTOMBA): una bestia il cui elemento e' nella propria
+   tomba nel mese (辰 Acqua/Terra · 戌 Fuoco · 丑 Metallo · 未 Legno), su una linea VUOTA, non fa
+   niente: non la prende e non le toglie il vuoto. Qui l'ora 壬午 (Fuoco) col mese 戌 = tomba del
+   Fuoco, su Y 丑 vuota.
+2. EFFETTO SCALINO, seconda faccia (MLSCALINO): se l'arrivo della mobile porta il ramo di
+   un'altra linea, il movimento arriva SU quella linea — quindi non "finisce in niente". Qui
+   L4 午 -> 丑 = il ramo dello Y: la mobile arriva sullo Y.
+La carta si chiude cosi': la Ying non e' presa; nessuna traccia della mobile conclude; restano le
+due sedi e lo Shi P 申, di stagione e caricato dal giorno, e' piu' forte -> la sede alta vince ->
+LONG (+146). Il motivo (a) di Claude ("il movimento non porta a niente") cade proprio per lo
+scalino.
+MISURA:
+  prima                          2703 carte  52,35% +10.282 · recente 53,62%
+  con i due                      2703 carte  52,57% +11.888 · recente 53,90%
+    senza la tomba                           52,42% +10.918
+    senza lo scalino                         52,53% +11.312
+Carte di riferimento: 32 su 32 giuste.
+
+**Carta letta da Claude col metodo · EURJPY 06/02/2025 seme 158 · `DA VALIDARE`** · S46
+Peggiore di "T0y la sede presa si muove" (131 carte al 48,09%). Motore LONG, mercato SHORT -147.
+Palazzo 離 (Fuoco), 離 sopra 坎 (未濟 64), mese 戊寅, giorno 丙午, anno 乙巳, ora 己丑, vuoti 寅 卯.
+Scheda (incompatibili per prime): L3 午 nel trigramma 坎 e' INCOMPATIBILE — ponte di Legno: 寅 del
+mese e 寅 di L1, ma il 寅 di L1 e' VUOTO e nella data il 寅 compare una volta sola -> non regge ->
+L3, lo Shi, da ferma diventa mobile. Futuro comune (L3 + L4): 坎 -> 艮? (il motore da' L3 午 -> 酉).
+L6 Ying B 巳, ramo dell'anno, di stagione (Fuoco 相 nel mese 寅), nessuna bestia. L5 C 未, niente.
+L4 W 酉 mobile, morta nel mese 寅, verso 戌; l'arrivo 戌 vorrebbe combinare 卯, che nelle linee non
+c'e'; nessuna linea porta il ramo 戌 -> niente scalino. L3 Shi B 午, ramo del giorno, di stagione,
+nascosto G 亥; sopra il giorno 丙午 (stesso ramo: carica) e l'ora 己丑? no, l'ora 己丑 cade su L3
+per la bestia 螣蛇 (stelo 己) -> il 丑 dell'ora drena il Fuoco? 丑 e' Terra: il Fuoco la genera ->
+DRENA -> prende. L2 C 辰, niente. L1 P 寅 vuota, di stagione ma vuota, nessuna presa utile.
+Motivi raccolti:
+ a) Lo Shi si muove (incompatibile) ed e' preso dall'ora 丑: da li' solo Shi contro Ying. Col
+    ponte della bestia il flusso 午 -> 丑 -> 酉 da' Shi Metallo contro Ying Fuoco: il Fuoco
+    controlla il Metallo -> vince la Ying -> sede alta -> LONG. [e' la via del motore, sbagliata]
+ b) La W di L4 e' morta nel mese e il suo arrivo 戌 non trova nessun bersaglio (ne' combinare, ne'
+    clashare, ne' generare, ne' scalino): il movimento non porta a niente -> chi non vince perde
+    -> la sede alta perde -> SHORT.
+ c) Lo Shi 午, di stagione e caricato dal giorno (stesso ramo), che si muove verso 酉: il Fuoco
+    controlla il Metallo del proprio arrivo -> lo Shi domina il suo passo e non perde: sede bassa
+    -> SHORT.
+ d) Raduni: 巳午未 di Fuoco completo nel quadro (L6, L3, L5) ma non dentro un solo trigramma;
+    il Fuoco e' di stagione e sta su Shi e Ying insieme: non separa le due parti.
+Conclusione: SHORT per (b) e (c), contro la via del motore.
+DUBBIO PER EDU: il ponte della bestia (dal ramo della sede al ramo dell'arrivo, passando per la
+bestia) e' stato cablato su EURJPY 10/08/2023, dove la bestia era l'anno 癸卯 e il flusso 亥->卯->
+巳 era una catena di generazione. Qui invece il 丑 dell'ora DRENA il 午 e porta a 酉: il flusso
+consuma la sede invece di portarla avanti. Vale lo stesso?
+
+**LETTURA DI EDU su EURJPY 06/02/2025 (seme 158) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "Conviene vederla cosi': Shi si muove e, per 'Effetto Scala' arriva fino a C Xu sull'arrivo
+di L4, quindi S diventa C Xu. A questo punto scatta il confronto con Y e vince lo short."
+Lo Shi L3 午 (incompatibile) si muove e arriva in 酉, lo stesso ramo da cui parte la mobile L4:
+per l'effetto scala prosegue lungo di lei fino a 戌, quindi lo Shi DIVENTA C 戌 (Terra). Confronto
+con la Ying B 巳 Fuoco: il Fuoco genera la Terra, lo Shi e' nutrito e vince -> sede bassa ->
+SHORT (+147).
+Risposta al dubbio di Claude (il ponte della bestia che drena): non si usa il ponte, si usa la
+scala. La scala viene PRIMA del ponte della bestia.
+CABLATO (MLSCALASEDE), dentro T0y: quando la sede in movimento arriva sul ramo di partenza della
+mobile, il movimento prosegue fino all'arrivo della mobile e la sede diventa quell'arrivo; il
+ponte della bestia si usa solo se non c'e' la scala.
+I due motivi di Claude (il movimento della W che non porta a niente; lo Shi che controlla il
+proprio arrivo) portavano anch'essi a SHORT: restano registrati come motivi concorrenti, non
+cablati.
+MISURA:
+  prima                        2703 carte  52,57% +11.888 · recente 53,90%
+  con la scala sulla sede      2703 carte  52,65% +12.598 · recente 53,97%
+    T0y                         131 carte  49,62%    +606 pip (era 48,09%, -105)
+Carte di riferimento: 33 su 33 giuste.
+
+**Carta letta da Claude col metodo · USDCAD 13/09/2022 seme 129 · `DA VALIDARE`** · S46
+Peggiore di "T0p le tre porte della seconda" (212 carte al 49,06%). Motore SHORT, mercato LONG
++188. Palazzo 坤 (Terra), 坤 sopra 乾 (泰 11), mese 己酉, giorno 己巳, anno 壬寅, ora 壬申,
+vuoti 戌 亥.
+Scheda (incompatibili per prime): L3, lo Shi, 辰 nel trigramma 乾: incompatibile (coppia senza
+ponte), ed e' gia' la mobile -> non puo' essere fermata. L4 丑 nel trigramma 坤: incompatibile
+(coppia senza ponte) -> da ferma diventa mobile.
+L6 Ying C 酉, di stagione, nessuna bestia. L5 W 亥 VUOTA, nessuna bestia -> non agisce. L4 B 丑
+incompatibile, nessuna bestia, va verso 午 (futuro comune). L3 Shi B 辰 mobile verso 丑; sopra
+cadono anno 壬寅 e ora 壬申, in penalita' fra loro (寅巳申 senza il 巳... il 巳 c'e': e' il ramo del
+giorno 己巳) -> penalita' piena -> guerra fra titani, L3 ANNULLATA. L2 G 寅, ramo dell'anno,
+nascosto P 巳 (ramo del giorno). L1 W 子, nessuna bestia.
+Motivi raccolti:
+ a) L4, seconda mobile, va in 午 e clasha il 子 di L1 (W): parla chi riceve, la W fa vincere la
+    sede bassa -> SHORT. [e' la via del motore, sbagliata; e il motore usa l'arrivo 午->子 come
+    clash mentre la porta andrebbe letta sull'arrivo]
+ b) L3 e' annullata dalla guerra: la mobile e' fuori dai giochi. Resta L4, incompatibile, che
+    agisce: e' un B e il B fa perdere la propria squadra -> la sede alta perde -> SHORT.
+ c) Effetto scala: L3 (lo Shi) parte da 辰 e arriva in 丑, che e' il ramo di L4; per lo scalino
+    la mobile arriva SU L4. L4 a sua volta si muove e va in 午: il movimento prosegue e finisce
+    su 午 Fuoco, che nel palazzo 坤 e' un G -> il G fa vincere la propria squadra, sede alta ->
+    LONG (+188). [concorde col mercato]
+ d) Confronto fra le sedi: Shi B 辰 Terra (annullata) contro Ying C 酉 Metallo di stagione: la
+    Terra genera il Metallo -> la Ying e' nutrita e vince -> sede alta -> LONG.
+Conclusione: LONG per (c) e (d). Dubbio: L3 e' annullata dalla guerra fra titani — una linea
+annullata puo' ancora fare da primo gradino della scala? Su USDJPY 02/10/2024 (la carta della
+scala) nessuna delle due era annullata.
+
+**LETTURA DI EDU su USDCAD 13/09/2022 (seme 129) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "L3 raggiunge L4 Wu che genera indietro. Una linea che retrocede non puo' piu' farlo se viene
+generata indietro perche' retrocedere significa perdere energia e generare significa acquisire
+energia. Poiche' questo avviene con S, si deve subito confrontare Chou con Y e vince Long."
+Lo Shi L3 辰 -> 丑 sta RETROCEDENDO (退神) e per lo scalino raggiunge L4, che porta proprio 丑;
+L4 manda avanti 午, che GENERA il 丑. Chi retrocede perde energia, chi e' generato la acquista:
+la sede non retrocede piu', la catena si ferma sul gradino e lo Shi porta 丑. Confronto con la
+Ying C 酉: la Terra genera il Metallo, la Ying e' nutrita e vince -> sede alta -> LONG (+188).
+Risposta al dubbio di Claude (L3 annullata dalla guerra fra titani): la scala funziona lo stesso —
+Edu non pone quella condizione, e la carta lo mostra.
+CABLATO `T0s la scala fermata dalla generazione` (MLSCALAGEN), prima dell'effetto scala: la sede
+in movimento che retrocede e arriva sul ramo di una seconda mobile il cui arrivo genera quel ramo
+-> la catena si ferma, la sede porta il ramo raggiunto e si confronta con l'altra sede.
+MISURA:
+  prima                        2703 carte  52,65% +12.598 · recente 53,97%
+  con la scala fermata         2703 carte  52,57% +12.806 · recente 54,04%
+    gradino                      21 carte  47,62%    +145 pip
+Carte di riferimento: 34 su 34 giuste.
+MOTIVI CONCORRENTI registrati su questa carta (non cablati): il confronto diretto Shi/Ying senza
+la scala da' anch'esso LONG (Terra genera Metallo); le vie del motore (le tre porte di L4, il B
+che agisce) davano SHORT e sono sbagliate.
+
+**Carta letta da Claude col metodo · GBPUSD 17/06/2025 seme 135 · `DA VALIDARE`** · S46
+Peggiore rimasta di "T0p le tre porte della seconda" (208 carte). Motore LONG, mercato SHORT -143.
+Palazzo 兌 (Metallo), 坤 sopra 艮 (剥 23), mese 壬午, giorno 丁巳, anno 辛巳, ora 壬寅, vuoti 子 丑.
+Scheda (incompatibili per prime): L3 申 in 艮 incompatibile (ponte d'Acqua: nella data nessun ramo
+d'Acqua) ed e' gia' la mobile. L4 丑 in 坤 incompatibile (coppia senza ponte) -> da ferma diventa
+mobile, verso 午.
+L6 B 酉, fuori stagione (Metallo in 午), nessuna bestia. L5 Shi C 亥, il giorno 丁巳 la CLASHA:
+si sveglia (暗動) — ma il 亥 e' morto nel mese 午 e ha contro due 巳 (giorno e anno): rotta, non
+svegliata. L4 P 丑 VUOTA, l'ora 壬寅 sopra: il Legno controlla la Terra, bestia sola, la linea non
+e' di stagione -> presa; con la bestia non e' piu' vuota -> L4 diventa 寅 Legno, che nel palazzo
+兌 e' una W. L3 B 申 mobile verso 卯 (l'arrivo combina 戌, che non c'e'). L2 Ying G 午, ramo del
+mese, di stagione, nascosto W 卯 (che e' anche l'arrivo di L3). L1 P 辰, nessuna bestia.
+Motivi raccolti:
+ a) [via del motore, sbagliata] L4 si muove e genera L1 P 辰 -> parla la P, la sede bassa perde
+    -> LONG.
+ b) Effetto scalino: L4 (丑) va in 午, che e' il ramo della Ying L2: il movimento di L4 arriva
+    sulla Ying. L4 e' presa dall'ora ed e' Legno (W): il Legno genera il Fuoco della Ying ->
+    la Ying e' nutrita -> vince la sede bassa -> SHORT.
+ c) L'arrivo della mobile 卯 e' il NASCOSTO della Ying (W 卯): la mobile porta alla Ying quello
+    che le sta sotto. Anche qui la Ying e' servita -> SHORT.
+ d) Confronto fra le sedi: Shi C 亥 Acqua morta e rotta dal doppio 巳, contro Ying G 午 Fuoco di
+    stagione sul ramo del mese: la Ying e' molto piu' forte -> SHORT.
+ e) Raduno 巳午未 non completo (manca 未); trigono 寅午戌 non chiuso dentro un trigramma.
+Conclusione: SHORT, per (b), (c) e (d) che concordano. La via del motore (a) e' l'unica che dice
+LONG, e legge la porta di L4 senza tenere conto che L4 e' stata presa dall'ora e che il suo
+arrivo cade sulla Ying.
+DOMANDA PER EDU: quando la seconda mobile e' PRESA da una bestia, le sue tre porte si leggono
+col ramo della bestia (qui 寅 Legno) invece che col proprio?
+
+**LETTURA DI EDU su GBPUSD 17/06/2025 (seme 135) — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu (con la sua carta, 謙 15 -> 豫 16): "Interessante, ci sono ben due linee che sfruttano
+l'effetto scala e portano la vittoria su Y."
+L4 (丑, incompatibile) va in 午, il ramo della Ying: arriva sulla Ying. L3 (la mobile) va in 卯,
+il nascosto della Ying: arriva anche lei sulla Ying. Due arrivi su Y -> la vittoria e' sua ->
+sede bassa -> SHORT (+143). Confermati i motivi (b) e (c) di Claude; la via del motore (le porte
+di L4 che genera L1) era sbagliata.
+NUOVA REGOLA cablata come `T0w lo scalino porta su una sede` (MLSCALASEDEV): se l'arrivo di una
+linea in movimento porta il ramo di una sede o del suo NASCOSTO, il movimento arriva su quella
+sede e le porta la vittoria. Con arrivi su sedi diverse non si conclude.
+LIMITE trovato misurando: se ad arrivare e' l'ALTRA sede, non vale — su EURJPY 28/07/2025 (carta
+di riferimento letta da Edu) la Ying si muove e arriva sul ramo dello Shi, e li' decide la mobile
+che si occupa di se'. Cablato cosi': lo scalino porta la vittoria solo quando ad arrivare non e'
+una sede.
+MISURA:
+  prima                              2703 carte  52,57% +12.806 · recente 54,04%
+  con T0w (senza il limite)          2711 carte  52,45% +13.122 — rompe EURJPY 28/07/2025
+  con T0w e il limite                2708 carte  52,44% +13.172 · recente 53,86%
+    gradino T0w                       302 carte  50,33%    +619 pip
+Carte di riferimento: 35 su 35 giuste.
+
+**Carta letta da Claude col metodo · USDJPY 05/12/2022 seme 134 · `DA VALIDARE`** · S46
+Peggiore di "T0w lo scalino porta su una sede" (302 carte). Motore SHORT, mercato LONG +227.
+Palazzo 坎 (Acqua), 坤 sopra 坎 (師 7), mese 辛亥, giorno 壬辰, anno 壬寅, ora 辛丑, vuoti 午 未.
+Scheda (incompatibili per prime): L3, lo Shi, 午 in 坎 incompatibile (ponte di Legno: solo 寅
+dell'anno, uno) -> da ferma diventa mobile, verso 辰. L4 丑 in 坤 incompatibile (senza ponte) ->
+mobile, verso 午.
+L6 Ying P 酉, nessuna bestia, fuori stagione (Metallo in 亥: 休). L5 B 亥, ramo del mese, di
+stagione, nessuna bestia. L4 G 丑, ramo dell'ora; l'ora 辛丑 ci cade sopra (stesso ramo: carica).
+L3 Shi W 午 VUOTO, incompatibile, nessuna bestia -> resta vuoto. L2 G 辰, ramo del giorno; il
+giorno 壬辰 ci cade sopra (stesso ramo: carica). L1 C 寅 mobile, ramo dell'anno (Tai Sui), verso
+子 nel futuro comune; l'anno 壬寅 sopra (stesso ramo: carica).
+Motivi raccolti:
+ a) [via del motore, sbagliata] L4 arriva in 午, ramo dello Shi -> scalino sullo Shi -> vince lo
+    Shi, sede bassa -> SHORT.
+ b) Lo Shi 午 e' VUOTO e si muove perche' incompatibile: se ne va dalla sua casella (verso 辰) e
+    la lascia. Il 午 su cui arriva L4 non e' piu' abitato dallo Shi: lo scalino porta su una
+    casella vuota, non su una sede.
+ c) Lo Shi W 午, vuoto e morto d'Acqua nel mese 亥, si muove in 辰 Terra: il W che diventa G
+    perde il vantaggio -> la sede bassa perde -> LONG (+227).
+ d) La mobile L1 C 寅 va in 子, che GENERA il proprio 寅 (Acqua -> Legno): l'arrivo nutre la
+    partenza, la C resta se' stessa e tace.
+ e) Confronto fra le sedi: Shi W 午 Fuoco vuoto e morto contro Ying P 酉 Metallo fuori stagione:
+    l'Acqua del mese spegne il Fuoco, la Ying e' piu' forte -> sede alta -> LONG.
+Conclusione: LONG per (c) ed (e).
+DOMANDA PER EDU: lo scalino su una sede vale anche quando quella sede e' VUOTA e a sua volta si
+muove via (qui lo Shi 午 e' vuoto e incompatibile)? Mi pare di no: la casella e' abbandonata.
+
+**CORREZIONE DI EDU su USDJPY 05/12/2022 (seme 134) — `CONFERMATA DA EDU` (parziale)** · S46
+Edu: "Shi vuota si muove perche' incompatibile quindi non e' vuota (cio' che si muove non e'
+vuoto), raggiunge G cn quindi diventa G cn. A questo punto si confronta con Y che vince. Long."
+1. CABLATO (MLMOSSANONVUOTA): cio' che si muove non e' vuoto — vale per la mobile e per la ferma
+   incompatibile che diventa mobile, in tutti i punti dove il motore guarda il vuoto di una linea.
+   Mazzo da 52,44% (+13.172) a 52,46% (+13.537), recente 53,90%.
+2. La sede che si muove DIVENTA la linea raggiunta (Shi 午 -> 辰 = il G di L2): provata in largo
+   -> 262 carte al 47,71%, mazzo 51,96%: SPENTA (MLSEDEDIVENTA=on), perimetro da chiarire.
+PUNTO APERTO sulla carta: con la sede che diventa G 辰 Terra, il confronto con la Ying dipende da
+come si legge la Ying. Sulla Ying L6 酉 cadono DUE pilastri (mese 辛亥 e ora 辛丑: stesso stelo
+辛, quindi la stessa bestia, la Tigre Bianca, che siede su L6). Col possesso delle due bestie la
+catena porta 酉 Metallo -> 亥 Acqua, e la Ying diventa Acqua: allora la Terra dello Shi controlla
+l'Acqua e vincerebbe lo Shi (SHORT). Se invece la Ying resta 酉 Metallo, la Terra genera il
+Metallo, la Ying e' nutrita e vince (LONG, come dice Edu). DA CHIEDERE A EDU.
+
+**REGOLA DI EDU — DUE BESTIE CHE COLLABORANO — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "Se due bestie arrivano su una linea e non si combattono collaborano per farla vincere.
+Xin Chou aiuta Y P you, ma Xin Hai invece la farebbe perdere quindi non agisce."
+Con piu' bestie sulla stessa linea che non si combattono, agiscono solo quelle che la AIUTANO
+(stesso elemento o che la generano); quelle che la indebolirebbero (la drenano o la controllano)
+NON agiscono. Prima il motore faceva la catena su tutte e la Ying 酉 diventava 亥 Acqua; ora
+resta Metallo, aiutata dal 丑. Cablato in elDopoLeBestie (MLBESTIEAIUTO).
+MISURA: mazzo da 52,46% (+13.537) a 52,53% (+14.073), recente 54,18%.
+CABLATO ANCHE (dalla stessa lettura): lo scalino non porta niente a una sede che se ne sta
+andando (e' lei la mobile, o e' incompatibile e si muove) — sulla carta lo Shi 午 lascia la
+casella, quindi l'arrivo di L4 in 午 non gli porta la vittoria.
+MISURA: mazzo 52,81% (+14.596), recente 54,61%; T0w da 302 carte 50,33% a 149 carte 53,02%
+(+1.019 pip).
+STATO DELLA CARTA USDJPY 05/12/2022: ora il motore conclude SHORT per un'altra via (il giorno
+壬辰 che prende la mobile e parla da G). Con la sede che diventa la linea raggiunta accesa
+(MLSEDEDIVENTA=on) la carta torna LONG come la legge Edu, ma quel pezzo misura peggio (262 carte
+47,71%/48,47%, mazzo 52,46%): resta spento e il perimetro va chiarito con Edu.
+Carte di riferimento: 35 su 36 (manca solo questa).
+
+**TERZA LETTURA DI EDU su USDJPY 05/12/2022 — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "C'e' ancora un altro modo per vedere la vittoria del long: Shi W si muove per combinarsi con
+Y, quindi porta W su Ying che vince. L'uso delle bestie e' da fare dopo aver visto le varie
+possibilita' che offrono il movimento delle linee."
+Lo Shi W 午 si muove in 辰: 辰酉合 con la Ying 酉. Si muove per combinarsi con lei e le porta il
+proprio carattere, W -> la Ying vince -> sede alta -> LONG (+227). Con questa via la carta si
+chiude senza il pezzo "la sede diventa la linea raggiunta", che resta spento.
+NUOVA REGOLA cablata come `T0k si muove per combinarsi con una sede` (MLCOMBSEDE): una linea in
+movimento (mobile o ferma incompatibile) il cui ARRIVO combina (六合) il ramo di una sede diversa
+da se stessa le porta il proprio carattere: G/W -> quella sede vince, P/B -> perde.
+POSIZIONE: il principio di Edu ("le bestie dopo il movimento") direbbe di metterla prima di tutte
+le regole con le bestie; messa li' pero' rompe USDJPY 09/02/2026, carta di Edu dove il pilastro
+che prende lo Shi mobile comanda (gradino 354 carte 47,46%, mazzo 52,30%). Cablata quindi dopo le
+sedi prese e lo scalino: 36/36 carte di riferimento.
+MISURA:
+  prima                                  2706 carte  52,81% +14.596 · recente 54,61%
+  T0k prima di tutte le bestie           2713 carte  52,30% +12.052 — rompe USDJPY 09/02/2026
+  T0k dopo le sedi prese (cablata)       2713 carte  52,34% +11.984 · recente 54,00%
+    gradino T0k                           291 carte  48,11%  -1.153 pip
+Regola di Edu: si tiene. Il motore parla su 7 carte in piu'. Carte di riferimento 36 su 36.
+DA CHIARIRE CON EDU: dove sta esattamente il confine fra "il movimento" e "le bestie" — su
+USDJPY 09/02/2026 la bestia viene prima, qui il movimento.
+
+**CORREZIONE DI EDU — L2 INCOMPATIBILE VA FATTA MUOVERE — `CONFERMATA DA EDU`** · 11/09/2026, S46
+Edu: "L2 incompatibile non l'hai fatta muovere. E' successo anche la scorsa volta e hai detto che
+avresti sistemato. Eppure te lo sei dimenticato di nuovo."
+Errore ripetuto di Claude: su USDJPY 09/02/2026 ha ripresentato la lettura vecchia del registro
+(S44, 09/09, scritta PRIMA della dottrina della linea incompatibile), dove lo Shi L2 亥 in 巽
+resta fermo ed e' "legato dal giorno". L2 e' incompatibile: si muove, verso 午.
+LETTURA RIFATTA: lo Shi G 亥 si muove in 午 e 午未合 con la Ying 未 — si muove per combinarsi con
+lei. Sullo Shi cade l'anno 丙午 e se lo prende (亥 Acqua, 休 nel mese 寅, non puo' opporsi): lo
+Shi porta addosso 午, che nel palazzo 離 e' un B. Quindi alla Ying porta un B: il B fa perdere la
+propria squadra -> la sede alta perde -> SHORT (+135), come il mercato e come la conclusione di
+Edu del 09/09 (per altra via: confronto diretto dopo il possesso).
+CABLATO: in `T0k si muove per combinarsi con una sede` il carattere portato e' quello che la linea
+ha ADDOSSO dopo le bestie (se un pilastro se l'e' presa, il carattere del ramo della bestia), non
+quello di partenza. MLCOMBPAR=partenza per il vecchio conto. Con questo T0k puo' stare PRIMA
+delle regole con le bestie, come vuole il principio di Edu ("le bestie dopo il movimento"), senza
+rompere USDJPY 09/02/2026.
+MISURA:
+  T0k dopo le sedi prese, carattere di partenza   2713 carte  52,34% +11.984 · recente 54,00%
+  T0k prima delle bestie, carattere dopo le bestie 2712 carte  52,73% +12.995 · recente 54,11%
+    gradino T0k                                    344 carte  50,29%    -897 pip
+Carte di riferimento: 36 su 36. USDJPY 05/12/2022 resta letta col W che si combina (Edu), perche'
+li' nessuna bestia prende lo Shi e il carattere addosso e' ancora il suo.
+
+**LETTURA DI EDU su USDJPY 09/02/2026 (seme 157) — `CONFERMATA DA EDU`, non ancora nel motore** · S46
+Edu: "S non puo' muoversi quindi rimane G. Y si muove per raggiungere L6 B si. Vince S. Non c'e'
+bisogno di usare le bestie."
+1. Lo Shi 亥 in 巽 e' incompatibile ma il giorno 甲寅 lo combina (寅亥合): la ferma incompatibile
+   che vorrebbe muoversi viene tenuta dal giorno. (La regola "l'incompatibile non si ferma" vale
+   per la linea gia' mobile, NZDUSD 10/08/2022.) Cablato MLINCFERMATA: la ferma incompatibile
+   combinata o clashata dal giorno non parte.
+2. La Ying 未 va in 申 (il giorno 寅 clasha l'arrivo: resta attiva, non cambia) e 巳申合 con L6 B
+   巳: la Ying raggiunge un B e ne prende il carattere -> la sede alta perde -> SHORT (+135).
+   Cablato `T0k la sede raggiunge una linea` (MLCOMBPRESA): la sede che si muove e col suo
+   arrivo combina una linea FERMA non-sede ne prende il carattere.
+PROBLEMA DI ORDINE, aperto: messa PRIMA delle bestie, questa via legge la carta come Edu ma rompe
+EURJPY 15/08/2024 (carta di Edu: la Ying raggiunge L5, ma li' decide L2 che retrocede con le
+bestie) e il mazzo scende a 51,99%. Messa DOPO, la carta viene letta dal possesso delle bestie
+(T1b: mese sulla Ying, anno sullo Shi, confronto diretto) — stessa direzione SHORT, ma non e' la
+via di Edu. Tenuta dopo.
+MISURA (stato attuale): 2714 carte 52,21% +10.333 · recente 53,18% (prima di questo giro:
+52,73% +12.995). Il freno sulla ferma incompatibile costa da solo circa 0,3 punti. Carte di
+riferimento 36/36.
+
+## S46 · L'ORDINE FRA MOVIMENTO E BESTIE (Edu, 14/09/2026) — `CONFERMATO DA EDU`
+Edu: "La differenza e' che in EURJPY 15/08/2024 a bloccare la linea dal retrocedere e' la data ed
+e' quindi proprio alle bestie della data che poi si deve guardare per vedere se loro forniscono
+una soluzione. In sintesi: 1. Si cerca di risolvere una carta semplicemente usando le linee
+mobili. 2. Se c'e' un blocco nel movimento, e non si giunge ad una soluzione, si usano le bestie."
+E (13/09): "Lo Shi non puo' muoversi perche' ci sono due 寅 nella data a combinarlo. Eccezione
+alla regola per le incompatibili: se combinato una volta si muove lo stesso, se due no."
+CABLATO:
+1. MLINCFERMATA: la ferma incompatibile non parte solo se DUE (o piu') rami della data la
+   combinano; con uno solo parte.
+2. `T0k la sede raggiunge una linea` spostata subito dopo la seconda che retrocede (T0r, il caso
+   in cui la data blocca il movimento e le bestie della data danno la soluzione) e PRIMA di tutte
+   le regole del possesso (T1, T1b). USDJPY 09/02/2026 e' letta ora per la via di Edu (la Ying
+   raggiunge L6 B, vince S, senza bestie); EURJPY 15/08/2024 resta letta con L2 che retrocede.
+MISURA: 2716 carte 51,95% +8.782 · recente 53,53% (prima 52,14% +10.282; prima ancora, senza
+tutto questo giro, 52,73% +12.995). Gradini: T0k raggiunge 151 carte 49,67%; T0k combinarsi con
+una sede 355 carte 49,01%. Carte di riferimento 36/36, tutte per la via di Edu.
+NOTA DI CLAUDE: il giro USDJPY 05/12/2022 -> 09/02/2026 e' costato ~0,8 punti sul mazzo pur
+tenendo giuste tutte le carte di riferimento. Le regole sono di Edu e si tengono; i due gradini
+T0k sotto il 50% sono il prossimo mucchio da cui prendere carte.
+
+**Carta letta da Claude col metodo · USDJPY 01/05/2024 seme 157 · `DA VALIDARE`** · S46
+Peggiore di "T0k si muove per combinarsi con una sede" (355 carte al 49,01%). Motore LONG,
+mercato SHORT -346. Stesso esagramma di USDJPY 09/02/2026 (離 sopra 巽, 鼎 50).
+Palazzo 離 (Fuoco), 離 sopra 巽, mese 戊辰, giorno 乙丑, anno 甲辰, ora 丙子, vuoti 戌 亥.
+Scheda (incompatibili per prime): L2, lo Shi, G 亥 in 巽: incompatibile, VUOTO, senza bestie
+sopra (il giorno 乙 e' Drago Azzurro su L1, l'ora 丙 Serpente su L4, mese 戊 e anno 甲 Gancio
+e Drago su L3 e L1). Un solo ramo lo combina (寅? no: 亥 combina 寅, nella data non c'e' 寅) ->
+si muove, e cio' che si muove non e' vuoto; futuro comune (L2 + L4): 巽 -> ? il motore da'
+亥 -> 午 e L4 酉 -> 戌.
+L6 B 巳, niente. L5 Ying C 未, nessuna bestia; il giorno 丑 la clasha -> 暗動, di stagione
+(Terra nel mese 辰) -> si sveglia, e va in 子? (l'arrivo della svegliata: 未 -> 子 nel futuro).
+L4 W 酉 mobile, fuori stagione (Metallo 死 nel mese 辰... 辰 e' Terra, Metallo 相: di stagione),
+verso 戌, VUOTO; sopra l'ora 丙子 (drena? 子 Acqua: il Metallo la genera -> drena -> prende).
+L3 W 酉, sopra mese 戊辰 e anno 甲辰 (stesso ramo, nessuna guerra; 辰 Terra genera il Metallo:
+la nutrono). L1 C 丑, ramo del giorno, giorno 乙丑 sopra (stesso ramo: carica), nascosto P 卯.
+Motivi raccolti:
+ a) [via del motore, sbagliata] Lo Shi G 亥 si muove in 午 e 午未合 con la Ying: le porta il G ->
+    la Ying vince -> LONG.
+ b) L'arrivo dello Shi 午 e' ANCHE il proprio... no. Ma: la Ying 未 e' clashata dal giorno 丑 ed
+    e' di stagione -> si sveglia e si muove (暗動): una sede che se ne va non riceve niente dallo
+    scalino/combinazione (regola gia' cablata per lo scalino, USDJPY 05/12/2022) -> il G non le
+    arriva.
+ c) La Ying svegliata C 未 va in 子 e 子丑合 con L1 C 丑 (ferma, sul ramo del giorno): la Ying
+    raggiunge una C e ne prende il carattere -> tace. Oppure: la Ying, sede in movimento, e
+    lo Shi in movimento -> confronto? 
+ d) La mobile L4 W 酉 va in 戌 (vuoto): l'ora 丙子 la drena e la prende -> 子 Acqua = G in 離 ->
+    la W diventa G, il vantaggio si perde -> la sede alta perde -> SHORT.
+ e) L3 W 酉 nutrita da due 辰 (mese + anno): il Metallo forte in basso -> W ferma forte -> la
+    sede bassa vince -> SHORT.
+ f) Confronto fra le sedi: Shi 亥 Acqua (mosso, in 午 Fuoco -> B) contro Ying 未 Terra di
+    stagione svegliata dal giorno: la Terra controlla l'Acqua -> vince la Ying -> LONG. Ma se
+    lo Shi porta 午 Fuoco (B): il Fuoco genera la Terra -> Ying nutrita -> LONG.
+Conclusione: SHORT per (d) ed (e) — la W che si prende l'ora e diventa G, e la W ferma di L3
+nutrita dai due 辰. Contro: (a) e (f) dicono LONG. Il nodo e' se la Ying svegliata dal giorno e'
+ancora nella sua casella per ricevere la combinazione dello Shi.
+DOMANDA PER EDU: la Ying clashata dal giorno e di stagione (暗動) riceve lo Shi che si muove
+per combinarsi con lei, o se n'e' gia' andata?
+
+**LETTURA DI EDU su USDJPY 01/05/2024 (seme 157) — `CONFERMATA DA EDU`** · 14/09/2026, S46
+Edu: "Prima la lettura normale: L4 si muove in una linea vuota (non arriva da nessuna parte). La
+bestia della linea aiuta? No. Risultato: niente. L2 incompatibile si muove e arriva su Ying
+portando G. Long. La bestia della linea intralcia? Si'. L'ora Bing Zi arriva su L2 e blocca Wu
+quindi G rimane su S. Short (non si comparano piu' S e Y perche' il movimento e' stato bloccato
+dalla bestia)."
+ERRORE DI CLAUDE nella scheda: l'ora 丙子 l'avevo messa su L4; lo stelo 丙 e' l'Uccello Rosso, che
+con giorno 乙 siede su L2. Da qui la lettura sbagliata (la W presa dall'ora). Da rifare sempre:
+pilastro -> stelo -> bestia -> linea, prima di dire dove cade.
+IL METODO, per ogni linea che si muove: 1) dove arriva (vuoto = da nessuna parte); 2) la bestia
+sulla linea aiuta o intralcia? Se intralcia (il suo ramo clasha l'arrivo) il movimento e'
+bloccato e la linea resta col proprio carattere sulla propria sede; le sedi non si confrontano.
+CABLATO `T0k la bestia blocca la combinazione` (MLBESTIABLOCCA), dentro "si muove per combinarsi
+con una sede": perimetro la sede che si muove; MLBESTIABLOCCA=tutte per ogni linea (estensione di
+Claude: 9 carte 66,67%, mazzo 52,06% — misura meglio ma resta spenta finche' Edu non lo dice).
+MISURA: 2716 carte 51,99% +9.336 · recente 53,60% (prima 51,95% +8.782). Gradino: 7 carte 57,14%
++307. Carte di riferimento 37/37.
+ESTENSIONE CONFERMATA DA EDU (14/09/2026): "Puoi estendere, il principio e' giusto e deve valere
+anche per altre linee." Il blocco della bestia vale per ogni linea che si muove per combinarsi
+con una sede, sede o no. Default cambiato; MLBESTIABLOCCA=sede per il solo perimetro della carta.
+MISURA: 2716 carte 52,06% +9.608 · recente 53,60%; gradino 9 carte 66,67% +443. Carte di
+riferimento 37/37.
+
+**Carta letta da Claude col metodo · USDCAD 25/03/2020 seme 144 · `DA VALIDARE`** · S46
+Peggiore rimasta di "si muove per combinarsi con una sede". Motore LONG, mercato SHORT -250.
+Palazzo 兌 (Metallo), 兌 sopra 坤 (萃 45), mese 己卯, giorno 丁卯, anno 庚子, ora 丁亥, vuoti 戌 亥.
+Pilastri -> bestie (giorno 丁: 朱雀 su L1, 勾陳 L2, 螣蛇 L3, 白虎 L4, 玄武 L5, 青龍 L6): mese 己 ->
+勾陳 su L2 (lo Shi); giorno 丁 e ora 丁 -> 朱雀 su L1; anno 庚 -> 白虎 su L4.
+Scheda (incompatibili per prime): nessuna delle sei coppie (卯 sta in 坤, non in 兌).
+L6 P 未, niente. L5 Ying B 酉, il giorno 卯 la clasha: fuori stagione (Metallo 死 nel mese 卯) ->
+non si sveglia, si rompe (nessuna combinazione col mese la protegge: 卯 e' anche il mese, che la
+clasha pure). L4 W 亥 VUOTA, ramo dell'ora, l'anno 庚子 sopra (Acqua su Acqua: carica, e con la
+bestia non e' piu' vuota). L3 G 卯, ramo del giorno e del mese, di stagione, nessuna bestia.
+L2 Shi G 巳 mobile, fuori stagione (Fuoco 相 nel mese 卯: di stagione!) -> 巳 Fuoco in 卯: 相, di
+stagione; verso 辰 (辰酉合 con la Ying); sopra il mese 己卯: il Legno GENERA il Fuoco -> la
+nutre, non la prende, non la blocca (卯 non clasha 辰). L1 P 未, giorno e ora sopra (stesso
+stelo 丁, due bestie 卯 e 亥 che non si combattono: 亥卯 mezzo trigono di Legno -> il Legno
+controlla la Terra della linea: la indeboliscono -> non agiscono).
+Lettura normale, linea che si muove: lo Shi G 巳 va in 辰 e 辰酉合 con la Ying 酉 -> porta il G
+sulla Ying -> LONG. La bestia intralcia? No (卯 non clasha 辰, e nutre il Fuoco). -> LONG.
+Ma la Ying 酉 e' ROTTA: clashata da giorno E mese (doppio 卯), fuori stagione. Una sede rotta
+puo' ricevere la combinazione? Qui il mercato dice di no (-250).
+Motivi per SHORT: (b) la Ying e' rotta dal doppio clash -> non c'e' piu' nessuno da far vincere
+in alto -> vince il basso. (c) 辰 dell'arrivo e' anche il ramo... no. (d) L3 G 卯, sul ramo di
+giorno e mese, di stagione: un G ferma fortissima in basso -> la sede bassa vince -> SHORT.
+Conclusione: SHORT per (b)/(d).
+DOMANDA PER EDU: la combinazione dell'arrivo con una sede ROTTA (clashata dal giorno e dal mese,
+fuori stagione) porta ancora il carattere, o la sede rotta non riceve niente?
+
+**CORREZIONE DI EDU su USDCAD 25/03/2020 — la bestia dello stelo 己** · 14/09/2026, S46
+Edu: "Ji Mao non sta su L2 ma su L3. Wu e Ji sono sempre Gancio e Serpente e ognuno di loro ha la
+sua linea SEMPRE." Errore di Claude nella scheda (il motore lo aveva giusto: 戊 = 勾陳, 己 = 螣蛇).
+Con giorno 丁: 朱雀 L1, 勾陳 L2, 螣蛇 L3, 白虎 L4, 玄武 L5, 青龍 L6 -> il mese 己卯 cade su L3 (G 卯,
+stesso ramo: la carica), NON sullo Shi. Sullo Shi L2 non cade nessuna bestia.
+RILETTURA: lo Shi G 巳 si muove in 辰 e 辰酉合 con la Ying 酉 -> porta il G -> LONG; nessuna
+bestia lo intralcia. Restano i motivi per SHORT: la Ying 酉 rotta dal doppio 卯 (giorno + mese),
+fuori stagione; e L3 G 卯 sul ramo di giorno e mese, caricata dal mese, fortissima in basso.
+La domanda per Edu resta la stessa: la sede ROTTA riceve la combinazione o no?
+Tavola fissa stelo -> bestia (da tenere davanti, sempre): 甲乙 青龍 · 丙丁 朱雀 · 戊 勾陳 · 己 螣蛇 ·
+庚辛 白虎 · 壬癸 玄武; la linea di partenza (青龍 su L1) e' data dallo stelo del GIORNO.
+
+**REGOLA DI EDU su USDCAD 25/03/2020 — `CONFERMATA DA EDU`** · 14/09/2026, S46
+Edu: "una Ying rotta non puo' ricevere il G che le viene portato."
+CABLATO (MLCOMBROTTA): in "si muove per combinarsi con una sede", se la sede raggiunta e' ROTTA
+(clashata dal giorno, fuori stagione, senza la protezione del mese) non riceve la combinazione.
+La carta si chiude col duello: lo Shi G 巳 di stagione contro la Ying rotta -> vince lo Shi ->
+SHORT (+250). Il motivo concorrente registrato (L3 G 卯 fortissima in basso) dice anch'esso SHORT.
+MISURA: 2716 carte 51,91% +9.354 · recente 53,32% (prima 52,06% +9.608). Gradino "combinarsi con
+una sede": 320 carte 48,75%. Carte di riferimento 38/38.
+NOTA: costa 0,15 punti; le carte che il motore leggeva LONG per la combinazione su una sede rotta
+ora vanno al duello e li' si sbaglia piu' spesso. Regola di Edu: si tiene.
+
+**LETTURA DI EDU su USDCAD 25/03/2020 (seme 144), CONCLUSIONE — `CONFERMATA DA EDU`** · 14/09/2026
+Edu: "Shi si muove in una P e questo fa perdere la propria squadra PERO' Yong sta messa peggio
+perche' You e' untimely e doppiamente clashata. Di fatto e' completamente eliminata. Quindi S
+vince perche' il nemico sta molto peggio."
+Lo Shi G 巳 va in 辰, che nel palazzo 兌 e' P: la sua squadra perderebbe. Ma la Ying 酉 e' fuori
+stagione e clashata da due rami della data (giorno e mese 卯): eliminata. Vince chi ha il nemico
+messo peggio: lo Shi -> sede bassa -> SHORT (+250).
+CABLATO `T0k il nemico sta peggio` (MLNEMICOPEGGIO): la sede che si muove in un P/B perderebbe,
+ma se l'altra sede e' eliminata (fuori stagione, clashata da due o piu' rami della data, senza la
+protezione del mese) vince comunque la sede che si muove. Viene subito dopo il rifiuto della
+combinazione sulla sede rotta.
+MISURA: 2716 carte 51,95% +9.476 · recente 53,39% (prima 51,91% +9.354). Gradino: 11 carte
+63,64% +355. Carte di riferimento 38/38, questa ora per la via di Edu.
+
+**Carta letta da Claude col metodo · EURJPY 31/10/2023 seme 158 · `DA VALIDARE`** · S46
+Peggiore rimasta di "si muove per combinarsi con una sede". Motore SHORT, mercato LONG +213.
+Palazzo 離 (Fuoco), 離 sopra 坎 (未濟 64), mese 壬戌, giorno 壬戌, anno 癸卯, ora 辛丑, vuoti 子 丑.
+Pilastri -> bestie (giorno 壬: 玄武 L1, 青龍 L2, 朱雀 L3, 勾陳 L4, 螣蛇 L5, 白虎 L6): mese 壬 e giorno
+壬 -> 玄武 su L1; anno 癸 -> 玄武 su L1; ora 辛 -> 白虎 su L6 (la Ying).
+Scheda (incompatibili per prime): L3, lo Shi, 午 in 坎: incompatibile (ponte di Legno: 卯
+dell'anno, uno solo) -> si muove; un solo ramo lo combina? 午 combina 未, non nella data -> parte.
+Futuro comune (L2 + L3): 坎 -> 兌: L2 辰 -> 午, L3 午 -> 申.
+L6 Ying B 巳, Fuoco 死 nel mese 戌 (fuori stagione); sopra l'ora 辛丑: 丑 Terra, il Fuoco la
+genera -> la drena, bestia sola, linea non timely -> la PRENDE: la Ying diventa 丑 Terra, C nel
+palazzo... 丑 e' VUOTO ma con la bestia non e' vuoto? La bestia stessa e' vuota (丑 in 旬空):
+"una bestia col ramo vuoto non prende possesso" (Edu, S45) -> NON la prende. La Ying resta B 巳.
+L5 C 未, niente. L4 W 酉 di stagione, niente. L3 Shi B 午 incompatibile, nascosto G 亥, verso 申
+(申 combina 巳 della Ying). L2 C 辰 mobile, verso 午 (= il ramo dello Shi!): scalino sullo Shi —
+ma lo Shi se ne sta andando (incompatibile) -> lo scalino non gli porta niente. L1 P 寅, sopra
+mese, giorno e anno (戌 戌 卯: 卯戌合, nessuna guerra; tre bestie: 戌 Terra e' controllata dal
+Legno della linea... il Legno controlla la Terra: la linea le domina; 卯 Legno la aiuta).
+Lettura normale, linee che si muovono:
+ - L2 C 辰 va in 午 = ramo dello Shi: effetto scala: lo Shi parte proprio da 午 -> il movimento
+   prosegue lungo lo Shi fino al suo arrivo 申, Metallo = W in 離 -> l'intero movimento finisce
+   su W -> la squadra bassa vince? (scala: parla l'arrivo finale sulla sede della mobile L2:
+   W -> vince) -> SHORT. [via del motore: diversa ma stessa direzione]
+ - Lo Shi B 午 va in 申 e 巳申合 con la Ying: le porta il B -> la Ying perde -> SHORT. La bestia
+   su L3 intralcia? Nessuna bestia su L3. -> SHORT.
+Contro: la Ying B 巳 e' fuori stagione, la bestia dell'ora (vuota) non la prende. Il B che le
+arriva la fa perdere... eppure il mercato e' LONG (+213).
+Altri motivi: (c) l'arrivo dello Shi 申 e' Metallo W di stagione: lo Shi DIVENTA W (si
+trasforma: incompatibile che si muove e si trasforma) -> il W sullo Shi fa vincere la sede bassa
+-> SHORT. (d) L2 C 辰 -> 午 Fuoco: B in 離; l'arrivo 午 e' anche il ramo dello Shi... (e) Nascosto
+G 亥 sotto lo Shi: 亥 clasha 巳 della Ying; l'anno 卯 forma 亥卯 mezzo trigono...
+Conclusione di Claude: SHORT, da tre vie. Il mercato dice LONG e non trovo che cosa lo smentisca.
+DOMANDA PER EDU: che cosa fa vincere l'alto qui?
+CORREZIONE DI EDU (14/09/2026) sulla scheda di EURJPY 31/10/2023: "La bestia non e' mai vuota e
+qui prende possesso quindi Y diventa Chou." Errore di Claude: aveva ripescato la nota di S45 ("una
+bestia col ramo vuoto non prende"), gia' superata dalla regola di Edu del 09/09 ("una bestia che
+arriva non e' mai vuota"), che il motore applica. La Ying B 巳 e' presa dall'ora 辛丑 e diventa
+丑 Terra, di stagione nel mese 戌 (C nel palazzo 離).
+
+**LETTURA DI EDU su EURJPY 31/10/2023 (seme 158) — `CONFERMATA DA EDU`** · 14/09/2026, S46
+Edu: "Ti avevo detto di mettere le bestie DOPO i movimenti delle linee. Facciamo ordine: prima
+L3 si muove per combinarsi con Y, porta un loser B su Y. Poi interviene la bestia e sostituisce
+la untimely B su Y con Chou che e' C che vince."
+ORDINE: 1) lo Shi B 午 (incompatibile) va in 申 e 巳申合 con la Ying: le porta un B perdente
+(SHORT). 2) Poi la bestia: l'ora 辛丑 prende la Ying (untimely) e sostituisce il B 巳 con 丑,
+Terra di stagione, C nel palazzo 離 -> la Ying vince -> LONG (+213).
+CABLATO `T0k la bestia sostituisce il perdente sulla sede` (MLBESTIASOSTSEDE): dopo la
+combinazione che porta un P/B su una sede, se quella sede e' presa da una bestia il cui carattere
+non e' un perdente, la sede vince. Se ANCHE l'altra sede e' presa, da li' e' solo Shi contro Ying
+(EURJPY 10/02/2026, carta di Edu: senza questo si rompeva) -> `T0k le due sedi prese`.
+MISURA: 2716 carte 52,36% +11.575 · recente 53,60% (prima 51,95% +9.476). Gradini: sostituzione
+25 carte 68,00% +969; due sedi prese 5 carte 80%. Carte di riferimento 39/39.
+
+**Carta letta da Claude col metodo · USDCAD 17/03/2020 seme 140 · `DA VALIDARE`** · S46
+Peggiore rimasta di "si muove per combinarsi con una sede" (290 carte). Motore SHORT, mercato
+LONG +195. Palazzo 巽 (Legno), 乾 sopra 震 (無妄 25), mese 丁卯, giorno 己未, anno 庚子, ora 辛未,
+vuoti 子 丑.
+Pilastri -> bestie (giorno 己: 螣蛇 L1, 勾陳 L2? no — con 己 si parte da 螣蛇: L1 螣蛇, L2 白虎,
+L3 玄武, L4 青龍, L5 朱雀, L6 勾陳): mese 丁 -> 朱雀 su L5; giorno 己 -> 螣蛇 su L1 (la Ying);
+anno 庚 e ora 辛 -> 白虎 su L2.
+Scheda (incompatibili per prime): nessuna delle sei coppie (子 sta in 震, 午 in 乾).
+L1 Ying P 子 mobile, VUOTA, ramo dell'anno (Tai Sui), verso 未; il giorno 未 e' anche l'arrivo
+(autocombinazione... il giorno siede sull'arrivo: 未未 autopenalita' -> l'arrivo non agisce?) e
+il giorno 己未 cade sulla Ying con la bestia: 未 Terra controlla l'Acqua, bestia sola, la linea 子
+Acqua nel mese 卯 e' 休 (non timely) -> la PRENDE -> la Ying diventa 未 Terra = W in 巽. E cio'
+che si muove non e' vuoto.
+L4 Shi C 午, di stagione (Fuoco 相 in 卯), nessuna bestia. L2 B 寅, di stagione, anno 庚子 e ora
+辛未 sopra (子未 non si combattono; 子 Acqua genera il Legno: aiuta; 未 Terra e' controllata:
+non agisce). L5 G 申, mese 丁卯 sopra (卯 Legno controllato dal Metallo... il Metallo controlla il
+Legno: la linea domina la bestia, ma e' il mese -> lo prende? "al mese non ci si oppone" ->
+L5 diventa 卯 Legno = B). L3 W 辰, L6 W 戌: niente.
+Lettura normale: la Ying P 子 va in 未 e 午未合 con lo Shi 午: porta il P (il carattere che ha
+addosso PRIMA delle bestie) -> lo Shi perde -> LONG (+195)! Ma il motore porta il carattere
+DOPO le bestie (B? no: la Ying presa dal giorno 未 e' W... il motore dice B: da 子 -> 未? W).
+VERIFICA nel motore: dice "porta il carattere che ha addosso, B" — 未 in 巽 e' W (Terra e'
+妻財 nel palazzo Legno). Da controllare.
+Poi la bestia: il giorno 己未 prende la Ying e la sostituisce con 未 (W): lo Shi, che aveva
+ricevuto un P perdente... qui la sede che riceve e' lo SHI, non la Ying; la Ying e' la linea che
+porta. Lo Shi non e' preso da nessuna bestia.
+Conclusione: LONG per la lettura normale (la Ying porta il P allo Shi, lo Shi perde). Il motore
+porta il carattere dopo la presa: qui il possesso della bestia sulla linea che PORTA cambia la
+direzione. Sulla carta di Edu (USDJPY 09/02/2026) la presa sullo Shi mobile portava 午 B alla
+Ying — ma li' Edu poi ha detto che S non si muove affatto (due 寅). Quindi "carattere dopo le
+bestie" nella combinazione non ha piu' una carta di Edu che lo sostenga.
+DOMANDA PER EDU: nella combinazione con una sede si porta il carattere di PARTENZA (P 子) o quello
+dopo la presa della bestia (未)?
+
+**CORREZIONE DI EDU su USDCAD 17/03/2020 (seme 140) — `CONFERMATA DA EDU`, in conflitto** · 14/09/2026
+Edu: "Non puo' portare su una linea gia' combinata." Lo Shi 午 e' gia' combinato dal giorno 未
+(午未合): la Ying che arriva in 未 non gli porta niente.
+CABLATO (MLCOMBLEGATA): la sede gia' combinata da un ramo della data non riceve la combinazione.
+CONFLITTO trovato misurando: USDJPY 05/12/2022 (letta da Edu: "Shi W si muove per combinarsi
+con Y, porta W su Ying che vince") ha la STESSA struttura — la Ying 酉 e' gia' combinata dal
+giorno 辰, e lo Shi arriva proprio in 辰. Con la regola nuova quella carta si rompe (va al
+possesso del giorno e dice SHORT). Differenze fra le due carte: su USDCAD 17/03/2020 la linea che
+porta (la Ying 子) e' VUOTA ed e' presa dalla bestia del giorno che le cade sopra; su USDJPY
+05/12/2022 la linea che porta (lo Shi 午) non ha bestie sopra e la Ying che riceve ha due bestie
+che la aiutano. Da chiarire con Edu.
+TEST DI EDU (dal basso alla sede in alto = LONG?): 224 carte, LONG 47,3% -> non e' una regola
+generale; nessun sotto-insieme regge (sede che parte 49,4%, non sede 46%, mobile 41%, ferma
+incompatibile 49%). Dall'alto alla sede bassa: 66 carte, LONG 53%; solo la sede che parte
+dall'alto fa 63% su 19 carte.
+MISURA con MLCOMBLEGATA: 2716 carte 52,43% +12.226 · recente 53,88% (prima 52,36% +11.575);
+gradino 192 carte 51,56%. Col carattere di PARTENZA nella combinazione (MLCOMBPAR=partenza):
+52,36% +12.467, recente 54,03%. Carte di riferimento 38/40 (rotte USDJPY 05/12/2022 e USDCAD
+17/03/2020 stessa, che ora va al possesso del giorno e dice SHORT).
+
+**LETTURA DI EDU su USDCAD 17/03/2020 (seme 140) — `CONFERMATA DA EDU`** · 14/09/2026, S46
+Edu: "In effetti hai ragione su un punto, la bestia mese Ji Mao penalizza la prima linea che non si
+muove proprio."
+ERRORE DI CLAUDE nella scheda: il mese era scritto 丁卯; nell'anno 庚子 il mese di 卯 e' 己卯. Con
+giorno 己 il Serpente sta su L1: il mese 己卯 cade sulla Ying 子 e la PENALIZZA (子卯刑): la linea
+non si muove proprio. Chi riceve la penalita' non fa vincere la propria squadra -> la sede bassa
+perde -> LONG (+195).
+CABLATO: nell'azione delle bestie, un pilastro il cui ramo penalizza (刑, con la regola del 寅 per
+巳申, e le autopenalita' 辰午酉亥) il ramo della linea la penalizza (non la prende, non la
+sveglia). `T0j la bestia penalizza la sede` (MLBESTIAPEN): la mobile che e' una sede, penalizzata
+da una bestia, non si muove e la sua squadra perde. Messa prima dell'effetto scala.
+MISURA: 2713 carte 52,67% +12.739 · recente 54,10% (prima 52,43% +12.226). Gradino 38 carte
+55,26%. Carte di riferimento 39/40: resta rotta USDJPY 05/12/2022 dalla regola "non puo' portare
+su una linea gia' combinata" (che senza quella regola tornerebbe: MLCOMBLEGATA=off da' 52,45%,
+cioe' la regola vale +0,22 sul mazzo ma rompe quella carta). Da chiarire con Edu.
+
+**LETTURA DI EDU su USDJPY 05/12/2022 (seme 134), RIVISTA — `CONFERMATA DA EDU`** · 14/09/2026
+Edu: "Hai ragione, L3 non puo' portare W su Y non solo perche' Y e' gia' combinata ma anche
+perche' il giorno penalizza l'arrivo di Shi. La penalita' si riflette sulla sede Shi che non puo'
+vincere."
+La lettura dell'11/09 ("porta W su Ying che vince") e' superata: lo Shi 午 va in 辰, il giorno
+壬辰 lo penalizza (辰辰 autopenalita') -> lo Shi non puo' vincere -> LONG (+227). Cosi' la regola
+"non puo' portare su una linea gia' combinata" (USDCAD 17/03/2020) resta senza conflitto.
+CABLATO `T0i la data penalizza l'arrivo della sede` (MLPENARRIVO): una sede che si muove (mobile
+o ferma incompatibile) il cui arrivo e' penalizzato dal GIORNO non puo' vincere: vince l'altra.
+Prima dell'effetto scala. Perimetro: il giorno — con tutti i rami della data (MLPENARRIVO=data)
+si rompeva EURJPY 11/07/2024 (carta di Edu: l'anno 辰 penalizza l'arrivo dello Shi, ma Edu legge
+il confronto con la Ying presa dalle bestie), e il gradino era 429 carte 50,82%.
+MISURA: 2713 carte 52,45% +11.734 · recente 54,10% (prima 52,67% +12.739). Gradino 153 carte
+49,67% -212. Carte di riferimento 40/40, tutte per la via di Edu.
+
+**Carta letta da Claude col metodo · USDJPY 06/09/2022 seme 140 · `DA VALIDARE`** · S46
+Peggiore di "T0i la data penalizza l'arrivo della sede" (153 carte al 49,67%). Motore SHORT,
+mercato LONG +234. Palazzo 巽 (Legno), 乾 sopra 震 (無妄 25), mese 戊申, giorno 壬戌, anno 壬寅,
+ora 丁未, vuoti 子 丑.
+Pilastri -> bestie (giorno 壬: 玄武 L1, 青龍 L2, 朱雀 L3, 勾陳 L4, 螣蛇 L5, 白虎 L6): mese 戊 -> 勾陳
+su L4 (lo Shi); giorno 壬 e anno 壬 -> 玄武 su L1 (la Ying); ora 丁 -> 朱雀 su L3.
+Scheda (incompatibili per prime): nessuna delle sei coppie.
+L4 Shi C 午 mobile, Fuoco 死 nel mese 申 (fuori stagione), verso 未 (未 e' anche il ramo dell'ora);
+il giorno 戌 penalizza l'arrivo 未 (戌未刑) -> per la regola di USDJPY 05/12/2022 lo Shi non puo'
+vincere -> LONG. [e' il contrario di quello che dice il motore!]
+Sopra lo Shi cade il mese 戊申: 申 Metallo controllato dal Fuoco della linea, ma al mese non ci si
+oppone -> lo prende -> lo Shi diventa 申 Metallo (G in 巽), di stagione.
+L1 Ying P 子 VUOTA: giorno 壬戌 (Terra controlla l'Acqua -> la prende; e con la bestia non e'
+vuota) e anno 壬寅 (il Legno e' generato dall'Acqua -> drena -> prende): due bestie, 戌寅 non si
+combattono, tutte e due la indeboliscono -> nessuna la aiuta -> catena: 子 -> 寅 (generazione).
+L3 W 辰: il giorno 戌 la clasha (di stagione: la Terra in 申 e' 休... la Terra e' timely nei
+mesi di Terra e nell'estate; in 申 no) -> si rompe? ma l'ora 丁未 le cade sopra (未 Terra: carica).
+L6 W 戌 ramo del giorno. L5 G 申 ramo del mese, di stagione. L2 B 寅 ramo dell'anno.
+ERRORE DEL MOTORE: il gradino T0i dice "la sede penalizzata NON puo' vincere" e su questa carta
+conclude SHORT — cioe' fa vincere la sede bassa (lo Shi L4 e' in ALTO! Shi=L4, sede alta).
+Verifica: sede(4) = LONG, opposto = SHORT: il motore ha fatto perdere lo Shi (alto) -> SHORT.
+Giusto per la regola: lo Shi penalizzato non vince -> vince la Ying (basso) -> SHORT. Ma il
+mercato e' LONG (+234).
+Motivi raccolti per LONG: (a) lo Shi preso dal mese diventa G 申 di stagione: contro la Ying 子
+presa da due bestie che la indeboliscono, il Metallo dello Shi genera l'Acqua della Ying... (b)
+la Ying e' presa da due bestie che la rendono 寅 Legno: 寅 e' sul ramo dell'anno; lo Shi 申
+Metallo controlla il Legno -> vince lo Shi -> LONG. (c) L3 svegliata dal giorno con l'ora sopra.
+Il nodo: con lo Shi penalizzato all'arrivo (USDJPY 05/12/2022: "non puo' vincere") ma PRESO dal
+mese (che lo trasforma in 申 di stagione): quale viene prima? Su 05/12/2022 sullo Shi non cadeva
+nessuna bestia.
+DOMANDA PER EDU: la bestia del mese che prende lo Shi e lo trasforma cancella la penalita' del
+giorno sul suo arrivo?
+
+**LETTURA DI EDU su USDJPY 06/09/2022 (seme 140) — `CONFERMATA DA EDU`** · 14/09/2026, S46
+Edu: "Y non puo' vincere perche' e' vuoto."
+Lo Shi penalizzato all'arrivo non puo' vincere; ma la Ying 子 e' VUOTA: le due bestie che le
+cadono sopra (giorno 戌 e anno 寅) la indeboliscono tutte e due, quindi nessuna agisce e nessuna
+le toglie il vuoto. Nemmeno lei puo' vincere: prevale lo Shi -> LONG (+234).
+CABLATO: (1) con piu' bestie sulla stessa linea, se nessuna la aiuta nessuna agisce, e il vuoto
+resta (estende la regola dell'11/09 "collaborano solo quelle che aiutano"); (2) `T0i la sede
+penalizzata contro la vuota` (MLPENVUOTA): se l'altra sede e' vuota, vince la sede penalizzata.
+MISURA: 2713 carte 52,41% +12.143 · recente 53,88% (prima 52,45% +11.734). Gradini: T0i 137
+carte 48,91%; penalizzata contro vuota 16 carte 43,75% +162. Carte di riferimento 41/41.
+Regola di Edu: si tiene anche se il gradino misura male.
+PRECISAZIONE DI EDU (14/09/2026): "Se nessuno vince, alla fine vince la piu' forte che nel nostro
+caso e' L5 Shen. E' molto vibrante ed e' citata dal clash con l'anno."
+Quando nessuna delle due sedi puo' vincere (una penalizzata, l'altra vuota), decide la linea
+PIU' FORTE della carta: L5 G 申, di stagione, sul ramo del mese, citata dal clash con l'anno 寅
+-> vince la sua squadra (alta) -> LONG. Sostituisce "prevale la penalizzata" (MLPENVUOTA=
+penalizzata per quella versione). Punteggio di forza: stagione + 2 se sul ramo del mese + 1 se
+sul ramo del giorno + 1 per ogni ramo della data che la clasha; vuote e annullate escluse; con
+due pari, nessuna decisione.
+MISURA: 2713 carte 52,56% +12.378 · recente 54,03% (prima 52,41% +12.143). Gradino "nessuno
+vince: la piu' forte" 15 carte 66,67% +341. Carte di riferimento 41/41.
+
+**Carta letta da Claude col metodo · USDJPY 02/08/2022 seme 131 · `DA VALIDARE`** · S46
+Prima carta del gradino "la data penalizza l'arrivo della sede" (138 carte al 49,3%). Motore
+SHORT, mercato LONG +181. Palazzo 坎 (Acqua), 坤 sopra 離 (明夷 36) — stesso esagramma di USDJPY
+12/01/2023, la carta del trigono nel trigramma. Mese 丁未, giorno 丁亥, anno 壬寅, ora 庚戌,
+vuoti 午 未.
+Pilastri -> bestie (giorno 丁: 朱雀 L1, 勾陳 L2, 螣蛇 L3, 白虎 L4, 玄武 L5, 青龍 L6): mese 丁 e
+giorno 丁 -> 朱雀 su L1 (la Ying); anno 壬 -> 玄武 su L5 (la mobile); ora 庚 -> 白虎 su L4 (lo Shi).
+Scheda (incompatibili per prime): L4, lo Shi, 丑 in 坤: incompatibile (senza ponte); nessun ramo
+della data lo combina due volte (子 non c'e') -> si muove. Futuro comune (L4 + L5): 坤 -> 兌:
+L5 亥 -> 酉, L4 丑 -> 亥.
+L5 B 亥 mobile, ramo del giorno (caricata), fuori stagione (Acqua 囚 in 未), verso 酉; sopra
+l'anno 壬寅: 寅 Legno, l'Acqua lo genera -> la drena -> bestia sola, linea non timely -> la
+prende -> L5 diventa 寅 Legno = C in 坎. L4 Shi G 丑, di stagione (Terra in 未), verso 亥; il
+giorno 亥 e' ANCHE il suo arrivo: 亥亥 autopenalita' -> l'arrivo e' penalizzato dal giorno;
+sopra l'ora 庚戌: 戌 Terra su Terra, la carica (e 丑戌 e' penalita'! 戌 penalizza 丑 -> la bestia
+dell'ora PENALIZZA lo Shi). L1 Ying C 卯, Legno 休 in 未; sopra mese 丁未 e giorno 丁亥 (亥卯未
+trigono di Legno con la linea stessa! le due bestie con la Ying chiudono 亥卯未): 未 Terra e'
+controllata dal Legno (non aiuta), 亥 Acqua genera il Legno (aiuta) -> agisce 亥 -> la Ying
+resta Legno, nutrita. L3 B 亥 ramo del giorno, nascosto W 午 vuoto. L2 G 丑. L6 P 酉.
+Lettura normale, linee che si muovono:
+ - Lo Shi 丑 -> 亥: il giorno 亥 penalizza l'arrivo (亥亥) -> lo Shi non puo' vincere (USDJPY
+   05/12/2022) -> vince la Ying -> sede bassa -> SHORT. [via del motore]
+ - La Ying L1 卯 non e' vuota; e' nutrita dalla bestia 亥 e chiude 亥卯未 di Legno con le sue due
+   bestie: la Ying e' fortissima. -> conferma SHORT.
+ - L5 B 亥 -> 酉: 酉 combina 辰? no; l'arrivo 酉 e' Metallo P; presa dall'anno diventa 寅 C.
+Contro (LONG): (c) trigono nel trigramma alto? 酉 (arrivo L5) + 亥 (L5/L3... nell'alto: L6 酉, L5
+亥->酉, L4 丑->亥): rami dell'alto con arrivi: 酉 亥 酉 丑 亥 -> 巳酉丑 manca 巳 -> no. (d) l'ora 庚戌
+sullo Shi lo PENALIZZA (戌 penalizza 丑): bestia che penalizza la sede -> la sua squadra perde ->
+sede alta perde -> SHORT (ancora). (e) Lo Shi si muove in 亥 = il ramo di L3 e L5 (scalino su
+L3 B 亥, ferma): la sede raggiunge una linea e ne prende il carattere B -> perde -> SHORT.
+Tutto dice SHORT. Il mercato e' LONG (+181). Non trovo che cosa lo smentisca.
+UNICA cosa dalla parte dell'alto: lo Shi 丑 e' di stagione e caricato dall'ora 戌 (Terra su
+Terra), e nel confronto diretto la Terra controlla l'Acqua... no, la Ying e' Legno: il Legno
+controlla la Terra -> vince la Ying.
+DOMANDA PER EDU: che cosa fa vincere l'alto qui?
+
+**LETTURA DI EDU su USDJPY 02/08/2022 (seme 131) — `CONFERMATA DA EDU`** · 14/09/2026, S46
+Edu: "S raggiunge you. Y e' mao. Long."
+Lo Shi 丑 (incompatibile) si muove in 亥, il ramo da cui parte la mobile L5: per l'effetto scala
+prosegue lungo di lei fino a 酉 e diventa 酉 Metallo. Contro la Ying 卯 Legno: il Metallo
+controlla il Legno -> vince lo Shi -> sede alta -> LONG (+181). La penalita' del giorno sul
+primo gradino (亥亥) non conta: lo Shi non si ferma li'.
+Claude non l'aveva vista perche' aveva fermato lo Shi al primo gradino (亥) invece di seguire la
+scala fino in fondo — lo stesso gesto gia' letto da Edu su EURJPY 06/02/2025.
+CABLATO `T0h la sede sale la scala` (MLSCALASEDE2), prima della penalita' sull'arrivo: una sede
+che si muove e arriva sul ramo di PARTENZA di un'altra linea in movimento prosegue fino
+all'arrivo di quella e lo diventa; poi confronto con l'altra sede. Senza bisogno di bestie.
+MISURA: 2713 carte 52,56% +12.775 · recente 54,03% (prima 52,56% +12.378). Gradino T0h: 150 carte
+56,67% +1.971; T0i scende da 138 carte 49,3% a 110 carte 49,1%. Carte di riferimento 42/42.
+
+**Carta letta da Claude col metodo · GBPUSD 09/03/2026 seme 133 · `DA VALIDARE`** · S46
+Seconda carta del gradino "la data penalizza l'arrivo della sede" (110 carte). Motore SHORT,
+mercato LONG +137. Palazzo 震 (Legno), 坤 sopra 巽 (升 46), mese 辛卯, giorno 壬午, anno 丙午,
+ora 庚子, vuoti 申 酉.
+Pilastri -> bestie (giorno 壬: 玄武 L1, 青龍 L2, 朱雀 L3, 勾陳 L4, 螣蛇 L5, 白虎 L6): mese 辛 e ora
+庚 -> 白虎 su L6; giorno 壬 -> 玄武 su L1 (la Ying); anno 丙 -> 朱雀 su L3.
+Scheda (incompatibili per prime): L4, lo Shi, 丑 in 坤: incompatibile, senza ponte, nessun ramo
+lo combina (子 dell'ora combina 丑! un ramo solo -> si muove lo stesso). L2 亥 in 巽:
+incompatibile ma e' gia' la mobile. Futuro comune (L2 + L4): 巽 -> 坎? il motore: L2 亥 -> 午,
+L4 丑 -> 午.
+L2 P 亥 mobile, Acqua 休 nel mese 卯, verso 午 (vuoti 申酉: no); l'arrivo 午 e' il ramo del giorno
+e dell'anno: doppio 午 -> l'arrivo e' penalizzato (午午 autopen.) e caricato; nessuna bestia su L2.
+Nascosto B 寅 (di stagione). L4 Shi W 丑 (Terra 死 in 卯), incompatibile, verso 午; l'ora 子 lo
+combina (una volta: si muove); l'arrivo 午 e' penalizzato dal giorno (午午) -> per la regola lo
+Shi non puo' vincere -> SHORT [via del motore]. Nascosto C 午. L6 G 酉 vuota: mese 卯 e ora 子
+sopra, 子卯 penalita' -> guerra fra titani, annullata. L3 G 酉 vuota, anno 丙午 sopra (Fuoco
+controlla il Metallo, bestia sola, linea morta -> la prende -> 午 Fuoco = C; e non piu' vuota).
+L5 P 亥. L1 Ying W 丑, giorno 壬午 sopra: 午 Fuoco genera la Terra -> la NUTRE (non la prende);
+l'ora 子 la combina (子丑合) -> legata? una ferma combinata dal ramo dell'ora: tenuta.
+Lettura normale, linee che si muovono:
+ - Lo Shi 丑 -> 午 = arrivo anche della mobile L2 (stesso arrivo): i due movimenti finiscono
+   nello stesso 午, ramo del giorno e dell'anno. Lo Shi diventa 午 Fuoco = C in 震. La mobile
+   P 亥 diventa 午 C. Due C: tacciono?
+ - Effetto scala: L2 parte da 亥 e lo Shi arriva in 午: nessuno arriva sul ramo di partenza
+   dell'altro -> niente scala.
+ - Il giorno penalizza l'arrivo dello Shi (午午): lo Shi non puo' vincere -> vince la Ying ->
+   SHORT. MA anche la mobile L2 arriva in 午 penalizzato... L2 non e' una sede.
+Contro (LONG): (c) la Ying W 丑 e' combinata dall'ora 子 (legata) e nutrita dal giorno 午: una
+sede legata non puo' vincere? (d) Lo Shi W 丑 sale... no. (e) L'arrivo 午 e' sul ramo dell'anno
+E del giorno: doppiamente "citato": lo Shi che diventa 午 e' fortissimo (di stagione? Fuoco 相 in
+卯: SI', di stagione) -> nel confronto Fuoco dello Shi genera la Terra della Ying -> Ying
+nutrita -> SHORT ancora. (f) Se "nessuno vince" (Shi penalizzato, Ying legata dall'ora): la piu'
+forte... L5 P 亥? L1 stessa? Il nascosto 寅 B sotto L2, di stagione.
+Conclusione: SHORT da tutte le vie che conosco; mercato LONG (+137).
+DOMANDA PER EDU: che cosa fa vincere l'alto?
+
+**LETTURA DI EDU su GBPUSD 09/03/2026 (seme 133) — `CONFERMATA DA EDU`, cablata a meta'** · 14/09/2026
+Edu: "L6 clashata dalla bestia del mese muove per generare indietro. Long. L2 e L4 sono
+bloccate dall'autopenalita' di Wu."
+CABLATO (MLPENBLOCCA): quando piu' linee arrivano sullo stesso ramo penalizzato dal giorno
+(qui L2 e L4 in 午, 午午), il movimento e' bloccato per tutte: annullate, non muovono. (Prima la
+regola diceva "la sede non puo' vincere": questo vale quando e' UNA sola sede ad arrivarci.)
+Il motore ora TACE su questa carta: per chiudere manca la parte di L6.
+DUE PUNTI DA CHIARIRE prima di cablare L6:
+1. Su L6 cadono il mese 辛卯 e l'ora 庚子 (stesso posto: la Tigre), e 子卯 e' una penalita' ->
+   per la regola cablata (guerra fra titani) L6 sarebbe annullata. Edu invece la fa svegliare
+   dal clash del mese 卯 su 酉. Quindi la guerra non c'e' quando... ? (le due bestie non si
+   combattono fra loro perche' una CLASHA la linea?)
+2. "muove per generare indietro": L6 酉 in 坤 che si muove va in 寅 (艮). Che cosa genera
+   indietro: il 酉 Metallo che genera il 亥 di L5 sotto di lei, oppure l'arrivo 寅 nutrito dal 亥
+   di L5? E perche' da' LONG: perche' e' un G in alto che si muove?
+MISURA: 2708 carte 52,58% +12.889 · recente 53,97%. Carte di riferimento 42/42.
+
+**LETTURA DI EDU su GBPUSD 09/03/2026 (seme 133), COMPLETATA — `CONFERMATA DA EDU`** · 14/09/2026
+Edu: "Due bestie si accordano se possibile per far vincere la propria linea protetta. L6 酉 che
+si muove non va in 寅: va su 戌, che genera indietro. Questa e' una linea ferma quindi quando
+clashata non cambia da yin a yang o viceversa."
+Due cose nuove:
+1. LE BESTIE SI ACCORDANO (MLGUERRASVEGLIA): su L6 cadono mese 卯 e ora 子 (子卯 penalita'), ma
+   il 卯 clasha la linea e la sveglia: le bestie si accordano per farla vincere, nessuna guerra
+   fra titani. Perimetro cablato: una delle due bestie clasha la linea.
+2. LA FERMA SVEGLIATA AVANZA (MLSVEGLIAAVANZA): la ferma clashata da una bestia non cambia
+   polarita' (non e' l'esagramma futuro a darle l'arrivo): avanza di un ramo, 酉 -> 戌. Se
+   l'arrivo genera la partenza (戌 Terra -> 酉 Metallo) la linea e' nutrita e parla col proprio
+   carattere: G in alto -> LONG (+137). Perimetro: G (la W: MLSVEGLIAAVANZA=gw, misura peggio).
+MISURA: 2713 carte 52,60% +13.018 · recente 54,03% (prima 52,58% +12.889). Gradino T0m: 15
+carte 40,00%. Carte di riferimento 43/43.
+Regole di Edu: si tengono. Il gradino misura male: da guardare in seguito.
+
+**Carta letta da Claude col metodo · USDCAD 11/05/2023 seme 133 · `DA VALIDARE`** · S46
+Peggiore del gradino nuovo "la svegliata avanza generata indietro" (15 carte al 40%). Motore
+SHORT, mercato LONG +116. Stesso esagramma di GBPUSD 09/03/2026 (坤 sopra 巽, 升 46).
+Mese 丁巳, giorno 己巳, anno 癸卯, ora 甲子, vuoti 戌 亥.
+Pilastri -> bestie (giorno 己: 螣蛇 L1, 白虎 L2, 玄武 L3, 青龍 L4, 朱雀 L5, 勾陳 L6): anno 癸 -> 玄武
+su L3; ora 甲 -> 青龍 su L4 (lo Shi); mese 丁 -> 朱雀 su L5; giorno 己 -> 螣蛇 su L1 (la Ying).
+Scheda (incompatibili per prime): L4 Shi 丑 in 坤: incompatibile, nessun ramo lo combina due
+volte -> si muove. L2 亥 in 巽: incompatibile, ponte di Legno: 卯 dell'anno, uno -> si muove.
+Futuro comune (L1 + L2 + L4): 巽 -> 震? il motore: L1 丑 -> 卯, L2 亥 -> 丑, L4 丑 -> 午.
+L1 Ying W 丑 mobile, verso 卯 (ramo dell'anno); il giorno 己巳 le cade sopra: 巳 Fuoco genera la
+Terra -> la nutre. L4 Shi W 丑, verso 午 (= il nascosto dello Shi stesso, C 午); l'ora 甲子 cade
+sopra: 子丑合 -> la bestia dell'ora COMBINA lo Shi -> lo tiene? (bestia che combina la linea:
+regola?) L2 P 亥 VUOTA, verso 丑 (= ramo di L1 e L4: scalino), nessuna bestia (ma vuota, e cio'
+che si muove non e' vuoto). L3 G 酉: l'anno 癸卯 la clasha -> si sveglia, avanza in 戌 (VUOTO!),
+戌 Terra genera 酉 -> nutrita -> parla il G in basso -> SHORT [via del motore].
+L5 P 亥 vuota, mese 丁巳 sopra: il Fuoco e' controllato dall'Acqua... 亥 e' 休 in 巳 -> il mese la
+prende (al mese non ci si oppone) -> 巳 Fuoco = C. L6 G 酉, niente.
+Confronto con GBPUSD 09/03/2026 (stesso esagramma, letta da Edu): la' le altre linee erano
+BLOCCATE (autopenalita' 午午) e restava solo la G svegliata; qui invece L1, L2, L4 si muovono
+davvero. Quindi la G svegliata NON dovrebbe venire per prima: prima le linee che si muovono.
+Lettura normale, linee che si muovono: (a) L2 亥 -> 丑 = ramo dello Shi L4 e della Ying L1:
+scalino su una sede — su tutte e due? Lo Shi 丑 se ne va (incompatibile); la Ying 丑 e' la mobile
+e se ne va anche lei -> nessuna sede riceve lo scalino. (b) La Ying W 丑 va in 卯 (ramo dell'anno,
+Legno: G? 卯 in 震 = B): la W diventa B -> la sede bassa perde -> LONG. (c) Lo Shi W 丑 va in 午,
+il proprio nascosto C: la W diventa C (tace); ma l'ora 子 lo combina. (d) Lo Shi W 丑 -> 午 e' il
+ramo del ... 午 non e' nella data.
+Conclusione: LONG per (b) — la Ying W che si trasforma in B (卯 e' B nel palazzo 震) fa perdere
+la propria squadra. La G svegliata di L3 avanza in 戌 VUOTO: forse per questo non conta.
+DA CHIEDERE A EDU: 1) la G svegliata che avanza in un ramo VUOTO (戌) e' nutrita lo stesso?
+2) l'ordine: la ferma svegliata viene dopo le linee che si muovono davvero?
+
+**LETTURA DI EDU su USDCAD 11/05/2023 (seme 133) — `CONFERMATA DA EDU`** · 14/09/2026, S46
+Edu: "Perche' e' difficile questa? Shi muove per generare indietro e vince. Non c'e' bisogno di
+usare la bestia. Te lo ripeto di nuovo: le bestie sono li' PER AIUTARE LA PROPRIA LINEA A VINCERE!
+Se la sua linea gia' si muove e vince, la bestia non fa niente che possa alterare il risultato."
+Lo Shi W 丑 (incompatibile) si muove in 午: il Fuoco genera la Terra, lo Shi e' nutrito dal
+proprio arrivo, resta se' stesso e parla il suo W -> la sede alta vince -> LONG (+116).
+PRINCIPIO (da tenere davanti): le bestie aiutano la propria linea a vincere; se la linea gia' si
+muove e vince, la bestia non cambia niente. Prima il movimento, sempre.
+CABLATO `T0g2 la sede generata indietro` (MLGENINDIETRO), prima della ferma svegliata e prima
+di tutte le regole con le bestie: una sede che si muove (mobile o ferma incompatibile) il cui
+arrivo genera la partenza e' nutrita, resta se' stessa e parla col proprio carattere (W/G vince,
+P/B perde — USDJPY 13/09/2022, carta di Edu: la Ying P 寅 nutrita dal 子 perde).
+MISURA: 2718 carte 52,58% +14.394 · recente 54,33% (prima 52,60% +13.018). Gradino T0g2: 260
+carte 55,38% +2.429. T0m scende a 11 carte. Carte di riferimento 44/44.
+
+**Carta letta da Claude col metodo · USDJPY 30/07/2024 seme 153 · `DA VALIDARE`** · S46
+Terza carta del gradino "la data penalizza l'arrivo della sede" (101 carte). Motore LONG,
+mercato SHORT +109. Palazzo 乾 (Metallo), 離 sopra 乾 (大有 14), mese 辛未, giorno 乙未, anno 甲辰,
+ora 甲申, vuoti 辰 巳.
+Pilastri -> bestie (giorno 乙: 青龍 L1, 朱雀 L2, 勾陳 L3, 螣蛇 L4, 白虎 L5, 玄武 L6): giorno 乙 e anno
+甲 e ora 甲 -> 青龍 su L1 (tre bestie); mese 辛 -> 白虎 su L5.
+Scheda (incompatibili per prime): L3 Shi 辰 in 乾: incompatibile, VUOTO, senza ponte; il ramo 辰
+dell'anno lo carica (Tai Sui) ma non lo combina -> si muove; cio' che si muove non e' vuoto.
+Futuro comune (L3 + L6): 乾 -> 兌 sotto, 離 -> 震 sopra: L3 辰 -> 丑, L6 巳 -> 戌.
+L6 Ying G 巳 mobile VUOTA (ma si muove -> non vuota), Fuoco di stagione (未: Fuoco 相), verso 戌;
+il giorno 未 e il mese 未 penalizzano 戌? 戌未 e' penalita': 未 penalizza 戌 -> l'arrivo della
+Ying e' penalizzato dal giorno (e dal mese) -> la Ying non puo' vincere?
+L3 Shi P 辰 verso 丑: il giorno 未 clasha 丑 (丑未冲) -> arrivo clashato: la linea resta attiva e
+non cambia -> P sullo Shi; e 未 penalizza 丑? no: 丑戌未 e' la penalita' a tre; 未 penalizza 丑 (未->丑
+nella tavola) -> arrivo penalizzato -> lo Shi non puo' vincere. [via del motore: SHORT? no, il
+motore dice LONG: fa perdere lo Shi (basso) -> LONG]. Ma anche la Ying ha l'arrivo penalizzato.
+L5 P 未, ramo del giorno e del mese, mese 辛未 sopra (stesso ramo: carica). L4 B 酉 di stagione?
+(Metallo in 未: 相? la Terra genera il Metallo: si'). L2 W 寅, ramo dell'ora? no, l'ora e' 申: 申
+clasha 寅 -> L2 svegliata dall'ora? (dalla data, non da una bestia). L1 C 子: tre bestie (giorno
+未 la controlla, anno 辰 la controlla, ora 申 la genera -> agisce 申 -> resta Acqua, aiutata).
+Lettura normale, linee che si muovono:
+ - Lo Shi P 辰 -> 丑: giorno 未 penalizza 丑 e lo clasha: doppio colpo sull'arrivo. Lo Shi non
+   puo' vincere -> LONG. [motore]
+ - La Ying G 巳 -> 戌: il giorno 未 penalizza 戌 (e il mese pure) -> la Ying non puo' vincere ->
+   SHORT.
+ TUTTE E DUE le sedi hanno l'arrivo penalizzato dal giorno. Nessuna vince -> "alla fine vince la
+ piu' forte" (Edu, USDJPY 06/09/2022): L5 P 未 sul ramo del giorno E del mese, di stagione,
+ caricata dal mese: la piu' forte, in ALTO -> l'alto vince -> LONG. Ma il mercato e' SHORT.
+ Oppure L4 B 酉 di stagione... o L1 C 子 con tre bestie (aiutata dall'ora): in basso -> SHORT.
+Conclusione di Claude: non chiusa. Il motore ha guardato solo lo Shi e ha ignorato che anche la
+Ying e' penalizzata. DA CHIEDERE A EDU: con tutte e due le sedi penalizzate all'arrivo dal
+giorno, chi decide? (la piu' forte: L5 未 in alto, o L1 子 con tre bestie in basso?)
+
+**LETTURA DI EDU su USDJPY 30/07/2024 (seme 153) — `CONFERMATA DA EDU`** · 14/09/2026, S46
+Edu: "Y: line moves into its own tomb. S: cannot retreat. Short."
+La Ying G 巳 Fuoco va in 戌, la tomba del Fuoco: si sotterra, la sua squadra perde -> SHORT
+(+109). Lo Shi 辰 -> 丑 retrocederebbe, ma il giorno 未 clasha 丑: non puo' retrocedere, resta
+dov'e' e non decide.
+CABLATO `T0f2 la sede nella propria tomba` (MLTOMBASEDE), prima della sede generata indietro:
+una sede che si muove (mobile o ferma incompatibile) il cui arrivo e' la tomba del proprio
+elemento perde. (Lo Shi che "non puo' retrocedere" qui non decide: non cablato a parte.)
+MISURA: 2718 carte 52,43% +13.988 · recente 54,12% (prima 52,58% +14.394). Gradino 58 carte
+46,55% -201. Carte di riferimento 45/45. Regola di Edu: si tiene.
+
+**Carta letta da Claude col metodo · GBPUSD 25/09/2024 seme 134 · `DA VALIDARE`** · S46
+Quarta carta del gradino "la data penalizza l'arrivo della sede" (82 carte). Motore LONG,
+mercato SHORT +104. STESSO ESAGRAMMA di USDJPY 05/12/2022 (坤 sopra 坎, 師 7). Mese 癸酉, giorno
+壬辰, anno 甲辰, ora 辛丑, vuoti 午 未.
+Pilastri -> bestie (giorno 壬: 玄武 L1, 青龍 L2, 朱雀 L3, 勾陳 L4, 螣蛇 L5, 白虎 L6): giorno 壬 e mese
+癸 -> 玄武 su L1 (la mobile); anno 甲 -> 青龍 su L2; ora 辛 -> 白虎 su L6 (la Ying).
+Scheda (incompatibili per prime): L3 Shi 午 in 坎: incompatibile, VUOTO, ponte di Legno: nessun
+Legno nella data -> si muove (non piu' vuoto) verso 辰. L4 丑 in 坤: incompatibile, ramo dell'ora
+(caricata), verso 午. Futuro comune (L1+L3+L4): L1 寅 -> 子, L3 午 -> 辰, L4 丑 -> 午.
+L3 Shi W 午 -> 辰: 辰 e' la tomba del Fuoco? No: la tomba del Fuoco e' 戌; 辰 e' la tomba
+dell'Acqua/Terra. Il giorno 辰 e l'anno 辰 penalizzano l'arrivo (辰辰) -> lo Shi non puo' vincere
+-> LONG [motore]. Ma: L3 -> 辰 = il ramo di L2 (G 辰, ferma, sul ramo del giorno e dell'anno,
+caricata due volte): SCALINO: lo Shi arriva su L2 e ne prende il carattere G? -> il G fa
+vincere la sede -> SHORT. Oppure: lo Shi 午 Fuoco genera 辰 Terra: lo Shi si scarica
+nell'arrivo? (il contrario di "generato indietro": drenato dall'arrivo).
+L4 G 丑 -> 午 = ramo dello Shi (che se ne va: niente scalino) e 午 e' VUOTO: arriva nel vuoto.
+L1 C 寅 mobile -> 子: 子 Acqua genera 寅: nutrita, resta C, tace; sopra giorno 壬辰 e mese 癸酉:
+辰 Terra e' controllata dal Legno, 酉 Metallo controlla il Legno -> 酉 la prende? due bestie,
+nessuna la aiuta -> nessuna agisce.
+L6 Ying P 酉, ramo del mese, di stagione; ora 辛丑 sopra (Terra genera Metallo: la nutre). L5 B
+亥 (酉亥: il Metallo la genera). L2 G 辰 ramo del giorno e dell'anno.
+Lettura normale: lo Shi W 午 -> 辰: (a) il giorno penalizza l'arrivo -> lo Shi non vince ->
+LONG. (b) Ma 辰 GENERA? 午 Fuoco genera 辰 Terra: la sede si muove per generare l'arrivo -> si
+scarica -> perde? (c) Scalino su L2 G 辰 ferma (sul ramo del giorno): lo Shi raggiunge L2 e ne
+prende il G -> la sede bassa vince -> SHORT. (d) La Ying P 酉 di stagione, sul ramo del mese,
+nutrita dall'ora: forte in alto, ma P -> la sua squadra perde -> SHORT.
+Sul gemello USDJPY 05/12/2022 (stessa struttura: Shi 午 -> 辰, giorno 辰) Edu ha detto "il giorno
+penalizza l'arrivo di Shi -> Shi non puo' vincere -> LONG". Qui il mercato e' SHORT. Differenze:
+li' la Ying 酉 aveva due bestie che la aiutavano ed era gia' combinata dal giorno 辰; qui la Ying
+酉 e' sul ramo del MESE (di stagione, fortissima) e ha l'ora 丑 che la nutre, e nessun ramo della
+data la combina (辰 combina 酉! il giorno 辰 la combina anche qui). Li' L4 丑 arrivava in 午 sullo
+Shi; qui uguale. La differenza vera: la Ying qui e' sul ramo del mese.
+DOMANDA PER EDU: due carte gemelle con esito opposto — che cosa cambia? La Ying sul ramo del
+mese (P fortissima che fa perdere la propria squadra)?
+
+**LETTURA DI EDU su GBPUSD 25/09/2024 (seme 134) — `CONFERMATA DA EDU`** · 14/09/2026, S46
+Edu: "L1 fa vincere la propria squadra."
+La mobile L1 C 寅 va in 子, che la genera indietro (Acqua -> Legno): nutrita, fa vincere la sua
+squadra -> sede bassa -> SHORT (+104). La C nutrita VINCE. Viene prima della penalita' del giorno
+sull'arrivo dello Shi; e il clash dell'arrivo di L4 (午) sull'arrivo della mobile (子) non la ferma.
+GEMELLA USDJPY 05/12/2022 (stesso esagramma, stessa mobile 寅 -> 子, Shi 午 -> 辰 penalizzato dal
+giorno 辰): li' Edu ha letto lo Shi penalizzato -> LONG. La differenza trovata: li' sulla mobile
+cadono giorno 辰 e anno 寅, e il 寅 e' del suo stesso elemento -> AGISCE e se la prende in due; qui
+cadono giorno 辰 e mese 酉, nessuna la aiuta -> nessuna agisce -> la mobile decide per se'.
+CABLATO `T0g3 la mobile generata indietro` (MLGENINDIETROMOB): la mobile (non sede) il cui arrivo
+genera la partenza, senza bestie che agiscono sopra: C -> la sua squadra vince; W/G vince; P/B
+perde. POSIZIONE: dopo la scala, il trigono nel trigramma, il B che genera la C (carte di Edu
+02/08/2022, 17/07/2024, 06/02/2025 che altrimenti si rompevano), e PRIMA della penalita'
+sull'arrivo, che e' stata spostata dopo (ora sta prima della seconda che retrocede).
+MISURA: 2718 carte 52,58% +14.838 · recente 54,40% (prima 52,43% +13.988). Gradini: T0g3 87
+carte 45,98%; T0i scende a 54 carte. Carte di riferimento 46/46.
+
+**PRINCIPIO DI EDU (14/09/2026): "Una linea mobile non puo' penalizzare il proprio arrivo, non
+avrebbe senso alcuno. E' solo la data che puo' farlo."**
+Verificato nel motore: la penalita' sull'arrivo (T0i, il blocco a piu' linee, la sostituzione
+della seconda) usa SOLO i rami della data (giorno; mese per la sostituzione); l'autopenalita'
+辰午酉亥 conta solo quando e' un ramo della DATA a cadere sull'arrivo. Il punto aperto di USDJPY
+12/01/2023 ("lo Shi si muove per penalizzare se stesso, 丑戌") e' CHIUSO: era un'idea di Claude
+senza senso, ritirata. La carta resta letta col trigono nel trigramma (Edu).

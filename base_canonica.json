@@ -1,10 +1,11 @@
 {
   "_nota": "LA BASE CANONICA — un posto solo. Ogni strumento che chiama pb_stress.js deve leggere questo file invece di scriversi i flag da solo. Quando Edu cambia la base, si cambia QUI e basta.",
-  "_aggiornata": "2026-09-08 (S43)",
+  "_aggiornata": "2026-09-11 (S46)",
   "_storia": [
     "S41 (07/09/2026): tolto RAFFORZA=1 — il rafforzamento non convinceva dottrinalmente",
     "S42 (08/09/2026): tolto VUOTOSTAG=wang — il vuoto c'e' anche col ramo prospero di stagione",
-    "S43 (08/09/2026): la base scritta qui; prima ogni strumento se la portava dietro e restava indietro di una sessione"
+    "S43 (08/09/2026): la base scritta qui; prima ogni strumento se la portava dietro e restava indietro di una sessione",
+    "S46 (11/09/2026): Edu conferma la base del Liu Yao con le due regole di S44 ACCESE (l'arrivo della mobile nel flusso del qi; il raduno stagionale ridefinito): S17 58,54% z 9,01 +35.016. Nessun flag da cambiare: sono gia' il default del software"
   ],
   "liuyao": {
     "VUOTO": "1",

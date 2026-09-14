@@ -3845,7 +3845,7 @@ if (process.env.PRINCIPI) {
     const gk=v.gradino||'?'; if(!G[gk])G[gk]=mk(); agg(G[gk],pnl);
     if (process.env.DUMPGRAD && (gk===process.env.DUMPGRAD || (process.env.DUMPGRAD.slice(-1)==='*' && gk.indexOf(process.env.DUMPGRAD.slice(0,-1))===0)))
       console.log('  #GRAD '+r.cross+' '+r.date+' seme'+r.seedUsed+(process.env.SEGNAINC&&v.inccard?' INC['+v.inccard+']':'')+' dice '+v.dir+
-                  ' ema='+r.emaDir+' esito '+(pnl>0?'+':'')+pnl.toFixed(0)+(process.env.DUMPPERCHE?' | '+String(v.perche||'').split(' → ').pop():'')+(process.env.DUMPDETT&&v.dettaglio?' || '+v.dettaglio:''));
+                  ' ema='+r.emaDir+' esito '+(pnl>0?'+':'')+pnl.toFixed(0)+(process.env.DUMPPERCHE?' | '+String(v.perche||'').split(' → ').pop():'')+(process.env.DUMPDETT&&v.dettaglio?' || '+v.dettaglio:'')+(process.env.DUMPRACC&&v.racconto?' ||| '+String(v.racconto).replace(/\n/g,' ¶ '):''));
     const p2=r.date>='2023-05-01'?'recente':r.date<='2022-12-31'?'vecchio':null; if(p2)agg(M[p2],pnl);
     if (t===v.dir) agg(M.concTermo,pnl);
     else if (!t) agg(M.soloPrincipi,pnl);
