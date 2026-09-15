@@ -6,6 +6,21 @@
  * non voti. L'energia dice quanto, non da che parte. Tutto documentato passo per
  * passo nel REGISTRO_CORREZIONI_13_08_2026.md, sezioni S45.
  *
+ * SPINA DORSALE — I QUATTRO PRINCIPI DI EDU (14/09/2026), S47 (15/09/2026):
+ *   1. Si risolve con le LINEE MOBILI. La penalita' della data sull'arrivo e' la morte del
+ *      movimento, non la condanna della sede: la sede resta se' stessa e si prosegue.
+ *      Un arrivo nel vuoto non raggiunge nessuno e non fa retrocedere.
+ *   2. Se c'e' un blocco nel movimento e non si arriva a una soluzione, si usano le BESTIE —
+ *      solo se portano un vantaggio (alla linea, o nel confronto con l'altra sede): il ponte
+ *      fra le due sedi, l'elemento che controlla l'altra sede, il qi che la bestia porta sul
+ *      nascosto della sede (Edu, 15/09). Queste vengono PRIMA del confronto; il conteggio
+ *      delle bestie pesato col carattere (Claude, da validare) solo alla parita'.
+ *   3. SHI CONTRO YING, come stanno, con gli elementi dopo le bestie (T8).
+ *   4. Se niente conclude, LA LINEA PIU' FORTE dell'esagramma (T9). Solo dopo, il silenzio.
+ * Ogni gradino qui sotto e' un CASO appeso a uno dei quattro principi, non un principio.
+ * Una lettura nuova di Edu si attacca a uno dei quattro; se non ci sta, si discute il
+ * principio, non si aggiunge un gradino.
+ *
  * ORDINE DELLE TRACCE (ogni gradino e' dietro interruttore, =off lo spegne):
  *   T0   guerra fra titani                MLGUERRA   due pilastri sulla stessa linea in
  *                                                    clash, o in penalita' se sono solo due
@@ -300,7 +315,14 @@ function creaMotore(LYM) {
             R2 = LYM.readManual(R.sup, R.inf, L2q.pos, R.monthBranch, R.dayBranch, R.yearBranch, R.dayStem, R.oraBranch);
             arr2 = R2 && R2.mutante ? R2.mutante.ramoArr : null;
           }
-          if (arr2) seconde.push({ L: L2q, dep: L2q.ramo, arr: arr2, arrEl: WX[arr2] });
+          // Edu, 15/09/2026 (USDJPY 05/12/2022): "L4 goes into void." Se l'arrivo della seconda
+          // e' nel vuoto del giorno, la linea gira ma va nel vuoto: non arriva da nessuna parte
+          // (arr: null), e nessun gradino la usa. MLSECVUOTA=off torna a contarla.
+          // Resta nella lista (le bestie sulla seconda che non puo' ritirarsi, T0r, la devono
+          // vedere), ma con vuota=true: non tiene/distrugge l'arrivo della mobile e non agisce
+          // col proprio arrivo (tre porte). MLSECVUOTA=off torna a contarla.
+          if (arr2) seconde.push({ L: L2q, dep: L2q.ramo, arr: arr2, arrEl: WX[arr2],
+                                   vuota: !off('MLSECVUOTA') && (R.vuoti || []).indexOf(arr2) >= 0 });
         } catch (e) {}
       }
       if (modoF === 'insieme' && RF && RF.linee && ferme.length)
@@ -324,7 +346,16 @@ function creaMotore(LYM) {
 
     return { sEl: sEl, timely: timely, stagione: stagione, pil: pil, suLinea: suLinea,
              ramiData: ramiData, D: R.dayBranch, incompDi: incompDi, seconde: seconde, mobileArrComune: mobileArrComune,
-             vuoto: function (ramo) { return (R.vuoti || []).indexOf(ramo) >= 0; } };
+             vuoto: function (ramo) { return (R.vuoti || []).indexOf(ramo) >= 0; },
+             R: R,
+             futuro: { RF: RF, supF: supF, infF: infF },
+             incompFuturo: function (ramo, pos) {
+               var k = INCOMP[ramo];
+               if (!k || k.trig !== (pos <= 3 ? infF : supF)) return null;
+               if (!k.ponte) return { ponti: 0 };
+               var pn = ramiData0.filter(function (r) { return WX[r] === k.ponte; }).length;
+               return pn >= 2 ? null : { ponti: pn };
+             } };
   }
 
   function elDopoLeBestie(L, C) {
@@ -334,13 +365,64 @@ function creaMotore(LYM) {
     // (EURJPY 10/02/2026: 丙午 arriva sullo Shi e coincide con la P 午 nascosta).
     if (L.fushen) {
       for (var f = 0; f < lista.length; f++)
-        if (lista[f].ramo === L.fushen.b) return L.fushen.el;
+        if (lista[f].ramo === L.fushen.b) {
+          // Claude col metodo, 15/09/2026 (USDJPY 05/11/2020, da validare): il nascosto tirato
+          // fuori dalla bestia e' una bestia che si usa, e le bestie si usano se portano un
+          // vantaggio (Edu, 14/09). Su una sede, se l'elemento del nascosto PERDE il confronto
+          // con l'altra sede (l'altra lo controlla), la sede non lo prende e resta se' stessa.
+          // MLBESTIAVANTAGGIO=off torna a tirarlo fuori sempre.
+          if (!off('MLBESTIAVANTAGGIO') && C.R && (L.pos === C.R.shi || L.pos === C.R.ying)) {
+            var lAltraF = C.R.linee[(L.pos === C.R.shi ? C.R.ying : C.R.shi) - 1];
+            if (lAltraF && KE[lAltraF.el] === L.fushen.el) { lista[f].nascostoScartato = true; break; }
+          }
+          return L.fushen.el;
+        }
     }
     if (!lista.length) return L.el;
     // Con UNA bestia sola che prende possesso, la linea diventa quella bestia. Con piu'
     // di una c'e' scambio di qi fra loro e conta il capolinea della catena, che puo'
     // anche tornare sul ramo della linea (USDCAD 18/03/2020: 申 genera 子 che genera
     // 寅, quindi la Ying resta Legno).
+    // Edu, 15/09/2026 (GBPUSD 06/05/2020, da validare): "le bestie le usiamo se portano un
+    // vantaggio" — con UNA bestia su una sede, se il suo elemento fa vincere la sede nel
+    // confronto con l'altra (la controlla, o ne e' generato), la sede lo prende anche senza
+    // possesso. MLBESTIAVANTAGGIO=off torna al solo possesso.
+    // ORDINE (Edu, 15/09/2026): "la mia e' piu' elegante, fa vedere come la bestia si rende
+    // utile, quindi questa regola dovrebbe precedere". Il qi che si sposta sul nascosto viene
+    // PRIMA di ogni altro uso della bestia (possesso, ponte, bestia che controlla) e prima del
+    // conteggio pesato col carattere (MLBESTIECAR), che resta solo l'ultimo spareggio in T8.
+    // Edu, 15/09/2026 (USDJPY 31/07/2024): "Y loses but the day beast comes to rescue and move
+    // the Qi from earth to water and wins." La sede GENERA la bestia (Terra -> Metallo) e la
+    // bestia genera l'elemento del NASCOSTO (Metallo -> Acqua 子): il qi della sede si sposta
+    // sul nascosto, se cosi' vince il confronto (il Metallo dello Shi genera l'Acqua). Vale con o
+    // senza possesso. MLQINASCOSTO=off.
+    if (lista.length === 1 && !off('MLQINASCOSTO') && C.R && (L.pos === C.R.shi || L.pos === C.R.ying) && L.fushen) {
+      var lAltraQ = C.R.linee[(L.pos === C.R.shi ? C.R.ying : C.R.shi) - 1], eQ = WX[lista[0].ramo];
+      if (lAltraQ && GEN[L.el] === eQ && GEN[eQ] === L.fushen.el &&
+          (GEN[lAltraQ.el] === L.fushen.el || KE[L.fushen.el] === lAltraQ.el)) {
+        lista[0].vantaggio = true; lista[0].qiNascosto = true; return L.fushen.el;
+      }
+    }
+    if (lista.length === 1 && !lista[0].possiede && !off('MLBESTIAVANTAGGIO') && C.R &&
+        (L.pos === C.R.shi || L.pos === C.R.ying)) {
+      var lAltra1 = C.R.linee[(L.pos === C.R.shi ? C.R.ying : C.R.shi) - 1];
+      var e1 = WX[lista[0].ramo];
+      // Edu, 15/09/2026 (GBPUSD 06/05/2020, CONFERMATA): "S vs Y sees S winning but the beast
+      // comes to rescue Y by providing the bridge. Y win." Il PONTE: l'elemento dell'altra sede
+      // genera quello della bestia, che genera quello della linea (Terra -> Metallo -> Acqua):
+      // il controllo diventa generazione. MLBESTIAVANTAGGIO=larga aggiunge anche la bestia
+      // che controlla l'altra sede (misura: ponte 48% su T8, larga 48%).
+      var ponte1 = GEN[lAltra1.el] === e1 && GEN[e1] === L.el;
+      // Default: ponte (questa carta) + la bestia che controlla l'altra sede (USDJPY 05/12/2022,
+      // Edu 15/09: "Ying with water beats Shi with fire"). MLBESTIAVANTAGGIO=ponte per il solo ponte.
+      // EURGBP 17/01/2023 (Claude col metodo, da validare): la bestia che la linea CONTROLLA
+      // (酉 Metallo sopra 卯 Legno) e' battuta dalla linea e non le presta il suo elemento; nelle
+      // carte di Edu la bestia utile e' sempre in GENERAZIONE con la linea (in un verso o
+      // nell'altro). MLBESTIAGEN=off torna a usare anche la bestia controllata.
+      var inGen1 = off('MLBESTIAGEN') || GEN[L.el] === e1 || GEN[e1] === L.el;
+      var larga1 = ENV.MLBESTIAVANTAGGIO !== 'ponte' && KE[e1] === lAltra1.el && inGen1;
+      if (lAltra1 && e1 !== L.el && (ponte1 || larga1)) { lista[0].vantaggio = true; lista[0].ponte = ponte1; return e1; }
+    }
     if (lista.length === 1) return lista[0].possiede ? WX[lista[0].ramo] : L.el;
     // Edu, 11/09/2026 (USDJPY 05/12/2022): "Se due bestie arrivano su una linea e non si
     // combattono collaborano per farla vincere. 辛丑 aiuta Y P 酉, ma 辛亥 invece la farebbe
@@ -349,9 +431,23 @@ function creaMotore(LYM) {
     // quelle che la aiutano. MLBESTIEAIUTO=off torna alla catena su tutte.
     var listaU = lista;
     if (!off('MLBESTIEAIUTO')) {
+      // Edu, 15/09/2026 (USDJPY 05/12/2022, rilettura): "YING: Beasts help. Xin Chou and Xin Hai
+      // arrives here. Metal generates water. Ying with water beats Shi with fire." E il 14/09:
+      // "Le bestie le usiamo se portano un vantaggio." Su una SEDE, una bestia che la linea
+      // GENERA (Metallo -> Acqua) si usa lo stesso se l'elemento che porta CONTROLLA l'elemento
+      // dell'altra sede: e' un vantaggio nel confronto. L'elemento dell'altra sede e' quello
+      // della sua linea (qui lo Shi resta 午 Fuoco perche' il suo passo e' penalizzato).
+      // MLBESTIAVANTAGGIO=off torna al solo aiuto alla linea.
+      var altraEl = null;
+      if (!off('MLBESTIAVANTAGGIO') && C.R && (L.pos === C.R.shi || L.pos === C.R.ying)) {
+        var lAltraB = C.R.linee[(L.pos === C.R.shi ? C.R.ying : C.R.shi) - 1];
+        altraEl = lAltraB ? lAltraB.el : null;
+      }
       var aiuta = lista.filter(function (Q) {
         var e = WX[Q.ramo];
-        return e === L.el || GEN[e] === L.el;
+        if (e === L.el || GEN[e] === L.el) return true;
+        if (altraEl && GEN[L.el] === e && KE[e] === altraEl) { Q.vantaggio = true; return true; }
+        return false;
       });
       if (aiuta.length) listaU = aiuta;
     }
@@ -383,8 +479,17 @@ function creaMotore(LYM) {
     // Edu, 11/09/2026 (USDJPY 05/12/2022): "Shi vuota si muove perche' incompatibile quindi non
     // e' vuota (cio' che si muove non e' vuoto)." MLMOSSANONVUOTA=off.
     if (!off('MLMOSSANONVUOTA') && (L.isMobile || (R && C.incompDi && C.incompDi(L)))) return false;
+    // EURGBP 17/01/2023 (Claude col metodo, da validare): la bestia toglie il vuoto solo se si
+    // rende utile alla linea (stesso elemento o la genera) — "le bestie le usiamo se portano un
+    // vantaggio" (Edu, 14/09). Una bestia che la linea controlla (酉 sopra 卯) non riempie la
+    // linea vuota. MLVUOTOAIUTO=off torna a: qualunque bestia che agisce toglie il vuoto.
     return off('MLBESTIAPIENA') ||
-           !((C.suLinea[L.pos] || []).some(function (Q) { return !Q.inutile && Q.agisce !== false; }));
+           !((C.suLinea[L.pos] || []).some(function (Q) {
+             if (Q.inutile || Q.agisce === false) return false;
+             if (off('MLVUOTOAIUTO')) return true;
+             var e = WX[Q.ramo];
+             return e === L.el || GEN[e] === L.el || Q.vantaggio || Q.qiNascosto;
+           }));
   }
   function rottaL(L, R, C) { return L.stato === 'rotta' && !protettaDalMese(L, R, C); }
 
@@ -405,6 +510,24 @@ function creaMotore(LYM) {
     });
   }
 
+  // La linea piu' forte dell'esagramma (principio 4): stagione, ramo del mese +2, del giorno +1,
+  // dell'anno +1, +1 per ogni clash della data che la cita. Ritorna la linea se il massimo e'
+  // netto, altrimenti null.
+  function piuForte(R, C, annullate, escludi) {
+    var cand = R.linee.filter(function (L) { return !(annullate && annullate[L.pos]) && !vuotaL(L, C, R) && !(escludi && escludi[L.pos]); });
+    var punt = function (L) {
+      var f = PESO_STAGIONE[C.stagione(L.el)] || 0;
+      if (L.ramo === R.monthBranch) f += 2;
+      if (C.D && L.ramo === C.D) f += 1;
+      if (R.yearBranch && L.ramo === R.yearBranch) f += 1;
+      C.ramiData.forEach(function (r) { if (CLASH[r] === L.ramo) f += 1; });
+      return f;
+    };
+    cand.sort(function (a, b) { return punt(b) - punt(a); });
+    if (cand.length && (cand.length === 1 || punt(cand[0]) > punt(cand[1]))) return { L: cand[0], p: punt(cand[0]) };
+    return null;
+  }
+
   function forza(el, L, R, C) {
     var f = PESO_STAGIONE[C.stagione(el)] || 0;
     if (L && vuotaL(L, C, R) && !L.isMobile) f -= 2;
@@ -413,7 +536,9 @@ function creaMotore(LYM) {
     if (radunoDalSuoLato(el, L, R, C)) f += 2;
     if (C.D && GEN[WX[C.D]] === el) f += 1;
     if (C.D && KE[WX[C.D]] === el) f -= 1;
-    if (L && C.suLinea[L.pos]) f += C.suLinea[L.pos].length;
+    // Edu, 15/09/2026 (USDJPY 05/11/2020): contano solo le bestie che aiutano la linea
+    // (MLBESTIEUTILI=off conta tutte).
+    if (L && C.suLinea[L.pos] && !C._senzaBestie) f += C.suLinea[L.pos].length;
     if (L && C.ramiData.some(function (r) { return GEN[WX[r]] === el; })) f += 1;
     return f;
   }
@@ -507,8 +632,29 @@ function creaMotore(LYM) {
   // Edu, 09/09/2026: "S e Y sono uguali ma chi ha le bestie dal suo lato vince sempre".
   // Quando il confronto non si decide — stesso elemento, o nessuno dei due comanda e
   // le forze pareggiano — vince la sede su cui sono cadute piu' bestie.
-  function chiHaLeBestie(R, C, racconto) {
-    var nS = (C.suLinea[R.shi] || []).length, nY = (C.suLinea[R.ying] || []).length;
+  function chiHaLeBestie(R, C, racconto, soloUtili) {
+    // Edu, 15/09/2026 (USDJPY 05/11/2020): "S e Y sono lo stesso quindi anche qui non c'e'
+    // vittoria" — con il giorno e l'anno 子 sulla Ying 未 (Acqua sotto Terra: non la aiutano).
+    // Contano solo le bestie che AIUTANO la sede (stesso elemento o che la generano), come
+    // per "le bestie le usiamo se portano un vantaggio". MLBESTIEUTILI=off conta tutte.
+    var conta = function (sp) {
+      var L = R.linee[sp - 1], lst = C.suLinea[sp] || [];
+      if (off('MLBESTIEUTILI') || !soloUtili) return lst.length;
+      // Claude col metodo, 15/09/2026 (USDJPY 31/07/2024, da validare): il "vantaggio" di una
+      // bestia si pesa col CARATTERE della sede. Nutrire un G/W e' un vantaggio per la sua
+      // squadra (+1); nutrire un P/B ne ingrossa il danno (-1); drenare o controllare un P/B lo
+      // indebolisce (+1); drenare o controllare un G/W e' un danno (-1). MLBESTIECAR=off torna
+      // al solo "aiuta la linea".
+      var malus = (L.par === 'P' || L.par === 'B');
+      return lst.reduce(function (acc, Q) {
+        var e = WX[Q.ramo], aiuta = (e === L.el || GEN[e] === L.el), pesa = (GEN[L.el] === e || KE[e] === L.el);
+        if (off('MLBESTIECAR')) return acc + (aiuta ? 1 : 0);
+        if (aiuta) return acc + (malus ? -1 : 1);
+        if (pesa) return acc + (malus ? 1 : -1);
+        return acc;
+      }, 0);
+    };
+    var nS = conta(R.shi), nY = conta(R.ying);
     if (nS === nY) return null;
     racconto.push('le due sedi si equivalgono, ma le bestie stanno dalla parte ' +
       (nS > nY ? 'dello Shi (' + nS + ' contro ' + nY + ')' : 'della Ying (' + nY + ' contro ' + nS + ')') +
@@ -527,7 +673,8 @@ function creaMotore(LYM) {
     }
     var vince = null, perche = '';
     if (elShi === elYing) {
-      var pari = chiHaLeBestie(R, C, racconto);
+      // In T8 (principio 3) contano solo le bestie che aiutano la sede (Edu, 15/09/2026).
+      var pari = chiHaLeBestie(R, C, racconto, !!C._t8);
       if (pari) return pari;
     }
     // Edu, 11/09/2026 (EURJPY 29/09/2022 seme 140): "i due You sono diversi. Ji You e' terra
@@ -591,8 +738,15 @@ function creaMotore(LYM) {
     else if (KE[elYing] === elShi) { vince = R.ying; perche = 'il ' + EL_IT[elYing] + ' della Ying controlla il ' + EL_IT[elShi] + ' della Shi: vince la Ying'; }
     else if (ENV.MLPENSEDI !== 'prima' && penSedi()) { var pD = penSedi(); vince = pD.vince; perche = pD.perche; }
     else {
+      // Edu, 15/09/2026 (USDJPY 05/11/2020): sedi uguali -> la forza si pesa SENZA le bestie,
+      // e a parita' decidono solo le bestie che aiutano (chiHaLeBestie). Provato a contare solo
+      // le bestie utili nella forza di tutto il motore: costa 1.600 pip, quindi solo qui.
+      // Vale solo nel confronto finale del principio 3 (T8): applicata a tutti i confronti
+      // rompeva USDJPY 12/01/2023 (carta di riferimento).
+      C._senzaBestie = !off('MLBESTIEUTILI') && !!C._t8;
       var f1 = forza(elShi, lShi, R, C), f2 = forza(elYing, lYing, R, C);
-      if (f1 === f2) return chiHaLeBestie(R, C, racconto);
+      C._senzaBestie = false;
+      if (f1 === f2) return chiHaLeBestie(R, C, racconto, !!C._t8);
       vince = f1 > f2 ? R.shi : R.ying;
       perche = 'nessuno dei due elementi comanda sull\'altro: vince la più forte, ' + (f1 > f2 ? 'la Shi' : 'la Ying');
     }
@@ -627,6 +781,7 @@ function creaMotore(LYM) {
     // movimento nullo, ma per Edu la linea si muove eccome. Da qui in giu' si usa questo.
     var passoNullo = R.mutante.movimentoNullo &&
         String(R.mutante.motivoNullo || '').indexOf('self-combination') < 0;
+    var arrMorto = false;   // S47: l'arrivo della mobile ucciso dalla penalita' della data
 
     // DUE LINEE IN MOVIMENTO: la ferma incompatibile "diventa mobile", quindi in quelle
     // carte ci sono due linee che si muovono, non una. Tre modi di leggerla, tutti
@@ -686,14 +841,18 @@ function creaMotore(LYM) {
     // ANDONG=si: la seconda si muove come una ferma clashata (暗動), agisce col PROPRIO
     // ramo e non cambia yin/yang. Altrimenti muta davvero e agisce con l'arrivo.
     var tutteSeconde = off('DUEMUT') ? [] : C.seconde;
+    var secondeVive = tutteSeconde.filter(function (X) { return !X.vuota; });
+    // Edu, 15/09/2026 (USDJPY 05/12/2022): "L4 goes into void." La seconda mobile il cui
+    // arrivo cade nel vuoto del giorno va nel vuoto: non combina e non clasha niente, e non
+    // ferma la mobile. MLSECVUOTA=off torna a contarla.
     var ramoDi = function (X) { return (ENV.ANDONG === 'si') ? X.dep : X.arr; };
-    var S2 = tutteSeconde.filter(function (X) {
+    var S2 = secondeVive.filter(function (X) {
       var r2 = ramoDi(X);
       return COMBINA[r2] === dep || CLASH[r2] === dep || (arr && (COMBINA[r2] === arr || CLASH[r2] === arr));
-    })[0] || tutteSeconde[0] || null;
+    })[0] || secondeVive[0] || null;
     var ramo2 = S2 ? ramoDi(S2) : null;
     if (tutteSeconde.length) racconto.push('linee incompatibili che si muovono anche loro: ' +
-      tutteSeconde.map(function (X) { return 'L' + X.L.pos + ' ' + X.dep + '→' + X.arr; }).join(', '));
+      tutteSeconde.map(function (X) { return 'L' + X.L.pos + ' ' + X.dep + '→' + X.arr + (X.vuota ? ' (vuoto: va nel vuoto)' : ''); }).join(', '));
     var secCombDep = !!(ramo2 && COMBINA[ramo2] === dep);
     var secClashDep = !!(ramo2 && CLASH[ramo2] === dep);
     var secCombArr = !!(ramo2 && arr && COMBINA[ramo2] === arr);
@@ -1428,6 +1587,43 @@ function creaMotore(LYM) {
                            'T0g3 la mobile generata indietro');
     }
 
+    // --- T0h: IL G CHE SI MUOVE E RAGGIUNGE UNA SEDE -----------------------------
+    // Edu, 14/09/2026 (GBPUSD 02/08/2022 seme 122): "L2 G moves to reach S. Short."
+    // L2, la ferma incompatibile 卯 G, si muove e arriva in 丑, che e' il ramo dello Shi: lo
+    // raggiunge e gli porta il suo G, e il G fa vincere la sede che raggiunge. "Raggiungere"
+    // qui e' l'arrivo che porta lo STESSO RAMO della linea della sede, non una combinazione
+    // (quella e' T0k2, dove pero' a muoversi e' la sede). Solo G: la W non e' ancora provata
+    // da nessuna carta. MLGRAGGIUNGE=off.
+    if (!off('MLGRAGGIUNGE')) {
+      var mosseG = [];
+      if (arr && !mobileAnnullata && !passoNullo && pos !== R.shi && pos !== R.ying &&
+          ENV.MLGRAGGIUNGE !== 'seconda')
+        mosseG.push({ L: R.linee[pos - 1], a: arr });
+      (C.seconde || []).forEach(function (X) {
+        if (!annullate[X.L.pos] && X.arr && X.L.pos !== R.shi && X.L.pos !== R.ying) mosseG.push({ L: X.L, a: X.arr });
+      });
+      for (var ig = 0; ig < mosseG.length; ig++) {
+        var MG = mosseG[ig];
+        if (MG.L.par !== 'G') continue;
+        // Edu, 15/09/2026 (USDJPY 05/12/2022): "L4 goes into void." L4 G 丑 arriva in 午, il
+        // ramo dello Shi, ma 午 e' nel vuoto del giorno: il G va nel vuoto e non raggiunge nessuno.
+        if ((R.vuoti || []).indexOf(MG.a) >= 0) {
+          racconto.push('L' + MG.L.pos + ' G ' + MG.L.ramo + ' si muove in ' + MG.a + ', ma ' + MG.a +
+            ' è nel vuoto: va nel vuoto e non raggiunge nessuno');
+          continue;
+        }
+        var sedeRagg = [R.shi, R.ying].map(function (p) { return R.linee[p - 1]; })
+          .filter(function (L) { return L && !annullate[L.pos] && L.pos !== MG.L.pos && L.ramo === MG.a; })[0];
+        if (sedeRagg) {
+          racconto.push('L' + MG.L.pos + ' G ' + MG.L.ramo + ' si muove e arriva in ' + MG.a +
+            ', il ramo di L' + sedeRagg.pos + ' (' + (sedeRagg.pos === R.shi ? 'lo Shi' : 'la Ying') +
+            '): la raggiunge e le porta il suo G, che fa vincere la sede raggiunta');
+          return fine(sede(sedeRagg.pos), 'il G si muove e raggiunge L' + sedeRagg.pos + ': quella sede vince',
+                      'T0h il G raggiunge una sede');
+        }
+      }
+    }
+
     // --- T0i: LA DATA PENALIZZA L'ARRIVO DELLA SEDE CHE SI MUOVE ------------------
     // Edu, 14/09/2026 (USDJPY 05/12/2022 seme 134): "L3 non puo' portare W su Y non solo
     // perche' Y e' gia' combinata ma anche perche' il giorno penalizza l'arrivo di Shi. La
@@ -1438,9 +1634,9 @@ function creaMotore(LYM) {
     var bloccateDaPen = null;
     if (!off('MLPENARRIVO')) {
       var sediMosse = [];
-      if (arr && (pos === R.shi || pos === R.ying) && !mobileAnnullata) sediMosse.push({ p: pos, a: arr });
+      if (arr && (pos === R.shi || pos === R.ying) && !mobileAnnullata) sediMosse.push({ p: pos, a: arr, d: dep });
       (C.seconde || []).forEach(function (X) {
-        if (!annullate[X.L.pos] && X.arr && (X.L.pos === R.shi || X.L.pos === R.ying)) sediMosse.push({ p: X.L.pos, a: X.arr });
+        if (!annullate[X.L.pos] && X.arr && (X.L.pos === R.shi || X.L.pos === R.ying)) sediMosse.push({ p: X.L.pos, a: X.arr, d: X.dep });
       });
       for (var ip = 0; ip < sediMosse.length; ip++) {
         var SM = sediMosse[ip];
@@ -1469,6 +1665,86 @@ function creaMotore(LYM) {
             bloccateDaPen = [SM.p].concat(altreSulloStesso);
             bloccateDaPen.forEach(function (bp) { if (bp === pos) mobileAnnullata = true; else annullate[bp] = true; });
             break;
+          }
+        }
+        // Edu, 14/09/2026 (GBPUSD 05/03/2025 seme 127): "S si muove per essere controllata
+        // indietro ma il giorno penalizza quindi il controllo indietro non funziona."
+        // Quando il movimento della sede e' un controllo indietro (l'arrivo controlla la
+        // partenza), la penalita' della data NON condanna la sede: uccide il controllo
+        // indietro. La sede resta se' stessa e la lettura prosegue. MLPENINDIETRO=off.
+        if (penR && !off('MLPENINDIETRO') && SM.d && KE[WX[SM.a]] === WX[SM.d]) {
+          racconto.push('L' + SM.p + ' (' + (SM.p === R.shi ? 'lo Shi' : 'la Ying') + ') si muove in ' + SM.a +
+            ' per essere controllata indietro, ma la data penalizza l\'arrivo (' + penR + ' su ' + SM.a +
+            '): il controllo indietro non funziona e la sede resta sé stessa');
+          continue;
+        }
+        // Edu, 14/09/2026 (USDCHF 28/02/2022 seme 92): "Y cannot advance and yet Yin is the
+        // strongest line of the hexagram. Y controls S, short."
+        // Se il passo e' nullo la sede non avanza, ma resta dov'e': se la sua linea e' la PIU'
+        // FORTE della carta e controlla la linea dell'altra sede, vince lei. La penalita' della
+        // data sull'arrivo non la condanna, perche' l'arrivo non e' mai nato. MLFORTECONTROLLA=off.
+        if (penR && !off('MLFORTECONTROLLA') && SM.p === pos && passoNullo) {
+          var Lme = R.linee[SM.p - 1], Lalt = R.linee[(SM.p === R.shi ? R.ying : R.shi) - 1];
+          var fMe = forza(Lme.el, Lme, R, C);
+          var soloIo = R.linee.every(function (L) {
+            return L.pos === Lme.pos || annullate[L.pos] || forza(L.el, L, R, C) < fMe;
+          });
+          if (soloIo && Lalt && KE[Lme.el] === Lalt.el) {
+            racconto.push('L' + SM.p + ' (' + (SM.p === R.shi ? 'lo Shi' : 'la Ying') + ') non può avanzare, ' +
+              'ma ' + Lme.ramo + ' è la linea più forte della carta e controlla ' + Lalt.ramo +
+              ', la linea dell\'altra sede: vince lei');
+            return fine(sede(SM.p), 'la sede non avanza ma è la linea più forte e controlla l\'altra sede',
+                        'T0i la più forte controlla l\'altra sede');
+          }
+        }
+        // Edu, 15/09/2026 (AUDUSD 21/11/2022 seme 66): "Both lines go nowhere as they both
+        // make their side to lose. Beasts didn't help. S vs Y: S wins. Short."
+        // La data penalizza l'arrivo dello Shi 卯 -> 巳: lo Shi non parte e resta 卯 G. Le altre
+        // due linee che si muovono (L1 P, L4 B) fanno perdere la propria squadra tutte e due,
+        // quindi non vanno da nessuna parte. Restano le due sedi come stanno, con le bestie se
+        // portano vantaggio: confronto diretto (la Ying Acqua genera lo Shi Legno: vince lo
+        // Shi). Perimetro: tutte le altre linee in movimento sono P o B. MLPENCONFRONTO=off.
+        if (penR && !off('MLPENCONFRONTO')) {
+          var altreMosse = [];
+          if (arr && !mobileAnnullata && pos !== R.shi && pos !== R.ying) altreMosse.push(R.linee[pos - 1]);
+          (C.seconde || []).forEach(function (X) {
+            if (!annullate[X.L.pos] && X.arr && X.L.pos !== R.shi && X.L.pos !== R.ying) altreMosse.push(X.L);
+          });
+          var tuttePB = altreMosse.length > 0 && altreMosse.every(function (L) { return L.par === 'P' || L.par === 'B'; });
+          if (tuttePB) {
+            racconto.push('L' + SM.p + ' (' + (SM.p === R.shi ? 'lo Shi' : 'la Ying') + ') si muove in ' + SM.a +
+              ', ma la data lo penalizza (' + penR + ' su ' + SM.a + '): non parte e resta ' + R.linee[SM.p - 1].ramo);
+            racconto.push('le altre linee in movimento (' + altreMosse.map(function (L) { return 'L' + L.pos + ' ' + PAR_IT[L.par]; }).join(', ') +
+              ') fanno perdere la propria squadra: non vanno da nessuna parte');
+            var lS9 = R.linee[R.shi - 1], lY9 = R.linee[R.ying - 1];
+            var dConf = confrontoDiretto(R, C, elDopoLeBestie(lS9, C), elDopoLeBestie(lY9, C), racconto);
+            if (dConf) return fine(dConf, 'la sede penalizzata resta sé stessa: confronto diretto fra le due sedi',
+                                   'T0i sede penalizzata: confronto diretto');
+          }
+        }
+        // Edu, 15/09/2026 (NZDUSD 10/03/2020 seme 63): "L3 cannot move into a G because of the
+        // penalty from the day. L2 P is clashed by the day to retreat. A retreating P wins its
+        // side: short." La sede penalizzata non parte; una P ferma clashata dal giorno si muove
+        // nel buio (暗動) e, se il suo arrivo e' il passo indietro (退神), il malus si ritira e la
+        // sua squadra vince. Solo P (la B non e' provata). MLPENRITIRO=off.
+        if (penR && !off('MLPENRITIRO') && R.anDong) {
+          var pRit = R.linee.filter(function (L) {
+            return L.par === 'P' && L.pos !== R.shi && L.pos !== R.ying && !annullate[L.pos] &&
+                   R.anDong[L.pos] && R.anDong[L.pos].arr === RETRO[L.ramo] &&
+                   // Edu, 15/09/2026: "e' ovvio che il vuoto non fa retrocedere la linea" —
+                   // se il passo indietro cade nel vuoto del giorno, la P non si ritira.
+                   !C.vuoto(R.anDong[L.pos].arr) &&
+                   // Edu, 15/09/2026 (USDCAD 04/01/2021): "L2 viene spazzata via da tre 子 nella
+                   // data": clashata da tre rami della data la P non si ritira, e' spazzata via.
+                   C.ramiData.filter(function (r) { return CLASH[r] === L.ramo; }).length < 3;
+          })[0];
+          if (pRit) {
+            racconto.push('L' + SM.p + ' (' + (SM.p === R.shi ? 'lo Shi' : 'la Ying') + ') si muove in ' + SM.a +
+              ', ma la data lo penalizza (' + penR + ' su ' + SM.a + '): non parte e resta ' + R.linee[SM.p - 1].ramo);
+            racconto.push('L' + pRit.pos + ' P ' + pRit.ramo + ' è clashata dal giorno e si muove nel buio in ' +
+              R.anDong[pRit.pos].arr + ': è un passo indietro, la P si ritira e la sua squadra vince');
+            return fine(sede(pRit.pos), 'la sede penalizzata non parte; la P clashata dal giorno si ritira e vince la sua squadra',
+                        'T0i la P che si ritira');
           }
         }
         if (penR && !bloccateDaPen) {
@@ -1507,8 +1783,73 @@ function creaMotore(LYM) {
                           'T0i nessuno vince: la più forte');
             }
           }
-          return fine(opposto(sede(SM.p)), 'la data penalizza l\'arrivo della sede che si muove: quella sede non può vincere',
+          // Edu, S47 (14-15/09/2026), cinque carte su cinque: la penalita' della data
+          // sull'arrivo e' la MORTE DEL MOVIMENTO, non la condanna della sede. La sede non
+          // parte e resta se' stessa; la lettura prosegue (altre mobili, bestie, S vs Y, la
+          // piu' forte). MLPENCONDANNA=on ripristina la vecchia condanna.
+          if (ENV.MLPENCONDANNA === 'on')
+            return fine(opposto(sede(SM.p)), 'la data penalizza l\'arrivo della sede che si muove: quella sede non può vincere',
                       'T0i la data penalizza l\'arrivo della sede');
+          racconto.push('la penalità della data uccide il movimento: L' + SM.p + ' non parte e resta ' +
+            R.linee[SM.p - 1].ramo + ' ' + PAR_IT[R.linee[SM.p - 1].par]);
+          if (SM.p === pos) { passoNullo = true; arrMorto = true; }
+          (C.seconde || []).forEach(function (X) { if (X.L.pos === SM.p) X.arr = null; });
+          continue;
+        }
+      }
+    }
+
+    // --- T0v: IL MALUS DELLA SEDE VA NEL VUOTO --------------------------------------
+    // Edu, 15/09/2026 (USDJPY 17/01/2024 seme 147): "L4 move into void means upper trigram
+    // cannot lose." Lo Shi e' un B (fa perdere la propria squadra) e si muove in un arrivo
+    // nel vuoto: il suo malus va nel vuoto, e la sua squadra non puo' perdere -> vince.
+    // Perimetro: la sede e' P o B, e' la mobile, e il suo arrivo e' nel vuoto del giorno.
+    // MLMALUSVUOTO=off.
+    if (!off('MLMALUSVUOTO') && arr && !mobileAnnullata && (pos === R.shi || pos === R.ying) &&
+        (mob.par === 'P' || mob.par === 'B') && C.vuoto(arr) &&
+        // EURUSD 11/03/2022 (Edu): se il giorno clasha la PARTENZA la linea non si muove affatto
+        // ("cannot move because of the clash") e niente va nel vuoto: quella resta se' stessa.
+        !(C.D && CLASH[C.D] === dep) &&
+        // USDCAD 16/03/2020 (Claude col metodo, da validare): se l'arrivo nel vuoto e' un PASSO
+        // INDIETRO, "il vuoto non fa retrocedere la linea" (Edu, 15/09): il malus non se ne va,
+        // la P resta sulla sede e fa perdere la propria squadra. Qui vale solo il passo avanti.
+        RETRO[dep] !== arr &&
+        // EURJPY 23/06/2025 (Claude col metodo, da validare): se una bestia sopra la linea la
+        // COMBINA (qui il mese 壬午 sulla Ying 未: 午未合), la linea e' impigliata e non parte:
+        // il malus non va nel vuoto, resta e fa perdere. Stessa logica di MLIMPIGLIO col giorno.
+        !(C.suLinea[pos] || []).some(function (Q) { return COMBINA[Q.ramo] === dep; })) {
+      racconto.push('L' + pos + ' (' + (pos === R.shi ? 'lo Shi' : 'la Ying') + ') è un ' + PAR_IT[mob.par] +
+        ' e si muove in ' + arr + ', nel vuoto: il suo malus va nel vuoto e la sua squadra non può perdere');
+      return fine(sede(pos), 'il malus della sede va nel vuoto: la sua squadra non può perdere', 'T0v il malus nel vuoto');
+    }
+
+    // --- T0n: LA SEDE CHE SI MUOVE RAGGIUNGE UNA LINEA VUOTA ----------------------
+    // Edu, 14/09/2026 (GBPUSD 05/03/2025 seme 127): "Y si muove e raggiunge una linea vuota."
+    // ESTENSIONE DI CLAUDE, SPENTA. Edu ha poi precisato: "Anche se non fosse vuota sarebbe
+    // una B che farebbe comunque perdere Ying" — su quella carta la linea raggiunta e' un B,
+    // quindi la carta NON dimostra che sia il VUOTO a far perdere la sede: basta il carattere
+    // della linea raggiunta (T0k). Serve una carta in cui la vuota raggiunta sia una W o una G
+    // per decidere. Misura da spenta a accesa: pip 14.630 -> 14.114, mazzo 52,58% -> 52,59%.
+    // MLSEDEVUOTA=on per accenderla.
+    if (ENV.MLSEDEVUOTA === 'on') {
+      var sediV = [];
+      if (arr && (pos === R.shi || pos === R.ying) && !mobileAnnullata) sediV.push({ p: pos, a: arr });
+      (C.seconde || []).forEach(function (X) {
+        if (!annullate[X.L.pos] && X.arr && (X.L.pos === R.shi || X.L.pos === R.ying)) sediV.push({ p: X.L.pos, a: X.arr });
+      });
+      for (var iv = 0; iv < sediV.length; iv++) {
+        var SV = sediV[iv];
+        var vuotaRagg = R.linee.filter(function (L) {
+          return L.pos !== SV.p && !annullate[L.pos] && COMBINA[SV.a] === L.ramo &&
+                 vuotaL(L, C, R) && L.stato === 'dormiente';
+        })[0];
+        if (vuotaRagg) {
+          racconto.push('L' + SV.p + ' (' + (SV.p === R.shi ? 'lo Shi' : 'la Ying') + ') si muove e arriva in ' +
+            SV.a + ', che raggiunge L' + vuotaRagg.pos + ' ' + PAR_IT[vuotaRagg.par] + ' ' + vuotaRagg.ramo +
+            ', vuota: il movimento non arriva da nessuna parte e chi non vince perde');
+          var dSV = opposto(sede(SV.p));
+          if (dSV) return fine(dSV, 'la sede si muove e raggiunge una linea vuota: chi non vince perde',
+                               'T0n la sede raggiunge una vuota');
         }
       }
     }
@@ -1685,6 +2026,62 @@ function creaMotore(LYM) {
         return fine(indietro ? opposto(sede(pos)) : sede(pos),
           'il ' + PAR_IT[mob.par] + ' mobile ' + (indietro ? 'retrocede: la sua sede perde' : 'avanza: la sua sede vince'),
           'T1a il vantaggio ' + (indietro ? 'retrocede' : 'avanza'));
+      }
+      // Edu, 15/09/2026: "e' ovvio che il vuoto non fa retrocedere la linea". Il malus che
+      // vorrebbe ritirarsi in un arrivo nel vuoto non si ritira: resta dov'e' e fa perdere la
+      // propria squadra (USDCAD 16/03/2020, la Ying P 辰 -> 丑 vuoto, esito LONG). MLRITIROVUOTO=off.
+      // Edu, 15/09/2026 (USDCAD 16/03/2020): "Y P can retreat because of the beast Geng Zi so it
+      // will make its own side to lose." Il vuoto dell'arrivo e' riempito se una bestia sulla
+      // linea porta il ramo che COMBINA l'arrivo (l'anno 庚子 sulla Ying: 子 combina 丑): allora la
+      // P si ritira; e la SEDE che si ritira fa perdere la propria squadra (MLSEDERITIRA).
+      // LETTURA COERENTE CON USDJPY 01/12/2022 (Edu, 09/09: la P della Ying che si ritira
+      // 辰 -> 丑 fa VINCERE la sua squadra): la ritirata che SI COMPIE porta via il danno; la
+      // ritirata BLOCCATA lascia il danno sulla sede. Qui la bestia sulla linea (庚子) porta il
+      // ramo che combina l'arrivo 丑 e lo tiene: la P non si ritira ("Y P can[not] retreat
+      // because of the beast Geng Zi"), resta e fa perdere. MLBESTIATIENE=off.
+      var tenuto = ENV.MLBESTIATIENE === 'on' && (C.suLinea[pos] || []).some(function (Q) { return Q.agisce !== false && COMBINA[Q.ramo] === arr; });
+      if (indietro && tenuto) {
+        racconto.push('la mobile è ' + PAR_IT[mob.par] + ' e vorrebbe RETROCEDERE in ' + arr + ', ma la bestia sopra la linea porta il ramo che combina ' +
+          arr + ' e lo tiene: non si ritira, resta e fa perdere la propria squadra');
+        return fine(opposto(sede(pos)), 'la bestia tiene l\'arrivo: il ' + PAR_IT[mob.par] + ' non si ritira e fa perdere',
+                    'T1a la bestia tiene la ritirata');
+      }
+      // Edu, 15/09/2026 (USDCAD 16/03/2020): "Y P can retreat because of the beast Geng Zi" — il
+      // vuoto dell'arrivo e' RIEMPITO da una bestia sulla linea che porta il ramo che combina
+      // l'arrivo (子 combina 丑): la ritirata si compie.
+      var riempito = (C.suLinea[pos] || []).some(function (Q) { return Q.agisce !== false && COMBINA[Q.ramo] === arr; });
+      if (indietro && !off('MLRITIROVUOTO') && C.vuoto(arr) && !riempito) {
+        racconto.push('la mobile è ' + PAR_IT[mob.par] + ', un danno per la propria squadra, e vorrebbe RETROCEDERE in ' +
+          arr + ', ma ' + arr + ' è nel vuoto: il vuoto non la fa retrocedere, il ' + PAR_IT[mob.par] +
+          ' resta dov\'è e fa perdere la propria squadra');
+        return fine(opposto(sede(pos)), 'il ' + PAR_IT[mob.par] + ' non può ritirarsi nel vuoto: resta e fa perdere',
+                    'T1a il malus non si ritira nel vuoto');
+      }
+      // MLSEDERITIRA=on: "la sede che si ritira perde" — PROVATA E RITIRATA: contraddice
+      // USDJPY 01/12/2022 (carta di riferimento, validata da Edu il 09/09).
+      if (indietro && ENV.MLSEDERITIRA === 'on' && (pos === R.shi || pos === R.ying)) {
+        racconto.push('la mobile è la ' + (pos === R.shi ? 'Shi' : 'Ying') + ' stessa, ' + PAR_IT[mob.par] +
+          ', e RETROCEDE (退神)' + (riempito ? ' — la bestia sopra combina l\'arrivo e riempie il vuoto' : '') +
+          ': la sede che si ritira fa perdere la propria squadra');
+        return fine(opposto(sede(pos)), 'la sede ' + PAR_IT[mob.par] + ' si ritira: la sua squadra perde',
+                    'T1a la sede che si ritira');
+      }
+      // Edu, 15/09/2026 (USDCAD 16/03/2020): "Y P can retreat because of the beast Geng Zi so it
+      // will make its own side to lose" + "ho dimenticato di citare L4, la linea piu' forte".
+      // La P della Ying si ritira; ma L4 G 午, sul ramo del giorno e di stagione, e' la linea
+      // PIU' FORTE dell'esagramma, sta dall'altra parte ed e' un G: vince la sua squadra. Non
+      // tocca USDJPY 01/12/2022 (Edu, 09/09: la stessa ritirata fa vincere la sua sede), dove
+      // la piu' forte non sta dall'altra parte. MLRITIROFORTE=off.
+      if (indietro && !off('MLRITIROFORTE')) {
+        var pf1 = piuForte(R, C, annullate);
+        if (pf1 && sede(pf1.L.pos) !== sede(pos) && (pf1.L.par === 'G' || pf1.L.par === 'W')) {
+          racconto.push('la mobile è ' + PAR_IT[mob.par] + ' e RETROCEDE (退神), ma dall\'altra parte L' + pf1.L.pos + ' ' +
+            PAR_IT[pf1.L.par] + ' ' + pf1.L.ramo + ' è la linea più forte dell\'esagramma' +
+            (C.D && pf1.L.ramo === C.D ? ', sul ramo del giorno' : '') + (C.timely(pf1.L.el) ? ', di stagione' : '') +
+            ': vince la sua squadra');
+          return fine(sede(pf1.L.pos), 'il malus si ritira, ma la più forte è un ' + PAR_IT[pf1.L.par] + ' dall\'altra parte',
+                      'T1a la ritirata e la più forte');
+        }
       }
       racconto.push('la mobile è ' + PAR_IT[mob.par] + ', che è un danno per la propria squadra, e ' +
         (indietro ? 'RETROCEDE (退神): si ritira e porta via il danno, la sua sede vince'
@@ -2017,6 +2414,9 @@ function creaMotore(LYM) {
         var XS = C.seconde[ps];
         if (annullate[XS.L.pos] || !XS.arr) continue;
         if (C.D && (CLASH[C.D] === XS.L.ramo || COMBINA[C.D] === XS.L.ramo)) continue;
+        // Edu, 15/09/2026: "L4 goes into void" — la seconda con l'arrivo nel vuoto non
+        // combina, non clasha, non genera: resta zitta.
+        if (XS.vuota) { racconto.push('L' + XS.L.pos + ' va in ' + XS.arr + ', nel vuoto: non fa niente'); continue; }
         var aEl = WX[XS.arr];
         var fermeS = R.linee.filter(function (L) {
           return L.pos !== XS.L.pos && L.pos !== pos && !annullate[L.pos] && !rottaL(L, R, C) && !vuotaL(L, C, R);
@@ -2204,11 +2604,163 @@ function creaMotore(LYM) {
       if (fuori(lS7) === fuori(lY7)) {
         racconto.push('nessuna traccia conclude e le due sedi sono nella stessa condizione: ' +
           'non c\'è un duello da decidere');
-        return fine(null, 'nessuna traccia conclude', 'tace');
-      }
+        // S47 (Edu, 15/09/2026): qui prima la carta taceva. Ora si scende ai principi 3 e 4
+        // (Shi contro Ying, poi la linea piu' forte). MLDUELLOTACE=on ripristina il silenzio.
+        if (ENV.MLDUELLOTACE === 'on') return fine(null, 'nessuna traccia conclude', 'tace');
+      } else {
       var d7 = confrontoDiretto(R, C, C.capolinea ? C.capolinea(lS7) : lS7.el,
                                       C.capolinea ? C.capolinea(lY7) : lY7.el, racconto, true);
       if (d7) return fine(d7, 'nessun altro conclude: resta il duello fra Shi e Ying', 'T7 il duello');
+      }
+    }
+
+    // --- T8: SHI CONTRO YING (principio 3 di Edu) ---------------------------------
+    // Edu, 14/09/2026: "1. Si risolve con le linee mobili. 2. Se c'e' un blocco nel movimento
+    // e non si giunge a una soluzione, si usano le bestie. 3. S vs Y. 4. La linea piu' forte."
+    // Quando nessun movimento e nessuna bestia ha concluso, si confrontano le due sedi come
+    // stanno (elementi dopo le bestie, che si usano solo se portano vantaggio): generazione,
+    // controllo, penalita' fra sedi, forza. Prima solo il duello T7 (una sede fuori e l'altra
+    // no); questo vale per tutte le carte con le due sedi in piedi. MLSVSY=off.
+    // MISURA (15/09/2026), sulle ~50 carte dove ne' le mobili ne' le bestie concludono:
+    //   elementi (Claude)      50 carte 40,0%   mazzo 52,76% +16.177
+    //   carattere delle sedi   42 carte 38,1%   mazzo 52,59% +15.448
+    //   la piu' forte fra le due sedi  49 carte 36,7%   mazzo 52,54% +15.257
+    //   T8 SPENTO -> T9 la piu' forte dell'esagramma  43 carte 55,8%   mazzo 52,98% +16.474
+    // Nessuna formula di "Shi contro Ying" scritta da Claude regge; la linea piu' forte
+    // dell'esagramma si'. T8 resta SPENTO (MLSVSY=elementi|carattere|forza per accenderlo)
+    // finche' Edu non detta la sua regola di confronto.
+    // Edu, 15/09/2026 (EURUSD 11/03/2022): "S generates Y. Short" — il principio 3 e' la
+    // relazione fra gli elementi delle due sedi come stanno (chi genera l'altra perde, chi e'
+    // generata vince; chi controlla vince). E' la formula "elementi": regola di Edu, si tiene
+    // anche se misura 40% su 50 carte, e le storte si portano a Edu una per una. MLSVSY=off la spegne.
+    if (!off('MLSVSY') && !annullate[R.shi] && !annullate[R.ying] &&
+        !(typeof fuori === 'function' && fuori(R.linee[R.shi - 1]) && fuori(R.linee[R.ying - 1]))) {
+      // Due sedi tutte e due fuori (vuote, legate, rotte) non si confrontano: si va alla
+      // linea piu' forte.
+      var lS8 = R.linee[R.shi - 1], lY8 = R.linee[R.ying - 1];
+      var eS8 = elDopoLeBestie(lS8, C), eY8 = elDopoLeBestie(lY8, C);
+      var st8 = function (L) {
+        var t = [];
+        if (vuotaL(L, C, R)) t.push('vuota');
+        if (L.stato === 'legata' || L._legata2) t.push('legata');
+        if (rottaL(L, R, C)) t.push('rotta');
+        if (L.isMobile) t.push('mobile');
+        t.push(C.timely(L.el) ? 'di stagione' : 'fuori stagione');
+        return t.join(', ');
+      };
+      racconto.push('né le mobili né le bestie concludono: Shi ' + lS8.ramo + ' ' + PAR_IT[lS8.par] + ' (' + EL_IT[eS8] + '; ' + st8(lS8) +
+        ') contro Ying ' + lY8.ramo + ' ' + PAR_IT[lY8.par] + ' (' + EL_IT[eY8] + '; ' + st8(lY8) + ')');
+      // Variante da misurare (Edu, 15/09/2026: "sicuro che la soluzione per quelle 30 carte non
+      // esiste gia'?"): prima degli elementi parla il CARATTERE delle sedi, che e' la regola
+      // gerarchica di Edu (G/W fanno vincere la propria sede, P/B la fanno perdere, C tace).
+      // Se i due caratteri dicono la stessa cosa, o solo uno parla, decide il carattere; se si
+      // contraddicono, si passa agli elementi. MLSVSY=carattere.
+      // Variante: S vs Y = la PIU' FORTE delle due sedi (stessa misura di T9, ristretta alle
+      // sedi): stagione, ramo del mese/giorno/anno, clash della data che la cita. MLSVSY=forza.
+      if (ENV.MLSVSY === 'forza') {
+        var pf = function (L) {
+          var f = PESO_STAGIONE[C.stagione(L.el)] || 0;
+          if (vuotaL(L, C, R)) f -= 2;
+          if (L.ramo === R.monthBranch) f += 2;
+          if (C.D && L.ramo === C.D) f += 1;
+          if (R.yearBranch && L.ramo === R.yearBranch) f += 1;
+          C.ramiData.forEach(function (r) { if (CLASH[r] === L.ramo) f += 1; });
+          return f;
+        };
+        var fS8 = pf(lS8), fY8 = pf(lY8);
+        if (fS8 !== fY8) {
+          var Lv8 = fS8 > fY8 ? lS8 : lY8;
+          racconto.push('Shi contro Ying: vince la più forte delle due, L' + Lv8.pos + ' ' + Lv8.ramo + ' (' + Math.max(fS8, fY8) + ' contro ' + Math.min(fS8, fY8) + ')');
+          return fine(sede(Lv8.pos), 'Shi contro Ying: la più forte delle due sedi', 'T8 Shi contro Ying: la più forte');
+        }
+        racconto.push('Shi e Ying pesano uguale: si va alla linea più forte dell\'esagramma');
+      } else if (ENV.MLSVSY === 'carattere') {
+        var cS8 = dirDelCarattere(lS8.par, lS8.pos), cY8 = dirDelCarattere(lY8.par, lY8.pos);
+        var dCar = (cS8 && cY8) ? (cS8 === cY8 ? cS8 : null) : (cS8 || cY8);
+        if (dCar) {
+          racconto.push('parlano i caratteri delle sedi: Shi ' + PAR_IT[lS8.par] + (cS8 ? ' (' + (cS8 === sede(lS8.pos) ? 'fa vincere' : 'fa perdere') + ' la sua sede)' : ' (tace)') +
+            ', Ying ' + PAR_IT[lY8.par] + (cY8 ? ' (' + (cY8 === sede(lY8.pos) ? 'fa vincere' : 'fa perdere') + ' la sua sede)' : ' (tace)'));
+          return fine(dCar, 'Shi contro Ying: decide il carattere delle sedi', 'T8 Shi contro Ying: il carattere');
+        }
+        racconto.push('i caratteri delle sedi si contraddicono: si guardano gli elementi');
+      }
+      // Edu, 15/09/2026 (EURUSD 11/03/2022): "L5 cannot move because of the clash. Still survive
+      // as the month generate it. S generates Y. Short." Il confronto vale fra sedi VIVE: la
+      // sede che non si muove sopravvive se e' di stagione (il mese la genera o e' il suo).
+      // MLSVSY=vive: confronto sugli elementi solo se tutte e due le sedi sono di stagione e
+      // nessuna e' vuota, legata o rotta; altrimenti si scende alla piu' forte.
+      if (ENV.MLSVSY === 'vive') {
+        var viva8 = function (L) { return C.timely(L.el) && !vuotaL(L, C, R) && !(L.stato === 'legata' || L._legata2) && !rottaL(L, R, C); };
+        if (!viva8(lS8) || !viva8(lY8)) {
+          racconto.push('una delle due sedi non è viva (fuori stagione, vuota, legata o rotta): niente confronto, si va alla più forte');
+        } else {
+          var d8v = confrontoDiretto(R, C, eS8, eY8, racconto);
+          if (d8v) return fine(d8v, 'Shi contro Ying, tutte e due vive', 'T8 Shi contro Ying: sedi vive');
+        }
+      } else {
+      C._t8 = true;
+      var d8 = confrontoDiretto(R, C, eS8, eY8, racconto);
+      C._t8 = false;
+      if (d8) return fine(d8, 'Shi contro Ying', 'T8 Shi contro Ying');
+      }
+    }
+
+    // --- T9: LA LINEA PIU' FORTE DELL'ESAGRAMMA ---------------------------------
+    // Edu, 15/09/2026: "in assenza di soluzioni e quando tutto il resto fallisce (incluse
+    // bestie e S vs Y) si vede semplicemente la linea piu' forte" (USDCAD 04/01/2021: L2 P
+    // spazzata via da tre 子 nella data, L5 W 子 diventa la linea piu' potente e vince).
+    // Ultimo gradino prima del silenzio: fra le linee non vuote e non annullate vince la
+    // squadra della piu' forte (stagione, ramo del mese, ramo del giorno, ramo dell'anno,
+    // citata dal clash della data). Serve un massimo netto; a parita' la carta tace.
+    // MLPIUFORTE=off.
+    if (!off('MLPIUFORTE')) {
+      var cand9 = R.linee.filter(function (L) { return !annullate[L.pos] && !vuotaL(L, C, R); });
+      var punt9 = function (L) {
+        var f = PESO_STAGIONE[C.stagione(L.el)] || 0;
+        if (L.ramo === R.monthBranch) f += 2;
+        if (C.D && L.ramo === C.D) f += 1;
+        if (R.yearBranch && L.ramo === R.yearBranch) f += 1;
+        C.ramiData.forEach(function (r) { if (CLASH[r] === L.ramo) f += 1; });
+        return f;
+      };
+      cand9.sort(function (a, b) { return punt9(b) - punt9(a); });
+      if (cand9.length && (cand9.length === 1 || punt9(cand9[0]) > punt9(cand9[1]))) {
+        var L9 = cand9[0];
+        racconto.push('nessuna traccia conclude: si guarda la linea più forte dell\'esagramma, L' + L9.pos + ' ' +
+          PAR_IT[L9.par] + ' ' + L9.ramo + (C.timely(L9.el) ? ', di stagione' : '') +
+          (L9.ramo === R.monthBranch ? ', sul ramo del mese' : '') + (C.D && L9.ramo === C.D ? ', sul ramo del giorno' : '') +
+          ': vince la sua squadra');
+        // Variante da misurare (EURUSD 11/03/2022: la piu' forte e' L6 P 卯 e la carta va SHORT):
+        // la piu' forte PARLA COL SUO CARATTERE — G/W fanno vincere la propria squadra, P/B la
+        // fanno perdere, C tace. MLPIUFORTE=carattere.
+        if (ENV.MLPIUFORTE === 'carattere') {
+          var d9c = dirDelCarattere(L9.par, L9.pos);
+          if (!d9c) { racconto.push('ma è una C: tace'); return fine(null, 'la più forte è una C', 'tace'); }
+          racconto.push('la più forte parla col suo carattere, ' + PAR_IT[L9.par] + ': ' + (d9c === sede(L9.pos) ? 'fa vincere' : 'fa perdere') + ' la sua squadra');
+          return fine(d9c, 'la linea più forte parla col suo carattere', 'T9 la più forte col carattere');
+        }
+        return fine(sede(L9.pos), 'nessun altro conclude: decide la linea più forte, L' + L9.pos, 'T9 la linea più forte');
+      }
+    }
+
+    // --- T10: L'ESAGRAMMA FUTURO (principio 5 di Edu) ------------------------------
+    // Edu, 15/09/2026 (USDJPY 05/11/2020): "In questa carta nessuno vince. [...] S e Y sono lo
+    // stesso quindi anche qui non c'e' vittoria. Non c'e' una linea piu' forte. A questo punto
+    // si vede l'esagramma futuro: c'e' una incompatibile su L3. E' un G e quella fa vincere lo
+    // Short." Quando nemmeno la linea piu' forte decide, si guarda l'esagramma futuro: una
+    // linea INCOMPATIBILE nel suo trigramma futuro parla col suo carattere nel palazzo
+    // (G/W fanno vincere la propria squadra, P/B la fanno perdere, C tace). MLFUTURO=off.
+    if (!off('MLFUTURO') && C.futuro && C.futuro.RF && C.futuro.RF.linee) {
+      var LF = C.futuro.RF.linee;
+      for (var q10 = 0; q10 < LF.length; q10++) {
+        var lf = LF[q10], posF = q10 + 1;
+        if (!lf || !lf.ramo || !C.incompFuturo(lf.ramo, posF)) continue;
+        var parF = parDi(WX[lf.ramo], R.palEl), dF = dirDelCarattere(parF, posF);
+        racconto.push('nessuno vince: si guarda l\'esagramma futuro, dove L' + posF + ' ' + lf.ramo +
+          ' è incompatibile nel suo trigramma; nel palazzo è ' + PAR_IT[parF] +
+          (dF ? ': ' + (dF === sede(posF) ? 'fa vincere' : 'fa perdere') + ' la sua squadra' : ': tace'));
+        if (dF) return fine(dF, 'l\'incompatibile dell\'esagramma futuro parla col suo carattere', 'T10 l\'esagramma futuro');
+      }
     }
 
     racconto.push('nessuna traccia porta da qualche parte: la carta tace');
