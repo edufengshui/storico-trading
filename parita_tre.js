@@ -3,7 +3,7 @@ global.window = global;
 const lj = require('lunar-javascript'); global.Solar = lj.Solar; global.Lunar = lj.Lunar;
 const D='/home/claude/storico-trading/work_trading/pwa/';
 global.XKDGSolarTime=require(D+'solar-time.js'); global.XKDGJieQi=require(D+'jieqi-gmt.js'); global.XKDGDaLiuRen=require(D+'daliuren.js'); global.XKDGTrend=require(D+'trend.js');
-global.XKDGPlumBlossom=require(D+'plumblossom.js'); global.XKDGLiuYao=require(D+'liuyao.js'); global.XKDGMotoreDLR=require(D+'motore_dlr.js');
+global.XKDGPlumBlossom=require(D+'plumblossom.js'); global.XKDGLiuYao=require(D+'liuyao.js'); global.XKDGMotoreDLR=require(D+'motore_dlr.js'); global.creaMotore=require(D+'motore_lettura.js').creaMotore;
 // stub del DOM
 const store={}; global.localStorage={getItem:k=>store[k]||null,setItem:(k,v)=>{store[k]=v},removeItem:k=>{delete store[k]}};
 global.addEventListener=()=>{}; global.document={getElementById:()=>null,querySelector:()=>null,querySelectorAll:()=>[],addEventListener:()=>{}};
@@ -12,7 +12,7 @@ const fs=require('fs'); let src=fs.readFileSync('/home/claude/storico-trading/ap
 const vm=require('vm'); vm.runInThisContext(src+'\n;global.__A=analizzaCrossPerReport;global.__L=livelloTreSistemi;global.__I=istanteUtcDelGiorno;');
 const cards=JSON.parse(fs.readFileSync('/tmp/tresist.json','utf8'));
 const N=Number(process.argv[2]||300); const step=Math.max(1,Math.floor(cards.length/N));
-let tot=0, d={pb:0,ly:0,at:0,dlr:0,liv:0,dir:0}; const ex=[];
+let tot=0, d={pb:0,ly:0,at:0,dlr:0,lett:0,liv:0,dir:0}; const ex=[];
 // S41 — lo Spirito unico, come nell'app: Serpente (螣蛇 Teng She) su R3 -> il mercato segue
 // il trend, su R4 -> non segue; Sei Unioni (六合 Liu He) su R2 o R3 -> non segue.
 function spiritoBT(c){ if(!c.ema) return null;
@@ -32,15 +32,13 @@ function steloBT(c){ if(!c.ema) return null;
   if(sEl===mEl||GENp[mEl]===sEl) return null;
   return c.ema==='up' ? 'SHORT' : 'LONG'; }
 function livBT(c){
-  // S41 — la scala a voci, come nell'app.
-  const sp=spiritoBT(c), st=steloBT(c);
-  const tutte=[c.pb,c.ly,c.at,c.dlr,sp,st].filter(Boolean);
-  if(!tutte.length) return {liv:null,dir:null};
-  const nL=tutte.filter(v=>v==='LONG').length, nS=tutte.length-nL;
-  if(nL===nS) return {liv:null,dir:null};
-  const dir=nL>nS?'LONG':'SHORT', contr=Math.min(nL,nS);
-  if(contr===0 && tutte.length<4) return {liv:null,dir:null};   // S41: unanimita' debole, fermo
-  return {liv: contr===0 ? 'U'+tutte.length : contr===1 ? 'M1' : 'M2', dir:dir}; }
+  // S48 (16/09/2026) — la scala A/B/C/D, come nell'app. Spirito e stelo non contano piu'.
+  if(!c.pb) return {liv:null,dir:null};
+  if(c.ly&&c.dlr&&c.pb===c.ly&&c.ly===c.dlr) return {liv:'A',dir:c.pb};
+  if(c.dlr&&c.at&&c.at===c.dlr) return {liv:'B',dir:c.dlr};
+  if(c.ly&&c.pb===c.ly&&!c.dlr) return {liv:'C',dir:c.pb};
+  if(c.dlr&&c.lett&&c.dlr===c.lett) return {liv:'D',dir:c.dlr};
+  return {liv:null,dir:null}; }
 for(let i=0;i<cards.length;i+=step){ const c=cards[i];
   const row={cross:c.cross,status:'ok',seed:c.seed,branch:c.ora,direction:c.ema,emaRun:c.emaRun,emaConsolidated:true,seedFragile:false,seedEdgePips:99};
   const dArr=c.date.split('-').map(Number); const utc=__I(dArr);
@@ -51,8 +49,9 @@ for(let i=0;i<cards.length;i+=step){ const c=cards[i];
   if((e.lyDir||null)!==c.ly) d.ly++;
   if((e.attuale||null)!==c.at) d.at++;
   if((e.dlrDir||null)!==c.dlr) d.dlr++;
-  if(l.liv!==b.liv){ d.liv++; if(ex.length<12) ex.push(c.cross+' '+c.date+' s'+c.seed+'  BT pb '+c.pb+' ly '+c.ly+' at '+c.at+' dlr '+c.dlr+' -> '+b.liv+'   PWA pb '+e.pbDir+' ly '+e.lyDir+' at '+e.attuale+' dlr '+e.dlrDir+' -> '+l.liv+(e.signal==='NO TRADE'?' ['+e.motivo+']':'')); }
+  if((e.lettDir||null)!==c.lett) d.lett++;
+  if(l.liv!==b.liv){ d.liv++; if(ex.length<12) ex.push(c.cross+' '+c.date+' s'+c.seed+'  BT pb '+c.pb+' ly '+c.ly+' at '+c.at+' dlr '+c.dlr+' lett '+c.lett+' -> '+b.liv+'   PWA pb '+e.pbDir+' ly '+e.lyDir+' at '+e.attuale+' dlr '+e.dlrDir+' lett '+e.lettDir+' -> '+l.liv+(e.signal==='NO TRADE'?' ['+e.motivo+']':'')); }
   else if(l.dir!==b.dir) d.dir++;
 }
-console.log('carte confrontate '+tot+'  diff pb '+d.pb+'  ly '+d.ly+'  attuale '+d.at+'  dlr '+d.dlr+'  livello '+d.liv+'  direzione '+d.dir);
+console.log('carte confrontate '+tot+'  diff pb '+d.pb+'  ly '+d.ly+'  attuale '+d.at+'  dlr '+d.dlr+'  lettura '+d.lett+'  livello '+d.liv+'  direzione '+d.dir);
 ex.forEach(x=>console.log('  '+x));

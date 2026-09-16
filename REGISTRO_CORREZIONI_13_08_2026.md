@@ -7893,3 +7893,58 @@ FATTO: motore_lettura.js entra nella PWA (index.html, sw.js v60); app.js mostra 
 nella scala (parità 0 differenze invariata) finché non è misurata dentro la scala.
 STATO FINALE S47: motore di lettura 2.784 carte · tace 4 · 53,30% · +19.363 · recente 54,85%;
 basi LY/DLR/guida/parità invariate; 59 carte di riferimento 59/59.
+
+---
+
+# S48 — 16/09/2026 · La scala torna A/B/C, con la Lettura S47 come livello D
+
+## Basi verificate all'avvio (tutte esatte)
+Liu Yao S17 2.788 · 58,54% · z 9,01 · 35.016 pip · motore DLR 3.253 lette · tace 18 · fuori 204 ·
+60,81% · z 12,33 · 41.467 · carte guida 78/110 · parità 0 · motore di lettura 2.784 · tace 4 ·
+53,30% · +19.363 · recente 54,85% · carte di riferimento 59/59.
+
+## CONFRONTO DELLE SCALE (chiesto da Edu il 16/09/2026) — sui sei anni, 3.180 carte, |move| > 20
+Dump TRESIST (`TRESIST=1 SOGLIAPIP=20 TRESISTDUMP=/tmp/tresist.json` + base canonica); la Lettura S47
+da `MOTORE=lettura PRINCIPI=1 DUMPGRAD="*"` sugli stessi flag (adesso e' nel dump come campo `lett`).
+"dal 2024" = carte dal 01/01/2024 (1.367).
+
+| modo | trade | giusti | pip | dal 2024 | giusti | pip |
+|---|---|---|---|---|---|---|
+| 1 A/B/C originale | 1.672 | 68,1% | +38.481 | 702 | 67,2% | +15.552 |
+| · A PB+LY+DLR | 820 | 70,9% | +20.998 | 338 | 71,0% | +8.909 |
+| · B attuale+DLR | 759 | 64,8% | +15.460 | 331 | 63,7% | +5.885 |
+| · C PB+LY, DLR muto | 93 | 69,9% | +2.023 | 33 | 63,6% | +758 |
+| 2 Lettura S47 al posto del LY | 1.958 | 66,5% | +42.179 | 823 | 66,6% | +17.842 |
+| · A PB+Lett+DLR | 721 | 68,0% | +18.260 | 305 | 69,8% | +8.445 |
+| (con la Lettura anche nel B: 1.573 · 64,7% · +31.006) | | | | | | |
+| 3 Lettura S47 accanto al LY (A = PB+LY+DLR+Lett) | 1.672 | 68,1% | +38.481 | 702 | 67,2% | +15.552 |
+| · A a quattro | 414 | 74,2% | +13.500 | 177 | 74,6% | +5.801 |
+| · A senza la Lettura (cade nel B) | 406 | 67,5% | +7.498 | | | |
+| 4 solo DLR e Lettura S47 concordi | 1.469 | 64,7% | +29.248 | 631 | 66,7% | +13.937 |
+| sei voci (app fino a oggi) | 2.719 | 61,5% | +45.220 | | recente(23-26) 59,3% | |
+| ferme dell'ABC: DLR contro PB+LY concordi | 744 | 49,1% | +3.736 | | | |
+
+Seconda domanda di Edu ("il LY vecchio prima, S47 sulle carte che non rispondono"): il LY tace su 16
+carte su 3.180, quindi letto come "A/B/C prima, la Lettura sulle 1.507 carte ferme":
+
+| sulle ferme | trade totali | giusti | pip | dal 2024 | giusti | pip |
+|---|---|---|---|---|---|---|
+| DLR e Lettura concordi (653 · 57,6% · +5.720) | 2.325 | 65,1% | +44.201 | 977 | 65,9% | +19.305 |
+| PB e Lettura concordi (329 · 58,7%) | 2.001 | 66,5% | +42.935 | 837 | 66,4% | +18.001 |
+| la Lettura da sola (1.507 · 53,4%) | 3.179 | 61,1% | +47.281 | 1.367 | 61,6% | +20.462 |
+
+Dentro le ferme: Lettura col DLR 653 al 57,6%; Lettura contro il DLR nei contrasti a due 350 al 43,4%.
+
+## SCELTA DI EDU (16/09/2026): "Certo, S47 col DLR per tutte le altre" — `IN PRODUZIONE`
+Scala A → B → C → D: A, B, C come al 05/09/2026; **D = su tutte le carte che A/B/C lasciano
+ferme, motore DLR e Lettura S47 concordi** (compresa la casella dove il DLR contrasta PB+LY concordi:
+351 carte al 57,0%, dal 2024 63,0%). Le voci Spirito e stelo del giorno restano mostrate ma non
+contano piu'. Cablata in `app.js` (`livelloTreSistemi`, nota del report, badge, conteggi), in
+`index.html` (bottone "Scala A/B/C/D"), in `pb_stress.js` (TRESIST: `lett` nel dump, righe Z-D,
+Z-D+/Z-D-, Z-Dy/Z-Dn, Z-TOT48; la vecchia riga Z-D delle forme escluse e' ora Z-Dvecchio) e in
+`parita_tre.js` (livBT, confronto anche sulla Lettura). `sw.js` cache v61.
+Misura: Z-TOT48 2.325 · 65,12% · z 14,58 · +44.200 · vecchio 64,83% · recente 65,73%.
+Parità: 455 carte · 0 differenze su pb, ly, attuale, dlr, lettura, livello, direzione.
+Nota: la sezione "CONFRONTO DELLE SCALE" di S47 citata dalla ripartenza NON era nell'archivio
+(ultima copia del registro delle 01:22 del 16/09): il confronto e' stato rifatto qui, e le cifre di
+controllo di S47 (ABC 1.672 · 68,1% · +38.481; sei voci 2.719 · 61,5%) tornano identiche.

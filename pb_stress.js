@@ -28306,6 +28306,11 @@ if (process.env.TRESIST) {
     if(!M[k]){M[k]=mk(); ORD.push(k);} const o=M[k]; o.n++; if(win)o.w++; o.p+=pnl;
     const pr=r.date>='2023-05-01'?'re':r.date<='2022-12-31'?'ve':null; if(pr){o[pr].n++; if(win)o[pr].w++;} };
   const C={tot:0, lyParla:0, dlrParla:0, tutti:0, soloPB:0};
+  // S48 (16/09/2026, Edu): la Lettura S47 (motore_lettura.js) entra nella scala come livello D,
+  // "DLR e Lettura S47 concordi" su tutte le carte che A, B e C lasciano ferme.
+  const LYM48 = require('./liuyao.js'); const MP48 = require('./motore_lettura.js').creaMotore(LYM48);
+  const lettDir=(r)=>{ try{ const R=LYM48.readManual(r.sup,r.inf,r.linea,r.dayBranchUsed,r.monthBranchUsed,r.yearBranchUsed,r.dayStemUsed,r.oraBranch);
+    if(R.error) return null; const v=MP48.leggi(R, steliPerPrincipi(r)); r._lettGrad=v.gradino||null; return v.dir||null; }catch(e){ return null; } };
   // GEMSCALA (S40) — la regola delle gemelle: se oggi un altro cross ha lo STESSO piatto,
   // il verdetto del DLR conta solo se il Liu Yao lo conferma; altrimenti il DLR e' muto.
   // Il piatto condiviso e' noto in anticipo; lo e' anche l'accordo col LY. Nessun senno' di poi.
@@ -28315,7 +28320,7 @@ if (process.env.TRESIST) {
   for (const r of rows){ const k=GKEY(r); if(k) GCNT[k]=(GCNT[k]||0)+1; }
   for (const r of rows) {
     if (r.move==null || Math.abs(r.move)<SOG) continue;
-    const pb=pbSig(r); const ly=r._lyRef||null; const s17=r._S17ref||pb; let dlr=dlrDir(r);
+    const pb=pbSig(r); const ly=r._lyRef||null; const s17=r._S17ref||pb; let dlr=dlrDir(r); const lett=lettDir(r);
     if (process.env.GEMSCALA && dlr) { const k=GKEY(r);
       if (k && GCNT[k]>=2 && !(ly && ly===dlr)) { gemZitto++;
         if (process.env.GEMSCALA==='muto') dlr=null;
@@ -28444,7 +28449,14 @@ if (process.env.TRESIST) {
       if (Cc) put('Z-C. PB e LY concordi e DLR tace', pb, r);
       // S41: le carte fuori selezione riammesse. Il motore non le legge per forma, non per
       // silenzio: se il PB e il LY non concordano si segue il sistema attuale. 85 carte 61,18%.
-      if (!A && !B && !Cc && !dlr && r._dlrEscluso && s17) put('Z-D. forma esclusa riammessa · sistema attuale', s17, r);
+      if (!A && !B && !Cc && !dlr && r._dlrEscluso && s17) put('Z-Dvecchio. forma esclusa riammessa · sistema attuale (S39, non piu in scala)', s17, r);
+      // S48 (16/09/2026, scelta di Edu: "S47 col DLR per tutte le altre"): livello D = il motore DLR e la
+      // Lettura S47 concordi, su tutte le carte che A, B e C lasciano ferme. Misura del 16/09: 653 carte
+      // 57,6% (+5.720 pip), dal 2024 275 carte al 62,5%. Scala A+B+C+D: 2.325 carte 65,1% +44.201.
+      const D = !A && !B && !Cc && !!(dlr && lett && dlr===lett);
+      if (D) put('Z-D. DLR e Lettura S47 concordi (sulle ferme di A/B/C)', dlr, r);
+      if (D) put('Z-D'+(pb===dlr?'+':'-')+'. livello D · il PB '+(pb===dlr?'conferma':'contraddice'), dlr, r);
+      if (D) put('Z-D'+(ly?(ly===dlr?'y':'n'):'0')+'. livello D · il LY '+(ly?(ly===dlr?'conferma':'contraddice'):'tace'), dlr, r);
       if (Cpieno) put('Z-Cvecchio. PB e LY concordi (vecchio C, per confronto)', pb, r);
       if (Cscartato) put('Z-C2. escluso dal 05/09/2026: PB e LY concordi ma DLR contrasta', pb, r);
       let fermo = !!r._gemFermo;
@@ -28452,12 +28464,13 @@ if (process.env.TRESIST) {
       // coppia PB+LY, da sola, su un piatto condiviso non sa niente)
       if (process.env.GEMSCALA==='soloC' && Cc) { const k3=GKEY(r); if (k3 && GCNT[k3]>=2) fermo=true; }
       if ((A||B||Cc) && !fermo) put('Z-TOT. scala A+B+C', A?pb:B?s17:pb, r);
-      if (!(A||B||Cc) || fermo) put('Z-0. fuori scala (fermo) — pnl del sistema attuale evitato', s17, r);
+      if ((A||B||Cc||D) && !fermo) put('Z-TOT48. scala A+B+C+D (in produzione dal 16/09/2026)', A?pb:B?s17:Cc?pb:dlr, r);
+      if (!(A||B||Cc||D) || fermo) put('Z-0. fuori scala (fermo) — pnl del sistema attuale evitato', s17, r);
       if (A||B||Cc) { const k2=GKEY(r); const cond=(k2&&GCNT[k2]>=2);
         put('W. scala su piatto '+(cond?'CONDIVISO':'unico   '), A?pb:B?s17:pb, r);
         put('W'+(A?'A':B?'B':'C')+'. livello '+(A?'A':B?'B':'C')+' su piatto '+(cond?'CONDIVISO':'unico   '), A?pb:B?s17:pb, r); } }
     if (process.env.TRESISTDUMP) { const ca=r._dlrCarta||{}; const par=(b)=>ca.steloGiorno&&b?MD.parentela(ca.steloGiorno,b):null;
-      (global.__tsd=global.__tsd||[]).push({cross:r.cross,date:r.date,seed:r.seedUsed,ora:r.oraBranch,ema:r.emaDir,emaRun:r.emaRun,pb:pb,ly:ly,at:s17,dlr:dlr,move:Math.round(r.move),
+      (global.__tsd=global.__tsd||[]).push({cross:r.cross,date:r.date,seed:r.seedUsed,ora:r.oraBranch,ema:r.emaDir,emaRun:r.emaRun,pb:pb,ly:ly,at:s17,dlr:dlr,lett:lett,lettGrad:r._lettGrad||null,move:Math.round(r.move),
         dlrVia:r._dlrVia||null, lyVia:r._lyVia||null, lySez:r._lySez||null, stelo:ca.steloGiorno, ramo:ca.ramoGiorno, pal:ca.palazzoHost, R1:ca.R1,R2:ca.R2,R3:ca.R3,R4:ca.R4,
         pR1:par(ca.R1),pR2:par(ca.R2),pR3:par(ca.R3),pR4:par(ca.R4),pOra:par(ca.oraRamo), M1:ca.treMessaggi&&ca.treMessaggi.chu, pM1:par(ca.treMessaggi&&ca.treMessaggi.chu),
         metodo:ca.metodo, vuoti:(ca.vuoti||[]).join(''), steloGiorno:ca.steloGiorno, ramoMese:ca.ramoMese, escluso:!!r._dlrEscluso, spR1:ca.spiritoR1, spR2:ca.spiritoR2, spR3:ca.spiritoR3, spR4:ca.spiritoR4, genOra:ca.generaleOra, mese:ca.ramoMese, gm:ca.generaleMese, wd:new Date(r.date+'T00:00:00Z').getUTCDay() }); }
