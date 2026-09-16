@@ -32,7 +32,7 @@ REPO_SW="https://github.com/edufengshui/trading.git"
 REPO_AR="https://github.com/edufengshui/storico-trading.git"
 
 # BLOCCO 1: il software vivo del sito
-FILES_SW="liuyao.js app.js index.html plumblossom.js sw.js motore_dlr.js"
+FILES_SW="liuyao.js app.js index.html plumblossom.js sw.js motore_dlr.js motore_lettura.js"
 # BLOCCO 2: motore di ricerca, script ausiliari, registri
 # NOTA (Edu, 07/09/2026): l'archivio tiene una copia dei file del software, quindi app.js,
 # plumblossom.js, index.html e sw.js devono finire ANCHE nel blocco 2 quando cambiano.

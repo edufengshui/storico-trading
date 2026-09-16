@@ -7948,3 +7948,215 @@ Parità: 455 carte · 0 differenze su pb, ly, attuale, dlr, lettura, livello, di
 Nota: la sezione "CONFRONTO DELLE SCALE" di S47 citata dalla ripartenza NON era nell'archivio
 (ultima copia del registro delle 01:22 del 16/09): il confronto e' stato rifatto qui, e le cifre di
 controllo di S47 (ABC 1.672 · 68,1% · +38.481; sei voci 2.719 · 61,5%) tornano identiche.
+
+## S48 · LE INCOMPATIBILI NELLA CATENA (Edu, 16/09/2026: "Fallo ora") — `FERMATO ALLE CARTE GUIDA`
+Motivo: NZDUSD 15/09/2026 seme 57, persa dalla catena perche' non ha le incompatibili (la Lettura
+S47 la legge SHORT con L3 incompatibile che gira insieme alla mobile L1).
+Archivio consultato prima: la catena ha gia' §109 (incompatibile in ultima istanza), §128 (Shi/Ying
+incompatibile perde il duello) e il caso -5 (arrivo incompatibile col futuro); NON ha la dottrina
+di S45 (ferma incompatibile diventa mobile; mobile incompatibile non si ferma; futuro comune), che
+sta solo in motore_lettura.js.
+PRIMO PASSO cablato in liuyao.js (`build`, interruttore INCFUTURO): la ferma incompatibile (sei
+coppie, ponte sui quattro rami, freno delle due combinazioni) gira INSIEME alla mobile e l'arrivo
+della mobile viene dal futuro comune; la carta espone `incompatibili` (posizioni).
+MISURA: S17 da 58,54% (+35.016) a 57,32% (+29.652); carte guida da 78 a 74 giuste. Cambiano
+verdetto SEI letture certificate da Edu, tutte fatte in agosto senza le incompatibili:
+NZDUSD 22/06/2023 s62 · NZDUSD 15/06/2022 · USDJPY 29/11/2024 s151 · USDJPY 16/10/2024 s149 ·
+USDJPY 06/11/2024 s151 (+320: L3 申 in 艮 gira con la mobile L2, che arriva in 辰 invece che in 亥)
+· USDJPY 09/12/2024 s149. Due carte guida si raddrizzano (USDJPY 25/07/2023, EURGBP 20/03/2026).
+Regola: dopo ogni modifica al LY si rifanno le carte guida e ci si ferma se una cambia verdetto.
+FERMATO: INCFUTURO spento per default, basi invariate. Da portare a Edu: le sei carte guida, una
+alla volta — sono sue letture, decide lui se restano valide con le incompatibili.
+
+## S48 · USDJPY 06/11/2024 seme 151 RILETTA DA EDU CON LE INCOMPATIBILI · `CONFERMATA` — e la difesa del Tai Sui `ABOLITA`
+Prima carta guida delle sei che cambiavano verdetto con INCFUTURO. Edu ha chiesto conferma del mese
+(vicino a 立冬): verificato, 立冬 cade il 06/11/2024 alle 22:20 GMT, la carta delle 00:00 GMT e' nel mese 戌.
+Parole di Edu: "L3 moves to control back. L2 moves and bring the winner line to L4. Long".
+Trovata nella carta: L3 = Shi, B 申 (vuota), incompatibile in 艮 -> si muove; girando con L2 il
+trigramma inferiore diventa 坎 e L3 arriva in 午: il Fuoco controlla indietro il Metallo, il B della
+Shi e' abbattuto. L2 = G 午, arriva in 亥 = il ramo di L4: la linea vincente e' portata su L4, l'alto
+vince -> LONG (+320).
+PUNTO APERTO (chiesto a Edu, non risposto): l'arrivo 亥 di L2 e' quello della mobile che gira DA SOLA
+(艮->巽); con le due linee girate insieme L2 andrebbe in 辰. Su GBPUSD 02/08/2022 Edu aveva letto la
+Shi 丑 -> 亥, che viene dal futuro comune. Da chiarire se la mobile tiene il proprio arrivo e solo
+l'incompatibile prende il futuro comune. Misura nel motore di lettura: FUTURO=seconde (mobile da
+sola) 52,98% e rompe 5 carte di riferimento (GBPUSD 02/08/2022, USDJPY 02/08/2022, USDJPY 13/09/2022,
+USDJPY 05/12/2022, USDJPY 13/02/2024); FUTURO=insieme resta il default (53,30%, 59/59).
+Conseguenza per INCFUTURO in liuyao.js: cambiava l'ARRIVO della mobile, e per questo rompeva le
+carte guida; da rifare come "solo l'incompatibile si muove", resta spento.
+
+**REGOLA ABOLITA DA EDU (16/09/2026): "L1 non puo' essere clashata perche' il Tai Sui la difende"**
+(cablata il 31/08/2026 proprio su questa carta, `clashSu` in liuyao.js). Sostituita da due principi:
+1) le bestie si usano DOPO che il movimento delle linee non produce un effetto chiaro;
+2) e anche quando si usano, lo fanno per aiutare la lettura a trovare una direzione chiara e razionale.
+Cablato: difesa spenta per default (TSDIFENDE=1 per la misura). Misura: S17 da 58,54% (+35.016) a
+58,46% (+34.850, -166 pip); carte guida 78/110 invariate, nessun verdetto cambia (la guida resta
+LONG per §62); motore di lettura da 53,30% a 53,34%. Tenuta perche' regola di Edu.
+
+**RISCRITTURA DI EDU (16/09/2026) — la lettura giusta di USDJPY 06/11/2024, `CONFERMATA`**
+Parole di Edu: "una linea incompatibile puo' controllare indietro ma non puo' rimanere in quel trigramma
+quindi dopo aver controllato indietro comunque si muove in avanti e cerca qualcosa da fare. Qui si combina
+con Y portando la G w la' sopra su Y. L2 invece puo' muoversi perche' il clash contro il Tai Sui non annulla
+o blocca la linea ma la spinge in avanti, quindi per effetto scala G w arriva su L1 che e' ancora clashato
+in avanti per diventare Yin e combinarsi con L4. Risultato: il trigramma superiore riceve due winner G w"
+-> il basso, che le cede, perde -> LONG (+320).
+Precisazione di Edu: "G w capita dentro il trigramma futuro Kan quindi questo e' un altro motivo per cui e'
+spinta in avanti e non puo' rimanere li'" — 午 dentro 坎 e' esso stesso una coppia incompatibile.
+GLI ARRIVI SONO QUELLI DEL FUTURO COMUNE (L2 e L3 girate insieme, 艮 -> 坎: L1 寅, L2 辰, L3 午): chiude il
+punto aperto sopra, la mobile NON tiene l'arrivo "da sola". Il 亥 di L2 era un errore di Claude.
+Meccaniche nuove per il motore di lettura (principio 1, le linee mobili), DA CABLARE:
+ 1. l'incompatibile che controlla indietro non si ferma: va avanti (anche perche' arriva in un trigramma dove
+    e' di nuovo incompatibile) e combina; il carattere che ha addosso dopo il controllo indietro va sulla
+    linea combinata (qui il G su 未 = Ying);
+ 2. l'arrivo clashato dal giorno sul ramo del Tai Sui non e' bloccato: effetto scala, la linea vincente scende
+    sulla linea con quel ramo (L1 辰), che avanza al proprio ramo futuro (寅) e combina (寅亥 -> L4).
+CABLATO — `MLPORTATE`, gradino "T0x le vincenti portate", PRIMA del vecchio effetto scala (T0s, di
+Claude, che dava LONG per un'altra strada: la lettura di Edu precede). Due portate: a) la seconda
+(incompatibile) il cui arrivo controlla indietro la partenza ed e' G/W nel palazzo combina con la
+linea che porta il ramo combinato; b) la mobile G/W il cui arrivo e' il ramo del Tai Sui clashato dal
+giorno scende sulla linea con quel ramo, che avanza al proprio ramo del futuro comune e combina.
+Se tutte le linee raggiunte stanno nello stesso trigramma, quel trigramma vince. Perimetro stretto
+come sulla carta: servono entrambe (1 carta, +320). Il motore rifa' la lettura di Edu passo per passo.
+Mazzo 53,34% (+19.417); carte di riferimento 60/60 (aggiunta USDJPY 06/11/2024).
+ESTENSIONE DI CLAUDE, spenta: `MLPORTATE=una` (basta una portata) -> 12 carte, 9 giuste (+664),
+mazzo 53,38%. Da validare da Edu prima di accenderla.
+VALIDATA DA EDU (16/09/2026): "Puoi accenderla. E' frequente che in una lettura ci siano piu' motivi
+attraverso cui si ottiene un risultato positivo" -> basta una portata: ACCESA per default
+(MLPORTATE=due per il perimetro stretto). Misura: 12 carte, 9 giuste, +664; mazzo 53,38% (+19.492);
+carte di riferimento 60/60.
+
+## S48 · NZDUSD 22/06/2023 seme 62 RILETTA DA EDU CON LE INCOMPATIBILI · `CONFERMATA`
+Seconda delle sei carte guida. Lettura di agosto (padrone del giorno + duello per generazione):
+SHORT, giusta. Con le incompatibili L3 (B 午 in 坎) gira insieme a L1: 坎 -> 乾, L1 -> 子, L3 -> 辰.
+Claude aveva letto: la Ying vuota e combinata dal giorno non parte, il movimento non decide, la
+lettura di agosto regge. Edu ha risposto con un'altra via:
+Parole di Edu: "L3 moves into an healthy C which cannot stay in Qian and have to scale down to L2.
+L1 at Y cannot change into G Zi because of the day combining but it's awake out of the void. Then
+Y controls S and wins."
+-> 1) l'arrivo 辰 di L3 (C sano) e' a sua volta incompatibile dentro 乾: non puo' restarci e SCENDE
+sulla linea che porta 辰 (L2, gia' un C: non decide); 2) la Ying P 寅, vuota, con la partenza
+combinata dal giorno 亥 non puo' trasformarsi nel G 子, ma LA COMBINAZIONE LA SVEGLIA DAL VUOTO:
+e' piena e porta il Legno; 3) il Legno della Ying controlla la Terra dello Shi 戌: la Ying vince
+-> SHORT (esito SHORT -27).
+Principio nuovo: la combinazione del giorno sulla partenza di una sede vuota non la lascia inerte
+(come diceva la lettura di agosto): la sveglia. Poi si confronta con l'altra sede per controllo.
+CABLATO — `MLSVEGLIACOMB`, gradino "T0a la sede svegliata dalla combinazione", subito dopo T0x.
+Perimetro: sede mobile, partenza vuota e combinata dal giorno; la seconda incompatibile che scende e'
+raccontata (non decide); confronto per controllo con l'altra sede, altrimenti si prosegue.
+Misura: 9 carte, 5 giuste (-30 pip); mazzo da 53,38% a 53,41% (+19.488); riferimento 61/61.
+Le quattro storte: EURUSD 22/04/2026 s117, GBPUSD 19/12/2023 s126, USDCHF 16/05/2024 s90,
+NZDUSD 19/12/2023 s62 (stessa carta della guida, sei mesi dopo).
+PRECISAZIONE DI EDU (16/09/2026): "Non e' la combinazione che la sveglia, e' il fatto che e' comunque
+una linea mobile. E' come un treno in partenza, subisce un ritardo ma ha comunque i motori accesi."
+-> il vuoto della partenza non e' la condizione (la mobile non e' mai vuota, 動不為空). Gradino
+rinominato "T0a la sede in ritardo": sede mobile con la partenza combinata dal giorno -> non si
+trasforma, ma e' viva col proprio elemento; confronto per controllo con l'altra sede.
+Misura senza la condizione del vuoto: 40 carte, 19 giuste (47,5%, -463 pip); mazzo pero' da 53,41%
+a 53,52% (+19.762), perche' quelle carte prima erano lette peggio dai gradini successivi.
+Riferimento 61/61. Tenuto come detto da Edu (MLSVEGLIACOMB=vuota per il perimetro stretto: 9 carte,
+5 giuste). Da riguardare: nelle 21 storte il confronto per controllo con l'altra sede non basta.
+VERIFICA CHIESTA DA EDU (16/09/2026: "Si usa se non c'e' nient'altro da leggere. Hai fatto la stessa
+verifica?"): no, non era fatta. Aggiunta: la sede in ritardo agisce sull'altra sede solo se nessuna
+seconda (incompatibile) ha un arrivo vivo (fuori dal vuoto e non a sua volta incompatibile col futuro);
+altrimenti il ritardo resta raccontato e si prosegue. Misura: 27 carte, 11 giuste (40,7%, -616);
+mazzo 53,45% (+19.394). Senza la verifica (MLSVEGLIACOMB=subito): 40 carte, 19 giuste, mazzo 53,52%.
+Le 13 carte in cui c'e' altro da leggere erano 8 giuste su 13: la verifica NON spiega le storte.
+Tenuta la forma con la verifica (e' il principio di Edu); riferimento 61/61. Le 16 storte restano
+da guardare una per una.
+
+## S48 · LE TRE GEMELLE NZDUSD (seme 62, 艮 su 坎, mobile L1, giorno 亥) — LETTURA DI CLAUDE · `DA VALIDARE`
+Rimprovero di Edu (16/09/2026): "Continui ad evitare di pensare, a procedere per raccolta dati, test di
+soluzioni e scelta della via che da' risultati." Quindi: le carte, pensate.
+Le tre carte: 22/06/2023 (giorno 辛亥, mese 午, anno 卯, vuoti 寅卯) esito SHORT -27, letta da Edu;
+15/06/2022 (giorno 己亥, mese 午, anno 寅, vuoti 辰巳) esito LONG +60 = carta guida 3;
+19/12/2023 (giorno 辛亥, mese 子, anno 卯, vuoti 寅卯) esito LONG +57.
+In tutte e tre la Ying P 寅 e' in ritardo (il giorno 亥 combina la partenza) e viva; L3 B 午 e'
+incompatibile e vuole andare in 辰. Cosa cambia:
+- 22/06/2023: 辰 e' sano, il B se ne va e scende su L2 come C; il mese 午 restava su L3 ma la linea
+  e' partita; non c'e' altro; la Ying controlla lo Shi -> SHORT.
+- 15/06/2022: 辰 e' VUOTO, il B va nel vuoto e RESTA su L3, seduto sul ramo del mese 午: la linea
+  piu' forte dell'esagramma e' un B nel trigramma basso, che fa perdere la propria squadra -> LONG.
+- 19/12/2023: il mese 子 siede su L5, G, in alto: il G piu' forte fa vincere l'alto -> LONG.
+Principio proposto: la linea seduta sul ramo del mese, se resta (non si muove via), e' la piu' forte
+e col suo carattere decide PRIMA del controllo della sede in ritardo, che e' una P e vale poco.
+Cablato dietro `MLRITARDOMESE=on` dentro T0a: le tre gemelle tornano tutte giuste, ma sul mazzo la
+linea sul mese decide 25 carte al 40% (-262) e il gradino intero scende: SPENTO, dichiarato di Claude,
+in attesa di Edu. Con MLRITARDOMESE spento il mazzo torna a 53,45%.
+
+## S48 · IL MOVIMENTO DELLE LINEE — DOTTRINA DETTATA DA EDU (16/09/2026) · `PRINCIPIO 1, DA CABLARE`
+Parole di Edu (testuali):
+"Se una linea si muove per andare nel vuoto si invalida l'intera linea, non solo l'arrivo. E' come un
+treno che parte e si ferma in mezzo alla campagna.
+Se una linea si muove ma il suo arrivo e' clashato o combinato, solo l'arrivo e' annullato ma la
+partenza e' ancora attiva. E' come un treno che ha la tabella di marcia modificata.
+Se una linea mobile viene clashata o combinata alla partenza non parte proprio e non si puo' usare.
+Se una linea vuota e' mobile e viene clashata o combinata alla partenza non parte ma rimane attiva,
+si puo' usare.
+Eccezioni alla regola di cui sopra sono il Tai Sui e le incompatibili.
+Le incompatibili non possono rimanere nel trigramma incompatibile con loro, si muovono comunque.
+Tai Sui: un TS clashato alla partenza o all'arrivo puo' muoversi. Se combinato non puo'.
+Le bestie possono intervenire ad aiutare il movimento anche quando la linea non potrebbe muoversi
+ma devono essere compatibili con la linea (o stesso elemento, o drenano o generano). Se controllano
+o clashano si impadroniscono della linea ma solo se questo serve a trovare una soluzione!"
+Correzione implicita: "la sede in ritardo" (T0a) vale solo per la mobile VUOTA combinata alla
+partenza (NZDUSD 22/06/2023: la Ying 寅 era nei vuoti 寅卯); la mobile piena combinata alla partenza
+non parte e non si usa. Il vuoto quindi c'entra, ma al contrario di come lo avevo cablato prima.
+CABLATO (16/09/2026, "Cabla e misura") — `MLSTATOMOV`, gradino "T0m lo stato del movimento", dopo le
+guerre e prima delle bestie: arrivo nel vuoto -> linea invalidata (annullata); partenza clashata o
+combinata dal giorno -> non parte (vuota: attiva, va a T0a; piena: inusabile, annullata); arrivo
+toccato -> solo l'arrivo; Tai Sui e incompatibili come dettato. Conclusione aggiunta da Claude: se la
+sede mobile e' fuori uso e nessuna seconda resta viva, "resta in piedi solo l'altra sede" (chi non
+vince perde). Le bestie che aiutano il movimento NON cablate.
+MISURA: mazzo da 53,45% (+19.394) a 53,31% (+15.931); "resta solo l'altra sede" 137 carte al 48,9%;
+NZDUSD 15/06/2022 giusta (aggiunta ai riferimenti, 62). MA OTTO carte di riferimento lette da Edu
+cambiano verdetto: USDCHF 28/02/2022 (Edu: "Y cannot advance and yet Yin is the strongest line... Y
+controls S" — la Ying B 寅 va nel vuoto 卯 e per Edu RESTA in piedi, non e' invalidata); USDJPY
+05/12/2022 (Edu: "L4 goes into void... Ying: beasts help" — la linea nel vuoto resta, le bestie
+aiutano); EURUSD 17/06/2026 (Edu: il giorno 戌 clasha la partenza 辰 del G e la SVEGLIA, 暗動 — non
+"non parte e non si usa"); USDJPY 17/01/2024 (Edu: "L4 move into void means upper trigram cannot
+lose" — il B nel vuoto porta via il danno, non invalida la sede); USDJPY 02/10/2024; NZDUSD 10/03/2020;
+EURJPY 10/08/2023; EURJPY 15/08/2024. Fermato: MLSTATOMOV SPENTO, mazzo torna a 53,45%, riferimento
+62/62 con la carta di oggi ancora storta per il motore (T0a). Da chiarire con Edu: la linea che va nel
+vuoto e' invalidata sempre, o resta in piedi come sede (28/02/2022, 17/01/2024)?
+SECONDA PASSATA (16/09/2026), dopo USDCHF 28/02/2022 (Edu: "se la linea e' super-timely e avanza lo fa
+lo stesso!"): cablata l'eccezione (linea in stagione sul ramo del mese o dell'anno che AVANZA verso un
+arrivo vuoto: si muove); cablate le bestie compatibili che aiutano la linea ferma alla partenza (resta
+in gioco col proprio carattere, EURUSD 17/06/2026); tolta la conclusione precoce "resta solo l'altra
+sede" (T0m fissa solo lo stato, concludono i gradini che seguono). Con T0m acceso: mazzo 53,36%
+(+15.535, tace 24), riferimento 55/62 — restano storte per il motore EURUSD 11/03/2022, USDJPY
+05/12/2022, USDJPY 17/01/2024, USDJPY 02/10/2024, NZDUSD 10/03/2020, EURJPY 10/08/2023, EURJPY
+15/08/2024: in tutte, la linea che oggi verrebbe invalidata o resa inusabile era stata USATA da Edu
+(quasi sempre con le bestie che la aiutano o che riempiono il vuoto). T0m resta SPENTO (MLSTATOMOV=on);
+con T0m spento riferimento 62/62 ma NZDUSD 15/06/2022 storta per il motore (LONG via T0t? vedi sotto).
+Prossimo passo: portare a Edu quelle sette carte una alla volta, e cablare la parte delle bestie che
+aiutano il movimento nel modo che dira' lui.
+TERZA PASSATA (16/09/2026) — Edu: "Tutte e tre giuste. Si', se la bestia combina con una linea vuota e
+farla uscire dal vuoto aiuterebbe a trovare una soluzione (qualsiasi) allora fa uscire dal vuoto."
+Cablato in T0m, e ogni pezzo viene da una lettura di Edu, non da una misura:
+ 1. bestie che aiutano: nel vuoto la linea arriva se sopra c'e' una bestia compatibile (stesso elemento,
+    la genera, o la linea la genera = drena) o il cui ramo combina l'arrivo (USDCAD 16/03/2020); piena e
+    toccata alla partenza: con bestia compatibile si muove lo stesso. Vale la definizione del 16/09
+    (drena compresa), piu' larga di quella dell'11/09 usata per Q.agisce (EURJPY 15/08/2024: 巳 sopra 卯);
+ 2. ordine: prima la partenza — se non parte non va nel vuoto; la piena ferma alla partenza che il mese
+    genera o sostiene sopravvive (EURUSD 11/03/2022: "still survive as the month generate it");
+ 3. l'arrivo penalizzato dalla data muore anche se vuoto: la linea resta se' stessa (NZDUSD 10/03/2020);
+ 4. la linea spinta da una seconda che arriva sulla sua partenza non si ferma nel vuoto (effetto scala,
+    USDJPY 02/10/2024);
+ 5. la sede invalidata nel vuoto e' il malus che se ne va: T0v resta valido (USDJPY 17/01/2024);
+ 6. col futuro comune il ritorno che nutre (回頭生) si ricalcola sull'arrivo vero, e la mobile nutrita
+    "non puo' fare altro": niente porte con l'arrivo (USDJPY 05/12/2022: "L1 moves to generate back";
+    ora il motore rifa' la lettura di Edu: la Ying con l'Acqua batte lo Shi col Fuoco -> LONG);
+ 7. la superTimely che avanza nel vuoto si muove (USDCHF 28/02/2022).
+T0m ACCESO per default (MLSTATOMOV=off spegne). Misura: mazzo 53,54% (+19.378, tace 16), recente 54,66%;
+carte di riferimento 62/62; scala A/B/C/D 2.308 trade 65,34% +44.419 (livello D 638 al 58,3%, dal 2024
+62,2%); parita' 0. NZDUSD 15/06/2022 giusta ma per T0t (il B del trigramma alto genera la C), non per
+"resta in piedi solo lo Shi": la conclusione "resta solo l'altra sede" e' spenta (MLSTATOMOVFINE=on).
+
+## S48 (16/09/2026) · L'APP MOSTRA SOLO LA SCALA A/B/C/D · `CONFERMATA DA EDU`
+Edu, dal vivo: il Report giornaliero (regola del 28/08) e la scala davano liste diverse (4 contro i cross
+della scala); i nove bottoni dei cross e i pannelli Plum Blossom / Da Liu Ren "portano solo confusione".
+Rifatta la pagina: all'apertura carica il feed delle 00:00 GMT e mostra subito "Da tradare oggi" con la
+scala A/B/C/D; un solo bottone, "Aggiorna". I fermi stanno chiusi sotto un dettaglio a tocco. Tutto il
+resto (controlli, bottoni dei cross, PB/DLR, carta) e' in `#avanzato`, nascosto; `localStorage AVANZATO=1`
+lo riaccende per il lavoro di sviluppo. Il Report giornaliero non ha piu' un bottone. Nessuna logica di
+lettura toccata: parita' 455 carte, 0 differenze. sw.js cache v62.
