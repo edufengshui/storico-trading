@@ -8160,3 +8160,101 @@ scala A/B/C/D; un solo bottone, "Aggiorna". I fermi stanno chiusi sotto un detta
 resto (controlli, bottoni dei cross, PB/DLR, carta) e' in `#avanzato`, nascosto; `localStorage AVANZATO=1`
 lo riaccende per il lavoro di sviluppo. Il Report giornaliero non ha piu' un bottone. Nessuna logica di
 lettura toccata: parita' 455 carte, 0 differenze. sw.js cache v62.
+
+## S49 (16/09/2026) · USDJPY 02/07/2026 seme 162 · IL TRIGONO CHIUSO DALLA RITIRATA GENERA L'ALTRA SEDE · `CONFERMATA DA EDU`
+Carta di livello A (PB, LY, DLR tutti LONG; Lettura S47 LONG), esito SHORT -143. Palazzo 兌 Dui (Metallo),
+震 sopra 兌, mutante L2. Giorno 丁丑, mese 甲午, anno 丙午, ora 乙巳, vuoti 申酉. Shi L3 P 丑, Ying L6 P 戌.
+L2 W 卯 incompatibile in 兌 (unica), retrocede in 寅. Giorno e anno cadono su L1 G 巳, mese e ora sulla Ying.
+Il Liu Yao vecchio (R5, la mobile che retrocede senza clash dell'anno) e il motore di lettura (T1a, il
+vantaggio che retrocede fa perdere la propria sede) davano LONG.
+Lettura di Claude portata a Edu: la ritirata non porta via niente, perche' l'arrivo 寅 chiude con 午 (mese
+e anno) e 戌 (Ying) il trigono di Fuoco, di stagione; il trigono serve il Fuoco, cioe' i G; L4 G 午 in
+autopenalita' col 午 di mese e anno; L1 G 巳 con gli steli di Fuoco di giorno e anno e' il G piu' forte, in
+basso -> SHORT.
+Edu: "Sono d'accordo con te con l'unica variante che il trigono di fuoco che si forma sulla Y (con l'aiuto
+di y mobile) va a generare S che vince". Cioe': non passa per L1, il trigono si forma sulla Ying e il
+Fuoco genera la Terra dello Shi 丑, che vince -> SHORT.
+Principio a cui si aggancia: 1, le linee mobili (la ritirata della mobile e cosa fa il suo arrivo).
+Cablato come `MLRITIROTRIG` dentro T1a, prima del "vantaggio retrocede". Perimetro stretto, quello della
+carta: G/W mobile non sede che retrocede; l'arrivo non vuoto chiude un trigono intero col ramo di una sede
+non vuota e un terzo membro non vuoto fra i rami della data o le linee; elemento del trigono di stagione;
+il trigono GENERA l'elemento dell'altra sede -> vince l'altra sede. Se non genera, la regola non si
+pronuncia (nessuna estensione). MLRITIROTRIG=off spegne.
+Misura: gradino 1 carta (questa); "il vantaggio retrocede" da 55 carte 49,1% a 54 carte 50,0%; mazzo da
+53,54% (+19.378) a 53,57% (+19.663); carte di riferimento 63/63 (aggiunta questa); scala A/B/C/D invariata
+(carta di livello A, decisa dal Liu Yao vecchio); parita' 455 carte, 0 differenze.
+Punto aperto: nella scala dell'app la carta resta LONG perche' il livello A la legge col Liu Yao vecchio,
+dove la via della mobile che retrocede non conosce il trigono.
+PORTATA NEL LIU YAO VECCHIO (Edu, 16/09/2026: "Si controlla"). Stessa regola e stesso perimetro dentro la via
+della mobile che retrocede (R5), prima del suo verdetto; RITIROTRIG=off spegne.
+Controllo: carte guida 110 · 78 giuste · 32 storte identiche a prima (nessuna cambia verdetto).
+Misura: S17 da 58,46% (z 8,94, +34.850) a 58,50% (z 8,98, +35.135) — cambia solo questa carta.
+Scala: la carta non e' piu' di livello A (PB LONG, LY SHORT, DLR LONG) e resta ferma; Z-TOT A+B+C 1.669 ·
+68,06% · +38.538; Z-TOT48 A/B/C/D 2.307 · 65,37% · +44.561; livello D invariato 638 · 58,31%.
+Parita' 455 carte, 0 differenze su pb, ly, attuale, dlr, lettura, livello, direzione.
+
+## S49 (16/09/2026) · EURJPY 17/06/2026 seme 186 · LA BESTIA TOGLIE LO SHI DAL VUOTO · `INDICATA DA EDU`
+Carta di livello D (DLR e Lettura S47 LONG; PB e LY vecchio SHORT), esito SHORT -157. Palazzo 艮 Gen (Terra),
+艮 sopra 兌, mutante L2 G 卯 incompatibile in 兌 che retrocede in 寅. Giorno 壬戌, mese 甲午, anno 丙午, ora 乙巳,
+vuoti 子丑. Shi L3 B 丑 (vuota), Ying L6 G 寅. Il giorno cade su L1, mese e ora su L2, l'anno sullo Shi.
+Stessa struttura della seme 162, ma MLRITIROTRIG taceva: la Ying porta lo stesso ramo dell'arrivo e lo Shi e'
+vuoto. Claude aveva portato la lettura (trigono di Fuoco sulla Ying, aiutato dalla mobile, genera lo Shi ->
+SHORT) col dubbio dello Shi vuoto e penalizzato dal giorno 戌.
+Edu: "La bestia non arriva su Shi, la genera e la fa uscire dal vuoto?" — l'anno 丙午 cade sullo Shi con la
+sua bestia, il 午 Fuoco genera il 丑 Terra: la linea non e' vuota. E' la regola di Edu dell'11/09 ("quando
+arriva una bestia su una linea non ci sono piu' vuoti", EURJPY 10/08/2023) con la condizione di Claude che la
+bestia aiuti la linea (stesso elemento o la genera): questa carta ne e' un esempio. Errore di Claude: ha
+guardato il vuoto del giorno senza passare dalle bestie sulla sede.
+Cablato in MLRITIROTRIG: il vuoto delle due sedi si legge con vuotaL (bestie comprese); la sede generata deve
+essere piena; la sede su cui si forma il trigono puo' portare lo stesso ramo dell'arrivo (la mobile la aiuta).
+Misura: gradino 3 carte, 3 giuste, +341 (seme 162, seme 186, e NZDUSD 23/07/2026 seme 58 +41); "il vantaggio
+retrocede" 52 carte 51,9%; mazzo 53,64% (+20.060); riferimento 64/64; scala A/B/C/D 2.307 · 65,41% · +44.760,
+livello D 638 · 58,46%; parita' 0. Liu Yao vecchio non toccato (su questa carta diceva gia' SHORT).
+
+## S49 (16/09/2026) · NZDUSD 05/06/2026 seme 58 · DECIDE LA YING VUOTA · `LETTA DA EDU`
+Carta di livello D (DLR e Lettura S47 LONG; LY vecchio SHORT), esito SHORT -72. Palazzo 艮 Gen, 艮 sopra 兌,
+mutante L2 G 卯 incompatibile in 兌 che retrocede in 寅, nel vuoto. Giorno 庚戌, mese 癸巳 (芒种 entra alle 15:48
+GMT del 05/06: alle 00:00 GMT comanda ancora 巳), anno 丙午, ora 乙酉, vuoti 寅卯. Shi L3 B 丑 (sopra l'ora 乙酉),
+Ying L6 G 寅 vuota senza bestie; mese su L2, anno su L4, giorno su L1.
+Claude aveva proposto il trigono di Fuoco su L4 che genera lo Shi, e aveva scritto per errore che sullo Shi
+cade il mese: corretto passando pilastro -> stelo -> bestia -> linea (sullo Shi cade l'ora).
+Edu: "Non c'e' bisogno del trigono. Y e' vuoto e non c'e' niente che lo salvi. L2 arriva sul vuoto e si puo'
+cancellare l'importanza dell'intera linea. Su S arriva la bestia del mese. Vince lo short." Dopo la
+correzione del mese: "Gui Si arriva su L2. Gui acqua da' un po' di energia al legno e Si usa il legno per
+generare Shi. Vince. Comunque quello che decide e' Y vuoto."
+E' la regola di Edu del 29/08/2026 ("se Shi o Ying sono vuoti [...] fa perdere immediatamente la parte
+vuota"), gia' a registro. Principio 1 (la mobile nel vuoto si cancella) che lascia il posto al 3 (le sedi).
+Cablato come `MLRITIROVUOTASEDE` in T1a, prima del trigono della ritirata. Perimetro della carta: G/W mobile
+non sede che retrocede in un arrivo nel vuoto del giorno; una sede vuota che nessuna bestia salva (vuotaL),
+l'altra piena -> vince la piena. MLRITIROVUOTASEDE=off spegne.
+Misura: gradino 2 carte, 1 giusta (questa, +72) e 1 storta: EURJPY 29/07/2026 seme 186 (-73; stessa carta,
+giorno 甲辰 che clasha L4 戌, mese 乙未, ora 己巳; livello A SHORT, persa anche dalla scala). Mazzo 53,64%
+(+20.059); riferimento 65/65; scala A/B/C/D 2.306 · 65,44% · +44.832, livello D 637 · 58,56%; parita' 0.
+Da portare a Edu: EURJPY 29/07/2026 seme 186, per vedere perche' e' storta.
+
+## S49 (16/09/2026) · EURJPY 29/07/2026 seme 186 · LA DATA PASSA PER LA BESTIA · `CONFERMATA DA EDU`
+La carta storta di MLRITIROVUOTASEDE: stesso esagramma della seme 58 (L2 G 卯 incompatibile che retrocede
+nel vuoto, Ying 寅 vuota senza bestie), esito LONG +73; livello A SHORT, persa dalla scala. Giorno 甲辰, mese
+乙未, anno 丙午, ora 己巳, vuoti 寅卯. Giorno e mese su L1 P 巳, anno su L2, ora su L4 B 戌 (clashata dal giorno);
+su L5 W 子 la bestia 白虎. Claude aveva proposto la penalita' completa 丑戌未 sullo Shi (eccezione del 29/08) e
+poi la linea piu' carica L1 P -> LONG, dubitando del passo finale.
+Edu: "Hai considerato gli steli? La terra nella data e' cosi' forte che basterebbe anche uno stelo metallo a
+far vincere. E' cio' che succede con L5 Zi. Long." Spiegazione di Claude confermata da Edu ("Si e' giusto"):
+steli 甲乙 (Legno) -> 丙 (Fuoco) -> 己 (Terra), rami 辰未 Terra e 午巳 Fuoco, mese di Terra: la data va tutta
+verso la Terra; la Terra passa nel Metallo della bestia su L5 (白虎 — conta l'elemento della bestia della
+linea, regola di Edu su NZDUSD 17/06/2025 seme 60); il Metallo genera il 子 della W di L5: vince l'alto.
+Viene prima della Ying vuota. Nella seme 58 il mese era 巳 (Fuoco): la data non era di Terra.
+Errore di Claude: non ha guardato gli steli della data.
+Cablato come `MLDATAPASSA` in T1a, prima della ritirata nel vuoto. Perimetro della carta: G/W mobile non sede
+che retrocede; ogni stelo e ramo della data e' l'elemento del mese o uno dei due che lo precedono nella
+generazione; l'elemento del mese e' fra gli steli; una sola linea G/W non vuota con la bestia dell'elemento
+generato dalla data e il ramo dell'elemento generato da quello -> vince la sua squadra. MLDATAPASSA=off.
+Misura: gradino 1 carta (questa, +73); la ritirata nel vuoto torna a 1 carta giusta; mazzo 53,68%
+(+20.204); riferimento 66/66. Liu Yao vecchio non toccato (la carta resta di livello A SHORT nella scala).
+PORTATA NEL LIU YAO VECCHIO (Edu, 16/09/2026: "Porta"). Nuova via `R5_datapassa`, stesso perimetro di
+MLDATAPASSA, messa subito prima della via della mobile che retrocede (sulla carta la ritirata nel vuoto e'
+nulla e la catena arrivava alla §114). DATAPASSA=off spegne.
+Controllo: carte guida 110 · 78 giuste · 32 storte identiche (nessuna cambia verdetto).
+Misura: la via prende 1 carta (questa); S17 da 58,50% (+35.135) a 58,54% (z 9,01, +35.280).
+Scala: la carta non e' piu' di livello A (PB SHORT, LY LONG, DLR SHORT) e resta ferma; Z-TOT A+B+C 1.668 ·
+68,11% · +38.610; Z-TOT48 A/B/C/D 2.305 · 65,47% · +44.905; livello D 637 · 58,56%. Parita' 455 carte, 0.
