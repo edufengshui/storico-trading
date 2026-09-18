@@ -8258,3 +8258,124 @@ Controllo: carte guida 110 · 78 giuste · 32 storte identiche (nessuna cambia v
 Misura: la via prende 1 carta (questa); S17 da 58,50% (+35.135) a 58,54% (z 9,01, +35.280).
 Scala: la carta non e' piu' di livello A (PB SHORT, LY LONG, DLR SHORT) e resta ferma; Z-TOT A+B+C 1.668 ·
 68,11% · +38.610; Z-TOT48 A/B/C/D 2.305 · 65,47% · +44.905; livello D 637 · 58,56%. Parita' 455 carte, 0.
+
+=== 17/09/2026 (S50) — LA SEQUENZA DI EDU NELLA CATENA: LE MOBILI PRIMA DELLE BESTIE ===
+Carta d'origine: GBPUSD 16/09/2026 seme 134, livello A LONG, esito SHORT -93. Giorno 癸巳, mese 酉, anno 丙午,
+ora 丑, vuoti 午未, palazzo 坎. L6 Ying P 酉, L5 B 亥, L4 G 丑, L3 Shi W 午, L2 G 辰 mobile, L1 C 寅.
+La catena aveva deciso con la §128 (Shi incompatibile, 午 dentro 坎, che non regge la sede) perche' la §99
+(la mobile G/W che si muove davvero vince la propria sede) era stata zittita dalla GUARDIA DEL PESO DELLE
+BESTIE: bestia della mobile scarica (Drago Azzurro, Legno, nessuna radice nella data) contro l'Uccello Rosso
+radicato due volte sullo Shi (巳 e 午).
+Edu: "Questo e' un errore, ho gia' chiarito la sequenza: prima le linee mobili e, se il risultato non esce,
+si passa alle bestie e, se il risultato non esce si passa a Y vs S ecc."
+CABLATO: guardia del peso delle bestie TOLTA dalla §99. La §99 parla quando il movimento si compie; se il
+movimento e' nullo tace e la catena prosegue con le vie delle bestie. G99SEQ=off torna indietro.
+POSIZIONE: la §129 (pilastro intero che arriva su una linea, "basta solo questo, sopra ogni altra lettura",
+Edu 30/08/2026) spostata PRIMA della §99; senza questo la mobile le passava davanti e si rompeva la carta
+guida AUDUSD 18/04/2022.
+Misura: carte guida 110 · 78 giuste · nessun cambio di verdetto (cambia solo la via su GBPUSD 06/05/2020 e
+USDCAD 27/01/2026, gia' storte). S17 da 58,54% (+35.280) a 58,61% (z 9,09, +34.897). Parita' 455 carte, 0.
+Motore di lettura e 66 carte di riferimento invariati.
+
+=== 17/09/2026 (S50) — LA §114 (ARRIVO NEL VUOTO): PERIMETRO RIFATTO ===
+Carta d'origine: USDCAD 16/09/2026 seme 139, livello A SHORT, esito LONG -67. Giorno 癸巳, mese 酉, anno 丙午,
+ora 午, vuoti 午未, palazzo 離. L6 Ying C 戌, L5 W 申, L4 B 午 mobile (vuota) che si autocombina con l'arrivo 未
+(vuoto anche lui), L3 Shi G 亥, L2 C 丑, L1 P 卯. La catena diceva SHORT con la §114 (resta il carattere di
+partenza: il B di L4 fa perdere la sede alta).
+Edu: "La linea e' inservibile, cabla, registra, fissa, cancella la #114."
+Spenta del tutto, cadevano pero' due sue carte guida (USDJPY 31/07/2024 s152 ed EURGBP 18/11/2021 s83, che
+finivano sulla §50d/e). Precisazione di Edu sulle due: "USDJPY 31/07/2024 e' diverso. La linea e' mobile,
+quindi non e' vuota, ma bloccata dal giorno. Non parte ma il movimento la fa uscire dal vuoto ed e' quindi
+funzionale."
+CABLATO: la §114 parla SOLO quando il movimento e' sospeso DAL GIORNO (il giorno combina o clasha partenza o
+arrivo): li' la linea non parte, il moto la tira fuori dal vuoto e il carattere di partenza regge. Quando il
+movimento muore da se' — autocombinazione con l'arrivo, come su USDCAD 16/09 — la linea entra nel vuoto ed e'
+inservibile: la via tace. ARRIVOVUOTO=off la spegne tutta, ARRIVOVUOTO=tutti torna al perimetro largo.
+Sulla carta d'origine la catena ora dice LONG (raduno stagionale del mese): verso giusto.
+MISURA DELLE DUE MODIFICHE DI OGGI INSIEME (sequenza + §114):
+carte guida 110 · 79 giuste (erano 78): raddrizza USDJPY 25/07/2023 s141, nessuna cade; sulle altre cambia
+solo la via che decide (EURGBP 03/05/2021, GBPUSD 06/05/2020, USDCAD 27/01/2026, gia' storte).
+S17 da 58,54% (+35.280) a 58,68% (z 9,17, +35.580). Parita' 455 carte, 0 differenze.
+Motore di lettura invariato: 53,68% · +20.204 · 66/66 di riferimento.
+Scala: Z-TOT A+B+C 1.676 · 67,96% · +38.500; Z-TOT48 A/B/C/D 2.311 · 65,43% · +45.143 (base 2.305 · 65,47%
+· +44.905: cinque carte in piu' e 238 pip in piu').
+
+=== 17/09/2026 (S50) — IL DETTATO DEL MOVIMENTO (T0m): ERA GIA' ACCESO ===
+Claude aveva detto a Edu che il dettato del 16/09 sul movimento delle linee era spento e che per questo la
+regola "la linea mobile bloccata dal giorno non parte ma resta attiva" non veniva applicata. FALSO: il
+gradino `MLSTATOMOV` (T0m) e' ACCESO di default — nel motore `off(k)` scatta solo con la variabile messa a
+'off' — e lo era gia' ieri. Il commento "SPENTO in attesa di Edu" era rimasto attaccato a una condizione
+cambiata in seguito; e' stato corretto nel codice.
+Verifica sul motore di oggi: con il gradino acceso (stato attuale) 66/66 carte di riferimento, mazzo 2.772
+carte 53,68% +20.204 pip. La frase del vuoto ("chi si muove per andare nel vuoto invalida l'intera linea")
+NON rovescia piu' nessuna carta di riferimento: le otto del 16/09 sono state raddrizzate dai gradini
+cablati in S49. Il punto e' quindi chiuso da solo.
+Lo spezzettamento provato da Claude (modo 'partenza', solo la parte sulla partenza) e' stato TOLTO: spegneva
+la frase del vuoto e portava il mazzo a 53,54% (+19.845). Nessuna modifica netta al motore in questa sessione.
+Sulla carta USDCHF 28/02/2022 seme 92 il verdetto non cambia in nessuno dei due modi: decide prima la
+penalita' del giorno sull'arrivo (la Ying non avanza, resta la linea piu' forte e controlla lo Shi, SHORT).
+
+=== 17/09/2026 (S50) — REGOLA DI VERIFICA (dopo gli errori di oggi) ===
+Errori della sessione: 1) detto che nella catena non esisteva la via della mobile nutrita dall'arrivo (c'era,
+e' la §99, zittita da una guardia); 2) detto che la carta di GBPUSD 16/09 non aveva linee incompatibili (lo
+Shi 午 dentro 坎 lo e'); 3) preso "si muove ma non fa niente" per una regola nuova senza controllare che il
+motore la applicasse gia' (era la regola del vuoto); 4) detto che il gradino T0m era spento leggendo un
+COMMENTO invece del codice (era acceso).
+Causa comune: ho preso per vera la fonte piu' vicina — l'output di un motore, un campo di una struttura, un
+commento — invece di andare al codice e al registro. Ogni sessione riparte da zero e ricostruisce tutto dai
+file: quello che non verifico non lo "ricordo", lo indovino.
+REGOLA: prima di dire a Edu che una cosa NON esiste, NON e' cablata, e' SPENTA o NON viene applicata, va
+verificata alla fonte — grep nel codice della via o del gradino, lettura della condizione vera (non del
+commento), e ricerca nel registro delle sue parole su quel punto. Se la verifica non e' stata fatta, la frase
+non si scrive.
+
+=== 17/09/2026 (S50) — LA RITIRATA CHE SI COMBINA E SOPPRIME ===
+Carta d'origine: USDCHF 16/09/2026 seme 81, livello B SHORT, esito LONG -67. 兌 su 乾, mutante L3, giorno
+癸巳, mese 酉, anno 丙午, ora 申, vuoti 午未, palazzo 坤. L6 B 未 (vuota), L5 Shi C 酉, L4 W 亥, L3 B 辰 mobile e
+incompatibile in 乾 che retrocede in 丑, L2 Ying G 寅 (nascosto P 巳), L1 W 子.
+Catena e motore dicevano SHORT con la ritirata del malus (il B si ritira e porta via il danno).
+Edu: "L3 si muove e retrocede. Quando un B retrocede la propria squadra vince" e subito dopo, completando:
+"L3 retrocede e si combina con L1 Zi. La B arriva su W e la sopprime. Contemporaneamente L4 e' eccitata dal
+Clash del giorno. Long."
+CABLATO nel motore di lettura come `MLRITIROSOPPRIME` (T1a, prima della ritirata semplice): il malus che
+retrocede non porta via il danno se il suo ARRIVO combina una linea G/W — ci arriva sopra e la sopprime; se
+dall'altra parte resta un G/W svegliato dal clash del giorno (暗動), vince quella squadra.
+PERIMETRO (restrizione di CLAUDE, DA VALIDARE): il G/W soppresso non deve portare nessuno dei quattro rami
+della data. Serve per la gemella USDJPY 13/12/2023 seme 145 — stesso esagramma, stessa mobile 辰→丑, stesso
+giorno 巳 che clasha il 亥 di L4 — dove pero' il 子 di L1 e' il ramo del MESE e dell'ORA: li' il W non si
+lascia sopprimere e la carta resta alla ritirata semplice (SHORT, esito -240, lettura gia' certificata).
+MLRITIROSOPPRIME=largo toglie la restrizione, =off spegne il gradino.
+Misura: 66/66 carte di riferimento; mazzo invariato 2.772 carte 53,68% +20.204 pip (nello storico il gradino
+non prende nessuna carta: quello dell'origine e' del 16/09/2026, fuori dallo storico). Parita' 455 carte, 0.
+
+=== 17/09/2026 (S50) — LA MOBILE CLASHATA ALLA PARTENZA NON SI RITIRA ===
+Carta d'origine: USDCHF 07/08/2024 seme 85, livello B SHORT, esito LONG +93. 兌 su 巽, mutante L5, giorno
+癸卯, mese 未 (立秋 alle 00:09 GMT), anno 辰, ora 子, vuoti 辰巳, palazzo 巽. L6 W 未, L5 G 酉 mobile, L4 Shi P 亥
+(nascosto C 午), L3 G 酉 ferma clashata dal giorno, L2 P 亥 incompatibile in 巽 (nascosto B 寅), L1 Ying W 丑.
+Il motore leggeva SHORT: vedeva la mobile clashata alla partenza sopravvivere (il mese 未 la genera) e poi la
+trattava come un G che RETROCEDE in 申, quindi "porta via il vantaggio e la sua sede perde".
+Edu: "L5 non retrocede perche' quando una linea e' mobile ma viene clashata alla partenza non puo' piu'
+muoversi. L3 invece e' una linea statica, e quando una linea statica e' clashata dal giorno si muove alla
+riga successiva senza mutare. Sono due cose DIVERSE. L5 non retrocede e fa vincere; L3 retrocede e fa
+perdere. L2 non porta risultati per i motivi gia' scritti" (il Legno e' debolissimo nel mese e 未 e' la tomba
+del Legno).
+CABLATO come `MLCLASHNORITIRO` (T1a, prima della progressione): la mobile clashata alla partenza dal giorno
+che resta in piedi non si muove affatto — niente ritirata e niente avanzata; resta dov'e' col proprio
+carattere (G/W fanno vincere la propria sede, P/B la fanno perdere). MLCLASHNORITIRO=off torna indietro.
+Misura: gradino 13 carte 53,85% +354 pip; mazzo 2.772 carte 53,68% +20.318 (era +20.204); riferimento 66/66.
+APERTO: la seconda meta' della lettura (L3, ferma clashata DAL GIORNO, che retrocede 酉 -> 申 e col suo G fa
+perdere la sede bassa) non e' cablata. A registro ci sono due letture di Edu in cui la ferma clashata da una
+BESTIA AVANZA di un ramo (酉 -> 戌): USDJPY 06/11/2024 e EURGBP 17/01/2023. Chiesto a Edu se sono due casi
+distinti (bestia -> avanza, giorno -> retrocede) prima di cablare.
+
+=== 17/09/2026 (S50) — LA FERMA CLASHATA DAL GIORNO SI MUOVE E RETROCEDE ===
+Edu (rimprovero incluso): "Il giorno clasha una linea ferma e la fa muovere! Sono le regole di un mese fa."
+Sulla carta USDCHF 07/08/2024 seme 85: "quando una linea statica e' clashata dal giorno si muove alla riga
+successiva senza mutare... L3 retrocede e fa perdere". Il clash del GIORNO fa muovere la ferma (暗動): passa
+al ramo precedente senza cambiare polarita' (酉 -> 申) e, se e' un G/W, porta via il vantaggio come ogni
+ritirata: la sua sede perde. Resta distinto dal clash della BESTIA, che la fa AVANZARE (酉 -> 戌,
+`MLSVEGLIAAVANZA`, guide USDJPY 06/11/2024 e EURGBP 17/01/2023).
+CABLATO come `MLSVEGLIARETRO` (T0m, prima della svegliata che avanza). Perimetro: ferma non mobile e non
+annullata, clashata dal ramo del giorno, G o W, con il passo indietro dello stesso elemento (ritirata vera).
+Misura: gradino 131 carte 51,91% +610 pip; mazzo 2.772 carte 53,75% (era 53,68%) +19.751 pip (era +20.318);
+riferimento 66/66; parita' 455 carte, 0 differenze. Sulla carta d'origine la lettura chiude LONG (esito +93).
