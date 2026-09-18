@@ -8398,3 +8398,27 @@ inventata. Quando salta fuori si aggiunge al file. Escluse anche le carte del 15
 2026 (fuori dallo storico prezzi, che si ferma al 30/07/2026) e EURGBP 18/11/2021, citata come
 carta guida il 17/09 ma senza una sezione di lettura sua: oggi il motore la legge SHORT contro un
 esito LONG, e va riletta con Edu prima di entrare nell'elenco.
+
+=== 18/09/2026 (S51) — LA MOBILE BLOCCATA ALLA PARTENZA RESTA DOV'E' E PARLA ===
+Carta d'origine: EURGBP 18/11/2021 seme 83, esito LONG +35. 兌 su 離, mutante L6, giorno 庚午,
+mese 亥, anno 丑, ora 戌, vuoti 戌亥, Shi L4, Ying L1, nessuna linea incompatibile. La mobile e'
+il G 未 di L6, che il giorno 午 combina alla partenza; l'arrivo 戌 sarebbe nel vuoto.
+CORREZIONE DI EDU: "'una linea mobile combinata alla partenza non parte proprio e non si puo'
+usare' — questo l'abbiamo cambiato in 'la linea resta dov'e' col proprio carattere', non si muove
+ma rimane attiva." E, subito dopo, sulle bestie: "Solo se serve a sbloccare la situazione. Usiamo
+le bestie solo dopo che l'analisi delle linee mobili non ha portato nessun risultato."
+CABLATO in motore_lettura.js, gradino T0m: la mobile bloccata alla partenza non e' piu' annullata,
+resta dov'e' ed e' letta col proprio carattere (G/W fanno vincere la propria sede, B/P la fanno
+perdere, C tace). Il gradino sta PRIMA delle bestie, quindi la sostituzione del pilastro che cade
+sulla mobile non arriva piu' a parlare al posto suo quando la lettura delle mobili conclude.
+Interruttori: MLFERMAATTIVA=off torna alla forma vecchia dello stato; MLFERMAPARLA=off toglie la
+conclusione.
+PERIMETRO, DETTATO DA EDU LO STESSO GIORNO: "se l'incompatibile e' combinata due volte, il legame
+e' troppo forte e rimane ferma". Quindi si conta la COMBINAZIONE, non il clash: un solo ramo della
+data che combina la partenza lascia la linea viva e la fa parlare, due rami la tengono ferma
+davvero e il gradino tace. Serve per EURJPY 29/09/2022 seme 140, dove giorno 酉 e mese 酉 combinano
+insieme la mobile 辰 e la lettura di Edu parte invece dalla Shi presa dal mese.
+MISURA: mazzo 2.775 carte 53,91% +20.572 pip (era 2.772 · 53,75% · +19.751), recente 55,24%;
+tace su 13 invece di 16; il gradino prende 86 carte al 53,49% (+369 pip). Carte di riferimento
+66/66 (aggiunta EURGBP 18/11/2021). Liu Yao vecchio non toccato: S17 58,68% · +35.580, carte guida
+79/110, parita' 455 carte 0 differenze.

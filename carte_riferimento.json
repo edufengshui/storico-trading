@@ -19,6 +19,12 @@
  },
  {
   "cross": "EURGBP",
+  "date": "2021-11-18",
+  "registro": 8401,
+  "nota": "EURGBP 18/11/2021 seme 83 — CORREZIONE DI EDU (18/09/2026): la mobile bloccata alla partenza resta dov-e col proprio carattere"
+ },
+ {
+  "cross": "EURGBP",
   "date": "2023-01-17",
   "registro": 7861,
   "nota": "## EURGBP 17/01/2023 seme 88 — LETTA DA CLAUDE COL METODO · `DA VALIDARE`"
