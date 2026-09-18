@@ -3590,6 +3590,35 @@ if (process.env.MISURA120) {
   for (const k of ['tutto','vecchio','recente','P','B','parla']) riga(k,M[k]);
 }
 
+if (process.env.CARTERIF) {
+  // LE CARTE DI RIFERIMENTO (carte_riferimento.json) — le carte lette da Edu, o lette da
+  // Claude e certificate da lui. Il motore di lettura deve dare su ognuna la direzione che
+  // ha concluso Edu: siccome tutte le sue letture sono giuste, la direzione attesa e' quella
+  // reale del mercato. Elenco ricostruito dal registro il 18/09/2026 (S51): prima era tenuto
+  // a mano e rifatto ogni sessione. Uso: CARTERIF=1 MOTORE=lettura PRINCIPI=1 + base canonica.
+  const LYM = require('./liuyao.js');
+  const MP = require(process.env.MOTORE === 'lettura' ? './motore_lettura.js' : './motore_principi.js').creaMotore(LYM);
+  const rif = require('./carte_riferimento.json');
+  const set = new Map(rif.map(g => [g.cross + '|' + g.date, g]));
+  let ok = 0, ko = 0, tace = 0, assenti = 0; const storte = [];
+  const viste = new Set();
+  for (const r of rows) {
+    const g = set.get(r.cross + '|' + r.date); if (!g) continue;
+    viste.add(r.cross + '|' + r.date);
+    const R = LYM.readManual(r.sup, r.inf, r.linea, r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed, r.dayStemUsed, r.oraBranch);
+    if (R.error) { assenti++; storte.push('[ERRORE] ' + r.cross + ' ' + r.date); continue; }
+    const v = MP.leggi(R, steliPerPrincipi(r));
+    const atteso = r.move > 0 ? 'LONG' : 'SHORT';
+    if (!v.dir) { tace++; storte.push('[TACE] ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' — atteso ' + atteso + ' — ' + v.perche); continue; }
+    if (v.dir === atteso) ok++;
+    else { ko++; storte.push('[STORTA] ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' dice ' + v.dir + ', atteso ' + atteso + ' [' + v.gradino + '] ' + v.perche + '  (registro riga ' + g.registro + ')'); }
+  }
+  for (const k of set.keys()) if (!viste.has(k)) { assenti++; storte.push('[FUORI BACKTEST] ' + k.replace('|', ' ')); }
+  console.log('\n=== CARTE DI RIFERIMENTO (carte_riferimento.json) ===');
+  console.log('  in elenco ' + rif.length + ' · giuste ' + ok + ' · storte ' + ko + ' · tace ' + tace + (assenti ? ' · non misurabili ' + assenti : ''));
+  storte.forEach(s => console.log('  ' + s));
+}
+
 if (process.env.TESTGUIDA) {
   // Le carte guida di carte_lette.json come TEST del ragionamento a principi.
   const LYM = require('./liuyao.js');

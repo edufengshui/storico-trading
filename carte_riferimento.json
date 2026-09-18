@@ -1,0 +1,392 @@
+[
+ {
+  "cross": "AUDUSD",
+  "date": "2022-11-21",
+  "registro": 7556,
+  "nota": "AUDUSD 21/11/2022 seme 66 — LETTURA DI EDU · `CONFERMATA`"
+ },
+ {
+  "cross": "AUDUSD",
+  "date": "2025-12-22",
+  "registro": 5726,
+  "nota": "LETTURA DI EDU su AUDUSD 22/12/2025 (parte alta) — `CONFERMATA DA EDU`"
+ },
+ {
+  "cross": "EURGBP",
+  "date": "2020-03-18",
+  "registro": 619,
+  "nota": "Carta sorgente: **EURGBP 18/03/2020** (seme 90, sup 3 離, inf 2 兌, mutante L2, giorno 庚申,"
+ },
+ {
+  "cross": "EURGBP",
+  "date": "2023-01-17",
+  "registro": 7861,
+  "nota": "## EURGBP 17/01/2023 seme 88 — LETTA DA CLAUDE COL METODO · `DA VALIDARE`"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2022-09-29",
+  "registro": 6222,
+  "nota": "LETTURA DI EDU su EURJPY 29/09/2022 (seme 140) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2023-08-10",
+  "registro": 6021,
+  "nota": "CORREZIONE DI EDU su EURJPY 10/08/2023 (seme 157) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2023-10-31",
+  "registro": 6983,
+  "nota": "LETTURA DI EDU su EURJPY 31/10/2023 (seme 158) — `CONFERMATA DA EDU` · 14/09/2026, S46"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2024-07-11",
+  "registro": 5366,
+  "nota": "S45 · CORREZIONE DI EDU su EURJPY 11/07/2024 — `CONFERMATA DA EDU`"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2024-07-17",
+  "registro": 6171,
+  "nota": "LETTURA DI EDU su EURJPY 17/07/2024 (seme 172) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2024-08-15",
+  "registro": 5930,
+  "nota": "CORREZIONI DI EDU su EURJPY 15/08/2024 (seme 162) — `CONFERMATE DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2024-10-23",
+  "registro": 6497,
+  "nota": "CORREZIONE DI EDU su EURJPY 23/10/2024 (seme 163) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2025-02-06",
+  "registro": 6552,
+  "nota": "LETTURA DI EDU su EURJPY 06/02/2025 (seme 158) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2025-07-28",
+  "registro": 4983,
+  "nota": "S44 — 09/09/2026 · EURJPY 28/07/2025 s173: la mobile si occupa prima di se' stessa · `LETTURA DI EDU, CABLATA nel motore di lettura`"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2026-02-10",
+  "registro": 5415,
+  "nota": "CORREZIONE DI EDU su EURJPY 10/02/2026 — `CONFERMATA DA EDU`"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2026-06-17",
+  "registro": 8196,
+  "nota": "S49 (16/09/2026) · EURJPY 17/06/2026 seme 186 · LA BESTIA TOGLIE LO SHI DAL VUOTO · `INDICATA DA EDU`"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2026-07-29",
+  "registro": 8235,
+  "nota": "S49 (16/09/2026) · EURJPY 29/07/2026 seme 186 · LA DATA PASSA PER LA BESTIA · `CONFERMATA DA EDU`"
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2022-03-11",
+  "registro": 7661,
+  "nota": "EURUSD 11/03/2022 seme 110 — LETTURA DI EDU · `CONFERMATA`"
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2023-01-03",
+  "registro": 6337,
+  "nota": "CORREZIONE DI EDU su EURUSD 03/01/2023 (seme 106) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2026-01-22",
+  "registro": 5002,
+  "nota": "S44 — 09/09/2026 · EURUSD 22/01/2026 s116: il pilastro sulla mobile si intromette nel passo · `LETTURA DI EDU, CABLATA nel motore di lettura`"
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2026-05-28",
+  "registro": 4945,
+  "nota": "S44 — 09/09/2026 · EURUSD 28/05/2026 s116: la guerra fra titani sulla mobile · `DOTTRINA DI EDU, CABLATA nel motore di lettura`"
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2026-06-17",
+  "registro": 5014,
+  "nota": "S44 — 09/09/2026 · EURUSD 17/06/2026 s116: \"e' sempre lo stesso meccanismo\" · `VALIDATA DA EDU, CABLATA`"
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2020-05-06",
+  "registro": 7671,
+  "nota": "Edu una per una, a partire dalla peggiore (GBPUSD 06/05/2020, -103)."
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2022-08-02",
+  "registro": 7481,
+  "nota": "GBPUSD 02/08/2022 seme 122 — LETTURA DI EDU · `CONFERMATA`"
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2022-12-15",
+  "registro": 5293,
+  "nota": "CORREZIONE DI EDU su GBPUSD 15/12/2022 — `CONFERMATA DA EDU`"
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2024-09-25",
+  "registro": 7381,
+  "nota": "LETTURA DI EDU su GBPUSD 25/09/2024 (seme 134) — `CONFERMATA DA EDU` · 14/09/2026, S46"
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2025-03-05",
+  "registro": 7408,
+  "nota": "GBPUSD 05/03/2025 seme 127 — LETTURA DI EDU · `CONFERMATA`"
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2025-06-17",
+  "registro": 6652,
+  "nota": "LETTURA DI EDU su GBPUSD 17/06/2025 (seme 135) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2026-03-09",
+  "registro": 7223,
+  "nota": "LETTURA DI EDU su GBPUSD 09/03/2026 (seme 133) — `CONFERMATA DA EDU`, cablata a meta' · 14/09/2026"
+ },
+ {
+  "cross": "NZDUSD",
+  "date": "2020-03-10",
+  "registro": 7575,
+  "nota": "NZDUSD 10/03/2020 seme 63 — LETTURA DI EDU · `CONFERMATA`"
+ },
+ {
+  "cross": "NZDUSD",
+  "date": "2022-06-15",
+  "registro": 7964,
+  "nota": "NZDUSD 22/06/2023 s62 · NZDUSD 15/06/2022 · USDJPY 29/11/2024 s151 · USDJPY 16/10/2024 s149 ·"
+ },
+ {
+  "cross": "NZDUSD",
+  "date": "2022-08-10",
+  "registro": 5840,
+  "nota": "CORREZIONE DI EDU su NZDUSD 10/08/2022 (seme 62) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "NZDUSD",
+  "date": "2023-06-22",
+  "registro": 8028,
+  "nota": "S48 · NZDUSD 22/06/2023 seme 62 RILETTA DA EDU CON LE INCOMPATIBILI · `CONFERMATA`"
+ },
+ {
+  "cross": "NZDUSD",
+  "date": "2026-06-05",
+  "registro": 8214,
+  "nota": "S49 (16/09/2026) · NZDUSD 05/06/2026 seme 58 · DECIDE LA YING VUOTA · `LETTA DA EDU`"
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2020-03-16",
+  "registro": 7766,
+  "nota": "USDCAD 16/03/2020 seme 137 — LETTA DA CLAUDE COL METODO · `CONFERMATA DA EDU`"
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2020-03-17",
+  "registro": 7031,
+  "nota": "CORREZIONE DI EDU su USDCAD 17/03/2020 (seme 140) — `CONFERMATA DA EDU`, in conflitto · 14/09/2026"
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2020-03-18",
+  "registro": 5463,
+  "nota": "CORREZIONE DI EDU su USDCAD 18/03/2020 — `CONFERMATA DA EDU` (ma vedi la nota finale)"
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2020-03-25",
+  "registro": 6908,
+  "nota": "CORREZIONE DI EDU su USDCAD 25/03/2020 — la bestia dello stelo 己 · 14/09/2026, S46"
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2022-09-13",
+  "registro": 6601,
+  "nota": "LETTURA DI EDU su USDCAD 13/09/2022 (seme 129) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2023-05-11",
+  "registro": 7287,
+  "nota": "LETTURA DI EDU su USDCAD 11/05/2023 (seme 133) — `CONFERMATA DA EDU` · 14/09/2026, S46"
+ },
+ {
+  "cross": "USDCHF",
+  "date": "2022-02-28",
+  "registro": 7451,
+  "nota": "USDCHF 28/02/2022 seme 92 — LETTURA DI EDU · `CONFERMATA`"
+ },
+ {
+  "cross": "USDCHF",
+  "date": "2024-08-07",
+  "registro": 8352,
+  "nota": "Carta d'origine: USDCHF 07/08/2024 seme 85, livello B SHORT, esito LONG +93. 兌 su 巽, mutante L5, gio"
+ },
+ {
+  "cross": "USDCHF",
+  "date": "2026-07-15",
+  "registro": 4888,
+  "nota": "palazzo 震 -> fa perdere la squadra di L3); su USDCHF 15/07/2026 non lo usa affatto."
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2020-11-05",
+  "registro": 7705,
+  "nota": "## USDJPY 05/11/2020 seme 104 — LETTA DA CLAUDE COL METODO · `DA VALIDARE`"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2022-08-02",
+  "registro": 7173,
+  "nota": "LETTURA DI EDU su USDJPY 02/08/2022 (seme 131) — `CONFERMATA DA EDU` · 14/09/2026, S46"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2022-09-06",
+  "registro": 7115,
+  "nota": "LETTURA DI EDU su USDJPY 06/09/2022 (seme 140) — `CONFERMATA DA EDU` · 14/09/2026, S46"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2022-09-13",
+  "registro": 6434,
+  "nota": "LETTURA DI EDU su USDJPY 13/09/2022 (seme 142) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2022-12-01",
+  "registro": 5131,
+  "nota": "**Carta letta da Claude da solo · USDJPY 01/12/2022 seme 137 · `DA VALIDARE`**"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2022-12-05",
+  "registro": 6700,
+  "nota": "CORREZIONE DI EDU su USDJPY 05/12/2022 (seme 134) — `CONFERMATA DA EDU` (parziale) · S46"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2023-01-12",
+  "registro": 6392,
+  "nota": "LETTURA DI EDU su USDJPY 12/01/2023 (seme 131) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2023-12-13",
+  "registro": 802,
+  "nota": "Carta sorgente: **USDJPY 13/12/2023** (seme 145, sup 2 兌, inf 1 乾, mutante L3,"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-01-17",
+  "registro": 7747,
+  "nota": "USDJPY 17/01/2024 seme 147 — LETTURA DI EDU · `CONFERMATA`"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-02-08",
+  "registro": 4906,
+  "nota": "USDJPY 08/02/2024 s148 (ema LONG, mercato LONG +123; catena SHORT via R6 ✗). Edu: 1) la"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-02-13",
+  "registro": 6120,
+  "nota": "LETTURA DI EDU su USDJPY 13/02/2024 (seme 149) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-05-01",
+  "registro": 6859,
+  "nota": "LETTURA DI EDU su USDJPY 01/05/2024 (seme 157) — `CONFERMATA DA EDU` · 14/09/2026, S46"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-07-11",
+  "registro": 5190,
+  "nota": "S45 · CORREZIONE DI EDU su USDJPY 11/07/2024 — `CONFERMATA DA EDU`"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-07-30",
+  "registro": 7335,
+  "nota": "LETTURA DI EDU su USDJPY 30/07/2024 (seme 153) — `CONFERMATA DA EDU` · 14/09/2026, S46"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-07-31",
+  "registro": 4311,
+  "nota": "- Secondo grado: USDJPY 31/07/2024 — l'unico stelo radicato è di polarità opposta e non"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-10-02",
+  "registro": 5262,
+  "nota": "CORREZIONE DI EDU sulla stessa carta (USDJPY 02/10/2024) — `CONFERMATA DA EDU`"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-11-06",
+  "registro": 7971,
+  "nota": "S48 · USDJPY 06/11/2024 seme 151 RILETTA DA EDU CON LE INCOMPATIBILI · `CONFERMATA` — e la difesa del Tai Sui `ABOLITA`"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-12-19",
+  "registro": 6298,
+  "nota": "CORREZIONE DI EDU su USDJPY 19/12/2024 (seme 154) — `CONFERMATA DA EDU` · 11/09/2026, S46"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2025-04-28",
+  "registro": 2924,
+  "nota": "- USDJPY 28/04/2025 (SHORT): 三合火 寅午戌 pieno (寅 伏 sotto la Shi) → Shi rinforzata Fuoco, controlla Ying"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2025-09-30",
+  "registro": 5063,
+  "nota": "S44 — 09/09/2026 · USDJPY 30/09/2025 s148: gemella della prima carta, letta da Claude da solo · `BOCCIATA DA EDU (il legame), LETTA DA EDU COL RADUNO`"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2026-02-09",
+  "registro": 5039,
+  "nota": "S44 — 09/09/2026 · USDJPY 09/02/2026 s157: letta da Claude da solo (Edu: \"prosegui a cercare e trovare la via giusta da solo\") · `VALIDATA CON COMPLETAMENTO`"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2026-02-10",
+  "registro": 5531,
+  "nota": "CORREZIONE DI EDU su USDJPY 10/02/2026 — `CONFERMATA DA EDU`"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2026-07-02",
+  "registro": 8164,
+  "nota": "S49 (16/09/2026) · USDJPY 02/07/2026 seme 162 · IL TRIGONO CHIUSO DALLA RITIRATA GENERA L'ALTRA SEDE · `CONFERMATA DA EDU`"
+ }
+]

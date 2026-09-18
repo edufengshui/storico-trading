@@ -8379,3 +8379,22 @@ CABLATO come `MLSVEGLIARETRO` (T0m, prima della svegliata che avanza). Perimetro
 annullata, clashata dal ramo del giorno, G o W, con il passo indietro dello stesso elemento (ritirata vera).
 Misura: gradino 131 carte 51,91% +610 pip; mazzo 2.772 carte 53,75% (era 53,68%) +19.751 pip (era +20.318);
 riferimento 66/66; parita' 455 carte, 0 differenze. Sulla carta d'origine la lettura chiude LONG (esito +93).
+
+=== 18/09/2026 (S51) — LE CARTE DI RIFERIMENTO DIVENTANO UN FILE ===
+Fino a ieri l'elenco delle carte di riferimento del motore di lettura non esisteva da nessuna
+parte: nessun file, nessun interruttore. Stava sparso nel registro, sezione per sezione, e veniva
+ricostruito a mano a ogni sessione — per questo il controllo "66/66" non era ripetibile.
+FATTO: elenco ricostruito dal registro (tutte le sezioni da S44 in poi con una lettura di Edu, o
+una lettura di Claude certificata da lui) e scritto in `carte_riferimento.json`, una riga per
+carta con croce, data, riga del registro dove sta la lettura e titolo della sezione.
+Comando nuovo in pb_stress.js: `CARTERIF=1 MOTORE=lettura PRINCIPI=1` + base canonica. Per ogni
+carta il motore legge e la direzione attesa e' quella reale del mercato (tutte le letture di Edu
+sono giuste), quindi il conto e' diretto; le storte vengono stampate con gradino, motivo e riga
+del registro.
+MISURA DI OGGI: 65 carte in elenco, 65 giuste, 0 storte, 0 tace.
+NOTA: il conteggio tenuto a mano diceva 66. Una carta non e' stata ritrovata nel registro con
+una attribuzione chiara e quindi NON e' stata messa dentro: meglio 65 verificabili che 66 con una
+inventata. Quando salta fuori si aggiunge al file. Escluse anche le carte del 15 e 16 settembre
+2026 (fuori dallo storico prezzi, che si ferma al 30/07/2026) e EURGBP 18/11/2021, citata come
+carta guida il 17/09 ma senza una sezione di lettura sua: oggi il motore la legge SHORT contro un
+esito LONG, e va riletta con Edu prima di entrare nell'elenco.
