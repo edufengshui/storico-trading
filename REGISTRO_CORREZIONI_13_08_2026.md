@@ -8422,3 +8422,63 @@ MISURA: mazzo 2.775 carte 53,91% +20.572 pip (era 2.772 · 53,75% · +19.751), r
 tace su 13 invece di 16; il gradino prende 86 carte al 53,49% (+369 pip). Carte di riferimento
 66/66 (aggiunta EURGBP 18/11/2021). Liu Yao vecchio non toccato: S17 58,68% · +35.580, carte guida
 79/110, parita' 455 carte 0 differenze.
+
+=== 19/09/2026 (S51) — IL TREND NELLO LY: NASCE IL SISTEMA-TREND (trend_ly.js) ===
+Domanda di Edu: "il Trend nello LY". Misura unica: quante volte il mercato SEGUE il trend EMA in
+ogni classe, contro la base del mazzo (2.788 carte, segue nel 48,17%). Tutte le altre regole messe
+da parte, un'ipotesi per volta. Il test vive in pb_stress.js sotto TRENDLY=1.
+PIATTE (nessuna classe oltre il rumore): 1) Shi = trend e Ying = ostacolo; 2) il Gancio 勾陳 (le sole
+classi che uscivano, L2 54,8% e L3 42,4%, sono lo stelo del giorno che decide la posizione dello
+spirito, non lo spirito); 3) il B; 4) il C (timely 47,7% contro untimely 48,2%; la regola dettata
+"timely continua / genera indietro piu' forte / controllato non segue / vuoto o untimely non segue"
+va nel verso giusto agli estremi ma di pochi punti).
+PROMETTENTE: 5) LA MOBILE IN QUANTO TALE (Edu: "la partenza indica come il trend parte e si sviluppa
+nella giornata, il suo arrivo come procede e come termina"). Caratteri, timely, vuoto, alto/basso,
+avanza/retrocede: piatti. Cio' che separa e' IL TOCCO DELLA DATA sulla mobile. Sei condizioni:
+  +1 il giorno combina la partenza (54,8%)      -1 il giorno clasha la partenza (38,3%)
+  +1 il giorno clasha l'arrivo (55,3%)          -1 l'arrivo e' il ramo del mese (41,1%)
+  +1 l'ora combina l'arrivo (56,0%)             -1 l'elemento del giorno controlla l'arrivo (43,8%)
+Somma: -2 34,2% (73) · -1 42,4% (554) · 0 48,5% (1.680) · +1 55,2% (413) · +2 59,6% (57).
+L'anno non tocca niente (tutte le classi 46-52%, come la dottrina); il mese non clasha (51,4%).
+Dentro le classi niente le spiega: il tocco pesa da solo.
+LE BESTIE: i sei spiriti sulla mobile e i pilastri caduti sulla mobile, da soli, sono piatti.
+Messi sopra il tocco lo AMPLIFICANO: tocco + con 0/1/2 pilastri 53,7 / 57,5 / 64,6%; tocco - con
+0/1/2 pilastri 46,0 / 37,4 / 33,3%. La bestia non ha un verso suo, rafforza la linea (la frase di
+Edu "le bestie sono li' per aiutare la propria linea", vista nei numeri). Edu: "tieni cosi'" -> ogni
+pilastro caduto vale un punto nel verso del tocco; a tocco zero non conta.
+COSTRUITO (Edu: "inizia a costruire il sistema-trend, voglio rafforzarlo e integrarlo nella lettura
+generale"): trend_ly.js, modulo autonomo, leggiTrend(R, contesto) -> punti, verdetto segue / non
+segue / tace, direzione, racconto. Misura sotto SISTEMATREND=1.
+MISURA ALLA NASCITA: parla su 1.108 carte (40%), 57,49% z 4,99 +10.453 pip; vecchio 518 carte
+59,07%, recente 590 carte 56,10%. Scala per punti: -4 33% · -3 33% · -2 40% · -1 46% · 0 48,5% ·
++1 53% · +2 56% · +3 64% · +4 69%. Le sei regole accese danno ognuna fra 55,6 e 59,9%.
+ACCANTO AL LIU YAO: concordi 573 carte, il LY ha ragione nel 64,0%; in contrasto 525 carte, il LY
+scende al 49,7% (il tocco 50,3%); dove il tocco tace il LY resta al 58,7%. Tenendo il LY solo dove
+il trend concorda o tace si opererebbe su 2.238 carte a circa il 60% contro il 58,1% su 2.763.
+NON ANCORA nell'app: il modulo sta nell'archivio, da rafforzare prima di integrarlo.
+
+=== 19/09/2026 (S51, seguito) — IL SISTEMA-TREND: PROVE SULLA GERARCHIA E PERIMETRO DI T6 ===
+CARTE MUTE lette con Edu (il ST tace): USDCHF 03/05/2023 s89 ("L2 si muove per combinarsi con L1
+che la genera pure; il vuoto di L1 e' salvato dalla bestia di metallo che genera la linea") -> le
+parti sono piatte (arrivo che combina una ferma 48,9%, ferma che genera la partenza 47,5%, vuota
+salvata dalla bestia: meno di 8 carte su 2.788, non misurabile); esce invece, al contrario, l'arrivo
+che combina una linea CONTROLLATA dalla partenza: 56,9% (325, z 3,2), segnata e non cablata.
+NZDUSD 13/12/2021 s67: "la mobile che entra nel vuoto segue sempre?" -> no, 454 carte 45,4%.
+PIATTE ANCHE: verso della EMA contro sede della mobile (short/basso, long/alto: quattro caselle fra
+46,8 e 49,9%); il ribaltamento "la mobile favorisce o contrasta il giorno" con l'elemento (partenza
+genera il giorno 46,9%, lo controlla 47,9%, bilancio piatto); il rapporto con lo stelo del giorno.
+GERARCHIA DEI PILASTRI CON LA LUNGHEZZA DELLA EMA (sweep EMAPER): il giorno regge da 5 a ~24 giorni
+(a 5 gg clash sulla partenza 41,1% / combinazione 54,6%, il punteggio scala 41,7 -> 57,6 su 4.522
+carte) e svanisce a 60; il mese entra dai 40 gg in su con UNA regola sola, la combinazione della
+partenza che trattiene (38,2% a 40, 38,1% a 60), lo specchio a sei regole non scala; l'ora non entra
+mai: piatta a 5 gg, piatta contro l'esito della giornata precedente (base 49,0%, il tocco dell'ora
+48-51%), e nel sistema a 12 ha la regola piu' debole. "Ieri" non e' un trend che la carta legga.
+IL GIORNO CHE CONTROLLA: la partenza -> niente (606 carte 50,2%, piatto in ogni spaccatura);
+l'ARRIVO -> non segue (532 carte 43,8%), di piu' se l'arrivo e' timely (40,3%) o vuoto (37,3%), se la
+mobile e' lo Shi (35,8%), se il mese lo genera o lo controlla (34-38%); MA se il ramo del giorno
+tocca anche l'arrivo comanda il legame: clash 48,4%, combinazione 61,7%; senza tocco 40,7% (332).
+CABLATO (Edu: "ok cabla cosi'"): T6 vale solo se il ramo del giorno non clasha e non combina
+l'arrivo. Misura: parla su 1.161 carte (era 1.108), 57,45% z 5,08 +11.650 pip (era 57,49% +10.453);
+vecchio 59,18%, recente 55,98%; non segue 597 carte 59,97%. T6 da sola 312 carte 60,90% +4.896.
+Accanto alla scala (TRESIST): concordi 547 carte 71,12%, contraddette 440 61,36%, tace 1.312 64,79%;
+fuori scala il ST parla su 350 al 55,14% (5 pip a trade). Invariato nel senso: termometro, non voce.
