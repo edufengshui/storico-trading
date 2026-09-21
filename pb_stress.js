@@ -1178,10 +1178,17 @@ Object.keys(hist.crosses).forEach(cross => {
     const d=days[k]; if(d<FROM||d>TO) continue;
     // S51: l'esito della giornata precedente (per il test "l'ora conferma ieri?")
     (global.__prev=global.__prev||{})[cross+'|'+d] = by[days[k-1]].c - by[days[k-1]].o;
+    (global.__ultimi=global.__ultimi||{})[cross+'|'+d] = [1,2,3].map(q=>by[days[k-q]] ? by[days[k-q]].c - by[days[k-q]].o : 0);
     const closes=[]; for(let j=0;j<k;j++) closes.push(by[days[j]].c);
     const ema=process.env.EMAPER ? emaTrendVar(closes, parseInt(process.env.EMAPER,10)) : T.emaTrend(closes);
     const runLen = ema.runLen || 0;
-    if(!ema.direction||ema.direction==='flat'||!ema.consolidated) continue;
+    if(!ema.direction||ema.direction==='flat'||(!ema.consolidated && !process.env.TUTTIGIORNI)) continue;
+    // S51 (Edu, 20/09): il giorno che ha iniziato il trend = il primo giorno della corsa attuale della pendenza.
+    // dirs[q] confronta la chiusura del giorno q+1 con quella del giorno q; l'ultima dir e' fra i giorni k-2 e k-1.
+    // La corsa lunga runLen inizia con il passo che chiude nel giorno k-runLen.
+    if (runLen > 0 && days[k-runLen]) { const ds=days[k-runLen].split('-').map(Number); const chs=DLR.buildChartFromForexSeed(mezzanotteTST(ds[0],ds[1],ds[2]),0,'子');
+      if (chs && !chs.error) (global.__inizio=global.__inizio||{})[cross+'|'+d] = { data:days[k-runLen], ramo:chs.dayBranch, stelo:chs.dayStem, eta:runLen };
+      if (process.env.INIZIODBG && cross+'|'+d===process.env.INIZIODBG) console.log('INIZIO '+cross+' '+d+' -> '+days[k-runLen]+' '+(chs&&chs.dayBranch)+' eta '+runLen); }   // S51: TUTTIGIORNI=1 toglie il filtro del trend consolidato
     const o=by[d].o, c=by[d].c;
     const e=seedEdge(o); if(e!=null&&e<3) continue;
     const move=(c-o)*f; if(Math.abs(move)<=10) continue;
@@ -3846,6 +3853,215 @@ if (process.env.TRENDLY) {
           c14('controlla l\'arrivo · tocco senza T6: ' + (punti2 + 1));
         }
       }
+      // ---- 15. LA LINEA CONTROLLA IL GIORNO (Edu, 19/09: "fallo, vediamo")
+      if (dEl) {
+        const lcP = KEt[M.el] === dEl, lcA = KEt[M.mut.elArr] === dEl;
+        const c15 = (k) => conta('15', k, segue);
+        c15('la linea controlla il giorno: ' + (lcP && lcA ? 'partenza e arrivo' : lcP ? 'solo la partenza' : lcA ? 'solo l\'arrivo' : 'nessuna delle due'));
+        [['partenza', lcP, M.el, M.vuoto, M.par, dep], ['arrivo', lcA, M.mut.elArr, arrVuoto, M.mut.parArr, arr]].forEach(([nm, on, el, vu, par, ramo]) => {
+          if (!on) return;
+          c15(nm + ' controlla il giorno · ' + nm + ' ' + (vu ? 'vuota' : timely(el) ? 'timely' : 'untimely'));
+          c15(nm + ' controlla il giorno · carattere ' + par);
+          c15(nm + ' controlla il giorno · il ramo del giorno ' + (tocco(D, ramo) || 'non tocca'));
+          c15(nm + ' controlla il giorno · mobile su ' + (M.isShi ? 'Shi' : M.isYing ? 'Ying' : 'altra'));
+          c15(nm + ' controlla il giorno · mese ' + (mEl === el ? 'stesso' : GENt[mEl] === el ? 'la genera' : KEt[mEl] === el ? 'la controlla' : GENt[el] === mEl ? 'è generato da lei' : 'è controllato da lei'));
+          c15(nm + ' controlla il giorno · mobile in ' + (alto(M.pos) ? 'alto' : 'basso'));
+          c15(nm + ' controlla il giorno · giorno ' + (D === ramo ? 'stesso ramo' : 'altro ramo'));
+        });
+      }
+      // ---- 16. LA LETTURA DI EDU su EURUSD 20/01/2026 s116 (19/09): "Ying 戌 moves to 亥 which combines
+      //          with Shi 寅. 戌, 寅 and the 午 day form a fire triangle. Follow."
+      {
+        const TRI = { '申':['子','辰'], '子':['申','辰'], '辰':['申','子'], '亥':['卯','未'], '卯':['亥','未'], '未':['亥','卯'],
+                      '寅':['午','戌'], '午':['寅','戌'], '戌':['寅','午'], '巳':['酉','丑'], '酉':['巳','丑'], '丑':['巳','酉'] };
+        const c16 = (k) => conta('16', k, segue);
+        const combShi = COt[arr] === S.ramo && !S.isMobile, combYing = COt[arr] === Y.ramo && !Y.isMobile;
+        c16('l\'arrivo combina ' + (combShi ? 'lo Shi' : combYing ? 'la Ying' : COt[arr] && L.some(x => x.pos !== M.pos && x.ramo === COt[arr]) ? 'un\'altra linea' : 'nessuna linea'));
+        // triangolo: partenza + giorno + una linea ferma della carta (o solo partenza + giorno = mezzo)
+        const soci = TRI[dep] || [];
+        const conGiorno = soci.includes(D);
+        const terzo = conGiorno ? soci.find(b => b !== D) : null;
+        const lineaTerza = terzo ? L.find(x => x.pos !== M.pos && x.ramo === terzo) : null;
+        const tri = conGiorno && !!lineaTerza;
+        c16('triangolo partenza+giorno+linea: ' + (tri ? 'sì' : conGiorno ? 'mezzo (solo partenza e giorno)' : 'no'));
+        if (tri) {
+          c16('triangolo · la terza linea è ' + (lineaTerza.isShi ? 'lo Shi' : lineaTerza.isYing ? 'la Ying' : 'altra'));
+          c16('triangolo · elemento ' + (WXt[dep] === 'Wood' ? 'Legno' : ({ '申':'Acqua','子':'Acqua','辰':'Acqua','亥':'Legno','卯':'Legno','未':'Legno','寅':'Fuoco','午':'Fuoco','戌':'Fuoco','巳':'Metallo','酉':'Metallo','丑':'Metallo' })[dep]));
+          c16('triangolo · mobile su ' + (M.isShi ? 'Shi' : M.isYing ? 'Ying' : 'altra'));
+          c16('triangolo · e l\'arrivo combina lo Shi ' + (combShi ? 'sì' : 'no'));
+        }
+        // anche il triangolo sull'ARRIVO: arrivo + giorno + linea
+        const sociA = TRI[arr] || []; const terzoA = sociA.includes(D) ? sociA.find(b => b !== D) : null;
+        const triA = !!terzoA && L.some(x => x.pos !== M.pos && x.ramo === terzoA);
+        c16('triangolo arrivo+giorno+linea: ' + (triA ? 'sì' : 'no'));
+        // la lettura intera: arrivo combina lo Shi + triangolo partenza/giorno/linea
+        c16('LETTURA INTERA (arrivo combina lo Shi + triangolo): ' + (combShi && tri ? 'sì' : 'no'));
+        if (combShi && tri && process.env.TRENDLY === 'lista16') console.log('L16 ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' ema ' + r.emaDir + ' move ' + Math.round(r.move) + ' ' + (segue ? 'SEGUE' : 'non segue') + ' · mobile L' + M.pos + ' ' + M.par + ' ' + dep + '→' + arr + ' · Shi ' + S.ramo + ' · giorno ' + D + ' · triangolo ' + dep + '-' + D + '-' + terzo + ' su L' + lineaTerza.pos + (lineaTerza.isShi ? ' (Shi)' : ''));
+        c16('mobile è la Ying e l\'arrivo combina lo Shi: ' + (M.isYing && combShi ? 'sì' : 'no'));
+      }
+      // ---- 17. IL CARATTERE DEL GIORNO NEL PALAZZO E IL NUOVO TREND (Edu, 20/09, AUDUSD 06/04/2020 s59):
+      //          "poiche' il giorno 卯 e' una G e la linea mobile si muove per diventare una G ma diversa
+      //          (寅) posso attribuire il ruolo di un nuovo trend" -> non segue.
+      if (dEl && R.palEl) {
+        const parDi = (e) => e === R.palEl ? 'B' : GENt[R.palEl] === e ? 'C' : KEt[R.palEl] === e ? 'W' : KEt[e] === R.palEl ? 'G' : 'P';
+        const parG = parDi(dEl), parA = M.mut.parArr, parP = M.par;
+        const c17 = (k) => conta('17', k, segue);
+        c17('il giorno nel palazzo è ' + parG);
+        c17('arrivo ' + (parA === parG ? (arr === D ? 'stesso carattere e stesso ramo del giorno' : 'stesso carattere del giorno, ramo diverso (nuovo trend)') : 'carattere diverso dal giorno'));
+        c17('partenza ' + (parP === parG ? (dep === D ? 'stesso carattere e stesso ramo del giorno' : 'stesso carattere del giorno, ramo diverso') : 'carattere diverso dal giorno'));
+        if (parA === parG && arr !== D) { c17('nuovo trend · carattere ' + parG); c17('nuovo trend · mobile su ' + (M.isShi ? 'Shi' : M.isYing ? 'Ying' : 'altra')); c17('nuovo trend · il giorno siede su una linea ' + (L.some(x => x.ramo === D && x.pos !== M.pos) ? 'sì' : 'no')); c17('nuovo trend · tocco ' + (punti2 === 0 ? 'zero' : 'acceso')); }
+        c17('giorno ' + parG + ' → arrivo ' + parA);
+      }
+      // ---- 17. IL NUOVO TREND (Edu, 20/09, AUDUSD 06/04/2020 s59): "poiche' il giorno 卯 e' una G e la
+      //          linea mobile si muove per diventare una G ma diversa (寅) posso attribuirle il ruolo
+      //          di un nuovo trend" -> non segue.
+      if (dEl) {
+        const ELS = ['Wood','Fire','Earth','Metal','Water'];
+        const parDi = (pal, el) => el === pal ? 'B' : GENt[pal] === el ? 'C' : KEt[pal] === el ? 'W' : GENt[el] === pal ? 'P' : 'G';
+        const pal = ELS.find(pe => L.every(x => parDi(pe, x.el) === x.par));
+        if (pal) {
+          const parG = parDi(pal, dEl);                 // il carattere del giorno nel palazzo
+          const parA = M.mut.parArr, parD = M.par;
+          const c17 = (k) => conta('17', k, segue);
+          c17('il giorno nel palazzo è ' + parG);
+          c17('arrivo ' + (arr === D ? 'è il ramo del giorno' : parA === parG ? 'stesso carattere del giorno, altro ramo' : 'altro carattere'));
+          c17('arrivo · giorno ' + parG + ' → arrivo ' + parA);
+          if (parA === parG && arr !== D) c17('NUOVO TREND (stesso carattere, altro ramo) · carattere ' + parG);
+          if (parA === parG && arr !== D) c17('NUOVO TREND · partenza ' + parD + ' → arrivo ' + parA);
+          c17('partenza ' + (dep === D ? 'è il ramo del giorno' : parD === parG ? 'stesso carattere del giorno, altro ramo' : 'altro carattere'));
+          if (parA === parG && arr !== D) c17('NUOVO TREND · il giorno siede su ' + (L.some(x => x.ramo === D && x.isShi) ? 'Shi' : L.some(x => x.ramo === D && x.isYing) ? 'Ying' : L.some(x => x.ramo === D) ? 'altra linea' : 'nessuna linea'));
+          if (parA === parG && arr !== D) c17('NUOVO TREND · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+          if (parA === parG && arr !== D) {
+            const en = arrVuoto ? 'vuoto' : timely(M.mut.elArr) ? 'timely' : 'untimely';
+            c17('NUOVO TREND · energia dell\'arrivo nel mese: ' + en);
+            c17('NUOVO TREND · energia ' + en + ' · carattere ' + parG);
+            c17('NUOVO TREND · energia ' + en + ' · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+          }
+          if (parA === parG && arr !== D && parG === 'G' && process.env.TRENDLY === 'lista17') console.log('L17 ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' ema ' + r.emaDir + ' move ' + Math.round(r.move) + ' ' + (segue ? 'SEGUE' : 'non segue') + ' · mese ' + Mo + ' arrivo ' + (timely(M.mut.elArr) ? 'TIMELY' : 'untimely') + ' · giorno ' + r.dayStemUsed + D + ' · mobile L' + M.pos + ' ' + M.par + ' ' + dep + '→' + arr + (arrVuoto ? '(vuoto)' : '') + ' · tocco ' + punti2 + ' · Shi ' + S.par + S.ramo + (S.vuoto ? '(vuoto)' : '') + ' Ying ' + Y.par + Y.ramo + (Y.vuoto ? '(vuoto)' : '') + ' · caso ' + M.mut.casoMut);
+        }
+      }
+      // ---- 18. IL NUOVO TREND E LO STATO DEL TREND VECCHIO (Edu, 20/09: "si'"): il nuovo trend rompe
+      //          quando gli ultimi giorni sono andati nel verso della EMA (trend al culmine), tace
+      //          quando sono andati contro (trend esausto).
+      const ult = global.__ultimi && global.__ultimi[r.cross + '|' + r.date];
+      if (ult && dEl) {
+        const segno = r.emaDir === 'up' ? 1 : -1;
+        const nel = ult.filter(x => x * segno > 0).length;             // giornate nel verso della EMA fra le ultime 3
+        const somma = ult.reduce((a, x) => a + x * segno, 0);          // pip nel verso della EMA
+        const stato = nel >= 2 ? 'al culmine (2-3 giorni nel verso)' : 'esausto (0-1 giorni nel verso)';
+        const c18 = (k) => conta('18', k, segue);
+        c18('tutte le carte · trend ' + stato);
+        c18('tutte le carte · ultimi 3 giorni nel verso: ' + nel);
+        const ELS = ['Wood','Fire','Earth','Metal','Water'];
+        const parDi = (pal, el) => el === pal ? 'B' : GENt[pal] === el ? 'C' : KEt[pal] === el ? 'W' : GENt[el] === pal ? 'P' : 'G';
+        const pal = ELS.find(pe => L.every(x => parDi(pe, x.el) === x.par));
+        if (pal) {
+          const nuovo = parDi(pal, dEl) === M.mut.parArr && arr !== D;
+          const en = arrVuoto ? 'vuoto' : timely(M.mut.elArr) ? 'timely' : 'untimely';
+          if (nuovo) {
+            c18('nuovo trend · trend ' + stato);
+            c18('nuovo trend · energia ' + en + ' · trend ' + stato);
+            c18('nuovo trend · ultimi 3 giorni nel verso: ' + nel);
+            if (en === 'timely') c18('nuovo trend timely · ultimi 3 giorni nel verso: ' + nel);
+            if (parDi(pal, dEl) === 'G') c18('nuovo trend G · energia ' + en + ' · trend ' + stato);
+          } else {
+            c18('senza nuovo trend · trend ' + stato);
+          }
+        }
+        // e il sistema-trend nelle due situazioni
+        c18('tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0') + ' · trend ' + stato);
+      }
+      // ---- 19. LA RITIRATA (Edu, 20/09, AUDUSD 29/11/2023 s66: "retrocedere qui significa che non si
+      //          segue piu' quel trend"). La mobile che retrocede (退神), in varie forme.
+      {
+        const retro = AVt[arr] === dep, avanza = AVt[dep] === arr;
+        const c19 = (k) => conta('19', k, segue);
+        c19('moto della mobile: ' + (retro ? 'retrocede' : avanza ? 'avanza' : 'altro'));
+        if (retro) {
+          c19('retrocede · carattere ' + M.par);
+          c19('retrocede · la partenza è il ramo del giorno ' + (dep === D ? 'sì' : 'no'));
+          c19('retrocede · mobile su ' + (M.isShi ? 'Shi' : M.isYing ? 'Ying' : 'altra'));
+          c19('retrocede · partenza ' + (M.vuoto ? 'vuota' : timely(M.el) ? 'timely' : 'untimely'));
+          c19('retrocede · arrivo ' + (arrVuoto ? 'vuoto' : timely(M.mut.elArr) ? 'timely' : 'untimely'));
+          c19('retrocede · il giorno ' + (tocco(D, arr) || 'non tocca') + ' l\'arrivo');
+          c19('retrocede · il giorno ' + (tocco(D, dep) || 'non tocca') + ' la partenza');
+          c19('retrocede · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+          if (M.par === 'G') c19('retrocede G · partenza ramo del giorno ' + (dep === D ? 'sì' : 'no') + ' · arrivo ' + (arrVuoto ? 'vuoto' : timely(M.mut.elArr) ? 'timely' : 'untimely'));
+          if (dep === D) c19('retrocede dal ramo del giorno · carattere ' + M.par);
+          if (dep === D) c19('retrocede dal ramo del giorno · su ' + (M.isShi ? 'Shi' : M.isYing ? 'Ying' : 'altra'));
+        }
+        if (avanza) { c19('avanza · carattere ' + M.par); c19('avanza · la partenza è il ramo del giorno ' + (dep === D ? 'sì' : 'no')); }
+      }
+      // ---- 21. IL GIORNO CHE HA INIZIATO IL TREND (Edu, 20/09: "che succede se il ramo del giorno che
+      //          inizia il trend sta nell'esagramma?")
+      const ini = global.__inizio && global.__inizio[r.cross + '|' + r.date];
+      if (ini) {
+        const c21 = (k) => conta('21', k, segue);
+        const rb = ini.ramo;
+        const dove = L.filter(x => x.ramo === rb).map(x => 'L' + x.pos + (x.isShi ? '(Shi)' : x.isYing ? '(Ying)' : '') + (x.isMobile ? '(mobile)' : ''));
+        const nascosto = L.some(x => x.fushen && x.fushen.ramo === rb);
+        c21('età del trend: ' + (ini.eta <= 5 ? '1-5 giorni' : ini.eta <= 12 ? '6-12 giorni' : ini.eta <= 25 ? '13-25 giorni' : 'oltre 25'));
+        c21('il ramo d\'inizio ' + (dove.length ? 'sta nell\'esagramma' : nascosto ? 'è solo nascosto' : 'non c\'è'));
+        if (dove.length) {
+          const lin = L.find(x => x.ramo === rb);
+          c21('ramo d\'inizio su ' + (L.some(x => x.ramo === rb && x.isShi) ? 'Shi' : L.some(x => x.ramo === rb && x.isYing) ? 'Ying' : 'altra linea'));
+          c21('ramo d\'inizio · la linea è ' + (L.some(x => x.ramo === rb && x.isMobile) ? 'la mobile' : 'ferma'));
+          c21('ramo d\'inizio · carattere ' + lin.par);
+          c21('ramo d\'inizio · linea ' + (lin.vuoto ? 'vuota' : timely(lin.el) ? 'timely' : 'untimely'));
+          c21('ramo d\'inizio · in ' + (alto(lin.pos) ? 'alto' : 'basso'));
+          c21('ramo d\'inizio · il giorno di oggi lo ' + (tocco(D, rb) || 'non tocca'));
+          c21('ramo d\'inizio · è anche il ramo del giorno di oggi ' + (rb === D ? 'sì' : 'no'));
+          c21('ramo d\'inizio · la mobile arriva su di lui ' + (arr === rb ? 'sì' : 'no'));
+          c21('ramo d\'inizio · l\'arrivo della mobile lo ' + (tocco(arr, rb) || 'non tocca'));
+          c21('ramo d\'inizio nell\'esagramma · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+        } else {
+          c21('senza ramo d\'inizio · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+        }
+        c21('ramo d\'inizio è il ramo di oggi (giorno) ' + (rb === D ? 'sì' : 'no'));
+        // Edu, 20/09: "che succede se la linea mobile ha una delle cinque relazioni con quel giorno?"
+        if (WXt[rb]) {
+          const iE = WXt[rb];
+          const relI = (el) => el === iE ? 'stesso elemento' : GENt[el] === iE ? 'genera il giorno d\'inizio' : KEt[el] === iE ? 'controlla il giorno d\'inizio' : GENt[iE] === el ? 'è generata dal giorno d\'inizio' : 'è controllata dal giorno d\'inizio';
+          const c23 = (k) => conta('23', k, segue);
+          const rp = relI(M.el), ra = relI(M.mut.elArr);
+          c23('PARTENZA ' + rp);
+          c23('ARRIVO ' + ra.replace('è generata', 'è generato').replace('è controllata', 'è controllato'));
+          c23('partenza ' + rp.split(' ')[0] + (rp.includes('giorno') ? ' ' + rp.split(' ')[1] : '') + ' · arrivo ' + ra.split(' ')[0] + (ra.includes('giorno') ? ' ' + ra.split(' ')[1] : ''));
+          c23('ARRIVO ' + ra + ' · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+          c23('PARTENZA ' + rp + ' · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+          c23('ARRIVO ' + ra + ' · età ' + (ini.eta <= 5 ? '1-5' : ini.eta <= 12 ? '6-12' : '13+'));
+        }
+        // Edu, 20/09: "che succede se quel giorno coincide con una linea mobile?"
+        if (dep === rb || arr === rb) {
+          const c22 = (k) => conta('22', k, segue);
+          c22('la mobile ' + (dep === rb ? 'PARTE dal ramo d\'inizio' : 'ARRIVA sul ramo d\'inizio'));
+          if (dep === rb) {
+            c22('parte dal ramo d\'inizio · carattere ' + M.par);
+            c22('parte dal ramo d\'inizio · su ' + (M.isShi ? 'Shi' : M.isYing ? 'Ying' : 'altra'));
+            c22('parte dal ramo d\'inizio · moto ' + (AVt[dep] === arr ? 'avanza' : AVt[arr] === dep ? 'retrocede' : 'altro'));
+            c22('parte dal ramo d\'inizio · rapporto: ' + (CASO_IT[M.mut.casoMut] || M.mut.casoMut));
+            c22('parte dal ramo d\'inizio · il giorno ' + (tocco(D, dep) || 'non tocca') + ' la partenza');
+            c22('parte dal ramo d\'inizio · arrivo ' + (arrVuoto ? 'vuoto' : timely(M.mut.elArr) ? 'timely' : 'untimely'));
+            c22('parte dal ramo d\'inizio · età ' + (ini.eta <= 5 ? '1-5' : ini.eta <= 12 ? '6-12' : '13+'));
+            c22('parte dal ramo d\'inizio · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+          } else {
+            c22('arriva sul ramo d\'inizio · carattere arrivo ' + M.mut.parArr);
+            c22('arriva sul ramo d\'inizio · rapporto: ' + (CASO_IT[M.mut.casoMut] || M.mut.casoMut));
+            c22('arriva sul ramo d\'inizio · arrivo ' + (arrVuoto ? 'vuoto' : timely(M.mut.elArr) ? 'timely' : 'untimely'));
+            c22('arriva sul ramo d\'inizio · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+          }
+        }
+        c21('ramo d\'inizio vs oggi: ' + (tocco(D, rb) || 'nessun rapporto'));
+        // Edu, 20/09: le cinque relazioni fra il ramo del giorno d'inizio e il ramo del giorno della carta
+        if (dEl) {
+          const iEl = WXt[rb];
+          const rel5 = iEl === dEl ? 'è lo stesso elemento' : GENt[iEl] === dEl ? 'genera il giorno di oggi' : KEt[iEl] === dEl ? 'controlla il giorno di oggi' : GENt[dEl] === iEl ? 'è generato dal giorno di oggi' : 'è controllato dal giorno di oggi';
+          c21('INIZIO → OGGI: il ramo d\'inizio ' + rel5);
+          c21('INIZIO → OGGI · ' + rel5 + ' · ' + (dove.length ? 'nell\'esagramma' : 'fuori'));
+          c21('INIZIO → OGGI · ' + rel5 + ' · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'));
+          c21('INIZIO → OGGI · ' + rel5 + ' · età ' + (ini.eta <= 5 ? '1-5' : ini.eta <= 12 ? '6-12' : '13+'));
+        }
+      }
       // ---- 12. IERI (Edu, 19/09: "e se l'ora confermasse o meno l'esito della sola giornata
       //          precedente?"). Bersaglio: oggi va nel verso di ieri (apertura-chiusura di ieri).
       const pv = global.__prev && global.__prev[r.cross + '|' + r.date];
@@ -3860,6 +4076,45 @@ if (process.env.TRENDLY) {
         c12('ora → partenza: ' + (tocco(Or, dep) || 'non tocca'));
         c12('ora → arrivo: ' + (tocco(Or, arr) || 'non tocca'));
         c12('ieri e la EMA ' + ((pv > 0) === (r.emaDir === 'up') ? 'concordi' : 'discordi'));
+        // Edu, 20/09: la ritirata = oggi torna al livello di ieri (28/11 +44, 29/11 -38): oggi disfa ieri
+        const pipf = r.cross.endsWith('JPY') ? 100 : 10000;
+        const ieriPip = pv * pipf, oggiPip = r.move;
+        const disfa = ieriPip !== 0 && (-oggiPip / ieriPip) >= 0.5 && (-oggiPip / ieriPip) <= 1.5;   // oggi ritraccia fra la meta' e una volta e mezza ieri
+        const opp = (oggiPip > 0) !== (ieriPip > 0);
+        const c12b = (k, ok) => { if (ok === null) return; const kk = '12 | ' + k; tab[kk] = tab[kk] || { n:0, s:0 }; tab[kk].n++; if (ok) tab[kk].s++; };
+        // Edu, 20/09: "il 28 +44 e il 29 -38: il giorno 卯 il cross e' tornato allo stesso livello
+        // dell'inizio del giorno precedente. Notevole affinita' con la linea che regredisce."
+        // Bersaglio: oggi RITRACCIA ieri (verso opposto e ampiezza fra la meta' e una volta e mezzo).
+        {
+          const pipf = r.cross.endsWith('JPY') ? 100 : 10000, ieriPip = pv * pipf;
+          const rt = -r.move / ieriPip;
+          const ritraccia = rt >= 0.5 && rt <= 1.5;
+          const torna = Math.abs(r.move + ieriPip) <= 0.25 * Math.abs(ieriPip);
+          const c20 = (k) => { const kk = '20 | ' + k; tab[kk] = tab[kk] || { n:0, s:0, t:0 }; tab[kk].n++; if (ritraccia) tab[kk].s++; if (torna) tab[kk].t++; };
+          const retro20 = AVt[arr] === dep, avanza20 = AVt[dep] === arr;
+          c20('(base: oggi ritraccia ieri)');
+          c20('mobile ' + (retro20 ? 'retrocede' : avanza20 ? 'avanza' : 'altro moto'));
+          if (retro20) {
+            c20('retrocede · carattere ' + M.par);
+            c20('retrocede · partenza ramo del giorno ' + (dep === D ? 'sì' : 'no'));
+            c20('retrocede · mobile su ' + (M.isShi ? 'Shi' : M.isYing ? 'Ying' : 'altra'));
+            c20('retrocede · arrivo ' + (arrVuoto ? 'vuoto' : timely(M.mut.elArr) ? 'timely' : 'untimely'));
+          }
+        }
+        const retro12 = AVt[arr] === dep, avanza12 = AVt[dep] === arr;
+        c12b('DISFA · base (oggi ritraccia ieri fra 0,5 e 1,5)', disfa);
+        c12b('DISFA · mobile ' + (retro12 ? 'retrocede' : avanza12 ? 'avanza' : 'altro moto'), disfa);
+        if (retro12) { c12b('DISFA · retrocede dal ramo del giorno ' + (dep === D ? 'sì' : 'no'), disfa); c12b('DISFA · retrocede G', M.par === 'G' ? disfa : null); }
+        if (Math.abs(ieriPip) >= 30) { c12b('DISFA ieri forte · base', disfa); c12b('DISFA ieri forte · mobile ' + (retro12 ? 'retrocede' : 'non retrocede'), disfa); }
+        c12('mobile: ' + (retro12 ? 'retrocede' : avanza12 ? 'avanza' : 'altro moto'));
+        if (retro12) {
+          c12('retrocede · carattere ' + M.par);
+          c12('retrocede · la partenza è il ramo del giorno ' + (dep === D ? 'sì' : 'no'));
+          c12('retrocede · mobile su ' + (M.isShi ? 'Shi' : M.isYing ? 'Ying' : 'altra'));
+          c12('retrocede · arrivo ' + (arrVuoto ? 'vuoto' : timely(M.mut.elArr) ? 'timely' : 'untimely'));
+          c12('retrocede · ieri ' + (Math.abs(pv) * (r.cross.endsWith('JPY') ? 100 : 10000) >= 30 ? 'forte (≥30 pip)' : 'debole'));
+          if (M.par === 'G') c12('retrocede G · partenza ramo del giorno ' + (dep === D ? 'sì' : 'no'));
+        }
       }
       conta('5', 'verso EMA e sede ' + (concV ? 'concordi' : 'discordi') + ' · tocco ' + (punti2 > 0 ? '+' : punti2 < 0 ? '−' : '0'), segue);
       (global.__tocco = global.__tocco || {})[r.cross + '|' + r.date] = { p4: punti, p6: punti2 };
@@ -3941,10 +4196,12 @@ if (process.env.TRENDLY) {
     const ip = k.split(' | ')[0];
     if (ip !== last) { console.log('\n--- ipotesi ' + ip + ' ---'); last = ip; }
     const t = tab[k];
-    if (t.n < (ip.startsWith('6') || ip.startsWith('9') ? 8 : 20)) return;
+    if (t.n < (ip.startsWith('6') || ip.startsWith('9') || ip === '22' ? 8 : 20)) return;
     let zz = z(t.s, t.n);
     if (ip.startsWith('6')) { const b = tab[ip + ' | (tutta la classe)']; const pc = b.s / b.n; zz = ((t.s / t.n - pc) / Math.sqrt(pc * (1 - pc) / t.n)).toFixed(2); }
     if (ip === '12') { const b = tab['12 | (base: oggi va nel verso di ieri)']; const pc = b.s / b.n; zz = ((t.s / t.n - pc) / Math.sqrt(pc * (1 - pc) / t.n)).toFixed(2); }
+    if (ip === '20') { const b = tab['20 | (base: oggi ritraccia ieri)']; const pc = b.s / b.n; zz = ((t.s / t.n - pc) / Math.sqrt(pc * (1 - pc) / t.n)).toFixed(2);
+      console.log('  ' + k.split(' | ')[1].padEnd(46) + String(t.n).padStart(5) + '  ritraccia ' + (100 * t.s / t.n).toFixed(1).padStart(5) + '%  z ' + String(zz).padStart(6) + '   torna al livello ' + (100 * t.t / t.n).toFixed(1) + '%'); return; }
     console.log('  ' + k.split(' | ')[1].padEnd(46) + String(t.n).padStart(5) + '  segue ' + (100 * t.s / t.n).toFixed(1).padStart(5) + '%  z ' + String(zz).padStart(6));
   });
 }
@@ -3964,10 +4221,11 @@ if (process.env.SISTEMATREND || process.env.TRENDLY) {
     const _p = r.date.split('-').map(Number), _ys = yearStemAt(_p[0], _p[1], _p[2]);
     const _ms = _ys ? monthStemFrom(_ys, r.monthBranchUsed) : null;
     const _os = (() => { const s0 = CA_WUSHU[r.dayStemUsed]; if (!s0 || !r.oraBranch) return null; const i = B.indexOf(r.oraBranch); return i < 0 ? null : STEMS10[(STEMS10.indexOf(s0) + i) % 10]; })();
+    const _ini = global.__inizio && global.__inizio[r.cross + '|' + r.date];
     const v = TR.leggiTrend(R, { dayBranch:r.dayBranchUsed, monthBranch:r.monthBranchUsed, yearBranch:r.yearBranchUsed, oraBranch:r.oraBranch,
-                                 dayStem:r.dayStemUsed, yearStem:_ys, monthStem:_ms, hourStem:_os, emaDir:r.emaDir });
+                                 dayStem:r.dayStemUsed, yearStem:_ys, monthStem:_ms, hourStem:_os, emaDir:r.emaDir, inizioBranch:_ini && _ini.ramo });
     (global.__trend = global.__trend || {})[r.cross + '|' + r.date] = v;
-    if (process.env.TRENDTACE && v.punti === 0) console.log('TACE ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' ema ' + r.emaDir + ' move ' + Math.round(r.move));
+    if (process.env.TRENDTACE && (v.punti === 0 || process.env.TRENDTACE === 'tutte')) console.log('TACE ' + r.cross + ' ' + r.date + ' s' + r.seedUsed + ' ema ' + r.emaDir + ' move ' + Math.round(r.move) + ' punti ' + v.punti + ' | ' + v.racconto.join(' · '));
     tot++;
     const segue = (r.emaDir === 'up' ? r.move : -r.move) > 0;
     const k = v.punti; distr[k] = distr[k] || { n:0, s:0 }; distr[k].n++; if (segue) distr[k].s++;
@@ -28771,7 +29029,8 @@ if (process.env.TRESIST) {
   const trendST=(r)=>{ try{ const R=LYM48.readManual(r.sup,r.inf,r.linea,r.dayBranchUsed,r.monthBranchUsed,r.yearBranchUsed,r.dayStemUsed,r.oraBranch);
     if(R.error) return null; const _p=r.date.split('-').map(Number), _ys=yearStemAt(_p[0],_p[1],_p[2]); const _ms=_ys?monthStemFrom(_ys,r.monthBranchUsed):null;
     const _os=(()=>{ const s0=CA_WUSHU[r.dayStemUsed]; if(!s0||!r.oraBranch) return null; const i=B.indexOf(r.oraBranch); return i<0?null:STEMS10[(STEMS10.indexOf(s0)+i)%10]; })();
-    return TR51.leggiTrend(R,{dayBranch:r.dayBranchUsed,monthBranch:r.monthBranchUsed,yearBranch:r.yearBranchUsed,oraBranch:r.oraBranch,dayStem:r.dayStemUsed,yearStem:_ys,monthStem:_ms,hourStem:_os,emaDir:r.emaDir}); }catch(e){ return null; } };
+    const _ini=global.__inizio&&global.__inizio[r.cross+'|'+r.date];
+    return TR51.leggiTrend(R,{dayBranch:r.dayBranchUsed,monthBranch:r.monthBranchUsed,yearBranch:r.yearBranchUsed,oraBranch:r.oraBranch,dayStem:r.dayStemUsed,yearStem:_ys,monthStem:_ms,hourStem:_os,emaDir:r.emaDir,inizioBranch:_ini&&_ini.ramo}); }catch(e){ return null; } };
   // GEMSCALA (S40) — la regola delle gemelle: se oggi un altro cross ha lo STESSO piatto,
   // il verdetto del DLR conta solo se il Liu Yao lo conferma; altrimenti il DLR e' muto.
   // Il piatto condiviso e' noto in anticipo; lo e' anche l'accordo col LY. Nessun senno' di poi.

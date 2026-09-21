@@ -51,8 +51,36 @@
     // combina 61,7%; senza tocco 40,7% su 332 carte).
     { id:'T6', punto:-1, nome:'l\'elemento del giorno controlla l\'arrivo (e il ramo non lo tocca)',
       prova:function (m, c) { return !!c.dayBranch && KE[WX[c.dayBranch]] === WX[m.arr] &&
-                              CLASH[c.dayBranch] !== m.arr && COMBINA[c.dayBranch] !== m.arr; } }
+                              CLASH[c.dayBranch] !== m.arr && COMBINA[c.dayBranch] !== m.arr; } },
+    // T7 — LETTURA DI EDU su EURUSD 20/01/2026 s116 (19/09/2026): "Ying 戌 moves to 亥 which combines
+    // with Shi 寅; 戌, 寅 and the 午 day form a fire triangle: follow". E sulla gemella storta
+    // EURUSD 16/10/2025 (mese 戌): "nel mese 戌 il Fuoco è nella tomba" — il triangolo il cui
+    // elemento sta nella tomba del mese non agisce. La terza linea non dev'essere vuota (dottrina
+    // del 三合: il terzo membro non e' vuoto a meno che si muova). Cablata alla nascita su 3 carte.
+    { id:'T7', punto:+1, nome:'la Ying si muove, l\'arrivo combina lo Shi e partenza, giorno e Shi chiudono un triangolo vivo',
+      prova:function (m, c) {
+        if (!m.R || !m.mob || !m.mob.isYing || !c.dayBranch) return false;
+        var S = m.R.linee[m.R.shi - 1]; if (!S || S.isMobile || S.vuoto) return false;
+        if (COMBINA[m.arr] !== S.ramo) return false;
+        var tri = TRINE[m.dep]; if (!tri || tri.rami.indexOf(c.dayBranch) < 0 || tri.rami.indexOf(S.ramo) < 0) return false;
+        if (c.dayBranch === S.ramo) return false;
+        return TOMBA[tri.el] !== c.monthBranch;
+      } },
+    // T8 — IL GIORNO CHE HA INIZIATO IL TREND (Edu, 20/09/2026). Il trend e' la corsa attuale della
+    // pendenza della EMA; il suo giorno d'inizio e' il primo giorno di quella corsa. Fra le cinque
+    // relazioni fra il ramo di quel giorno e il ramo del giorno della carta parla una sola: se OGGI
+    // GENERA il giorno d'inizio, il trend non si segue (527 carte 41,4% z -3,1; con trend di 13+
+    // giorni 31,4% su 156; parla anche dove il tocco tace, 40,6% su 318). Il contrario (l'inizio
+    // che genera oggi) non fa niente. Non e' una regola della mobile: il contesto porta
+    // c.inizioBranch (il ramo del giorno d'inizio), che l'app dovra' calcolare dalla EMA.
+    { id:'T8', punto:-1, nome:'il giorno di oggi genera il giorno che ha iniziato il trend',
+      prova:function (m, c) { return !!c.dayBranch && !!c.inizioBranch && GEN[WX[c.dayBranch]] === WX[c.inizioBranch]; } }
   ];
+  var TRINE = {};
+  [['Water',['申','子','辰']],['Wood',['亥','卯','未']],['Fire',['寅','午','戌']],['Metal',['巳','酉','丑']]].forEach(function (t) {
+    t[1].forEach(function (b) { TRINE[b] = { el:t[0], rami:t[1] }; });
+  });
+  var TOMBA = { Water:'辰', Wood:'未', Fire:'戌', Metal:'丑' };
 
   // I pilastri della data che cadono sulla mobile: quelli il cui stelo ha la stessa bestia che
   // siede sulla mobile (le sei bestie dallo stelo del giorno).
@@ -69,7 +97,7 @@
     var out = { punti:0, tocco:0, pilastri:[], verdetto:null, dir:null, racconto:[], regole:[] };
     if (!R || R.error || !R.mutante || !R.mutante.pos) { out.racconto.push('nessuna linea mobile: il trend tace'); return out; }
     var mob = R.linee[R.mutante.pos - 1];
-    var m = { dep: R.mutante.ramoDep || mob.ramo, arr: R.mutante.ramoArr || (mob.mut && mob.mut.ramoArr) };
+    var m = { dep: R.mutante.ramoDep || mob.ramo, arr: R.mutante.ramoArr || (mob.mut && mob.mut.ramoArr), R: R, mob: mob };
     if (!m.arr) { out.racconto.push('la mobile non ha arrivo: il trend tace'); return out; }
     out.racconto.push('la mobile è L' + mob.pos + ' ' + (mob.par || '') + ' ' + m.dep + ' → ' + m.arr);
 
@@ -77,13 +105,25 @@
       if (r.prova(m, c)) { out.tocco += r.punto; out.regole.push(r.id); out.racconto.push((r.punto > 0 ? '+1 ' : '−1 ') + r.nome); }
     });
     out.pilastri = pilastriCaduti(mob, c);
-    if (out.tocco !== 0 && out.pilastri.length) {
+    out.punti = out.tocco;
+    if (out.tocco !== 0) {
       var segno = out.tocco > 0 ? 1 : -1;
-      out.punti = out.tocco + segno * out.pilastri.length;
-      out.racconto.push('sulla mobile cade ' + (out.pilastri.length === 1 ? 'il pilastro' : 'i pilastri') + ' ' +
-        out.pilastri.map(function (p) { return p.nome + ' ' + p.stelo + p.ramo; }).join(', ') +
-        ': la bestia rafforza la linea, ' + (segno > 0 ? '+' : '−') + out.pilastri.length);
-    } else out.punti = out.tocco;
+      if (out.pilastri.length) {
+        out.punti += segno * out.pilastri.length;
+        out.racconto.push('sulla mobile cade ' + (out.pilastri.length === 1 ? 'il pilastro' : 'i pilastri') + ' ' +
+          out.pilastri.map(function (p) { return p.nome + ' ' + p.stelo + p.ramo; }).join(', ') +
+          ': la bestia rafforza la linea, ' + (segno > 0 ? '+' : '−') + out.pilastri.length);
+      }
+      // AMPLIFICATORI DAL GIORNO D'INIZIO DEL TREND (Edu, 20/09/2026: "mettili come amplificatori").
+      // Da soli non hanno verso; col tocco acceso pesano un punto nel suo verso:
+      //  A1 l'arrivo della mobile e' dello stesso elemento del giorno d'inizio (tocco - 36,1% su 144)
+      //  A2 la partenza della mobile e' controllata dal giorno d'inizio (tocco - 32,1% su 109)
+      if (c.inizioBranch && WX[c.inizioBranch]) {
+        var iE = WX[c.inizioBranch];
+        if (WX[m.arr] === iE) { out.punti += segno; out.racconto.push('l\'arrivo ' + m.arr + ' è dello stesso elemento del giorno d\'inizio del trend: rafforza, ' + (segno > 0 ? '+1' : '−1')); }
+        if (KE[iE] === WX[m.dep]) { out.punti += segno; out.racconto.push('la partenza ' + m.dep + ' è controllata dal giorno d\'inizio del trend: rafforza, ' + (segno > 0 ? '+1' : '−1')); }
+      }
+    }
 
     if (out.punti > 0) out.verdetto = 'segue';
     else if (out.punti < 0) out.verdetto = 'non segue';

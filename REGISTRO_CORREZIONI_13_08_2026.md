@@ -8482,3 +8482,92 @@ l'arrivo. Misura: parla su 1.161 carte (era 1.108), 57,45% z 5,08 +11.650 pip (e
 vecchio 59,18%, recente 55,98%; non segue 597 carte 59,97%. T6 da sola 312 carte 60,90% +4.896.
 Accanto alla scala (TRESIST): concordi 547 carte 71,12%, contraddette 440 61,36%, tace 1.312 64,79%;
 fuori scala il ST parla su 350 al 55,14% (5 pip a trade). Invariato nel senso: termometro, non voce.
+
+=== 19/09/2026 (S51, seguito) — REGOLA 10 APPLICATA: LA LETTURA DI EDU SU EURUSD 20/01/2026 ===
+Carta EURUSD 20/01/2026 seme 116 (坎 su 震, mobile L5 = Ying G 戌 -> 亥; giorno 甲午, mese 丑, vuoti
+辰巳; Shi L2 C 寅; EMA LONG, esito LONG +88). Parole di Edu: "Y 戌 moves to 亥 which combines with
+S 寅. 戌, 寅 and the 午 day form a fire triangle. Follow."
+ERRORE DI METODO DI CLAUDE: misurate le parti nel mazzo (arrivo che combina lo Shi 50,7%, triangolo
+partenza+giorno+linea 50,2%) e scritto "non regge". Edu: "Regola #10" — una percentuale non
+respinge una lettura; serve una carta completa con seme dove fallisce e nessun'altra regola spiega.
+CERCATA: la configurazione esatta sta su 4 carte, tutte seme 116 con giorno 午. Due seguono
+(03/12/2025, 20/01/2026); EURUSD 25/10/2021 non segue ma ha lo Shi 寅 VUOTO (il terzo membro del
+triangolo e' vuoto: il triangolo non si forma, regola gia' sua); EURUSD 16/10/2025 (giorno 戊午,
+mese 戌, vuoti 子丑, esito LONG +43 contro EMA SHORT) portata a Edu senza spiegazione.
+RISPOSTA DI EDU: "Nel mese 戌 il fuoco e' nella tomba." Il triangolo il cui elemento sta nella
+tomba del mese non agisce (tombe: Acqua 辰, Legno 未, Fuoco 戌, Metallo 丑). La lettura sta.
+CABLATA nel sistema-trend come T7 (+1): la Ying si muove, l'arrivo combina lo Shi (fermo e non
+vuoto), partenza + giorno + Shi chiudono un triangolo pieno il cui elemento non e' nella tomba del
+mese. Alla nascita 7 carte accese, 5 giuste (71,4%). Sistema-trend: parla su 1.168 carte, 57,53%
+z 5,15 +11.807 pip; vecchio 59,22%, recente 56,10%.
+
+=== 20/09/2026 (S51, seguito) — LE CARTE MUTE, LA RITIRATA, IL GIORNO CHE HA INIZIATO IL TREND (T8) ===
+AUDUSD 06/04/2020 s59 (艮 su 離, mobile L2 B 丑 -> 寅 回頭克, giorno 己卯 sullo Shi G 卯; EMA SHORT, esito
+LONG +87). Edu: "poiche' il giorno 卯 e' una G e la mobile si muove per diventare una G ma diversa (寅)
+posso attribuirle il ruolo di un nuovo trend". Misurato: arrivo con lo stesso carattere del giorno e
+altro ramo 407 carte 52,1% (non "non segue"); per carattere W 36,8% e C 40,4%, B/P/G 55-57%; con
+tocco + 62,4%, con tocco - 36,4% -> amplifica il tocco, non ha un verso suo. Regola 10 applicata:
+gemella GBPUSD 29/06/2020 s123 (stessa struttura, mese 午, esito SHORT -42, ha seguito) -> Edu: "to
+start a new trend you need energy, how much energy has the new G 寅 in a 午 month?" (Legno drenato
+dal Fuoco: niente energia, nessun nuovo trend). Con l'energia (timely nel mese) il nuovo trend resta
+piatto: 155 carte 52,3%; e nessuna lunghezza di EMA lo fa uscire (5-60 gg: 46-54%).
+AUDUSD 22/11/2022 s66 e AUDUSD 29/11/2023 s66 (Lin -> Ru, Shi G 卯 sul ramo del giorno che retrocede
+in 寅, arrivo che combina la Ying 亥, mese 亥): la prima ha seguito (+41), la seconda no (-38). Edu sul
+22/11/2022: "G 卯 retrocede per combinarsi con 亥: e' come se il giorno stesso vada a rifornirsi da
+chi lo alimenta" -> NON e' un controesempio della ritirata come cambio di trend. Differenze fra le
+due: anno 寅 (il G si ritira SUL Tai Sui) contro anno 卯 (il G E' il Tai Sui e se ne allontana),
+vuoti 申酉/午未, stelo 己/辛. Domanda aperta a Edu: e' l'anno a decidere il verso della ritirata?
+Giorni prima del 29/11/2023: +33, +44 (trend al culmine); prima del 22/11/2022: quattro discese su
+sei (trend esausto). Testato "nuovo trend con energia x stato del trend vecchio": piatto (117 carte
+53,0% al culmine, 38 al 50,0% esausto). Nessuna EMA (3-60 gg) fa del 29/11 un cambio di trend: il
+LONG e' proseguito fino a meta' dicembre; solo la EMA a 2 giorni si gira dopo la chiusura del 29.
+Con EMAPER=2 il sistema-trend crolla (51,5%), la ritirata dal ramo del giorno scende a 34,4% su 32.
+LA RITIRATA (退神) misurata su tre bersagli: EMA 12 (272 carte 50,4%; dal ramo del giorno 20 carte
+50,0%; G 50,0%), EMA 2 (34,4% su 32), ieri (49,8%; dal ramo del giorno 45,0%). E come RITRACCIAMENTO
+del prezzo (Edu: "il 28 +44, il 29 -38: torna al livello dell'inizio del giorno prima, notevole
+affinita' con la linea che regredisce"): base 16,6% (tutte le giornate 17,9%); retrocede 19,6%; dal
+ramo del giorno 30,0% su 20 (tutte le giornate 20,5% su 44); dalla Ying 26,4% (25,5% su 94, z 1,9,
+torna al livello 14,9%); NEL VUOTO 7,9% (9,0% su 78, z -2,1): la ritirata nel vuoto non riporta
+indietro il prezzo. Indizi, non regole. TUTTIGIORNI=1 toglie il filtro del trend consolidato.
+IL GIORNO CHE HA INIZIATO IL TREND (Edu: "che succede se il ramo del giorno che inizia il trend sta
+nell'esagramma?"): trend = corsa attuale della pendenza della EMA, inizio = primo giorno della corsa
+(cablato nel loop principale, global.__inizio). Nell'esagramma in 1.272 carte su 2.788: 47,3% contro
+48,9% fuori, piatto; B nell'esagramma 41,1% (280); stesso ramo di oggi nell'esagramma 64,6% (48);
+trend oltre 25 giorni 40,2% (97). LE CINQUE RELAZIONI col ramo del giorno della carta: stesso
+elemento 51,4%, controlla 49,2%, genera 49,0%, e' controllato 49,4%, E' GENERATO DA OGGI 41,4% (527
+carte, z -3,1); con trend di 13+ giorni 31,4% (156, z -4,2); fuori dall'esagramma 40,9%, dentro
+42,0%; col tocco zero 40,6% (318, z -2,7). Edu: "metti dentro il sistema-trend".
+CABLATA come T8 (-1): il giorno di oggi genera il giorno d'inizio del trend. Il contesto porta
+inizioBranch; l'app dovra' calcolarlo dalla EMA quando il sistema-trend entrera' nella lettura.
+MISURA: parla su 1.381 carte (era 1.168), 58,29% z 6,16 +14.065 pip (era 57,53% +11.807); vecchio
+60,12%, recente 56,65%; non segue 898 carte 59,47%. T8 da sola 439 carte 61,50% +6.153 pip. Scala
+per punti da -4 (31,1%) a +4 (70,0%).
+
+=== 20/09/2026 (S51, seguito) — IL SISTEMA-TREND ENTRA NELL'APP COME VOCE INFORMATIVA ===
+Edu: "fallo adesso senno' ti dimentichi di farlo" (il calcolo del giorno d'inizio del trend
+nell'app). FATTO in trading/app.js: trendStartDate(data, emaRun) cammina indietro di emaRun giorni
+di mercato (lunedi'-venerdi') dalla data del feed; il suo ramo si prende dalla carta di quel giorno
+(buildChartFromForexSeed alle 00:00 GMT); letturaTrend() chiama TrendLY.leggiTrend con lo stesso
+contesto del motore di lettura + inizioBranch. Il verdetto (segue / non segue / tace, punti,
+direzione, racconto con la data d'inizio) e' mostrato nelle voci del report e nelle righe ferme.
+NON conta nella scala A/B/C/D. trend_ly.js aggiunto a index.html e sw.js (cache v63).
+VERIFICA del giorno d'inizio fra backtest e app: AUDUSD 29/11/2023 (14/11), AUDUSD 22/11/2022
+(07/11), EURUSD 16/10/2025 (06/10): uguali. Nota: nello storico vecchio le giornate erano
+lunedi'-giovedi' (mancava la barra delle 21 del venerdi'), dal 2025 lunedi'-venerdi'; il backtest usa
+il proprio calendario reale, l'app quello lunedi'-venerdi'. Se il Worker calcola emaRun su un altro
+calendario l'inizio slitta: per questo la data e' mostrata nel racconto. Parita' 455 carte, 0 diff.
+
+=== 20/09/2026 (S51, seguito) — LA MOBILE E IL GIORNO D'INIZIO: DUE AMPLIFICATORI ===
+Edu: "che succede se quel giorno coincide con una linea mobile?" -> la mobile che PARTE dal ramo
+d'inizio 236 carte 47,0%, che ARRIVA sul ramo d'inizio 228 carte 47,0%: piatto; dentro, fette da
+20-50 carte (parte e avanza 36,4%, parte e retrocede 33,3%, movimento nullo 29,4%, dallo Shi 56,8%),
+indizi. Edu: "e se la mobile ha una delle cinque relazioni con quel giorno?" -> partenza: controlla
+50,6 / genera 49,5 / e' generata 50,6 / e' controllata 45,2 / stesso 45,5; arrivo: controlla 49,5 /
+genera 47,6 / e' generato 49,5 / e' controllato 50,6 / STESSO ELEMENTO 44,1% (612, z -2,0; trend
+vecchio 40,3%). Da sole non parlano; col tocco amplificano: arrivo stesso elemento e tocco - 36,1%
+(144, z -2,9); partenza controllata dal giorno d'inizio e tocco - 32,1% (109, z -3,4); partenza che
+genera l'inizio + 59,1% / - 37,8%; arrivo generato dall'inizio + 60,2% / - 38,1%.
+CABLATI in trend_ly.js (Edu: "si' mettili come amplificatori") A1 e A2: un punto nel verso del tocco,
+come i pilastri caduti. Non cambiano le carte su cui il sistema parla ne' la sua percentuale (1.381
+carte, 58,29%, +14.065): allargano la scala dei punti, ora da -6 (12,5%) a +6 (80%), cioe' misurano
+la fiducia. trend_ly.js aggiornato anche nell'app.
