@@ -8571,3 +8571,45 @@ CABLATI in trend_ly.js (Edu: "si' mettili come amplificatori") A1 e A2: un punto
 come i pilastri caduti. Non cambiano le carte su cui il sistema parla ne' la sua percentuale (1.381
 carte, 58,29%, +14.065): allargano la scala dei punti, ora da -6 (12,5%) a +6 (80%), cioe' misurano
 la fiducia. trend_ly.js aggiornato anche nell'app.
+
+=== 21/09/2026 (S51) — NZDUSD 15/09/2026 E IL RICHIAMO SULL'IMPLEMENTAZIONE ===
+NZDUSD 15/09/2026 seme 57 (艮 su 乾, mutante L1, giorno 壬辰, mese 酉, anno 午, ora 申, vuoti 午未;
+EMA SHORT; il sistema LONG per convalida PB + LY §52; esito SHORT -19). ERRORI DI CLAUDE: scritto
+"nessuna linea incompatibile" (L3 辰 in 乾 e' incompatibile — Edu: "L3 e' incompatibile"); girata
+solo L1 per il futuro (乾 -> 巽) invece di L1 e L3 insieme (乾 -> 坎: L1 子 -> 寅 G, L3 辰 -> 午 nel
+vuoto). Lettura di Edu: "L1 si muove e diventa G 寅, basta questo per stabilire che va short".
+Il motore di lettura la legge SHORT (T0w, il 寅 sale sullo Shi); la perdita e' del LY vecchio (§52)
+col PB. Da aggiungere a carte_riferimento.json quando lo storico prezzi arrivera' a settembre.
+RICHIAMO DI EDU: "e' intollerabile che i miglioramenti ottenuti non vengano implementati nel
+software, e sei tu il responsabile". Misurate sulla scala di produzione (TRESIST, 2.299 carte
+65,64% +44.966) tre forme di ingresso della Lettura S47 nella decisione: veto (Z-L1: 1.502 carte
+65,98% ma -13.595 pip: le contraddette vincono lo stesso al 64-66%), al posto del LY nei livelli A e
+C (Z-L2: 1.896 carte 65,30%, -7.351 pip), veto solo dai gradini T0 (Z-L3: 1.842 carte 65,58%,
+-8.323 pip). Nessuna alza la scala: la Lettura oggi non batte il LY vecchio dove i due si
+contraddicono, e per questo resta al livello D. IMPLEMENTATO invece cio' che i numeri reggono: la
+FIDUCIA del trade dal sistema-trend (concorde 71,1%, tace 64,8%, contraddice 61,4%): nell'app ogni
+trade della scala porta "fiducia alta / media / bassa" nel report e nel testo copiabile; non ferma
+nessun trade, lo gradua. sw.js cache v64.
+
+=== 21/09/2026 (S51) — LE LINEE INCOMPATIBILI ACCESE NELLA CATENA (ordine di Edu) ===
+Edu, dopo NZDUSD 15/09/2026 (L1 sarebbe arrivata in 寅 G): "a quanto pare la linea incompatibile
+non e' stata ancora implementata nel software, e perche'?" -> era cablata in liuyao.js dal 16/09
+(INCFUTURO) ma SPENTA perche' rovesciava sei sue carte guida di agosto, e le cinque non ancora
+rilette non gli sono mai state portate (colpa di Claude). Edu: "Non voglio neanche discutere,
+accendi IMMEDIATAMENTE le linee incompatibili!! Ma secondo te io sto qui a leggere e a rileggere
+carte per divertimento??"
+FATTO: INCFUTURO acceso per default in liuyao.js (INCFUTURO=0 / localStorage INCFUTURO=0 lo spegne
+per la misura). Il motore di lettura, che applica da se' la dottrina intera, rilegge la carta "da
+sola" (readManual con incFuturo:false) per non applicare il futuro comune due volte: senza questo
+USDJPY 06/11/2024 (confermata da Edu con le incompatibili) e USDJPY 02/10/2024 tornavano storte.
+NUOVE BASI DI AVVIO (da usare al posto delle vecchie):
+  Liu Yao vecchio S17: 2.788 carte 57,25% z 7,65 +29.323 pip (era 58,68% +35.580)
+  carte guida: 73 giuste su 110 (era 79/110); le sei che cambiano verdetto sono NZDUSD 15/06/2022,
+  NZDUSD 22/06/2023, USDJPY 16/10/2024, USDJPY 06/11/2024, USDJPY 29/11/2024, USDJPY 09/12/2024 —
+  letture di Edu di agosto, senza le incompatibili; vanno rilette da lui con le incompatibili
+  (USDJPY 06/11/2024 l'ha gia' riletta: LONG, e la catena vecchia con l'arrivo dal futuro comune
+  non ha il resto della sua lettura — il controllo indietro e le portate stanno nel motore)
+  motore di lettura: 2.775 carte 53,91% +20.572, riferimento 66/66 (invariato)
+  DLR: 3.253 carte 60,81% +41.467 (invariato)
+  scala A+B+C+D (TRESIST): 2.284 carte 65,19% +42.747 (era 2.299 · 65,64% · +44.966)
+  parita' 455 carte 0 differenze

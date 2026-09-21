@@ -29186,6 +29186,22 @@ if (process.env.TRESIST) {
       if ((A||B||Cc) && !fermo) put('Z-TOT. scala A+B+C', A?pb:B?s17:pb, r);
       if ((A||B||Cc||D) && !fermo) put('Z-TOT48. scala A+B+C+D (in produzione dal 16/09/2026)', A?pb:B?s17:Cc?pb:dlr, r);
       if (!(A||B||Cc||D) || fermo) put('Z-0. fuori scala (fermo) — pnl del sistema attuale evitato', s17, r);
+      // S51 (21/09/2026, Edu: "e' intollerabile che i miglioramenti ottenuti non vengano implementati nel
+      // software"): la Lettura S47 dentro la scala, tre forme misurate sulla stessa base.
+      { const opera=(A||B||Cc||D)&&!fermo; const dsc=A?pb:B?s17:Cc?pb:dlr; const liv=A?'A':B?'B':Cc?'C':D?'D':null;
+        // L1: veto — la Lettura che contraddice il livello ferma il trade (sui livelli A, B, C; D e' gia' concorde)
+        if (opera && !(lett && lett!==dsc)) put('Z-L1. scala A+B+C+D senza le carte che la Lettura S47 contraddice', dsc, r);
+        if (opera && lett && lett!==dsc) put('Z-L1x. le contraddette dalla Lettura, per livello '+liv+' (lette dalla scala)', dsc, r);
+        // L2: la Lettura al posto del Liu Yao vecchio nei livelli A e C (PB+Lettura+DLR; PB+Lettura)
+        const A2 = pb && lett && dlr && pb===lett && lett===dlr;
+        const C2 = !A2 && pb && lett && pb===lett && !dlr;
+        const B2 = !A2 && !C2 && B;
+        const D2 = !A2 && !C2 && !B2 && !!(dlr && lett && dlr===lett);
+        if ((A2||B2||C2||D2) && !fermo) put('Z-L2. scala con la Lettura S47 al posto del LY (A: PB+Lettura+DLR, C: PB+Lettura)', A2?pb:B2?s17:C2?pb:dlr, r);
+        // L3: veto solo dove la Lettura ha un gradino della mobile (T0*), non dove decide per confronto
+        const forte = lett && r._lettGrad && /^T0/.test(String(r._lettGrad));
+        if (opera && !(forte && lett!==dsc)) put('Z-L3. scala senza le carte contraddette da una Lettura di gradino T0', dsc, r);
+      }
       if (process.env.SISTEMATREND) { const st=trendST(r); const std=st&&st.dir; const opera=(A||B||Cc||D)&&!fermo; const dsc=A?pb:B?s17:Cc?pb:dlr;
         const liv=A?'A':B?'B':Cc?'C':D?'D':null;
         if (opera) { put('T-1. scala A+B+C+D · il ST '+(std?(std===dsc?'concorda   ':'contraddice'):'tace       '), dsc, r);
