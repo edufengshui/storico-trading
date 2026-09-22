@@ -8613,3 +8613,34 @@ NUOVE BASI DI AVVIO (da usare al posto delle vecchie):
   DLR: 3.253 carte 60,81% +41.467 (invariato)
   scala A+B+C+D (TRESIST): 2.284 carte 65,19% +42.747 (era 2.299 · 65,64% · +44.966)
   parita' 455 carte 0 differenze
+
+=== 22/09/2026 (S51) — IL VUOTO E I CLASH: DOTTRINA DI EDU, CABLATA SUBITO ===
+Carta d'origine USDCAD 21/09/2026 seme 139 (乾 su 離, mutante L3 = Shi G 亥 -> 辰; giorno 戊戌 sulla
+Ying 戌, mese 酉, anno 午, ora 午, vuoti 辰巳; EMA LONG, sistema SHORT livello A, esito LONG -35;
+il sistema-trend aveva detto segue/LONG, fiducia bassa). Edu: "questa carta e' letta male, l'arrivo
+della mobile non e' vuoto perche' il giorno lo clasha, quindi la linea mobile funziona come al
+solito. L3 si muove per essere controllata indietro."
+LE QUATTRO REGOLE DI EDU E LO STATO DEL SOFTWARE PRIMA DI OGGI:
+ 1. "una linea vuota esce dal vuoto se clashata" -> in liuyao.js solo a meta': la ferma vuota
+    clashata era 'attiva' se timely ma 'eliminata' se untimely;
+ 2. "per far muovere una linea vuota non mobile servono due clash, il secondo anche dal mese,
+    dall'anno o da un'altra linea" -> NON codificata (un clash solo, e mai da un'altra linea);
+ 3. "la mobile non e' mai vuota alla partenza ma puo' esserlo all'arrivo; se l'arrivo e' clashato
+    diventa operativo e non viene bloccato" -> codificata AL CONTRARIO: l'arrivo vuoto era movimento
+    nullo e il clash del giorno sull'arrivo lo SOSPENDEVA (caso -1); nel motore 'invalidata';
+ 4. "per bloccare l'arrivo che esce dal vuoto con un clash servono due clash" -> NON codificata.
+CABLATE OGGI (VUOTOCLASH=0 in liuyao.js, MLVUOTOCLASH=off nel motore, per la misura):
+ - liuyao.js: clashSuRamo() conta i clash per RAMO DISTINTO (il giorno 戌 e una linea 戌 sono uno
+   solo) da giorno, mese, anno e altre linee; la ferma vuota: 0 clash dormiente, 1 attiva, 2 si
+   muove (mossa/rotta); l'arrivo vuoto con 1 clash e' operativo (il caso normale, qui 回頭克), con
+   2 e' bloccato; il clash del giorno che libera l'arrivo non sospende piu' la mobile;
+ - motore_lettura.js: lo stesso in statoDi (T0m), prima della via del vuoto;
+ - ECCEZIONE tenuta (dottrina S47): l'arrivo PENALIZZATO dal giorno non esce dal vuoto con un clash
+   — senza questa USDCHF 28/02/2022 ("Y cannot advance") tornava storta.
+MISURE: LY vecchio S17 57,14% +28.494 (da 57,25% di ieri); carte guida 71/110 (da 73): rispetto
+alla catena senza incompatibili e senza queste regole le storte nuove sono 8 (EURJPY 28/04/2022,
+EURUSD 11/09/2023, NZDUSD 15/06/2022, NZDUSD 22/06/2023, USDCAD 21/12/2023, USDCHF 15/06/2022,
+USDJPY 06/11/2024, USDJPY 29/11/2024), mentre USDJPY 16/10/2024 e 09/12/2024 si raddrizzano; motore
+di lettura 2.779 carte 53,87% +20.334, riferimento 66/66; scala A+B+C+D 2.282 carte 65,07% +42.309;
+parita' 455 carte 0 differenze. Sulla carta d'origine il motore ora legge LONG (T0f2, la sede nella
+propria tomba: 亥 -> 辰).
