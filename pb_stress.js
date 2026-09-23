@@ -9219,6 +9219,7 @@ if (process.env.PBLY) {
         push('S16p. S16 PESATO', s16, r, peso74(r));
         const s17 = ((r._aOra || r._wVirtu || r._wStelo || r._tsLegaGiorno) && pbSegue) || (ss && !pbSegue) ? pb : ly;
         push('S17. S11 + Serpente untimely sostiene chi NON segue', s17, r);
+        if (process.env.LYDUMP) require('fs').appendFileSync(process.env.LYDUMP, r.cross+'|'+r.date+'|'+s17+'|'+Math.round(r.move)+'|'+r.emaDir+'\n');
         push('S17p. S17 PESATO §74', s17, r, peso74(r));
         // --- S18 (Edu, 28/08/2026): il duello dei trigrammi come CONFERMA del LY nel contrasto.
         //     Dove S17 segue il LY contro il PB, il duello deve confermare il LY: se il duello
@@ -9289,6 +9290,7 @@ if (process.env.PBLY) {
       push('S16. S11 + Serpente timely su Shi/Ying/mob sostiene chi segue', pb, r);
       push('S16p. S16 PESATO', pb, r, peso74(r));
       push('S17. S11 + Serpente untimely sostiene chi NON segue', pb, r);
+      if (process.env.LYDUMP) require('fs').appendFileSync(process.env.LYDUMP, r.cross+'|'+r.date+'|'+pb+'|'+Math.round(r.move)+'|'+r.emaDir+'|tace\n');
       push('S17p. S17 PESATO §74', pb, r, peso74(r));
       push('S20. S17 + duello conferma il LY nel contrasto', pb, r);   // ramo senza contrasto: identico a S17
       r._S17ref = pb; r._lyRef = ly;

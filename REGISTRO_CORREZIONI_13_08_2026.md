@@ -8644,3 +8644,114 @@ USDJPY 06/11/2024, USDJPY 29/11/2024), mentre USDJPY 16/10/2024 e 09/12/2024 si 
 di lettura 2.779 carte 53,87% +20.334, riferimento 66/66; scala A+B+C+D 2.282 carte 65,07% +42.309;
 parita' 455 carte 0 differenze. Sulla carta d'origine il motore ora legge LONG (T0f2, la sede nella
 propria tomba: 亥 -> 辰).
+
+=== 22/09/2026 (S51) — EURUSD 21/09/2026: L'ARRIVO PENALIZZATO NON TOCCA LA PARTENZA, CHE RESTA W ===
+EURUSD 21/09/2026 seme 114 (坎 su 兌, mutante L1 = Shi W 巳 -> 未; L2 卯 incompatibile in 兌 gira insieme,
+futuro comune 坤: L2 -> 巳 vuoto; giorno 戊戌 su L5 G 戌, mese 酉, anno 午, ora 巳, vuoti 辰巳; EMA
+SHORT, sistema LONG livello A, esito SHORT -11). Edu: "Arrivo di L1 penalizzato ma non influenza la
+partenza che rimane Wealth, quindi short" (戌 penalizza 未: 丑戌未).
+CABLATA nel motore di lettura (MLPENPARLA=off spegne): la SEDE (Shi o Ying) il cui arrivo e'
+penalizzato dal giorno resta col proprio carattere e, se e' G o W, parla e fa vincere la propria
+squadra — stesso gradino T0m della mobile bloccata alla partenza (18/09). Perimetro dalle sue letture:
+solo la sede e solo G/W (il B/P penalizzato ha le sue vie: USDCHF 28/02/2022, GBPUSD 02/08/2022,
+USDJPY 19/12/2024; la W non sede lascia decidere la sede: EURJPY 10/08/2023) — senza perimetro
+quattro carte di riferimento tornavano storte. Misura: riferimento 66/66; mazzo 2.779 carte 53,87%
++20.150 (era +20.334); il gradino passa da 86 a 119 carte, 52,10%. Parita' 455 carte 0 diff.
+Da aggiungere a carte_riferimento.json con NZDUSD 15/09 e USDCAD 21/09 quando lo storico arrivera'.
+
+=== 22/09/2026 (S51) — CORREZIONE: IL PRIMO CLASH E' SOLO DEL GIORNO ===
+Errore di Claude: nel cablare le quattro regole del vuoto aveva contato come primo clash (quello che
+fa uscire dal vuoto) anche il clash di un'altra linea o del mese/anno, e presentato EURJPY 28/04/2022
+come "arrivo vuoto tirato fuori dal clash di 酉 di L6". Edu: "Questo non ha senso, e non l'ho mai
+detto. Una linea ferma non puo' clashare nessuna altra linea. Non inventarti le cose."
+CORRETTO in liuyao.js e motore_lettura.js: il primo clash e' SOLO del giorno; senza il clash del
+giorno il conto e' zero. Il secondo (che muove la vuota ferma o blocca l'arrivo uscito dal vuoto)
+puo' venire dal mese, dall'anno o da un'altra linea, come dettato (punto 2). Per la vuota ferma
+anche l'arrivo della mobile conta come secondo clash.
+MISURE: LY vecchio S17 2.788 carte 57,32% z 7,73 +29.286; carte guida 73/110 e le storte nuove
+tornano le sei delle sole incompatibili (NZDUSD 15/06/2022, NZDUSD 22/06/2023, USDJPY 16/10/2024,
+06/11/2024, 29/11/2024, 09/12/2024): EURJPY 28/04/2022 torna a leggersi come ad agosto (arrivo vuoto,
+movimento nullo, LONG); motore di lettura 2.776 carte 53,89% +20.187, riferimento 66/66.
+Delle sei, tre sono gia' rilette da Edu con le incompatibili (NZDUSD 15/06/2022 il 16/09, NZDUSD
+22/06/2023 il 16/09, USDJPY 06/11/2024 il 16/09): per queste manca alla catena un pezzo che il
+motore ha. Restano da rileggere USDJPY 16/10/2024, 29/11/2024, 09/12/2024.
+
+=== 22/09/2026 (S51) — USDJPY 16/10/2024 RILETTA CON LE INCOMPATIBILI: LA SCALA PORTA IL MALUS SULLA SEDE ===
+Carta guida di agosto (LONG per il 回頭克 con la tomba rotta). Con le incompatibili L2 亥 gira con L3:
+L3 酉 -> 卯 (W, vuoto), L2 亥 -> 巳 (P). Edu: "Effetto scala: L4 moves into a G W which is also at Y
+and it brings there P c. A P on Y makes its team to lose" -> LONG (+50).
+CABLATA nel motore di lettura (T0s, terza faccia della scala, MLSCALASEDE=off spegne): la mobile G/W
+che arriva in un ramo dello STESSO CARATTERE di una sede ferma scende su quella sede e le porta il
+carattere della seconda che si muove con lei; se e' P o B, quella sede perde. Gradino 27 carte
+48,15%; mazzo 2.776 carte 53,96% +20.631; riferimento 66/66. La carta guida di agosto va aggiornata
+con questa lettura. NOTA: l'effetto scala (tutte e tre le facce) NON esiste nella catena vecchia di
+liuyao.js, che qui legge SHORT (§65): e' un pezzo di dottrina che vive solo nel motore.
+
+=== 22/09/2026 (S51) — LA SCALA PORTA IL CARATTERE; I DUE EFFETTI CHE SI ANNULLANO (EURJPY 28/04/2022 e GBPUSD 17/06/2025) ===
+ERRORE DI CLAUDE: la frase di Edu "Effetto scala: L4 moves into a G W which is also at Y and it brings
+there P c" era su EURJPY 28/04/2022 (謙 15 -> 豫 16, palazzo 兌, carta incollata da Edu) e Claude
+l'aveva attribuita a USDJPY 16/10/2024, cablando una regola sbagliata (tolta). Riletta con la carta:
+"L4 P 丑 muta in G 午 che scende su Y. Questo trasferisce P 丑 su Y" -> la P sulla Ying fa perdere la
+sua squadra -> LONG (+183). Nella catena vecchia la carta torna gia' come ad agosto (LONG) con il
+primo clash solo del giorno; era una delle sei per errore.
+CABLATO in T0w: chi arriva su una sede le porta IL PROPRIO CARATTERE (di partenza): G/W la fanno
+vincere, P/B la fanno perdere; caratteri discordi -> tace. MLSCALACARATTERE=off torna a "chi arriva
+porta la vittoria". Cadeva la gemella GBPUSD 17/06/2025 (stesso esagramma e movimenti, vuoti 子丑,
+giorno 丁巳, mese 午, esito SHORT +143), che Edu ha riletto: "L5 [lo Shi], clashata dal giorno, si
+muove, fa effetto scala con L3 e raggiunge W 卯 che fa vincere la propria squadra. Poiche' anche P
+丑 su L4 si muove per raggiungere Y e farebbe perdere, i due effetti si annullano e dobbiamo
+chiamare le bestie. Pero' le bestie non danno la vittoria a nessuno quindi usiamo Y vs S. Y riceve
+P 丑 Terra mentre S parte con 亥 Acqua e perde. Short."
+CABLATO (MLSCALAANNULLA=off spegne): se su una sede arriva un malus e l'altra sede, ferma e
+clashata dal giorno, per effetto scala raggiunge un G/W nel trigramma della prima, i due effetti si
+annullano; le mobili hanno finito, le bestie entrano solo come elemento della sede, e si va subito
+a Shi contro Ying con la sede che porta l'ELEMENTO RICEVUTO (C.ricevuto: qui la Ying diventa Terra
+丑). Il motore rifa' tutte e due le letture: EURJPY 28/04/2022 LONG, GBPUSD 17/06/2025 SHORT.
+ORDINE DELLE BESTIE (Edu, su USDJPY 16/10/2024: "si usano le bestie solo dopo che le linee mobili
+non hanno piu' nulla da offrire"): la guerra fra titani non annulla piu' la linea prima dei gradini
+delle mobili (T0*), ma solo all'ingresso della fase delle bestie (MLTITANIPRIMA=on torna alla forma
+vecchia); di conseguenza la scala fermata dalla generazione (USDCAD 13/09/2022) e' stata messa prima
+della sede che sale la scala, che la scavalcava.
+MISURA: motore di lettura 2.776 carte 54,32% +22.308 pip (era 53,89% +20.187 stamattina),
+riferimento 66/66; gradino "la scala si annulla" 7 carte 5 giuste; "lo scalino porta su una sede"
+121 carte 55,4%. Parita' 455 carte 0 diff. USDJPY 16/10/2024 resta DA RILEGGERE con le
+incompatibili (il motore oggi dice SHORT per il trigono nel trigramma, esito LONG).
+
+=== 22/09/2026 (S51) — USDJPY 16/10/2024 RILETTA: IL CLASH TOTALE DEL TRIGRAMMA CONTRO IL PROPRIO FUTURO ===
+Con le incompatibili L2 亥 gira con L3 e il trigramma inferiore 巽 (丑亥酉) diventa 坤 (未巳卯): le
+tre coppie 丑未, 亥巳, 酉卯 sono tutte in clash. Edu: "Il trigramma inferiore e' coinvolto in total
+clash, il che lo esclude dalla possibilita' di vincere" -> vince il sopra -> LONG (+50).
+CABLATA in T0z (MLCLASHTOTALE=off spegne): oltre alla confusione delle tre linee che si muovono per
+clashare se stesse (11/09), e' clash totale anche il trigramma INTERO in 六沖 col proprio futuro
+comune, anche se una linea non si muove (qui L1 丑, sul ramo del giorno). Perimetro dalla sua
+lettura di EURJPY 28/07/2025 (Ying mobile che si occupa prima di se': l'arrivo la controlla
+indietro): se la mobile e' una sede il cui arrivo da sola la controlla indietro, quella lettura
+viene prima del clash totale. Misura: riferimento 66/66; gradino T0z 53 carte 54,7%; mazzo 2.777
+carte 54,30% +22.005 pip; parita' 455 carte 0 diff.
+La carta guida di agosto (LONG per il 回頭克 con la tomba rotta) va aggiornata con questa lettura.
+
+=== 22/09/2026 (S51) — USDJPY 29/11/2024 RILETTA: LA BESTIA DEL GIORNO TIRA FUORI DALLA COMBINAZIONE; IL CLASH LIBERA IL NASCOSTO ===
+Carta guida di agosto (caso speciale, il padrone 丁酉 fa vincere lo Shi, SHORT). Con le incompatibili
+L3 申 (Shi, incompatibile in 艮) va in 辰 nel vuoto; L1 P 辰 (Tai Sui, parte dal vuoto, combinata
+alla partenza dal giorno 酉) va in 子. Edu: "L3 goes nowhere. L1 moves into a strong C 子. What can
+this line do? It clashes L2 to free the hiding wealth, short." E su cio' che sblocca L1: "La bestia
+del giorno lo tira fuori dalla combinazione."
+CABLATE nel motore di lettura:
+ - MLGIORNOTIRA (statoDi): se lo stesso giorno che combina la partenza cade sulla linea col suo
+   pilastro e la bestia le e' compatibile (stesso elemento, drena o genera), la tira fuori dal legame
+   e la linea si muove — vale anche per il Tai Sui combinato e per la mobile vuota;
+ - MLLIBERANASCOSTO (T0x, PRIMA delle bestie, perche' la sostituzione T1 la scavalcava): la mobile
+   che si muove davvero e arriva di stagione clasha una ferma che nasconde un 伏神: il clash libera il
+   nascosto, che parla col proprio carattere (qui la W 卯 sotto L2 -> il basso vince -> SHORT).
+   Lo stesso anche nella porta del clash di T5.
+Misura: riferimento 66/66; T0x 12 carte 6 giuste; mazzo 2.777 carte 54,27% +21.888 pip. La carta
+guida di agosto va aggiornata con questa lettura.
+
+=== 22/09/2026 (S51) — CHIUSURA: USDJPY 09/12/2024 E LE BASI DI S52 ===
+USDJPY 09/12/2024 seme 149 (stesso esagramma di USDJPY 16/10/2024, mese 子, giorno 丁未): con le
+incompatibili il basso 巽 -> 坤 e' in clash totale, escluso dalla vittoria -> LONG (+133), come la
+lettura di agosto per un'altra via. Edu: "Confermo". Le sei carte guida di agosto sono chiuse;
+note aggiornate in carte_lette.json (USDJPY 16/10, 29/11, 09/12/2024; EURJPY 28/04/2022).
+BASI DI S52: LY vecchio 2.788 carte 57,32% +29.286; guida 73/110; motore 2.777 carte 54,27% +21.888,
+riferimento 66/66; DLR 60,81% +41.467; scala 2.298 carte 65,06% +42.740; sistema-trend 1.397 carte
+57,19% +12.176; parita' 455 carte 0 diff. Ripartenza in RIPARTENZA_22_09_2026_S52.md.
