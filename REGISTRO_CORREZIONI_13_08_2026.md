@@ -8755,3 +8755,32 @@ note aggiornate in carte_lette.json (USDJPY 16/10, 29/11, 09/12/2024; EURJPY 28/
 BASI DI S52: LY vecchio 2.788 carte 57,32% +29.286; guida 73/110; motore 2.777 carte 54,27% +21.888,
 riferimento 66/66; DLR 60,81% +41.467; scala 2.298 carte 65,06% +42.740; sistema-trend 1.397 carte
 57,19% +12.176; parita' 455 carte 0 diff. Ripartenza in RIPARTENZA_22_09_2026_S52.md.
+
+=== 23/09/2026 (S52) — L'EFFETTO SCALA ENTRA NELLA CATENA CHE DECIDE ===
+Controllo di avvio (regola del 21/09): l'effetto scala e "l'incompatibile nel vuoto si invalida / il
+Tai Sui combinato alla partenza non parte" vivevano solo nel motore di lettura. Edu: "Sì" a portarli.
+EFFETTO SCALA: nuova via R77_SCALA in liuyao.js, subito dopo §137 e §130. La catena chiede la carta al
+motore di lettura e, se la sua lettura passa per l'effetto scala (tutte le facce: T0s, T0h, la scala
+fermata dalla generazione, le portate), prende quel verdetto. VIASCALA=off spegne.
+Misura: 226 carte con la scala nel racconto, catena 49,6% -> motore 61,5%.
+S17 da 57,32% +29.286 a 57,96% z 8,41 +33.076; carte guida 73/110 invariate (nessuna cambia verdetto);
+scala A+B+C+D da 2.298 carte 65,06% +42.740 a 2.244 carte 65,33% +43.045; riferimento 66/66;
+sistema-trend invariato; parita' 455 carte 0 diff.
+INVALIDAZIONE: la faccia della mobile c'e' gia' nella catena (arrivo vuoto = movimento nullo; giorno
+che combina la partenza = sospesa). La faccia delle incompatibili no, perche' la catena non segue il
+movimento proprio delle incompatibili. Sulle 200 carte dove il racconto del motore passa per
+un'invalidazione e il verdetto differisce dalla catena: catena 56,0%, motore 45,5%. Non cablata:
+da leggere carta per carta per trovare la traccia che il motore perde dopo l'invalidazione.
+
+=== 29/09/2026 (S52) — LA RACCOLTA NOTTURNA DEI TRADE ===
+Richiesta di Edu: "Si può automatizzare il processo di raccolta e analisi dei trade persi? GMT 00:00
+equivale quasi alle 2 di notte dove sto". Broker: ThinkTrader, per ora col conto virtuale.
+Scritto raccolta_notturna.js (archivio) + .github/workflows/raccolta.yml: ogni notte alle 00:45 GMT
+GitHub prende il feed del Worker, rifa' il report della scala A/B/C/D con app.js e i motori
+dell'archivio (stesso codice dell'app), salva i trade in registro_live.json, compila gli esiti del
+giorno prima dal feed (prevMovePip, entrata 00:00 uscita 21:00 GMT) e riscrive trade_persi.md nel
+formato del pulsante "Copia i trade perdenti". A inizio sessione si legge trade_persi.md dall'archivio.
+Provato su tre giorni del 2024 con un feed costruito dallo storico: formato identico a quello dell'app.
+Limiti: lo storico orario (full1h.json) NON si aggiorna con questo, il feed non porta le barre orarie
+(serve la chiave di Twelve Data come segreto di GitHub). Passo 2 concordato: collegare ChelseaAI
+(MCP di ThinkTrader) a Claude col conto demo; passo 3, se regge, l'ordine automatico delle 00:00 GMT.
