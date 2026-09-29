@@ -1,0 +1,24 @@
+name: Raccolta notturna dei trade
+on:
+  schedule:
+    - cron: '45 0 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  raccolta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --no-save lunar-javascript
+      - run: node raccolta_notturna.js
+      - name: Salva nell'archivio
+        run: |
+          git config user.name "raccolta-notturna"
+          git config user.email "raccolta-notturna@users.noreply.github.com"
+          git add registro_live.json trade_persi.md
+          git diff --cached --quiet || git commit -m "Raccolta notturna $(date -u +%F)"
+          git push
