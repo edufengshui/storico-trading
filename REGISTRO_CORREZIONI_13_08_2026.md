@@ -8794,3 +8794,9 @@ trade_persi.md la tabella: totale, per livello A/B/C/D, per mese (chiusi, vinti,
 29/09/2026 (S52): nell'app, nel registro dei trade, nuovo pulsante "Copia tutto il registro" (tutti i
 trade degli ultimi due mesi con gli esiti, vinti compresi, in forma di dati) da incollare in chat per
 importarli in storico_live.json: la statistica parte cosi' da fine agosto e non dal 29/09.
+29/09/2026 (S52): importato in storico_live.json il registro dell'app di Edu (15/09-29/09). Prima
+statistica dal vivo: 26 trade chiusi, 14 vinti, 12 persi, 53,8%, +31 pip. Solo la scala (dal 16/09):
+23 chiusi, 52,2%, -34 pip; A 9 (2 vinti, 7 persi, -168), B 10 (7/3, +77), D 4 (3/1, +57), C nessuno.
+15/09 (vecchia politica delle convalide): 3 chiusi, 2 vinti, +65. Senza esito per sempre i trade del
+17/09 e del 25/09 (il feed del giorno dopo non era stato aperto nell'app). Campione piccolo: il
+livello A dal vivo e' lontano dal backtest; tre dei sette A persi sono USDCAD (semi 139-140).
