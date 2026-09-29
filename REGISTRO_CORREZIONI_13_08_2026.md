@@ -8791,3 +8791,6 @@ raccolta + analisi dei persi in sessione, piu' avanti si passa a MetaTrader 5.
 Edu: "Voglio ottenere una statistica su quanti successi e fallimenti abbiamo" -> storico_live.json
 (tutti i trade dal 29/09/2026, il registro dell'app ne tiene solo due mesi) e in testa a
 trade_persi.md la tabella: totale, per livello A/B/C/D, per mese (chiusi, vinti, persi, %, pip).
+29/09/2026 (S52): nell'app, nel registro dei trade, nuovo pulsante "Copia tutto il registro" (tutti i
+trade degli ultimi due mesi con gli esiti, vinti compresi, in forma di dati) da incollare in chat per
+importarli in storico_live.json: la statistica parte cosi' da fine agosto e non dal 29/09.
