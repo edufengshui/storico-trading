@@ -31,6 +31,8 @@ function finto() { return { style: {}, innerHTML: '', textContent: '', value: ''
   querySelectorAll: () => [], querySelector: () => null, addEventListener() {}, scrollIntoView() {} }; }
 const box = finto();
 global.addEventListener = () => {};
+// Node 20 (quello di GitHub) non ha navigator: l'app lo usa per il service worker e gli appunti
+if (typeof navigator === 'undefined') global.navigator = {};
 global.document = { getElementById: id => (id === 'report' ? box : null), querySelector: () => null,
   querySelectorAll: () => [], addEventListener: () => {} };
 
