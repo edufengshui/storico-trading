@@ -8784,3 +8784,10 @@ Provato su tre giorni del 2024 con un feed costruito dallo storico: formato iden
 Limiti: lo storico orario (full1h.json) NON si aggiorna con questo, il feed non porta le barre orarie
 (serve la chiave di Twelve Data come segreto di GitHub). Passo 2 concordato: collegare ChelseaAI
 (MCP di ThinkTrader) a Claude col conto demo; passo 3, se regge, l'ordine automatico delle 00:00 GMT.
+29/09/2026 (S52), seguito: la raccolta gira (prova manuale riuscita dopo la correzione per Node 20;
+trade del 29/09 identici a quelli dell'app, confermato da Edu). ChelseaAI non piazza ordini in
+autonomia (lo dice ThinkMarkets), quindi niente entrata automatica via ChelseaAI: Edu per ora tiene
+raccolta + analisi dei persi in sessione, piu' avanti si passa a MetaTrader 5.
+Edu: "Voglio ottenere una statistica su quanti successi e fallimenti abbiamo" -> storico_live.json
+(tutti i trade dal 29/09/2026, il registro dell'app ne tiene solo due mesi) e in testa a
+trade_persi.md la tabella: totale, per livello A/B/C/D, per mese (chiusi, vinti, persi, %, pip).
