@@ -46,6 +46,18 @@ async function main() {
   else {
     const res = await fetch(WORKER_URL, { cache: 'no-store' });
     feed = await res.json();
+    // 30/09/2026: la notte del 30/09 il Worker non ha fatto il suo giro delle 00:00 GMT e il feed era
+    // ancora quello del giorno prima (Edu l'ha sbloccato aprendo /run). Se nei giorni lun-ven il feed
+    // non e' di oggi, la raccolta chiama /run da sola e rilegge.
+    const oggi = new Date().toISOString().slice(0, 10), gs = new Date().getUTCDay();
+    if (feed && feed.date !== oggi && gs >= 1 && gs <= 5) {
+      console.log('feed del ' + feed.date + ', non di oggi (' + oggi + '): chiamo /run');
+      try { await fetch(WORKER_URL + 'run', { cache: 'no-store' }); } catch (e) { console.log('/run fallito: ' + e.message); }
+      await new Promise(r => setTimeout(r, 20000));
+      const res2 = await fetch(WORKER_URL, { cache: 'no-store' });
+      feed = await res2.json();
+      console.log('feed riletto: ' + feed.date);
+    }
   }
   if (!feed || !feed.rows || !feed.date) throw new Error('feed vuoto o senza data: ' + JSON.stringify(feed).slice(0, 300));
   const realFetch = global.fetch;

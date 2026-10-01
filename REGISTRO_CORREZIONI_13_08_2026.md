@@ -8800,3 +8800,7 @@ statistica dal vivo: 26 trade chiusi, 14 vinti, 12 persi, 53,8%, +31 pip. Solo l
 15/09 (vecchia politica delle convalide): 3 chiusi, 2 vinti, +65. Senza esito per sempre i trade del
 17/09 e del 25/09 (il feed del giorno dopo non era stato aperto nell'app). Campione piccolo: il
 livello A dal vivo e' lontano dal backtest; tre dei sette A persi sono USDCAD (semi 139-140).
+30/09/2026 (S52): la notte del 30/09 il Worker non ha fatto il giro delle 00:00 GMT (feed ancora del
+29/09 alle 06:00 GMT; la raccolta e' partita alle 05:58 per il ritardo di GitHub). Edu l'ha
+sbloccato aprendo /run. Corretto raccolta_notturna.js: nei giorni lun-ven, se il feed non e' di oggi,
+chiama /run da sola, aspetta 20 secondi e rilegge.
