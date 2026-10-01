@@ -8804,3 +8804,16 @@ livello A dal vivo e' lontano dal backtest; tre dei sette A persi sono USDCAD (s
 29/09 alle 06:00 GMT; la raccolta e' partita alle 05:58 per il ritardo di GitHub). Edu l'ha
 sbloccato aprendo /run. Corretto raccolta_notturna.js: nei giorni lun-ven, se il feed non e' di oggi,
 chiama /run da sola, aspetta 20 secondi e rilegge.
+
+=== 01/10/2026 (S52) — L'APP NEL BROWSER NON ERA LA STESSA DEL BACKTEST ===
+Trovato confrontando il registro dell'app di Edu (Edge, PC) con la raccolta notturna del 01/10:
+AUDUSD SHORT livello C nell'app, LONG livello D nella raccolta; e Lettura S47 "tace" nell'app su
+NZDUSD, EURJPY, USDCAD dove la raccolta la faceva parlare. Causa: due righe leggevano process.env
+senza protezione — motore_dlr.js (la variante P2 dei "due trigoni · W sopra", dal 05/09/2026) e
+motore_lettura.js (il log LOG2 delle seconde linee, dall'11/09/2026). Nel browser process non esiste:
+la riga lancia un errore, l'app lo intercetta e il motore risulta "tace". In node (backtest, parita',
+raccolta) non succede, per questo nessun controllo l'aveva visto. Corrette tutte e due; nuovo
+parita_browser.js carica i file come index.html, senza process ne' require, e rifa' il report:
+senza correzione riproduce esattamente lo schermo di Edu, con la correzione coincide con la raccolta.
+Conseguenza: dal 05/09 (DLR) e dall'11/09 (Lettura) l'app dal vivo ha deciso alcune carte in modo
+diverso dal sistema misurato; la statistica dal vivo 15/09-29/09 va letta con questo in mente.
