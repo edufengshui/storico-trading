@@ -8817,3 +8817,6 @@ parita_browser.js carica i file come index.html, senza process ne' require, e ri
 senza correzione riproduce esattamente lo schermo di Edu, con la correzione coincide con la raccolta.
 Conseguenza: dal 05/09 (DLR) e dall'11/09 (Lettura) l'app dal vivo ha deciso alcune carte in modo
 diverso dal sistema misurato; la statistica dal vivo 15/09-29/09 va letta con questo in mente.
+01/10/2026 (S52): importati dal registro del telefono gli esiti del 29/09 e i trade del 30/09 (il buco
+della notte del 30/09). Statistica dal vivo 15/09-30/09: 35 chiusi, 19 vinti, 16 persi, 54,3%, +57 pip;
+A 13 (4/9, -201), B 14 (10/4, +145), D 5 (3/2, +48), C nessuno; 15/09 vecchia politica 3 (2/1, +65).
