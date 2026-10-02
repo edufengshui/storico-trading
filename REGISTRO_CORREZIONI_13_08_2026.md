@@ -8820,3 +8820,17 @@ diverso dal sistema misurato; la statistica dal vivo 15/09-29/09 va letta con qu
 01/10/2026 (S52): importati dal registro del telefono gli esiti del 29/09 e i trade del 30/09 (il buco
 della notte del 30/09). Statistica dal vivo 15/09-30/09: 35 chiusi, 19 vinti, 16 persi, 54,3%, +57 pip;
 A 13 (4/9, -201), B 14 (10/4, +145), D 5 (3/2, +48), C nessuno; 15/09 vecchia politica 3 (2/1, +65).
+
+=== 02/10/2026 (S52) — IL TREND DEL WORKER NON E' QUELLO DEL BACKTEST ===
+Dal vivo 15/09-01/10: 41 chiusi, 48,8%, -39 pip; livello A 4 vinti su 15 (backtest 71%: per caso
+circa 3 volte su 1000). Rifatti col software corretto: 19 giusti su 38. Edu ha incollato il codice
+del Worker (trading-forex-seed). Differenza trovata: il Worker calcola l'EMA(12) sulle chiusure
+GIORNALIERE di Twelve Data (interval=1day), il backtest sulle chiusure orarie delle 21:00 UTC dei
+soli giorni con barra delle 00 e delle 21 (pb_stress.js, riga "by[d].c"). Seme (apertura delle 00:00)
+ed esito (00:00 -> 21:00) sono calcolati allo stesso modo. Stima sullo storico 2024-2026, supponendo
+che la barra giornaliera vada da mezzanotte a mezzanotte UTC con le domeniche: direzione del trend
+diversa nel 6,8% dei giorni, filtro del trend consolidato diverso nel 22,5%. Da verificare sui dati
+veri: raccolta_notturna.js ora scarica ogni notte le barre orarie dal Worker (/page), rifa' seme,
+trend, consolidato, durata ed esito come il backtest, li confronta col feed e rifa' il report coi
+dati del backtest -> confronto_live.md; le barre orarie dal 01/07/2026 vanno in orario_live.json
+(serviranno ad allungare lo storico del backtest oltre il 30/07/2026).

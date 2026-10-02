@@ -133,6 +133,76 @@ async function main() {
     (oggi.length ? ' (' + oggi.map(t => t.cross + ' ' + t.signal).join(', ') + ')' : '') +
     ' · esiti compilati stanotte: ' + auto.scritti + '\n\n';
   fs.writeFileSync(OUT_FILE, testa + stat + (out.length ? 'Trade perdenti del report:\n\n' + out.join('\n\n') + '\n' : 'Nessun trade perdente da capire.\n'));
+  if (!process.argv[2]) {
+    try { await confronto(feed); } catch (e) { console.log('CONFRONTO FALLITO: ' + e.message); }
+  }
   console.log('feed ' + feed.date + ' · proposti ' + oggi.length + ' · esiti compilati ' + auto.scritti + ' · persi in elenco ' + out.length);
+}
+// ---- CONFRONTO COL BACKTEST (S52, 02/10/2026) ----------------------------------------------
+// Il livello A dal vivo ha vinto 4 trade su 15 contro il 71% del backtest. Il Worker calcola il
+// trend EMA sulle chiusure GIORNALIERE di Twelve Data; il backtest lo calcola sulle chiusure delle
+// 21:00 UTC dei giorni lun-ven (pb_stress.js). Ogni notte si scaricano dal Worker le barre orarie
+// (/page), si rifanno seme, trend, filtro del trend consolidato ed esito di ieri ESATTAMENTE come
+// nel backtest, si confrontano col feed e si rifa' il report con i dati del backtest.
+// Scrive confronto_live.md (il confronto) e orario_live.json (le barre orarie dal 01/07/2026, per
+// allungare lo storico del backtest).
+async function confronto(feed) {
+  const T = global.XKDGTrend;
+  const f3 = p => { const d = String(p).replace(/[^0-9]/g, '').replace(/^0+/, ''); return d.slice(0, Math.abs(Number(p)) < 1 ? 2 : 3); };
+  const pf = c => (/JPY$/.test(c) ? 100 : 10000);
+  const ORARIO = path.join(DIR, 'orario_live.json');
+  let orario = {}; try { orario = JSON.parse(fs.readFileSync(ORARIO, 'utf8')); } catch (e) {}
+  const righe = [], alt = [];
+  for (const r of feed.rows) {
+    if (r.status !== 'ok') continue;
+    let pg = null;
+    try {
+      const res = await fetch(WORKER_URL + 'page?symbol=' + r.cross + '&interval=1h&size=3500', { cache: 'no-store' });
+      pg = await res.json();
+    } catch (e) { righe.push('| ' + r.cross + ' | errore: ' + e.message + ' |'); continue; }
+    await new Promise(z => setTimeout(z, 8000));
+    if (!pg || !pg.bars) { righe.push('| ' + r.cross + ' | nessuna barra: ' + JSON.stringify(pg).slice(0, 80) + ' |'); continue; }
+    const m = {}; (orario[r.cross] || []).forEach(b => { m[b.t] = b; });
+    pg.bars.forEach(b => { if (b.t >= '2026-07-01') m[b.t] = { t: b.t, o: b.o, c: b.c }; });
+    orario[r.cross] = Object.keys(m).sort().map(k => m[k]);
+    const by = {};
+    pg.bars.forEach(x => { const d = x.t.slice(0, 10), hh = x.t.slice(11, 13); by[d] = by[d] || {}; if (hh === '00') by[d].o = x.o; if (hh === '21') by[d].c = x.c; });
+    const giorni = Object.keys(by).sort().filter(d => by[d].o != null && by[d].c != null && d < feed.date);
+    const e = T.emaTrend(giorni.map(d => by[d].c));
+    const oggiO = by[feed.date] && by[feed.date].o;
+    const seme = oggiO != null ? parseInt(f3(oggiO), 10) : null;
+    const ieri = giorni[giorni.length - 1];
+    const mossa = ieri ? Math.round((by[ieri].c - by[ieri].o) * pf(r.cross) * 10) / 10 : null;
+    const diff = [];
+    if (seme !== r.seed) diff.push('seme');
+    if (e.direction !== r.direction) diff.push('TREND');
+    if (e.consolidated !== r.emaConsolidated) diff.push('consolidato');
+    if (e.runLen !== r.emaRun) diff.push('durata');
+    righe.push('| ' + r.cross + ' | ' + r.seed + ' / ' + seme + ' | ' + r.direction + ' / ' + e.direction +
+      ' | ' + r.emaConsolidated + ' / ' + e.consolidated + ' | ' + r.emaRun + ' / ' + e.runLen +
+      ' | ' + r.prevMovePip + ' / ' + mossa + ' | ' + (diff.join(', ') || 'uguale') + ' |');
+    alt.push(Object.assign({}, r, { seed: seme != null ? seme : r.seed, direction: e.direction, emaConsolidated: e.consolidated, emaRun: e.runLen }));
+  }
+  fs.writeFileSync(ORARIO, JSON.stringify(orario));
+  // il report rifatto coi dati del backtest, senza toccare il registro vero
+  const salvato = store['report-registro-v1'];
+  __app.set(Object.assign({}, feed, { rows: alt }));
+  __app.report();
+  const nuovi = (__app.leggi()[feed.date] || []);
+  if (salvato == null) delete store['report-registro-v1']; else store['report-registro-v1'] = salvato;
+  __app.set(feed);
+  const veri = (JSON.parse(salvato || '{}')[feed.date] || []);
+  const fmt = l => l.map(t => t.cross + ' ' + t.signal + ' ' + (t.livello || '')).join(', ') || 'nessuno';
+  const txt = '# Confronto fra il feed del Worker e il calcolo del backtest — ' + feed.date + '\n\n' +
+    'Ogni casella: Worker / backtest (barre orarie, chiusure delle 21:00 UTC lun-ven).\n\n' +
+    '| cross | seme | trend | consolidato | durata | esito di ieri (pip) | differenze |\n|---|---|---|---|---|---|---|\n' +
+    righe.join('\n') + '\n\n' +
+    'Trade del report col feed del Worker: ' + fmt(veri) + '\n\n' +
+    'Trade del report coi dati calcolati come nel backtest: ' + fmt(nuovi) + '\n';
+  const CF = path.join(DIR, 'confronto_live.md');
+  let vecchio = ''; try { vecchio = fs.readFileSync(CF, 'utf8'); } catch (e) {}
+  fs.writeFileSync(CF, txt + (vecchio ? '\n---\n\n' + vecchio : ''));
+  try { require('child_process').execSync('git add confronto_live.md orario_live.json', { cwd: DIR, stdio: 'ignore' }); } catch (e) {}
+  console.log('confronto scritto');
 }
 main().catch(e => { console.error('RACCOLTA FALLITA: ' + e.message); process.exit(1); });
