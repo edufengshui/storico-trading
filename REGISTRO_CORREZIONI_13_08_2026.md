@@ -8834,3 +8834,33 @@ veri: raccolta_notturna.js ora scarica ogni notte le barre orarie dal Worker (/p
 trend, consolidato, durata ed esito come il backtest, li confronta col feed e rifa' il report coi
 dati del backtest -> confronto_live.md; le barre orarie dal 01/07/2026 vanno in orario_live.json
 (serviranno ad allungare lo storico del backtest oltre il 30/07/2026).
+
+=== 02/10/2026 (S52) — LA LINEA COMBINATA COL GIORNO E' PROTETTA DAL CLASH ===
+Carta: EURJPY 01/10/2026 seme 178 (坎 su 兌, palazzo 坎; mutante L5 G 戌 -> 亥 B; Shi L1 W 巳, Ying L4
+P 申 sul ramo del giorno; L2 C 卯 incompatibile -> 寅; giorno 戊申, mese 酉, anno 午, ora 酉, vuoti
+寅卯). EMA SHORT, scala livello A LONG (LY §68: l'arrivo 亥 clasha e controlla lo Shi 巳), esito
+SHORT -76. Claude aveva proposto "l'arrivo si combina prima di clashare": Edu "No non può".
+Parole di Edu: "Il motivo per cui va Short è semplice: quando L5 si muove per diventare B Hai che
+clasha S non può farlo perché S è protetto dalla combinazione col giorno. Per clashare una linea già
+combinata col giorno servono due clash: il primo per rompere la combinazione e il secondo per fare il
+clash vero e proprio. Ne avevamo già discusso ma evidentemente non è stato memorizzato."
+Era gia' a registro: §66 (17/08/2026, USDJPY 30/04/2024), Edu: "il G L4 è combinato da mese e anno e
+non si fa spazzare via" — allora Claude la RESPINSE sulla misura (bersaglio difeso 48,0%) e non la
+cablo'. Errore di metodo: una lettura di Edu non si respinge con una percentuale.
+Cablata in liuyao.js: funzione difesoDalGiorno (DIFESAGIORNO=off spegne), usata dalle vie che leggono
+il clash dell'arrivo (§68, §63-bis, la P che clasha il Tai Sui, che prima aveva mezza regola: "non
+difeso dal giorno" senza il secondo clash). Perimetro DI CLAUDE: il secondo clash per ramo distinto
+dal mese, dall'anno o dall'arrivo di un'incompatibile nello stesso trigramma della mobile (come le
+regole del vuoto del 22/09); e la mobile il cui unico clash non passa resta col carattere
+dell'arrivo (G/W fa vincere la sua sede, P/B perdere) — qui B 亥 nel trigramma alto -> SHORT.
+Misura: S17 da 57,96% +33.076 a 58,00% z 8,45 +33.134; 8 carte del LY cambiano (4 giuste prima e
+4 dopo); carte guida 73/110 invariate; riferimento 66/66; scala A+B+C+D sullo storico allungato al
+02/10/2026 da 2.325 carte 64,99% +43.716 a 2.323 65,05% +43.822. EURJPY 01/10/2026 ora resta ferma.
+Ancora da portare nel motore di lettura (conta al livello D).
+02/10/2026, seguito: Edu ha VALIDATO i due perimetri ("Giusto"): il secondo clash dal mese, dall'anno
+o dall'arrivo di un'incompatibile che gira con la mobile; la mobile il cui clash non passa resta col
+carattere dell'arrivo. Non sono piu' perimetri di Claude: sono regola di Edu.
+Portata anche nel motore di lettura (conta al livello D): difesoGiorno (MLDIFESA=off spegne), nella
+porta del clash (T5d "la linea protetta dal giorno") e nel clash che libera il nascosto (T0x).
+Misura: Lettura S47 da 54,27% +21.888 a 54,38% +22.255; riferimento 66/66; scala A+B+C+D (storico al
+30/07) 2.244 carte da 65,33% +43.045 a 65,37% +43.151; storico allungato al 02/10: 65,06% +43.898.
