@@ -8864,3 +8864,49 @@ Portata anche nel motore di lettura (conta al livello D): difesoGiorno (MLDIFESA
 porta del clash (T5d "la linea protetta dal giorno") e nel clash che libera il nascosto (T0x).
 Misura: Lettura S47 da 54,27% +21.888 a 54,38% +22.255; riferimento 66/66; scala A+B+C+D (storico al
 30/07) 2.244 carte da 65,33% +43.045 a 65,37% +43.151; storico allungato al 02/10: 65,06% +43.898.
+
+=== 02/10/2026 (S52) — EURJPY 30/09/2026 seme 178: LA G FERMA CLASHATA DAL GIORNO AVANZA ===
+坎 su 兌, palazzo 坎; mutante L4 Ying P 申 -> 亥 B; Shi L1 W 巳; L3 G 丑; L2 C 卯 incompatibile -> 寅
+vuoto (invalidata); giorno 丁未, mese 酉, anno 午, ora 酉, vuoti 寅卯. EMA SHORT, scala A LONG (LY §64
+residuo: la P 申 piu' forte), esito SHORT -23. Claude aveva letto: il clash di L4 sullo Shi passa e lo
+distrugge, vince la mobile col carattere dell'arrivo B -> SHORT.
+Edu: "Qui il clash contro S riesce da L4 ma non serve a niente perché L3 clashato da giorno è una G
+che avanza. Short." (丑 clashato dal giorno 未 -> avanza -> la G fa vincere il basso).
+Da chiarire prima di cablare: dove arriva la ferma clashata dal giorno. Il motore di lettura (17/09,
+MLSVEGLIARETRO) la porta al ramo precedente dello stesso elemento (酉 -> 申): con 丑 non scatta (indietro
+c'e' 子, Acqua). Ipotesi di Claude: arriva al ramo che avrebbe se cambiasse lei (丑 in 兌 -> 辰 di 乾,
+avanza; USDCHF 07/08/2024 L3 酉 in 巽 -> 午 di 坎, che la controlla: "retrocede e fa perdere").
+Seguito, Edu con la carta della sua app (Jie 60 -> Sui 17, L4 X, L2 O): "Il giorno clasha L3 Chou che si
+muove e arriva a Chen, quindi avanza". L'arrivo della ferma clashata dal giorno e' il ramo nella SUA
+posizione dell'esagramma trasformato fatto con TUTTE le linee che girano (anche l'incompatibile
+nell'altro trigramma: qui L2 trasforma 兌 in 震, L3 丑 -> 辰). Torna anche USDCHF 07/08/2024 (L2
+incompatibile trasforma 巽 in 艮: L3 酉 -> 申, "retrocede e fa perdere").
+CABLATO: (1) liuyao.js, il trasformato usa anche l'altro trigramma con le incompatibili (ALTROTRIG=off);
+(2) liuyao.js, via R78_ANDONG subito dopo l'effetto scala: G/W fermo clashato dal giorno che avanza fa
+vincere la sua sede, che retrocede la fa perdere, prima dell'azione della mobile (VIAANDONG=off);
+(3) motore_lettura.js, gradino MLSVEGLIARETRO riscritto: arrivo da R.anDong della carta completa,
+avanza o retrocede (prima solo "ramo precedente", che con 丑 non scattava).
+Misura: S17 da 58,00% +33.134 a 57,86% z 8,30 +32.907 (il trasformato completo da solo +590, la via
+-817; messa piu' in basso, prima del §64, peggio: +32.806); carte guida da 73 a 75 su 110; Lettura
+S47 54,38%, da +22.255 a +23.295; riferimento 66/66; scala A+B+C+D (storico al 30/07) da 2.244 carte
+65,37% +43.151 a 2.232 65,37% +43.349; storico al 02/10: 65,08% +44.119; parita' 455 carte 0 diff;
+parita' col browser: ok. EURJPY 30/09/2026 ora LY SHORT.
+
+=== 02/10/2026 (S52) — EURJPY 22/09/2026 seme 180: LA MOBILE SI MUOVE NELLA PROPRIA AUTOPUNIZIONE ===
+坎 su 震, palazzo 坎; mutante L4 P 申 -> 亥 (= giorno 己亥, e ora 亥); Shi L2 C 寅 (combinato dal
+giorno), Ying L5 G 戌; mese 酉, anno 丙午, vuoti 辰巳. EMA LONG, scala A LONG (LY §137: il possesso
+della Ying nutrita dallo Shi), esito SHORT -23. Claude: lo Shi combinato col giorno non puo' nutrire
+la Ying, poi il raduno 申酉戌 si porta dentro la Ying -> P -> SHORT. Edu: "L4 moves into self penalty".
+Cablato in liuyao.js come prima via della catena, R79_AUTOPENA (VIAAUTOPENA=off): l'arrivo della
+mobile e' uno dei rami 自刑 (辰午酉亥) ed e' il giorno -> l'arrivo muore, la linea resta col suo
+carattere di partenza e parla (regola gia' certificata: AUDUSD 23/11/2022, EURUSD 14/07/2021,
+EURUSD 21/09/2026): G/W fa vincere la sua sede, P/B perdere. Qui P in alto -> SHORT. Perimetro di
+Claude: solo senza altre linee che girano (con le incompatibili decide spesso l'altra linea:
+GBPUSD 02/08/2022 e 05/03/2025, carte di riferimento) e prima del §137.
+Provata anche nel motore di lettura: rompeva due carte di riferimento (GBPUSD 02/08/2022, EURJPY
+17/07/2024 "il B genera la C"), tolta; la Lettura legge gia' questa carta SHORT.
+Misura (catena): la via scatta su 69 carte in sei anni, 33 giuste (48%); cambia 48 verdetti, giuste
+21 contro 27 di prima. S17 da 57,86% +32.907 a 57,82% +31.951; carte guida 75/110 invariate; scala
+(storico al 30/07) da 2.232 65,37% +43.349 a 2.222 65,35% +43.177; storico al 02/10: 2.300 65,09%
++43.970; agosto-settembre livello A 11 su 26. Parita' 455 carte 0 diff. DA LEGGERE: le carte dove
+la via sbaglia, per trovare la traccia che la batte.
