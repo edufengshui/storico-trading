@@ -901,7 +901,8 @@
    "fiducia": "media",
    "voci": "PB SHORT · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 SHORT (T4z l'unica azione) · Spirito SHORT · stelo SHORT · Sistema-trend tace",
    "dlrVia": "返吟 · lo host piu' in stagione del guest",
-   "esito": null
+   "esito": 19,
+   "auto": true
   },
   {
    "cross": "EURUSD",
@@ -918,7 +919,8 @@
    "fiducia": "bassa",
    "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0m la ferma clashata retrocede) · Spirito tace · stelo LONG · Sistema-trend segue (+2, SHORT)",
    "dlrVia": "il pari su R1",
-   "esito": null
+   "esito": 9,
+   "auto": true
   },
   {
    "cross": "USDJPY",
@@ -935,7 +937,8 @@
    "fiducia": "alta",
    "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0t il B genera la C) · Spirito tace · stelo SHORT · Sistema-trend segue (+2, LONG)",
    "dlrVia": "casella isolata",
-   "esito": null
+   "esito": -9,
+   "auto": true
   },
   {
    "cross": "USDCAD",
@@ -952,6 +955,94 @@
    "fiducia": "media",
    "voci": "PB SHORT · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0k si muove per combinarsi con una sede) · Spirito tace · stelo SHORT · Sistema-trend tace",
    "dlrVia": "R2 al posto di R1 vuoto",
+   "esito": 25,
+   "auto": true
+  }
+ ],
+ "2026-10-03": [
+  {
+   "cross": "EURUSD",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello A · Plum Blossom, Liu Yao e Da Liu Ren concordano · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0w lo scalino porta su una sede) · Spirito tace · stelo tace · Sistema-trend non segue (-3, LONG)",
+   "seed": 112,
+   "sup": 6,
+   "inf": 8,
+   "linea": 1,
+   "bazi": "丙午 酉 庚戌",
+   "livello": "A",
+   "fiducia": "alta",
+   "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0w lo scalino porta su una sede) · Spirito tace · stelo tace · Sistema-trend non segue (-3, LONG)",
+   "dlrVia": "il ramo cavalca la 絕",
+   "esito": null
+  },
+  {
+   "cross": "AUDUSD",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello A · Plum Blossom, Liu Yao e Da Liu Ren concordano · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0y la sede presa si muove) · Spirito tace · stelo tace · Sistema-trend segue (+1, SHORT)",
+   "seed": 69,
+   "sup": 8,
+   "inf": 5,
+   "linea": 6,
+   "bazi": "丙午 酉 庚戌",
+   "livello": "A",
+   "fiducia": "bassa",
+   "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0y la sede presa si muove) · Spirito tace · stelo tace · Sistema-trend segue (+1, SHORT)",
+   "dlrVia": "il pari su R1",
+   "esito": null
+  },
+  {
+   "cross": "USDJPY",
+   "signal": "SHORT",
+   "trend": "LONG",
+   "segue": false,
+   "decisore": "Livello B · sistema attuale e Da Liu Ren concordano · PB LONG · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 SHORT (T0h la sede sale la scala) · Spirito tace · stelo tace · Sistema-trend tace",
+   "seed": 157,
+   "sup": 3,
+   "inf": 5,
+   "linea": 1,
+   "bazi": "丙午 酉 庚戌",
+   "livello": "B",
+   "fiducia": "media",
+   "voci": "PB LONG · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 SHORT (T0h la sede sale la scala) · Spirito tace · stelo tace · Sistema-trend tace",
+   "dlrVia": "P sul primo messaggio dal lato dello stelo",
+   "esito": null
+  },
+  {
+   "cross": "GBPUSD",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello D · Da Liu Ren e Lettura S47 concordano · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0h la sede sale la scala) · Spirito LONG · stelo tace · Sistema-trend non segue (-1, LONG)",
+   "seed": 132,
+   "sup": 8,
+   "inf": 4,
+   "linea": 5,
+   "bazi": "丙午 酉 庚戌",
+   "livello": "D",
+   "fiducia": "alta",
+   "voci": "PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0h la sede sale la scala) · Spirito LONG · stelo tace · Sistema-trend non segue (-1, LONG)",
+   "dlrVia": "il pari su R1",
+   "esito": null
+  },
+  {
+   "cross": "EURJPY",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello D · Da Liu Ren e Lettura S47 concordano · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T4b la sede presa (mobile ferma) due sedi · bestie 2) · Spirito tace · stelo tace · Sistema-trend tace",
+   "seed": 177,
+   "sup": 6,
+   "inf": 1,
+   "linea": 6,
+   "bazi": "丙午 酉 庚戌",
+   "livello": "D",
+   "fiducia": "media",
+   "voci": "PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T4b la sede presa (mobile ferma) due sedi · bestie 2) · Spirito tace · stelo tace · Sistema-trend tace",
+   "dlrVia": "il pari su R1",
    "esito": null
   }
  ]

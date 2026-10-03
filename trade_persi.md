@@ -1,22 +1,31 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-02 08:11 GMT · feed del 2026-10-02 · trade proposti oggi: 4 (USDCHF SHORT, EURUSD LONG, USDJPY LONG, USDCAD LONG) · esiti compilati stanotte: 0
+Aggiornato: 2026-10-03 05:44 GMT · feed del 2026-10-03 · trade proposti oggi: 5 (EURUSD LONG, AUDUSD LONG, USDJPY SHORT, GBPUSD LONG, EURJPY LONG) · esiti compilati stanotte: 4
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 41 | 20 | 21 | 48,8% | -39 |
-| Livello A | 15 | 4 | 11 | 26,7% | -303 |
-| Livello B | 15 | 10 | 5 | 66,7% | +129 |
+| **Totale** | 45 | 23 | 22 | 51,1% | +5 |
+| Livello A | 16 | 5 | 11 | 31,3% | -284 |
+| Livello B | 17 | 11 | 6 | 64,7% | +129 |
 | Livello C | 1 | 1 | 0 | 100% | +85 |
-| Livello D | 7 | 3 | 4 | 42,9% | -15 |
+| Livello D | 8 | 4 | 4 | 50% | +10 |
 | Mese 2026-09 | 35 | 19 | 16 | 54,3% | +57 |
-| Mese 2026-10 | 6 | 1 | 5 | 16,7% | -96 |
+| Mese 2026-10 | 10 | 4 | 6 | 40% | -52 |
 
-Trade ancora senza esito: 11. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 12. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
+
+USDJPY, 2026-10-02
+Trend EMA: LONG
+Il sistema dice: LONG (segue il trend)
+Esito: -9 pip
+Seme 158 · superiore 3 · inferiore 6 · mutante L1
+Bazi: 丙午 酉 己酉
+Livello: B · fiducia alta · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0t il B genera la C) · Spirito tace · stelo SHORT · Sistema-trend segue (+2, LONG) · via DLR: casella isolata
+Deciso da: Livello B · sistema attuale e Da Liu Ren concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0t il B genera la C) · Spirito tace · stelo SHORT · Sistema-trend segue (+2, LONG)
 
 NZDUSD, 2026-10-01
 Trend EMA: SHORT
