@@ -8950,3 +8950,12 @@ da 75 a 74: NZDUSD 16/06/2025 s60 ora SHORT via 日沖 contro la lettura LONG di
 Lettura S47 da 54,48% +23.155 a 54,48% +23.660; riferimento 66/66; scala (storico al 30/07) da 2.222
 65,35% +43.177 a 2.227 65,38% +43.373; storico al 02/10: 2.300 65,17% +44.236; agosto-settembre 65
 carte 58,5% +837 (A 11/24, B 17/24, D 10/17); parita' 455 carte 0 diff.
+05/10/2026 (S52), NZDUSD 16/06/2025 seme 60 (carta guida LONG, Shi L4 W 戌 mobile clashata dal giorno
+丙辰 nel mese 午): Claude aveva scritto che la regola nuova la eliminava. Edu: "Ma che dici! Siamo nel
+mese Wu, il fuoco è forte e quindi la terra è timely. W con Xu è quindi timely. Non riesco proprio a
+capire come ragioni" — il giorno forte elimina solo la G/W che NON e' timely lei stessa; la mobile
+timely resta e vale la regola di prima. Aggiunto il confine in liuyao.js (R80_DANNOGIORNO) e nel
+motore di lettura (MLDANNOGIORNO). Misura (giorno forte, G/W): mobile non timely 38 carte, eliminata
+giusta 63%; mobile timely 22 carte, eliminata 68% — i numeri non distinguono, vale la lettura di Edu.
+S17 da 57,96% +33.292 a 57,93% +33.111; carte guida di nuovo 75/110 (NZDUSD 16/06/2025 torna LONG);
+Lettura 54,48% +23.662; riferimento 66/66.
