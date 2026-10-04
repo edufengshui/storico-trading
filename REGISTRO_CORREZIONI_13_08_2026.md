@@ -8925,3 +8925,28 @@ confronto notturno lo trova uguale al backtest). Provato con dati finti: seme 15
 giornaliera dava 158; sabato niente ricalcolo.
 raccolta_notturna.js: con un feed di fine settimana non rifa' il report, toglie dal registro e dallo
 storico i giorni di sabato e domenica (tolti i 5 del 03/10), e aggiorna comunque la statistica.
+
+=== 04/10/2026 (S52) — NZDUSD 01/10/2026 seme 56: IL MESE PRENDE LA MOBILE; IL GIORNO FORTE ELIMINA G/W ===
+艮 su 坤 (剝), palazzo 乾; mutante L6 W 寅 (vuota) -> 酉, clashata alla partenza dal giorno 戊申; Shi L5 C 子
+(nascosto B 申), Ying L2 G 巳; mese 丁酉, anno 丙午, ora 己未, vuoti 寅卯. EMA SHORT, scala A LONG (LY §64
+residuo), esito SHORT -26. Lettura di Claude approvata da Edu ("La spiegazione della bestia va
+benissimo"): il pilastro del mese 丁酉 cade sulla mobile (Ding Fuoco = Uccello Rosso di L6, ramo 酉 =
+arrivo) e la prende: diventa B 酉 in alto -> SHORT.
+Poi Edu: "Se cambiamo la regola del giorno che clasha una linea mobile da 'non si muove, resta valida'
+a 'la linea viene danneggiata quindi cio' che rappresenta non puo' piu' funzionare'... W viene clashato
+dal giorno = W viene eliminato quindi la propria squadra non puo' vincere"; e col timeliness: "il
+giorno Shen e' molto timely ed elimina W, ma se fosse stata un'altra stagione questo non sarebbe
+successo e sarebbe rimasta la regola di prima". Misura sulle 180 carte con la mobile clashata alla
+partenza (2020-02/10/2026): le due regole da sole 49% contro 51%; G/W col giorno forte (旺/相 nel mese)
+regola nuova 65% (52 carte), col giorno debole regola di prima (W 70%); P/B nessun guadagno. Torna
+USDCHF 07/08/2024 (giorno 卯 debole nel mese 未: la G resta e fa vincere, come lesse Edu). Edu: "Si".
+CABLATO: liuyao.js via R80_DANNOGIORNO (VIADANNOGIORNO=off), in testa; motore_lettura.js MLDANNOGIORNO
+nei gradini della mobile bloccata (T0m) e della mobile clashata che non si ritira (T1a).
+Nel turno interrotto del 04/10 erano state portate nella catena anche due letture di Edu che vivevano
+solo nel motore: R80_RITIRO (la ritirata che sopprime, USDCHF 16/09/2026) e R81_CTRLIND (la sede G/W
+che si muove per farsi controllare indietro, USDCAD 21/09/2026); insieme valgono +554 pip sul LY.
+Misura: S17 da 57,82% +31.951 a 57,96% z 8,41 +33.292 (senza DANNOGIORNO 57,71% +32.505); carte guida
+da 75 a 74: NZDUSD 16/06/2025 s60 ora SHORT via 日沖 contro la lettura LONG di Edu — DA PORTARE A EDU;
+Lettura S47 da 54,48% +23.155 a 54,48% +23.660; riferimento 66/66; scala (storico al 30/07) da 2.222
+65,35% +43.177 a 2.227 65,38% +43.373; storico al 02/10: 2.300 65,17% +44.236; agosto-settembre 65
+carte 58,5% +837 (A 11/24, B 17/24, D 10/17); parita' 455 carte 0 diff.
