@@ -60,6 +60,17 @@ async function main() {
     }
   }
   if (!feed || !feed.rows || !feed.date) throw new Error('feed vuoto o senza data: ' + JSON.stringify(feed).slice(0, 300));
+  // 03/10/2026: sabato e domenica il mercato e' chiuso. Un feed con data di fine settimana non da'
+  // trade veri: si tolgono dal registro e dallo storico i giorni di fine settimana e ci si ferma.
+  const fineSett = d => { const g = new Date(d + 'T12:00:00Z').getUTCDay(); return g === 0 || g === 6; };
+  const pulisci = f => { try { const o = JSON.parse(fs.readFileSync(f, 'utf8')); let tolti = 0;
+    Object.keys(o).forEach(d => { if (fineSett(d)) { delete o[d]; tolti++; } });
+    if (tolti) fs.writeFileSync(f, JSON.stringify(o, null, 1)); return tolti; } catch (e) { return 0; } };
+  const t1 = pulisci(REG_FILE), t2 = pulisci(STORICO_FILE);
+  if (t1 || t2) { try { store['report-registro-v1'] = fs.readFileSync(REG_FILE, 'utf8'); } catch (e) {}
+    try { require('child_process').execSync('git add storico_live.json', { cwd: DIR, stdio: 'ignore' }); } catch (e) {} }
+  const weekend = fineSett(feed.date);
+  if (weekend) console.log('feed del ' + feed.date + ': fine settimana, mercato chiuso — nessun trade');
   const realFetch = global.fetch;
   global.fetch = async () => { throw new Error('nessuna rete dentro l\'app'); };
   const src = fs.readFileSync(path.join(DIR, 'app.js'), 'utf8');
@@ -67,7 +78,7 @@ async function main() {
   global.fetch = realFetch;
   __app.set(feed);
   const prima = __app.leggi();
-  __app.report();                      // rifà il report e lo salva nel registro (come nell'app)
+  if (!weekend) __app.report();        // rifà il report e lo salva nel registro (come nell'app)
   __app.esiti();                       // esiti del giorno prima dal feed (il report li compila gia')
   const reg = __app.leggi();
   let scritti = 0;
@@ -133,7 +144,7 @@ async function main() {
     (oggi.length ? ' (' + oggi.map(t => t.cross + ' ' + t.signal).join(', ') + ')' : '') +
     ' · esiti compilati stanotte: ' + auto.scritti + '\n\n';
   fs.writeFileSync(OUT_FILE, testa + stat + (out.length ? 'Trade perdenti del report:\n\n' + out.join('\n\n') + '\n' : 'Nessun trade perdente da capire.\n'));
-  if (!process.argv[2]) {
+  if (!process.argv[2] && !weekend) {
     try { await confronto(feed); } catch (e) { console.log('CONFRONTO FALLITO: ' + e.message); }
   }
   console.log('feed ' + feed.date + ' · proposti ' + oggi.length + ' · esiti compilati ' + auto.scritti + ' · persi in elenco ' + out.length);

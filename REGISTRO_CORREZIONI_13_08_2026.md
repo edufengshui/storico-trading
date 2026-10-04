@@ -8910,3 +8910,18 @@ Misura (catena): la via scatta su 69 carte in sei anni, 33 giuste (48%); cambia 
 (storico al 30/07) da 2.232 65,37% +43.349 a 2.222 65,35% +43.177; storico al 02/10: 2.300 65,09%
 +43.970; agosto-settembre livello A 11 su 26. Parita' 455 carte 0 diff. DA LEGGERE: le carte dove
 la via sbaglia, per trovare la traccia che la batte.
+
+=== 03/10/2026 (S52) — IL WORKER CORRETTO: SEME DALLE 00:00 E NIENTE FINE SETTIMANA ===
+Trade del 02/10: 3 vinti su 4, +44; l'unico perso (USDJPY LONG B -9) e' quello col seme del Worker
+158 contro 157 del backtest. Il 03/10 seconda differenza di seme (EURGBP 84 contro 85). Causa: il
+Worker prendeva il seme dall'apertura della barra GIORNALIERA di Twelve Data; il backtest dall'apertura
+della barra ORARIA delle 00:00 UTC. In piu' il Worker produceva un feed anche il sabato (03/10: 5
+"trade" a mercato chiuso). Edu: "Si procedi".
+Worker riscritto (copia in worker_index.js): il seme dall'apertura oraria delle 00:00 presa dalla
+chiamata oraria che gia' faceva per l'esito di ieri (stesse chiamate, stessi crediti), ripiego
+sull'apertura giornaliera segnato come seedSource='daily'; il cron non fa nulla sabato e domenica e
+/run nel fine settimana restituisce l'ultimo feed. Il trend EMA resta sulle chiusure giornaliere (il
+confronto notturno lo trova uguale al backtest). Provato con dati finti: seme 157 dall'oraria dove la
+giornaliera dava 158; sabato niente ricalcolo.
+raccolta_notturna.js: con un feed di fine settimana non rifa' il report, toglie dal registro e dallo
+storico i giorni di sabato e domenica (tolti i 5 del 03/10), e aggiorna comunque la statistica.
