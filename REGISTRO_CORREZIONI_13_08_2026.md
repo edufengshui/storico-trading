@@ -9029,3 +9029,23 @@ MLCOMBPEGGIO=off). Controprova: USDCAD 14/08/2026 (origine della combinazione to
 MISURA (regole ripristinate + regola nuova): LY S17 2.788 carte 57,28% +30.678 (prima 57,39%
 +31.009); carte guida 76/110 (prima 75, torna giusta USDJPY 09/12/2024); riferimento 65/66 (resta
 USDCAD 18/03/2020); scala A+B+C+D 2.192 carte 65,56% +42.626 (prima 2.216 65,70% +43.383); parita' 0.
+
+=== 05/10/2026 (S53) — USDCAD 18/03/2020 seme 142: IL BLOCCO DEL TRIGRAMMA VIENE DOPO IL MOVIMENTO ===
+Edu: "L3 porta la B su L2, che fa perdere la propria squadra. E' da tenere presente che il blocco
+del trigramma (in questo caso superiore) agisce negativamente solo quando non ci sono movimenti di
+linee che sono piu' netti nel fornire una risposta" -> LONG (+266).
+CABLATO nel motore di lettura: (1) MLCOMBDIFFERITO — col trigramma legato il motore legge prima la
+carta SENZA il blocco; se conclude col movimento delle linee vale quella, altrimenti (bestie, anche
+la sede in movimento presa dalle bestie T0y, Shi contro Ying, linea piu' forte, esagramma futuro,
+silenzio) agisce il blocco (o, alto legato e basso messo peggio, la linea piu' forte). (2)
+MLPORTAMALUS — l'incompatibile P/B che si muove e il cui arrivo combina con una ferma del proprio
+trigramma le porta il suo carattere: quel trigramma perde (gradino "T0x il malus portato").
+Perimetro DI CLAUDE: solo P/B, solo nel proprio trigramma, solo se nessuna vincente e' portata, e
+mai su un bersaglio clashato dal giorno (letture di Edu del 24/08 su GBPUSD 07/04/2025 e AUDUSD
+31/01/2024: senza questa clausola si rovesciavano). La catena (R83_COMBTOT in liuyao.js) prende il
+verdetto del motore solo quando la lettura chiude col blocco; altrimenti prosegue con le sue vie.
+Provato e scartato: la catena che prende sempre il verdetto del motore sui trigrammi legati (carte
+guida 70/110).
+MISURA: LY S17 57,86% +32.928; carte guida 77/110 (torna giusta USDCAD 08/03/2023, nessuna
+rovesciata); riferimento 66/66; Lettura 54,86% +24.378; scala A+B+C+D 2.212 carte 65,46% +42.820;
+parita' 0. USDCAD 18/03/2020 ora livello B LONG.
