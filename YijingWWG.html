@@ -522,8 +522,18 @@ function gen_hex(form)
 	if (form.cboYear.selectedIndex > 0)
 		time_str = "Year: " + form.cboYear.options[form.cboYear.selectedIndex].value + ", ";
 		
+	if (form.cboYear.selectedIndex > 0 && form.cboYearStem.selectedIndex > 0)
+		time_str = "Year: " + form.cboYear.options[form.cboYear.selectedIndex].value + "-" + form.cboYearStem.options[form.cboYearStem.selectedIndex].value + ", ";
 	time_str = time_str + "Month: " + form.cboMonth.options[form.cboMonth.selectedIndex].value;
+	if (form.cboMonthStem.selectedIndex > 0)
+		time_str = time_str + "-" + form.cboMonthStem.options[form.cboMonthStem.selectedIndex].value;
 	time_str = time_str + ", Day: " + day_branch + "-" + day_stem;
+	if (form.cboHourBranch.selectedIndex > 0)
+	{
+		time_str = time_str + ", Hour: " + form.cboHourBranch.options[form.cboHourBranch.selectedIndex].value;
+		if (form.cboHourStem.selectedIndex > 0)
+			time_str = time_str + "-" + form.cboHourStem.options[form.cboHourStem.selectedIndex].value;
+	}
 	time_str = time_str + ", Void: " + void_branches;
 
 	// clear first_hex array
@@ -784,6 +794,27 @@ function set_to_today(form)
 	form.cboWesternDay.options[idx].defaultSelected = true;
 }
 
+// --- Aggiunte 05/10/2026 (Edu): stelo dell'anno e del mese accanto ai rami, ora dal seme ---
+// Stelo del mese dai cinque tigri: il mese Yin (indice 2, con z=0) parte da (stelo anno % 5)*2 + 2.
+function month_stem_index(year_stem, month_branch)
+{
+	return ((year_stem % 5) * 2 + 2 + ((month_branch + 10) % 12)) % 10;
+}
+// Ramo dell'ora dal seme: il resto di (seme - 1) diviso 12 conta z=0 ... h=11 (seme 1 = z, 12 = h).
+// Stelo dell'ora dai cinque topi: l'ora z parte da (stelo giorno % 5)*2.
+function set_hour_from_seed(form)
+{
+	var seed = parseInt(form.txtSeed.value, 10);
+	if (isNaN(seed))
+	{
+		form.cboHourBranch.selectedIndex = 0;
+		form.cboHourStem.selectedIndex = 0;
+		return;
+	}
+	var hour_branch = (((seed - 1) % 12) + 12) % 12;
+	form.cboHourBranch.selectedIndex = hour_branch + 1;
+	form.cboHourStem.selectedIndex = (((form.cboDayStem.selectedIndex % 5) * 2 + hour_branch) % 10) + 1;
+}
 // Convert user selected Western date to Chinese date.
 // The time algorithm used here can have error of up to a few hours.
 function convert_date(form)
@@ -834,6 +865,9 @@ function convert_date(form)
 	form.cboMonth.selectedIndex = month_branch;
 	form.cboDayBranch.selectedIndex = (day_sexagenary % 12);
 	form.cboDayStem.selectedIndex = (day_sexagenary % 10);
+	form.cboYearStem.selectedIndex = (year_sexagenary % 10) + 1;
+	form.cboMonthStem.selectedIndex = month_stem_index(year_sexagenary % 10, month_branch) + 1;
+	set_hour_from_seed(form);
 	
 	// Alert the user if the date is near a new month
 	if (days_diff(sel_date, prev_new_month) <= 1 || days_diff(sel_date, next_new_month) <= 1)
@@ -927,7 +961,7 @@ bgColor=#000000 text=#ffffff vLink=#00ff00>
         >s</option> <option value="yo" 
         >yo</option> <option value="xu" 
         >xu</option> <option value="h" 
-        >h</option></select> Month: <select size="1" 
+        >h</option></select> - <select size="1" name="cboYearStem"><option selected value="">-</option> <option value="Jia">Jia</option> <option value="Yi">Yi</option> <option value="Bing">Bing</option> <option value="Ding">Ding</option> <option value="Wu">Wu</option> <option value="Ji">Ji</option> <option value="Geng">Geng</option> <option value="Xin">Xin</option> <option value="Ren">Ren</option> <option value="Gui">Gui</option></select> Month: <select size="1" 
       name=cboMonth> <option selected value="z" 
         >z</option> <option value="c" 
         >c</option> <option value="y" 
@@ -940,7 +974,7 @@ bgColor=#000000 text=#ffffff vLink=#00ff00>
         >s</option> <option value="yo" 
         >yo</option> <option value="xu" 
         >xu</option> <option value="h" 
-        >h</option></select> Day: <select size="1" 
+        >h</option></select> - <select size="1" name="cboMonthStem"><option selected value="">-</option> <option value="Jia">Jia</option> <option value="Yi">Yi</option> <option value="Bing">Bing</option> <option value="Ding">Ding</option> <option value="Wu">Wu</option> <option value="Ji">Ji</option> <option value="Geng">Geng</option> <option value="Xin">Xin</option> <option value="Ren">Ren</option> <option value="Gui">Gui</option></select> Day: <select size="1" 
       name=cboDayBranch> <option selected value="z" 
         >z</option> <option value="c" 
         >c</option> <option value="y" 
@@ -953,7 +987,7 @@ bgColor=#000000 text=#ffffff vLink=#00ff00>
         >s</option> <option value="yo" 
         >yo</option> <option value="xu" 
         >xu</option> <option value="h" 
-        >h</option></select> - <select size="1" name="cboDayStem" 
+        >h</option></select> - <select size="1" name="cboDayStem" onchange="set_hour_from_seed(this.form)" 
       > <option selected value="Jia" 
         >Jia</option> <option value="Yi" 
         >Yi</option> <option value="Bing" 
@@ -964,7 +998,7 @@ bgColor=#000000 text=#ffffff vLink=#00ff00>
         >Geng</option> <option value="Xin" 
         >Xin</option> <option value="Ren" 
         >Ren</option> <option value="Gui" 
-        >Gui</option></select>&nbsp;  </td></tr>
+        >Gui</option></select> &nbsp; Seed: <input type="text" size="4" name="txtSeed" onchange="set_hour_from_seed(this.form)" onkeyup="set_hour_from_seed(this.form)"> Hour: <select size="1" name="cboHourBranch"><option selected value="">-</option> <option value="z">z</option> <option value="c">c</option> <option value="y">y</option> <option value="m">m</option> <option value="cn">cn</option> <option value="si">si</option> <option value="w">w</option> <option value="we">we</option> <option value="s">s</option> <option value="yo">yo</option> <option value="xu">xu</option> <option value="h">h</option></select> - <select size="1" name="cboHourStem"><option selected value="">-</option> <option value="Jia">Jia</option> <option value="Yi">Yi</option> <option value="Bing">Bing</option> <option value="Ding">Ding</option> <option value="Wu">Wu</option> <option value="Ji">Ji</option> <option value="Geng">Geng</option> <option value="Xin">Xin</option> <option value="Ren">Ren</option> <option value="Gui">Gui</option></select>&nbsp;  </td></tr>
   <tr>
     <td height="25" width="20%">Tosses:</td>
     <td height="25" width="80%">Hexagram Chart:</td></tr>
