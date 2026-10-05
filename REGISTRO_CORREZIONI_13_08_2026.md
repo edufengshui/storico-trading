@@ -9066,3 +9066,13 @@ l'arrivo e' al massimo (Wu nel mese Wu) sbagliava 3 volte su 4 — da rileggere 
 Aggiunta a carte_lette.json (111 carte guida). MISURA: LY S17 57,93% +32.788; carte guida 77/110 +
 la nuova; riferimento 66/66; scala A+B+C+D 2.217 carte 65,49% +42.971; parita' 0. Non messa nel motore
 di lettura (che legge la carta con la guerra fra titani su L4 e conclude SHORT).
+
+=== 05/10/2026 (S53) — SPENTA LA GUERRA FRA LE DUE BESTIE (TITANI) ===
+Edu: "Tenderei a scartare la guerra fra le due bestie. L'idea piuttosto sarebbe che le bestie si usano
+per facilitare una soluzione in un senso o in un altro quando i mezzi d'interpretazione soliti non
+forniscono un risultato chiaro." Nel motore di lettura il gradino T0 (MLGUERRA, linea annullata da due
+pilastri in clash/penalita') e' ora SPENTO per default (MLGUERRA=on lo riaccende). La catena del Liu
+Yao non lo usava. MISURA: riferimento 66/66; carte guida 78/111; LY invariato 57,93%; Lettura da
+54,86% +24.378 a 54,68% +23.776; scala A+B+C+D da 2.217 65,49% +42.971 a 2.228 65,31% +42.652;
+parita' 0. EURJPY 26/11/2025 nel motore resta SHORT per un'altra strada (T7 il duello, sede presa
+dalle bestie): la regola dell'autopunizione (P fuori stagione inutile) non e' ancora nel motore.
