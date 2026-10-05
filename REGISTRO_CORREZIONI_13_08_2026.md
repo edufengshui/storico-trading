@@ -9049,3 +9049,20 @@ guida 70/110).
 MISURA: LY S17 57,86% +32.928; carte guida 77/110 (torna giusta USDCAD 08/03/2023, nessuna
 rovesciata); riferimento 66/66; Lettura 54,86% +24.378; scala A+B+C+D 2.212 carte 65,46% +42.820;
 parita' 0. USDCAD 18/03/2020 ora livello B LONG.
+
+=== 05/10/2026 (S53) — EURJPY 26/11/2025 seme 180: L'ARRIVO PUNITO RENDE INUTILE LA P FUORI STAGIONE ===
+Carta (坎 su 震, palazzo 坎; mutante L4 P 申 -> 亥; giorno 己亥, mese 亥, anno 巳, ora 亥, vuoti 辰巳;
+Shi L2 C 寅, Ying L5 G 戌; EMA LONG, livello A SHORT via R79_AUTOPENA, esito LONG +77). Gemella della
+carta d'origine della via EURJPY 22/09/2026 (stesso esagramma, stesso giorno, mese 酉).
+Edu: "L'arrivo di L4 e' penalizzato quindi la linea e' inutile per cui rimane lo scontro Y vs S. S e'
+combinato dal giorno e non puo' partecipare allo scontro e vince Y" -> LONG.
+CABLATO in R79_AUTOPENA (VIAAUTOPENAINUTILE=off torna a prima). Perimetro DI CLAUDE che tiene insieme
+le due letture di Edu: la P resta a parlare solo se e' timely (mese 酉: Metallo di stagione -> SHORT,
+la carta d'origine resta giusta); fuori stagione la linea e' inutile e si va a Shi contro Ying: se una
+sola sede e' combinata dal giorno non partecipa e vince l'altra; altrimenti la catena prosegue.
+Lettura proposta da Claude (l'arrivo al massimo della stagione non muore) RESPINTA da Edu.
+Nei sei anni la via scattava su 116 carte (con le piccole) al 53%; dove la P va in autopunizione e
+l'arrivo e' al massimo (Wu nel mese Wu) sbagliava 3 volte su 4 — da rileggere con questa regola.
+Aggiunta a carte_lette.json (111 carte guida). MISURA: LY S17 57,93% +32.788; carte guida 77/110 +
+la nuova; riferimento 66/66; scala A+B+C+D 2.217 carte 65,49% +42.971; parita' 0. Non messa nel motore
+di lettura (che legge la carta con la guerra fra titani su L4 e conclude SHORT).

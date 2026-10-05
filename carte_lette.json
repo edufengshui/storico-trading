@@ -1428,5 +1428,18 @@
   "quando": "2026-08-31",
   "esito": "LONG +320",
   "nota": "Lettura Edu 31/08: L1 辰 non può essere clashata — il Tai Sui la difende (giorno e mese 戌 a vuoto). Carta nuda → duello: Shi 申 vuota, vince la Ying → sede alta, LONG +320. Dottrina di stato TSDIFENDE cablata in readManual"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2025-11-26",
+  "seme": 180,
+  "sup": 6,
+  "inf": 4,
+  "linea": 4,
+  "dayB": "亥",
+  "monthB": "亥",
+  "quando": "2026-10-05",
+  "esito": "LONG 77",
+  "nota": "Lettura Edu 05/10/2026 (S53): \"L'arrivo di L4 e' penalizzato quindi la linea e' inutile per cui rimane lo scontro Y vs S. S e' combinato dal giorno e non puo' partecipare allo scontro e vince Y\" -> LONG. Gemella di EURJPY 22/09/2026 (mese 酉, P di stagione che resta a parlare -> SHORT)."
  }
 ]
