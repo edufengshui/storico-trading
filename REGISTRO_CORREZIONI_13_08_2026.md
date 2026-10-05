@@ -8959,3 +8959,47 @@ motore di lettura (MLDANNOGIORNO). Misura (giorno forte, G/W): mobile non timely
 giusta 63%; mobile timely 22 carte, eliminata 68% — i numeri non distinguono, vale la lettura di Edu.
 S17 da 57,96% +33.292 a 57,93% +33.111; carte guida di nuovo 75/110 (NZDUSD 16/06/2025 torna LONG);
 Lettura 54,48% +23.662; riferimento 66/66.
+
+=== 05/10/2026 (S52) — AUDUSD 30/09/2026 seme 69: LA SEDE NON TIMELY CLASHATA DAL GIORNO E' ELIMINATA ===
+坤 su 巽 (升), palazzo 震; mutante L3 G 酉 (sul mese) -> 卯 vuoto; Shi L4 W 丑, Ying L1 W 丑, tutte e
+due clashate dal giorno 丁未; L2 亥 e L4 丑 incompatibili; mese 酉, anno 午, ora 申, vuoti 寅卯. EMA
+SHORT, scala A LONG (LY §127 autopunizione dal mese; Lettura T0z clash totale), esito SHORT -43.
+Claude: la G sul mese e' la linea piu' forte e resta ferma (arrivo vuoto) -> il basso vince, SHORT;
+chiesto a Edu se il §127 tolga anche il peso della linea ferma.
+Edu: "L4 W non è timely quindi viene eliminata dal Clash. L3 non è clashata dall'arrivo perché questo
+è vuoto. L2 è ininfluente" -> SHORT. Quindi: (a) la sede ferma G/W, non vuota, clashata dal giorno e
+NON timely nel mese e' danneggiata e la sua squadra non puo' vincere; (b) e' la linea non timely a
+essere eliminata, il giorno 未 (Terra nel mese 酉, 休) non e' forte: la forza del giorno non e'
+richiesta — tolta anche dalla regola della mobile del 04/10 (DANNO=giorno la rimette: S17 +32.044
+contro +33.094 senza, neutra); (c) l'arrivo vuoto non clasha la partenza.
+CABLATO: liuyao.js via R82_SEDECLASH dopo R80 (VIASEDECLASH=off); se tutte e due le sedi sono
+eliminate decide la mobile G/W (perimetro di Claude, da validare: qui L3 G -> SHORT); motore_lettura.js
+MLSEDECLASH (T0c), prima del protagonista. Misura: la via scatta su 105 carte, 60 giuste (57,1%);
+S17 da 57,93% +33.111 a 57,78% +32.027; carte guida da 75 a 76/110; Lettura da 54,48% +23.662 a
+54,72% +23.813; riferimento 66/66; scala (storico al 30/07) da 2.224 65,33% +43.159 a 2.213 65,48%
++42.791; storico al 02/10: 2.282 65,29% +43.679; agosto-settembre 61 carte 59,0% +864 (A 9/21,
+B 17/24, D 10/16); parita' 455 carte 0 diff.
+
+=== 05/10/2026 (S52) — USDCAD 14/08/2026 seme 139: L'AUTOCOMBINAZIONE ESAURISCE L'AZIONE; LA COMBINAZIONE TOTALE ===
+乾 su 離 (同人), palazzo 離; mutante L4 B 午 (Tai Sui, ora 午) -> 未 (autocombinazione); Shi L3 G 亥,
+Ying L6 C 戌; L5 W 申 sul mese e sul giorno; giorno 庚申, mese 丙申, anno 丙午, ora 午, vuoti 子丑.
+EMA SHORT, scala A LONG (LY §50f e Lettura T5: l'arrivo 未 genera la W 申), esito SHORT -52.
+Lettura di Claude confermata da Edu: la mobile che si combina col proprio arrivo ha aperto la prima
+porta e si ferma li' legata, non passa a clashare o generare; resta la B sul Tai Sui e sull'ora, in
+alto -> SHORT. Edu: "Confermo pero' c'e' un aspetto gia' discusso precedentemente che a quanto pare
+non e' ancora cablato: I due trigrammi superiori sono in una combinazione totale. Se questo capita in
+un trigramma che non ha linee mobili non importa, ma se anche una sola linea si muove e' l'intero
+trigramma ad essere bloccato e non puo' vincere". Definizione (dopo un errore di Claude sul najia di
+巽): le tre coppie linea/arrivo del trigramma col suo trasformato sono tutte 六合 — 乾 午申戌 -> 巽
+未巳卯 (午未, 申巳, 戌卯); vale per il basso e per l'alto; simmetrica del clash totale del 22/09.
+CABLATO: liuyao.js via R83_COMBTOT (VIACOMBTOT=off); motore_lettura.js MLCOMBTOT (T0b, prima del
+protagonista) e MLAUTOCOMB (le tre porte non si aprono se la mobile si e' autocombinata).
+Misura: S17 da 57,78% +32.027 a 57,39% +31.009; carte guida da 76 a 75; Lettura da 54,72% +23.813 a
+54,90% +23.594; scala (storico al 30/07) da 2.213 65,48% +42.791 a 2.216 65,70% +43.383; parita' 455
+carte 0 diff. RIFERIMENTO DA 66 A 64: la combinazione totale rovescia due letture di Edu col
+trigramma alto in 六合 totale, USDJPY 06/09/2022 s140 ("Y non puo' vincere perche' e' vuoto" -> LONG)
+e USDCAD 18/03/2020 s142 (Shi autocombinazione che non avviene, "vince Y, legno vince su terra" ->
+la sua lettura dava LONG). PRIMO PUNTO APERTO DI S53: portarle a Edu per decidere se la combinazione
+totale ha un confine (la Ying vuota? la Ying che riceve lo scambio di Qi delle bestie?).
+Consegna di fine S52 (05/10/2026): Blocco 1 liuyao.js + motore_lettura.js; Blocco 2 stessi file +
+registro + worker_index.js gia' in archivio; Blocco 3 RIPARTENZA_05_10_2026_S53.md.
