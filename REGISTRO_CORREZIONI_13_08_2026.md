@@ -9076,3 +9076,12 @@ Yao non lo usava. MISURA: riferimento 66/66; carte guida 78/111; LY invariato 57
 54,86% +24.378 a 54,68% +23.776; scala A+B+C+D da 2.217 65,49% +42.971 a 2.228 65,31% +42.652;
 parita' 0. EURJPY 26/11/2025 nel motore resta SHORT per un'altra strada (T7 il duello, sede presa
 dalle bestie): la regola dell'autopunizione (P fuori stagione inutile) non e' ancora nel motore.
+
+=== 05/10/2026 (S53) — LA P INUTILE NEL MOTORE DI LETTURA ===
+La regola di EURJPY 26/11/2025 (Edu: la linea con l'arrivo penalizzato e' inutile, resta Shi contro
+Ying, la sede combinata dal giorno non partecipa) portata nel motore di lettura come gradino "T0m la P
+inutile, scontro fra le sedi" (MLAUTOPENAINUTILE=off spegne), nella fase delle mobili, prima delle
+bestie. Stesso perimetro della catena (P fuori stagione; la P di stagione resta a parlare).
+EURJPY 26/11/2025 e la gemella 08/12/2025 ora LONG anche nel motore. Carta aggiunta a
+carte_riferimento.json (67). MISURA: riferimento 66/66 + la nuova; carte guida 78/111; Lettura
+54,75% +24.061; scala A+B+C+D 2.227 carte 65,33% +42.729; parita' 0.
