@@ -1,49 +1,22 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-04 06:20 GMT · feed del 2026-10-04 · trade proposti oggi: 5 (EURUSD LONG, NZDUSD SHORT, EURJPY SHORT, GBPUSD LONG, USDCAD SHORT) · esiti compilati stanotte: 5
+Aggiornato: 2026-10-05 06:12 GMT · feed del 2026-10-05 · trade proposti oggi: 5 (EURUSD LONG, AUDUSD SHORT, USDJPY SHORT, EURJPY SHORT, GBPUSD SHORT) · esiti compilati stanotte: 0
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 50 | 24 | 25 | 49% | +5 |
-| Livello A | 18 | 6 | 12 | 33,3% | -277 |
-| Livello B | 18 | 11 | 7 | 61,1% | +126 |
+| **Totale** | 45 | 23 | 22 | 51,1% | +5 |
+| Livello A | 16 | 5 | 11 | 31,3% | -284 |
+| Livello B | 17 | 11 | 6 | 64,7% | +129 |
 | Livello C | 1 | 1 | 0 | 100% | +85 |
-| Livello D | 10 | 4 | 5 | 44,4% | +6 |
+| Livello D | 8 | 4 | 4 | 50% | +10 |
 | Mese 2026-09 | 35 | 19 | 16 | 54,3% | +57 |
-| Mese 2026-10 | 15 | 5 | 9 | 35,7% | -52 |
+| Mese 2026-10 | 10 | 4 | 6 | 40% | -52 |
 
 Trade ancora senza esito: 12. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
-
-EURUSD, 2026-10-03
-Trend EMA: SHORT
-Il sistema dice: LONG (non segue il trend)
-Esito: -2 pip
-Seme 112 · superiore 6 · inferiore 8 · mutante L1
-Bazi: 丙午 酉 庚戌
-Livello: A · fiducia alta · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0w lo scalino porta su una sede) · Spirito tace · stelo tace · Sistema-trend non segue (-3, LONG) · via DLR: il ramo cavalca la 絕
-Deciso da: Livello A · Plum Blossom, Liu Yao e Da Liu Ren concordano · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0w lo scalino porta su una sede) · Spirito tace · stelo tace · Sistema-trend non segue (-3, LONG)
-
-USDJPY, 2026-10-03
-Trend EMA: LONG
-Il sistema dice: SHORT (non segue il trend)
-Esito: -3 pip
-Seme 157 · superiore 3 · inferiore 5 · mutante L1
-Bazi: 丙午 酉 庚戌
-Livello: B · fiducia media · PB LONG · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 SHORT (T0h la sede sale la scala) · Spirito tace · stelo tace · Sistema-trend tace · via DLR: P sul primo messaggio dal lato dello stelo
-Deciso da: Livello B · sistema attuale e Da Liu Ren concordano · PB LONG · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 SHORT (T0h la sede sale la scala) · Spirito tace · stelo tace · Sistema-trend tace
-
-GBPUSD, 2026-10-03
-Trend EMA: SHORT
-Il sistema dice: LONG (non segue il trend)
-Esito: -4 pip
-Seme 132 · superiore 8 · inferiore 4 · mutante L5
-Bazi: 丙午 酉 庚戌
-Livello: D · fiducia alta · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0h la sede sale la scala) · Spirito LONG · stelo tace · Sistema-trend non segue (-1, LONG) · via DLR: il pari su R1
-Deciso da: Livello D · Da Liu Ren e Lettura S47 concordano · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0h la sede sale la scala) · Spirito LONG · stelo tace · Sistema-trend non segue (-1, LONG)
 
 USDJPY, 2026-10-02
 Trend EMA: LONG
