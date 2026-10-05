@@ -9003,3 +9003,29 @@ la sua lettura dava LONG). PRIMO PUNTO APERTO DI S53: portarle a Edu per decider
 totale ha un confine (la Ying vuota? la Ying che riceve lo scambio di Qi delle bestie?).
 Consegna di fine S52 (05/10/2026): Blocco 1 liuyao.js + motore_lettura.js; Blocco 2 stessi file +
 registro + worker_index.js gia' in archivio; Blocco 3 RIPARTENZA_05_10_2026_S53.md.
+
+=== 05/10/2026 (S53) — LE REGOLE PERSE NEL LIU YAO E L'ALTO LEGATO CON IL BASSO MESSO PEGGIO ===
+ERRORE TROVATO all'avvio di S53: il liuyao.js caricato il 05/10 nei due repo (versione col R83_COMBTOT)
+era stato costruito su una base vecchia e aveva PERSO quattro vie gia' approvate: R79_AUTOPENA
+(EURJPY 22/09/2026), R80_RITIRO (USDCHF 16/09/2026), R81_CTRLIND (USDCAD 21/09/2026),
+R80_DANNOGIORNO (NZDUSD 01/10/2026 con il confine timely di NZDUSD 16/06/2025). R82_SEDECLASH
+(AUDUSD 30/09/2026) compariva solo nella tabella delle vie: il blocco non era mai stato scritto nel
+file. L'app dal vivo decideva senza queste cinque regole. Ripristinate le quattro dalla versione
+d60308b e scritto R82_SEDECLASH come MLSEDECLASH del motore di lettura. Il motore di lettura non
+aveva perso niente.
+
+USDJPY 06/09/2022 seme 140 (carta di riferimento rovesciata dalla combinazione totale). Edu:
+"Se il trigramma superiore e' completamente legato quello inferiore dovrebbe vincere ma L3 e'
+untimely e clashata e Y e' vuoto quindi il trigramma inferiore sta messo peggio. A questo punto chi
+decide e' la linea piu' forte dell'esagramma." La piu' forte e' L5 G 申 (ramo del mese, Metallo di
+stagione): G nell'alto -> LONG (+234). Perimetro proposto da Claude e approvato da Edu ("Va bene
+cosi'"): col trigramma ALTO in combinazione totale, se il basso sta messo peggio (la sua sede e'
+vuota, oppure una sua linea clashata dal giorno e' untimely) decide la linea piu' forte
+dell'esagramma (pesi del gradino T9). Restrizione DI CLAUDE, da validare: la linea clashata conta
+solo se e' G/W — su EURJPY 17/07/2024 seme 172 (carta di riferimento, letta da Edu SHORT col B che
+genera la C nel basso) la clashata untimely e' L1 P 子, e contandola la carta si rovesciava.
+Cablata in liuyao.js (dentro R83_COMBTOT, VIACOMBPEGGIO=off) e nel motore di lettura (dentro T0b,
+MLCOMBPEGGIO=off). Controprova: USDCAD 14/08/2026 (origine della combinazione totale) resta SHORT.
+MISURA (regole ripristinate + regola nuova): LY S17 2.788 carte 57,28% +30.678 (prima 57,39%
++31.009); carte guida 76/110 (prima 75, torna giusta USDJPY 09/12/2024); riferimento 65/66 (resta
+USDCAD 18/03/2020); scala A+B+C+D 2.192 carte 65,56% +42.626 (prima 2.216 65,70% +43.383); parita' 0.
