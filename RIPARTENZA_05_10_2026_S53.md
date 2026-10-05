@@ -54,6 +54,14 @@ MLAUTOCOMB (=off).
 6. Regole di lavoro: Edu non vuole un push a ogni carta (accumulare); rispondere prima e misurare dopo;
    mai respingere una sua lettura con una percentuale; nomi degli zip sempre diversi.
 
+## Push automatico (dal 05/10/2026)
+Nel BLOCCO 3 c'e' anche `chiave.txt`: il token GitHub fine-grained `claude-push` (Contents read/write
+sui soli repo trading e storico-trading). A inizio sessione leggerlo da /mnt/user-data/uploads e usarlo
+per clonare e pushare direttamente (`https://x:<token>@github.com/edufengshui/<repo>.git`, autore
+claude-push). Il token NON va mai scritto in memoria, nel registro, nella ripartenza ne' in nessun file
+dell'archivio: solo nel file chiave.txt del BLOCCO 3, da rimettere nello zip a fine sessione.
+Niente piu' BLOCCO 1 e 2 da far caricare a Edu: i push li fa Claude e riferisce cosa ha caricato.
+
 ## Formato obbligatorio e consegna
 Tre blocchi cumulativi a fine sessione (1 software, 2 archivio con registro, 3 ripartenza).
 Carte: cross, data, seme in testa; trend; sistema; esito; segue; conclusione; trigrammi; data con
