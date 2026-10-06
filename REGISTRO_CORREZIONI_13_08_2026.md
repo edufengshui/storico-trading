@@ -9141,3 +9141,15 @@ Perimetro di Claude: solo il pilastro del giorno, solo il controllo del ramo sul
 MISURA: LY S17 57,64% +32.858; carte guida 81/112 (nessuna rovesciata; EURJPY 21/10/2021 torna giusta
 per la ragione di Edu); riferimento 68/68; Lettura 54,52% +23.297; scala A+B+C+D 2.221 carte 64,84%
 +42.449; parita' 0. EURJPY 13/12/2024 aggiunta a carte_lette.json e carte_riferimento.json.
+
+=== 06/10/2026 (S53) — GBPUSD 18/05/2022 seme 124: LA SEDE SI MUOVE IN G/W E L'ALTRA SEDE E' VUOTA ===
+Carta (艮 su 震, palazzo 巽; L1 Ying P 子 -> 未, il ramo del giorno; giorno 辛未, mese 巳, anno 寅, ora 卯,
+vuoti 戌亥; Shi L4 W 戌 vuota; PB SHORT, LY LONG §52, Lettura LONG T0j; esito SHORT -146; con "decide
+il LY" sarebbe stata una perdita). Edu: "Y si muove in una W mentre S e' vuoto. E' ovvio che vince lo
+Short". CABLATO: R84_SEDEINGWVUOTA nella catena (VIASEDEINGWVUOTA=off) e "T0e la sede in G/W con
+l'altra vuota" nel motore (MLSEDEINGWVUOTA=off), prima del controllo indietro e delle bestie. Confini
+di Claude dalle carte guida che si rovesciavano: l'arrivo non e' vuoto (NZDUSD 10/07/2024, Edu: la
+Ying va nel vuoto, resta se' stessa e la controlla lo Shi) e nessuna linea ferma combina l'arrivo
+(EURJPY 31/12/2020, Edu: atterraggio su L2). MISURA: LY S17 57,64% +33.180; carte guida 82/113
+(nessuna rovesciata, GBPUSD 18/05/2022 aggiunta); riferimento 70/70 + la nuova; Lettura 54,55%
++23.572; scala A+B+C+D 2.215 carte 64,97% +42.775 (prima 2.221 64,84% +42.449); parita' 0.
