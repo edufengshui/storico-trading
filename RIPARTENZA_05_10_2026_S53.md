@@ -55,12 +55,14 @@ MLAUTOCOMB (=off).
    mai respingere una sua lettura con una percentuale; nomi degli zip sempre diversi.
 
 ## Push automatico (dal 05/10/2026)
-Nel BLOCCO 3 c'e' anche `chiave.txt`: il token GitHub fine-grained `claude-push` (Contents read/write
-sui soli repo trading e storico-trading). A inizio sessione leggerlo da /mnt/user-data/uploads e usarlo
-per clonare e pushare direttamente (`https://x:<token>@github.com/edufengshui/<repo>.git`, autore
-claude-push). Il token NON va mai scritto in memoria, nel registro, nella ripartenza ne' in nessun file
-dell'archivio: solo nel file chiave.txt del BLOCCO 3, da rimettere nello zip a fine sessione.
-Niente piu' BLOCCO 1 e 2 da far caricare a Edu: i push li fa Claude e riferisce cosa ha caricato.
+I push su trading e storico-trading li fa Claude, con un token GitHub fine-grained `claude-push`
+(Contents read/write su trading, storico-trading e xkdg). Il token sta SOLO nel file `chiave.txt`
+che Edu carica a mano nella chat: non va mai scritto in memoria, nel registro, in questa ripartenza
+ne' in nessun file dei repo (sono pubblici). A INIZIO SESSIONE, se fra i file caricati non c'e'
+`chiave.txt`, CHIEDERLO A EDU prima di qualunque push ("Caricami chiave.txt col pulsante +"); senza
+chiave si lavora lo stesso, ma non si pusha. Uso: clonare con
+`https://x:<token>@github.com/edufengshui/<repo>.git`, commit come claude-push, push, e riferire cosa
+e' stato caricato. Niente piu' BLOCCO 1 e 2 da far caricare a Edu; resta solo il BLOCCO 3 (la ripartenza).
 
 ## Formato obbligatorio e consegna
 Tre blocchi cumulativi a fine sessione (1 software, 2 archivio con registro, 3 ripartenza).
