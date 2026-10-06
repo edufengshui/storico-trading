@@ -9112,3 +9112,13 @@ MISURA (le due cose insieme): LY S17 57,64% +32.828 (prima 57,93% +32.788); cart
 EURUSD 06/11/2024 e USDJPY 01/12/2022, nessuna rovesciata); riferimento 67/67; Lettura 54,66% +23.674
 (prima 54,75% +24.061); scala A+B+C+D 2.218 carte 65,24% +42.563 (prima 2.227 65,33% +42.729);
 parita' 0.
+
+=== 05/10/2026 (S53) — DLR: SPENTA LA CASELLA ISOLATA "IL GIORNO CONTROLLA LA W SU R1" ===
+Da USDJPY 31/10/2022 (livello A SHORT perso, il DLR decideva con questa casella: 巳 controlla 申 W).
+Nella scala la casella dava 37 trade al 54,1% per -2 pip; le altre sei caselle isolate aiutano la
+scala (spente tutte: -2.107 pip). Edu: "sì, spegni". MISURA: DLR 60,58% +41.734 (prima 60,81%
++41.467); scala A+B+C+D 2.229 carte 64,87% +42.613 (prima 2.218 65,24% +42.563); parita' 0.
+Provata su richiesta di Edu ("se PB e LY non sono d'accordo a decidere sia comunque il LY"), NON
+cablata in attesa della sua decisione: il LY al posto del PB nei livelli A e C -> 2.349 trade 63,98%
++42.459; solo nel livello C (DLR muto) -> 2.332 trade 64,11% +42.508 (le 103 carte nuove del C, dove
+il LY va contro il PB, perdono).
