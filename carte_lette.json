@@ -1454,5 +1454,18 @@
   "quando": "2026-10-05",
   "esito": "LONG 98",
   "nota": "Lettura Edu 05/10/2026 (S53): \"L5 retrocede quindi non fa perdere la propria squadra\" -> LONG."
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2024-12-13",
+  "seme": 159,
+  "sup": 3,
+  "inf": 7,
+  "linea": 4,
+  "dayB": "亥",
+  "monthB": "子",
+  "quando": "2026-10-05",
+  "esito": "LONG 155",
+  "nota": "Lettura Edu 05/10/2026 (S53): \"L4 muove per generare indietro una W\" / \"L4 W comunque viene generato indietro\" -> LONG."
  }
 ]

@@ -9122,3 +9122,22 @@ Provata su richiesta di Edu ("se PB e LY non sono d'accordo a decidere sia comun
 cablata in attesa della sua decisione: il LY al posto del PB nei livelli A e C -> 2.349 trade 63,98%
 +42.459; solo nel livello C (DLR muto) -> 2.332 trade 64,11% +42.508 (le 103 carte nuove del C, dove
 il LY va contro il PB, perdono).
+
+=== 05/10/2026 (S53) — LA GENERAZIONE DI RITORNO: L'ARRIVO NUTRE SOLO LA MOBILE; SEDI PARI DECIDONO LE BESTIE ===
+EURJPY 13/12/2024 seme 159 (離 su 艮, palazzo 離; L4 Ying W 酉 -> 戌, 回頭生; giorno 辛亥, mese 子;
+esito LONG +155). Il LY diceva SHORT con §50f (l'arrivo 戌 nutre la W L3 申 nel basso). Edu: "L4 W
+comunque viene generato indietro" -> LONG. CABLATO: §50f tace nel 回頭生 (guardia ARRLIB, regola di
+Edu del 24/08: l'arrivo e' tutto preso dal tornare dalla madre e non agisce altrove).
+Rovesciava la carta guida EURJPY 21/10/2021 seme 133 (坤 su 巽, palazzo 震; L4 Shi W 丑 -> 午, 回頭生;
+L2 P 亥 incompatibile -> 午; Ying L1 W 丑; giorno 壬寅, mese 戌, anno 丑, ora 子; esito SHORT -75),
+giusta prima solo per caso con la stessa §50f. Edu: "Il problema qui e' che S e Y sono uguali quindi
+quando le due linee si muovono in Wu tutti due sono generati e non c'e' un chiaro vantaggio" e "La Y e'
+in vantaggio perche' il giorno Ren Yin porta acqua e legno che va a controllare S" -> SHORT.
+CABLATO nel motore (MLGENPARI: sede generata indietro con l'altra sede uguale, carattere ed elemento,
+generata anch'essa da un'altra linea in movimento -> nessun vantaggio; MLGIORNOBESTIA: alla pari decidono
+le bestie, la sede con la bestia dell'elemento dello stelo del giorno riceve il pilastro del giorno, e se
+il ramo del giorno controlla l'altra sede vince lei) e nella catena (§99, VIAGENPARI / VIAGIORNOBESTIA).
+Perimetro di Claude: solo il pilastro del giorno, solo il controllo del ramo sull'altra sede.
+MISURA: LY S17 57,64% +32.858; carte guida 81/112 (nessuna rovesciata; EURJPY 21/10/2021 torna giusta
+per la ragione di Edu); riferimento 68/68; Lettura 54,52% +23.297; scala A+B+C+D 2.221 carte 64,84%
++42.449; parita' 0. EURJPY 13/12/2024 aggiunta a carte_lette.json e carte_riferimento.json.
