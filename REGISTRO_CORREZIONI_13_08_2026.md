@@ -9085,3 +9085,30 @@ bestie. Stesso perimetro della catena (P fuori stagione; la P di stagione resta 
 EURJPY 26/11/2025 e la gemella 08/12/2025 ora LONG anche nel motore. Carta aggiunta a
 carte_riferimento.json (67). MISURA: riferimento 66/66 + la nuova; carte guida 78/111; Lettura
 54,75% +24.061; scala A+B+C+D 2.227 carte 65,33% +42.729; parita' 0.
+
+=== 05/10/2026 (S53) — L'ARRIVO COMBINATO DAL GIORNO: LA LINEA ARRIVA, SI FERMA, PARLA, NON SALTA ===
+Edu: "La linea si muove e si ferma sull'arrivo, che parla. Pero' non puo' saltare altrove. Cabla cosi'
+per tutto." Prima il software diceva tre cose diverse: la base del Liu Yao sospendeva il movimento
+("suspended by the day"), il motore al passo dello stato segnava l'arrivo annullato con la partenza
+attiva, e piu' avanti (T4 il giorno tiene, USDJPY 30/09/2025) faceva arrivare e parlare l'arrivo.
+CABLATO: (1) liuyao.js — l'arrivo combinato dal giorno non sospende piu' il movimento (arrivoTenuto;
+ARRTENUTO=off torna a prima); l'arrivo tenuto non passa alle sedi (shiElE/yingElE) e le due vie dove
+l'arrivo combina una linea (§50e e simile) tacciono. (2) motore_lettura.js — arrTenuto: nessun salto
+dell'arrivo della mobile (combinare, raggiungere, il ladro, il nascosto, portare) e nessun salto delle
+seconde col loro arrivo tenuto; al passo dello stato l'arrivo combinato non e' piu' "annullato"
+(MLARRTENUTO=off spegne). La ritirata col arrivo combinato resta (USDJPY 01/12/2022 di Edu).
+Provata e scartata su richiesta di Edu la regola generale "la mobile non si muove se l'arrivo e'
+combinato" (dal giorno: riferimento 65/67, Lettura 54,54%; da tutta la data: 64/67, Lettura 54,55%,
+scala 65,65% +43.601) e il confine di Claude "niente ritirata con l'arrivo legato al giorno"
+(rovesciava USDJPY 01/12/2022).
+
+USDJPY 31/10/2022 seme 147 (兌 su 離, palazzo 坎; mutante L5 P 酉 -> 申 retrocedente; giorno 丁巳,
+mese 戌, anno 寅, ora 寅; Shi L4 B 亥, Ying L1 C 卯; EMA SHORT, livello A SHORT, esito LONG +98).
+Edu: "L5 retrocede quindi non fa perdere la propria squadra" -> LONG. CABLATO in R79_AUTOPENA: la P/B
+che retrocede non resta a fare danno anche se l'arrivo e' punito, parla la ritirata del malus (§120)
+(VIAAUTOPENARETRO=off). Ora LY LONG, Lettura LONG, attuale LONG (la scala resta ferma: DLR SHORT).
+Aggiunta a carte_lette.json e carte_riferimento.json.
+MISURA (le due cose insieme): LY S17 57,64% +32.828 (prima 57,93% +32.788); carte guida 80/111 (+2:
+EURUSD 06/11/2024 e USDJPY 01/12/2022, nessuna rovesciata); riferimento 67/67; Lettura 54,66% +23.674
+(prima 54,75% +24.061); scala A+B+C+D 2.218 carte 65,24% +42.563 (prima 2.227 65,33% +42.729);
+parita' 0.

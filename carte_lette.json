@@ -1441,5 +1441,18 @@
   "quando": "2026-10-05",
   "esito": "LONG 77",
   "nota": "Lettura Edu 05/10/2026 (S53): \"L'arrivo di L4 e' penalizzato quindi la linea e' inutile per cui rimane lo scontro Y vs S. S e' combinato dal giorno e non puo' partecipare allo scontro e vince Y\" -> LONG. Gemella di EURJPY 22/09/2026 (mese 酉, P di stagione che resta a parlare -> SHORT)."
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2022-10-31",
+  "seme": 147,
+  "sup": 2,
+  "inf": 3,
+  "linea": 5,
+  "dayB": "巳",
+  "monthB": "戌",
+  "quando": "2026-10-05",
+  "esito": "LONG 98",
+  "nota": "Lettura Edu 05/10/2026 (S53): \"L5 retrocede quindi non fa perdere la propria squadra\" -> LONG."
  }
 ]
