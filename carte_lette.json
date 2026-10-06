@@ -1467,5 +1467,18 @@
   "quando": "2026-10-05",
   "esito": "LONG 155",
   "nota": "Lettura Edu 05/10/2026 (S53): \"L4 muove per generare indietro una W\" / \"L4 W comunque viene generato indietro\" -> LONG."
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2022-05-18",
+  "seme": 124,
+  "sup": 7,
+  "inf": 4,
+  "linea": 1,
+  "dayB": "未",
+  "monthB": "巳",
+  "quando": "2026-10-06",
+  "esito": "SHORT -146",
+  "nota": "Lettura Edu 06/10/2026 (S53): \"Y si muove in una W mentre S e' vuoto. E' ovvio che vince lo Short\" -> SHORT."
  }
 ]
