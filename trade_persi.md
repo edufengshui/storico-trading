@@ -1,22 +1,49 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-06 06:51 GMT · feed del 2026-10-06 · trade proposti oggi: 5 (EURUSD LONG, USDCHF SHORT, USDJPY SHORT, AUDUSD SHORT, USDCAD SHORT) · esiti compilati stanotte: 5
+Aggiornato: 2026-10-07 06:27 GMT · feed del 2026-10-07 · trade proposti oggi: 7 (NZDUSD LONG, EURJPY LONG, EURUSD LONG, AUDUSD LONG, USDCAD LONG, USDCHF LONG, EURGBP LONG) · esiti compilati stanotte: 5
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 50 | 25 | 25 | 50% | -11 |
-| Livello A | 18 | 5 | 13 | 27,8% | -334 |
+| **Totale** | 55 | 27 | 28 | 49,1% | +57 |
+| Livello A | 20 | 6 | 14 | 30% | -292 |
 | Livello B | 19 | 12 | 7 | 63,2% | +141 |
-| Livello C | 1 | 1 | 0 | 100% | +85 |
+| Livello C | 4 | 2 | 2 | 50% | +111 |
 | Livello D | 9 | 5 | 4 | 55,6% | +32 |
 | Mese 2026-09 | 35 | 19 | 16 | 54,3% | +57 |
-| Mese 2026-10 | 15 | 6 | 9 | 40% | -68 |
+| Mese 2026-10 | 20 | 8 | 12 | 40% | 0 |
 
-Trade ancora senza esito: 12. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 14. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
+
+USDCHF, 2026-10-06
+Trend EMA: LONG
+Il sistema dice: SHORT (non segue il trend)
+Esito: -1 pip
+Seme 83 · superiore 2 · inferiore 3 · mutante L1
+Bazi: 丙午 酉 癸丑
+Livello: A · fiducia media · PB SHORT · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 LONG (T0k la sede raggiunge una linea) · Spirito tace · stelo tace · Sistema-trend tace · via DLR: 八專 · G dal lato del guest
+Deciso da: Livello A · Plum Blossom, Liu Yao e Da Liu Ren concordano · PB SHORT · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 LONG (T0k la sede raggiunge una linea) · Spirito tace · stelo tace · Sistema-trend tace
+
+USDJPY, 2026-10-06
+Trend EMA: LONG
+Il sistema dice: SHORT (non segue il trend)
+Esito: -17 pip
+Seme 157 · superiore 3 · inferiore 5 · mutante L4
+Bazi: 丙午 酉 癸丑
+Livello: C · fiducia media · PB SHORT · LY SHORT · attuale SHORT · DLR tace · Lettura S47 LONG (T0g3 la mobile generata indietro) · Spirito tace · stelo tace · Sistema-trend tace
+Deciso da: Livello C · Plum Blossom e Liu Yao concordano, il Da Liu Ren tace · PB SHORT · LY SHORT · attuale SHORT · DLR tace · Lettura S47 LONG (T0g3 la mobile generata indietro) · Spirito tace · stelo tace · Sistema-trend tace
+
+AUDUSD, 2026-10-06
+Trend EMA: SHORT
+Il sistema dice: SHORT (segue il trend)
+Esito: -14 pip
+Seme 69 · superiore 8 · inferiore 5 · mutante L3
+Bazi: 丙午 酉 癸丑
+Livello: C · fiducia bassa · PB SHORT · LY SHORT · attuale SHORT · DLR tace · Lettura S47 LONG (T0z confusione totale) · Spirito tace · stelo tace · Sistema-trend non segue (-3, LONG)
+Deciso da: Livello C · Plum Blossom e Liu Yao concordano, il Da Liu Ren tace · PB SHORT · LY SHORT · attuale SHORT · DLR tace · Lettura S47 LONG (T0z confusione totale) · Spirito tace · stelo tace · Sistema-trend non segue (-3, LONG)
 
 EURUSD, 2026-10-05
 Trend EMA: SHORT

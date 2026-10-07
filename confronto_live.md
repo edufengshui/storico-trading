@@ -1,3 +1,25 @@
+# Confronto fra il feed del Worker e il calcolo del backtest — 2026-10-07
+
+Ogni casella: Worker / backtest (barre orarie, chiusure delle 21:00 UTC lun-ven).
+
+| cross | seme | trend | consolidato | durata | esito di ieri (pip) | differenze |
+|---|---|---|---|---|---|---|
+| EURUSD | 112 / 112 | down / down | true / true | 28 / 27 | 43.2 / 43.2 | durata |
+| GBPUSD | 132 / 132 | up / up | true / true | 1 / 1 | 54.4 / 54.4 | uguale |
+| USDJPY | 158 / 158 | up / up | true / true | 23 / 22 | 16.9 / 16.9 | durata |
+| USDCHF | 83 / 83 | up / up | true / true | 34 / 33 | 1.5 / 1.5 | durata |
+| AUDUSD | 69 / 69 | down / down | true / true | 28 / 27 | 14.3 / 14.3 | durata |
+| USDCAD | 142 / 142 | up / up | true / true | 28 / 26 | -56.5 / -56.5 | durata |
+| NZDUSD | 56 / 56 | down / down | true / true | 41 / 40 | 26.1 / 26.1 | durata |
+| EURJPY | 178 / 178 | down / down | true / true | 13 / 12 | 87.1 / 87.1 | durata |
+| EURGBP | 84 / 84 | down / down | true / true | 10 / 9 | -2.9 / -2.9 | durata |
+
+Trade del report col feed del Worker: NZDUSD LONG A, EURJPY LONG A, EURUSD LONG B, AUDUSD LONG B, USDCAD LONG B, USDCHF LONG D, EURGBP LONG D
+
+Trade del report coi dati calcolati come nel backtest: NZDUSD LONG A, EURJPY LONG A, EURUSD LONG B, AUDUSD LONG B, USDCAD LONG B, USDCHF LONG D, EURGBP LONG D
+
+---
+
 # Confronto fra il feed del Worker e il calcolo del backtest — 2026-10-06
 
 Ogni casella: Worker / backtest (barre orarie, chiusure delle 21:00 UTC lun-ven).

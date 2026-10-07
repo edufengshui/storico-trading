@@ -457,7 +457,8 @@
    "fiducia": "alta",
    "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T5 le tre porte) · Spirito tace · stelo tace · Sistema-trend non segue (-2, LONG)",
    "dlrVia": "seme · stelo e ramo dello stesso elemento",
-   "esito": null
+   "esito": 43,
+   "auto": true
   },
   {
    "cross": "USDCHF",
@@ -474,7 +475,8 @@
    "fiducia": "media",
    "voci": "PB SHORT · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 LONG (T0k la sede raggiunge una linea) · Spirito tace · stelo tace · Sistema-trend tace",
    "dlrVia": "八專 · G dal lato del guest",
-   "esito": null
+   "esito": -1,
+   "auto": true
   },
   {
    "cross": "USDJPY",
@@ -491,7 +493,8 @@
    "fiducia": "media",
    "voci": "PB SHORT · LY SHORT · attuale SHORT · DLR tace · Lettura S47 LONG (T0g3 la mobile generata indietro) · Spirito tace · stelo tace · Sistema-trend tace",
    "dlrVia": null,
-   "esito": null
+   "esito": -17,
+   "auto": true
   },
   {
    "cross": "AUDUSD",
@@ -508,7 +511,8 @@
    "fiducia": "bassa",
    "voci": "PB SHORT · LY SHORT · attuale SHORT · DLR tace · Lettura S47 LONG (T0z confusione totale) · Spirito tace · stelo tace · Sistema-trend non segue (-3, LONG)",
    "dlrVia": null,
-   "esito": null
+   "esito": -14,
+   "auto": true
   },
   {
    "cross": "USDCAD",
@@ -525,6 +529,128 @@
    "fiducia": "alta",
    "voci": "PB SHORT · LY SHORT · attuale SHORT · DLR tace · Lettura S47 SHORT (T4b la sede presa (mobile non decide) una sede · bestie 1) · Spirito tace · stelo tace · Sistema-trend non segue (-5, SHORT)",
    "dlrVia": null,
+   "esito": 57,
+   "auto": true
+  }
+ ],
+ "2026-10-07": [
+  {
+   "cross": "NZDUSD",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello A · Plum Blossom, Liu Yao e Da Liu Ren concordano · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T5 le tre porte) · Spirito tace · stelo LONG · Sistema-trend non segue (-1, LONG)",
+   "seed": 56,
+   "sup": 7,
+   "inf": 8,
+   "linea": 6,
+   "bazi": "丙午 酉 甲寅",
+   "livello": "A",
+   "fiducia": "alta",
+   "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T5 le tre porte) · Spirito tace · stelo LONG · Sistema-trend non segue (-1, LONG)",
+   "dlrVia": "八專 sul pilastro 甲寅",
+   "esito": null
+  },
+  {
+   "cross": "EURJPY",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello A · Plum Blossom, Liu Yao e Da Liu Ren concordano · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito tace · stelo LONG · Sistema-trend tace",
+   "seed": 178,
+   "sup": 6,
+   "inf": 2,
+   "linea": 5,
+   "bazi": "丙午 酉 甲寅",
+   "livello": "A",
+   "fiducia": "media",
+   "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito tace · stelo LONG · Sistema-trend tace",
+   "dlrVia": "八專 sul pilastro 甲寅",
+   "esito": null
+  },
+  {
+   "cross": "EURUSD",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello B · sistema attuale e Da Liu Ren concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito LONG · stelo LONG · Sistema-trend tace",
+   "seed": 112,
+   "sup": 6,
+   "inf": 8,
+   "linea": 5,
+   "bazi": "丙午 酉 甲寅",
+   "livello": "B",
+   "fiducia": "media",
+   "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito LONG · stelo LONG · Sistema-trend tace",
+   "dlrVia": "八專 sul pilastro 甲寅",
+   "esito": null
+  },
+  {
+   "cross": "AUDUSD",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello B · sistema attuale e Da Liu Ren concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T1 il giorno passa per la bestia) · Spirito LONG · stelo LONG · Sistema-trend tace",
+   "seed": 69,
+   "sup": 8,
+   "inf": 5,
+   "linea": 4,
+   "bazi": "丙午 酉 甲寅",
+   "livello": "B",
+   "fiducia": "media",
+   "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T1 il giorno passa per la bestia) · Spirito LONG · stelo LONG · Sistema-trend tace",
+   "dlrVia": "八專 con l'ora G",
+   "esito": null
+  },
+  {
+   "cross": "USDCAD",
+   "signal": "LONG",
+   "trend": "LONG",
+   "segue": true,
+   "decisore": "Livello B · sistema attuale e Da Liu Ren concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0x il malus portato) · Spirito tace · stelo SHORT · Sistema-trend non segue (-1, SHORT)",
+   "seed": 142,
+   "sup": 1,
+   "inf": 6,
+   "linea": 4,
+   "bazi": "丙午 酉 甲寅",
+   "livello": "B",
+   "fiducia": "bassa",
+   "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0x il malus portato) · Spirito tace · stelo SHORT · Sistema-trend non segue (-1, SHORT)",
+   "dlrVia": "八專 sul pilastro 甲寅",
+   "esito": null
+  },
+  {
+   "cross": "USDCHF",
+   "signal": "LONG",
+   "trend": "LONG",
+   "segue": true,
+   "decisore": "Livello D · Da Liu Ren e Lettura S47 concordano · PB SHORT · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T1 sostituzione) · Spirito tace · stelo SHORT · Sistema-trend tace",
+   "seed": 83,
+   "sup": 2,
+   "inf": 3,
+   "linea": 2,
+   "bazi": "丙午 酉 甲寅",
+   "livello": "D",
+   "fiducia": "media",
+   "voci": "PB SHORT · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T1 sostituzione) · Spirito tace · stelo SHORT · Sistema-trend tace",
+   "dlrVia": "八專 sul pilastro 甲寅",
+   "esito": null
+  },
+  {
+   "cross": "EURGBP",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello D · Da Liu Ren e Lettura S47 concordano · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0k la sede raggiunge una linea) · Spirito LONG · stelo LONG · Sistema-trend tace",
+   "seed": 84,
+   "sup": 2,
+   "inf": 4,
+   "linea": 3,
+   "bazi": "丙午 酉 甲寅",
+   "livello": "D",
+   "fiducia": "media",
+   "voci": "PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0k la sede raggiunge una linea) · Spirito LONG · stelo LONG · Sistema-trend tace",
+   "dlrVia": "八專 sul pilastro 甲寅",
    "esito": null
   }
  ]
