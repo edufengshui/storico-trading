@@ -9182,3 +9182,45 @@ riportargli.
 Ordine corretto da Edu (08/10/2026): "La combinazione ha sempre la precedenza. In USDCHF 28/09/2022 Chou non trova
 nessuna Zi da combinare quindi naturalmente va su Y (non perché è Y)". Tolto il perimetro di Claude "solo se sede":
 l'arrivo incompatibile prima combina, poi va sulla linea col suo stesso ramo (qualunque), poi clasha, poi genera.
+
+## S54 · EURJPY 28/07/2025 seme 173 riletta con le incompatibili (08/10/2026)
+Con L2 P 亥 incompatibile in 巽 che gira insieme, L3 Ying G 酉 non arriva più in 午 ma in 卯, incompatibile; l'unica
+linea col ramo 卯 è lo Shi L6, legato dal giorno 戌. Parole di Edu: "L3 non può arrivare quindi rimane G you. L2 si
+muove per diventare vuota. G you fa vincere la propria squadra" -> SHORT (esito SHORT -159).
+CABLATO: l'arrivo incompatibile che non trova dove andare non arriva: la G/W resta e fa vincere la sua squadra
+(MLINCRESTA / VIAINCRESTA=off). Perimetro DI CLAUDE, non contestato da Edu: la linea legata dal giorno non riceve
+l'arrivo incompatibile (MLINCLEGATA=off; anche nella catena).
+
+## S54 · USDJPY 02/10/2024 seme 143 riletta con le incompatibili — SOLO LA COMBINAZIONE PORTA LA PARTENZA (08/10/2026)
+Con L3 B 申 incompatibile in 艮 che gira insieme, L2 Shi G 午 va (effetto scala) in 辰, vuoto. Parole di Edu: "L2 si
+muove per diventare vuoto quindi l'intera linea è scartata. L3 non può andare su un L2 inservibile e quindi va su L4 e
+fa vincere il Long. Ricorda che solo la combinazione può trasportare la partenza sopra un'altra linea. Se l'arrivo non
+combina con niente il movimento della linea è una semplice linea di partenza che si trasforma nella linea di arrivo"
+(esito LONG +265).
+RISCRITTO il gradino T0k0 (motore) e la via R85_INCFUORI (catena, ora prende il verdetto del motore su quel gradino):
+l'arrivo incompatibile che COMBINA porta la PARTENZA sulla linea combinata (EURUSD 05/10/2026); quello che va sulla
+linea col suo stesso ramo vi porta il carattere dell'ARRIVO (USDCHF 28/09/2022: G 丑 sulla Ying -> SHORT; USDJPY
+02/10/2024: G 午 su L4 -> LONG); senza sbocco la linea non arriva e resta (EURJPY 28/07/2025). La mobile che va nel
+vuoto è scartata per intero e parlano le incompatibili che girano con lei (MLINCSCARTA). Perimetri DI CLAUDE: la legata
+dal giorno non riceve; clash/generazione senza combinazione né stesso ramo non danno verdetto qui. Le quattro carte
+tornano tutte giuste.
+
+## S54 · EURJPY 28/04/2022 seme 135 riletta (08/10/2026) — LE BESTIE COI RAMI VUOTI NON AGISCONO
+Edu aveva letto il 22/09 "L4 P 丑 muta in G 午 che scende su Y. Questo trasferisce P 丑 su Y"; il 08/10, davanti al
+principio "solo la combinazione porta la partenza", ha detto che quella lettura "sarebbe sbagliata" e l'ha riletta:
+"L3 è scartata perché vuota. L4 non può generare indietro perché incompatibile e arriva su Y. Però Wu è ancora untimely
+e la nascosta dietro di lui è vuota. S vincerebbe il confronto con Y ma è untimely e penalizzata dal giorno. Poiché non
+c'è nessun vincitore si devono usare le bestie. L'unica bestia che può fare qualcosa è il mese Jia Chen: arriva su L3 e
+genera B Shen che fa perdere la propria squadra" -> LONG (+183). E: "Sulle bestie dobbiamo modificare: le bestie con i
+rami vuoti non possono agire".
+CABLATO nel motore di lettura: MLBESTIAVUOTA (il pilastro col ramo vuoto non posa la sua bestia su nessuna linea);
+MLINCDEBOLE (la G/W portata sulla linea dello stesso ramo non vince se quella linea è fuori stagione sul ramo del mese e
+ha la nascosta vuota); MLINCBESTIE (nessun vincitore: se l'altra sede è fuori stagione e punita dal giorno, decide
+l'unica bestia il cui ramo genera la linea su cui cade, e parla il carattere di quella linea). Le cinque carte di oggi
+tornano tutte giuste per la via di Edu. DA FARE: le bestie coi rami vuoti anche nelle vie della catena (sparse in una
+decina di vie). APERTO: lo scalino che porta la partenza su una sede senza combinazione (T0w, MLSCALACARATTERE) contrasta
+col principio di oggi.
+Seguito (08/10/2026), Edu: "Correggi anche lì". Lo scalino che porta su una sede (T0w) ora porta il carattere
+dell'ARRIVO (MLSCALACARATTERE=partenza torna alla forma del 22/09). Le bestie coi rami vuoti tolte anche dalle vie
+della catena dove un pilastro posa la sua bestia (§129, §130, l'anno sulla W, mese e anno sulla B, il mese che clasha,
+il flusso della data; VIABESTIAVUOTA=off).
