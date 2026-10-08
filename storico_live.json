@@ -1159,7 +1159,8 @@
    "fiducia": "alta",
    "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T5 le tre porte) · Spirito tace · stelo LONG · Sistema-trend non segue (-1, LONG)",
    "dlrVia": "八專 sul pilastro 甲寅",
-   "esito": null
+   "esito": -22,
+   "auto": true
   },
   {
    "cross": "EURJPY",
@@ -1176,7 +1177,8 @@
    "fiducia": "media",
    "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito tace · stelo LONG · Sistema-trend tace",
    "dlrVia": "八專 sul pilastro 甲寅",
-   "esito": null
+   "esito": -114,
+   "auto": true
   },
   {
    "cross": "EURUSD",
@@ -1193,7 +1195,8 @@
    "fiducia": "media",
    "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito LONG · stelo LONG · Sistema-trend tace",
    "dlrVia": "八專 sul pilastro 甲寅",
-   "esito": null
+   "esito": -56,
+   "auto": true
   },
   {
    "cross": "AUDUSD",
@@ -1210,7 +1213,8 @@
    "fiducia": "media",
    "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T1 il giorno passa per la bestia) · Spirito LONG · stelo LONG · Sistema-trend tace",
    "dlrVia": "八專 con l'ora G",
-   "esito": null
+   "esito": -19,
+   "auto": true
   },
   {
    "cross": "USDCAD",
@@ -1227,7 +1231,8 @@
    "fiducia": "bassa",
    "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0x il malus portato) · Spirito tace · stelo SHORT · Sistema-trend non segue (-1, SHORT)",
    "dlrVia": "八專 sul pilastro 甲寅",
-   "esito": null
+   "esito": 44,
+   "auto": true
   },
   {
    "cross": "USDCHF",
@@ -1244,7 +1249,8 @@
    "fiducia": "media",
    "voci": "PB SHORT · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T1 sostituzione) · Spirito tace · stelo SHORT · Sistema-trend tace",
    "dlrVia": "八專 sul pilastro 甲寅",
-   "esito": null
+   "esito": 9,
+   "auto": true
   },
   {
    "cross": "EURGBP",
@@ -1261,7 +1267,8 @@
    "fiducia": "media",
    "voci": "PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0k la sede raggiunge una linea) · Spirito LONG · stelo LONG · Sistema-trend tace",
    "dlrVia": "八專 sul pilastro 甲寅",
-   "esito": null
+   "esito": -8,
+   "auto": true
   }
  ]
 }

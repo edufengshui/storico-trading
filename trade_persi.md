@@ -1,22 +1,67 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-07 06:27 GMT · feed del 2026-10-07 · trade proposti oggi: 7 (NZDUSD LONG, EURJPY LONG, EURUSD LONG, AUDUSD LONG, USDCAD LONG, USDCHF LONG, EURGBP LONG) · esiti compilati stanotte: 5
+Aggiornato: 2026-10-08 06:39 GMT · feed del 2026-10-08 · trade proposti oggi: 0 · esiti compilati stanotte: 7
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 55 | 27 | 28 | 49,1% | +57 |
-| Livello A | 20 | 6 | 14 | 30% | -292 |
-| Livello B | 19 | 12 | 7 | 63,2% | +141 |
+| **Totale** | 62 | 29 | 33 | 46,8% | -109 |
+| Livello A | 22 | 6 | 16 | 27,3% | -428 |
+| Livello B | 22 | 13 | 9 | 59,1% | +110 |
 | Livello C | 4 | 2 | 2 | 50% | +111 |
-| Livello D | 9 | 5 | 4 | 55,6% | +32 |
+| Livello D | 11 | 6 | 5 | 54,5% | +33 |
 | Mese 2026-09 | 35 | 19 | 16 | 54,3% | +57 |
-| Mese 2026-10 | 20 | 8 | 12 | 40% | 0 |
+| Mese 2026-10 | 27 | 10 | 17 | 37% | -166 |
 
-Trade ancora senza esito: 14. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 7. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
+
+NZDUSD, 2026-10-07
+Trend EMA: SHORT
+Il sistema dice: LONG (non segue il trend)
+Esito: -22 pip
+Seme 56 · superiore 7 · inferiore 8 · mutante L6
+Bazi: 丙午 酉 甲寅
+Livello: A · fiducia alta · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T5 le tre porte) · Spirito tace · stelo LONG · Sistema-trend non segue (-1, LONG) · via DLR: 八專 sul pilastro 甲寅
+Deciso da: Livello A · Plum Blossom, Liu Yao e Da Liu Ren concordano · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T5 le tre porte) · Spirito tace · stelo LONG · Sistema-trend non segue (-1, LONG)
+
+EURJPY, 2026-10-07
+Trend EMA: SHORT
+Il sistema dice: LONG (non segue il trend)
+Esito: -114 pip
+Seme 178 · superiore 6 · inferiore 2 · mutante L5
+Bazi: 丙午 酉 甲寅
+Livello: A · fiducia media · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito tace · stelo LONG · Sistema-trend tace · via DLR: 八專 sul pilastro 甲寅
+Deciso da: Livello A · Plum Blossom, Liu Yao e Da Liu Ren concordano · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito tace · stelo LONG · Sistema-trend tace
+
+EURUSD, 2026-10-07
+Trend EMA: SHORT
+Il sistema dice: LONG (non segue il trend)
+Esito: -56 pip
+Seme 112 · superiore 6 · inferiore 8 · mutante L5
+Bazi: 丙午 酉 甲寅
+Livello: B · fiducia media · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito LONG · stelo LONG · Sistema-trend tace · via DLR: 八專 sul pilastro 甲寅
+Deciso da: Livello B · sistema attuale e Da Liu Ren concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T3 il raduno serve) · Spirito LONG · stelo LONG · Sistema-trend tace
+
+AUDUSD, 2026-10-07
+Trend EMA: SHORT
+Il sistema dice: LONG (non segue il trend)
+Esito: -19 pip
+Seme 69 · superiore 8 · inferiore 5 · mutante L4
+Bazi: 丙午 酉 甲寅
+Livello: B · fiducia media · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T1 il giorno passa per la bestia) · Spirito LONG · stelo LONG · Sistema-trend tace · via DLR: 八專 con l'ora G
+Deciso da: Livello B · sistema attuale e Da Liu Ren concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T1 il giorno passa per la bestia) · Spirito LONG · stelo LONG · Sistema-trend tace
+
+EURGBP, 2026-10-07
+Trend EMA: SHORT
+Il sistema dice: LONG (non segue il trend)
+Esito: -8 pip
+Seme 84 · superiore 2 · inferiore 4 · mutante L3
+Bazi: 丙午 酉 甲寅
+Livello: D · fiducia media · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0k la sede raggiunge una linea) · Spirito LONG · stelo LONG · Sistema-trend tace · via DLR: 八專 sul pilastro 甲寅
+Deciso da: Livello D · Da Liu Ren e Lettura S47 concordano · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0k la sede raggiunge una linea) · Spirito LONG · stelo LONG · Sistema-trend tace
 
 USDCHF, 2026-10-06
 Trend EMA: LONG

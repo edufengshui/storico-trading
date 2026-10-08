@@ -1,3 +1,25 @@
+# Confronto fra il feed del Worker e il calcolo del backtest — 2026-10-08
+
+Ogni casella: Worker / backtest (barre orarie, chiusure delle 21:00 UTC lun-ven).
+
+| cross | seme | trend | consolidato | durata | esito di ieri (pip) | differenze |
+|---|---|---|---|---|---|---|
+| EURUSD | 112 / 112 | down / down | true / true | 29 / 28 | -56.1 / -56.1 | durata |
+| GBPUSD | 132 / 132 | down / down | true / true | 1 / 1 | -54.4 / -54.4 | uguale |
+| USDJPY | 158 / 158 | up / up | true / true | 24 / 23 | -22.5 / -22.5 | durata |
+| USDCHF | 83 / 83 | up / up | true / true | 35 / 34 | 9.1 / 9.1 | durata |
+| AUDUSD | 69 / 69 | down / down | true / true | 29 / 28 | -19.5 / -19.5 | durata |
+| USDCAD | 142 / 142 | up / up | true / true | 29 / 27 | 43.6 / 43.6 | durata |
+| NZDUSD | 56 / 56 | down / down | true / true | 42 / 41 | -21.6 / -21.6 | durata |
+| EURJPY | 177 / 177 | down / down | true / true | 14 / 13 | -114 / -114 | durata |
+| EURGBP | 84 / 84 | down / down | true / true | 11 / 10 | -7.7 / -7.7 | durata |
+
+Trade del report col feed del Worker: nessuno
+
+Trade del report coi dati calcolati come nel backtest: nessuno
+
+---
+
 # Confronto fra il feed del Worker e il calcolo del backtest — 2026-10-07
 
 Ogni casella: Worker / backtest (barre orarie, chiusure delle 21:00 UTC lun-ven).
