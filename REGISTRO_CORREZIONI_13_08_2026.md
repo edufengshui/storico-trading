@@ -9153,3 +9153,29 @@ Ying va nel vuoto, resta se' stessa e la controlla lo Shi) e nessuna linea ferma
 (EURJPY 31/12/2020, Edu: atterraggio su L2). MISURA: LY S17 57,64% +33.180; carte guida 82/113
 (nessuna rovesciata, GBPUSD 18/05/2022 aggiunta); riferimento 70/70 + la nuova; Lettura 54,55%
 +23.572; scala A+B+C+D 2.215 carte 64,97% +42.775 (prima 2.221 64,84% +42.449); parita' 0.
+
+## S54 · EURUSD 05/10/2026 seme 112 — l'arrivo spinto da Gen combina e non controlla indietro (08/10/2026)
+Carta dal vivo persa (livello A LONG, esito SHORT −32; trend EMA SHORT). 坎 su 坤 (比), palazzo 坤; mutante L3 =
+Shi G 卯 → 申 (il lato basso diventa 艮); L2 P 巳, L4 C 申 di stagione, L6 Ying W 子 col ramo del giorno; giorno
+壬子, mese 丁酉, anno 丙午, ora 癸卯, vuoti 寅卯; nessuna incompatibile. La catena diceva LONG col §62 (la G
+consegnata alla C forte); il motore di lettura SHORT con la bestia del mese che blocca la mobile (T0b).
+Parole di Edu: "L'arrivo di L3 (Shen) non può controllare la partenza G Mao perché il trigramma in cui cade è Gen
+che lo spinge in avanti a combinarsi con L2. G rimane in controllo e fa vincere la propria squadra" → SHORT.
+CORREZIONE DI EDU (08/10/2026), la prima stesura (solo Gen) era sbagliata: "Ma no, Gen rende Shen incompatibile!
+Accidenti anche di questo si era già parlato: se l'arrivo cade all'interno di un trigramma che rende la linea
+incompatibile la sua azione non può essere esercitata sulla partenza ma la linea deve essere diretta fuori, o a
+combinarsi o a clashare o a generare un'altra linea." (Lega col §122: l'arrivo incompatibile, caso -5.)
+CABLATO: catena R85_INCFUORI (prima di R84, VIAINCFUORI=off) e motore MLINCFUORI (T0k0, prima delle bestie).
+Perimetro: arrivo incompatibile col trigramma trasformato (caso -5 senza ponte, non per autopunizione); niente
+azione sulla partenza; l'arrivo cerca fuori, nell'ordine combinare, clashare, generare un'altra linea non vuota;
+se la trova, la G/W mobile resta in controllo e fa vincere la sua squadra. Verdetto solo per G/W (la carta);
+per P/B/C nessun verdetto nuovo, da chiedere a Edu con una carta.
+
+Seguito (08/10/2026). La regola rovesciava le guide §131 USDCHF 28/09/2022 s99 e la gemella 04/10/2022 (W 午 L4
+vuota, arrivo 丑 incompatibile in 坤). Parole di Edu su USDCHF 28/09/2022: "muove in una incompatibile che deve
+andare via da lì, va quindi su Y (che è lo stesso ramo Chou) e fa vincere lo short". CABLATO: prima di combinare/
+clashare/generare, l'arrivo incompatibile va sulla linea col suo stesso ramo e le porta il carattere di partenza
+(la W sulla Ying in basso -> SHORT). Perimetro DI CLAUDE: solo se quella linea è una sede (Shi o Ying); su EURUSD
+05/10/2026 il 申 di L4 è un C non sede e Edu ha letto l'arrivo che combina L2. Le tre carte tornano giuste.
+Resta storta la carta di riferimento USDJPY 02/10/2024 s143 (letta da Edu il 09/09 senza le incompatibili): da
+riportargli.
