@@ -9224,3 +9224,13 @@ Seguito (08/10/2026), Edu: "Correggi anche lì". Lo scalino che porta su una sed
 dell'ARRIVO (MLSCALACARATTERE=partenza torna alla forma del 22/09). Le bestie coi rami vuoti tolte anche dalle vie
 della catena dove un pilastro posa la sua bestia (§129, §130, l'anno sulla W, mese e anno sulla B, il mese che clasha,
 il flusso della data; VIABESTIAVUOTA=off).
+
+## S54 · USDJPY 30/09/2025 seme 148 (08/10/2026) — l'arrivo combinato: la linea rimane sé stessa
+Con le bestie coi rami vuoti spente (l'anno 乙巳 ha il ramo vuoto) il motore leggeva: lo Shi W 辰 va in 亥, che combina
+L2 B 寅, ne prende la B -> LONG (sbagliata). Parole di Edu: "L3 parte ma l'arrivo è combinato quindi rimane se stessa.
+È una W che fa vincere la propria squadra" -> SHORT (-77). CABLATO MLARRCOMBRESTA (T0k): la sede che si muove e il cui
+arrivo combina la linea raggiunta ed è combinato anche dal giorno (qui 亥 con 寅 di L2 e col giorno 壬寅) rimane sé
+stessa e parla. Confini DI CLAUDE dalle carte di Edu: non se un pilastro cade sulla sede (USDJPY 08/02/2024) e non se
+il movimento è una ritirata (USDJPY 01/12/2022). Carte di riferimento 70/71.
+Provata e lasciata SPENTA l'estensione di Claude "la sede che combina porta la propria partenza sulla linea"
+(MLCOMBPRESA=partenza): rompeva USDJPY 01/12/2022 e USDJPY 08/02/2024.
