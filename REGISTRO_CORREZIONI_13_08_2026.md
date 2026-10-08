@@ -9179,3 +9179,6 @@ clashare/generare, l'arrivo incompatibile va sulla linea col suo stesso ramo e l
 05/10/2026 il 申 di L4 è un C non sede e Edu ha letto l'arrivo che combina L2. Le tre carte tornano giuste.
 Resta storta la carta di riferimento USDJPY 02/10/2024 s143 (letta da Edu il 09/09 senza le incompatibili): da
 riportargli.
+Ordine corretto da Edu (08/10/2026): "La combinazione ha sempre la precedenza. In USDCHF 28/09/2022 Chou non trova
+nessuna Zi da combinare quindi naturalmente va su Y (non perché è Y)". Tolto il perimetro di Claude "solo se sede":
+l'arrivo incompatibile prima combina, poi va sulla linea col suo stesso ramo (qualunque), poi clasha, poi genera.

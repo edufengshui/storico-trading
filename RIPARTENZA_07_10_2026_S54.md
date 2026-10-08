@@ -84,6 +84,9 @@ resta solo il BLOCCO 3 (questa ripartenza, zip con nome sempre diverso, chiave.t
 Edu non vuole un push a ogni carta: accumulare, pushare a fine passo o quando lo chiede.
 
 ## Formato obbligatorio
+REGOLA FISSA (Edu, 08/10/2026): OGNI carta presentata va SEMPRE con la carta grafica fatta col programma di Edu
+(YijingWWG): `node carta_auto.js "TITOLO" seme annoStelo annoRamo meseRamo giornoStelo giornoRamo out.png`
+(usa carta_grafica.js + YijingWWG.html; le incompatibili si muovono insieme alla mutante), poi inviarla.
 Carte: cross, data, seme in testa; trend; sistema (con PB/LY/attuale/DLR/Lettura quando si discute
 la scala); esito; segue; conclusione; trigrammi; data con vuoti; linee con parentela e ramo in italiano
 (mai caratteri cinesi senza traduzione); incompatibili dichiarate; lettura con traccia, smentite,
