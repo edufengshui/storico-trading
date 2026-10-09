@@ -9271,3 +9271,27 @@ CABLATO (app.js, parita_tre.js, pb_stress.js riga Z-TOT54 e Z-CANT, raccolta_not
 LY e DLR concordi (non si trada, si registra); A = sistema attuale e DLR concordi (vecchio B); B = PB e LY concordi
 col DLR muto (vecchio C); C = DLR e Lettura S47 concordi (vecchio D). La raccolta notturna traduce i record fino
 all'08/10 nella scala nuova. sw.js v65. Parità 414 carte, 0 differenze.
+
+## S54 · LE SEDI E IL TREND — la regola di Edu letta in contemporanea (09/10/2026)
+Da EURUSD 07/10/2026 s112 (livello A nuovo LONG, esito SHORT -56; la gemella EURUSD 26/11/2021 LONG +110). Parole di
+Edu: "L5 si muove in Hai che genera S. Il principio di base è che S e Y sono comunque le linee più importanti
+dell'esagramma e ciò che fa una linea mobile le influenza. Ciò vale anche se la linea mobile (parliamo sempre
+dell'arrivo) drena o controlla Y o S. Questa nuova regola non cambia nessuna delle regole precedenti, ma le integra";
+"se S rappresenta il trend allora Y rappresenta ciò che spinge nella direzione opposta"; su EURJPY 01/12/2020 s124:
+"Y è drenato dalla forte L2 avanzante"; e: "è l'unica che interpreterebbe il Trend quindi non va messa né all'inizio
+né alla fine. Si legge IN CONTEMPORANEA e contribuisce all'interpretazione generale".
+Correzioni di Edu lungo la strada: USDJPY 30/07/2026 s163 ("la S che viene generata è una P che fa perdere la propria
+squadra"); EURUSD 26/11/2021 ("se c'è una linea vuota fra S e Y la regola non funziona"); EURJPY 19/12/2024 s160
+(rimprovero: l'arrivo Si genera la mobile stessa, non lo Shi lontano — "sembra che analizzi le cose solo
+meccanicamente senza metterci dentro un pensiero strutturato attento ai dettagli").
+MISURE (3.309 carte, soglia 20 pip): verso secco 48%; col carattere della sede 48-50%; senza vuota fra S e Y 49-52%
+(con la vuota 45%); come trend (S generato -> segue) 50%; Y contro-trend 49%; spaccata per cosa fa l'arrivo alla
+propria partenza 50-54%; casi davvero puliti (arrivo libero, sedi piene, niente incompatibili) 22 carte, 9 giuste.
+L'unica forma che si stacca: la mobile FORTE (avanza, o giorno/mese sulla partenza o sull'arrivo) che agisce sulla
+sede ADIACENTE: 60% su 92 (48% senza forza); sulle 92 la Lettura S47 che la contraddice sta al 47% (23/49).
+CABLATA come T9 del sistema-trend (trend_ly.js, +1/-1), perimetro di Claude: adiacenza, forza, sede non vuota,
+mobile non sede, partenza/arrivo non toccati dal giorno, arrivo non vuoto. Sistema-trend prima/dopo: tocco parla
+1.445 -> 1.495 carte, 57,2% -> 57,1%; concordi col LY 64,4% -> 64,1%. Nel motore di lettura il gradino T6v resta
+SPENTO (MLSEDEVICINA=on): come ultima istanza scattava su 1 carta. Il motore ora riceve ctx.emaDir (app e backtest).
+Provata e lasciata: il DANNO (六害) che blocca la mobile — partenza: giorno 51% (LY oggi 56%), mese 50%, anno 47%,
+ora 50%; per carattere della mobile la B non sede scende al 40%; nessun confine trovato. Riferimento 71/71.

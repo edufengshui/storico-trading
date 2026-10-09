@@ -172,6 +172,7 @@ function steliPerPrincipi(r){
   const cap = capolineaSteloFrom(r.date, r.dayStemUsed, r.oraBranch,
                                  r.dayBranchUsed, r.monthBranchUsed, r.yearBranchUsed);
   return { yearStem: d.anno, monthStem: d.mese, hourStem: hs,
+           emaDir: r.emaDir || null,   // S54: il trend EMA, per la sede vicina (MLSEDEVICINA)
            pilastri: [ { nome:'anno',  stelo:d.anno,          ramo:r.yearBranchUsed  },
                        { nome:'mese',  stelo:d.mese,          ramo:r.monthBranchUsed },
                        { nome:'giorno',stelo:r.dayStemUsed,   ramo:r.dayBranchUsed   },
