@@ -9295,3 +9295,9 @@ mobile non sede, partenza/arrivo non toccati dal giorno, arrivo non vuoto. Siste
 SPENTO (MLSEDEVICINA=on): come ultima istanza scattava su 1 carta. Il motore ora riceve ctx.emaDir (app e backtest).
 Provata e lasciata: il DANNO (六害) che blocca la mobile — partenza: giorno 51% (LY oggi 56%), mese 50%, anno 47%,
 ora 50%; per carattere della mobile la B non sede scende al 40%; nessun confine trovato. Riferimento 71/71.
+Seguito (09/10/2026), GBPUSD 15/12/2022 s124 (gemella di EURJPY 01/12/2020, -240, portata come smentita). Edu: "C'è
+una linea vuota fra Y e S quindi il movimento di L2 non può influenzare S. Per quanto riguarda Y, siamo nel mese Zi
+quindi Y non potrà mai essere drenato da un L2 avanzante". Confini messi in T9: la vuota fra le sedi ferma l'influenza;
+la sede di stagione nel mese non si lascia colpire. Misura: senza vuota 57% (87), con vuota 52% (42); colpire una sede
+fuori stagione 61% (46), di stagione 58% (19); coi due confini 55% su 74. Segnale debole: T9 resta informazione nel
+sistema-trend, non voto.
