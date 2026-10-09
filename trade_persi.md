@@ -1,6 +1,6 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-08 06:39 GMT · feed del 2026-10-08 · trade proposti oggi: 0 · esiti compilati stanotte: 7
+Aggiornato: 2026-10-09 06:41 GMT · feed del 2026-10-09 · trade proposti oggi: 0 · esiti compilati stanotte: 0
 
 ## Statistica dal 2026-09-15
 
