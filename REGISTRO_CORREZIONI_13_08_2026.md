@@ -9318,3 +9318,19 @@ di S che è combinato e controllato dal mese" -> il trend come BILANCIO fra le d
 67%, da una linea 48%, dall'anno 31%); dentro T9 la via del trigono sta al 46% su 71: SPENTA (T9TRIGONO=1).
 STATO DI T9 a fine giornata: con tutti i confini di Edu (adiacenza, forza, niente ritirata, vuota fra le sedi, sede
 di stagione non si lascia colpire, sede non morta nel mese) parla su 35 carte in sei anni, 20 giuste (57%).
+Seguito (09/10/2026), il METODO DEL TREND come lettura a sé (lettura_trend.js). Edu: "Ma è ovvio che la forza di S
+e Y da sole non indicano se segue o no il trend. Forse sarebbe il caso di creare un livello nuovo (B o C) in cui si
+legge la carta LY solo ed esclusivamente secondo il sistema del Trend. Fissiamo le regole di questo metodo e poi lo
+testiamo"; "Nell'ultima carta che mi hai mostrato il metodo tace. Quando S o Y sono troppo untimely non possono
+rappresentare un trend o un contro trend"; "Se 'troppo fuori stagione' taglia così tante carte allora non va bene.
+Diciamo che se tutte e due lo sono". Regole fissate (12): S = trend, Y = contro-trend; l'arrivo che genera/colpisce
+una sede la nutre/ferisce (non se retrocede; non se genera indietro la propria mobile; fermato da una linea vuota
+fra mobile e sede; la sede di stagione non si lascia colpire; la sede vuota non si fa nutrire; la sede P/B inverte il
+segno); la sede che è la mobile e si fa generare/controllare indietro; trigono arrivo+sede+mese/giorno; due o più
+pilastri non vuoti sulla sede (+1); sede combinata e controllata dal mese (-1); il metodo TACE solo se TUTTE E DUE
+le sedi sono troppo fuori stagione (controllata dal mese o che controlla il mese). Verdetto: segue / non segue.
+MISURA (3.309 carte, soglia 20 pip): parla su 1.123, 48% (2020-25 47%, 2026 gen-lug 56%, ago-ott 45%). Letto
+insieme al DLR: concordi 60% su 535; discordi, seguendo il DLR, 64% su 531. Col LY: concorde 55%, discorde 59%.
+Non entra nella scala: resta voce informativa "Metodo del trend" nel rapporto dell'app (lettura_trend.js in tutti e due i repo); la misura si rifà con lettura_trend_test.js sul dump TRESIST.
+Prossima chat dedicata SOLO a questo metodo, partendo dalle carte dei trade persi (Edu: "Nella nuova chat voglio
+fare solo questo nuovo metodo magari iniziando fake carte dei trade andati male").
