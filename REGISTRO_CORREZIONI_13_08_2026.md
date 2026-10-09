@@ -9234,3 +9234,12 @@ stessa e parla. Confini DI CLAUDE dalle carte di Edu: non se un pilastro cade su
 il movimento è una ritirata (USDJPY 01/12/2022). Carte di riferimento 70/71.
 Provata e lasciata SPENTA l'estensione di Claude "la sede che combina porta la propria partenza sulla linea"
 (MLCOMBPRESA=partenza): rompeva USDJPY 01/12/2022 e USDJPY 08/02/2024.
+
+## S54 · EURJPY 31/10/2023 seme 158 riletta (09/10/2026) — la linea porta sulla sede anche il suo nascosto
+Con le bestie coi rami vuoti spente l'ora 辛丑 (丑 vuoto) non prende più la Ying e la carta usciva SHORT. Edu l'ha
+riletta senza bestie: "L3 moves to reach Y it also brings the hiding G h up there. Fire is in the Tomb while metal and
+water are strong so the G h can control the Y and make the long to win" -> LONG (+213). La regola delle bestie coi rami
+vuoti resta. CABLATO MLPORTANASCOSTO (T0k "si muove per combinarsi con una sede"): la linea che combina una sede le porta
+anche il suo nascosto (non vuoto); se la sede è nella tomba del mese e il nascosto la controlla, parla il nascosto sulla
+sede. Edu (09/10/2026): "La forza del nascosto è necessaria, un nascosto senza energia non può fare niente" -> il nascosto deve
+essere di stagione oppure generato dall'arrivo della linea che lo porta (perimetro di Claude sul modo di misurare l'energia).
