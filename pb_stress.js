@@ -29186,7 +29186,11 @@ if (process.env.TRESIST) {
       // coppia PB+LY, da sola, su un piatto condiviso non sa niente)
       if (process.env.GEMSCALA==='soloC' && Cc) { const k3=GKEY(r); if (k3 && GCNT[k3]>=2) fermo=true; }
       if ((A||B||Cc) && !fermo) put('Z-TOT. scala A+B+C', A?pb:B?s17:pb, r);
-      if ((A||B||Cc||D) && !fermo) put('Z-TOT48. scala A+B+C+D (in produzione dal 16/09/2026)', A?pb:B?s17:Cc?pb:dlr, r);
+      if ((A||B||Cc||D) && !fermo) put('Z-TOT48. scala A+B+C+D (in produzione dal 16/09 al 08/10/2026)', A?pb:B?s17:Cc?pb:dlr, r);
+      // S54 (09/10/2026, Edu: "abolire il livello A e rinominare il B come A"): il vecchio A resta in cantina,
+      // la scala in produzione e' B+C+D vecchi = A+B+C nuovi. Fuori campione (ago-ott 2026) il vecchio A faceva 46%.
+      if ((B||Cc||D) && !fermo) put('Z-TOT54. scala A+B+C nuova (vecchi B+C+D, in produzione dal 09/10/2026)', B?s17:Cc?pb:dlr, r);
+      if (A && !fermo) put('Z-CANT. in cantina dal 09/10/2026 (PB, LY e DLR concordi, il vecchio A)', pb, r);
       if (!(A||B||Cc||D) || fermo) put('Z-0. fuori scala (fermo) — pnl del sistema attuale evitato', s17, r);
       // S51 (21/09/2026, Edu: "e' intollerabile che i miglioramenti ottenuti non vengano implementati nel
       // software"): la Lettura S47 dentro la scala, tre forme misurate sulla stessa base.

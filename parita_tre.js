@@ -34,10 +34,11 @@ function steloBT(c){ if(!c.ema) return null;
 function livBT(c){
   // S48 (16/09/2026) — la scala A/B/C/D, come nell'app. Spirito e stelo non contano piu'.
   if(!c.pb) return {liv:null,dir:null};
-  if(c.ly&&c.dlr&&c.pb===c.ly&&c.ly===c.dlr) return {liv:'A',dir:c.pb};
-  if(c.dlr&&c.at&&c.at===c.dlr) return {liv:'B',dir:c.dlr};
-  if(c.ly&&c.pb===c.ly&&!c.dlr) return {liv:'C',dir:c.pb};
-  if(c.dlr&&c.lett&&c.dlr===c.lett) return {liv:'D',dir:c.dlr};
+  // S54 (09/10/2026, Edu): il vecchio A in cantina; B->A, C->B, D->C, come nell'app.
+  if(c.ly&&c.dlr&&c.pb===c.ly&&c.ly===c.dlr) return {liv:'cantina',dir:c.pb};
+  if(c.dlr&&c.at&&c.at===c.dlr) return {liv:'A',dir:c.dlr};
+  if(c.ly&&c.pb===c.ly&&!c.dlr) return {liv:'B',dir:c.pb};
+  if(c.dlr&&c.lett&&c.dlr===c.lett) return {liv:'C',dir:c.dlr};
   return {liv:null,dir:null}; }
 for(let i=0;i<cards.length;i+=step){ const c=cards[i];
   const row={cross:c.cross,status:'ok',seed:c.seed,branch:c.ora,direction:c.ema,emaRun:c.emaRun,emaConsolidated:true,seedFragile:false,seedEdgePips:99};

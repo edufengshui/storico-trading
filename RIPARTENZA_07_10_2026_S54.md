@@ -1,7 +1,9 @@
 # RIPARTENZA S54 — 07/10/2026 (fine S53, 05/10–07/10/2026)
 
 ## Primo controllo d'avvio
-0. DAL 09/10/2026 IL LIVELLO A E' IN CANTINA (Edu): si mostra e si registra, non si trada; dal vivo si opera B/C/D.
+0. DAL 09/10/2026 LA SCALA E' RINOMINATA (Edu): "cantina" = PB, LY e DLR concordi (il vecchio A: si mostra e si
+   registra, non si trada); A = sistema attuale e DLR (vecchio B); B = PB e LY col DLR muto (vecchio C); C = DLR e
+   Lettura (vecchio D). Nel backtest: Z-TOT54 (scala nuova) e Z-CANT (cantina); Z-TOT48 e' la scala vecchia.
    Il 70% del livello A vale solo dentro i sei anni (fuori campione ago-ott 2026: 46%). Lo storico dei prezzi
    ora arriva al 09/10/2026 e si aggiorna da GitHub toccando aggiorna_storico.txt (workflow aggiorna_storico.yml).
 1. Se fra i file caricati NON c'e' `chiave.txt`, chiederlo a Edu ("Caricami chiave.txt col pulsante +")

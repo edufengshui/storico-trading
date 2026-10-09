@@ -116,13 +116,22 @@ async function main() {
   }
   // Livello A in cantina (Edu, 09/10/2026): i trade segnati cantina si registrano con l'esito ma non si tradano,
   // quindi stanno fuori dal totale e dai mesi; hanno una riga loro per continuare a misurarli.
-  const tuttiReg = [].concat(...Object.keys(storico).map(d => storico[d].map(t => Object.assign({ data: d }, t))));
-  const cantina = tuttiReg.filter(t => t.cantina), tutti = tuttiReg.filter(t => !t.cantina);
+  // Scala rinominata il 09/10/2026 (Edu): i record fino all'08/10 usano le lettere vecchie e vanno tradotti
+  // (vecchio A = concordi tutti e tre -> oggi "cantina"; B->A, C->B, D->C) per non mischiare due scale.
+  const NUOVO = { A: 'cantina', B: 'A', C: 'B', D: 'C' };
+  const tuttiReg = [].concat(...Object.keys(storico).map(d => storico[d].map(t => {
+    const u = Object.assign({ data: d }, t);
+    if (d < '2026-10-09' && NUOVO[u.livello]) { u.livello = NUOVO[u.livello]; if (u.livello === 'cantina') u.cantinaVecchia = true; }
+    return u;
+  })));
+  const cantina = tuttiReg.filter(t => t.cantina || t.livello === 'cantina'), tutti = tuttiReg.filter(t => !t.cantina && t.livello !== 'cantina');
   const giorni = Object.keys(storico).sort();
   let stat = '## Statistica dal ' + (giorni[0] || '—') + '\n\n' +
     '| | trade chiusi | vinti | persi | successo | pip |\n|---|---|---|---|---|---|\n' + riga('**Totale**', conta(tutti)) + '\n';
-  ['A', 'B', 'C', 'D'].forEach(L => { const c = conta(tutti.filter(t => t.livello === L)); if (c.n) stat += riga('Livello ' + L + (L === 'A' ? ' (tradato fino all\'08/10)' : ''), c) + '\n'; });
-  { const c = conta(cantina); if (c.n) stat += riga('Livello A in cantina (non tradato, dal 09/10)', c) + '\n'; }
+  stat += '| *Scala dal 09/10/2026: A = sistema attuale e DLR concordi · B = PB e LY concordi, DLR tace · C = DLR e Lettura concordi; i trade prima del 09/10 sono tradotti nella scala nuova* | | | | | |\n';
+  ['A', 'B', 'C'].forEach(L => { const c = conta(tutti.filter(t => t.livello === L)); if (c.n) stat += riga('Livello ' + L, c) + '\n'; });
+  { const c = conta(cantina.filter(t => t.cantinaVecchia)); if (c.n) stat += riga('In cantina, tradato fino all\'08/10 (PB, LY e DLR concordi)', c) + '\n'; }
+  { const c = conta(cantina.filter(t => !t.cantinaVecchia)); if (c.n) stat += riga('In cantina dal 09/10, non tradato (solo osservato)', c) + '\n'; }
   [...new Set(tutti.map(t => t.data.slice(0, 7)))].sort().forEach(m => { const c = conta(tutti.filter(t => t.data.slice(0, 7) === m)); if (c.n) stat += riga('Mese ' + m, c) + '\n'; });
   const aperti = tuttiReg.filter(t => typeof t.esito !== 'number').length;
   stat += '\nTrade ancora senza esito: ' + aperti + '. Un trade a 0 pip non conta ne\' come vinto ne\' come perso.\n\n';
@@ -131,7 +140,7 @@ async function main() {
   const out = [];
   Object.keys(reg).sort().reverse().forEach(d => (reg[d] || []).forEach(t => {
     if (typeof t.esito === 'number' && t.esito < 0) {
-      out.push(t.cross + ', ' + d + (t.cantina ? ' (livello A in cantina, non tradato)' : '') +
+      out.push(t.cross + ', ' + d + (t.cantina ? ' (in cantina, non tradato)' : '') +
         '\nTrend EMA: ' + t.trend +
         '\nIl sistema dice: ' + t.signal + ' (' + (t.segue ? 'segue' : 'non segue') + ' il trend)' +
         '\nEsito: ' + t.esito + ' pip' +

@@ -9260,3 +9260,14 @@ DECISIONE DI EDU: "È meglio mettere in cantina il livello A". Cablato in app.js
 le carte A si mostrano nel report in una sezione "IN CANTINA", si registrano con l'esito, ma non si tradano;
 CANTINA_A=0 nel localStorage le rimette in scala), sw.js v65, raccolta_notturna.js (statistica: i trade in cantina
 fuori dal totale, con una riga loro). Dal vivo si trada la scala B/C/D.
+
+## S54 · LA SCALA RINOMINATA (Edu, 09/10/2026: "abolire il livello A e rinominare il B come A" — "Confermo")
+Misure col software di oggi, soglia 20 pip, fuori campione (ago-ott 2026): DLR da solo 56%, LY 50%, PB 44%; DLR+LY
+concordi 55%, PB+LY 43%, DLR+PB 47%; vecchio B (senza le carte A) 70%, vecchio B con dentro le carte A 59%; DLR e LY
+concordi col PB contrario o muto 64%. Il Plum Blossom è la voce che cede fuori campione, e ogni livello che lo
+richiede cade sotto il 50%. Nota portata a Edu: abolire l'A senza tenerne la condizione farebbe cadere le sue carte
+nel B; per questo la condizione resta come esclusione ("cantina").
+CABLATO (app.js, parita_tre.js, pb_stress.js riga Z-TOT54 e Z-CANT, raccolta_notturna.js): livello "cantina" = PB,
+LY e DLR concordi (non si trada, si registra); A = sistema attuale e DLR concordi (vecchio B); B = PB e LY concordi
+col DLR muto (vecchio C); C = DLR e Lettura S47 concordi (vecchio D). La raccolta notturna traduce i record fino
+all'08/10 nella scala nuova. sw.js v65. Parità 414 carte, 0 differenze.
