@@ -9243,3 +9243,20 @@ vuoti resta. CABLATO MLPORTANASCOSTO (T0k "si muove per combinarsi con una sede"
 anche il suo nascosto (non vuoto); se la sede è nella tomba del mese e il nascosto la controlla, parla il nascosto sulla
 sede. Edu (09/10/2026): "La forza del nascosto è necessaria, un nascosto senza energia non può fare niente" -> il nascosto deve
 essere di stagione oppure generato dall'arrivo della linea che lo porta (perimetro di Claude sul modo di misurare l'energia).
+
+## S54 · IL LIVELLO A IN CANTINA (Edu, 09/10/2026) — il test fuori campione
+Dal vivo dal 15/09: 62 trade chiusi, 29 vinti, 33 persi (46,8%, -109 pip); livello A 6/22 (27%, -428), B 13/22
+(59%, +110), C 2/4, D 6/11. Edu: "Il risultato è sconfortante, il livello A che aveva un'accuratezza stimata intorno
+al 70% ha avuto performance pessime". Test fatto su suo ordine ("Ok fai il test"): lo storico dei prezzi portato dal
+30/07 al 09/10/2026 (aggiorna_storico.js + workflow aggiorna_storico.yml, barre orarie dal Worker /page; si rilancia
+toccando aggiorna_storico.txt). Backtest col software di oggi, soglia 20 pip:
+  livello A: 2026 gen-lug 57/74 (77%) · ago 5/13 (38%) · set 5/8 (62%) · ott 1/3 · ago-ott 11/24 (46%)
+  scala intera: gen-lug 67% · ago-ott 60%;  livello B ago-ott 19/27 (70%), dal vivo 9/12 con >=20 pip.
+Confronto carta per carta: dei 15 trade A dal vivo con >=20 pip, 8 (tutti persi, -351 pip) col software di oggi non
+sono più A, perché sono proprio le carte lette e cablate in queste settimane: il 62% di settembre è gonfiato dalle
+correzioni fatte su quelle carte; agosto, mai toccato, dice 38%. Conclusione: il 70% del livello A vale solo dentro i
+sei anni su cui le regole sono nate; fuori campione sta intorno al 45%.
+DECISIONE DI EDU: "È meglio mettere in cantina il livello A". Cablato in app.js (livelloTreSistemi: cantina=true;
+le carte A si mostrano nel report in una sezione "IN CANTINA", si registrano con l'esito, ma non si tradano;
+CANTINA_A=0 nel localStorage le rimette in scala), sw.js v65, raccolta_notturna.js (statistica: i trade in cantina
+fuori dal totale, con una riga loro). Dal vivo si trada la scala B/C/D.
