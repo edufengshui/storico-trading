@@ -9301,3 +9301,7 @@ quindi Y non potrà mai essere drenato da un L2 avanzante". Confini messi in T9:
 la sede di stagione nel mese non si lascia colpire. Misura: senza vuota 57% (87), con vuota 52% (42); colpire una sede
 fuori stagione 61% (46), di stagione 58% (19); coi due confini 55% su 74. Segnale debole: T9 resta informazione nel
 sistema-trend, non voto.
+Seguito (09/10/2026), USDJPY 28/03/2022 s122 (+163, la G 卯 retrocede in 寅 sulla Ying; T9 diceva non segue). Edu:
+"Se L2 retrocede tecnicamente non può condizionare S, quindi il trend continua". Confine in T9: la mobile che
+retrocede non agisce sulle sedi. Misura: ritirate 10/26 (38%), non ritirate 62/103 (60%); coi tre confini 36/57
+(63%); storte pulite da 10 a 5.
