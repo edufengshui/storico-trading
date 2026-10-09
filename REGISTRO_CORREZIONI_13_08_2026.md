@@ -9305,3 +9305,16 @@ Seguito (09/10/2026), USDJPY 28/03/2022 s122 (+163, la G 卯 retrocede in 寅 su
 "Se L2 retrocede tecnicamente non può condizionare S, quindi il trend continua". Confine in T9: la mobile che
 retrocede non agisce sulle sedi. Misura: ritirate 10/26 (38%), non ritirate 62/103 (60%); coi tre confini 36/57
 (63%); storte pulite da 10 a 5.
+Seguito (09/10/2026), carte perse della settimana lette coi due metodi. AUDUSD 07/10/2026 s69 (-19): Edu: "Qui la
+spiegazione ovvia è proprio il trend: S si muove per generare indietro. Y invece non può beneficiare di L2 che si
+muove perché è vuoto". Misura della forma "la sede che è la mobile si fa generare indietro -> favorita": 363 carte
+46% (Shi generato indietro 48% su 73): non cablata. Portata la gemella USDCAD 21/11/2022 s133 (+72, non segue);
+Edu: "S è troppo untimely per darci una risposta significativa sul trend. Dobbiamo usare il metodo normale. La linea
+più timely di tutte è L2 che fa perdere la propria squadra" -> confine in T9: la sede letta per il trend non
+dev'essere morta/imprigionata nel mese. EURJPY 16/01/2026 s184 (-75), Edu: "mese, linea mobile e Y formano un
+trigono di metallo, Y vince per questo"; "Ovvio che il trigono di metallo è in tomba nel mese Chou ma è sempre meglio
+di S che è combinato e controllato dal mese" -> il trend come BILANCIO fra le due sedi (chi sta meglio): misurato,
+1.578 carte 51% (scarto 3: 49%); il trigono dell'arrivo con una sede: 233 carte 52% (chiuso dal mese 61%, dal giorno
+67%, da una linea 48%, dall'anno 31%); dentro T9 la via del trigono sta al 46% su 71: SPENTA (T9TRIGONO=1).
+STATO DI T9 a fine giornata: con tutti i confini di Edu (adiacenza, forza, niente ritirata, vuota fra le sedi, sede
+di stagione non si lascia colpire, sede non morta nel mese) parla su 35 carte in sei anni, 20 giuste (57%).
