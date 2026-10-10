@@ -1,18 +1,19 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-09 06:41 GMT · feed del 2026-10-09 · trade proposti oggi: 0 · esiti compilati stanotte: 0
+Aggiornato: 2026-10-10 06:22 GMT · feed del 2026-10-09 · trade proposti oggi: 0 · esiti compilati stanotte: 0
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 62 | 29 | 33 | 46,8% | -109 |
-| Livello A | 22 | 6 | 16 | 27,3% | -428 |
-| Livello B | 22 | 13 | 9 | 59,1% | +110 |
-| Livello C | 4 | 2 | 2 | 50% | +111 |
-| Livello D | 11 | 6 | 5 | 54,5% | +33 |
-| Mese 2026-09 | 35 | 19 | 16 | 54,3% | +57 |
-| Mese 2026-10 | 27 | 10 | 17 | 37% | -166 |
+| **Totale** | 40 | 23 | 17 | 57,5% | +319 |
+| *Scala dal 09/10/2026: A = sistema attuale e DLR concordi · B = PB e LY concordi, DLR tace · C = DLR e Lettura concordi; i trade prima del 09/10 sono tradotti nella scala nuova* | | | | | |
+| Livello A | 22 | 13 | 9 | 59,1% | +110 |
+| Livello B | 4 | 2 | 2 | 50% | +111 |
+| Livello C | 11 | 6 | 5 | 54,5% | +33 |
+| In cantina, tradato fino all'08/10 (PB, LY e DLR concordi) | 22 | 6 | 16 | 27,3% | -428 |
+| Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
+| Mese 2026-10 | 18 | 8 | 10 | 44,4% | +61 |
 
 Trade ancora senza esito: 7. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
