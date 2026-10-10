@@ -9334,3 +9334,44 @@ insieme al DLR: concordi 60% su 535; discordi, seguendo il DLR, 64% su 531. Col 
 Non entra nella scala: resta voce informativa "Metodo del trend" nel rapporto dell'app (lettura_trend.js in tutti e due i repo); la misura si rifà con lettura_trend_test.js sul dump TRESIST.
 Prossima chat dedicata SOLO a questo metodo, partendo dalle carte dei trade persi (Edu: "Nella nuova chat voglio
 fare solo questo nuovo metodo magari iniziando fake carte dei trade andati male").
+
+## S55 · IL METODO DEL TREND CARTA PER CARTA (09-10/10/2026)
+Lavoro solo su lettura_trend.js (archivio e app, stesso file). Le regole sono in testa al file, numerate 13-35; qui le
+parole di Edu e le carte. Confini DI CLAUDE dichiarati nel codice. Carte lette da Edu col metodo: tutte e 23 giuste.
+- EURUSD 07/10/2026 s112: "Y genera S, e L5 si muove per pure generare S. Segue il trend" -> 13 la Ying che genera lo Shi.
+- EURJPY 07/10/2026 s178: "L5 si muove in una forte Hai che indebolisce Y" -> 7b arrivo forte; colpire una P/B la
+  indebolisce (11 solo per il nutrire); "Si": 14 l'arrivo delle incompatibili agisce come quello della mobile.
+- NZDUSD 07/10/2026 s56: "L6 si muove per generare S che è già vibrante di suo" -> 10b sede vuota di stagione riceve.
+- EURGBP 07/10/2026 s84: "L3 non si può muovere per via del mese ... il mese è una G che si combina con S gli
+  garantisce la vittoria" -> 15, 16.
+- USDJPY 06/10/2026 s157: "L4 si muove per penalizzare Y" -> 17 la punizione dell'arrivo.
+- AUDUSD 06/10/2026 s69: "Charts like these cannot be read with the trend methods, too much confusion" -> 18 confusione
+  totale. EURUSD 05/10/2026 s112: regola dell'arrivo incompatibile (08/10) portata nel metodo -> 19.
+- AUDUSD 05/10/2026 s69: spareggio con le bestie CANCELLATO da Edu; "Y vince ... per il trigono stagionale fra Y, il
+  giorno e L2"; "Hai sta nel trigramma dello Y quindi il raduno vale per Y e non per S" -> 20.
+- GBPUSD 05/10/2026 s132: "il mese You media fra Wei e Zi"; "Non esagerare, S è già forte di suo ... Se non fosse stato
+  forte la mediazione non sarebbe stata utile"; "Bastava il mese" -> 21.
+- GBPUSD 06/10/2026 s132: "S bloccato dal giorno che lo combina e controlla. Y rafforzato dalla generazione indietro"
+  -> 22 (la generazione indietro rafforza qualunque carattere).
+- GBPUSD 07/10/2026 s132: "S è forte ma viene indebolito da L2 che gli sta vicino e dal giorno mentre Y si muove per
+  autogenerarsi con l'aiuto del giorno che genera Wu" -> 23.
+- EURUSD 30/09/2026 s113: "S è molto più forte di Y. Ma non lo vedi da solo? Mica mi vorrai far leggere a mano tremila
+  carte" -> 24 forza delle sedi. Da qui Claude legge da solo le carte storte di ago-ott e porta solo quelle che non chiude.
+- USDCAD 22/09/2026 s140: "L5 is already strong and moves to generate itself in the S camp. On Y, or in his camp,
+  nothing happens" -> 25 il campo; la forza ferma conta solo se non succede altro.
+- EURJPY 26/08/2026 s185 (chiusa da Claude con la regola di Edu del 05/10, R82): 26 sede G/W ferma fuori stagione
+  clashata dal giorno eliminata.
+- USDJPY 02/09/2026 s160: "Y si muove per clashare S. È chiaro che poi non segue" -> 28 l'arrivo incompatibile va fuori.
+- EURUSD 26/08/2026 s116: "L1 si muove per diventare la tomba di S. Y è vuoto, ma nel suo campo c'è la linea più forte
+  dell'esagramma (L4)" -> 29, 30.
+- EURJPY 07/09/2026 s181: "Y si muove per diventare vuota quindi viene scartata completamente. Rimane S che vince" -> 32.
+- USDJPY 10/08/2026 s157: "S si muove per diventare vuota e perderebbe, però L1 si muove per clashare L4 ... essendo L4
+  molto più forte vince lo scontro facendo vincere Y" -> 33 lo scontro.
+- GBPUSD 01/10/2026 s132: "S è troppo forte, non può essere clashato con successo da Y, né controllato da Y se questo è
+  generato indietro" -> 34.
+- GBPUSD 24/09/2026 s132: "S è bloccato dal giorno ma poiché lo stelo del giorno è Xin (e il metallo è forte nella
+  data), S beneficia del flusso terra -> metallo -> acqua" -> 35.
+Contraddizione aperta: carattere nella forza delle sedi (P/B forte fa perdere) — rovescia GBPUSD 15/12/2022, spento.
+Lettura di Claude non retta: la sede nel proprio stesso ramo (27, 10 carte 5 giuste), spenta.
+MISURA (3.309 carte, soglia 20): parla su 2.107, 51%; 2020-25 51% (mai viste dalle regole); ago-ott 2026 59% (44/74,
+ma sono le carte da cui nascono le regole: non e' una prova). DLR+metodo concordi 61%.
