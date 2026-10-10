@@ -15,7 +15,7 @@ const st={};const add=(k,ok)=>{const o=st[k]=st[k]||{n:0,g:0};o.n++;o.g+=ok?1:0;
 const per=r=>r.date<'2026'?'20-25':r.date<'2026-08'?'26 gen-lug':'26 ago-ott';
 for(const r of rows){const R=LYM.read(r.seed,r.ramo,r.mese,yearB(r.date),r.stelo);if(!R||R.error)continue;
  const ys=yStem(r.date), ms=mStem(ys,r.mese), hs=ST[(ST.indexOf(WUSHU[r.stelo])+BR.indexOf(R.oraBranch))%10];
- const v=LT.leggi(R,{dayBranch:r.ramo,monthBranch:r.mese,yearBranch:yearB(r.date),oraBranch:R.oraBranch,dayStem:r.stelo,yearStem:ys,monthStem:ms,hourStem:hs,emaDir:r.ema,sediTutte:!!process.env.LTSEDI,yGeneraS:process.env.LTYGS!=='0',arrivoForte:process.env.LTFORTE!=='0',incompatibili:process.env.LTINC!=='0'});
+ const v=LT.leggi(R,{dayBranch:r.ramo,monthBranch:r.mese,yearBranch:yearB(r.date),oraBranch:R.oraBranch,dayStem:r.stelo,yearStem:ys,monthStem:ms,hourStem:hs,emaDir:r.ema,sediTutte:!!process.env.LTSEDI,yGeneraS:process.env.LTYGS!=='0',arrivoForte:process.env.LTFORTE!=='0',incompatibili:process.env.LTINC!=='0',mediazione:process.env.LTMED==='0'?false:(process.env.LTMED||true)});
  add('tutte le carte · '+(v.dir?'parla':'tace'),true);
  if(!v.dir) continue;
  const ok=v.dir===real(r); add('metodo del trend da solo',ok); add('metodo del trend · '+per(r),ok); add('metodo del trend · scarto '+Math.min(3,Math.abs(v.punti)),ok);
