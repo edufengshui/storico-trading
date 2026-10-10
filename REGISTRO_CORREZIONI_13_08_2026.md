@@ -9386,3 +9386,11 @@ Seguito S55 (10/10/2026, pomeriggio):
 Domanda di Edu (10/10): "stai raccogliendo tutte le regole per far funzionare questo sistema-trend?" Risposta di Claude:
 sì, ma 26 regole in un giorno = eccezioni (2020-25 fermo al 51%); proposta accettata ("Vai"): riscrivere il metodo su
 quattro principi, prima a parole per Edu, poi codice, poi misura sul 2020-25 e controllo delle 26 carte lette.
+RISCRITTURA A QUATTRO PRINCIPI (10/10/2026, Edu: "Ok procedi"): lettura_trend.js ora legge con leggiPrincipi (la lettura a
+38 regole resta come leggiRegole, c.versione='regole'). Ordine: 1 chi esce dal gioco (scartata nel vuoto, G/W eliminata dal
+clash del giorno, bloccata dal giorno salvo il flusso dello stelo, mobile legata, confusione totale) -> 2/3 cosa fa il
+movimento a S e Y e se la forza nel mese lo lascia passare -> 4 la forza ferma solo se i movimenti non decidono.
+Due aggiustamenti per tenere le carte di Edu: la sede generata indietro da se' non abilita il controllo sulla sede troppo
+forte (GBPUSD 01/10 contro 04/08); solo la sede MOBILE genera l'altra (non l'incompatibile, USDJPY 06/10).
+MISURA: 27/27 carte lette giuste. Sul 2020-25 (mai viste) 52% su 1.984 (prima 51%); per principio: 2 (il movimento) 55% su
+1.041; 1 (fuori gioco) 48% su 223; 4 (forza ferma) 49% su 720. Scarto 2: 60% su 308. Col DLR concorde 62% su 928.
