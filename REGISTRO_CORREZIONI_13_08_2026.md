@@ -9375,3 +9375,14 @@ Contraddizione aperta: carattere nella forza delle sedi (P/B forte fa perdere) ‚
 Lettura di Claude non retta: la sede nel proprio stesso ramo (27, 10 carte 5 giuste), spenta.
 MISURA (3.309 carte, soglia 20): parla su 2.107, 51%; 2020-25 51% (mai viste dalle regole); ago-ott 2026 59% (44/74,
 ma sono le carte da cui nascono le regole: non e' una prova). DLR+metodo concordi 61%.
+Seguito S55 (10/10/2026, pomeriggio):
+- AUDUSD 24/09/2026 s70: "S si muove in You che penalizza Y quindi vince il segue" -> 36 la sede che si muove a punire
+  l'altra (anche autopunizione); la sede punita non e' piu' troppo forte.
+- GBPUSD 04/08/2026 s134: "S cannot move because G Chen is clashed. L1 move to generate back which generates S. Y is
+  controlled by S. Follow" -> 37 (la ragione "G Chen clashato" non cablata a parte: lo Shi e' gia' fermo per il mese).
+- GBPUSD 06/08/2026 s134 chiusa da Claude con R80 (04-05/10): la mobile G/W fuori stagione clashata dal giorno eliminata.
+- USDCAD 24/08/2026 s137: 38 la sede mobile che retrocede (regole del 16-17/09); estensione di Claude alla P.
+- Garanzia del mese G resa decisiva: 11 carte 4 giuste, spenta.
+Domanda di Edu (10/10): "stai raccogliendo tutte le regole per far funzionare questo sistema-trend?" Risposta di Claude:
+s√¨, ma 26 regole in un giorno = eccezioni (2020-25 fermo al 51%); proposta accettata ("Vai"): riscrivere il metodo su
+quattro principi, prima a parole per Edu, poi codice, poi misura sul 2020-25 e controllo delle 26 carte lette.
