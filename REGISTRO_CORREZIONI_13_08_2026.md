@@ -9476,4 +9476,4 @@ MISURA fine S55: 2020-25 52% su 1.978; bestie dal lato 42% su 43 (da rivedere). 
   ne' generata dal mese; la sede sostenuta non vuota. Il flag arrUscitoDalVuoto e' sulla mutante.
   BASI: LY S17 57,36% +32.684; CARTE GUIDA 84/114 (una in piu' di prima della regola dell'arrivo: USDCAD 21/12/2023 e
   USDCHF 15/06/2022 giuste, AUDUSD 03/08/2022 raddrizzata); scala A+B+C 1.438 carte 62,17% +22.597; cantina 69,21%;
-  riferimento 71/71; parita' 0; metodo del trend 32/32. La via parla su una manciata di carte del mazzo (misura sotto).
+  riferimento 71/71; parita' 0; metodo del trend 32/32. La via decide 3 carte del mazzo (1 giusta sopra i 20 pip, fra cui la guida): perimetro stretto, dottrinale.
