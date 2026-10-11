@@ -7,9 +7,12 @@ Claude legge da solo le carte storte del 2020-25 e porta a Edu SOLO quelle che n
 
 ## Primo controllo d'avvio
 1. Se fra i file caricati NON c'e' chiave.txt, chiederlo ("Caricami chiave.txt col pulsante +"); senza chiave si lavora
-   e non si pusha. Il token MAI in memoria, registro, ripartenza o repo. Push: add_repo push sui due repo, poi
-   `git push origin HEAD` (fetch+rebase prima, commit come claude-push).
-2. Clonare storico-trading e trading; `unzip history_full_1h_f.zip`; symlink full1h.json -> history_full_1h_from20200129.json;
+   e non si pusha. Il token MAI in memoria, registro, ripartenza o repo. Push DIRETTO col token di chiave.txt
+   (Edu, 11/10/2026: "evitami le richieste di approvazione del repository"): MAI add_repo, ne' in lettura ne' in push —
+   i repo sono pubblici, si clonano con git e basta, e l'integrazione GitHub chiederebbe l'approvazione a ogni sessione.
+   Fetch+rebase prima, commit come claude-push, poi `git push https://claude-push:<token>@github.com/edufengshui/<repo> HEAD:main`
+   (il token solo nel comando, mai salvato in file o config).
+2. Clonare storico-trading e trading con `git clone` diretto (NON add_repo); `unzip history_full_1h_f.zip`; symlink full1h.json -> history_full_1h_from20200129.json;
    `mkdir work_trading && ln -s ../trading work_trading/pwa` (percorso assoluto del clone di trading); `npm install lunar-javascript`.
 3. cmp dei motori fra i due repo (liuyao.js, motore_lettura.js, motore_dlr.js, trend_ly.js, lettura_trend.js).
 4. Dump per le misure (5 minuti, in background):
