@@ -9434,3 +9434,11 @@ MISURA fine S55: 2020-25 52% su 1.978; bestie dal lato 42% su 43 (da rivedere). 
   LY e DLR), che resta valida negli altri motori finche' Edu non dice altrimenti.
   MISURA: 32/32 carte di Edu; cambiano 164 carte (2020-25: 143, ora parla su 119 con 56 giuste, prima su 104 con 50);
   metodo intero 53%, 2020-25 52% su 2.021; bestie dal lato ora 24 carte al 46% (prima 43 al 42%).
+- TEST chiesto da Edu (11/10/2026: "Fai un test per vedere cosa accadrebbe se la applicassimo anche lì"): il vuoto di
+  stagione non vuoto portato nel Liu Yao (vuoti di liuyao.js) e nel DLR (vuoti della carta in pb_stress.js), solo per la
+  misura, poi tolto (non in produzione). Base -> con la regola:
+  LY S17 57,12% +31.819 -> 56,81% +30.119 (2.887 carte); DLR 60,33% +41.768 -> 59,70% +39.231 (3.383 carte; nasce la via
+  "R1 genera il ramo del giorno", sparisce "R1 e R3 entrambi vuoti"); carte guida 83/114 -> 72/114 (12 lette da Edu si
+  rovesciano, 1 si raddrizza: AUDUSD 03/08/2022); scala A+B+C 1.441 carte 62,11% +22.444 -> 1.448 62,09% +22.617;
+  cantina 68,95% -> 68,32%. Si rovesciano fra le altre: GBPUSD 18/05/2022 s124, USDCAD 21/12/2023 s133, USDJPY
+  23/07/2024 s156, USDJPY 31/07/2024 s152, USDJPY 19/12/2024 s154, EURGBP 18/11/2021 s83. Decisione a Edu.
