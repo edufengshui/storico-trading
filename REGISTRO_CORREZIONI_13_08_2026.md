@@ -9442,3 +9442,13 @@ MISURA fine S55: 2020-25 52% su 1.978; bestie dal lato 42% su 43 (da rivedere). 
   rovesciano, 1 si raddrizza: AUDUSD 03/08/2022); scala A+B+C 1.441 carte 62,11% +22.444 -> 1.448 62,09% +22.617;
   cantina 68,95% -> 68,32%. Si rovesciano fra le altre: GBPUSD 18/05/2022 s124, USDCAD 21/12/2023 s133, USDJPY
   23/07/2024 s156, USDJPY 31/07/2024 s152, USDJPY 19/12/2024 s154, EURGBP 18/11/2021 s83. Decisione a Edu.
+- Edu (11/10/2026): "La dottrina dice che una linea vuota timely esce dal vuoto molto facilmente mentre una untimely mai.
+  Per fare uscire dal vuoto potrebbe bastare che la linea vuota sia l'arrivo. Verifica questo" -> PROVA "solo l'arrivo":
+  esce dal vuoto solo l'ARRIVO (della mobile e delle incompatibili) vuoto di stagione; le linee ferme vuote restano vuote.
+  Liu Yao (interruttore di prova in liuyao.js, poi tolto): S17 57,12% +31.819 -> 57,36% +32.766; cambiano 39 carte,
+  prima 13 giuste su 38, dopo 26 su 39; carte guida 83 -> 82 (si rovesciano USDCAD 21/12/2023 s133 e USDCHF 15/06/2022
+  s99, si raddrizza AUDUSD 03/08/2022 s68); scala A+B+C 62,11% +22.444 -> 62,10% +22.408; cantina 68,95% -> 69,21%.
+  DLR: nessuna carta cambia (non ha arrivi). Metodo del trend: variante c.vuotoTimely='arrivo' scritta in
+  lettura_trend.js (default resta "tutto"): 32/32; 2020-25 52,2% su 2.018 contro 52,3% su 2.021 — uguale.
+  Confronto: la regola su tutto il vuoto di stagione (prova precedente) costava LY -0,31% e 11 carte guida; solo
+  sull'arrivo il LY guadagna. Decisione a Edu.
