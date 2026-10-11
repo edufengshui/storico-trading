@@ -9394,3 +9394,19 @@ Due aggiustamenti per tenere le carte di Edu: la sede generata indietro da se' n
 forte (GBPUSD 01/10 contro 04/08); solo la sede MOBILE genera l'altra (non l'incompatibile, USDJPY 06/10).
 MISURA: 27/27 carte lette giuste. Sul 2020-25 (mai viste) 52% su 1.984 (prima 51%); per principio: 2 (il movimento) 55% su
 1.041; 1 (fuori gioco) 48% su 223; 4 (forza ferma) 49% su 720. Scarto 2: 60% su 308. Col DLR concorde 62% su 928.
+Seguito S55 (10/10/2026 sera), principio 1 sulle carte del 2020-25 (Edu: "vedi quale è la categoria principale del 48%"):
+- USDJPY 02/10/2024 s143: "se la sede è fuori gioco, se c'è una linea mobile del proprio campo a muoversi si prende
+  quella. Qui L3 si muove per controllare Y e fa vincere la propria squadra" -> il sostituto (prima lo scontro col
+  clash, per tenere USDJPY 10/08/2026).
+- GBPUSD 20/12/2023 s127: "né S né Y possono vincere perché sono vuoti. La bestia dell'ora interviene, s'impadronisce di
+  Y e fa vincere il non segue" -> bestie con le due sedi vuote.
+- USDCAD 26/11/2021 s126: "Le due linee sono inservibili, non c'è altro che si muove per cui intervengono le bestie sul
+  lato S perché Y è comunque funzionale. L'unica bestia sul lato S è l'ora Ding Si che s'impadronisce di L6 e vince
+  contro Y" -> bestie dal lato.
+- EURJPY 07/09/2026 riletta: "La bestia dell'anno interviene su Y e fa vincere S"; poi "Hai ragione sul ramo vuoto della
+  bestia dell'anno, non va usato. Prendiamo quella del mese che fa la stessa cosa: Shen genera la nativa Hai che perde il
+  confronto con S" -> rami vuoti esclusi; nativa generata dal pilastro; chi viene generato / chi controlla vince.
+- EURUSD 30/11/2021 s112: "Nothing helps S, the line is void and the beasts are not helping. Y wins also because it's
+  very timely" -> bestie in disaccordo non aiutano; non vincono contro la sede molto di stagione.
+Nuovi in archivio: carte_trend.json + lettura_trend_rif.js (31/31), lettura_trend_categorie.js.
+MISURA fine S55: 2020-25 52% su 1.978; bestie dal lato 42% su 43 (da rivedere). Ripartenza RIPARTENZA_11_10_2026_S56.md.
