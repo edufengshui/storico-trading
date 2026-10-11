@@ -9461,3 +9461,10 @@ MISURA fine S55: 2020-25 52% su 1.978; bestie dal lato 42% su 43 (da rivedere). 
   rovesciano USDCAD 21/12/2023 s133 e USDCHF 15/06/2022 s99, da rileggere con Edu; si raddrizza AUDUSD 03/08/2022 s68);
   scala A+B+C 1.440 carte 62,15% +22.599 (prima 62,11% +22.444); cantina 69,17%; riferimento del motore di lettura 71/71;
   parita' 0; metodo del trend 32/32, 53%, 2020-25 52%.
+- USDCAD 21/12/2023 s133 portata a Edu (11/10/2026): "Non cambia niente perché il trigramma inferiore subisce sempre il
+  total clash" -> ECCEZIONE alla regola dell'arrivo: se il trigramma della mobile e' in clash totale col proprio futuro
+  comune (ogni linea clasha il suo ramo futuro), l'uscita dal vuoto dell'arrivo di stagione non cambia la lettura — la
+  carta resta come con l'arrivo vuoto. Cablata in liuyao.js dentro build (perimetro DI CLAUDE: tocca solo l'uscita dal
+  vuoto dell'11/10, non le altre letture del clash totale). BASI: LY S17 57,33% +32.579; carte guida 83/114 (USDCAD
+  21/12/2023 di nuovo giusta, AUDUSD 03/08/2022 resta raddrizzata; resta storta solo USDCHF 15/06/2022 s99, da rileggere);
+  scala A+B+C 1.438 carte 62,17% +22.597; cantina 69,17%; riferimento 71/71; parita' 0; metodo del trend 32/32.
