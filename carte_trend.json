@@ -382,5 +382,17 @@
   "dayBranch": "申",
   "ema": "down",
   "atteso": "LONG"
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2020-06-17",
+  "seed": 112,
+  "yearStem": "庚",
+  "yearBranch": "子",
+  "monthBranch": "午",
+  "dayStem": "辛",
+  "dayBranch": "卯",
+  "ema": "up",
+  "atteso": "SHORT"
  }
 ]
