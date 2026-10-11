@@ -9468,3 +9468,12 @@ MISURA fine S55: 2020-25 52% su 1.978; bestie dal lato 42% su 43 (da rivedere). 
   vuoto dell'11/10, non le altre letture del clash totale). BASI: LY S17 57,33% +32.579; carte guida 83/114 (USDCAD
   21/12/2023 di nuovo giusta, AUDUSD 03/08/2022 resta raddrizzata; resta storta solo USDCHF 15/06/2022 s99, da rileggere);
   scala A+B+C 1.438 carte 62,17% +22.597; cantina 69,17%; riferimento 71/71; parita' 0; metodo del trend 32/32.
+- USDCHF 15/06/2022 s99 letta da Edu (11/10/2026): "Visto che l'arrivo di L1 è timely, non è vuoto e va a supportare Y
+  che gli sta proprio vicino. S è untimely. Non segue" -> VIA NUOVA R86 in liuyao.js, prima della regola del clash
+  dell'arrivo (§68): l'arrivo della mobile USCITO DAL VUOTO perche' di stagione non va a clashare lontano — sostiene la
+  sede accanto alla mobile (stesso elemento, o la genera), e quella sede vince se l'altra e' fuori stagione (VIA86=off
+  spegne). Perimetri DI CLAUDE: accanto = linea adiacente; l'altra sede untimely = non dello stesso elemento del mese
+  ne' generata dal mese; la sede sostenuta non vuota. Il flag arrUscitoDalVuoto e' sulla mutante.
+  BASI: LY S17 57,36% +32.684; CARTE GUIDA 84/114 (una in piu' di prima della regola dell'arrivo: USDCAD 21/12/2023 e
+  USDCHF 15/06/2022 giuste, AUDUSD 03/08/2022 raddrizzata); scala A+B+C 1.438 carte 62,17% +22.597; cantina 69,21%;
+  riferimento 71/71; parita' 0; metodo del trend 32/32. La via parla su una manciata di carte del mazzo (misura sotto).
