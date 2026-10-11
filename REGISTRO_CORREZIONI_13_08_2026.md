@@ -9452,3 +9452,12 @@ MISURA fine S55: 2020-25 52% su 1.978; bestie dal lato 42% su 43 (da rivedere). 
   lettura_trend.js (default resta "tutto"): 32/32; 2020-25 52,2% su 2.018 contro 52,3% su 2.021 — uguale.
   Confronto: la regola su tutto il vuoto di stagione (prova precedente) costava LY -0,31% e 11 carte guida; solo
   sull'arrivo il LY guadagna. Decisione a Edu.
+- DECISIONE DI EDU (11/10/2026: "C'è una conferma positiva quindi. Mettila come regola nel LY normale"): L'ARRIVO VUOTO DI
+  STAGIONE ESCE DAL VUOTO, ora DEFAULT in liuyao.js (catena che decide, app e archivio; ARRTIMELY=0 spegne). L'arrivo della
+  mobile e delle incompatibili, vuoto ma dello stesso elemento del mese o generato dal mese, non e' vuoto; le linee ferme
+  vuote restano vuote. Eccezione tenuta (dottrina S47): l'arrivo PUNITO dal giorno resta vuoto (senza, USDCHF 28/02/2022
+  s92 "Y cannot advance" si rovesciava fra le carte di riferimento).
+  NUOVE BASI: LY S17 2.887 carte 57,33% z 7,87 +32.582 (prima 57,12% +31.819); carte guida 82/114 (prima 83: si
+  rovesciano USDCAD 21/12/2023 s133 e USDCHF 15/06/2022 s99, da rileggere con Edu; si raddrizza AUDUSD 03/08/2022 s68);
+  scala A+B+C 1.440 carte 62,15% +22.599 (prima 62,11% +22.444); cantina 69,17%; riferimento del motore di lettura 71/71;
+  parita' 0; metodo del trend 32/32, 53%, 2020-25 52%.
