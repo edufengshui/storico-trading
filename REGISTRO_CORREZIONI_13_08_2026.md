@@ -9410,3 +9410,18 @@ Seguito S55 (10/10/2026 sera), principio 1 sulle carte del 2020-25 (Edu: "vedi q
   very timely" -> bestie in disaccordo non aiutano; non vincono contro la sede molto di stagione.
 Nuovi in archivio: carte_trend.json + lettura_trend_rif.js (31/31), lettura_trend_categorie.js.
 MISURA fine S55: 2020-25 52% su 1.978; bestie dal lato 42% su 43 (da rivedere). Ripartenza RIPARTENZA_11_10_2026_S56.md.
+
+## S56 · IL METODO DEL TREND (11/10/2026)
+- Ipotesi di Claude per le bestie dal lato ("senza movimenti utili vince la sede piu' di stagione") SMENTITA: sulle 43
+  carte del 2020-25 la sede chiaramente piu' forte c'e' in 28 e vince in 11. Misura riferita: la regola di base "la sede
+  che si muove nel vuoto e' scartata, vince l'altra" sul 2020-25 da' ragione all'altra sede nel 51% (254 carte).
+- EURUSD 30/08/2023 s108 (trend SHORT, metodo SHORT con le bestie dal lato, esito LONG +56): "The lower Gua has a water
+  triangle with Shen (day and month), Zi and Chen. The upper Gua has a wood triangle with Hai (hour), Mao and Wei. Upper
+  wins, not follow" -> I TRIANGOLI DEI TRIGRAMMI in lettura_trend.js (principio 1, prima del vuoto): due linee di un
+  trigramma e un pilastro chiudono un trigono, vale anche con linee vuote e con la sede che si muove nel vuoto; con i due
+  trigoni vince chi viene generato o chi controlla (regola del confronto delle bestie, EURJPY 07/09/2026).
+  Perimetri DI CLAUDE: la sede deve essere una delle due linee del trigono (senza, EURJPY 26/08/2026 s185 si rovesciava);
+  rami fermi, non arrivi; con un trigono solo (c.triangoliUno) spento: 50% su 796 carte.
+  MISURA: carte del trend lette da Edu 32/32 (aggiunta questa a carte_trend.json); decide 143 carte, 2020-25 55/113 (49%;
+  su quelle carte prima il metodo parlava su 85 con 38 giuste, 45%); metodo intero 53%, 2020-25 52% su 2.006.
+  Gemella EURUSD 08/03/2022 s108 (mese Mao, ora Hai): ora giusta.
