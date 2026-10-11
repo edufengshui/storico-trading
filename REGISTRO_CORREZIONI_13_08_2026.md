@@ -9425,3 +9425,12 @@ MISURA fine S55: 2020-25 52% su 1.978; bestie dal lato 42% su 43 (da rivedere). 
   MISURA: carte del trend lette da Edu 32/32 (aggiunta questa a carte_trend.json); decide 143 carte, 2020-25 55/113 (49%;
   su quelle carte prima il metodo parlava su 85 con 38 giuste, 45%); metodo intero 53%, 2020-25 52% su 2.006.
   Gemella EURUSD 08/03/2022 s108 (mese Mao, ora Hai): ora giusta.
+- Stessa carta, Edu (11/10/2026): "Certo Zi è vuoto ma è anche estremamente timely. Non si può trattare una linea vuota
+  timely come una untimely, quindi adatta le regole a riguardo" -> IL VUOTO DI STAGIONE NON E' VUOTO nel metodo del trend
+  (leggiPrincipi, c.vuotoTimely === false spegne): il ramo vuoto dello stesso elemento del mese o generato dal mese non e'
+  vuoto ne' sulle linee, ne' negli arrivi (la sede che si muove in un vuoto di stagione non e' scartata), ne' nei pilastri
+  delle bestie. Perimetro DI CLAUDE: "timely" = stesso elemento del mese o generato dal mese (la definizione del metodo).
+  Nota: rovescia per il metodo del trend la dottrina vecchia "il vuoto prospero di mese resta vuoto quanto ad azione" (§67,
+  LY e DLR), che resta valida negli altri motori finche' Edu non dice altrimenti.
+  MISURA: 32/32 carte di Edu; cambiano 164 carte (2020-25: 143, ora parla su 119 con 56 giuste, prima su 104 con 50);
+  metodo intero 53%, 2020-25 52% su 2.021; bestie dal lato ora 24 carte al 46% (prima 43 al 42%).
