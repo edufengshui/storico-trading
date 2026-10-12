@@ -394,5 +394,17 @@
   "dayBranch": "卯",
   "ema": "up",
   "atteso": "SHORT"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2024-10-21",
+  "seed": 149,
+  "yearStem": "甲",
+  "yearBranch": "辰",
+  "monthBranch": "戌",
+  "dayStem": "戊",
+  "dayBranch": "午",
+  "ema": "up",
+  "atteso": "LONG"
  }
 ]
