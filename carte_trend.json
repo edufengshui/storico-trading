@@ -406,5 +406,17 @@
   "dayBranch": "午",
   "ema": "up",
   "atteso": "LONG"
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2021-07-08",
+  "seed": 117,
+  "yearStem": "辛",
+  "yearBranch": "丑",
+  "monthBranch": "未",
+  "dayStem": "丁",
+  "dayBranch": "巳",
+  "ema": "down",
+  "atteso": "LONG"
  }
 ]
