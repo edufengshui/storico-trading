@@ -1,6 +1,6 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-11 06:26 GMT · feed del 2026-10-09 · trade proposti oggi: 0 · esiti compilati stanotte: 0
+Aggiornato: 2026-10-12 06:31 GMT · feed del 2026-10-12 · trade proposti oggi: 3 (AUDUSD SHORT, EURJPY LONG, EURUSD LONG) · esiti compilati stanotte: 0
 
 ## Statistica dal 2026-09-15
 
@@ -15,7 +15,7 @@ Aggiornato: 2026-10-11 06:26 GMT · feed del 2026-10-09 · trade proposti oggi: 
 | Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
 | Mese 2026-10 | 18 | 8 | 10 | 44,4% | +61 |
 
-Trade ancora senza esito: 7. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 10. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
 
