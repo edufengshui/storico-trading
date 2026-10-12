@@ -454,5 +454,17 @@
   "dayBranch": "酉",
   "ema": "up",
   "atteso": "LONG"
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2023-06-08",
+  "seed": 107,
+  "yearStem": "癸",
+  "yearBranch": "卯",
+  "monthBranch": "午",
+  "dayStem": "丁",
+  "dayBranch": "酉",
+  "ema": "down",
+  "atteso": "SHORT"
  }
 ]
