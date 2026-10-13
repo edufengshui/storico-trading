@@ -526,5 +526,17 @@
   "dayBranch": "子",
   "ema": "down",
   "atteso": "SHORT"
+ },
+ {
+  "cross": "GBPUSD",
+  "date": "2022-05-17",
+  "seed": 123,
+  "yearStem": "壬",
+  "yearBranch": "寅",
+  "monthBranch": "巳",
+  "dayStem": "庚",
+  "dayBranch": "午",
+  "ema": "down",
+  "atteso": "LONG"
  }
 ]
