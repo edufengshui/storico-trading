@@ -502,5 +502,17 @@
   "dayBranch": "巳",
   "ema": "up",
   "atteso": "SHORT"
+ },
+ {
+  "cross": "USDJPY",
+  "date": "2023-07-24",
+  "seed": 141,
+  "yearStem": "癸",
+  "yearBranch": "卯",
+  "monthBranch": "未",
+  "dayStem": "癸",
+  "dayBranch": "未",
+  "ema": "down",
+  "atteso": "SHORT"
  }
 ]
