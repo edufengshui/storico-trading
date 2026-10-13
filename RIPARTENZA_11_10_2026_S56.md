@@ -78,10 +78,13 @@ B. La vuota abbandonata (vince l'altra sede) al 44% su 159: e' il posto dove lo 
    le storte di quel tipo, ma solo dopo averle lette contro TUTTO il corpus (LY compreso).
 C. Il doppio clash sulla timely "la attiva": forma piena dell'attivazione non ancora dettata (oggi resta solo in gioco).
 D. Il mucchio "la Ying genera lo Shi" nella massa discorde (DLR e LY in disaccordo), ~26 carte storte.
-F. PORTATA A EDU il 13/10/2026: la sede vuota e ferma SOSTENUTA DAL GIORNO (stesso elemento o generata) vince nel
-   mercato 29 volte su 44 contro il metodo; coppia gemella USDCAD 04/07/2023 s132 e NZDUSD 16/11/2020 s68 (giorno 癸亥,
-   Shi 子 vuoto, L6 酉 col solo arrivo annullato, Ying incompatibile 丑->酉). Contro la regola codificata "vuota e ferma
-   non riceve anche se timely" e "dal vuoto si esce solo col clash": in attesa della sua risposta.
+F. CHIUSA (Edu, 13/10/2026, USDCAD 04/07/2023 s132 + gemella NZDUSD 16/11/2020 s68): "L4 ed L6 formano un trigono di
+   metallo che genera S. S esce dal vuoto grazie alla bestia del giorno e dell'ora che prendono possesso della linea" —
+   "linea vuota può essere posseduta da una bestia se questo si rivela necessario". Cablate: il trigono delle linee che
+   si muovono (partenze e arrivi, anche l'arrivo annullato della mobile sospesa) che genera una sede la fa vincere
+   (c.trigonoMobili); la sede vuota abbandonata lo riceve se una bestia di pilastro (ramo non vuoto, stesso elemento o che
+   la genera) ne prende possesso. Il possesso dello stesso elemento ovunque (c.possessoStesso='sempre') resta spento:
+   non "necessario" e 5 giuste in meno. Misura: 1.360 -> 1.363 giuste, 2.564 -> 2.567 parla. Carte del trend 49/49.
 E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.

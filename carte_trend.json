@@ -562,5 +562,29 @@
   "dayBranch": "卯",
   "ema": "down",
   "atteso": "LONG"
+ },
+ {
+  "cross": "USDCAD",
+  "date": "2023-07-04",
+  "seed": 132,
+  "yearStem": "癸",
+  "yearBranch": "卯",
+  "monthBranch": "午",
+  "dayStem": "癸",
+  "dayBranch": "亥",
+  "ema": "down",
+  "atteso": "SHORT"
+ },
+ {
+  "cross": "NZDUSD",
+  "date": "2020-11-16",
+  "seed": 68,
+  "yearStem": "庚",
+  "yearBranch": "子",
+  "monthBranch": "亥",
+  "dayStem": "癸",
+  "dayBranch": "亥",
+  "ema": "up",
+  "atteso": "LONG"
  }
 ]
