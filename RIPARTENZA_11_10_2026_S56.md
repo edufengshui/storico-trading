@@ -64,6 +64,19 @@ Ordine: 1 chi esce dal gioco -> 2 cosa fa il movimento a S e Y, 3 la forza nel m
   bestie con sedi vuote 55% su 29, Shi mobile nel vuoto senza sostituto 43% su 14, Ying mobile 63% su 24,
   eliminata dal clash: Shi G ferma 37% su 19.
 
+## PUNTI APERTI DA NON DIMENTICARE (Edu, 13/10/2026: "non dimenticarti altrimenti ci muoviamo in cerchio")
+A. DA CABLARE ALLA PRIMA CARTA CHE LO RICHIEDE: la bestia fa muovere una linea "solo se è già una linea mobile oppure
+   è clashata dal giorno o dall'ora". Cablati: la mobile bloccata presa dalla bestia (17/19) e la sede ferma clashata
+   dal GIORNO che si sveglia (USDJPY 24/07/2023). MANCA: la sede/linea clashata dall'ORA su cui cade la bestia, che la
+   bestia fa muovere — scriverla sulla prima carta che la mostra, non a occhio.
+B. La vuota abbandonata (vince l'altra sede) al 44% su 159: e' il posto dove lo sguardo di Edu compra di piu'; portargli
+   le storte di quel tipo, ma solo dopo averle lette contro TUTTO il corpus (LY compreso).
+C. Il doppio clash sulla timely "la attiva": forma piena dell'attivazione non ancora dettata (oggi resta solo in gioco).
+D. Il mucchio "la Ying genera lo Shi" nella massa discorde (DLR e LY in disaccordo), ~26 carte storte.
+E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
+   dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
+   Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
+
 ## DA DOVE RIPARTIRE
 1. Le bestie dal lato (42%): leggere da solo le carte storte (`node lettura_trend_categorie.js "bestie dal lato"`).
    Ipotesi di Claude da EURUSD 30/11/2021, da provare: senza movimenti utili vince la sede piu' di stagione e le bestie
