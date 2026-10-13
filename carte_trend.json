@@ -478,5 +478,17 @@
   "dayBranch": "子",
   "ema": "up",
   "atteso": "SHORT"
+ },
+ {
+  "cross": "EURUSD",
+  "date": "2024-02-15",
+  "seed": 107,
+  "yearStem": "甲",
+  "yearBranch": "辰",
+  "monthBranch": "寅",
+  "dayStem": "己",
+  "dayBranch": "酉",
+  "ema": "down",
+  "atteso": "LONG"
  }
 ]
