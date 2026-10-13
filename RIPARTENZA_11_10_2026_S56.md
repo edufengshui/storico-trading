@@ -85,6 +85,12 @@ F. CHIUSA (Edu, 13/10/2026, USDCAD 04/07/2023 s132 + gemella NZDUSD 16/11/2020 s
    (c.trigonoMobili); la sede vuota abbandonata lo riceve se una bestia di pilastro (ramo non vuoto, stesso elemento o che
    la genera) ne prende possesso. Il possesso dello stesso elemento ovunque (c.possessoStesso='sempre') resta spento:
    non "necessario" e 5 giuste in meno. Misura: 1.360 -> 1.363 giuste, 2.564 -> 2.567 parla. Carte del trend 49/49.
+G. CHIUSA (Edu, 13/10/2026, GBPUSD 08/09/2022 s115): "Poiché S è molto timely e la linea immediatamente superiore si muove
+   per generarla non può essere considerata vuota e vince". Cablata (c.vicinaGenera): sede vuota e ferma di stagione nel
+   mese E sostenuta dal giorno (stesso elemento o generata), con la linea accanto che si muove (mobile o incompatibile,
+   non legata dal giorno, anche verso il vuoto) e la genera col suo elemento -> non e' vuota, vince. E' un'eccezione a
+   "vuota e ferma non riceve anche se timely". Misura: 1.363 -> 1.365 giuste. Carte del trend 50/50.
+   Prove di Claude spente: possesso col confronto (-3), bestia che fa arrivare nel vuoto (rompe 2 riferimenti).
 E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
