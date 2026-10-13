@@ -550,5 +550,17 @@
   "dayBranch": "未",
   "ema": "down",
   "atteso": "SHORT"
+ },
+ {
+  "cross": "EURJPY",
+  "date": "2024-08-07",
+  "seed": 158,
+  "yearStem": "甲",
+  "yearBranch": "辰",
+  "monthBranch": "未",
+  "dayStem": "癸",
+  "dayBranch": "卯",
+  "ema": "down",
+  "atteso": "LONG"
  }
 ]
