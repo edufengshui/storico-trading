@@ -490,5 +490,17 @@
   "dayBranch": "酉",
   "ema": "down",
   "atteso": "LONG"
+ },
+ {
+  "cross": "NZDUSD",
+  "date": "2025-03-13",
+  "seed": 57,
+  "yearStem": "乙",
+  "yearBranch": "巳",
+  "monthBranch": "卯",
+  "dayStem": "辛",
+  "dayBranch": "巳",
+  "ema": "up",
+  "atteso": "SHORT"
  }
 ]
