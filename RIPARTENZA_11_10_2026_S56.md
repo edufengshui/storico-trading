@@ -91,6 +91,12 @@ G. CHIUSA (Edu, 13/10/2026, GBPUSD 08/09/2022 s115): "Poiché S è molto timely 
    non legata dal giorno, anche verso il vuoto) e la genera col suo elemento -> non e' vuota, vince. E' un'eccezione a
    "vuota e ferma non riceve anche se timely". Misura: 1.363 -> 1.365 giuste. Carte del trend 50/50.
    Prove di Claude spente: possesso col confronto (-3), bestia che fa arrivare nel vuoto (rompe 2 riferimenti).
+H. CHIUSA (Edu, 13/10/2026, USDCHF 29/06/2020 s94): "L5, L6 e il mese formano il raduno di fuoco generato anche dal
+   giorno. Y è troppo timely per essere vuoto". Cablata (c.radunoVuota): la sede vuota e ferma il cui ramo chiude un
+   raduno 三會 con altre linee non vuote e i rami della data (almeno una linea e un pilastro), raduno di stagione nel mese
+   e generato dal giorno (o del suo elemento) -> non e' vuota, vince. La condizione del giorno separa EURUSD 08/06/2023
+   s107 (stesso raduno 巳午未, giorno You: la Ying vuota perde, lettura di Edu). Misura 1.365 -> 1.368. Trend 51/51.
+   APERTO per Edu: "molto timely" basta da sola (mese+giorno, senza linea accanto ne' raduno)? 14 carte, 10 per la vuota.
 E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
