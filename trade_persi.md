@@ -1,23 +1,42 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-12 06:31 GMT · feed del 2026-10-12 · trade proposti oggi: 3 (AUDUSD SHORT, EURJPY LONG, EURUSD LONG) · esiti compilati stanotte: 0
+Aggiornato: 2026-10-13 07:06 GMT · feed del 2026-10-13 · trade proposti oggi: 5 (USDJPY LONG, EURJPY LONG, AUDUSD LONG, EURUSD LONG, GBPUSD SHORT) · esiti compilati stanotte: 3
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 40 | 23 | 17 | 57,5% | +319 |
+| **Totale** | 42 | 24 | 18 | 57,1% | +310 |
 | *Scala dal 09/10/2026: A = sistema attuale e DLR concordi · B = PB e LY concordi, DLR tace · C = DLR e Lettura concordi; i trade prima del 09/10 sono tradotti nella scala nuova* | | | | | |
 | Livello A | 22 | 13 | 9 | 59,1% | +110 |
-| Livello B | 4 | 2 | 2 | 50% | +111 |
-| Livello C | 11 | 6 | 5 | 54,5% | +33 |
+| Livello B | 5 | 3 | 2 | 60% | +137 |
+| Livello C | 12 | 6 | 6 | 50% | -2 |
 | In cantina, tradato fino all'08/10 (PB, LY e DLR concordi) | 22 | 6 | 16 | 27,3% | -428 |
+| In cantina dal 09/10, non tradato (solo osservato) | 1 | 0 | 1 | 0% | -50 |
 | Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
-| Mese 2026-10 | 18 | 8 | 10 | 44,4% | +61 |
+| Mese 2026-10 | 20 | 9 | 11 | 45% | +52 |
 
-Trade ancora senza esito: 10. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 12. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
+
+EURJPY, 2026-10-12
+Trend EMA: SHORT
+Il sistema dice: LONG (non segue il trend)
+Esito: -35 pip
+Seme 177 · superiore 6 · inferiore 1 · mutante L3
+Bazi: 丙午 戌 己未
+Livello: C · fiducia bassa · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T1a il malus non si ritira nel vuoto) · Spirito LONG · stelo tace · Sistema-trend segue (+2, SHORT) · via DLR: seme · stelo e ramo dello stesso elemento
+Deciso da: Livello C · Da Liu Ren e Lettura S47 concordano · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T1a il malus non si ritira nel vuoto) · Spirito LONG · stelo tace · Sistema-trend segue (+2, SHORT)
+
+EURUSD, 2026-10-12 (in cantina, non tradato)
+Trend EMA: SHORT
+Il sistema dice: LONG (non segue il trend)
+Esito: -50 pip
+Seme 112 · superiore 6 · inferiore 8 · mutante L4
+Bazi: 丙午 戌 己未
+Livello: cantina · fiducia alta · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T5 le tre porte) · Spirito tace · stelo tace · Sistema-trend non segue (-1, LONG) · via DLR: 八專 con l'ora G
+Deciso da: Livello cantina · Plum Blossom, Liu Yao e Da Liu Ren concordano — in cantina, non si trada · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T5 le tre porte) · Spirito tace · stelo tace · Sistema-trend non segue (-1, LONG)
 
 NZDUSD, 2026-10-07
 Trend EMA: SHORT
