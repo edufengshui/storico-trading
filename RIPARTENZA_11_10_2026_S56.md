@@ -28,7 +28,7 @@ Claude legge da solo le carte storte del 2020-25 e porta a Edu SOLO quelle che n
 Ordine: 1 chi esce dal gioco -> 2 cosa fa il movimento a S e Y, 3 la forza nel mese decide se il colpo riesce ->
 4 la forza ferma conta solo se nessun movimento decide. La lettura vecchia a 38 regole resta (c.versione='regole').
 1. FUORI GIOCO: S e Y tutte e due troppo fuori stagione -> tace; trigramma in confusione totale -> tace; la mobile legata
-   alla partenza dal mese o dal giorno non si muove; la sede che si muove nel vuoto (non se il giorno clasha l'arrivo) e'
+   alla partenza DAL GIORNO non si muove (il mese che combina non la ferma, Edu 13/10/2026); la sede che si muove nel vuoto (non se il giorno clasha l'arrivo) e'
    scartata; la G/W fuori stagione clashata dal giorno (ferma o mobile, non incompatibile) e' eliminata; la sede combinata
    e controllata dal giorno e' bloccata, salvo il flusso dello stelo del giorno forte nella data (vince lei).
    Sede fuori gioco ->
