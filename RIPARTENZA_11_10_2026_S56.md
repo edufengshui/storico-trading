@@ -97,6 +97,13 @@ H. CHIUSA (Edu, 13/10/2026, USDCHF 29/06/2020 s94): "L5, L6 e il mese formano il
    e generato dal giorno (o del suo elemento) -> non e' vuota, vince. La condizione del giorno separa EURUSD 08/06/2023
    s107 (stesso raduno 巳午未, giorno You: la Ying vuota perde, lettura di Edu). Misura 1.365 -> 1.368. Trend 51/51.
    APERTO per Edu: "molto timely" basta da sola (mese+giorno, senza linea accanto ne' raduno)? 14 carte, 10 per la vuota.
+I. CHIUSA (Edu, 13/10/2026, USDCHF 09/05/2022 s98): "Y è indebolito da L5 che avanza per diventare una forte You la quale
+   sostiene la parte contraria formando un trigono di metallo con L1 e S. Poiché l'ora è Chou, S non è vuoto. Il trigono
+   di metallo drena Y". Cablate: (1) l'ora riempie il vuoto della sede di stagione (c.oraRiempie, perimetro stretto: solo
+   Shi/Ying e di stagione); (2) il trigono arrivo+sede chiuso anche da una LINEA non vuota, e sostiene la sede qualunque
+   carattere (c.trigonoSede). Misura: 1.368 -> 1.360 (l'ora da sola: 14 carte cambiano, 4 meglio e 10 peggio; il trigono
+   -2). Trend 52/52. CONFLITTO SEGNALATO A EDU: l'ora che riempie va contro "dal vuoto si esce solo col clash" (08/09) e
+   "il ramo vuoto che e' ramo del mese E dell'anno e' riempito" (14/09). In attesa: vale solo per la sede di stagione?
 E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
