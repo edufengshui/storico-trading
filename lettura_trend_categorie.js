@@ -13,4 +13,4 @@ let sub=k;if(k==='scartata nel vuoto'){const kS=last.startsWith('lo Shi')?'Shi':
 if(k==='eliminata dal clash del giorno'){const kS=last.startsWith('lo Shi')?'shi':'ying';sub+=' · '+(kS==='shi'?'Shi':'Ying')+' '+R.linee[R[kS]-1].par+(R.mutante.pos===R[kS]?' mobile':' ferma');}
 add(sub,ok,[r.cross,r.date,r.seed,r.stelo+r.ramo,r.mese,r.ema,r.move,last].join(' '));}
 for(const k of Object.keys(st).sort())console.log(k.padEnd(48),Math.round(100*st[k][1]/st[k][0])+'%',st[k][0]);
-const k=process.argv[2];if(k)console.log((ex[k]||[]).slice(0,12).join('\n'));
+const k=process.argv[2];if(k)console.log((ex[k]||[]).slice(0,+(process.env.N||12)).join('\n'));

@@ -52,6 +52,10 @@ Ordine: 1 chi esce dal gioco -> 2 cosa fa il movimento a S e Y, 3 la forza nel m
    clash su una linea dell'altro trigramma; arrivo incompatibile va fuori (combina, stesso ramo, clash, genera).
    Sede nutrita da un'ALTRA linea che controlla l'altra sede la colpisce; sede troppo forte (stagione+giorno) non si
    lascia colpire dall'altra sede salvo punizione o sede nutrita da altri.
+   COMBINAZIONE TOTALE (portata dal LY il 13/10/2026, EURUSD 31/01/2024 s108): nessun movimento agisce e un trigramma
+   col suo trasformato e' 六合 su tre coppie con una linea che si muove -> la sua sede non vince, vince l'altra; col
+   trigramma alto bloccato e la sede del basso vuota decide la linea piu' forte (se non sta nel trigramma bloccato).
+   Misura: il metodo parla su 10 carte in piu', 14 giuste in piu' (1.346 -> 1.360 su 2.563). c.combTot=false spegne.
 4. FORZA FERMA (solo se i movimenti pareggiano): Ying genera Shi; mese G combinato con lo Shi; raduno stagionale
    sede+giorno+mobile del suo trigramma; linea piu' forte nel campo della sede vuota; pilastri sulla sede; giorno+linea
    accanto che drenano; sede combinata e controllata dal mese; squilibrio di forza nel mese e nel giorno (scarto 3).
@@ -74,6 +78,10 @@ B. La vuota abbandonata (vince l'altra sede) al 44% su 159: e' il posto dove lo 
    le storte di quel tipo, ma solo dopo averle lette contro TUTTO il corpus (LY compreso).
 C. Il doppio clash sulla timely "la attiva": forma piena dell'attivazione non ancora dettata (oggi resta solo in gioco).
 D. Il mucchio "la Ying genera lo Shi" nella massa discorde (DLR e LY in disaccordo), ~26 carte storte.
+F. PORTATA A EDU il 13/10/2026: la sede vuota e ferma SOSTENUTA DAL GIORNO (stesso elemento o generata) vince nel
+   mercato 29 volte su 44 contro il metodo; coppia gemella USDCAD 04/07/2023 s132 e NZDUSD 16/11/2020 s68 (giorno 癸亥,
+   Shi 子 vuoto, L6 酉 col solo arrivo annullato, Ying incompatibile 丑->酉). Contro la regola codificata "vuota e ferma
+   non riceve anche se timely" e "dal vuoto si esce solo col clash": in attesa della sua risposta.
 E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
