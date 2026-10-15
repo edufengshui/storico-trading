@@ -20,7 +20,8 @@ Claude legge da solo le carte storte del 2020-25 e porta a Edu SOLO quelle che n
    `VUOTO=1 SOPRAF=1 DRENA=1 FLUSSOTI=1 NAYINDEB=1 SKIPCLASH=gm RISCATTO=b PBLY=1 TRESIST=1 SOGLIAPIP=20 TRESISTDUMP=/tmp/tresist.json timeout 590 node pb_stress.js`
 5. Controlli del metodo: `node lettura_trend_rif.js` (deve dare 31/31: le carte lette da Edu col metodo, carte_trend.json),
    `node lettura_trend_test.js /tmp/tresist.json` (misura), `node lettura_trend_categorie.js` (il principio 1 per tipo).
-6. trade_persi.md: nessun trade perso nuovo dal 07/10 (feed fermo al 09/10).
+6. PRIMA DELLE CARTE portare a Edu i trade (Edu, 15/10/2026: "Che mi dici sui trade? Non mi hai portato niente"): esiti della
+   notte e trade del giorno da registro_live.json / trade_persi.md (la raccolta notturna gira di nuovo dal 14/10).
 7. Carta grafica PRIMA del testo: `node carta_auto.js "TITOLO" AAAA-MM-GG seme annoStelo annoRamo meseRamo giornoStelo giornoRamo out.png`
    poi SendUserFile; data della carta nei menu; incompatibili segnate come mobili.
 
