@@ -1,3 +1,25 @@
+# Confronto fra il feed del Worker e il calcolo del backtest — 2026-10-15
+
+Ogni casella: Worker / backtest (barre orarie, chiusure delle 21:00 UTC lun-ven).
+
+| cross | seme | trend | consolidato | durata | esito di ieri (pip) | differenze |
+|---|---|---|---|---|---|---|
+| EURUSD | 111 / 111 | down / down | true / true | 36 / 35 | -45.5 / -45.5 | durata |
+| GBPUSD | 132 / 132 | down / down | false / false | 1 / 1 | -67.7 / -67.7 | uguale |
+| USDJPY | 157 / 157 | up / up | true / true | 31 / 30 | -1.7 / -1.7 | durata |
+| USDCHF | 83 / 83 | up / up | true / true | 3 / 4 | 21.1 / 21.1 | durata |
+| AUDUSD | 69 / 69 | down / down | false / false | 1 / 1 | -11.2 / -11.2 | uguale |
+| USDCAD | 142 / 142 | up / up | true / true | 1 / 1 | 17.8 / 17.8 | uguale |
+| NZDUSD | 56 / 56 | down / down | true / true | 49 / 48 | -20.9 / -20.9 | durata |
+| EURJPY | 176 / 176 | down / down | true / true | 21 / 20 | -73.8 / -73.8 | durata |
+| EURGBP | 84 / 84 | down / down | true / true | 18 / 17 | 8.8 / 8.8 | durata |
+
+Trade del report col feed del Worker: USDJPY SHORT A, USDCHF LONG A, EURUSD LONG cantina, EURGBP SHORT cantina
+
+Trade del report coi dati calcolati come nel backtest: USDJPY SHORT A, USDCHF LONG A, EURUSD LONG cantina, EURGBP SHORT cantina
+
+---
+
 # Confronto fra il feed del Worker e il calcolo del backtest — 2026-10-14
 
 Ogni casella: Worker / backtest (barre orarie, chiusure delle 21:00 UTC lun-ven).
