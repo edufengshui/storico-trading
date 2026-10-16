@@ -105,6 +105,13 @@ I. CHIUSA (Edu, 13/10/2026, USDCHF 09/05/2022 s98): "Y è indebolito da L5 che a
    carattere (c.trigonoSede). Misura: 1.368 -> 1.360 (l'ora da sola: 14 carte cambiano, 4 meglio e 10 peggio; il trigono
    -2). Trend 52/52. CONFLITTO SEGNALATO A EDU: l'ora che riempie va contro "dal vuoto si esce solo col clash" (08/09) e
    "il ramo vuoto che e' ramo del mese E dell'anno e' riempito" (14/09). In attesa: vale solo per la sede di stagione?
+L. S57 (16/10/2026, Edu: "parti dall'assunto che il sistema esiste e sei tu che non lo stai catturando"): costruiti
+   inventario_carta.js (tutte le strutture della carta, verificato sulle 52 carte di Edu: contiene cio' che lui nomina) e
+   lettore_ordine.js (le domande sempre nello stesso ordine: fuori gioco, movimento, bestie/vuota, S contro Y, piu' forte,
+   flusso). Prima versione: 22/52 sulle carte di Edu, 49% sul mercato (il vecchio metodo 53%). MISURA DIRETTA
+   sull'inventario, 3.309 carte, base 48,3% che segue il trend: S controlla Y 47,5%, Y controlla S 49,4%, Y genera S 47,1%,
+   S genera Y 50,8%; stagione delle sedi e scarto di forza fra 44% e 53% senza andamento; solo lo Shi vuoto pesa (43-46%).
+   Portato a Edu. Proposta ancora aperta: 20 carte alla cieca.
 E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
