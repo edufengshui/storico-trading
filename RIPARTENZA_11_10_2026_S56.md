@@ -20,6 +20,9 @@ Claude legge da solo le carte storte del 2020-25 e porta a Edu SOLO quelle che n
    `VUOTO=1 SOPRAF=1 DRENA=1 FLUSSOTI=1 NAYINDEB=1 SKIPCLASH=gm RISCATTO=b PBLY=1 TRESIST=1 SOGLIAPIP=20 TRESISTDUMP=/tmp/tresist.json timeout 590 node pb_stress.js`
 5. Controlli del metodo: `node lettura_trend_rif.js` (deve dare 31/31: le carte lette da Edu col metodo, carte_trend.json),
    `node lettura_trend_test.js /tmp/tresist.json` (misura), `node lettura_trend_categorie.js` (il principio 1 per tipo).
+6b. QUANDO CLAUDE LEGGE DA SOLO UNA CARTA (Edu, 16/10/2026: "fra i punti da considerare che possono far pendere l'ago
+   della bilancia ... metti questi due animali"): il Serpente morto (死) sulla Shi, Ying o mobile pesa contro il trend;
+   l'Uccello Rosso in crescita (相) sulla mobile pesa per il trend. Cablato anche nel lettore nell'ordine (lettore_ordine.js).
 6a. PUNTI DA OSSERVARE PRIMA DI DECIDERE UN CROSS (Edu, 16/10/2026): nell'app (report e registro, voce "DA OSSERVARE",
    funzione osservaBestie in app.js) il Serpente morto (死) sulla Shi, sulla Ying o sulla mobile -> il trend non tiene
    (64% su 326); l'Uccello Rosso in crescita (相) sulla mobile -> sostiene il trend (candidato, 61% su 80). Non decidono.
