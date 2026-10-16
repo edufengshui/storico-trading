@@ -1,24 +1,42 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-15 05:11 GMT · feed del 2026-10-15 · trade proposti oggi: 4 (USDJPY SHORT, USDCHF LONG, EURUSD LONG, EURGBP SHORT) · esiti compilati stanotte: 4
+Aggiornato: 2026-10-16 04:59 GMT · feed del 2026-10-16 · trade proposti oggi: 3 (USDJPY SHORT, EURUSD SHORT, NZDUSD LONG) · esiti compilati stanotte: 4
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 47 | 27 | 20 | 57,4% | +426 |
+| **Totale** | 49 | 27 | 22 | 55,1% | +375 |
 | *Scala dal 09/10/2026: A = sistema attuale e DLR concordi · B = PB e LY concordi, DLR tace · C = DLR e Lettura concordi; i trade prima del 09/10 sono tradotti nella scala nuova* | | | | | |
-| Livello A | 26 | 15 | 11 | 57,7% | +201 |
+| Livello A | 28 | 15 | 13 | 53,6% | +150 |
 | Livello B | 6 | 4 | 2 | 66,7% | +162 |
 | Livello C | 12 | 6 | 6 | 50% | -2 |
 | In cantina, tradato fino all'08/10 (PB, LY e DLR concordi) | 22 | 6 | 16 | 27,3% | -428 |
-| In cantina dal 09/10, non tradato (solo osservato) | 5 | 2 | 3 | 40% | -67 |
+| In cantina dal 09/10, non tradato (solo osservato) | 7 | 4 | 3 | 57,1% | -34 |
 | Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
-| Mese 2026-10 | 25 | 12 | 13 | 48% | +168 |
+| Mese 2026-10 | 27 | 12 | 15 | 44,4% | +117 |
 
-Trade ancora senza esito: 11. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 10. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
+
+USDJPY, 2026-10-15
+Trend EMA: LONG
+Il sistema dice: SHORT (non segue il trend)
+Esito: -3 pip
+Seme 157 · superiore 3 · inferiore 5 · mutante L1
+Bazi: 丙午 戌 壬戌
+Livello: A · fiducia media · PB LONG · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 LONG (T4 il giorno tiene) · Spirito SHORT · stelo SHORT · Sistema-trend tace · via DLR: due trigoni · W sopra ma in tomba
+Deciso da: Livello A · sistema attuale e Da Liu Ren concordano · PB LONG · LY SHORT · attuale SHORT · DLR SHORT · Lettura S47 LONG (T4 il giorno tiene) · Spirito SHORT · stelo SHORT · Sistema-trend tace
+
+USDCHF, 2026-10-15
+Trend EMA: LONG
+Il sistema dice: LONG (segue il trend)
+Esito: -48 pip
+Seme 83 · superiore 2 · inferiore 3 · mutante L4
+Bazi: 丙午 戌 壬戌
+Livello: A · fiducia media · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0g2 la sede generata indietro) · Spirito tace · stelo SHORT · Sistema-trend tace · via DLR: 返吟 · il giorno genera chi cavalca il ramo del mese
+Deciso da: Livello A · sistema attuale e Da Liu Ren concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0g2 la sede generata indietro) · Spirito tace · stelo SHORT · Sistema-trend tace
 
 USDJPY, 2026-10-14
 Trend EMA: LONG
