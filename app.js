@@ -461,6 +461,7 @@ function analizzaCrossPerReport(r, utcMs, dateStr) {
         // sui giorni di mercato (si saltano i sabati).
         var st = letturaTrend(ly, dateStr, yearBranch, chart.monthBranch, chart.dayStem || null, chart.dayBranch, oraB0, r, dir);
         out.stDir = st.dir; out.stPunti = st.punti; out.stVerdetto = st.verdetto; out.stRacconto = st.racconto; out.stInizio = st.inizio;
+        out.osserva = osservaBestie(ly, chart.monthBranch);
         // --- TRE SISTEMI (Edu, 03/09/2026 S36): oltre a PB e LY si annotano il verdetto del
         // SISTEMA ATTUALE (PB + LY + rafforzativi, canonico = combinaS9 con tutte le vie accese)
         // e il verdetto del motore DA LIU REN (motore_dlr.js, stessa carta del pannello).
@@ -850,6 +851,28 @@ function trendStartDate(dateStr, emaRun) {
   return d.toISOString().slice(0, 10);
 }
 
+// PUNTI DA OSSERVARE PRIMA DI DECIDERE UN CROSS (Edu, 16/10/2026, S57: "Metti serpente e uccello fra i punti da osservare
+// prima di decidere un cross"). Non decidono: si mostrano accanto al trade.
+//  - il SERPENTE (螣蛇) morto nel mese (死: il mese ne controlla l'elemento) sulla Shi, sulla Ying o sulla mobile: il trend
+//    non tiene (§81; 2020-26: 326 carte, non segue il 64%; nel metodo del trend cablato sulla Shi e sulla Ying);
+//  - l'UCCELLO ROSSO (朱雀) sulla mobile, in crescita nel mese (相: il mese ne genera l'elemento): sostiene il trend
+//    (candidato: 80 carte, segue il 61%, tutti e due i periodi; da confermare con piu' carte).
+function osservaBestie(ly, monthBranch) {
+  var out = [];
+  try {
+    if (!ly || ly.error || !ly.linee || !monthBranch) return out;
+    var WXo = { '子':'Water','丑':'Earth','寅':'Wood','卯':'Wood','辰':'Earth','巳':'Fire','午':'Fire','未':'Earth','申':'Metal','酉':'Metal','戌':'Earth','亥':'Water' };
+    var GENo = { Wood:'Fire', Fire:'Earth', Earth:'Metal', Metal:'Water', Water:'Wood' }, KEo = { Wood:'Earth', Earth:'Water', Water:'Fire', Fire:'Metal', Metal:'Wood' };
+    var mE = WXo[monthBranch], mob = ly.mutante && ly.mutante.pos;
+    ly.linee.forEach(function (L) {
+      if (!L.bestia) return;
+      var e = WXo[L.ramo], dove = L.pos === ly.shi ? 'sullo Shi' : L.pos === ly.ying ? 'sulla Ying' : L.pos === mob ? 'sulla mobile' : null;
+      if (L.bestia.cn === '螣蛇' && dove && KEo[mE] === e) out.push('Serpente morto ' + dove + ' (L' + L.pos + '): il trend non tiene');
+      if (L.bestia.cn === '朱雀' && L.pos === mob && GENo[mE] === e) out.push('Uccello Rosso in crescita sulla mobile (L' + L.pos + '): sostiene il trend');
+    });
+  } catch (err) {}
+  return out;
+}
 function letturaTrend(ly, dateStr, yearBranch, monthBranch, dayStem, dayBranch, oraBranch, r, dir) {
   var out = { dir: null, punti: 0, verdetto: null, racconto: '', inizio: null };
   try {
@@ -968,7 +991,8 @@ function livelloTreSistemi(e) {
   var voci = 'PB ' + (pb || '—') + ' · LY ' + (ly || 'tace') + ' · attuale ' + (at || '—') +
              ' · DLR ' + (dlr || 'tace') + ' · Lettura S47 ' + (lett || 'tace') + (e.lettGradino ? ' (' + e.lettGradino + ')' : '') +
              ' · Spirito ' + (e.spirito || 'tace') + ' · stelo ' + (e.steloVoce || 'tace') +
-             ' · Sistema-trend ' + (e.stVerdetto ? (e.stVerdetto + ' (' + (e.stPunti > 0 ? '+' : '') + e.stPunti + (e.stDir ? ', ' + e.stDir : '') + ')') : 'tace');
+             ' · Sistema-trend ' + (e.stVerdetto ? (e.stVerdetto + ' (' + (e.stPunti > 0 ? '+' : '') + e.stPunti + (e.stDir ? ', ' + e.stDir : '') + ')') : 'tace') +
+             (e.osserva && e.osserva.length ? ' · DA OSSERVARE: ' + e.osserva.join('; ') : '');
   // Lo Spirito e lo stelo del giorno restano mostrati ma dal 16/09/2026 non contano piu' nella scala.
   if (!pb) return { liv: null, dir: null, perche: 'carta non leggibile', voci: voci };
   // LIVELLO A IN CANTINA (Edu, 09/10/2026: "E' meglio mettere in cantina il livello A"). Dal vivo dal 15/09 il
@@ -1061,7 +1085,7 @@ function renderReportTreSistemi() {
   var righeNo = esclusi.map(function (e) {
     return '<div style="' + css.row + '">' +
       '<span style="' + css.name + ';opacity:.75">' + e.cross + '</span>' + badge('NO TRADE') +
-      '<span style="' + css.note + '">' + e.motivo + (e.lettDir ? ' · <b>Lettura S47 ' + e.lettDir + '</b>' : '') + (e.stVerdetto ? ' · Sistema-trend ' + e.stVerdetto + ' (' + (e.stPunti > 0 ? '+' : '') + e.stPunti + ')' : '') + '</span></div>';
+      '<span style="' + css.note + '">' + e.motivo + (e.lettDir ? ' · <b>Lettura S47 ' + e.lettDir + '</b>' : '') + (e.stVerdetto ? ' · Sistema-trend ' + e.stVerdetto + ' (' + (e.stPunti > 0 ? '+' : '') + e.stPunti + ')' : '') + (e.osserva && e.osserva.length ? ' · <b style="color:#e3b341">Da osservare: ' + e.osserva.join('; ') + '</b>' : '') + '</span></div>';
   }).join('') || '<div style="padding:8px 0;opacity:.7">Nessun cross fermo.</div>';
   var cont = function (L) { return tradabili.filter(function (e) { return e.livello === L; }).length; };
   var nA = cont('A'), nB = cont('B'), nC = cont('C'), nD = cont('D');
