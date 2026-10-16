@@ -118,6 +118,11 @@ M. CABLATA (Edu, 16/10/2026, "Confermo"): lo Shi mobile (non incompatibile, non 
    Trovata dall'inventario (unica struttura su 190 fuori dal rumore: 31/42, 73,8%, tutti e due i periodi). Misura:
    1.360 -> 1.362 giuste (le altre carte del gruppo hanno la partenza combinata dal giorno: doppio legame, non partono).
    Provate e scartate su richiesta di Edu: sede del trend = sede alta/bassa (50,8%), S = prima valuta del cross (49,0%).
+N. CABLATA (Edu, 16/10/2026, GBPUSD 13/12/2021 s132, una delle 10 carte lette da Claude sapendo l'esito): "Y non può
+   muoversi e L2 che avanza lo attacca pure. S è timely e vince". Il doppio legame del giorno (colpisce la partenza e
+   combina l'arrivo, o lo speculare) ferma anche l'incompatibile; la sede cosi' ferma, fuori stagione, contro una sede di
+   stagione: vince quella di stagione (c.incDoppioLegame). Misura 1.362 -> 1.357 (riportata, non decide). Trend 53/53.
+   DA CHIEDERE: L2 attacca la Ying attraverso L3 vuota; la regola "vuota in mezzo ferma" oggi lo impedisce.
 E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
