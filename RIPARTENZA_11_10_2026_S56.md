@@ -123,6 +123,12 @@ N. CABLATA (Edu, 16/10/2026, GBPUSD 13/12/2021 s132, una delle 10 carte lette da
    combina l'arrivo, o lo speculare) ferma anche l'incompatibile; la sede cosi' ferma, fuori stagione, contro una sede di
    stagione: vince quella di stagione (c.incDoppioLegame). Misura 1.362 -> 1.357 (riportata, non decide). Trend 53/53.
    DA CHIEDERE: L2 attacca la Ying attraverso L3 vuota; la regola "vuota in mezzo ferma" oggi lo impedisce.
+O. CABLATO (16/10/2026, Edu: "Tempo fa avevamo parlato dell'importanza del serpente nel trend"): il §81 (20/08) nel
+   metodo del trend — il Serpente 螣蛇 sulla Shi o sulla Ying, morto nel mese (死) -> il trend non tiene, vince la Ying
+   (c.serpenteMorto). Misura: 1.357 -> 1.387 giuste (53,9%), col DLR 63,3%. Il §81 sul totale delle carte: 326, non
+   segue il 64,1% (2020-23 67%, 2024-26 60%), la struttura piu' forte trovata nella sessione. Sulla MOBILE non sede e'
+   spento: rovescerebbe USDJPY 21/10/2024 e USDCHF 09/05/2022 lette da Edu (+14 giuste in piu', c.serpenteMobile=true).
+   DA DECIDERE CON EDU: il Serpente morto sulla mobile.
 E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
