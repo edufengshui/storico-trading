@@ -112,6 +112,12 @@ L. S57 (16/10/2026, Edu: "parti dall'assunto che il sistema esiste e sei tu che 
    sull'inventario, 3.309 carte, base 48,3% che segue il trend: S controlla Y 47,5%, Y controlla S 49,4%, Y genera S 47,1%,
    S genera Y 50,8%; stagione delle sedi e scarto di forza fra 44% e 53% senza andamento; solo lo Shi vuoto pesa (43-46%).
    Portato a Edu. Proposta ancora aperta: 20 carte alla cieca.
+M. CABLATA (Edu, 16/10/2026, "Confermo"): lo Shi mobile (non incompatibile, non combinato alla partenza dal giorno) con
+   l'arrivo clashato dal giorno resta attivo alla partenza e vince; eccezione dalla sua lettura di EURUSD 08/07/2021: se la
+   bestia di un pilastro cade sulla Ying e il suo ramo fa da ponte S -> ramo -> Y, vince la Ying (c.shiArrivoClashato).
+   Trovata dall'inventario (unica struttura su 190 fuori dal rumore: 31/42, 73,8%, tutti e due i periodi). Misura:
+   1.360 -> 1.362 giuste (le altre carte del gruppo hanno la partenza combinata dal giorno: doppio legame, non partono).
+   Provate e scartate su richiesta di Edu: sede del trend = sede alta/bassa (50,8%), S = prima valuta del cross (49,0%).
 E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte le sue dottrine, LY compreso; se una
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
