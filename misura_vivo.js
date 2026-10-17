@@ -13,7 +13,7 @@ const O = JSON.parse(fs.readFileSync(path.join(DIR, 'orario_live.json'), 'utf8')
 const pip = c => /JPY$/.test(c) ? 100 : 10000, festivo = d => [0, 6].includes(new Date(d + 'T12:00:00Z').getUTCDay());
 const perGiorno = {}; for (const c in O) { perGiorno[c] = {}; O[c].forEach(b => { const d = b.t.slice(0, 10); (perGiorno[c][d] = perGiorno[c][d] || []).push(b); }); }
 // l'app come nel browser
-const store = {}; const el = () => ({ style: {}, innerHTML: '', textContent: '', value: '', dataset: {}, querySelectorAll: () => [], querySelector: () => null, addEventListener() {}, scrollIntoView() {} });
+const store = {}; if (process.env.SCALA) store.SCALA = process.env.SCALA;  // SCALA=PIRAMIDE_LY per la piramide S58 const el = () => ({ style: {}, innerHTML: '', textContent: '', value: '', dataset: {}, querySelectorAll: () => [], querySelector: () => null, addEventListener() {}, scrollIntoView() {} });
 const sb = { console, Math, Date, JSON, Object, Array, String, Number, Boolean, RegExp, Error, parseInt, parseFloat, isNaN, isFinite, Promise, setTimeout,
   localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = String(v); }, removeItem: k => { delete store[k]; } },
   navigator: {}, addEventListener() {}, fetch: async () => { throw new Error('offline'); },
@@ -40,7 +40,7 @@ for (let t = Date.parse(DAL + 'T00:00:00Z'); t <= Date.parse(AL + 'T00:00:00Z');
     const e = sb.__ana(row, D); if (!e.pbDir) continue;
     const m = Math.round((b21.c - b0.o) * pip(c)), L = sb.__liv(e);
     C.push({ date: D, cross: c, real: m > 0 ? 'LONG' : 'SHORT', move: Math.abs(m), trend: row.direction === 'up' ? 'LONG' : 'SHORT', liv: L.liv, dirLiv: L.dir,
-      PB: e.pbDir, LY: e.lyDir || null, AT: e.attuale || null, DLR: e.dlrDir || null, LETT: e.lettDir || null, MT: e.mtDir || null, D: e.dDir || null });
+      PB: e.pbDir, LY: e.lyDir || null, AT: e.attuale || null, DLR: e.dlrDir || null, LETT: e.lettDir || null, MT: e.mtDir || null, D: e.dDir || null, LYF: e.lyfDir || null });
   }
 }
 const hit = (c, x) => { const d = x[c[0]]; return d && c.every(v => x[v] === d) ? d : null; };
@@ -48,7 +48,7 @@ const riga = (nome, f) => { let n = 0, w = 0, p = 0; C.forEach(x => { const d = 
   console.log(nome.padEnd(46) + String(n).padStart(4) + ' trade ' + String(w).padStart(3) + ' vinti ' + (n ? (100 * w / n).toFixed(0) : '-').padStart(3) + '% ' + ((p > 0 ? '+' : '') + p).padStart(6) + ' pip'); };
 console.log('dal ' + DAL + ' al ' + AL + ': ' + [...new Set(C.map(x => x.date))].length + ' giorni di mercato, ' + C.length + ' cross-giorno');
 riga('seguire sempre il trend', x => x.trend);
-riga('D da solo', x => x.D); riga('DLR da solo', x => x.DLR);
+riga('D da solo', x => x.D); riga('LY da solo', x => x.LY); riga('sistema LY per forma da solo', x => x.LYF); riga('DLR da solo', x => x.DLR);
 riga('DLR = metodo del trend (senza D)', x => hit(['DLR', 'MT'], x));
 riga('PIRAMIDE intera', x => x.liv && x.liv !== 'cantina' && /^[0-9]+$/.test(x.liv) ? x.dirLiv : null);
 riga('  gradino 1 (punta)', x => x.liv === '1' ? x.dirLiv : null);
