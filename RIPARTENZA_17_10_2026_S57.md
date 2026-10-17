@@ -29,10 +29,14 @@ D contato senza la carta nella propria regola: punta 66,4% su 572.
 Interruttori localStorage: SCALA=S57A (scala a gradini del mattino: A attuale=DLR=MT, B PB=DLR=Lettura,
 C attuale=DLR=D, D LY=attuale=DLR), SCALA=S48 (scala vecchia A/B/C).
 
-DAL VIVO 29/09-16/10 (`node misura_vivo.js`, 12 giorni, 87 cross-giorno, esito 00:00->21:00 GMT):
-| piramide 58 trade 64% +800 | punta 16 56% +133 | 2-4 11 64% +175 | 5-7 19 74% +480 | 8-10 12 58% +12 |
-| trend semplice 87 56% +458 | D da solo 73 63% +951 | DLR da solo 75 45% -249 | cantina 17 47% -139 |
-Settimana 12-16/10 con la piramide: 21 trade, 11 vinti, +144 pip (punta 9 trade 4 vinti -8).
+DAL VIVO 29/09-16/10 (`node misura_vivo.js`, 12 giorni, 83 cross-giorno, esito 00:00->21:00 GMT) — CORRETTA S58:
+misura_vivo.js ricostruiva il trend dalla chiusura dell'ultima barra lun-ven (uguale al Worker solo 132/144 in
+confronto_live.md) e chiudeva all'apertura delle 21. Ora chiusure delle 21:00 + XKDGTrend.emaTrend: 143/144.
+| piramide 57 trade 61% +834 | punta 13 54% +153 | 2-4 12 50% +155 | 5-7 19 79% +516 | 8-10 13 54% +10 |
+| trend semplice 83 55% +426 | D da solo 70 61% +1030 | DLR da solo 70 43% -207 | cantina 15 47% -101 |
+Settimana 12-16/10 con la piramide: 18 trade, 10 vinti, +95 pip (punta 7 trade 2 vinti -28).
+(La tabella del S57 — piramide 58 · 64% · +800 — era calcolata coi trend sbagliati.)
+8 e 9 ottobre: non mancano dati, sono giorni di clash giorno/mese (motivo "la carta non scioglie"): nessuna carta.
 
 ## IL SISTEMA D (S57) — "il sistema D e' tuo perche' le regole le hai trovate tu" (Edu)
 - livello_d.js (nell'app), catalogo livello_d.json, Excel Livello_D.xlsx (inviato a Edu). Rigenerare:
@@ -84,6 +88,8 @@ Ordine: 1) trade della notte + misura_vivo.js  2) conferma del prossimo passo  3
 - Soglia minima di casi per le regole di D.
 - Verdetti opposti della stessa caratteristica su carte diverse (domanda a Edu).
 - GBPUSD 06/10/2026: DLR tace nel dump, parla nell'app (feed ricostruito senza ramo del seme? da verificare).
-- 8 e 9 ottobre mancano in misura_vivo.js (nessuna barra delle 21:00 in orario_live.json): controllare la raccolta.
+- CHIUSO (S58): 8 e 9 ottobre sono giorni di clash giorno/mese, l'app non legge (non un buco della raccolta).
+- Normale: il sabato il feed del Worker resta al venerdi', gli esiti del venerdi' (prevMovePip) arrivano col feed del
+  lunedi'. Fino ad allora si calcolano da orario_live.json (lo fa misura_vivo.js).
 - Domande del S56 ancora aperte: linea vuota in mezzo che ferma l'attacco (GBPUSD 13/12/2021); l'ora riempie il vuoto
   solo se di stagione?; Serpente morto sulla mobile (2 riferimenti contro +14); doppia combinazione col mese.

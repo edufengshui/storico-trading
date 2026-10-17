@@ -30,12 +30,15 @@ for (let t = Date.parse(DAL + 'T00:00:00Z'); t <= Date.parse(AL + 'T00:00:00Z');
   for (const c in perGiorno) {
     const oggi = perGiorno[c][D] || [], b0 = oggi.find(b => b.t.slice(11, 13) === '00'), b21 = oggi.find(b => b.t.slice(11, 13) === '21');
     if (!b0 || !b21) continue;
-    const closes = Object.keys(perGiorno[c]).sort().filter(d => d < D && !festivo(d)).map(d => perGiorno[c][d][perGiorno[c][d].length - 1].c);
-    const row = rowFor(c, b0.o); row.status = 'ok'; const dirs = emaDirs(emaSeries(closes, 12)), last = dirs[dirs.length - 1];
-    row.direction = last === 'u' ? 'up' : last === 'd' ? 'down' : 'flat'; row.emaChanges = countChanges(dirs.slice(-15));
-    row.emaConsolidated = row.emaChanges <= 2; row.emaRun = emaRunLen(dirs);
+    // S58 (17/10/2026): trend ed esito come il confronto della raccolta notturna e il Worker — chiusure delle 21:00
+    // (barra delle 21:00 chiusa) di ogni giorno con barre 00 e 21, XKDGTrend.emaTrend. Prima: chiusura dell'ultima
+    // barra lun-ven (trend uguale al Worker 132/144 in confronto_live.md, ora 143/144) ed esito all'apertura delle 21.
+    const g21 = d => { const g = perGiorno[c][d]; return g.some(b => b.t.slice(11, 13) === '00') ? g.find(b => b.t.slice(11, 13) === '21') : null; };
+    const closes = Object.keys(perGiorno[c]).sort().filter(d => d < D).map(g21).filter(Boolean).map(b => b.c);
+    const row = rowFor(c, b0.o); row.status = 'ok'; const et = sb.XKDGTrend.emaTrend(closes);
+    row.direction = et.direction; row.emaChanges = et.changes; row.emaConsolidated = et.consolidated; row.emaRun = et.runLen;
     const e = sb.__ana(row, D); if (!e.pbDir) continue;
-    const m = Math.round((b21.o - b0.o) * pip(c)), L = sb.__liv(e);
+    const m = Math.round((b21.c - b0.o) * pip(c)), L = sb.__liv(e);
     C.push({ date: D, cross: c, real: m > 0 ? 'LONG' : 'SHORT', move: Math.abs(m), trend: row.direction === 'up' ? 'LONG' : 'SHORT', liv: L.liv, dirLiv: L.dir,
       PB: e.pbDir, LY: e.lyDir || null, AT: e.attuale || null, DLR: e.dlrDir || null, LETT: e.lettDir || null, MT: e.mtDir || null, D: e.dDir || null });
   }
