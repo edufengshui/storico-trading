@@ -96,17 +96,20 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   55,5/55,3/54,7% contro 55,0% di tutte. Andare contro il LY dove sbaglia: sempre sotto il 50%.
 - Edu (17/10): "non mi interessa il risultato fuori dal campione, abbiamo gia' superato questa obiezione con il
   sistema-trend" -> costruito il catalogo come il sistema D.
-- VOCE LYF (sistema LY per forma): livello_ly_costruisci.js (catalogo livello_ly.json, 241 forme con regola, voci di
-  ogni carta in /tmp/voci_carte.json) -> livello_ly_genera.js -> livello_ly.js (app, sw v67, raccolta notturna).
-  Dentro il campione 77,3% su 2.813 (D 76,3% su 3.024). Nell'app: voce "Sistema LY per forma" nel report.
-- PIRAMIDE LY (piramide_costruisci.js, golosa, >=100 carte per gradino), interruttore SCALA=PIRAMIDE_LY (default resta
-  PIRAMIDE S57 finche' Edu non decide): 1 DLR=D=LYF 966 · 93,6% · cantina 546 · 54,9% · 2 MT=D=LYF 259 · 89,2% ·
-  3 PB=D=LYF 259 · 85,7% · 4 LY=D=LYF 113 · 85,8% · 5 AT=DLR=D 167 · 70,7% · 6 PB=DLR=LYF 114 · 70,2% · 7 LY=AT=D 224 · 66,1% ·
-  8 DLR=LYF 149 · 67,8% · 9 DLR=LETT=D 113 · 62,8% · 10 DLR=D 181 · 56,9%. Totale 2.545 · 81,5% · +94.318
-  (piramide in uso sullo stesso dump: 2.334 · 78,4% · +78.105).
-- Dal vivo 29/09-16/10 (SCALA=PIRAMIDE_LY node misura_vivo.js): piramide LY 60 · 55% · +569 (gradini 1-4: 27 · 67% ·
-  +482; 5-7 18 · 56%; 8-10 15 · 33% · -80); piramide in uso 57 · 61% · +834 (gradini 1-4: 25 · 52% · +308).
-  LYF da solo 63 · 52% · +207; LY da solo 83 · 55% · +324.
+- PRIMA VERSIONE SBAGLIATA (bersaglio "il LY ha ragione?"), corretta da Edu: "Il LY non lavora sul trend ma solo su chi
+  vince fra trigramma superiore o trigramma inferiore, fra S o Y, e quindi dice se il trade del giorno va in alto o in basso".
+- VOCE LYF (sistema LY per forma) = per ogni forma la caratteristica della data che separa i giorni ALTO dai BASSO, senza
+  trend. livello_ly_costruisci.js (livello_ly.json, 248 forme con regola, voci in /tmp/voci_carte.json) ->
+  livello_ly_genera.js -> livello_ly.js (app, sw v67, raccolta notturna). Dentro il campione 76,1% su 2.917.
+- Contraddizione trovata: tradotta in "chi vince", la stessa caratteristica da' versi opposti su forme diverse
+  (Shi fuori stagione: vince lo Shi in 12 forme, la Ying in 8; Shi di stagione 5 contro 4). Su tutte le carte la stagione
+  di Shi o Ying da sola non sposta chi vince (46,8-53,2% contro 50,2%; Shi e Ying sempre in trigrammi diversi, 326/326).
+- PIRAMIDE LY (piramide_costruisci.js, golosa, >=100 carte), SCALA=PIRAMIDE_LY (default resta PIRAMIDE S57):
+  1 DLR=D=LYF 1.002 · 92,7% · cantina 532 · 55,1% · 2 PB=D=LYF 421 · 89,8% · 3 LETT=D=LYF 150 · 87,3% · 4 DLR=LETT=D 212 · 69,3% ·
+  5 LY=MT=LYF 148 · 62,2% · 6 PB=DLR=LYF 120 · 61,7% · 7 LY=LYF 254 · 60,2% · 8 MT=D 133 · 60,2% · 9 DLR=LYF 110 · 60,0% ·
+  10 AT=DLR 101 · 57,4%. Totale 2.651 · 79,5% · +90.276 (in uso sullo stesso dump 2.334 · 78,4% · +78.105).
+- Dal vivo 29/09-16/10: LYF da sola 64 · 61% · +389 (LY 83 · 55% · +324). Piramide LY 64 · 58% · +513 (gradini 1-4:
+  39 · 69% · +642; 5-7 14 · 50%; 8-10 11 · 27%); piramide in uso 57 · 61% · +834 (gradini 1-4: 25 · 52% · +308).
 - DA DECIDERE CON EDU: quale piramide in uso (o i gradini 1-4 della LY sopra la S57).
 
 ## PUNTI APERTI (oltre a quelli del S56)
