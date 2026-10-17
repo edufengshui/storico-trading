@@ -84,6 +84,19 @@ con la voce nuova, prova su misura_vivo.js. Se Edu intendeva altro (per esempio 
 lettura LY normale), correggere qui.
 Ordine: 1) trade della notte + misura_vivo.js  2) conferma del prossimo passo  3) lavoro.
 
+## S58 (17/10/2026) — IL SISTEMA LY PER FORMA (fatto)
+Edu: "fare esattamente quello che e' stato fatto con il sistema-trend ma farlo con il LY ... vedere cosa succede se si
+applica la logica LY a queste 11 [carte identiche]". Script: livello_ly_database.js (stesse caratteristiche della data
+del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST SOGLIAPIP=0 fino al 18/09, 3.354 carte >=20 pip.
+- LY su tutte: 56,2% su 3.330, +29.306 pip; sul 2024-26 55,0% su 1.513.
+- Catalogo per forma "LY giusto/sbagliato": dentro il campione 75,1%; carta fuori 51,8% (ogni anno 50-56%);
+  regole 2020-23 sul 2024-26 49,6%. Controllo con "LY giusto" tirato a moneta: dentro 74,8%, fuori 53,9%.
+  Lo stesso calcolo per il sistema D (segue il trend): dentro 74,5%, fuori 50,8%, nel tempo 51,7%.
+- LY usato solo sulle forme dove ha avuto ragione: forme scelte sul 2020-23 (>=55/60/65%) danno sul 2024-26
+  55,5/55,3/54,7% contro 55,0% di tutte. Andare contro il LY dove sbaglia: sempre sotto il 50%.
+- Lettura: il LY ha la stessa riuscita su ogni forma (~55-56%); la forma non dice quando ha ragione, e la
+  caratteristica della data scelta per forma non lo separa fuori campione. Nessuna voce nuova nella piramide.
+
 ## PUNTI APERTI (oltre a quelli del S56)
 - Soglia minima di casi per le regole di D.
 - Verdetti opposti della stessa caratteristica su carte diverse (domanda a Edu).
