@@ -1625,7 +1625,7 @@
    "signal": "LONG",
    "trend": "LONG",
    "segue": true,
-   "decisore": "Livello cantina · Plum Blossom, Liu Yao e Da Liu Ren concordano — in cantina, non si trada · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0c la sede eliminata dal clash) · Spirito tace · stelo SHORT · Sistema-trend tace",
+   "decisore": "Livello cantina · Plum Blossom, Liu Yao e Da Liu Ren concordano — in cantina, non si trada · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0c la sede eliminata dal clash) · Spirito tace · stelo SHORT · Sistema-trend tace · DA OSSERVARE: Serpente morto sullo Shi (L5): il trend non tiene",
    "seed": 56,
    "sup": 7,
    "inf": 8,
@@ -1634,7 +1634,7 @@
    "livello": "cantina",
    "cantina": true,
    "fiducia": "media",
-   "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0c la sede eliminata dal clash) · Spirito tace · stelo SHORT · Sistema-trend tace",
+   "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0c la sede eliminata dal clash) · Spirito tace · stelo SHORT · Sistema-trend tace · DA OSSERVARE: Serpente morto sullo Shi (L5): il trend non tiene",
    "dlrVia": "W sul primo messaggio",
    "esito": null
   }

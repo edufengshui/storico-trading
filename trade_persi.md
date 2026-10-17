@@ -1,6 +1,6 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-16 04:59 GMT · feed del 2026-10-16 · trade proposti oggi: 3 (USDJPY SHORT, EURUSD SHORT, NZDUSD LONG) · esiti compilati stanotte: 4
+Aggiornato: 2026-10-17 04:59 GMT · feed del 2026-10-16 · trade proposti oggi: 3 (USDJPY SHORT, EURUSD SHORT, NZDUSD LONG) · esiti compilati stanotte: 0
 
 ## Statistica dal 2026-09-15
 
