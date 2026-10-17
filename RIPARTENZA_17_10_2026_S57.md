@@ -131,6 +131,20 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
 - PIRAMIDE PB IN USO DAL 17/10/2026 (Edu: "Si"): default 'PIRAMIDE' in app.js -> PIRAMIDE_PB (anche la raccolta notturna).
   SCALA=S58 rimette la piramide con i 3 gradini LY + S57, SCALA=S57 quella del mattino, SCALA=PIRAMIDE_LY la LY intera.
 
+## S58 — IL SISTEMA DLR PER FORMA (Edu 17/10: "Per ultimo il DLR, si puo' fare lo stesso anche li'?")
+- livello_dlr.js: forma = le quattro lezioni coi caratteri (B C W O G P di R1-R4), 430 forme, ~11 ripetizioni; caratteristiche
+  in termini DLR (stagione/vuoto di R1, R3, M1; cosa fanno mese e anno a R1, R3, M1; R1 contro R3; spiriti su R1-R4 in italiano;
+  generale sopra l'ora; metodo; carattere di M1 e dell'ora). Bersaglio ALTO/BASSO (Host vince -> LONG), senza trend.
+  livello_dlr_costruisci.js (dopo ly e pb; livello_dlr.json, DLRF nelle voci) + livello_dlr_genera.js. 248 forme con regola,
+  dentro il campione 78,5% su 2.670 (DLR normale 60,8%). App: voce "Sistema DLR per forma", sw v69, raccolta notturna.
+- PIRAMIDE DLR (SCALA=PIRAMIDE_DLR): 1 LYF=PBF=DLRF 1.073 · 97,2% · cantina 571 · 68,7% · 2 D=LYF=DLRF 132 · 90,9% ·
+  3 D=LYF=PBF 439 · 88,8% · 4 D=PBF=DLRF 320 · 88,4% · 5 DLR=LYF=DLRF 115 · 70,4% · 6 LYF=DLRF 100 · 70,0% · 7 DLR=PBF 215 · 70,7% ·
+  8 LY=DLRF 103 · 66,0% · 9 LETT=MT 113 · 60,2% · 10 LY=AT=LETT 107 · 47,7%. Totale 2.717 · 85,6% · +110.567.
+- Dal vivo 29/09-16/10: DLR da solo 70 · 43% · -207; DLRF 60 · 62% · +694. Piramide DLR 68 · 66% · +938 (punta 18 · 78% · +423;
+  2-4 28 · 64% · +410; 5-7 10 · 60% · -27; 8+ 12 · 58% · +132); piramide PB in uso 74 · 65% · +896. Settimana 12-16/10:
+  DLR 23 · 57% · +116, PB 26 · 58% · +50.
+- DA DECIDERE CON EDU: la piramide DLR in uso?
+
 ## PUNTI APERTI (oltre a quelli del S56)
 - Soglia minima di casi per le regole di D.
 - Verdetti opposti della stessa caratteristica su carte diverse (domanda a Edu).
