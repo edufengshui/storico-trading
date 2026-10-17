@@ -14,7 +14,7 @@ Leggere anche RIPARTENZA_11_10_2026_S56.md (regole cablate del metodo del trend,
 - All'inizio di ogni sessione: PRIMA i trade (esiti della notte, la tabella di misura_vivo.js), POI le carte.
 - Carte: immagine prima (carta_auto.js -> invio file), poi il formato del S56. Nomi in italiano.
 
-## IL SISTEMA IN USO DAL 17/10/2026: LA PIRAMIDE
+## IL SISTEMA IN USO DAL 17/10/2026: LA PIRAMIDE (dal 17/10 pomeriggio la PIRAMIDE S58, vedi sezione S58)
 Edu: "metti l'85% in cima alla piramide da usare solo ed esclusivamente su quel numero limitato di carte; al secondo
 livello il sistema che performa meglio per il restante gruppo, e cosi' via" · "E quindi questo deve essere il sistema
 da adesso in poi!". In app.js (livelloTreSistemi, scalaScelta 'PIRAMIDE' di default) e nella raccolta notturna.
@@ -110,7 +110,11 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   10 AT=DLR 101 · 57,4%. Totale 2.651 · 79,5% · +90.276 (in uso sullo stesso dump 2.334 · 78,4% · +78.105).
 - Dal vivo 29/09-16/10: LYF da sola 64 · 61% · +389 (LY 83 · 55% · +324). Piramide LY 64 · 58% · +513 (gradini 1-4:
   39 · 69% · +642; 5-7 14 · 50%; 8-10 11 · 27%); piramide in uso 57 · 61% · +834 (gradini 1-4: 25 · 52% · +308).
-- DA DECIDERE CON EDU: quale piramide in uso (o i gradini 1-4 della LY sopra la S57).
+- PIRAMIDE S58 IN USO DAL 17/10/2026 (Edu: "Si", default 'PIRAMIDE' in app.js e nella raccolta notturna; SCALA=S57 la
+  vecchia, SCALA=PIRAMIDE_LY la LY intera): 1 DLR=D=LYF · cantina · 2 PB=D=LYF · 3 LETT=D=LYF · 4-13 la S57 sulle rimaste.
+  Backtest 2.440 · 79,2% · +84.455 (1-3: 1.573 carte 91-93%; 4-6 63-66%; 7-13 46-55%: candidati da tagliare).
+  Dal vivo 29/09-16/10: 61 · 61% · +849 (punta 19 · 63% · +296; 2-4 25 · 64%; 5-7 5 · 40%; 8+ 12 · 58%); S57 57 · 61% · +834.
+  IBRIDA=1 node piramide_costruisci.js la misura sul backtest.
 
 ## PUNTI APERTI (oltre a quelli del S56)
 - Soglia minima di casi per le regole di D.

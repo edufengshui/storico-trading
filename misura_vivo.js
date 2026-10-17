@@ -54,5 +54,5 @@ riga('PIRAMIDE intera', x => x.liv && x.liv !== 'cantina' && /^[0-9]+$/.test(x.l
 riga('  gradino 1 (punta)', x => x.liv === '1' ? x.dirLiv : null);
 riga('  gradini 2-4', x => /^[234]$/.test(x.liv || '') ? x.dirLiv : null);
 riga('  gradini 5-7', x => /^[567]$/.test(x.liv || '') ? x.dirLiv : null);
-riga('  gradini 8-10', x => /^(8|9|10)$/.test(x.liv || '') ? x.dirLiv : null);
+riga('  gradini 8 e oltre', x => /^([89]|1[0-9])$/.test(x.liv || '') ? x.dirLiv : null);
 riga('cantina (non si trada)', x => x.liv === 'cantina' ? x.dirLiv : null);

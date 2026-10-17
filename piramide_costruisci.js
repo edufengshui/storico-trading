@@ -30,3 +30,6 @@ for (let g = 0; g < 10; g++) {
 }
 esegui(PIR, 'PIRAMIDE COSTRUITA con le voci ' + VOCI.join(', ') + ' (almeno ' + MIN + ' carte per gradino)');
 console.log('\nPIR = ' + JSON.stringify(PIR));
+// S58 (Edu 17/10/2026, "Si"): in testa i primi 3 gradini della piramide LY, sotto la piramide S57 com'era.
+if (process.env.IBRIDA) esegui([['DLR', 'D', 'LYF'], 'cantina', ['PB', 'D', 'LYF'], ['LETT', 'D', 'LYF'], ['D', 'DLR', 'MT'], ['AT', 'DLR', 'D'], ['DLR', 'LETT', 'D'],
+  ['PB', 'DLR', 'D'], ['LETT', 'MT', 'D'], ['PB', 'MT', 'D'], ['PB', 'AT', 'D'], ['DLR', 'D'], ['LY', 'LETT', 'D'], ['PB', 'D']], 'PIRAMIDE S58 (3 gradini LY + S57)');
