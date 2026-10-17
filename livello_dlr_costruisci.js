@@ -17,7 +17,7 @@ V.forEach(v => { const r = T[v.cross + v.date]; if (!r) return;
   v._pbForma = SP.forma(c); v._f = Object.keys(SP.caratteristiche(c));
   db.push({ v, forma: v._pbForma, segue: v.real === 'LONG' ? 1 : 0, f: v._f }); });
 function regola(rip) { const fe = {}; rip.forEach(x => x.f.forEach(k => fe[k] = 1)); let best = null;
-  for (const k of Object.keys(fe)) { const con = rip.filter(x => x.f.includes(k)), senza = rip.filter(x => !x.f.includes(k)); if (con.length < 2 || senza.length < 2) continue;
+  for (const k of Object.keys(fe)) { const con = rip.filter(x => x.f.includes(k)), senza = rip.filter(x => !x.f.includes(k)); if (con.length < (+process.env.MINLATO || 2) || senza.length < (+process.env.MINLATO || 2)) continue;
     const sc = con.reduce((a, x) => a + x.segue, 0), ss = senza.reduce((a, x) => a + x.segue, 0);
     const vc = sc * 2 >= con.length ? 1 : 0, vs = ss * 2 >= senza.length ? 1 : 0; if (vc === vs) continue;
     const ok = (vc ? sc : con.length - sc) + (vs ? ss : senza.length - ss);

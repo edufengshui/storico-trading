@@ -3,7 +3,7 @@ const D='/home/claude/edufengshui/storico-trading';global.window=global;const lj
 const LYM=require(D+'/liuyao.js'),IV=require(D+'/inventario_carta.js');
 const ST=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'],BR=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];const WUSHU={'甲':'甲','己':'甲','乙':'丙','庚':'丙','丙':'戊','辛':'戊','丁':'庚','壬':'庚','戊':'壬','癸':'壬'};
 const fs=require('fs');const db=[];
-for(const r of require('/tmp/tresist.json').filter(r=>r.ema&&Math.abs(r.move)>=20)){const yp=lj.Solar.fromYmdHms(...r.date.split('-').map(Number),8,0,0).getLunar().getYearInGanZhiExact();const R=LYM.read(r.seed,r.ramo,r.mese,yp[1],r.stelo);if(!R||R.error||!R.mutante||!R.mutante.pos)continue;
+for(const r of JSON.parse(fs.readFileSync(process.argv[2]||'/tmp/tresist.json','utf8')).filter(r=>r.ema&&Math.abs(r.move)>=20)){const yp=lj.Solar.fromYmdHms(...r.date.split('-').map(Number),8,0,0).getLunar().getYearInGanZhiExact();const R=LYM.read(r.seed,r.ramo,r.mese,yp[1],r.stelo);if(!R||R.error||!R.mutante||!R.mutante.pos)continue;
 const ms=ST[((ST.indexOf(yp[0])%5)*2+2+((BR.indexOf(r.mese)+10)%12))%10],hs=ST[(ST.indexOf(WUSHU[r.stelo])+BR.indexOf(R.oraBranch))%10];
 const inv=IV.inventario(R,{dayBranch:r.ramo,monthBranch:r.mese,yearBranch:yp[1],oraBranch:R.oraBranch,dayStem:r.stelo,yearStem:yp[0],monthStem:ms,hourStem:hs,emaDir:r.ema});
 const f={};const S=inv.linee[inv.shi-1],Y=inv.linee[inv.ying-1];

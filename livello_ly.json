@@ -30,6 +30,16 @@
   "carte": "GBPUSD 2022-03-14 s130 basso [col tratto]; GBPUSD 2023-07-19 s130 basso; GBPUSD 2024-09-11 s130 basso; GBPUSD 2025-04-03 s130 alto [col tratto]; GBPUSD 2025-11-05 s130 alto; USDJPY 2023-03-27 s130 alto [col tratto]; AUDUSD 2020-03-06 s66 alto [col tratto]; AUDUSD 2022-09-22 s66 alto; AUDUSD 2022-11-21 s66 basso [col tratto]; AUDUSD 2023-03-15 s66 basso [col tratto]; AUDUSD 2023-06-07 s66 basso; AUDUSD 2023-11-28 s66 alto [col tratto]; AUDUSD 2023-12-04 s66 basso [col tratto]; AUDUSD 2024-01-15 s66 basso; AUDUSD 2024-10-17 s66 alto; AUDUSD 2024-10-23 s66 basso; AUDUSD 2025-09-18 s66 basso; AUDUSD 2025-12-05 s66 alto [col tratto]; AUDUSD 2025-12-17 s66 basso [col tratto]; AUDUSD 2025-12-23 s66 alto [col tratto]; USDCAD 2020-09-08 s130 alto; NZDUSD 2020-07-28 s66 basso; NZDUSD 2020-08-03 s66 basso; EURJPY 2021-04-12 s130 basso; EURJPY 2021-09-09 s130 basso; EURJPY 2022-01-07 s130 alto"
  },
  {
+  "forma": "8/4 L2",
+  "volte": 25,
+  "alto": 12,
+  "regola": "Se Shi: il giorno combina → ALTO (9/13); altrimenti BASSO (9/12)",
+  "ok": "18/25",
+  "chiave": "Shi: il giorno combina",
+  "se": 1,
+  "carte": "GBPUSD 2020-09-07 s132 basso [col tratto]; GBPUSD 2021-12-13 s132 basso; GBPUSD 2022-03-07 s132 basso; GBPUSD 2025-05-02 s132 basso; GBPUSD 2025-10-29 s132 basso; GBPUSD 2026-03-16 s132 alto [col tratto]; GBPUSD 2026-07-02 s132 alto [col tratto]; GBPUSD 2026-09-24 s132 basso [col tratto]; GBPUSD 2026-09-30 s132 alto; GBPUSD 2026-10-06 s132 alto [col tratto]; GBPUSD 2026-10-12 s132 basso; USDJPY 2023-03-20 s132 basso [col tratto]; AUDUSD 2020-06-15 s68 alto [col tratto]; AUDUSD 2022-12-14 s68 alto [col tratto]; AUDUSD 2026-07-02 s68 alto [col tratto]; USDCAD 2020-08-20 s132 basso; USDCAD 2023-07-06 s132 alto [col tratto]; USDCAD 2023-07-12 s132 basso; USDCAD 2023-07-24 s132 basso; USDCAD 2024-01-02 s132 alto [col tratto]; NZDUSD 2020-11-18 s68 alto [col tratto]; NZDUSD 2022-04-12 s68 alto; EURJPY 2021-05-17 s132 basso [col tratto]; EURJPY 2021-10-26 s132 alto; EURJPY 2022-02-11 s132 basso"
+ },
+ {
   "forma": "8/5 L6",
   "volte": 25,
   "alto": 9,
@@ -50,16 +60,6 @@
   "carte": "GBPUSD 2021-11-02 s136 basso [col tratto]; GBPUSD 2025-07-08 s136 basso [col tratto]; GBPUSD 2025-09-18 s136 basso [col tratto]; GBPUSD 2026-02-03 s136 alto [col tratto]; GBPUSD 2026-02-09 s136 alto; GBPUSD 2026-08-26 s136 basso [col tratto]; USDJPY 2022-06-30 s136 basso [col tratto]; AUDUSD 2020-09-08 s72 basso [col tratto]; AUDUSD 2021-09-21 s72 basso [col tratto]; AUDUSD 2021-09-27 s72 alto [col tratto]; AUDUSD 2026-05-04 s72 basso [col tratto]; USDCAD 2022-10-04 s136 basso [col tratto]; USDCAD 2023-03-15 s136 alto; USDCAD 2023-03-21 s136 alto; USDCAD 2023-09-11 s136 basso [col tratto]; USDCAD 2024-09-11 s136 basso [col tratto]; USDCAD 2025-06-20 s136 alto [col tratto]; USDCAD 2025-07-02 s136 basso [col tratto]; USDCAD 2025-12-29 s136 alto; USDCAD 2026-02-03 s136 basso [col tratto]; USDCAD 2026-04-28 s136 alto [col tratto]; NZDUSD 2020-12-31 s72 basso; NZDUSD 2021-01-06 s72 alto [col tratto]; NZDUSD 2021-05-12 s72 basso [col tratto]; NZDUSD 2021-05-18 s72 alto [col tratto]"
  },
  {
-  "forma": "8/4 L2",
-  "volte": 24,
-  "alto": 12,
-  "regola": "Se Shi: il giorno combina → ALTO (9/13); altrimenti BASSO (8/11)",
-  "ok": "17/24",
-  "chiave": "Shi: il giorno combina",
-  "se": 1,
-  "carte": "GBPUSD 2020-09-07 s132 basso [col tratto]; GBPUSD 2021-12-13 s132 basso; GBPUSD 2022-03-07 s132 basso; GBPUSD 2025-05-02 s132 basso; GBPUSD 2025-10-29 s132 basso; GBPUSD 2026-03-16 s132 alto [col tratto]; GBPUSD 2026-07-02 s132 alto [col tratto]; GBPUSD 2026-09-24 s132 basso [col tratto]; GBPUSD 2026-09-30 s132 alto; GBPUSD 2026-10-06 s132 alto [col tratto]; USDJPY 2023-03-20 s132 basso [col tratto]; AUDUSD 2020-06-15 s68 alto [col tratto]; AUDUSD 2022-12-14 s68 alto [col tratto]; AUDUSD 2026-07-02 s68 alto [col tratto]; USDCAD 2020-08-20 s132 basso; USDCAD 2023-07-06 s132 alto [col tratto]; USDCAD 2023-07-12 s132 basso; USDCAD 2023-07-24 s132 basso; USDCAD 2024-01-02 s132 alto [col tratto]; NZDUSD 2020-11-18 s68 alto [col tratto]; NZDUSD 2022-04-12 s68 alto; EURJPY 2021-05-17 s132 basso [col tratto]; EURJPY 2021-10-26 s132 alto; EURJPY 2022-02-11 s132 basso"
- },
- {
   "forma": "8/1 L1",
   "volte": 23,
   "alto": 8,
@@ -68,6 +68,26 @@
   "chiave": "Shi Tai Sui",
   "se": 1,
   "carte": "GBPUSD 2020-02-24 s129 basso; GBPUSD 2020-07-29 s129 alto; GBPUSD 2023-07-20 s129 basso; GBPUSD 2024-08-19 s129 alto [col tratto]; GBPUSD 2024-10-24 s129 alto [col tratto]; GBPUSD 2024-11-05 s129 alto [col tratto]; USDJPY 2022-04-20 s129 basso; AUDUSD 2020-04-30 s65 basso; AUDUSD 2024-01-22 s65 basso; AUDUSD 2024-08-01 s65 basso [col tratto]; AUDUSD 2024-08-13 s65 alto [col tratto]; AUDUSD 2024-11-05 s65 alto [col tratto]; AUDUSD 2025-07-15 s65 basso; AUDUSD 2025-08-14 s65 basso; AUDUSD 2025-09-25 s65 basso; AUDUSD 2025-11-06 s65 basso; USDCAD 2021-12-21 s129 basso; NZDUSD 2020-06-11 s65 basso; NZDUSD 2022-02-01 s65 alto; NZDUSD 2022-06-01 s65 basso; NZDUSD 2023-02-02 s65 basso; EURJPY 2021-03-08 s129 basso; EURJPY 2021-04-01 s129 alto"
+ },
+ {
+  "forma": "8/5 L3",
+  "volte": 23,
+  "alto": 13,
+  "regola": "Se Shi: l'ora combina → ALTO (12/16); altrimenti BASSO (6/7)",
+  "ok": "18/23",
+  "chiave": "Shi: l'ora combina",
+  "se": 1,
+  "carte": "GBPUSD 2020-11-24 s133 alto [col tratto]; GBPUSD 2025-12-04 s133 basso [col tratto]; GBPUSD 2025-12-10 s133 alto [col tratto]; GBPUSD 2025-12-16 s133 alto [col tratto]; GBPUSD 2025-12-22 s133 alto [col tratto]; GBPUSD 2026-03-04 s133 alto [col tratto]; GBPUSD 2026-07-08 s133 alto [col tratto]; GBPUSD 2026-09-18 s133 alto [col tratto]; USDJPY 2023-03-14 s133 alto [col tratto]; AUDUSD 2022-06-29 s69 basso; AUDUSD 2023-02-06 s69 basso; AUDUSD 2026-09-30 s69 basso; AUDUSD 2026-10-12 s69 basso; USDCAD 2020-06-09 s133 alto [col tratto]; USDCAD 2022-09-21 s133 alto [col tratto]; USDCAD 2023-01-31 s133 basso [col tratto]; USDCAD 2023-04-19 s133 alto [col tratto]; USDCAD 2023-06-12 s133 alto [col tratto]; USDCAD 2023-12-21 s133 basso [col tratto]; NZDUSD 2020-11-24 s69 alto; NZDUSD 2022-03-31 s69 basso; NZDUSD 2022-04-06 s69 basso; EURJPY 2021-06-10 s133 basso [col tratto]"
+ },
+ {
+  "forma": "8/4 L3",
+  "volte": 23,
+  "alto": 10,
+  "regola": "Se Shi prigioniero (囚) → ALTO (4/6); altrimenti BASSO (11/17)",
+  "ok": "15/23",
+  "chiave": "Shi 囚",
+  "se": 1,
+  "carte": "GBPUSD 2021-12-02 s132 alto; GBPUSD 2021-12-08 s132 basso; GBPUSD 2021-12-20 s132 basso; GBPUSD 2024-09-17 s132 basso; GBPUSD 2025-08-01 s132 alto; GBPUSD 2026-06-21 s132 basso [col tratto]; GBPUSD 2026-09-25 s132 alto; GBPUSD 2026-10-01 s132 basso; GBPUSD 2026-10-07 s132 basso; GBPUSD 2026-10-13 s132 alto; USDJPY 2022-12-27 s132 alto; AUDUSD 2020-06-22 s68 alto [col tratto]; AUDUSD 2022-06-30 s68 alto [col tratto]; AUDUSD 2022-12-15 s68 basso; AUDUSD 2023-06-19 s68 basso [col tratto]; AUDUSD 2023-07-19 s68 basso; USDCAD 2023-12-28 s132 alto; NZDUSD 2022-03-14 s68 basso; NZDUSD 2022-04-13 s68 basso; EURJPY 2021-05-12 s132 alto [col tratto]; EURJPY 2021-05-18 s132 alto [col tratto]; EURJPY 2021-10-27 s132 basso; EURJPY 2021-11-02 s132 basso"
  },
  {
   "forma": "7/2 L2",
@@ -90,16 +110,6 @@
   "carte": "GBPUSD 2020-08-05 s130 alto [col tratto]; GBPUSD 2020-08-11 s130 basso [col tratto]; GBPUSD 2022-03-16 s130 alto; GBPUSD 2022-04-21 s130 basso [col tratto]; GBPUSD 2024-11-06 s130 basso [col tratto]; USDJPY 2022-05-09 s130 basso [col tratto]; AUDUSD 2022-11-23 s66 alto; AUDUSD 2022-11-29 s66 alto; AUDUSD 2024-05-22 s66 basso [col tratto]; AUDUSD 2024-08-14 s66 basso [col tratto]; AUDUSD 2024-11-06 s66 basso [col tratto]; AUDUSD 2025-10-02 s66 basso [col tratto]; USDCAD 2020-11-27 s130 basso; USDCAD 2022-09-12 s130 basso [col tratto]; NZDUSD 2020-07-30 s66 alto [col tratto]; NZDUSD 2022-01-27 s66 basso [col tratto]; EURJPY 2021-03-15 s130 basso; EURJPY 2021-04-14 s130 alto [col tratto]; EURJPY 2021-04-26 s130 alto [col tratto]; EURJPY 2021-07-07 s130 basso [col tratto]; EURJPY 2021-07-13 s130 basso [col tratto]; EURJPY 2021-09-29 s130 basso [col tratto]"
  },
  {
-  "forma": "8/5 L3",
-  "volte": 22,
-  "alto": 13,
-  "regola": "Se Shi: l'ora combina → ALTO (12/16); altrimenti BASSO (5/6)",
-  "ok": "17/22",
-  "chiave": "Shi: l'ora combina",
-  "se": 1,
-  "carte": "GBPUSD 2020-11-24 s133 alto [col tratto]; GBPUSD 2025-12-04 s133 basso [col tratto]; GBPUSD 2025-12-10 s133 alto [col tratto]; GBPUSD 2025-12-16 s133 alto [col tratto]; GBPUSD 2025-12-22 s133 alto [col tratto]; GBPUSD 2026-03-04 s133 alto [col tratto]; GBPUSD 2026-07-08 s133 alto [col tratto]; GBPUSD 2026-09-18 s133 alto [col tratto]; USDJPY 2023-03-14 s133 alto [col tratto]; AUDUSD 2022-06-29 s69 basso; AUDUSD 2023-02-06 s69 basso; AUDUSD 2026-09-30 s69 basso; USDCAD 2020-06-09 s133 alto [col tratto]; USDCAD 2022-09-21 s133 alto [col tratto]; USDCAD 2023-01-31 s133 basso [col tratto]; USDCAD 2023-04-19 s133 alto [col tratto]; USDCAD 2023-06-12 s133 alto [col tratto]; USDCAD 2023-12-21 s133 basso [col tratto]; NZDUSD 2020-11-24 s69 alto; NZDUSD 2022-03-31 s69 basso; NZDUSD 2022-04-06 s69 basso; EURJPY 2021-06-10 s133 basso [col tratto]"
- },
- {
   "forma": "1/1 L5",
   "volte": 22,
   "alto": 9,
@@ -120,16 +130,6 @@
   "carte": "GBPUSD 2021-11-22 s134 basso; GBPUSD 2024-09-25 s134 basso [col tratto]; GBPUSD 2025-04-29 s134 basso; GBPUSD 2025-07-22 s134 alto; GBPUSD 2025-07-28 s134 basso; GBPUSD 2025-08-21 s134 basso; GBPUSD 2025-10-02 s134 basso; GBPUSD 2026-04-24 s134 alto; GBPUSD 2026-06-17 s134 basso; GBPUSD 2026-07-17 s134 basso; GBPUSD 2026-08-04 s134 alto; GBPUSD 2026-09-03 s134 alto; USDJPY 2022-06-14 s134 alto; USDJPY 2022-12-05 s134 alto [col tratto]; USDJPY 2022-12-29 s134 basso; AUDUSD 2026-01-30 s70 basso; AUDUSD 2026-02-11 s70 alto; AUDUSD 2026-04-12 s70 basso; AUDUSD 2026-06-17 s70 basso; USDCAD 2024-01-29 s134 basso; USDCAD 2024-09-25 s134 alto [col tratto]; USDCAD 2026-01-30 s134 alto"
  },
  {
-  "forma": "8/4 L3",
-  "volte": 22,
-  "alto": 9,
-  "regola": "Se Shi prigioniero (囚) → ALTO (4/6); altrimenti BASSO (11/16)",
-  "ok": "15/22",
-  "chiave": "Shi 囚",
-  "se": 1,
-  "carte": "GBPUSD 2021-12-02 s132 alto; GBPUSD 2021-12-08 s132 basso; GBPUSD 2021-12-20 s132 basso; GBPUSD 2024-09-17 s132 basso; GBPUSD 2025-08-01 s132 alto; GBPUSD 2026-06-21 s132 basso [col tratto]; GBPUSD 2026-09-25 s132 alto; GBPUSD 2026-10-01 s132 basso; GBPUSD 2026-10-07 s132 basso; USDJPY 2022-12-27 s132 alto; AUDUSD 2020-06-22 s68 alto [col tratto]; AUDUSD 2022-06-30 s68 alto [col tratto]; AUDUSD 2022-12-15 s68 basso; AUDUSD 2023-06-19 s68 basso [col tratto]; AUDUSD 2023-07-19 s68 basso; USDCAD 2023-12-28 s132 alto; NZDUSD 2022-03-14 s68 basso; NZDUSD 2022-04-13 s68 basso; EURJPY 2021-05-12 s132 alto [col tratto]; EURJPY 2021-05-18 s132 alto [col tratto]; EURJPY 2021-10-27 s132 basso; EURJPY 2021-11-02 s132 basso"
- },
- {
   "forma": "7/6 L1",
   "volte": 21,
   "alto": 15,
@@ -148,6 +148,13 @@
   "chiave": "Shi 死",
   "se": 1,
   "carte": "GBPUSD 2020-08-25 s130 alto [col tratto]; GBPUSD 2022-03-30 s130 alto; GBPUSD 2024-10-09 s130 basso; GBPUSD 2024-10-21 s130 basso; GBPUSD 2025-03-20 s130 basso; USDJPY 2022-05-11 s130 basso; USDJPY 2023-04-06 s130 alto; AUDUSD 2020-05-27 s66 basso; AUDUSD 2023-03-13 s66 alto; AUDUSD 2023-05-18 s66 basso; AUDUSD 2023-05-24 s66 basso; AUDUSD 2024-07-23 s66 basso; USDCAD 2020-08-31 s130 basso [col tratto]; USDCAD 2022-05-11 s130 basso; NZDUSD 2022-02-04 s66 basso; EURJPY 2021-04-22 s130 basso; EURJPY 2021-07-15 s130 basso; EURJPY 2021-07-27 s130 basso; EURJPY 2021-09-07 s130 alto [col tratto]; EURJPY 2022-01-11 s130 alto; EURJPY 2022-01-17 s130 alto"
+ },
+ {
+  "forma": "8/5 L4",
+  "volte": 21,
+  "alto": 17,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
  },
  {
   "forma": "1/1 L3",
@@ -178,13 +185,6 @@
   "chiave": "arrivo della mobile fuori stagione",
   "se": 1,
   "carte": "GBPUSD 2020-08-24 s130 basso [col tratto]; GBPUSD 2024-08-21 s130 alto [col tratto]; GBPUSD 2024-10-08 s130 alto [col tratto]; USDJPY 2022-05-04 s130 basso [col tratto]; AUDUSD 2020-02-20 s66 basso; AUDUSD 2020-02-26 s66 basso; AUDUSD 2020-03-09 s66 basso; AUDUSD 2022-11-30 s66 alto [col tratto]; AUDUSD 2023-05-23 s66 basso; AUDUSD 2023-06-28 s66 basso; AUDUSD 2024-05-29 s66 basso; AUDUSD 2024-07-22 s66 basso [col tratto]; NZDUSD 2020-08-06 s66 alto [col tratto]; NZDUSD 2022-02-03 s66 alto [col tratto]; NZDUSD 2022-02-09 s66 alto; EURJPY 2021-03-16 s130 basso; EURJPY 2021-04-15 s130 basso [col tratto]; EURJPY 2021-04-27 s130 alto [col tratto]; EURJPY 2021-07-08 s130 basso [col tratto]; EURJPY 2022-02-15 s130 alto"
- },
- {
-  "forma": "8/5 L4",
-  "volte": 20,
-  "alto": 16,
-  "regola": "nessuna caratteristica separa i casi",
-  "ok": ""
  },
  {
   "forma": "8/5 L2",
@@ -517,6 +517,16 @@
   "carte": "USDJPY 2022-07-14 s137 alto [col tratto]; AUDUSD 2020-11-27 s73 alto; AUDUSD 2021-07-19 s73 basso [col tratto]; AUDUSD 2021-08-12 s73 basso [col tratto]; AUDUSD 2021-11-10 s73 basso; AUDUSD 2021-11-16 s73 basso [col tratto]; AUDUSD 2022-03-10 s73 alto; AUDUSD 2022-03-22 s73 alto; USDCAD 2022-10-12 s137 alto; USDCAD 2025-06-04 s137 basso [col tratto]; USDCAD 2025-07-16 s137 basso; USDCAD 2025-09-02 s137 alto; USDCAD 2025-12-19 s137 alto; USDCAD 2026-01-06 s137 alto [col tratto]; USDCAD 2026-03-25 s137 alto; USDCAD 2026-05-18 s137 basso [col tratto]"
  },
  {
+  "forma": "2/3 L4",
+  "volte": 16,
+  "alto": 8,
+  "regola": "Se arrivo della mobile vuoto → ALTO (4/6); altrimenti BASSO (6/10)",
+  "ok": "10/16",
+  "chiave": "arrivo della mobile vuoto",
+  "se": 1,
+  "carte": "USDJPY 2022-10-24 s147 alto; USDJPY 2023-09-07 s147 basso; USDJPY 2023-09-13 s147 alto [col tratto]; USDJPY 2024-01-17 s147 alto [col tratto]; USDJPY 2025-07-22 s147 basso; USDCHF 2025-05-29 s83 basso; USDCHF 2026-10-15 s83 basso; EURGBP 2020-02-19 s83 alto; EURGBP 2020-02-25 s83 basso; EURGBP 2022-01-21 s83 alto [col tratto]; EURGBP 2022-03-22 s83 basso [col tratto]; EURGBP 2022-03-28 s83 alto [col tratto]; EURGBP 2024-09-25 s83 alto; EURGBP 2024-11-06 s83 basso [col tratto]; EURGBP 2025-03-24 s83 basso; EURGBP 2025-05-29 s83 alto"
+ },
+ {
   "forma": "6/5 L3",
   "volte": 15,
   "alto": 8,
@@ -664,16 +674,6 @@
   "carte": "USDJPY 2022-10-20 s149 alto [col tratto]; USDJPY 2023-10-03 s149 basso [col tratto]; USDJPY 2023-10-09 s149 basso; USDJPY 2024-10-15 s149 basso; USDJPY 2024-10-21 s149 alto [col tratto]; USDJPY 2024-12-02 s149 basso; USDJPY 2025-02-24 s149 alto; EURGBP 2021-08-26 s85 alto [col tratto]; EURGBP 2021-11-12 s85 basso; EURGBP 2021-12-06 s85 basso; EURGBP 2022-05-11 s85 alto; EURGBP 2024-01-25 s85 basso; EURGBP 2024-02-06 s85 basso; EURGBP 2025-06-30 s85 alto [col tratto]; EURGBP 2026-09-17 s85 alto [col tratto]"
  },
  {
-  "forma": "2/3 L4",
-  "volte": 15,
-  "alto": 8,
-  "regola": "Se arrivo della mobile di stagione → ALTO (5/8); altrimenti BASSO (4/7)",
-  "ok": "9/15",
-  "chiave": "arrivo della mobile di stagione",
-  "se": 1,
-  "carte": "USDJPY 2022-10-24 s147 alto [col tratto]; USDJPY 2023-09-07 s147 basso [col tratto]; USDJPY 2023-09-13 s147 alto [col tratto]; USDJPY 2024-01-17 s147 alto [col tratto]; USDJPY 2025-07-22 s147 basso [col tratto]; USDCHF 2025-05-29 s83 basso; EURGBP 2020-02-19 s83 alto; EURGBP 2020-02-25 s83 basso; EURGBP 2022-01-21 s83 alto [col tratto]; EURGBP 2022-03-22 s83 basso; EURGBP 2022-03-28 s83 alto; EURGBP 2024-09-25 s83 alto [col tratto]; EURGBP 2024-11-06 s83 basso [col tratto]; EURGBP 2025-03-24 s83 basso; EURGBP 2025-05-29 s83 alto"
- },
- {
   "forma": "2/4 L3",
   "volte": 15,
   "alto": 9,
@@ -781,6 +781,16 @@
   "carte": "GBPUSD 2024-09-05 s131 alto; GBPUSD 2025-10-30 s131 basso [col tratto]; GBPUSD 2025-11-11 s131 basso; USDJPY 2022-12-21 s131 alto; USDJPY 2023-03-21 s131 alto; AUDUSD 2023-03-21 s67 basso; AUDUSD 2023-07-13 s67 alto [col tratto]; AUDUSD 2023-07-25 s67 alto [col tratto]; AUDUSD 2024-09-05 s67 alto; AUDUSD 2025-12-29 s67 basso; USDCAD 2023-07-13 s131 basso [col tratto]; NZDUSD 2021-12-08 s67 alto; EURJPY 2021-05-06 s131 alto; EURJPY 2022-01-13 s131 basso [col tratto]"
  },
  {
+  "forma": "1/6 L4",
+  "volte": 14,
+  "alto": 9,
+  "regola": "Se Shi fuori stagione → ALTO (8/9); altrimenti BASSO (4/5)",
+  "ok": "12/14",
+  "chiave": "Shi fuori stagione",
+  "se": 1,
+  "carte": "USDJPY 2024-01-03 s142 alto [col tratto]; USDCHF 2025-09-18 s78 alto [col tratto]; USDCHF 2026-03-17 s78 basso; USDCHF 2026-04-16 s78 alto [col tratto]; USDCHF 2026-04-22 s78 alto [col tratto]; USDCHF 2026-04-28 s78 alto [col tratto]; USDCHF 2026-05-04 s78 alto [col tratto]; USDCHF 2026-05-28 s78 basso; AUDUSD 2021-05-12 s78 basso; USDCAD 2020-03-18 s142 alto; USDCAD 2026-10-07 s142 alto [col tratto]; USDCAD 2026-10-13 s142 basso [col tratto]; EURJPY 2022-06-30 s142 basso; EURJPY 2022-10-04 s142 alto [col tratto]"
+ },
+ {
   "forma": "3/8 L5",
   "volte": 14,
   "alto": 6,
@@ -839,6 +849,16 @@
   "chiave": "Shi 死",
   "se": 1,
   "carte": "EURUSD 2020-02-27 s108 alto [col tratto]; EURUSD 2023-05-18 s108 basso; EURUSD 2023-08-22 s108 basso; EURUSD 2024-01-31 s108 basso; EURUSD 2024-03-01 s108 alto [col tratto]; EURUSD 2024-07-11 s108 alto; EURUSD 2024-07-23 s108 basso; EURUSD 2024-07-29 s108 basso; EURUSD 2024-10-21 s108 basso; EURUSD 2025-04-01 s108 basso [col tratto]; EURJPY 2024-07-17 s172 basso; EURJPY 2025-07-18 s172 alto; EURJPY 2025-07-24 s172 alto"
+ },
+ {
+  "forma": "6/1 L3",
+  "volte": 13,
+  "alto": 7,
+  "regola": "Se arrivo della mobile fuori stagione → BASSO (4/5); altrimenti ALTO (6/8)",
+  "ok": "10/13",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2020-03-11 s113 basso [col tratto]; EURUSD 2020-06-09 s113 alto; EURUSD 2021-11-19 s113 basso [col tratto]; EURUSD 2022-01-12 s113 alto; EURUSD 2026-06-26 s113 alto; EURUSD 2026-07-02 s113 alto; GBPUSD 2022-09-21 s113 basso [col tratto]; USDJPY 2021-10-14 s113 alto; USDJPY 2021-10-26 s113 alto; USDJPY 2021-12-01 s113 basso [col tratto]; EURJPY 2025-11-04 s177 basso; EURJPY 2026-10-06 s177 alto [col tratto]; EURJPY 2026-10-12 s177 basso"
  },
  {
   "forma": "7/1 L2",
@@ -905,16 +925,6 @@
   "carte": "USDJPY 2023-06-27 s143 alto [col tratto]; USDJPY 2024-08-26 s143 alto [col tratto]; USDCHF 2025-07-10 s79 alto; USDCHF 2025-07-22 s79 basso; USDCHF 2025-07-28 s79 alto; USDCHF 2025-11-13 s79 basso; USDCHF 2026-01-06 s79 alto; USDCHF 2026-03-19 s79 basso; USDCHF 2026-06-17 s79 alto [col tratto]; AUDUSD 2021-02-25 s79 basso; USDCAD 2024-12-18 s143 alto [col tratto]; USDCAD 2025-03-06 s143 basso; EURJPY 2022-10-06 s143 basso"
  },
  {
-  "forma": "1/6 L4",
-  "volte": 13,
-  "alto": 9,
-  "regola": "Se Shi fuori stagione → ALTO (8/8); altrimenti BASSO (4/5)",
-  "ok": "12/13",
-  "chiave": "Shi fuori stagione",
-  "se": 1,
-  "carte": "USDJPY 2024-01-03 s142 alto [col tratto]; USDCHF 2025-09-18 s78 alto [col tratto]; USDCHF 2026-03-17 s78 basso; USDCHF 2026-04-16 s78 alto [col tratto]; USDCHF 2026-04-22 s78 alto [col tratto]; USDCHF 2026-04-28 s78 alto [col tratto]; USDCHF 2026-05-04 s78 alto [col tratto]; USDCHF 2026-05-28 s78 basso; AUDUSD 2021-05-12 s78 basso; USDCAD 2020-03-18 s142 alto; USDCAD 2026-10-07 s142 alto [col tratto]; EURJPY 2022-06-30 s142 basso; EURJPY 2022-10-04 s142 alto [col tratto]"
- },
- {
   "forma": "2/6 L6",
   "volte": 13,
   "alto": 3,
@@ -963,16 +973,6 @@
   "chiave": "Ying: il mese punisce",
   "se": 1,
   "carte": "EURUSD 2020-02-21 s107 alto [col tratto]; EURUSD 2023-05-24 s107 basso; EURUSD 2023-05-30 s107 alto; EURUSD 2023-08-28 s107 alto; EURUSD 2024-04-30 s107 basso; EURUSD 2024-11-08 s107 basso; EURUSD 2025-03-26 s107 basso; GBPUSD 2022-09-26 s107 basso; USDJPY 2020-03-04 s107 alto [col tratto]; USDJPY 2020-04-27 s107 basso; USDJPY 2021-03-05 s107 alto [col tratto]; EURJPY 2025-07-30 s171 basso"
- },
- {
-  "forma": "6/1 L3",
-  "volte": 12,
-  "alto": 7,
-  "regola": "Se arrivo della mobile fuori stagione → BASSO (4/5); altrimenti ALTO (6/7)",
-  "ok": "10/12",
-  "chiave": "arrivo della mobile fuori stagione",
-  "se": 0,
-  "carte": "EURUSD 2020-03-11 s113 basso [col tratto]; EURUSD 2020-06-09 s113 alto; EURUSD 2021-11-19 s113 basso [col tratto]; EURUSD 2022-01-12 s113 alto; EURUSD 2026-06-26 s113 alto; EURUSD 2026-07-02 s113 alto; GBPUSD 2022-09-21 s113 basso [col tratto]; USDJPY 2021-10-14 s113 alto; USDJPY 2021-10-26 s113 alto; USDJPY 2021-12-01 s113 basso [col tratto]; EURJPY 2025-11-04 s177 basso; EURJPY 2026-10-06 s177 alto [col tratto]"
  },
  {
   "forma": "7/2 L3",
@@ -1293,6 +1293,16 @@
   "carte": "USDJPY 2022-09-14 s144 basso [col tratto]; USDJPY 2023-06-29 s144 alto [col tratto]; USDCHF 2025-08-11 s80 alto; USDCHF 2025-11-03 s80 alto; USDCHF 2025-11-21 s80 alto; USDCHF 2026-07-07 s80 alto; USDCHF 2026-07-13 s80 alto; USDCHF 2026-08-06 s80 alto; USDCAD 2025-01-13 s144 basso [col tratto]; EURJPY 2022-09-14 s144 basso [col tratto]; EURJPY 2023-03-13 s144 basso [col tratto]"
  },
  {
+  "forma": "1/6 L3",
+  "volte": 11,
+  "alto": 7,
+  "regola": "Se Shi Tai Sui → BASSO (3/4); altrimenti ALTO (6/7)",
+  "ok": "9/11",
+  "chiave": "Shi Tai Sui",
+  "se": 0,
+  "carte": "USDJPY 2022-09-15 s142 alto; USDJPY 2023-12-27 s142 basso; USDCHF 2025-09-17 s78 alto; AUDUSD 2021-02-22 s78 alto; USDCAD 2025-02-25 s142 alto; USDCAD 2026-07-02 s142 basso [col tratto]; USDCAD 2026-07-08 s142 basso [col tratto]; USDCAD 2026-10-06 s142 basso [col tratto]; USDCAD 2026-10-12 s142 alto [col tratto]; EURJPY 2022-09-15 s142 alto; EURJPY 2023-03-14 s142 alto"
+ },
+ {
   "forma": "2/4 L4",
   "volte": 11,
   "alto": 6,
@@ -1311,6 +1321,16 @@
   "chiave": "Shi: il giorno clash",
   "se": 0,
   "carte": "USDJPY 2022-10-31 s147 alto [col tratto]; USDJPY 2023-09-20 s147 alto [col tratto]; USDJPY 2024-08-15 s147 alto; USDJPY 2025-08-04 s147 basso [col tratto]; EURGBP 2020-02-26 s83 alto; EURGBP 2022-01-04 s83 basso [col tratto]; EURGBP 2022-03-17 s83 alto [col tratto]; EURGBP 2022-03-23 s83 alto; EURGBP 2024-09-26 s83 basso [col tratto]; EURGBP 2025-02-17 s83 basso [col tratto]; EURGBP 2025-03-25 s83 basso [col tratto]"
+ },
+ {
+  "forma": "2/4 L2",
+  "volte": 11,
+  "alto": 6,
+  "regola": "Se Ying: il giorno clash → ALTO (5/7); altrimenti BASSO (3/4)",
+  "ok": "8/11",
+  "chiave": "Ying: il giorno clash",
+  "se": 1,
+  "carte": "USDJPY 2023-10-10 s148 alto [col tratto]; USDCHF 2024-01-02 s84 alto [col tratto]; USDCHF 2024-08-29 s84 alto [col tratto]; USDCHF 2024-09-10 s84 basso [col tratto]; USDCHF 2024-09-16 s84 basso; EURJPY 2023-04-25 s148 basso [col tratto]; EURGBP 2021-11-01 s84 alto [col tratto]; EURGBP 2021-11-19 s84 basso; EURGBP 2022-05-18 s84 alto; EURGBP 2025-05-20 s84 alto [col tratto]; EURGBP 2026-10-12 s84 basso"
  },
  {
   "forma": "2/6 L2",
@@ -1477,16 +1497,6 @@
   "ok": ""
  },
  {
-  "forma": "1/6 L3",
-  "volte": 10,
-  "alto": 6,
-  "regola": "Se Shi Tai Sui → BASSO (3/3); altrimenti ALTO (6/7)",
-  "ok": "9/10",
-  "chiave": "Shi Tai Sui",
-  "se": 0,
-  "carte": "USDJPY 2022-09-15 s142 alto; USDJPY 2023-12-27 s142 basso; USDCHF 2025-09-17 s78 alto; AUDUSD 2021-02-22 s78 alto; USDCAD 2025-02-25 s142 alto; USDCAD 2026-07-02 s142 basso [col tratto]; USDCAD 2026-07-08 s142 basso [col tratto]; USDCAD 2026-10-06 s142 basso [col tratto]; EURJPY 2022-09-15 s142 alto; EURJPY 2023-03-14 s142 alto"
- },
- {
   "forma": "1/7 L4",
   "volte": 10,
   "alto": 4,
@@ -1525,16 +1535,6 @@
   "chiave": "Shi 旺",
   "se": 0,
   "carte": "USDJPY 2023-07-24 s141 basso [col tratto]; USDJPY 2024-01-02 s141 alto; USDCHF 2026-01-27 s77 basso [col tratto]; USDCHF 2026-04-21 s77 alto [col tratto]; AUDUSD 2021-02-16 s77 basso; USDCAD 2024-12-09 s141 alto; USDCAD 2025-02-19 s141 alto; USDCAD 2026-09-24 s141 alto; USDCAD 2026-09-30 s141 alto; EURJPY 2022-10-03 s141 alto"
- },
- {
-  "forma": "2/4 L2",
-  "volte": 10,
-  "alto": 6,
-  "regola": "Se Shi: il mese combina → BASSO (2/2); altrimenti ALTO (6/8)",
-  "ok": "8/10",
-  "chiave": "Shi: il mese combina",
-  "se": 0,
-  "carte": "USDJPY 2023-10-10 s148 alto; USDCHF 2024-01-02 s84 alto; USDCHF 2024-08-29 s84 alto; USDCHF 2024-09-10 s84 basso [col tratto]; USDCHF 2024-09-16 s84 basso [col tratto]; EURJPY 2023-04-25 s148 basso; EURGBP 2021-11-01 s84 alto; EURGBP 2021-11-19 s84 basso; EURGBP 2022-05-18 s84 alto; EURGBP 2025-05-20 s84 alto"
  },
  {
   "forma": "2/5 L5",
@@ -1604,6 +1604,13 @@
   "carte": "USDJPY 2025-11-26 s156 alto [col tratto]; USDJPY 2026-02-06 s156 alto [col tratto]; USDJPY 2026-03-02 s156 alto [col tratto]; USDJPY 2026-05-07 s156 alto [col tratto]; USDCHF 2020-09-29 s92 basso; USDCHF 2021-03-16 s92 basso; USDCHF 2021-07-08 s92 basso; USDCHF 2021-10-12 s92 alto; EURJPY 2023-12-13 s156 basso [col tratto]; EURJPY 2025-02-11 s156 alto [col tratto]"
  },
  {
+  "forma": "3/6 L5",
+  "volte": 10,
+  "alto": 7,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
   "forma": "4/2 L4",
   "volte": 10,
   "alto": 4,
@@ -1612,6 +1619,20 @@
   "chiave": "Serpente morto su sede o mobile",
   "se": 1,
   "carte": "USDJPY 2026-07-10 s162 basso; USDCHF 2020-02-18 s98 alto [col tratto]; USDCHF 2020-03-25 s98 basso [col tratto]; USDCHF 2022-06-13 s98 alto; USDCHF 2022-07-13 s98 basso; USDCHF 2022-09-05 s98 basso; EURJPY 2023-11-23 s162 alto [col tratto]; EURJPY 2024-03-04 s162 alto [col tratto]; EURJPY 2024-08-01 s162 basso; EURJPY 2024-12-17 s162 basso [col tratto]"
+ },
+ {
+  "forma": "6/8 L5",
+  "volte": 9,
+  "alto": 7,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "6/1 L1",
+  "volte": 9,
+  "alto": 6,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
  },
  {
   "forma": "5/6 L1",
@@ -1805,6 +1826,16 @@
   "carte": "USDJPY 2024-07-09 s160 alto [col tratto]; USDJPY 2026-06-11 s160 basso; USDCHF 2020-04-01 s96 alto [col tratto]; USDCHF 2022-06-02 s96 basso; USDCHF 2022-07-20 s96 alto [col tratto]; USDCHF 2022-08-25 s96 basso; EURJPY 2024-01-29 s160 basso; EURJPY 2024-10-01 s160 basso; EURJPY 2025-03-06 s160 basso [col tratto]"
  },
  {
+  "forma": "2/3 L3",
+  "volte": 9,
+  "alto": 6,
+  "regola": "Se arrivo della mobile vuoto → BASSO (3/4); altrimenti ALTO (5/5)",
+  "ok": "8/9",
+  "chiave": "arrivo della mobile vuoto",
+  "se": 0,
+  "carte": "USDJPY 2025-03-11 s147 alto; USDCHF 2026-10-14 s83 alto; EURJPY 2023-04-27 s147 alto; EURGBP 2020-02-24 s83 alto [col tratto]; EURGBP 2022-02-25 s83 alto; EURGBP 2022-04-14 s83 basso [col tratto]; EURGBP 2022-05-02 s83 alto; EURGBP 2024-09-30 s83 basso [col tratto]; EURGBP 2025-02-03 s83 basso [col tratto]"
+ },
+ {
   "forma": "3/7 L5",
   "volte": 9,
   "alto": 5,
@@ -1813,13 +1844,6 @@
   "chiave": "Shi 旺",
   "se": 0,
   "carte": "USDJPY 2026-01-14 s159 basso [col tratto]; USDJPY 2026-06-01 s159 alto; USDJPY 2026-08-18 s159 alto; USDCHF 2022-07-04 s95 alto; USDCHF 2022-07-28 s95 basso [col tratto]; USDCHF 2022-08-03 s95 alto [col tratto]; EURJPY 2023-08-22 s159 basso; EURJPY 2024-01-31 s159 basso [col tratto]; EURJPY 2025-04-07 s159 alto [col tratto]"
- },
- {
-  "forma": "3/6 L5",
-  "volte": 9,
-  "alto": 6,
-  "regola": "nessuna caratteristica separa i casi",
-  "ok": ""
  },
  {
   "forma": "5/6 L4",
@@ -1832,21 +1856,21 @@
   "carte": "EURUSD 2020-03-02 s110 alto [col tratto]; EURUSD 2022-03-04 s110 basso [col tratto]; EURUSD 2022-03-10 s110 basso [col tratto]; EURUSD 2024-08-20 s110 alto; USDJPY 2020-02-25 s110 basso [col tratto]; USDJPY 2020-03-26 s110 basso [col tratto]; USDJPY 2021-07-13 s110 alto; EURJPY 2024-07-09 s174 alto"
  },
  {
-  "forma": "6/8 L5",
+  "forma": "6/1 L5",
   "volte": 8,
-  "alto": 6,
-  "regola": "Se Ying vuoto → BASSO (2/3); altrimenti ALTO (5/5)",
-  "ok": "7/8",
-  "chiave": "Ying vuoto",
-  "se": 0,
-  "carte": "EURUSD 2020-03-06 s112 alto; EURUSD 2020-03-12 s112 basso [col tratto]; EURUSD 2020-06-04 s112 alto; EURUSD 2021-11-26 s112 alto; EURUSD 2021-12-08 s112 alto; EURUSD 2022-01-07 s112 alto [col tratto]; EURUSD 2026-10-07 s112 basso [col tratto]; USDJPY 2021-12-02 s112 alto"
- },
- {
-  "forma": "6/1 L1",
-  "volte": 8,
-  "alto": 5,
+  "alto": 1,
   "regola": "nessuna caratteristica separa i casi",
   "ok": ""
+ },
+ {
+  "forma": "6/7 L4",
+  "volte": 8,
+  "alto": 5,
+  "regola": "Se Ying: l'ora clash → BASSO (3/4); altrimenti ALTO (4/4)",
+  "ok": "7/8",
+  "chiave": "Ying: l'ora clash",
+  "se": 0,
+  "carte": "EURUSD 2020-09-02 s119 basso [col tratto]; EURUSD 2020-12-01 s119 alto [col tratto]; GBPUSD 2022-07-06 s119 basso [col tratto]; NZDUSD 2026-10-13 s55 alto; EURJPY 2020-03-30 s119 basso [col tratto]; EURJPY 2026-02-03 s183 alto; EURJPY 2026-03-11 s183 alto; EURJPY 2026-08-14 s183 alto"
  },
  {
   "forma": "7/1 L3",
@@ -2050,16 +2074,6 @@
   "carte": "USDJPY 2024-11-12 s153 alto [col tratto]; USDJPY 2024-12-18 s153 alto [col tratto]; USDJPY 2026-02-17 s153 basso; USDCHF 2020-11-09 s89 alto [col tratto]; USDCHF 2023-09-13 s89 alto; USDCHF 2023-10-19 s89 basso; USDCHF 2025-03-06 s89 basso; EURGBP 2020-11-27 s89 alto [col tratto]"
  },
  {
-  "forma": "2/3 L3",
-  "volte": 8,
-  "alto": 5,
-  "regola": "Se arrivo della mobile vuoto → BASSO (3/4); altrimenti ALTO (4/4)",
-  "ok": "7/8",
-  "chiave": "arrivo della mobile vuoto",
-  "se": 0,
-  "carte": "USDJPY 2025-03-11 s147 alto; EURJPY 2023-04-27 s147 alto; EURGBP 2020-02-24 s83 alto [col tratto]; EURGBP 2022-02-25 s83 alto; EURGBP 2022-04-14 s83 basso [col tratto]; EURGBP 2022-05-02 s83 alto; EURGBP 2024-09-30 s83 basso [col tratto]; EURGBP 2025-02-03 s83 basso [col tratto]"
- },
- {
   "forma": "1/7 L6",
   "volte": 8,
   "alto": 5,
@@ -2137,28 +2151,11 @@
   "carte": "EURUSD 2020-06-10 s113 alto [col tratto]; EURUSD 2020-06-16 s113 basso; EURUSD 2022-01-25 s113 basso; EURUSD 2026-07-27 s113 basso; EURUSD 2026-10-01 s113 basso [col tratto]; USDJPY 2021-11-08 s113 basso [col tratto]; EURJPY 2025-10-30 s177 alto [col tratto]"
  },
  {
-  "forma": "6/1 L5",
-  "volte": 7,
-  "alto": 1,
-  "regola": "nessuna caratteristica separa i casi",
-  "ok": ""
- },
- {
   "forma": "6/7 L2",
   "volte": 7,
   "alto": 5,
   "regola": "nessuna caratteristica separa i casi",
   "ok": ""
- },
- {
-  "forma": "6/7 L4",
-  "volte": 7,
-  "alto": 4,
-  "regola": "Se Ying: l'ora clash → BASSO (3/4); altrimenti ALTO (3/3)",
-  "ok": "6/7",
-  "chiave": "Ying: l'ora clash",
-  "se": 0,
-  "carte": "EURUSD 2020-09-02 s119 basso [col tratto]; EURUSD 2020-12-01 s119 alto [col tratto]; GBPUSD 2022-07-06 s119 basso [col tratto]; EURJPY 2020-03-30 s119 basso [col tratto]; EURJPY 2026-02-03 s183 alto; EURJPY 2026-03-11 s183 alto; EURJPY 2026-08-14 s183 alto"
  },
  {
   "forma": "6/3 L4",
@@ -2225,6 +2222,16 @@
   "ok": ""
  },
  {
+  "forma": "1/6 L6",
+  "volte": 7,
+  "alto": 3,
+  "regola": "Se Shi di stagione → BASSO (3/4); altrimenti ALTO (2/3)",
+  "ok": "5/7",
+  "chiave": "Shi di stagione",
+  "se": 0,
+  "carte": "GBPUSD 2021-06-01 s142 basso [col tratto]; USDJPY 2022-09-12 s142 alto; USDJPY 2023-12-18 s142 alto; USDCHF 2026-03-13 s78 alto [col tratto]; AUDUSD 2021-03-03 s78 basso [col tratto]; USDCAD 2020-03-26 s142 basso [col tratto]; USDCAD 2026-10-15 s142 basso"
+ },
+ {
   "forma": "3/6 L1",
   "volte": 7,
   "alto": 4,
@@ -2283,6 +2290,16 @@
   "chiave": "Shi 囚",
   "se": 1,
   "carte": "USDCHF 2020-03-26 s97 basso; USDCHF 2022-06-08 s97 alto; USDCHF 2022-08-31 s97 alto [col tratto]; USDCHF 2022-09-06 s97 alto [col tratto]; EURJPY 2024-08-14 s161 alto [col tratto]; EURJPY 2024-12-18 s161 basso; EURJPY 2025-03-12 s161 basso"
+ },
+ {
+  "forma": "6/8 L1",
+  "volte": 6,
+  "alto": 3,
+  "regola": "Se L5: il giorno clash → BASSO (2/2); altrimenti ALTO (3/4)",
+  "ok": "5/6",
+  "chiave": "L5: il giorno clash",
+  "se": 0,
+  "carte": "EURUSD 2020-06-18 s112 basso [col tratto]; EURUSD 2021-11-22 s112 basso; EURUSD 2022-01-27 s112 basso [col tratto]; EURUSD 2022-02-02 s112 alto; USDJPY 2021-11-10 s112 alto; EURJPY 2026-10-15 s176 alto"
  },
  {
   "forma": "6/1 L6",
@@ -2460,16 +2477,6 @@
   "carte": "GBPUSD 2021-03-11 s139 alto [col tratto]; AUDUSD 2020-12-23 s75 alto [col tratto]; AUDUSD 2022-04-05 s75 alto; USDCAD 2024-11-14 s139 alto [col tratto]; USDCAD 2025-05-13 s139 basso; USDCAD 2025-10-28 s139 basso"
  },
  {
-  "forma": "1/6 L6",
-  "volte": 6,
-  "alto": 3,
-  "regola": "Se Shi di stagione → BASSO (3/4); altrimenti ALTO (2/2)",
-  "ok": "5/6",
-  "chiave": "Shi di stagione",
-  "se": 0,
-  "carte": "GBPUSD 2021-06-01 s142 basso [col tratto]; USDJPY 2022-09-12 s142 alto; USDJPY 2023-12-18 s142 alto; USDCHF 2026-03-13 s78 alto [col tratto]; AUDUSD 2021-03-03 s78 basso [col tratto]; USDCAD 2020-03-26 s142 basso [col tratto]"
- },
- {
   "forma": "1/4 L6",
   "volte": 6,
   "alto": 4,
@@ -2527,14 +2534,11 @@
   "carte": "EURUSD 2020-06-17 s112 basso [col tratto]; EURUSD 2020-06-23 s112 alto; EURUSD 2022-02-01 s112 alto; EURJPY 2025-10-07 s176 alto; EURJPY 2025-10-13 s176 basso [col tratto]"
  },
  {
-  "forma": "6/8 L1",
+  "forma": "5/7 L3",
   "volte": 5,
-  "alto": 2,
-  "regola": "Se L5: il giorno clash → BASSO (2/2); altrimenti ALTO (2/3)",
-  "ok": "4/5",
-  "chiave": "L5: il giorno clash",
-  "se": 0,
-  "carte": "EURUSD 2020-06-18 s112 basso [col tratto]; EURUSD 2021-11-22 s112 basso; EURUSD 2022-01-27 s112 basso [col tratto]; EURUSD 2022-02-02 s112 alto; USDJPY 2021-11-10 s112 alto"
+  "alto": 4,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
  },
  {
   "forma": "6/4 L5",
@@ -2753,7 +2757,7 @@
   "ok": ""
  },
  {
-  "forma": "5/7 L3",
+  "forma": "6/8 L4",
   "volte": 4,
   "alto": 3,
   "regola": "troppo poche ripetizioni",
@@ -2844,13 +2848,6 @@
   "ok": ""
  },
  {
-  "forma": "6/8 L4",
-  "volte": 3,
-  "alto": 3,
-  "regola": "troppo poche ripetizioni",
-  "ok": ""
- },
- {
   "forma": "6/4 L2",
   "volte": 3,
   "alto": 2,
@@ -2868,6 +2865,13 @@
   "forma": "4/6 L2",
   "volte": 3,
   "alto": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/7 L5",
+  "volte": 3,
+  "alto": 1,
   "regola": "troppo poche ripetizioni",
   "ok": ""
  },
@@ -2921,6 +2925,13 @@
   "ok": ""
  },
  {
+  "forma": "6/8 L2",
+  "volte": 2,
+  "alto": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
   "forma": "6/7 L1",
   "volte": 2,
   "alto": 1,
@@ -2931,13 +2942,6 @@
   "forma": "4/7 L2",
   "volte": 2,
   "alto": 1,
-  "regola": "troppo poche ripetizioni",
-  "ok": ""
- },
- {
-  "forma": "5/7 L5",
-  "volte": 2,
-  "alto": 0,
   "regola": "troppo poche ripetizioni",
   "ok": ""
  },
@@ -2973,13 +2977,6 @@
   "forma": "4/1 L2",
   "volte": 2,
   "alto": 2,
-  "regola": "troppo poche ripetizioni",
-  "ok": ""
- },
- {
-  "forma": "6/8 L2",
-  "volte": 1,
-  "alto": 0,
   "regola": "troppo poche ripetizioni",
   "ok": ""
  },

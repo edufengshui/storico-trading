@@ -27,7 +27,7 @@ for (const r of JSON.parse(fs.readFileSync(process.argv[2] || '/tmp/tresist.json
     lyOk: real === 'LONG' ? 1 : 0, f: Object.keys(f) });
 }
 function regola(rip) { const fe = {}; rip.forEach(x => x.f.forEach(k => { if (!/^(mese|giorno) /.test(k)) fe[k] = 1; })); let best = null;
-  for (const k of Object.keys(fe)) { const con = rip.filter(x => x.f.includes(k)), senza = rip.filter(x => !x.f.includes(k)); if (con.length < 2 || senza.length < 2) continue;
+  for (const k of Object.keys(fe)) { const con = rip.filter(x => x.f.includes(k)), senza = rip.filter(x => !x.f.includes(k)); if (con.length < (+process.env.MINLATO || 2) || senza.length < (+process.env.MINLATO || 2)) continue;
     const sc = con.reduce((a, x) => a + x.lyOk, 0), ss = senza.reduce((a, x) => a + x.lyOk, 0);
     const vc = sc * 2 >= con.length ? 1 : 0, vs = ss * 2 >= senza.length ? 1 : 0; if (vc === vs) continue;
     const ok = (vc ? sc : con.length - sc) + (vs ? ss : senza.length - ss);

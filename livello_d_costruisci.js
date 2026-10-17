@@ -3,7 +3,7 @@ const STG={'旺':'in piena stagione','相':'in crescita','休':'a riposo','囚':
 const parla=k=>k.replace(/ (旺|相|休|囚|死)$/,(m,s)=>' '+STG[s]+' ('+s+')');
 const dottrinale=k=>!/^(mese|giorno) /.test(k);
 function regola(rip){const fe={};rip.forEach(x=>x.f.forEach(k=>{if(dottrinale(k))fe[k]=1;}));let best=null;
- for(const k of Object.keys(fe)){const con=rip.filter(x=>x.f.includes(k)),senza=rip.filter(x=>!x.f.includes(k));if(con.length<2||senza.length<2)continue;
+ for(const k of Object.keys(fe)){const con=rip.filter(x=>x.f.includes(k)),senza=rip.filter(x=>!x.f.includes(k));if(con.length<(+process.env.MINLATO||2)||senza.length<(+process.env.MINLATO||2))continue;
   const sc=con.reduce((a,x)=>a+x.segue,0),ss=senza.reduce((a,x)=>a+x.segue,0);
   const vc=sc*2>=con.length?1:0,vs=ss*2>=senza.length?1:0;if(vc===vs)continue; // la regola deve dire cose opposte nei due casi
   const ok=(vc?sc:con.length-sc)+(vs?ss:senza.length-ss);

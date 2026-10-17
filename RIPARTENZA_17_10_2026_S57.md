@@ -152,6 +152,21 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   Varianti provate: cantina tradata se >=2 voci concordano 3.074 · 85,5% / vivo 71 · +950; contro la cantina se >=2 voci
   contrarie 2.758 · 85,6% / vivo 70 · +1.073.
 
+## S58 — CORREZIONE IMPORTANTE (17/10 ore 13:30) E PROVA PULITA
+- Il dump del S57/S58 arrivava al 07/10 per 8 cross (solo EURGBP al 18/09): i cataloghi per forma CONTENEVANO 7 dei 12
+  giorni dal vivo (29/09-07/10). Le misure "dal vivo" della giornata (piramide DLR 66%, +938/+1.145) erano in parte
+  dentro il campione. Detto a Edu.
+- Storico allungato al 17/10 04:00 con orario_live.json (history_full_1h_f.zip), dump nuovo 4.330 carte fino al 16/10.
+  rigenera_cataloghi.sh [DUMP] [FINO_A] rigenera D, LY, PB, DLR per forma; MINLATO=n = minimo di casi per lato.
+- PROVA PULITA (cataloghi con le sole carte prima del 29/09, misurati sul 29/09-16/10): piramide in uso 80 · 56% · +349
+  (punta 11 · 45%); con cantina 69 · 54% · +120; PB 75 · 52% · +102; S58 54 · 48%; S57 49 · 49%; trend semplice 83 · 55% · +426.
+  Per forma da soli: LYF 52% +6, PBF 52% +10, DLRF 52% +223, D 51% +195. Con MINLATO=3/4/5 la piramide fa 58% +319 /
+  58% +502 / 59% +542 (la punta quasi sparisce: 7/3/1 trade).
+- Cataloghi in produzione rigenerati su TUTTE le carte fino al 16/10 (MINLATO=2, scelta di Edu "dentro il campione"):
+  misurati sugli stessi giorni (che ora contengono) 79 · 75% · +1.501. Differenza fra le due misure = l'effetto del campione.
+- Size per gradino: NON proposta, dal vivo pulito l'ordine dei gradini non tiene (punta 45%).
+- DA DECIDERE CON EDU: tenere la piramide com'e', MINLATO=4/5, o tornare a un sistema piu' semplice.
+
 ## PUNTI APERTI (oltre a quelli del S56)
 - Soglia minima di casi per le regole di D.
 - Verdetti opposti della stessa caratteristica su carte diverse (domanda a Edu).
