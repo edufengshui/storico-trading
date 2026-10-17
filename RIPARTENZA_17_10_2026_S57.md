@@ -146,6 +146,11 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
 - PIRAMIDE DLR IN USO DAL 17/10/2026 ore 12:55 (Edu: "Si"): default 'PIRAMIDE' -> PIRAMIDE_DLR (app e raccolta notturna).
   SCALA=PB la piramide PB, SCALA=S58, SCALA=S57, SCALA=PIRAMIDE_LY le precedenti. Ogni lunedi': misura_vivo.js con
   SCALA vuoto, PB, S58, S57 affiancate, prima delle carte.
+- CANTINA ABOLITA nella piramide DLR (Edu 17/10 13:06: "Se migliora il sistema generale, si"): le carte PB=LY=DLR scendono
+  nei gradini 2-10. Backtest 3.268 · 84,9% · +131.515 (con cantina 2.717 · 85,6% · +110.567); dal vivo 80 · 66% · +1.145
+  (con cantina 68 · 66% · +938); settimana 12-16/10 31 · 58% · +163. SCALA=DLR_CANTINA rimette la cantina.
+  Varianti provate: cantina tradata se >=2 voci concordano 3.074 · 85,5% / vivo 71 · +950; contro la cantina se >=2 voci
+  contrarie 2.758 · 85,6% / vivo 70 · +1.073.
 
 ## PUNTI APERTI (oltre a quelli del S56)
 - Soglia minima di casi per le regole di D.
