@@ -14,7 +14,7 @@ Leggere anche RIPARTENZA_11_10_2026_S56.md (regole cablate del metodo del trend,
 - All'inizio di ogni sessione: PRIMA i trade (esiti della notte, la tabella di misura_vivo.js), POI le carte.
 - Carte: immagine prima (carta_auto.js -> invio file), poi il formato del S56. Nomi in italiano.
 
-## IL SISTEMA IN USO DAL 17/10/2026: LA PIRAMIDE (dal 17/10 pomeriggio la PIRAMIDE S58, vedi sezione S58)
+## IL SISTEMA IN USO DAL 17/10/2026: LA PIRAMIDE (dal 17/10 ore 12:47 la PIRAMIDE PB, vedi sezioni S58)
 Edu: "metti l'85% in cima alla piramide da usare solo ed esclusivamente su quel numero limitato di carte; al secondo
 livello il sistema che performa meglio per il restante gruppo, e cosi' via" · "E quindi questo deve essere il sistema
 da adesso in poi!". In app.js (livelloTreSistemi, scalaScelta 'PIRAMIDE' di default) e nella raccolta notturna.
@@ -128,7 +128,8 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   8 PB=PBF 145 · 57,9% · 9 DLR=LETT 101 · 56,4% · 10 LY=AT 126 · 50,8%. Totale 2.880 · 81,3% · +105.088.
 - Dal vivo 29/09-16/10: PB da solo 83 · 53% · +18; PBF da sola 71 · 63% · +907. Piramide PB 74 · 65% · +896 (punta 34 · 74% ·
   +635; 2-4 12 · 33%; 5-7 15 · 73%; 8+ 13 · 62%); piramide S58 in uso 61 · 61% · +849. Settimana 12-16/10: 26 · 58% · +50.
-- DA DECIDERE CON EDU: la piramide PB in uso?
+- PIRAMIDE PB IN USO DAL 17/10/2026 (Edu: "Si"): default 'PIRAMIDE' in app.js -> PIRAMIDE_PB (anche la raccolta notturna).
+  SCALA=S58 rimette la piramide con i 3 gradini LY + S57, SCALA=S57 quella del mattino, SCALA=PIRAMIDE_LY la LY intera.
 
 ## PUNTI APERTI (oltre a quelli del S56)
 - Soglia minima di casi per le regole di D.
