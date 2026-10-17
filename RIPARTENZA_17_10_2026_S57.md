@@ -116,6 +116,20 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   Dal vivo 29/09-16/10: 61 · 61% · +849 (punta 19 · 63% · +296; 2-4 25 · 64%; 5-7 5 · 40%; 8+ 12 · 58%); S57 57 · 61% · +834.
   IBRIDA=1 node piramide_costruisci.js la misura sul backtest.
 
+## S58 — IL SISTEMA PB PER FORMA (Edu 17/10: "vogliamo vedere cosa succede con il PB? ... applicando la stessa logica")
+- livello_pb.js (caratteristiche in termini PB: stagione di Trend/Yong/Yong trasformato nel mese, chi e' piu' forte, cosa
+  fanno giorno/mese/anno/stelo del giorno a Trend e Yong, trasformato e reciproci contro il Trend, palazzo del Trend
+  (autopunizione, spazzato, attacco/difesa, combinato), ora vuota, vie PB) + livello_pb_costruisci.js (catalogo
+  livello_pb.json, aggiunge PBF a /tmp/voci_carte.json; prima gira livello_ly_costruisci.js) + livello_pb_genera.js.
+  Forma = carta PB (sup/inf + linea mutante del PB). Bersaglio "segue il trend" (il PB legge Trend contro Yong).
+  264 forme con regola, dentro il campione 78,0% su 3.070 (PB normale 53,5%). App: voce "Sistema PB per forma", sw v68.
+- PIRAMIDE PB (SCALA=PIRAMIDE_PB): 1 D=LYF=PBF 1.471 · 94,1% · cantina 466 · 68,0% · 2 DLR=LYF=PBF 138 · 86,2% ·
+  3 DLR=D=LYF 117 · 79,5% · 4 DLR=D=PBF 315 · 73,0% · 5 PB=LY=LYF 119 · 72,3% · 6 LY=D=PBF 226 · 65,9% · 7 MT=LYF 122 · 60,7% ·
+  8 PB=PBF 145 · 57,9% · 9 DLR=LETT 101 · 56,4% · 10 LY=AT 126 · 50,8%. Totale 2.880 · 81,3% · +105.088.
+- Dal vivo 29/09-16/10: PB da solo 83 · 53% · +18; PBF da sola 71 · 63% · +907. Piramide PB 74 · 65% · +896 (punta 34 · 74% ·
+  +635; 2-4 12 · 33%; 5-7 15 · 73%; 8+ 13 · 62%); piramide S58 in uso 61 · 61% · +849. Settimana 12-16/10: 26 · 58% · +50.
+- DA DECIDERE CON EDU: la piramide PB in uso?
+
 ## PUNTI APERTI (oltre a quelli del S56)
 - Soglia minima di casi per le regole di D.
 - Verdetti opposti della stessa caratteristica su carte diverse (domanda a Edu).
