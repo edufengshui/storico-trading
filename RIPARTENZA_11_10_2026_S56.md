@@ -160,6 +160,19 @@ E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte 
   9 LY=Lettura=D 137 · 68,6%; 10 PB=D 158 · 67,1%. Totale 2.300 · 78,9% · +78.145 pip, ferme 381. Prova sui feed del
   5-7/10 costruiti dal dump: 12 cross su 13 nello stesso gradino (GBPUSD 06/10: DLR tace nel dump, parla nell'app).
   Da guardare dal vivo gradino per gradino nel registro.
+- SISTEMA IN USO DAL 17/10/2026 (Edu: "E quindi questo deve essere il sistema da adesso in poi!"): la PIRAMIDE.
+  Dal vivo 29/09-16/10 (misura_vivo.js, 12 giorni, 87 cross-giorno, esito 00:00->21:00): piramide 58 trade 64% +800 pip
+  (punta 16 · 56% · +133; gradini 2-4 11 · 64% · +175; 5-7 19 · 74% · +480; 8-10 12 · 58% · +12); trend semplice
+  87 · 56% · +458; D da solo 73 · 63% · +951; DLR da solo 75 · 45% · -249; cantina 17 · 47% · -139.
+  OGNI SETTIMANA: `node misura_vivo.js` (dal 29/09 a oggi) e portare la tabella a Edu prima delle carte.
+- Le carte piatte (<20 pip) non si riconoscono prima: nessuna forma ne' caratteristica della data le prevede
+  (dispersione 0,95); dipendono dal cross (EURGBP 41%, EURJPY 13%) e dal giorno (lun/ven). Sulle piatte ogni sistema
+  sta al 51-55%, saldo vicino a zero. Backtest piramide su tutte le 4.302 carte: 2.957 trade 72,7% +78.342 pip.
+  EURGBP resta (positivo in ogni gradino). Debole: AUDUSD gradini 8-10 (47,5% su 59).
+- Carte possibili: 384 forme x 60 giorni x 12 mesi x 12 ore = 3,3 milioni (x12 anni = 40 milioni); il backtest
+  ne copre lo 0,13%, quasi tutte uniche. Effetti degli elementi della data isolati e sommati (per forma o per tutte):
+  96% sullo storico, 46-51% su carte nuove (2024-26 e dal vivo). Regole di D su gruppi piccoli (2-4 casi): proposta
+  aperta di una soglia minima di casi per gruppo.
 - PUNTO APERTO: la stessa caratteristica da' verdetti opposti su carte diverse ("Shi fuori stagione": non segue su
   13 carte, segue su 6). Chiedere a Edu se e' coerente con la dottrina. Prossimo lavoro: la carta 8/1 L3 (28 volte)
   con i casi sbagliati da D affiancati ai giusti, da leggere con Edu.

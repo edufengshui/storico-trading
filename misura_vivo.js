@@ -1,0 +1,55 @@
+// MISURA DAL VIVO DELLA PIRAMIDE (S57, 17/10/2026 — Edu: "questo deve essere il sistema da adesso in poi").
+// Ricostruisce i feed di ogni giorno di mercato dalle barre orarie della raccolta notturna (orario_live.json, stesso
+// calcolo del Worker: seme = apertura della barra delle 00:00, EMA(12) sulle chiusure giornaliere), fa leggere ogni
+// cross all'app (index.html + app.js, come nel browser), e confronta piramide, voci e trend con l'esito 00:00 -> 21:00 GMT.
+// Uso: node misura_vivo.js [dal] [al]      (default: dal 2026-09-29 a oggi)   -> stampa la tabella
+const fs = require('fs'), path = require('path'), vm = require('vm');
+const DIR = __dirname, APP = fs.existsSync(path.join(DIR, '../trading/app.js')) ? path.join(DIR, '../trading') : DIR;
+const DAL = process.argv[2] || '2026-09-29', AL = process.argv[3] || new Date().toISOString().slice(0, 10);
+const W = fs.readFileSync(path.join(DIR, 'worker_index.js'), 'utf8');
+const BRANCHES = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'], BRANCH_PINYIN = BRANCHES;
+eval(W.slice(W.indexOf('var EMA_PERIOD'), W.indexOf('async function fetchDailyAll')));
+const O = JSON.parse(fs.readFileSync(path.join(DIR, 'orario_live.json'), 'utf8'));
+const pip = c => /JPY$/.test(c) ? 100 : 10000, festivo = d => [0, 6].includes(new Date(d + 'T12:00:00Z').getUTCDay());
+const perGiorno = {}; for (const c in O) { perGiorno[c] = {}; O[c].forEach(b => { const d = b.t.slice(0, 10); (perGiorno[c][d] = perGiorno[c][d] || []).push(b); }); }
+// l'app come nel browser
+const store = {}; const el = () => ({ style: {}, innerHTML: '', textContent: '', value: '', dataset: {}, querySelectorAll: () => [], querySelector: () => null, addEventListener() {}, scrollIntoView() {} });
+const sb = { console, Math, Date, JSON, Object, Array, String, Number, Boolean, RegExp, Error, parseInt, parseFloat, isNaN, isFinite, Promise, setTimeout,
+  localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = String(v); }, removeItem: k => { delete store[k]; } },
+  navigator: {}, addEventListener() {}, fetch: async () => { throw new Error('offline'); },
+  document: { getElementById: () => el(), querySelector: () => null, querySelectorAll: () => [], addEventListener() {} } };
+sb.window = sb; sb.self = sb; sb.globalThis = sb; vm.createContext(sb);
+const html = fs.readFileSync(path.join(APP, 'index.html'), 'utf8');
+for (const f of [...html.matchAll(/<script src="\.\/([^"]+)"/g)].map(m => m[1])) {
+  const p = fs.existsSync(path.join(APP, f)) ? path.join(APP, f) : path.join(DIR, 'node_modules/lunar-javascript/lunar.js');
+  vm.runInContext(fs.readFileSync(p, 'utf8') + (f === 'app.js' ? '\n;window.__ana=function(r,d){return analizzaCrossPerReport(r,istanteUtcDelGiorno(d.split("-").map(Number)),d);};window.__liv=livelloTreSistemi;' : ''), sb, { filename: f });
+}
+const C = [];
+for (let t = Date.parse(DAL + 'T00:00:00Z'); t <= Date.parse(AL + 'T00:00:00Z'); t += 864e5) {
+  const D = new Date(t).toISOString().slice(0, 10); if (festivo(D)) continue;
+  for (const c in perGiorno) {
+    const oggi = perGiorno[c][D] || [], b0 = oggi.find(b => b.t.slice(11, 13) === '00'), b21 = oggi.find(b => b.t.slice(11, 13) === '21');
+    if (!b0 || !b21) continue;
+    const closes = Object.keys(perGiorno[c]).sort().filter(d => d < D && !festivo(d)).map(d => perGiorno[c][d][perGiorno[c][d].length - 1].c);
+    const row = rowFor(c, b0.o); row.status = 'ok'; const dirs = emaDirs(emaSeries(closes, 12)), last = dirs[dirs.length - 1];
+    row.direction = last === 'u' ? 'up' : last === 'd' ? 'down' : 'flat'; row.emaChanges = countChanges(dirs.slice(-15));
+    row.emaConsolidated = row.emaChanges <= 2; row.emaRun = emaRunLen(dirs);
+    const e = sb.__ana(row, D); if (!e.pbDir) continue;
+    const m = Math.round((b21.o - b0.o) * pip(c)), L = sb.__liv(e);
+    C.push({ date: D, cross: c, real: m > 0 ? 'LONG' : 'SHORT', move: Math.abs(m), trend: row.direction === 'up' ? 'LONG' : 'SHORT', liv: L.liv, dirLiv: L.dir,
+      PB: e.pbDir, LY: e.lyDir || null, AT: e.attuale || null, DLR: e.dlrDir || null, LETT: e.lettDir || null, MT: e.mtDir || null, D: e.dDir || null });
+  }
+}
+const hit = (c, x) => { const d = x[c[0]]; return d && c.every(v => x[v] === d) ? d : null; };
+const riga = (nome, f) => { let n = 0, w = 0, p = 0; C.forEach(x => { const d = f(x); if (!d) return; n++; const ok = d === x.real; w += ok; p += ok ? x.move : -x.move; });
+  console.log(nome.padEnd(46) + String(n).padStart(4) + ' trade ' + String(w).padStart(3) + ' vinti ' + (n ? (100 * w / n).toFixed(0) : '-').padStart(3) + '% ' + ((p > 0 ? '+' : '') + p).padStart(6) + ' pip'); };
+console.log('dal ' + DAL + ' al ' + AL + ': ' + [...new Set(C.map(x => x.date))].length + ' giorni di mercato, ' + C.length + ' cross-giorno');
+riga('seguire sempre il trend', x => x.trend);
+riga('D da solo', x => x.D); riga('DLR da solo', x => x.DLR);
+riga('DLR = metodo del trend (senza D)', x => hit(['DLR', 'MT'], x));
+riga('PIRAMIDE intera', x => x.liv && x.liv !== 'cantina' && /^[0-9]+$/.test(x.liv) ? x.dirLiv : null);
+riga('  gradino 1 (punta)', x => x.liv === '1' ? x.dirLiv : null);
+riga('  gradini 2-4', x => /^[234]$/.test(x.liv || '') ? x.dirLiv : null);
+riga('  gradini 5-7', x => /^[567]$/.test(x.liv || '') ? x.dirLiv : null);
+riga('  gradini 8-10', x => /^(8|9|10)$/.test(x.liv || '') ? x.dirLiv : null);
+riga('cantina (non si trada)', x => x.liv === 'cantina' ? x.dirLiv : null);
