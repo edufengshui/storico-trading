@@ -152,6 +152,14 @@ E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte 
   rimette la scala vecchia. I record del registro prima del 17/10 usano le lettere della scala S48.
 - La raccolta notturna ora carica lettura_trend.js, inventario_carta.js, livello_d.js (prima il metodo del trend
   non girava di notte: l'app.js dell'archivio era indietro).
+- PIRAMIDE (Edu, 17/10/2026, sostituisce la scala a gradini del mattino, che resta con SCALA=S57A): "metti l'85% in
+  cima alla piramide da usare solo ed esclusivamente su quel numero limitato di carte; al secondo livello il sistema
+  che performa meglio per il restante gruppo, e cosi' via". D col catalogo intero. 1 D=DLR=metodo 656 · 85,5%;
+  cantina PB=LY=DLR 628 · 61,9%; 2 attuale=DLR=D 262 · 83,6%; 3 DLR=Lettura=D 154 · 82,5%; 4 PB=DLR=D 102 · 78,4%;
+  5 Lettura=metodo=D 264 · 76,9%; 6 PB=metodo=D 152 · 75,7%; 7 PB=attuale=D 273 · 75,1%; 8 DLR=D 142 · 73,9%;
+  9 LY=Lettura=D 137 · 68,6%; 10 PB=D 158 · 67,1%. Totale 2.300 · 78,9% · +78.145 pip, ferme 381. Prova sui feed del
+  5-7/10 costruiti dal dump: 12 cross su 13 nello stesso gradino (GBPUSD 06/10: DLR tace nel dump, parla nell'app).
+  Da guardare dal vivo gradino per gradino nel registro.
 - PUNTO APERTO: la stessa caratteristica da' verdetti opposti su carte diverse ("Shi fuori stagione": non segue su
   13 carte, segue su 6). Chiedere a Edu se e' coerente con la dottrina. Prossimo lavoro: la carta 8/1 L3 (28 volte)
   con i casi sbagliati da D affiancati ai giusti, da leggere con Edu.
