@@ -1,4 +1,4 @@
-const db=require('/tmp/claude-0/-home-claude/54e2cdc2-ca35-5cec-bbe0-d7658fc9e061/scratchpad/db_carte.json');const fs=require('fs');
+const db=require('/tmp/db_carte.json');const fs=require('fs');
 const STG={'旺':'in piena stagione','相':'in crescita','休':'a riposo','囚':'prigioniero','死':'morto'};
 const parla=k=>k.replace(/ (旺|相|休|囚|死)$/,(m,s)=>' '+STG[s]+' ('+s+')');
 const dottrinale=k=>!/^(mese|giorno) /.test(k);
