@@ -1,0 +1,3058 @@
+[
+ {
+  "forma": "8/1 L3",
+  "volte": 28,
+  "segue": 15,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (10/18); altrimenti SEGUE (7/10)",
+  "ok": "17/28",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "GBPUSD 2020-02-20 s129 segue [col tratto]; GBPUSD 2020-10-05 s129 segue [col tratto]; GBPUSD 2025-03-25 s129 segue [col tratto]; USDJPY 2022-05-16 s129 segue [col tratto]; USDJPY 2023-01-23 s129 non segue [col tratto]; AUDUSD 2020-03-03 s65 non segue [col tratto]; AUDUSD 2020-05-26 s65 segue [col tratto]; AUDUSD 2023-12-07 s65 non segue; AUDUSD 2024-01-18 s65 non segue [col tratto]; AUDUSD 2024-02-05 s65 segue; AUDUSD 2024-11-07 s65 non segue; AUDUSD 2025-09-03 s65 segue; AUDUSD 2025-10-09 s65 segue; AUDUSD 2025-10-21 s65 segue; AUDUSD 2025-10-27 s65 non segue [col tratto]; USDCAD 2022-05-16 s129 non segue [col tratto]; USDCAD 2022-06-15 s129 non segue; USDCAD 2022-06-21 s129 non segue [col tratto]; USDCAD 2022-08-08 s129 segue [col tratto]; USDCAD 2022-09-13 s129 non segue [col tratto]; NZDUSD 2022-01-28 s65 segue [col tratto]; NZDUSD 2022-04-28 s65 segue; EURJPY 2021-02-26 s129 non segue [col tratto]; EURJPY 2021-03-22 s129 segue [col tratto]; EURJPY 2021-07-20 s129 non segue [col tratto]; EURJPY 2021-08-31 s129 segue; EURJPY 2021-09-30 s129 non segue [col tratto]; EURJPY 2021-10-06 s129 segue"
+ },
+ {
+  "forma": "8/2 L1",
+  "volte": 26,
+  "segue": 11,
+  "regola": "Se Shi di stagione → SEGUE il trend (7/11); altrimenti NON SEGUE (11/15)",
+  "ok": "18/26",
+  "chiave": "Shi di stagione",
+  "se": 1,
+  "carte": "GBPUSD 2022-03-14 s130 segue [col tratto]; GBPUSD 2023-07-19 s130 non segue; GBPUSD 2024-09-11 s130 segue; GBPUSD 2025-04-03 s130 segue [col tratto]; GBPUSD 2025-11-05 s130 non segue; USDJPY 2023-03-27 s130 non segue [col tratto]; AUDUSD 2020-03-06 s66 segue [col tratto]; AUDUSD 2022-09-22 s66 non segue; AUDUSD 2022-11-21 s66 non segue [col tratto]; AUDUSD 2023-03-15 s66 segue [col tratto]; AUDUSD 2023-06-07 s66 non segue; AUDUSD 2023-11-28 s66 segue [col tratto]; AUDUSD 2023-12-04 s66 non segue [col tratto]; AUDUSD 2024-01-15 s66 segue; AUDUSD 2024-10-17 s66 non segue; AUDUSD 2024-10-23 s66 segue; AUDUSD 2025-09-18 s66 non segue; AUDUSD 2025-12-05 s66 segue [col tratto]; AUDUSD 2025-12-17 s66 non segue [col tratto]; AUDUSD 2025-12-23 s66 segue [col tratto]; USDCAD 2020-09-08 s130 non segue; NZDUSD 2020-07-28 s66 non segue; NZDUSD 2020-08-03 s66 non segue; EURJPY 2021-04-12 s130 non segue; EURJPY 2021-09-09 s130 non segue; EURJPY 2022-01-07 s130 segue"
+ },
+ {
+  "forma": "8/1 L4",
+  "volte": 25,
+  "segue": 13,
+  "regola": "Se arrivo della mobile fuori stagione → SEGUE il trend (11/17); altrimenti NON SEGUE (6/8)",
+  "ok": "17/25",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 1,
+  "carte": "GBPUSD 2020-10-06 s129 non segue [col tratto]; GBPUSD 2024-07-17 s129 segue [col tratto]; GBPUSD 2024-07-23 s129 non segue [col tratto]; GBPUSD 2025-03-26 s129 non segue; GBPUSD 2025-04-07 s129 non segue [col tratto]; USDJPY 2022-05-05 s129 segue [col tratto]; AUDUSD 2020-02-27 s65 non segue; AUDUSD 2020-03-04 s65 non segue; AUDUSD 2020-05-21 s65 non segue; AUDUSD 2022-09-26 s65 segue [col tratto]; AUDUSD 2024-01-31 s65 segue [col tratto]; AUDUSD 2024-04-30 s65 non segue [col tratto]; AUDUSD 2025-05-07 s65 non segue; AUDUSD 2025-09-04 s65 non segue [col tratto]; AUDUSD 2025-09-10 s65 segue [col tratto]; AUDUSD 2025-10-10 s65 segue [col tratto]; AUDUSD 2025-10-16 s65 segue [col tratto]; AUDUSD 2025-10-28 s65 segue [col tratto]; AUDUSD 2025-12-03 s65 segue [col tratto]; NZDUSD 2022-05-05 s65 segue [col tratto]; EURJPY 2021-03-11 s129 segue; EURJPY 2021-03-17 s129 segue; EURJPY 2021-03-23 s129 non segue; EURJPY 2021-07-21 s129 non segue [col tratto]; EURJPY 2021-11-24 s129 segue [col tratto]"
+ },
+ {
+  "forma": "8/5 L6",
+  "volte": 25,
+  "segue": 11,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (9/12); altrimenti SEGUE (8/13)",
+  "ok": "17/25",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "GBPUSD 2020-11-27 s133 non segue [col tratto]; GBPUSD 2020-12-03 s133 segue [col tratto]; GBPUSD 2020-12-09 s133 non segue [col tratto]; GBPUSD 2024-10-01 s133 non segue [col tratto]; GBPUSD 2025-07-16 s133 non segue; GBPUSD 2025-09-26 s133 non segue [col tratto]; GBPUSD 2026-01-12 s133 non segue; GBPUSD 2026-03-13 s133 segue [col tratto]; GBPUSD 2026-06-11 s133 non segue; USDJPY 2022-08-01 s133 segue; AUDUSD 2020-06-24 s69 non segue; AUDUSD 2022-06-14 s69 segue; AUDUSD 2022-08-01 s69 segue; AUDUSD 2023-02-15 s69 non segue [col tratto]; AUDUSD 2026-02-05 s69 non segue [col tratto]; AUDUSD 2026-06-23 s69 segue; USDCAD 2020-08-11 s133 segue [col tratto]; USDCAD 2023-02-15 s133 non segue [col tratto]; USDCAD 2023-06-15 s133 segue; NZDUSD 2021-07-01 s69 segue; NZDUSD 2021-07-13 s69 segue; NZDUSD 2021-07-19 s69 segue; NZDUSD 2021-09-23 s69 non segue [col tratto]; NZDUSD 2022-03-28 s69 non segue [col tratto]; EURJPY 2021-06-01 s133 non segue"
+ },
+ {
+  "forma": "1/8 L6",
+  "volte": 25,
+  "segue": 9,
+  "regola": "Se Ying di stagione → SEGUE il trend (7/12); altrimenti NON SEGUE (11/13)",
+  "ok": "18/25",
+  "chiave": "Ying di stagione",
+  "se": 1,
+  "carte": "GBPUSD 2021-11-02 s136 segue [col tratto]; GBPUSD 2025-07-08 s136 segue [col tratto]; GBPUSD 2025-09-18 s136 non segue; GBPUSD 2026-02-03 s136 segue [col tratto]; GBPUSD 2026-02-09 s136 non segue; GBPUSD 2026-08-26 s136 non segue; USDJPY 2022-06-30 s136 non segue [col tratto]; AUDUSD 2020-09-08 s72 non segue; AUDUSD 2021-09-21 s72 segue; AUDUSD 2021-09-27 s72 non segue; AUDUSD 2026-05-04 s72 non segue [col tratto]; USDCAD 2022-10-04 s136 non segue; USDCAD 2023-03-15 s136 segue; USDCAD 2023-03-21 s136 non segue; USDCAD 2023-09-11 s136 non segue; USDCAD 2024-09-11 s136 non segue; USDCAD 2025-06-20 s136 segue [col tratto]; USDCAD 2025-07-02 s136 segue [col tratto]; USDCAD 2025-12-29 s136 non segue; USDCAD 2026-02-03 s136 non segue [col tratto]; USDCAD 2026-04-28 s136 non segue [col tratto]; NZDUSD 2020-12-31 s72 non segue; NZDUSD 2021-01-06 s72 segue [col tratto]; NZDUSD 2021-05-12 s72 non segue [col tratto]; NZDUSD 2021-05-18 s72 segue [col tratto]"
+ },
+ {
+  "forma": "8/4 L2",
+  "volte": 24,
+  "segue": 15,
+  "regola": "Se L2 vuota → NON SEGUE il trend (3/4); altrimenti SEGUE (14/20)",
+  "ok": "17/24",
+  "chiave": "L2 vuota",
+  "se": 0,
+  "carte": "GBPUSD 2020-09-07 s132 non segue [col tratto]; GBPUSD 2021-12-13 s132 segue; GBPUSD 2022-03-07 s132 segue; GBPUSD 2025-05-02 s132 segue; GBPUSD 2025-10-29 s132 segue; GBPUSD 2026-03-16 s132 non segue; GBPUSD 2026-07-02 s132 segue; GBPUSD 2026-09-24 s132 segue; GBPUSD 2026-09-30 s132 non segue [col tratto]; GBPUSD 2026-10-06 s132 non segue [col tratto]; USDJPY 2023-03-20 s132 segue; AUDUSD 2020-06-15 s68 segue; AUDUSD 2022-12-14 s68 segue; AUDUSD 2026-07-02 s68 non segue; USDCAD 2020-08-20 s132 segue; USDCAD 2023-07-06 s132 segue; USDCAD 2023-07-12 s132 segue; USDCAD 2023-07-24 s132 segue; USDCAD 2024-01-02 s132 non segue; NZDUSD 2020-11-18 s68 segue; NZDUSD 2022-04-12 s68 non segue; EURJPY 2021-05-17 s132 non segue; EURJPY 2021-10-26 s132 segue [col tratto]; EURJPY 2022-02-11 s132 non segue"
+ },
+ {
+  "forma": "8/1 L1",
+  "volte": 23,
+  "segue": 9,
+  "regola": "Se Shi fuori stagione → SEGUE il trend (5/8); altrimenti NON SEGUE (11/15)",
+  "ok": "16/23",
+  "chiave": "Shi fuori stagione",
+  "se": 1,
+  "carte": "GBPUSD 2020-02-24 s129 segue [col tratto]; GBPUSD 2020-07-29 s129 segue; GBPUSD 2023-07-20 s129 non segue; GBPUSD 2024-08-19 s129 segue [col tratto]; GBPUSD 2024-10-24 s129 non segue; GBPUSD 2024-11-05 s129 non segue; USDJPY 2022-04-20 s129 non segue; AUDUSD 2020-04-30 s65 non segue; AUDUSD 2024-01-22 s65 segue; AUDUSD 2024-08-01 s65 segue; AUDUSD 2024-08-13 s65 segue [col tratto]; AUDUSD 2024-11-05 s65 non segue; AUDUSD 2025-07-15 s65 non segue; AUDUSD 2025-08-14 s65 non segue [col tratto]; AUDUSD 2025-09-25 s65 segue [col tratto]; AUDUSD 2025-11-06 s65 segue; USDCAD 2021-12-21 s129 non segue [col tratto]; NZDUSD 2020-06-11 s65 non segue; NZDUSD 2022-02-01 s65 non segue; NZDUSD 2022-06-01 s65 non segue; NZDUSD 2023-02-02 s65 non segue; EURJPY 2021-03-08 s129 non segue [col tratto]; EURJPY 2021-04-01 s129 segue [col tratto]"
+ },
+ {
+  "forma": "7/2 L2",
+  "volte": 22,
+  "segue": 8,
+  "regola": "Se Ying vuoto → SEGUE il trend (2/2); altrimenti NON SEGUE (14/20)",
+  "ok": "16/22",
+  "chiave": "Ying vuoto",
+  "se": 1,
+  "carte": "EURUSD 2020-12-21 s122 segue; EURUSD 2021-01-08 s122 non segue; GBPUSD 2020-04-07 s122 non segue; GBPUSD 2022-12-05 s122 non segue; GBPUSD 2023-01-16 s122 non segue; GBPUSD 2023-09-25 s122 segue; GBPUSD 2025-01-17 s122 segue; USDJPY 2022-03-28 s122 segue; NZDUSD 2020-03-26 s58 non segue; NZDUSD 2023-10-31 s58 segue; NZDUSD 2024-11-18 s58 non segue; NZDUSD 2026-04-12 s58 non segue; NZDUSD 2026-04-24 s58 non segue; NZDUSD 2026-05-24 s58 non segue; NZDUSD 2026-06-05 s58 segue [col tratto]; NZDUSD 2026-07-23 s58 non segue; NZDUSD 2026-09-03 s58 non segue; EURJPY 2020-09-28 s122 non segue; EURJPY 2020-11-09 s122 non segue; EURJPY 2026-06-17 s186 non segue; EURJPY 2026-07-23 s186 segue; EURJPY 2026-07-29 s186 segue [col tratto]"
+ },
+ {
+  "forma": "8/5 L3",
+  "volte": 22,
+  "segue": 11,
+  "regola": "Se Shi prigioniero (囚) → SEGUE il trend (6/7); altrimenti NON SEGUE (10/15)",
+  "ok": "16/22",
+  "chiave": "Shi 囚",
+  "se": 1,
+  "carte": "GBPUSD 2020-11-24 s133 segue [col tratto]; GBPUSD 2025-12-04 s133 non segue [col tratto]; GBPUSD 2025-12-10 s133 segue [col tratto]; GBPUSD 2025-12-16 s133 segue [col tratto]; GBPUSD 2025-12-22 s133 segue [col tratto]; GBPUSD 2026-03-04 s133 non segue; GBPUSD 2026-07-08 s133 segue; GBPUSD 2026-09-18 s133 non segue; USDJPY 2023-03-14 s133 non segue; AUDUSD 2022-06-29 s69 segue; AUDUSD 2023-02-06 s69 non segue; AUDUSD 2026-09-30 s69 segue; USDCAD 2020-06-09 s133 non segue; USDCAD 2022-09-21 s133 segue; USDCAD 2023-01-31 s133 segue; USDCAD 2023-04-19 s133 non segue; USDCAD 2023-06-12 s133 non segue; USDCAD 2023-12-21 s133 segue [col tratto]; NZDUSD 2020-11-24 s69 segue [col tratto]; NZDUSD 2022-03-31 s69 non segue; NZDUSD 2022-04-06 s69 non segue; EURJPY 2021-06-10 s133 non segue"
+ },
+ {
+  "forma": "8/6 L1",
+  "volte": 22,
+  "segue": 7,
+  "regola": "Se L2: il giorno clash → SEGUE il trend (5/7); altrimenti NON SEGUE (13/15)",
+  "ok": "18/22",
+  "chiave": "L2: il giorno clash",
+  "se": 1,
+  "carte": "GBPUSD 2021-11-22 s134 segue [col tratto]; GBPUSD 2024-09-25 s134 non segue; GBPUSD 2025-04-29 s134 non segue; GBPUSD 2025-07-22 s134 non segue; GBPUSD 2025-07-28 s134 segue [col tratto]; GBPUSD 2025-08-21 s134 segue [col tratto]; GBPUSD 2025-10-02 s134 non segue; GBPUSD 2026-04-24 s134 non segue; GBPUSD 2026-06-17 s134 non segue [col tratto]; GBPUSD 2026-07-17 s134 non segue; GBPUSD 2026-08-04 s134 segue [col tratto]; GBPUSD 2026-09-03 s134 non segue; USDJPY 2022-06-14 s134 segue [col tratto]; USDJPY 2022-12-05 s134 non segue; USDJPY 2022-12-29 s134 segue; AUDUSD 2026-01-30 s70 non segue; AUDUSD 2026-02-11 s70 segue; AUDUSD 2026-04-12 s70 non segue; AUDUSD 2026-06-17 s70 non segue [col tratto]; USDCAD 2024-01-29 s134 non segue; USDCAD 2024-09-25 s134 non segue; USDCAD 2026-01-30 s134 non segue"
+ },
+ {
+  "forma": "8/4 L3",
+  "volte": 22,
+  "segue": 7,
+  "regola": "Se Ying Tai Sui → SEGUE il trend (4/7); altrimenti NON SEGUE (12/15)",
+  "ok": "16/22",
+  "chiave": "Ying Tai Sui",
+  "se": 1,
+  "carte": "GBPUSD 2021-12-02 s132 non segue [col tratto]; GBPUSD 2021-12-08 s132 segue [col tratto]; GBPUSD 2021-12-20 s132 segue [col tratto]; GBPUSD 2024-09-17 s132 non segue; GBPUSD 2025-08-01 s132 non segue; GBPUSD 2026-06-21 s132 segue; GBPUSD 2026-09-25 s132 non segue; GBPUSD 2026-10-01 s132 segue; GBPUSD 2026-10-07 s132 non segue; USDJPY 2022-12-27 s132 non segue; AUDUSD 2020-06-22 s68 non segue; AUDUSD 2022-06-30 s68 non segue; AUDUSD 2022-12-15 s68 non segue; AUDUSD 2023-06-19 s68 non segue; AUDUSD 2023-07-19 s68 non segue; USDCAD 2023-12-28 s132 non segue; NZDUSD 2022-03-14 s68 non segue; NZDUSD 2022-04-13 s68 segue; EURJPY 2021-05-12 s132 segue [col tratto]; EURJPY 2021-05-18 s132 segue [col tratto]; EURJPY 2021-10-27 s132 non segue [col tratto]; EURJPY 2021-11-02 s132 non segue [col tratto]"
+ },
+ {
+  "forma": "8/2 L5",
+  "volte": 21,
+  "segue": 10,
+  "regola": "Se arrivo della mobile fuori stagione → NON SEGUE il trend (8/10); altrimenti SEGUE (8/11)",
+  "ok": "16/21",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 0,
+  "carte": "GBPUSD 2020-08-25 s130 non segue [col tratto]; GBPUSD 2022-03-30 s130 non segue [col tratto]; GBPUSD 2024-10-09 s130 segue; GBPUSD 2024-10-21 s130 segue; GBPUSD 2025-03-20 s130 non segue [col tratto]; USDJPY 2022-05-11 s130 non segue [col tratto]; USDJPY 2023-04-06 s130 non segue; AUDUSD 2020-05-27 s66 non segue [col tratto]; AUDUSD 2023-03-13 s66 non segue [col tratto]; AUDUSD 2023-05-18 s66 segue [col tratto]; AUDUSD 2023-05-24 s66 segue [col tratto]; AUDUSD 2024-07-23 s66 segue; USDCAD 2020-08-31 s130 segue; USDCAD 2022-05-11 s130 non segue [col tratto]; NZDUSD 2022-02-04 s66 non segue [col tratto]; EURJPY 2021-04-22 s130 segue; EURJPY 2021-07-15 s130 segue; EURJPY 2021-07-27 s130 non segue; EURJPY 2021-09-07 s130 segue; EURJPY 2022-01-11 s130 segue; EURJPY 2022-01-17 s130 non segue"
+ },
+ {
+  "forma": "1/1 L5",
+  "volte": 21,
+  "segue": 8,
+  "regola": "Se Shi in piena stagione (旺) → SEGUE il trend (5/7); altrimenti NON SEGUE (11/14)",
+  "ok": "16/21",
+  "chiave": "Shi 旺",
+  "se": 1,
+  "carte": "GBPUSD 2021-09-09 s137 non segue; GBPUSD 2021-10-27 s137 non segue [col tratto]; GBPUSD 2025-07-02 s137 non segue; USDJPY 2022-07-12 s137 non segue [col tratto]; USDJPY 2023-03-09 s137 non segue; AUDUSD 2020-09-02 s73 non segue; AUDUSD 2021-08-16 s73 segue; AUDUSD 2021-11-08 s73 non segue; AUDUSD 2022-03-08 s73 non segue; USDCAD 2022-09-28 s137 non segue; USDCAD 2022-10-10 s137 segue [col tratto]; USDCAD 2022-11-03 s137 segue [col tratto]; USDCAD 2023-03-27 s137 non segue; USDCAD 2024-10-17 s137 segue [col tratto]; USDCAD 2025-05-27 s137 non segue; USDCAD 2025-06-26 s137 non segue; USDCAD 2025-12-17 s137 non segue; USDCAD 2025-12-23 s137 segue; USDCAD 2026-04-16 s137 segue [col tratto]; USDCAD 2026-05-22 s137 segue; EURJPY 2022-04-19 s137 segue [col tratto]"
+ },
+ {
+  "forma": "7/6 L1",
+  "volte": 20,
+  "segue": 9,
+  "regola": "Se arrivo della mobile fuori stagione → NON SEGUE il trend (9/12); altrimenti SEGUE (6/8)",
+  "ok": "15/20",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 0,
+  "carte": "GBPUSD 2020-07-13 s126 non segue [col tratto]; GBPUSD 2023-12-19 s126 segue; GBPUSD 2024-02-29 s126 non segue [col tratto]; AUDUSD 2022-10-13 s62 non segue [col tratto]; AUDUSD 2023-10-26 s62 non segue [col tratto]; AUDUSD 2024-12-19 s62 non segue; AUDUSD 2025-01-06 s62 non segue [col tratto]; AUDUSD 2025-02-11 s62 segue [col tratto]; USDCAD 2021-02-26 s126 non segue [col tratto]; NZDUSD 2022-05-16 s62 non segue [col tratto]; NZDUSD 2022-06-15 s62 non segue [col tratto]; NZDUSD 2022-07-21 s62 segue [col tratto]; NZDUSD 2022-07-27 s62 segue [col tratto]; NZDUSD 2022-08-08 s62 segue; NZDUSD 2023-02-16 s62 segue; NZDUSD 2023-06-22 s62 non segue [col tratto]; NZDUSD 2023-12-19 s62 segue; NZDUSD 2024-09-26 s62 segue; EURJPY 2020-12-22 s126 non segue; EURJPY 2020-12-28 s126 segue"
+ },
+ {
+  "forma": "8/2 L3",
+  "volte": 20,
+  "segue": 10,
+  "regola": "Se Shi prigioniero (囚) → SEGUE il trend (7/10); altrimenti NON SEGUE (7/10)",
+  "ok": "14/20",
+  "chiave": "Shi 囚",
+  "se": 1,
+  "carte": "GBPUSD 2020-08-05 s130 segue [col tratto]; GBPUSD 2020-08-11 s130 non segue; GBPUSD 2022-03-16 s130 non segue; GBPUSD 2022-04-21 s130 segue [col tratto]; GBPUSD 2024-11-06 s130 non segue [col tratto]; USDJPY 2022-05-09 s130 non segue; AUDUSD 2022-11-23 s66 segue; AUDUSD 2022-11-29 s66 segue; AUDUSD 2024-05-22 s66 non segue; AUDUSD 2024-08-14 s66 non segue; AUDUSD 2024-11-06 s66 non segue [col tratto]; USDCAD 2020-11-27 s130 segue; USDCAD 2022-09-12 s130 non segue; NZDUSD 2020-07-30 s66 segue [col tratto]; NZDUSD 2022-01-27 s66 segue [col tratto]; EURJPY 2021-04-14 s130 segue [col tratto]; EURJPY 2021-04-26 s130 non segue [col tratto]; EURJPY 2021-07-07 s130 segue [col tratto]; EURJPY 2021-07-13 s130 segue [col tratto]; EURJPY 2021-09-29 s130 non segue"
+ },
+ {
+  "forma": "8/2 L2",
+  "volte": 20,
+  "segue": 9,
+  "regola": "Se Shi: l'ora clash → NON SEGUE il trend (6/8); altrimenti SEGUE (7/12)",
+  "ok": "13/20",
+  "chiave": "Shi: l'ora clash",
+  "se": 0,
+  "carte": "GBPUSD 2020-08-10 s130 segue [col tratto]; GBPUSD 2022-03-15 s130 non segue [col tratto]; GBPUSD 2022-04-20 s130 non segue [col tratto]; GBPUSD 2024-10-30 s130 segue [col tratto]; GBPUSD 2025-11-06 s130 non segue [col tratto]; USDJPY 2023-01-03 s130 non segue [col tratto]; AUDUSD 2022-11-22 s66 segue; AUDUSD 2023-06-08 s66 segue; AUDUSD 2023-11-29 s66 non segue; AUDUSD 2023-12-05 s66 non segue; AUDUSD 2024-01-16 s66 segue; AUDUSD 2024-05-27 s66 non segue; AUDUSD 2024-08-19 s66 segue; AUDUSD 2025-10-07 s66 non segue; AUDUSD 2026-01-05 s66 segue; USDCAD 2020-09-03 s130 non segue [col tratto]; NZDUSD 2020-07-23 s66 non segue; NZDUSD 2022-01-26 s66 segue; NZDUSD 2022-04-26 s66 segue; EURJPY 2022-01-14 s130 non segue [col tratto]"
+ },
+ {
+  "forma": "8/2 L4",
+  "volte": 20,
+  "segue": 10,
+  "regola": "Se Shi: l'ora clash → NON SEGUE il trend (6/9); altrimenti SEGUE (7/11)",
+  "ok": "13/20",
+  "chiave": "Shi: l'ora clash",
+  "se": 0,
+  "carte": "GBPUSD 2020-08-24 s130 non segue [col tratto]; GBPUSD 2024-08-21 s130 segue [col tratto]; GBPUSD 2024-10-08 s130 non segue [col tratto]; USDJPY 2022-05-04 s130 non segue [col tratto]; AUDUSD 2020-02-20 s66 segue; AUDUSD 2020-02-26 s66 segue; AUDUSD 2020-03-09 s66 non segue; AUDUSD 2022-11-30 s66 segue; AUDUSD 2023-05-23 s66 segue; AUDUSD 2023-06-28 s66 segue; AUDUSD 2024-05-29 s66 non segue; AUDUSD 2024-07-22 s66 segue; NZDUSD 2020-08-06 s66 segue; NZDUSD 2022-02-03 s66 non segue; NZDUSD 2022-02-09 s66 non segue; EURJPY 2021-03-16 s130 non segue [col tratto]; EURJPY 2021-04-15 s130 non segue [col tratto]; EURJPY 2021-04-27 s130 segue [col tratto]; EURJPY 2021-07-08 s130 segue [col tratto]; EURJPY 2022-02-15 s130 non segue [col tratto]"
+ },
+ {
+  "forma": "1/1 L3",
+  "volte": 20,
+  "segue": 11,
+  "regola": "Se L1: il giorno stesso ramo → SEGUE il trend (9/11); altrimenti NON SEGUE (7/9)",
+  "ok": "16/20",
+  "chiave": "L1: il giorno stesso ramo",
+  "se": 1,
+  "carte": "GBPUSD 2021-02-09 s137 segue [col tratto]; GBPUSD 2021-10-19 s137 segue [col tratto]; USDJPY 2022-12-01 s137 segue [col tratto]; USDJPY 2022-12-13 s137 segue [col tratto]; AUDUSD 2020-11-23 s73 non segue; AUDUSD 2021-07-27 s73 segue [col tratto]; AUDUSD 2021-08-02 s73 non segue; AUDUSD 2021-09-01 s73 segue [col tratto]; USDCAD 2020-03-16 s137 segue; USDCAD 2023-03-13 s137 non segue; USDCAD 2025-05-01 s137 non segue; USDCAD 2025-05-07 s137 non segue [col tratto]; USDCAD 2025-07-30 s137 segue [col tratto]; USDCAD 2025-09-04 s137 segue [col tratto]; USDCAD 2026-02-25 s137 non segue; USDCAD 2026-04-20 s137 segue [col tratto]; USDCAD 2026-06-01 s137 segue; USDCAD 2026-08-24 s137 non segue; EURJPY 2022-05-11 s137 non segue [col tratto]; EURJPY 2022-08-09 s137 non segue"
+ },
+ {
+  "forma": "8/5 L2",
+  "volte": 20,
+  "segue": 7,
+  "regola": "Se Shi a riposo (休) → SEGUE il trend (2/2); altrimenti NON SEGUE (13/18)",
+  "ok": "15/20",
+  "chiave": "Shi 休",
+  "se": 1,
+  "carte": "GBPUSD 2021-11-12 s133 non segue; GBPUSD 2021-11-24 s133 segue; GBPUSD 2025-05-01 s133 non segue; GBPUSD 2025-05-07 s133 non segue; GBPUSD 2025-07-30 s133 segue; GBPUSD 2025-10-28 s133 segue; GBPUSD 2025-12-09 s133 non segue; GBPUSD 2026-03-09 s133 non segue; GBPUSD 2026-07-07 s133 non segue; GBPUSD 2026-07-13 s133 non segue; GBPUSD 2026-09-17 s133 segue [col tratto]; GBPUSD 2026-09-23 s133 segue [col tratto]; USDJPY 2022-08-03 s133 non segue; AUDUSD 2022-06-22 s69 segue; AUDUSD 2026-07-07 s69 non segue; USDCAD 2023-12-20 s133 non segue; NZDUSD 2020-11-23 s69 non segue; NZDUSD 2021-07-21 s69 non segue; NZDUSD 2021-10-13 s69 non segue; NZDUSD 2022-03-30 s69 segue"
+ },
+ {
+  "forma": "7/2 L6",
+  "volte": 20,
+  "segue": 10,
+  "regola": "Se Shi: il mese clash → NON SEGUE il trend (3/3); altrimenti SEGUE (10/17)",
+  "ok": "13/20",
+  "chiave": "Shi: il mese clash",
+  "se": 0,
+  "carte": "GBPUSD 2023-03-21 s122 non segue; GBPUSD 2023-03-27 s122 segue; GBPUSD 2023-10-11 s122 segue; GBPUSD 2023-10-17 s122 segue; GBPUSD 2025-01-15 s122 non segue; AUDUSD 2020-03-24 s58 non segue; USDCAD 2021-05-06 s122 segue; NZDUSD 2024-11-22 s58 segue; NZDUSD 2024-12-04 s58 segue; NZDUSD 2025-08-01 s58 non segue [col tratto]; NZDUSD 2025-09-24 s58 segue; NZDUSD 2025-12-29 s58 non segue; NZDUSD 2026-05-22 s58 segue; NZDUSD 2026-05-28 s58 segue; NZDUSD 2026-06-15 s58 non segue; NZDUSD 2026-07-21 s58 non segue [col tratto]; NZDUSD 2026-08-14 s58 non segue; EURJPY 2020-06-04 s122 segue; EURJPY 2020-06-10 s122 non segue; EURJPY 2026-07-27 s186 non segue [col tratto]"
+ },
+ {
+  "forma": "8/5 L4",
+  "volte": 19,
+  "segue": 9,
+  "regola": "Se L2: il giorno combina → NON SEGUE il trend (8/12); altrimenti SEGUE (5/7)",
+  "ok": "13/19",
+  "chiave": "L2: il giorno combina",
+  "se": 0,
+  "carte": "GBPUSD 2020-11-25 s133 segue; GBPUSD 2020-12-01 s133 segue [col tratto]; GBPUSD 2021-11-26 s133 non segue [col tratto]; GBPUSD 2024-09-23 s133 segue [col tratto]; GBPUSD 2025-04-21 s133 segue; GBPUSD 2026-03-17 s133 non segue [col tratto]; GBPUSD 2026-07-15 s133 segue [col tratto]; AUDUSD 2020-06-10 s69 segue; AUDUSD 2020-06-16 s69 non segue [col tratto]; AUDUSD 2022-05-19 s69 non segue; AUDUSD 2023-02-13 s69 non segue [col tratto]; AUDUSD 2026-02-03 s69 segue; AUDUSD 2026-07-03 s69 non segue [col tratto]; USDCAD 2022-11-21 s133 non segue [col tratto]; USDCAD 2023-06-13 s133 segue [col tratto]; USDCAD 2024-01-03 s133 non segue [col tratto]; USDCAD 2024-01-09 s133 non segue; NZDUSD 2020-11-25 s69 segue; EURJPY 2021-10-21 s133 non segue [col tratto]"
+ },
+ {
+  "forma": "1/1 L4",
+  "volte": 19,
+  "segue": 10,
+  "regola": "Se Ying: il mese combina → NON SEGUE il trend (3/3); altrimenti SEGUE (10/16)",
+  "ok": "13/19",
+  "chiave": "Ying: il mese combina",
+  "se": 0,
+  "carte": "GBPUSD 2021-10-20 s137 segue; AUDUSD 2021-07-22 s73 non segue; AUDUSD 2021-08-03 s73 non segue; AUDUSD 2021-09-02 s73 segue; AUDUSD 2021-09-08 s73 non segue [col tratto]; AUDUSD 2021-09-14 s73 non segue [col tratto]; AUDUSD 2022-04-18 s73 segue; USDCAD 2022-10-03 s137 non segue [col tratto]; USDCAD 2023-03-08 s137 segue; USDCAD 2023-03-14 s137 non segue; USDCAD 2023-03-20 s137 non segue; USDCAD 2024-10-10 s137 segue; USDCAD 2024-10-16 s137 non segue; USDCAD 2025-08-06 s137 non segue; USDCAD 2025-12-22 s137 segue; USDCAD 2026-01-27 s137 segue; USDCAD 2026-04-15 s137 segue; USDCAD 2026-05-15 s137 segue; USDCAD 2026-05-21 s137 segue"
+ },
+ {
+  "forma": "8/3 L4",
+  "volte": 19,
+  "segue": 10,
+  "regola": "Se Ying: il giorno combina → NON SEGUE il trend (6/8); altrimenti SEGUE (8/11)",
+  "ok": "14/19",
+  "chiave": "Ying: il giorno combina",
+  "se": 0,
+  "carte": "GBPUSD 2022-03-10 s131 segue [col tratto]; GBPUSD 2022-03-22 s131 segue [col tratto]; GBPUSD 2022-03-28 s131 segue; GBPUSD 2024-10-07 s131 segue; GBPUSD 2025-11-13 s131 non segue [col tratto]; GBPUSD 2025-11-19 s131 segue; GBPUSD 2025-11-25 s131 non segue [col tratto]; USDJPY 2023-01-04 s131 non segue [col tratto]; USDJPY 2023-03-23 s131 segue; USDJPY 2023-03-29 s131 non segue [col tratto]; AUDUSD 2023-06-15 s67 segue; AUDUSD 2026-01-06 s67 segue; USDCAD 2020-09-10 s131 non segue; USDCAD 2023-06-27 s131 non segue; NZDUSD 2021-12-16 s67 non segue [col tratto]; NZDUSD 2021-12-22 s67 non segue; NZDUSD 2022-04-21 s67 segue; EURJPY 2022-02-08 s131 segue; EURJPY 2022-02-14 s131 non segue [col tratto]"
+ },
+ {
+  "forma": "7/6 L6",
+  "volte": 19,
+  "segue": 9,
+  "regola": "Se Shi: il giorno clash → NON SEGUE il trend (8/11); altrimenti SEGUE (6/8)",
+  "ok": "14/19",
+  "chiave": "Shi: il giorno clash",
+  "se": 0,
+  "carte": "GBPUSD 2023-11-30 s126 non segue [col tratto]; GBPUSD 2023-12-18 s126 non segue; GBPUSD 2024-08-08 s126 non segue [col tratto]; AUDUSD 2025-02-28 s62 segue [col tratto]; USDCAD 2021-02-19 s126 segue; USDCAD 2021-07-19 s126 segue [col tratto]; USDCAD 2022-01-27 s126 segue [col tratto]; USDCAD 2022-02-02 s126 non segue; USDCAD 2022-02-08 s126 non segue [col tratto]; NZDUSD 2020-03-02 s62 non segue [col tratto]; NZDUSD 2022-06-14 s62 segue; NZDUSD 2022-07-26 s62 non segue [col tratto]; NZDUSD 2022-08-01 s62 segue; NZDUSD 2023-02-21 s62 segue; NZDUSD 2023-07-27 s62 segue; NZDUSD 2024-09-19 s62 segue; EURJPY 2020-08-17 s126 non segue [col tratto]; EURJPY 2020-12-03 s126 non segue [col tratto]; EURJPY 2020-12-15 s126 non segue [col tratto]"
+ },
+ {
+  "forma": "8/7 L3",
+  "volte": 19,
+  "segue": 6,
+  "regola": "Se Shi: il mese clash → SEGUE il trend (2/2); altrimenti NON SEGUE (13/17)",
+  "ok": "15/19",
+  "chiave": "Shi: il mese clash",
+  "se": 1,
+  "carte": "GBPUSD 2025-06-05 s135 segue [col tratto]; GBPUSD 2025-06-11 s135 non segue; GBPUSD 2025-06-17 s135 non segue; GBPUSD 2025-07-11 s135 segue; GBPUSD 2025-07-23 s135 segue; GBPUSD 2026-02-06 s135 non segue; GBPUSD 2026-04-19 s135 non segue; GBPUSD 2026-09-10 s135 non segue; USDJPY 2022-06-15 s135 non segue; AUDUSD 2021-09-30 s71 non segue; AUDUSD 2022-06-09 s71 non segue; AUDUSD 2026-02-12 s71 non segue; AUDUSD 2026-04-19 s71 non segue; AUDUSD 2026-05-19 s71 segue [col tratto]; AUDUSD 2026-09-16 s71 segue; USDCAD 2023-12-13 s135 segue; USDCAD 2025-06-17 s135 non segue; EURJPY 2022-04-04 s135 non segue; EURJPY 2022-04-28 s135 non segue"
+ },
+ {
+  "forma": "7/3 L5",
+  "volte": 18,
+  "segue": 4,
+  "regola": "Se Shi: il mese clash → SEGUE il trend (2/3); altrimenti NON SEGUE (13/15)",
+  "ok": "15/18",
+  "chiave": "Shi: il mese clash",
+  "se": 1,
+  "carte": "GBPUSD 2020-05-27 s123 non segue; GBPUSD 2022-05-11 s123 segue; GBPUSD 2022-05-17 s123 non segue; GBPUSD 2023-01-24 s123 non segue; GBPUSD 2023-04-18 s123 non segue; GBPUSD 2023-05-30 s123 non segue; GBPUSD 2023-09-21 s123 segue [col tratto]; USDJPY 2022-03-30 s123 non segue; NZDUSD 2022-09-20 s59 segue [col tratto]; NZDUSD 2023-09-27 s59 non segue [col tratto]; NZDUSD 2023-11-08 s59 non segue; NZDUSD 2024-11-20 s59 segue; NZDUSD 2025-04-25 s59 non segue; NZDUSD 2025-05-01 s59 non segue; NZDUSD 2026-02-25 s59 non segue; NZDUSD 2026-06-01 s59 non segue; NZDUSD 2026-08-18 s59 non segue; EURJPY 2020-11-23 s123 non segue"
+ },
+ {
+  "forma": "8/4 L1",
+  "volte": 18,
+  "segue": 7,
+  "regola": "Se Shi in crescita (相) → SEGUE il trend (6/9); altrimenti NON SEGUE (8/9)",
+  "ok": "14/18",
+  "chiave": "Shi 相",
+  "se": 1,
+  "carte": "GBPUSD 2020-08-19 s132 non segue [col tratto]; GBPUSD 2021-12-06 s132 non segue; GBPUSD 2022-03-24 s132 non segue; GBPUSD 2024-08-28 s132 non segue [col tratto]; GBPUSD 2024-10-03 s132 segue [col tratto]; GBPUSD 2026-09-29 s132 segue [col tratto]; GBPUSD 2026-10-05 s132 segue [col tratto]; AUDUSD 2022-07-04 s68 non segue; AUDUSD 2022-08-03 s68 non segue; AUDUSD 2023-07-17 s68 non segue; AUDUSD 2024-10-03 s68 non segue [col tratto]; USDCAD 2020-02-21 s132 non segue; USDCAD 2020-08-13 s132 segue [col tratto]; USDCAD 2020-08-25 s132 segue [col tratto]; USDCAD 2022-09-20 s132 segue [col tratto]; USDCAD 2023-07-11 s132 non segue; USDCAD 2023-07-17 s132 segue; EURJPY 2021-10-25 s132 non segue"
+ },
+ {
+  "forma": "8/1 L5",
+  "volte": 18,
+  "segue": 11,
+  "regola": "Se Ying vuoto → NON SEGUE il trend (4/6); altrimenti SEGUE (9/12)",
+  "ok": "13/18",
+  "chiave": "Ying vuoto",
+  "se": 0,
+  "carte": "GBPUSD 2020-10-01 s129 non segue [col tratto]; GBPUSD 2023-07-12 s129 segue; GBPUSD 2025-04-02 s129 segue; USDJPY 2022-05-12 s129 non segue; USDJPY 2022-05-18 s129 non segue; AUDUSD 2020-02-28 s65 segue; AUDUSD 2023-05-25 s65 segue [col tratto]; AUDUSD 2024-02-13 s65 segue; AUDUSD 2025-09-05 s65 segue; AUDUSD 2025-09-29 s65 non segue; AUDUSD 2025-11-04 s65 segue; AUDUSD 2025-11-10 s65 non segue [col tratto]; USDCAD 2020-11-30 s129 non segue [col tratto]; USDCAD 2022-05-12 s129 segue; USDCAD 2022-06-23 s129 segue; NZDUSD 2020-06-09 s65 non segue [col tratto]; NZDUSD 2022-05-30 s65 segue [col tratto]; EURJPY 2021-09-14 s129 segue"
+ },
+ {
+  "forma": "7/7 L6",
+  "volte": 18,
+  "segue": 10,
+  "regola": "Se Ying di stagione → NON SEGUE il trend (6/9); altrimenti SEGUE (7/9)",
+  "ok": "13/18",
+  "chiave": "Ying di stagione",
+  "se": 0,
+  "carte": "GBPUSD 2022-04-26 s127 segue [col tratto]; GBPUSD 2024-01-10 s127 segue [col tratto]; GBPUSD 2024-01-16 s127 non segue [col tratto]; GBPUSD 2024-08-13 s127 non segue [col tratto]; GBPUSD 2025-03-05 s127 segue; USDJPY 2022-04-26 s127 non segue [col tratto]; AUDUSD 2023-10-30 s63 non segue [col tratto]; AUDUSD 2024-12-17 s63 segue; AUDUSD 2025-02-27 s63 segue; AUDUSD 2025-04-28 s63 segue [col tratto]; USDCAD 2022-02-01 s127 non segue [col tratto]; USDCAD 2022-02-07 s127 non segue; NZDUSD 2022-06-13 s63 segue; NZDUSD 2023-01-03 s63 non segue; NZDUSD 2023-02-14 s63 segue; EURJPY 2021-02-18 s127 segue; EURJPY 2021-02-24 s127 segue; EURJPY 2021-09-22 s127 non segue [col tratto]"
+ },
+ {
+  "forma": "7/3 L1",
+  "volte": 18,
+  "segue": 9,
+  "regola": "Se Ying vuoto → NON SEGUE il trend (3/3); altrimenti SEGUE (9/15)",
+  "ok": "12/18",
+  "chiave": "Ying vuoto",
+  "se": 0,
+  "carte": "GBPUSD 2022-05-19 s123 non segue [col tratto]; GBPUSD 2023-02-01 s123 segue; GBPUSD 2025-01-09 s123 segue; GBPUSD 2025-01-21 s123 segue; USDJPY 2022-04-07 s123 segue; AUDUSD 2020-03-18 s59 segue; USDCAD 2021-10-21 s123 non segue; USDCAD 2021-10-27 s123 segue; USDCAD 2021-11-02 s123 non segue; NZDUSD 2020-03-18 s59 segue; NZDUSD 2024-04-02 s59 non segue; NZDUSD 2024-07-25 s59 segue; NZDUSD 2024-08-12 s59 segue; NZDUSD 2025-08-07 s59 non segue; NZDUSD 2025-09-18 s59 non segue; NZDUSD 2026-06-03 s59 non segue; EURJPY 2020-07-28 s123 non segue [col tratto]; EURJPY 2026-04-22 s187 non segue [col tratto]"
+ },
+ {
+  "forma": "8/1 L6",
+  "volte": 18,
+  "segue": 8,
+  "regola": "Se Shi: l'ora stesso ramo → NON SEGUE il trend (7/10); altrimenti SEGUE (5/8)",
+  "ok": "12/18",
+  "chiave": "Shi: l'ora stesso ramo",
+  "se": 0,
+  "carte": "GBPUSD 2023-07-13 s129 segue; GBPUSD 2024-10-17 s129 non segue; GBPUSD 2024-10-23 s129 segue; GBPUSD 2024-10-29 s129 non segue; GBPUSD 2025-03-10 s129 non segue; AUDUSD 2020-05-11 s65 non segue [col tratto]; AUDUSD 2023-06-01 s65 non segue [col tratto]; AUDUSD 2024-02-08 s65 segue [col tratto]; AUDUSD 2024-07-25 s65 segue [col tratto]; AUDUSD 2024-10-29 s65 segue [col tratto]; AUDUSD 2025-09-30 s65 non segue [col tratto]; AUDUSD 2025-10-30 s65 non segue [col tratto]; AUDUSD 2025-11-17 s65 non segue [col tratto]; USDCAD 2020-12-01 s129 segue; NZDUSD 2022-01-31 s65 non segue [col tratto]; NZDUSD 2022-05-31 s65 non segue [col tratto]; EURJPY 2021-03-31 s129 segue; EURJPY 2021-09-15 s129 segue"
+ },
+ {
+  "forma": "8/2 L6",
+  "volte": 18,
+  "segue": 9,
+  "regola": "Se Shi morto (死) → NON SEGUE il trend (4/5); altrimenti SEGUE (8/13)",
+  "ok": "12/18",
+  "chiave": "Shi 死",
+  "se": 0,
+  "carte": "GBPUSD 2024-07-18 s130 non segue; GBPUSD 2024-10-16 s130 segue; AUDUSD 2023-03-14 s66 non segue; AUDUSD 2023-06-06 s66 segue; AUDUSD 2023-07-06 s66 segue; AUDUSD 2023-07-12 s66 segue; AUDUSD 2024-10-22 s66 non segue; AUDUSD 2025-09-11 s66 segue [col tratto]; AUDUSD 2025-09-17 s66 non segue [col tratto]; AUDUSD 2025-12-10 s66 segue; AUDUSD 2025-12-22 s66 non segue; USDCAD 2020-09-01 s130 non segue [col tratto]; USDCAD 2020-09-07 s130 non segue [col tratto]; USDCAD 2020-11-24 s130 segue; NZDUSD 2020-07-27 s66 segue; EURJPY 2021-03-12 s130 segue; EURJPY 2021-03-18 s130 non segue; EURJPY 2021-09-08 s130 non segue [col tratto]"
+ },
+ {
+  "forma": "2/5 L3",
+  "volte": 18,
+  "segue": 9,
+  "regola": "Se arrivo della mobile fuori stagione → NON SEGUE il trend (7/11); altrimenti SEGUE (5/7)",
+  "ok": "12/18",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 0,
+  "carte": "USDJPY 2023-09-28 s149 non segue [col tratto]; USDJPY 2024-02-13 s149 segue; USDJPY 2024-10-10 s149 non segue [col tratto]; USDJPY 2024-10-16 s149 segue [col tratto]; USDJPY 2024-12-09 s149 non segue; USDJPY 2025-02-25 s149 segue; USDJPY 2025-09-29 s149 non segue [col tratto]; USDCHF 2023-12-27 s85 segue; EURJPY 2023-06-12 s149 segue [col tratto]; EURGBP 2021-03-12 s85 non segue; EURGBP 2021-03-18 s85 segue; EURGBP 2021-09-20 s85 non segue [col tratto]; EURGBP 2022-05-12 s85 non segue [col tratto]; EURGBP 2023-06-12 s85 non segue [col tratto]; EURGBP 2024-02-13 s85 segue; EURGBP 2025-05-08 s85 segue [col tratto]; EURGBP 2025-06-19 s85 non segue [col tratto]; EURGBP 2026-08-19 s85 segue [col tratto]"
+ },
+ {
+  "forma": "7/3 L4",
+  "volte": 17,
+  "segue": 6,
+  "regola": "Se Shi Tai Sui → SEGUE il trend (4/6); altrimenti NON SEGUE (9/11)",
+  "ok": "13/17",
+  "chiave": "Shi Tai Sui",
+  "se": 1,
+  "carte": "GBPUSD 2020-04-02 s123 segue; GBPUSD 2020-07-01 s123 non segue; GBPUSD 2023-03-30 s123 segue [col tratto]; GBPUSD 2023-04-11 s123 segue [col tratto]; GBPUSD 2023-09-20 s123 segue [col tratto]; GBPUSD 2024-04-23 s123 non segue; USDJPY 2022-03-29 s123 non segue; NZDUSD 2022-09-19 s59 segue; NZDUSD 2023-08-15 s59 segue [col tratto]; NZDUSD 2023-09-26 s59 non segue [col tratto]; NZDUSD 2023-11-07 s59 non segue [col tratto]; NZDUSD 2024-04-11 s59 non segue; NZDUSD 2024-04-29 s59 non segue; NZDUSD 2024-11-07 s59 non segue; NZDUSD 2026-02-06 s59 non segue; EURJPY 2020-09-29 s123 non segue; EURJPY 2026-07-30 s187 non segue"
+ },
+ {
+  "forma": "8/3 L1",
+  "volte": 17,
+  "segue": 11,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "1/8 L1",
+  "volte": 17,
+  "segue": 6,
+  "regola": "Se arrivo della mobile fuori stagione → NON SEGUE il trend (11/13); altrimenti SEGUE (4/4)",
+  "ok": "15/17",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 0,
+  "carte": "GBPUSD 2021-01-07 s136 non segue [col tratto]; GBPUSD 2021-11-03 s136 non segue [col tratto]; GBPUSD 2026-02-04 s136 non segue [col tratto]; GBPUSD 2026-02-10 s136 non segue [col tratto]; USDJPY 2022-07-13 s136 segue [col tratto]; USDJPY 2022-07-25 s136 segue [col tratto]; AUDUSD 2020-11-20 s72 segue; USDCAD 2022-09-29 s136 segue; USDCAD 2022-12-22 s136 segue; USDCAD 2023-04-27 s136 non segue [col tratto]; USDCAD 2024-08-19 s136 segue; USDCAD 2025-06-27 s136 non segue [col tratto]; USDCAD 2026-02-04 s136 non segue [col tratto]; USDCAD 2026-04-23 s136 non segue [col tratto]; NZDUSD 2021-05-19 s72 non segue [col tratto]; EURJPY 2022-04-14 s136 non segue [col tratto]; EURJPY 2022-04-26 s136 non segue [col tratto]"
+ },
+ {
+  "forma": "1/8 L2",
+  "volte": 17,
+  "segue": 9,
+  "regola": "Se Shi: l'ora stesso ramo → SEGUE il trend (8/12); altrimenti NON SEGUE (4/5)",
+  "ok": "12/17",
+  "chiave": "Shi: l'ora stesso ramo",
+  "se": 1,
+  "carte": "GBPUSD 2021-01-14 s136 segue [col tratto]; GBPUSD 2026-02-05 s136 segue [col tratto]; USDJPY 2022-07-26 s136 non segue [col tratto]; AUDUSD 2021-08-24 s72 non segue; AUDUSD 2021-09-23 s72 non segue; AUDUSD 2021-09-29 s72 segue; AUDUSD 2022-06-08 s72 non segue; USDCAD 2022-10-24 s136 segue [col tratto]; USDCAD 2023-09-07 s136 segue [col tratto]; USDCAD 2024-09-19 s136 non segue [col tratto]; USDCAD 2025-07-10 s136 non segue [col tratto]; USDCAD 2025-07-22 s136 segue [col tratto]; USDCAD 2026-02-23 s136 segue [col tratto]; USDCAD 2026-05-06 s136 non segue [col tratto]; NZDUSD 2021-01-08 s72 non segue; EURJPY 2022-05-03 s136 segue [col tratto]; EURJPY 2022-08-01 s136 segue [col tratto]"
+ },
+ {
+  "forma": "8/6 L2",
+  "volte": 17,
+  "segue": 9,
+  "regola": "Se L1: il giorno combina → NON SEGUE il trend (7/11); altrimenti SEGUE (5/6)",
+  "ok": "12/17",
+  "chiave": "L1: il giorno combina",
+  "se": 0,
+  "carte": "GBPUSD 2021-11-11 s134 segue [col tratto]; GBPUSD 2025-04-30 s134 non segue; GBPUSD 2025-08-22 s134 non segue [col tratto]; GBPUSD 2026-01-13 s134 non segue [col tratto]; GBPUSD 2026-03-08 s134 segue; GBPUSD 2026-09-16 s134 segue; AUDUSD 2022-08-02 s70 non segue [col tratto]; AUDUSD 2026-02-18 s70 non segue [col tratto]; AUDUSD 2026-04-13 s70 segue; USDCAD 2024-01-24 s134 segue [col tratto]; USDCAD 2024-02-05 s134 non segue [col tratto]; USDCAD 2024-08-27 s134 segue [col tratto]; NZDUSD 2020-12-10 s70 segue [col tratto]; NZDUSD 2020-12-16 s70 segue; NZDUSD 2020-12-22 s70 non segue [col tratto]; NZDUSD 2021-07-08 s70 segue; EURJPY 2022-08-02 s134 non segue [col tratto]"
+ },
+ {
+  "forma": "1/8 L5",
+  "volte": 17,
+  "segue": 7,
+  "regola": "Se Ying vuoto → SEGUE il trend (4/5); altrimenti NON SEGUE (9/12)",
+  "ok": "13/17",
+  "chiave": "Ying vuoto",
+  "se": 1,
+  "carte": "GBPUSD 2022-01-12 s136 segue [col tratto]; GBPUSD 2025-06-13 s136 non segue; GBPUSD 2025-09-17 s136 non segue; USDJPY 2022-06-29 s136 segue; USDJPY 2022-12-08 s136 non segue; USDJPY 2023-03-02 s136 segue; AUDUSD 2020-11-24 s72 segue [col tratto]; AUDUSD 2021-11-19 s72 segue [col tratto]; USDCAD 2020-06-15 s136 non segue; USDCAD 2022-11-02 s136 non segue; USDCAD 2022-12-26 s136 non segue; USDCAD 2025-07-01 s136 non segue [col tratto]; USDCAD 2025-07-25 s136 non segue; USDCAD 2026-03-04 s136 non segue; USDCAD 2026-04-27 s136 segue [col tratto]; NZDUSD 2021-05-17 s72 segue; EURJPY 2022-04-12 s136 non segue"
+ },
+ {
+  "forma": "8/3 L6",
+  "volte": 17,
+  "segue": 9,
+  "regola": "Se Shi a riposo (休) → NON SEGUE il trend (6/6); altrimenti SEGUE (9/11)",
+  "ok": "15/17",
+  "chiave": "Shi 休",
+  "se": 0,
+  "carte": "GBPUSD 2022-04-05 s131 segue; GBPUSD 2024-09-03 s131 non segue [col tratto]; GBPUSD 2024-09-09 s131 non segue [col tratto]; GBPUSD 2026-06-25 s131 non segue; USDJPY 2023-01-12 s131 segue; AUDUSD 2020-06-02 s67 segue; AUDUSD 2022-12-13 s67 segue; AUDUSD 2023-03-07 s67 segue; AUDUSD 2024-08-22 s67 non segue [col tratto]; AUDUSD 2024-09-03 s67 non segue [col tratto]; AUDUSD 2024-10-09 s67 segue; AUDUSD 2024-10-15 s67 segue; AUDUSD 2024-10-21 s67 segue; AUDUSD 2026-01-08 s67 non segue; USDCAD 2020-08-19 s131 non segue [col tratto]; USDCAD 2022-09-08 s131 non segue [col tratto]; EURJPY 2021-04-28 s131 segue"
+ },
+ {
+  "forma": "3/2 L4",
+  "volte": 17,
+  "segue": 10,
+  "regola": "Se Shi a riposo (休) → NON SEGUE il trend (2/3); altrimenti SEGUE (9/14)",
+  "ok": "11/17",
+  "chiave": "Shi 休",
+  "se": 0,
+  "carte": "USDJPY 2026-02-11 s154 segue; USDJPY 2026-02-23 s154 segue; USDJPY 2026-09-15 s154 non segue; USDCHF 2020-08-17 s90 segue; USDCHF 2021-05-20 s90 segue; USDCHF 2023-09-25 s90 segue; USDCHF 2023-10-31 s90 segue; USDCHF 2024-04-10 s90 segue; USDCHF 2024-05-16 s90 non segue; USDCHF 2024-06-03 s90 segue; USDCHF 2024-07-03 s90 non segue; USDCHF 2025-01-29 s90 non segue; EURJPY 2023-06-21 s154 segue; EURGBP 2020-07-06 s90 non segue; EURGBP 2020-11-09 s90 segue [col tratto]; EURGBP 2020-12-03 s90 non segue [col tratto]; EURGBP 2020-12-09 s90 non segue [col tratto]"
+ },
+ {
+  "forma": "7/1 L1",
+  "volte": 16,
+  "segue": 9,
+  "regola": "Se L3: il giorno stesso ramo → SEGUE il trend (7/9); altrimenti NON SEGUE (5/7)",
+  "ok": "12/16",
+  "chiave": "L3: il giorno stesso ramo",
+  "se": 1,
+  "carte": "EURUSD 2020-12-03 s121 segue [col tratto]; EURUSD 2020-12-09 s121 non segue; EURUSD 2021-01-20 s121 segue [col tratto]; EURUSD 2021-05-20 s121 segue [col tratto]; EURUSD 2021-06-07 s121 non segue; GBPUSD 2022-08-01 s121 segue; GBPUSD 2023-02-15 s121 segue [col tratto]; USDCAD 2021-05-20 s121 segue [col tratto]; NZDUSD 2022-10-06 s57 segue [col tratto]; NZDUSD 2022-10-24 s57 segue; NZDUSD 2026-03-19 s57 non segue [col tratto]; NZDUSD 2026-06-11 s57 non segue [col tratto]; NZDUSD 2026-06-23 s57 segue [col tratto]; EURJPY 2026-05-12 s185 non segue; EURJPY 2026-06-05 s185 non segue; EURJPY 2026-08-28 s185 non segue"
+ },
+ {
+  "forma": "7/1 L5",
+  "volte": 16,
+  "segue": 5,
+  "regola": "Se L4 vuota → SEGUE il trend (3/6); altrimenti NON SEGUE (8/10)",
+  "ok": "11/16",
+  "chiave": "L4 vuota",
+  "se": 1,
+  "carte": "EURUSD 2021-05-12 s121 non segue; EURUSD 2021-05-18 s121 segue [col tratto]; EURUSD 2021-05-24 s121 segue [col tratto]; GBPUSD 2022-06-30 s121 non segue; GBPUSD 2022-12-21 s121 non segue; GBPUSD 2023-03-15 s121 non segue [col tratto]; GBPUSD 2023-10-05 s121 non segue; GBPUSD 2023-10-23 s121 non segue; NZDUSD 2020-03-24 s57 non segue [col tratto]; NZDUSD 2025-02-26 s57 non segue [col tratto]; NZDUSD 2025-12-23 s57 segue [col tratto]; EURJPY 2020-06-16 s121 non segue; EURJPY 2026-06-03 s185 non segue; EURJPY 2026-06-15 s185 segue; EURJPY 2026-07-21 s185 segue; EURJPY 2026-08-26 s185 non segue"
+ },
+ {
+  "forma": "7/5 L5",
+  "volte": 16,
+  "segue": 9,
+  "regola": "Se Shi prigioniero (囚) → NON SEGUE il trend (3/3); altrimenti SEGUE (9/13)",
+  "ok": "12/16",
+  "chiave": "Shi 囚",
+  "se": 0,
+  "carte": "GBPUSD 2020-06-24 s125 segue; GBPUSD 2023-12-06 s125 non segue; GBPUSD 2025-02-28 s125 non segue [col tratto]; AUDUSD 2020-04-01 s61 non segue [col tratto]; AUDUSD 2020-04-07 s61 non segue; USDCAD 2021-02-25 s125 non segue [col tratto]; NZDUSD 2022-08-25 s61 non segue; NZDUSD 2022-09-06 s61 segue; NZDUSD 2022-09-12 s61 non segue; NZDUSD 2022-11-23 s61 segue; NZDUSD 2022-11-29 s61 segue; NZDUSD 2023-06-21 s61 segue; NZDUSD 2023-08-02 s61 segue; NZDUSD 2023-08-08 s61 segue; NZDUSD 2024-06-03 s61 segue; NZDUSD 2024-10-07 s61 segue"
+ },
+ {
+  "forma": "8/5 L1",
+  "volte": 16,
+  "segue": 10,
+  "regola": "Se arrivo della mobile di stagione → NON SEGUE il trend (3/3); altrimenti SEGUE (10/13)",
+  "ok": "13/16",
+  "chiave": "arrivo della mobile di stagione",
+  "se": 0,
+  "carte": "GBPUSD 2020-12-10 s133 non segue [col tratto]; GBPUSD 2021-12-17 s133 non segue [col tratto]; GBPUSD 2024-09-26 s133 segue; GBPUSD 2026-07-06 s133 segue; GBPUSD 2026-07-30 s133 segue; GBPUSD 2026-09-22 s133 segue; AUDUSD 2022-06-27 s69 segue; AUDUSD 2022-07-27 s69 segue; AUDUSD 2026-02-06 s69 non segue [col tratto]; AUDUSD 2026-04-07 s69 segue; USDCAD 2020-08-12 s133 segue; USDCAD 2023-04-17 s133 non segue; USDCAD 2023-05-11 s133 non segue; NZDUSD 2021-07-14 s69 non segue; NZDUSD 2022-03-29 s69 segue; NZDUSD 2022-04-04 s69 segue"
+ },
+ {
+  "forma": "7/5 L6",
+  "volte": 16,
+  "segue": 9,
+  "regola": "Se Shi a riposo (休) → SEGUE il trend (6/6); altrimenti NON SEGUE (7/10)",
+  "ok": "13/16",
+  "chiave": "Shi 休",
+  "se": 1,
+  "carte": "GBPUSD 2022-04-28 s125 segue; GBPUSD 2023-12-07 s125 segue [col tratto]; GBPUSD 2023-12-13 s125 segue [col tratto]; USDCAD 2021-07-26 s125 non segue; USDCAD 2022-06-09 s125 non segue; NZDUSD 2022-09-01 s61 segue; NZDUSD 2022-09-13 s61 non segue; NZDUSD 2022-11-30 s61 segue [col tratto]; NZDUSD 2023-02-28 s61 non segue; NZDUSD 2023-12-07 s61 segue [col tratto]; NZDUSD 2023-12-13 s61 segue [col tratto]; NZDUSD 2024-03-12 s61 non segue; NZDUSD 2024-05-29 s61 non segue; NZDUSD 2024-06-10 s61 segue; NZDUSD 2024-07-10 s61 non segue; EURJPY 2020-12-16 s125 segue [col tratto]"
+ },
+ {
+  "forma": "1/1 L1",
+  "volte": 16,
+  "segue": 12,
+  "regola": "Se L4 vuota → NON SEGUE il trend (2/2); altrimenti SEGUE (12/14)",
+  "ok": "14/16",
+  "chiave": "L4 vuota",
+  "se": 0,
+  "carte": "USDJPY 2022-07-14 s137 segue; AUDUSD 2020-11-27 s73 segue; AUDUSD 2021-07-19 s73 segue; AUDUSD 2021-08-12 s73 segue; AUDUSD 2021-11-10 s73 segue; AUDUSD 2021-11-16 s73 segue; AUDUSD 2022-03-10 s73 segue; AUDUSD 2022-03-22 s73 segue; USDCAD 2022-10-12 s137 segue; USDCAD 2025-06-04 s137 segue; USDCAD 2025-07-16 s137 non segue [col tratto]; USDCAD 2025-09-02 s137 non segue; USDCAD 2025-12-19 s137 non segue; USDCAD 2026-01-06 s137 segue; USDCAD 2026-03-25 s137 segue; USDCAD 2026-05-18 s137 non segue [col tratto]"
+ },
+ {
+  "forma": "2/5 L4",
+  "volte": 16,
+  "segue": 7,
+  "regola": "Se Shi fuori stagione → SEGUE il trend (5/7); altrimenti NON SEGUE (7/9)",
+  "ok": "12/16",
+  "chiave": "Shi fuori stagione",
+  "se": 1,
+  "carte": "USDJPY 2024-10-17 s149 segue [col tratto]; USDJPY 2024-12-04 s149 non segue; USDJPY 2025-10-06 s149 non segue; USDCHF 2024-01-15 s85 non segue [col tratto]; USDCHF 2024-08-06 s85 segue [col tratto]; USDCHF 2024-09-23 s85 segue; EURGBP 2021-09-09 s85 non segue; EURGBP 2021-11-08 s85 non segue; EURGBP 2021-12-02 s85 non segue; EURGBP 2021-12-08 s85 segue; EURGBP 2021-12-14 s85 non segue; EURGBP 2022-05-25 s85 non segue [col tratto]; EURGBP 2022-12-15 s85 non segue; EURGBP 2025-06-20 s85 segue [col tratto]; EURGBP 2025-07-02 s85 segue [col tratto]; EURGBP 2026-07-15 s85 segue [col tratto]"
+ },
+ {
+  "forma": "7/3 L2",
+  "volte": 15,
+  "segue": 7,
+  "regola": "Se Shi prigioniero (囚) → NON SEGUE il trend (8/12); altrimenti SEGUE (3/3)",
+  "ok": "11/15",
+  "chiave": "Shi 囚",
+  "se": 0,
+  "carte": "EURUSD 2021-01-07 s123 non segue [col tratto]; GBPUSD 2020-06-29 s123 segue; GBPUSD 2023-02-02 s123 non segue [col tratto]; GBPUSD 2023-10-12 s123 non segue [col tratto]; GBPUSD 2025-01-22 s123 non segue [col tratto]; AUDUSD 2020-04-06 s59 non segue [col tratto]; USDCAD 2021-07-06 s123 segue; USDCAD 2021-10-28 s123 segue [col tratto]; NZDUSD 2024-04-15 s59 segue [col tratto]; NZDUSD 2024-11-05 s59 non segue [col tratto]; NZDUSD 2025-04-28 s59 segue [col tratto]; NZDUSD 2026-04-23 s59 non segue [col tratto]; NZDUSD 2026-05-29 s59 segue; EURJPY 2020-07-29 s123 segue [col tratto]; EURJPY 2026-04-17 s187 non segue [col tratto]"
+ },
+ {
+  "forma": "7/2 L1",
+  "volte": 15,
+  "segue": 9,
+  "regola": "Se Shi di stagione → NON SEGUE il trend (3/5); altrimenti SEGUE (7/10)",
+  "ok": "10/15",
+  "chiave": "Shi di stagione",
+  "se": 0,
+  "carte": "EURUSD 2021-05-19 s122 non segue [col tratto]; EURUSD 2021-05-25 s122 segue [col tratto]; GBPUSD 2023-03-22 s122 segue; GBPUSD 2023-04-03 s122 segue; NZDUSD 2020-03-25 s58 non segue; NZDUSD 2020-04-06 s58 non segue [col tratto]; NZDUSD 2023-10-30 s58 non segue [col tratto]; NZDUSD 2024-11-29 s58 segue; NZDUSD 2024-12-05 s58 non segue; NZDUSD 2025-09-25 s58 segue; NZDUSD 2025-10-07 s58 non segue; NZDUSD 2026-03-18 s58 segue; NZDUSD 2026-09-02 s58 segue; NZDUSD 2026-09-08 s58 segue; EURJPY 2026-07-28 s186 segue [col tratto]"
+ },
+ {
+  "forma": "7/2 L4",
+  "volte": 15,
+  "segue": 9,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (5/7); altrimenti SEGUE (7/8)",
+  "ok": "12/15",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "EURUSD 2021-06-03 s122 non segue [col tratto]; GBPUSD 2022-12-13 s122 segue; GBPUSD 2023-01-18 s122 segue; USDJPY 2022-04-05 s122 segue; NZDUSD 2023-11-14 s58 non segue; NZDUSD 2024-11-14 s58 segue [col tratto]; NZDUSD 2024-11-26 s58 non segue [col tratto]; NZDUSD 2025-09-04 s58 segue; NZDUSD 2026-04-14 s58 segue [col tratto]; NZDUSD 2026-04-20 s58 segue; NZDUSD 2026-05-20 s58 non segue [col tratto]; NZDUSD 2026-05-26 s58 segue; NZDUSD 2026-08-12 s58 non segue [col tratto]; EURJPY 2020-09-24 s122 non segue [col tratto]; EURJPY 2026-04-20 s186 segue"
+ },
+ {
+  "forma": "7/5 L1",
+  "volte": 15,
+  "segue": 9,
+  "regola": "Se Shi in crescita (相) → SEGUE il trend (7/9); altrimenti NON SEGUE (4/6)",
+  "ok": "11/15",
+  "chiave": "Shi 相",
+  "se": 1,
+  "carte": "GBPUSD 2020-07-08 s125 segue [col tratto]; GBPUSD 2020-07-20 s125 segue [col tratto]; AUDUSD 2020-03-16 s61 segue; AUDUSD 2025-01-13 s61 non segue [col tratto]; USDCAD 2021-03-23 s125 non segue; USDCAD 2021-07-15 s125 segue [col tratto]; USDCAD 2021-07-27 s125 segue [col tratto]; USDCAD 2022-01-17 s125 segue [col tratto]; USDCAD 2022-04-11 s125 segue [col tratto]; NZDUSD 2023-03-01 s61 non segue; NZDUSD 2023-03-13 s61 non segue; NZDUSD 2024-09-09 s61 non segue; NZDUSD 2024-10-09 s61 segue [col tratto]; EURJPY 2020-08-31 s125 segue; EURJPY 2021-01-22 s125 non segue [col tratto]"
+ },
+ {
+  "forma": "8/3 L5",
+  "volte": 15,
+  "segue": 7,
+  "regola": "Se Shi fuori stagione → SEGUE il trend (7/10); altrimenti NON SEGUE (5/5)",
+  "ok": "12/15",
+  "chiave": "Shi fuori stagione",
+  "se": 1,
+  "carte": "GBPUSD 2020-08-18 s131 segue [col tratto]; GBPUSD 2022-03-11 s131 segue [col tratto]; GBPUSD 2024-08-27 s131 segue [col tratto]; GBPUSD 2025-11-14 s131 segue [col tratto]; USDJPY 2022-08-02 s131 non segue; AUDUSD 2022-12-12 s67 non segue [col tratto]; AUDUSD 2023-03-06 s67 segue [col tratto]; AUDUSD 2023-05-11 s67 non segue; AUDUSD 2024-07-16 s67 non segue; AUDUSD 2024-08-27 s67 segue [col tratto]; AUDUSD 2024-09-02 s67 segue [col tratto]; USDCAD 2020-08-24 s131 non segue [col tratto]; USDCAD 2023-06-28 s131 non segue; NZDUSD 2021-12-17 s67 non segue [col tratto]; EURJPY 2022-01-10 s131 non segue"
+ },
+ {
+  "forma": "7/7 L3",
+  "volte": 15,
+  "segue": 6,
+  "regola": "Se Shi: l'ora stesso ramo → SEGUE il trend (5/7); altrimenti NON SEGUE (7/8)",
+  "ok": "12/15",
+  "chiave": "Shi: l'ora stesso ramo",
+  "se": 1,
+  "carte": "GBPUSD 2020-09-24 s127 non segue; GBPUSD 2023-08-22 s127 non segue; GBPUSD 2023-12-20 s127 non segue; AUDUSD 2022-10-26 s63 segue [col tratto]; USDCAD 2020-12-11 s127 non segue; USDCAD 2021-01-04 s127 non segue; USDCAD 2021-11-30 s127 segue; USDCAD 2022-08-15 s127 non segue; NZDUSD 2020-03-10 s63 non segue [col tratto]; NZDUSD 2022-05-17 s63 non segue [col tratto]; NZDUSD 2022-06-22 s63 segue [col tratto]; NZDUSD 2022-12-01 s63 segue [col tratto]; NZDUSD 2022-12-07 s63 segue [col tratto]; NZDUSD 2022-12-13 s63 segue [col tratto]; EURJPY 2021-12-06 s127 non segue"
+ },
+ {
+  "forma": "8/6 L6",
+  "volte": 15,
+  "segue": 8,
+  "regola": "Se Shi Tai Sui → NON SEGUE il trend (2/2); altrimenti SEGUE (8/13)",
+  "ok": "10/15",
+  "chiave": "Shi Tai Sui",
+  "se": 0,
+  "carte": "GBPUSD 2020-12-02 s134 non segue; GBPUSD 2025-07-15 s134 segue; GBPUSD 2025-07-21 s134 non segue; GBPUSD 2025-08-20 s134 non segue; GBPUSD 2025-09-25 s134 segue; GBPUSD 2026-01-05 s134 segue; GBPUSD 2026-08-03 s134 non segue [col tratto]; USDJPY 2022-06-13 s134 non segue; AUDUSD 2021-12-03 s70 segue; AUDUSD 2022-06-13 s70 segue; AUDUSD 2026-02-04 s70 non segue [col tratto]; USDCAD 2020-06-11 s134 non segue; USDCAD 2024-01-16 s134 segue; USDCAD 2024-01-22 s134 segue; NZDUSD 2021-07-06 s70 segue"
+ },
+ {
+  "forma": "8/6 L5",
+  "volte": 15,
+  "segue": 8,
+  "regola": "Se L2 vuota → NON SEGUE il trend (3/3); altrimenti SEGUE (8/12)",
+  "ok": "11/15",
+  "chiave": "L2 vuota",
+  "se": 0,
+  "carte": "GBPUSD 2020-12-07 s134 non segue; GBPUSD 2021-11-08 s134 non segue; GBPUSD 2025-12-17 s134 non segue; GBPUSD 2025-12-23 s134 segue; GBPUSD 2026-05-28 s134 non segue [col tratto]; GBPUSD 2026-06-15 s134 non segue; GBPUSD 2026-07-21 s134 non segue [col tratto]; GBPUSD 2026-08-14 s134 segue; USDJPY 2023-03-15 s134 segue; AUDUSD 2023-02-01 s70 segue; AUDUSD 2026-02-09 s70 segue; AUDUSD 2026-09-25 s70 non segue [col tratto]; USDCAD 2020-06-10 s134 segue; USDCAD 2024-01-15 s134 segue; NZDUSD 2020-12-01 s70 segue"
+ },
+ {
+  "forma": "1/1 L6",
+  "volte": 15,
+  "segue": 6,
+  "regola": "Se Ying: il giorno combina → SEGUE il trend (4/6); altrimenti NON SEGUE (7/9)",
+  "ok": "11/15",
+  "chiave": "Ying: il giorno combina",
+  "se": 1,
+  "carte": "GBPUSD 2021-10-28 s137 segue [col tratto]; GBPUSD 2022-01-14 s137 non segue; AUDUSD 2020-09-03 s73 non segue [col tratto]; AUDUSD 2020-12-02 s73 segue; AUDUSD 2021-08-05 s73 non segue [col tratto]; AUDUSD 2021-08-11 s73 non segue; AUDUSD 2021-08-17 s73 segue [col tratto]; AUDUSD 2022-04-20 s73 non segue; USDCAD 2024-08-07 s137 segue; USDCAD 2024-08-13 s137 segue [col tratto]; USDCAD 2025-07-21 s137 non segue; USDCAD 2026-01-05 s137 non segue; USDCAD 2026-01-23 s137 segue [col tratto]; NZDUSD 2021-01-07 s73 non segue; EURJPY 2022-07-13 s137 non segue"
+ },
+ {
+  "forma": "7/5 L4",
+  "volte": 15,
+  "segue": 8,
+  "regola": "Se Shi: il giorno clash → SEGUE il trend (6/8); altrimenti NON SEGUE (5/7)",
+  "ok": "11/15",
+  "chiave": "Shi: il giorno clash",
+  "se": 1,
+  "carte": "GBPUSD 2022-05-02 s125 segue [col tratto]; USDJPY 2022-04-14 s125 segue; AUDUSD 2025-01-10 s61 segue [col tratto]; USDCAD 2021-02-24 s125 segue [col tratto]; USDCAD 2021-08-05 s125 non segue; USDCAD 2022-01-14 s125 non segue [col tratto]; USDCAD 2022-04-14 s125 non segue; NZDUSD 2022-07-07 s61 non segue; NZDUSD 2022-07-19 s61 non segue; NZDUSD 2022-08-30 s61 segue [col tratto]; NZDUSD 2023-05-15 s61 segue; NZDUSD 2023-12-05 s61 non segue; NZDUSD 2024-02-09 s61 non segue [col tratto]; NZDUSD 2024-05-27 s61 segue [col tratto]; EURJPY 2020-12-02 s125 segue [col tratto]"
+ },
+ {
+  "forma": "7/3 L6",
+  "volte": 15,
+  "segue": 8,
+  "regola": "Se Shi morto (死) → NON SEGUE il trend (4/4); altrimenti SEGUE (8/11)",
+  "ok": "12/15",
+  "chiave": "Shi 死",
+  "se": 0,
+  "carte": "GBPUSD 2022-12-14 s123 segue; GBPUSD 2023-01-19 s123 segue; GBPUSD 2023-01-31 s123 non segue; GBPUSD 2023-05-25 s123 segue; USDCAD 2021-10-20 s123 segue; NZDUSD 2023-08-23 s59 non segue [col tratto]; NZDUSD 2023-08-29 s59 non segue [col tratto]; NZDUSD 2023-09-28 s59 non segue [col tratto]; NZDUSD 2024-04-01 s59 segue; NZDUSD 2025-05-02 s59 non segue; NZDUSD 2025-08-06 s59 non segue; NZDUSD 2026-01-27 s59 segue; EURJPY 2020-07-27 s123 segue; EURJPY 2020-10-01 s123 non segue [col tratto]; EURJPY 2020-11-18 s123 segue"
+ },
+ {
+  "forma": "7/4 L6",
+  "volte": 15,
+  "segue": 7,
+  "regola": "Se Shi in piena stagione (旺) → SEGUE il trend (5/7); altrimenti NON SEGUE (6/8)",
+  "ok": "11/15",
+  "chiave": "Shi 旺",
+  "se": 1,
+  "carte": "GBPUSD 2023-04-06 s124 non segue [col tratto]; GBPUSD 2023-04-12 s124 segue [col tratto]; GBPUSD 2023-04-24 s124 segue [col tratto]; GBPUSD 2023-05-24 s124 segue; USDJPY 2022-04-11 s124 segue [col tratto]; USDCAD 2021-08-02 s124 non segue [col tratto]; NZDUSD 2023-08-10 s60 segue; NZDUSD 2024-02-06 s60 non segue; NZDUSD 2024-10-15 s60 segue [col tratto]; NZDUSD 2024-10-21 s60 segue [col tratto]; NZDUSD 2024-11-08 s60 non segue; NZDUSD 2025-05-07 s60 non segue; EURJPY 2020-06-08 s124 non segue; EURJPY 2020-09-30 s124 non segue; EURJPY 2020-11-11 s124 non segue"
+ },
+ {
+  "forma": "7/6 L4",
+  "volte": 15,
+  "segue": 4,
+  "regola": "Se Ying: il giorno clash → NON SEGUE il trend (9/9); altrimenti SEGUE (4/6)",
+  "ok": "13/15",
+  "chiave": "Ying: il giorno clash",
+  "se": 0,
+  "carte": "GBPUSD 2023-08-30 s126 non segue [col tratto]; GBPUSD 2024-12-04 s126 non segue; USDCAD 2021-02-23 s126 segue; USDCAD 2021-03-31 s126 non segue; USDCAD 2021-11-26 s126 segue; USDCAD 2022-04-13 s126 non segue [col tratto]; NZDUSD 2020-03-12 s62 segue; NZDUSD 2022-05-19 s62 non segue [col tratto]; NZDUSD 2023-03-15 s62 non segue [col tratto]; NZDUSD 2023-06-19 s62 non segue [col tratto]; NZDUSD 2023-12-04 s62 non segue [col tratto]; NZDUSD 2024-09-23 s62 segue; EURJPY 2020-09-02 s126 non segue [col tratto]; EURJPY 2020-12-07 s126 non segue [col tratto]; EURJPY 2020-12-31 s126 non segue [col tratto]"
+ },
+ {
+  "forma": "8/6 L4",
+  "volte": 15,
+  "segue": 8,
+  "regola": "Se Shi Tai Sui → SEGUE il trend (5/5); altrimenti NON SEGUE (7/10)",
+  "ok": "12/15",
+  "chiave": "Shi Tai Sui",
+  "se": 1,
+  "carte": "GBPUSD 2025-08-12 s134 segue; GBPUSD 2025-09-29 s134 non segue; GBPUSD 2026-05-27 s134 segue [col tratto]; GBPUSD 2026-06-14 s134 segue [col tratto]; AUDUSD 2020-06-09 s70 non segue; AUDUSD 2021-12-07 s70 non segue; AUDUSD 2022-05-18 s70 segue; AUDUSD 2026-04-09 s70 segue [col tratto]; AUDUSD 2026-08-19 s70 segue [col tratto]; AUDUSD 2026-09-24 s70 segue [col tratto]; USDCAD 2023-02-06 s134 non segue; USDCAD 2023-04-13 s134 segue; USDCAD 2024-02-07 s134 non segue; USDCAD 2024-03-14 s134 non segue; NZDUSD 2020-11-30 s70 non segue"
+ },
+ {
+  "forma": "8/6 L3",
+  "volte": 15,
+  "segue": 5,
+  "regola": "Se L1 vuota → SEGUE il trend (2/2); altrimenti NON SEGUE (10/13)",
+  "ok": "12/15",
+  "chiave": "L1 vuota",
+  "se": 1,
+  "carte": "GBPUSD 2026-02-25 s134 non segue; GBPUSD 2026-03-03 s134 segue; GBPUSD 2026-04-20 s134 segue; GBPUSD 2026-05-26 s134 non segue; GBPUSD 2026-07-31 s134 segue [col tratto]; GBPUSD 2026-08-06 s134 non segue; USDJPY 2022-08-09 s134 segue; USDJPY 2023-03-13 s134 non segue; AUDUSD 2021-12-06 s70 non segue; AUDUSD 2026-04-08 s70 non segue; AUDUSD 2026-09-17 s70 non segue; AUDUSD 2026-09-29 s70 segue [col tratto]; USDCAD 2024-08-28 s134 non segue; NZDUSD 2020-12-23 s70 non segue; NZDUSD 2021-07-15 s70 non segue"
+ },
+ {
+  "forma": "1/7 L3",
+  "volte": 15,
+  "segue": 7,
+  "regola": "Se Ying vuoto → NON SEGUE il trend (4/5); altrimenti SEGUE (6/10)",
+  "ok": "10/15",
+  "chiave": "Ying vuoto",
+  "se": 0,
+  "carte": "USDJPY 2022-09-20 s143 segue [col tratto]; USDJPY 2022-09-26 s143 non segue [col tratto]; USDJPY 2023-12-20 s143 segue; USDJPY 2024-08-28 s143 non segue; USDJPY 2025-05-07 s143 non segue [col tratto]; USDCHF 2025-06-30 s79 segue; USDCHF 2025-07-24 s79 non segue; USDCHF 2025-09-16 s79 segue; USDCHF 2026-01-20 s79 segue; USDCHF 2026-03-15 s79 non segue; USDCAD 2024-12-26 s143 segue; USDCAD 2025-01-07 s143 non segue [col tratto]; EURJPY 2022-06-22 s143 segue; EURJPY 2022-09-20 s143 non segue [col tratto]; EURJPY 2022-12-07 s143 non segue"
+ },
+ {
+  "forma": "2/5 L2",
+  "volte": 15,
+  "segue": 8,
+  "regola": "Se Ying di stagione → SEGUE il trend (6/7); altrimenti NON SEGUE (6/8)",
+  "ok": "12/15",
+  "chiave": "Ying di stagione",
+  "se": 1,
+  "carte": "USDJPY 2022-10-20 s149 segue [col tratto]; USDJPY 2023-10-03 s149 non segue; USDJPY 2023-10-09 s149 segue [col tratto]; USDJPY 2024-10-15 s149 non segue [col tratto]; USDJPY 2024-10-21 s149 segue [col tratto]; USDJPY 2024-12-02 s149 segue; USDJPY 2025-02-24 s149 non segue; EURGBP 2021-08-26 s85 segue; EURGBP 2021-11-12 s85 non segue; EURGBP 2021-12-06 s85 non segue; EURGBP 2022-05-11 s85 segue [col tratto]; EURGBP 2024-01-25 s85 segue [col tratto]; EURGBP 2024-02-06 s85 non segue; EURGBP 2025-06-30 s85 segue [col tratto]; EURGBP 2026-09-17 s85 non segue"
+ },
+ {
+  "forma": "2/3 L4",
+  "volte": 15,
+  "segue": 6,
+  "regola": "Se Shi: l'ora combina → SEGUE il trend (3/5); altrimenti NON SEGUE (7/10)",
+  "ok": "10/15",
+  "chiave": "Shi: l'ora combina",
+  "se": 1,
+  "carte": "USDJPY 2022-10-24 s147 segue [col tratto]; USDJPY 2023-09-07 s147 non segue [col tratto]; USDJPY 2023-09-13 s147 segue [col tratto]; USDJPY 2024-01-17 s147 segue [col tratto]; USDJPY 2025-07-22 s147 non segue [col tratto]; USDCHF 2025-05-29 s83 segue; EURGBP 2020-02-19 s83 non segue; EURGBP 2020-02-25 s83 non segue; EURGBP 2022-01-21 s83 non segue; EURGBP 2022-03-22 s83 segue; EURGBP 2022-03-28 s83 non segue; EURGBP 2024-09-25 s83 non segue; EURGBP 2024-11-06 s83 non segue; EURGBP 2025-03-24 s83 segue; EURGBP 2025-05-29 s83 non segue"
+ },
+ {
+  "forma": "2/6 L5",
+  "volte": 15,
+  "segue": 6,
+  "regola": "Se Shi prigioniero (囚) → SEGUE il trend (4/6); altrimenti NON SEGUE (7/9)",
+  "ok": "11/15",
+  "chiave": "Shi 囚",
+  "se": 1,
+  "carte": "USDJPY 2024-02-20 s150 non segue; USDCHF 2023-12-04 s86 non segue; USDCHF 2024-10-29 s86 segue [col tratto]; USDCHF 2024-11-04 s86 segue [col tratto]; EURJPY 2023-05-02 s150 non segue [col tratto]; EURJPY 2023-06-13 s150 segue; EURGBP 2021-02-23 s86 segue; EURGBP 2021-03-25 s86 non segue; EURGBP 2022-10-04 s86 non segue; EURGBP 2022-11-21 s86 non segue; EURGBP 2023-10-17 s86 segue [col tratto]; EURGBP 2025-07-14 s86 segue [col tratto]; EURGBP 2025-08-01 s86 non segue [col tratto]; EURGBP 2026-03-23 s86 non segue; EURGBP 2026-05-10 s86 non segue"
+ },
+ {
+  "forma": "3/2 L2",
+  "volte": 15,
+  "segue": 11,
+  "regola": "Se L3 vuota → NON SEGUE il trend (2/3); altrimenti SEGUE (10/12)",
+  "ok": "12/15",
+  "chiave": "L3 vuota",
+  "se": 0,
+  "carte": "USDJPY 2024-05-08 s154 segue; USDJPY 2024-11-22 s154 segue; USDJPY 2025-11-17 s154 segue; USDCHF 2021-05-12 s90 non segue [col tratto]; USDCHF 2021-05-18 s90 segue; USDCHF 2021-11-02 s90 non segue [col tratto]; USDCHF 2023-06-07 s90 segue; USDCHF 2023-06-13 s90 non segue; USDCHF 2023-10-11 s90 segue; USDCHF 2024-04-02 s90 segue; USDCHF 2024-04-08 s90 segue; USDCHF 2024-07-01 s90 segue; USDCHF 2025-01-27 s90 segue; EURJPY 2023-07-13 s154 non segue; EURGBP 2020-03-18 s90 segue [col tratto]"
+ },
+ {
+  "forma": "6/5 L3",
+  "volte": 14,
+  "segue": 6,
+  "regola": "Se Shi in piena stagione (旺) → SEGUE il trend (5/6); altrimenti NON SEGUE (7/8)",
+  "ok": "12/14",
+  "chiave": "Shi 旺",
+  "se": 1,
+  "carte": "EURUSD 2020-07-29 s117 segue [col tratto]; EURUSD 2020-08-04 s117 segue [col tratto]; EURUSD 2020-08-10 s117 non segue; EURUSD 2021-04-01 s117 non segue; EURUSD 2021-08-11 s117 non segue; EURUSD 2021-08-17 s117 segue; EURUSD 2025-08-14 s117 non segue; EURUSD 2025-12-30 s117 non segue; EURUSD 2026-01-23 s117 segue [col tratto]; EURUSD 2026-04-29 s117 segue [col tratto]; GBPUSD 2020-03-25 s117 non segue; EURJPY 2020-04-06 s117 non segue [col tratto]; EURJPY 2026-02-16 s181 non segue; EURJPY 2026-08-03 s181 segue [col tratto]"
+ },
+ {
+  "forma": "7/2 L5",
+  "volte": 14,
+  "segue": 7,
+  "regola": "Se Shi: l'ora stesso ramo → SEGUE il trend (5/7); altrimenti NON SEGUE (5/7)",
+  "ok": "10/14",
+  "chiave": "Shi: l'ora stesso ramo",
+  "se": 1,
+  "carte": "EURUSD 2020-12-30 s122 segue [col tratto]; EURUSD 2021-01-05 s122 segue [col tratto]; GBPUSD 2022-05-12 s122 segue [col tratto]; GBPUSD 2022-12-08 s122 segue [col tratto]; GBPUSD 2023-10-10 s122 segue [col tratto]; NZDUSD 2024-07-30 s58 non segue; NZDUSD 2024-11-21 s58 segue; NZDUSD 2024-11-27 s58 non segue; NZDUSD 2025-09-05 s58 non segue; NZDUSD 2026-04-09 s58 segue; NZDUSD 2026-05-27 s58 non segue; NZDUSD 2026-06-14 s58 non segue; EURJPY 2020-06-09 s122 non segue [col tratto]; EURJPY 2020-11-06 s122 non segue [col tratto]"
+ },
+ {
+  "forma": "8/1 L2",
+  "volte": 14,
+  "segue": 7,
+  "regola": "Se arrivo della mobile vuoto → NON SEGUE il trend (3/3); altrimenti SEGUE (7/11)",
+  "ok": "10/14",
+  "chiave": "arrivo della mobile vuoto",
+  "se": 0,
+  "carte": "GBPUSD 2020-02-25 s129 non segue; GBPUSD 2020-07-30 s129 segue; GBPUSD 2023-07-27 s129 non segue; GBPUSD 2024-08-20 s129 segue; AUDUSD 2020-03-02 s65 non segue [col tratto]; AUDUSD 2022-10-06 s65 segue; AUDUSD 2024-01-17 s65 segue; AUDUSD 2024-01-29 s65 non segue; AUDUSD 2024-08-08 s65 non segue [col tratto]; AUDUSD 2025-09-02 s65 non segue; AUDUSD 2025-09-08 s65 segue; USDCAD 2020-12-03 s129 segue; USDCAD 2021-12-22 s129 non segue [col tratto]; EURJPY 2021-07-19 s129 segue"
+ },
+ {
+  "forma": "1/8 L3",
+  "volte": 14,
+  "segue": 9,
+  "regola": "Se arrivo della mobile di stagione → SEGUE il trend (9/12); altrimenti NON SEGUE (2/2)",
+  "ok": "11/14",
+  "chiave": "arrivo della mobile di stagione",
+  "se": 1,
+  "carte": "GBPUSD 2021-01-15 s136 non segue [col tratto]; GBPUSD 2021-10-06 s136 segue [col tratto]; USDJPY 2022-07-27 s136 segue [col tratto]; USDJPY 2022-12-12 s136 non segue; AUDUSD 2020-08-18 s72 segue [col tratto]; AUDUSD 2021-08-19 s72 segue [col tratto]; AUDUSD 2021-08-25 s72 non segue [col tratto]; AUDUSD 2026-09-10 s72 non segue [col tratto]; USDCAD 2024-08-21 s136 segue [col tratto]; USDCAD 2024-10-08 s136 segue [col tratto]; USDCAD 2025-07-11 s136 segue [col tratto]; USDCAD 2025-07-17 s136 segue [col tratto]; USDCAD 2026-05-07 s136 non segue; EURJPY 2022-05-04 s136 segue [col tratto]"
+ },
+ {
+  "forma": "8/4 L5",
+  "volte": 14,
+  "segue": 7,
+  "regola": "Se Shi in piena stagione (旺) → NON SEGUE il trend (4/4); altrimenti SEGUE (7/10)",
+  "ok": "11/14",
+  "chiave": "Shi 旺",
+  "se": 0,
+  "carte": "GBPUSD 2021-12-10 s132 non segue [col tratto]; GBPUSD 2021-12-16 s132 non segue [col tratto]; GBPUSD 2021-12-22 s132 non segue [col tratto]; GBPUSD 2024-08-26 s132 non segue; GBPUSD 2024-09-19 s132 segue; GBPUSD 2026-06-23 s132 segue; GBPUSD 2026-07-29 s132 non segue; AUDUSD 2020-06-18 s68 non segue; AUDUSD 2022-12-05 s68 non segue [col tratto]; USDCAD 2020-02-19 s132 segue; USDCAD 2020-08-17 s132 segue; USDCAD 2023-06-21 s132 segue; NZDUSD 2022-03-10 s68 segue; NZDUSD 2022-03-22 s68 segue"
+ },
+ {
+  "forma": "8/4 L4",
+  "volte": 14,
+  "segue": 4,
+  "regola": "Se Ying Tai Sui → SEGUE il trend (2/4); altrimenti NON SEGUE (8/10)",
+  "ok": "10/14",
+  "chiave": "Ying Tai Sui",
+  "se": 1,
+  "carte": "GBPUSD 2021-12-15 s132 non segue [col tratto]; GBPUSD 2021-12-21 s132 non segue [col tratto]; GBPUSD 2025-04-28 s132 segue; GBPUSD 2026-06-22 s132 non segue; USDJPY 2023-03-22 s132 segue; AUDUSD 2022-07-19 s68 non segue; AUDUSD 2023-01-03 s68 non segue; AUDUSD 2023-06-20 s68 non segue; USDCAD 2020-02-18 s132 non segue; USDCAD 2020-02-24 s132 non segue; USDCAD 2023-02-02 s132 non segue; USDCAD 2023-06-20 s132 non segue; NZDUSD 2021-12-03 s68 segue [col tratto]; EURJPY 2021-05-25 s132 segue [col tratto]"
+ },
+ {
+  "forma": "1/8 L4",
+  "volte": 14,
+  "segue": 9,
+  "regola": "Se Shi: l'ora stesso ramo → SEGUE il trend (7/9); altrimenti NON SEGUE (3/5)",
+  "ok": "10/14",
+  "chiave": "Shi: l'ora stesso ramo",
+  "se": 1,
+  "carte": "GBPUSD 2022-01-17 s136 non segue [col tratto]; GBPUSD 2025-09-16 s136 segue [col tratto]; USDJPY 2022-07-28 s136 segue [col tratto]; USDJPY 2022-12-07 s136 segue [col tratto]; AUDUSD 2020-08-19 s72 non segue; AUDUSD 2021-08-26 s72 segue; AUDUSD 2021-11-12 s72 non segue; AUDUSD 2021-11-24 s72 segue; USDCAD 2022-10-26 s136 segue [col tratto]; USDCAD 2023-03-07 s136 segue [col tratto]; USDCAD 2024-10-09 s136 segue [col tratto]; USDCAD 2025-06-06 s136 non segue [col tratto]; USDCAD 2025-06-30 s136 segue [col tratto]; NZDUSD 2021-05-10 s72 non segue"
+ },
+ {
+  "forma": "7/4 L1",
+  "volte": 14,
+  "segue": 5,
+  "regola": "Se Shi: l'ora combina → NON SEGUE il trend (6/8); altrimenti SEGUE (3/6)",
+  "ok": "9/14",
+  "chiave": "Shi: l'ora combina",
+  "se": 0,
+  "carte": "GBPUSD 2022-05-18 s124 non segue [col tratto]; GBPUSD 2023-04-13 s124 segue [col tratto]; GBPUSD 2023-05-31 s124 non segue [col tratto]; GBPUSD 2024-04-25 s124 non segue [col tratto]; GBPUSD 2025-01-08 s124 segue [col tratto]; USDCAD 2022-04-06 s124 non segue [col tratto]; NZDUSD 2020-03-17 s60 segue; NZDUSD 2022-09-15 s60 segue; NZDUSD 2024-07-18 s60 segue; NZDUSD 2024-10-10 s60 non segue; NZDUSD 2024-10-22 s60 non segue; NZDUSD 2025-06-13 s60 non segue; EURJPY 2020-11-30 s124 non segue [col tratto]; EURJPY 2022-03-07 s124 non segue [col tratto]"
+ },
+ {
+  "forma": "7/6 L5",
+  "volte": 14,
+  "segue": 5,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "3/1 L2",
+  "volte": 14,
+  "segue": 6,
+  "regola": "Se Shi Tai Sui → SEGUE il trend (4/4); altrimenti NON SEGUE (8/10)",
+  "ok": "12/14",
+  "chiave": "Shi Tai Sui",
+  "se": 1,
+  "carte": "USDJPY 2024-04-15 s153 segue [col tratto]; USDCHF 2021-01-19 s89 non segue; USDCHF 2021-02-18 s89 non segue; USDCHF 2021-05-19 s89 non segue; USDCHF 2023-04-27 s89 non segue; USDCHF 2023-05-03 s89 segue; USDCHF 2023-05-15 s89 non segue; USDCHF 2023-10-24 s89 non segue; USDCHF 2024-06-26 s89 segue [col tratto]; USDCHF 2024-07-08 s89 segue [col tratto]; USDCHF 2024-12-23 s89 segue [col tratto]; USDCHF 2025-02-27 s89 non segue; EURGBP 2020-11-20 s89 segue; EURGBP 2022-09-29 s89 non segue"
+ },
+ {
+  "forma": "3/2 L5",
+  "volte": 14,
+  "segue": 8,
+  "regola": "Se Shi vuoto → NON SEGUE il trend (3/3); altrimenti SEGUE (8/11)",
+  "ok": "11/14",
+  "chiave": "Shi vuoto",
+  "se": 0,
+  "carte": "USDJPY 2024-04-17 s154 non segue; USDJPY 2024-11-07 s154 non segue [col tratto]; USDJPY 2024-12-19 s154 segue; USDJPY 2025-02-05 s154 segue; USDJPY 2026-02-24 s154 segue; USDCHF 2020-08-18 s90 segue; USDCHF 2021-02-26 s90 segue; USDCHF 2023-04-11 s90 segue; USDCHF 2025-01-06 s90 non segue [col tratto]; USDCHF 2025-01-30 s90 segue; EURGBP 2020-07-01 s90 non segue; EURGBP 2020-07-07 s90 non segue; EURGBP 2020-09-29 s90 non segue [col tratto]; EURGBP 2020-12-10 s90 segue"
+ },
+ {
+  "forma": "3/2 L1",
+  "volte": 14,
+  "segue": 6,
+  "regola": "Se Shi in crescita (相) → SEGUE il trend (3/4); altrimenti NON SEGUE (7/10)",
+  "ok": "10/14",
+  "chiave": "Shi 相",
+  "se": 1,
+  "carte": "USDJPY 2024-05-07 s154 non segue; USDJPY 2025-02-13 s154 non segue; USDJPY 2025-11-04 s154 non segue [col tratto]; USDCHF 2020-09-01 s90 non segue; USDCHF 2020-11-06 s90 segue [col tratto]; USDCHF 2021-05-11 s90 non segue; USDCHF 2023-05-31 s90 segue; USDCHF 2023-06-12 s90 non segue; USDCHF 2023-10-16 s90 segue [col tratto]; USDCHF 2024-04-01 s90 segue; USDCHF 2025-01-02 s90 segue; USDCHF 2025-03-03 s90 non segue; EURJPY 2023-07-12 s154 segue [col tratto]; EURGBP 2020-12-18 s90 non segue"
+ },
+ {
+  "forma": "3/4 L5",
+  "volte": 14,
+  "segue": 8,
+  "regola": "Se Shi in crescita (相) → NON SEGUE il trend (2/2); altrimenti SEGUE (8/12)",
+  "ok": "10/14",
+  "chiave": "Shi 相",
+  "se": 0,
+  "carte": "USDJPY 2024-05-15 s156 non segue [col tratto]; USDJPY 2024-12-23 s156 segue; USDJPY 2025-01-16 s156 segue; USDJPY 2025-11-24 s156 segue; USDJPY 2026-02-10 s156 segue; USDJPY 2026-05-11 s156 non segue [col tratto]; USDCHF 2021-04-19 s92 segue; USDCHF 2021-11-15 s92 segue; USDCHF 2022-12-22 s92 non segue; USDCHF 2023-01-03 s92 non segue; EURJPY 2023-07-20 s156 non segue; EURJPY 2023-12-11 s156 non segue; EURJPY 2025-02-21 s156 segue; EURJPY 2025-02-27 s156 segue"
+ },
+ {
+  "forma": "5/4 L4",
+  "volte": 13,
+  "segue": 10,
+  "regola": "Se Shi morto (死) → NON SEGUE il trend (2/3); altrimenti SEGUE (9/10)",
+  "ok": "11/13",
+  "chiave": "Shi 死",
+  "se": 0,
+  "carte": "EURUSD 2020-02-27 s108 segue [col tratto]; EURUSD 2023-05-18 s108 segue; EURUSD 2023-08-22 s108 segue; EURUSD 2024-01-31 s108 segue; EURUSD 2024-03-01 s108 non segue [col tratto]; EURUSD 2024-07-11 s108 segue; EURUSD 2024-07-23 s108 non segue; EURUSD 2024-07-29 s108 segue; EURUSD 2024-10-21 s108 segue; EURUSD 2025-04-01 s108 non segue [col tratto]; EURJPY 2024-07-17 s172 segue; EURJPY 2025-07-18 s172 segue; EURJPY 2025-07-24 s172 segue"
+ },
+ {
+  "forma": "7/1 L4",
+  "volte": 13,
+  "segue": 5,
+  "regola": "Se Shi a riposo (休) → SEGUE il trend (2/2); altrimenti NON SEGUE (8/11)",
+  "ok": "10/13",
+  "chiave": "Shi 休",
+  "se": 1,
+  "carte": "EURUSD 2021-02-16 s121 non segue; GBPUSD 2022-12-20 s121 non segue; GBPUSD 2023-03-20 s121 segue; GBPUSD 2023-09-28 s121 non segue; GBPUSD 2023-10-16 s121 non segue; GBPUSD 2025-01-20 s121 non segue; AUDUSD 2020-03-23 s57 non segue; USDCAD 2021-05-17 s121 segue [col tratto]; NZDUSD 2025-10-17 s57 segue; NZDUSD 2025-12-10 s57 segue; NZDUSD 2025-12-22 s57 non segue; NZDUSD 2026-03-16 s57 non segue; EURJPY 2026-06-02 s185 segue [col tratto]"
+ },
+ {
+  "forma": "5/3 L1",
+  "volte": 13,
+  "segue": 7,
+  "regola": "Se L6 vuota → NON SEGUE il trend (4/6); altrimenti SEGUE (5/7)",
+  "ok": "9/13",
+  "chiave": "L6 vuota",
+  "se": 0,
+  "carte": "EURUSD 2023-02-09 s107 non segue; EURUSD 2023-02-15 s107 segue [col tratto]; EURUSD 2023-09-07 s107 segue; EURUSD 2023-09-13 s107 segue; EURUSD 2023-12-06 s107 segue; EURUSD 2023-12-12 s107 non segue [col tratto]; EURUSD 2024-07-03 s107 segue; USDJPY 2020-03-02 s107 non segue [col tratto]; USDJPY 2020-04-01 s107 segue; USDJPY 2020-06-30 s107 segue [col tratto]; USDJPY 2020-07-06 s107 non segue [col tratto]; USDJPY 2021-04-26 s107 non segue [col tratto]; EURJPY 2025-07-10 s171 non segue"
+ },
+ {
+  "forma": "7/5 L3",
+  "volte": 13,
+  "segue": 5,
+  "regola": "Se mobile: si clasha da sola (反吟) → SEGUE il trend (5/9); altrimenti NON SEGUE (4/4)",
+  "ok": "9/13",
+  "chiave": "mobile: si clasha da sola (反吟)",
+  "se": 1,
+  "carte": "GBPUSD 2020-07-16 s125 non segue [col tratto]; USDJPY 2022-04-13 s125 segue [col tratto]; AUDUSD 2025-01-15 s61 non segue [col tratto]; USDCAD 2021-03-25 s125 segue [col tratto]; USDCAD 2021-04-06 s125 non segue [col tratto]; USDCAD 2021-07-29 s125 segue [col tratto]; USDCAD 2022-04-07 s125 non segue; NZDUSD 2022-07-18 s61 segue [col tratto]; NZDUSD 2022-08-23 s61 non segue [col tratto]; NZDUSD 2022-11-21 s61 non segue; NZDUSD 2023-07-31 s61 non segue; NZDUSD 2024-09-05 s61 segue [col tratto]; EURJPY 2022-03-08 s125 non segue"
+ },
+ {
+  "forma": "8/4 L6",
+  "volte": 13,
+  "segue": 5,
+  "regola": "Se arrivo della mobile di stagione → NON SEGUE il trend (6/7); altrimenti SEGUE (4/6)",
+  "ok": "10/13",
+  "chiave": "arrivo della mobile di stagione",
+  "se": 0,
+  "carte": "GBPUSD 2022-03-23 s132 non segue [col tratto]; GBPUSD 2025-04-24 s132 segue; GBPUSD 2026-03-14 s132 non segue [col tratto]; GBPUSD 2026-09-28 s132 non segue; USDJPY 2023-01-05 s132 non segue; AUDUSD 2022-06-15 s68 non segue [col tratto]; AUDUSD 2022-07-21 s68 segue; AUDUSD 2026-06-30 s68 non segue [col tratto]; USDCAD 2020-02-20 s132 non segue [col tratto]; USDCAD 2020-08-18 s132 segue; USDCAD 2023-07-04 s132 segue [col tratto]; NZDUSD 2020-11-16 s68 segue; NZDUSD 2022-03-11 s68 non segue [col tratto]"
+ },
+ {
+  "forma": "7/6 L2",
+  "volte": 13,
+  "segue": 6,
+  "regola": "Se Ying Tai Sui → SEGUE il trend (4/4); altrimenti NON SEGUE (7/9)",
+  "ok": "11/13",
+  "chiave": "Ying Tai Sui",
+  "se": 1,
+  "carte": "GBPUSD 2022-05-05 s126 segue [col tratto]; GBPUSD 2023-06-29 s126 segue; GBPUSD 2024-03-01 s126 non segue; GBPUSD 2025-02-24 s126 non segue; AUDUSD 2024-12-26 s62 segue; USDCAD 2021-07-21 s126 non segue; USDCAD 2022-02-04 s126 segue [col tratto]; NZDUSD 2020-03-04 s62 non segue; NZDUSD 2022-07-28 s62 segue [col tratto]; NZDUSD 2022-08-03 s62 segue [col tratto]; NZDUSD 2024-09-03 s62 non segue; NZDUSD 2024-10-03 s62 non segue; EURJPY 2020-12-11 s126 non segue"
+ },
+ {
+  "forma": "8/3 L2",
+  "volte": 13,
+  "segue": 6,
+  "regola": "Se mobile: il giorno clasha l'arrivo (annullato, la partenza resta) → SEGUE il trend (5/7); altrimenti NON SEGUE (5/6)",
+  "ok": "10/13",
+  "chiave": "mobile: il giorno clasha l'arrivo (annullato, la partenza resta)",
+  "se": 1,
+  "carte": "GBPUSD 2024-09-05 s131 segue [col tratto]; GBPUSD 2025-10-30 s131 segue [col tratto]; GBPUSD 2025-11-11 s131 segue [col tratto]; USDJPY 2022-12-21 s131 non segue; USDJPY 2023-03-21 s131 non segue; AUDUSD 2023-03-21 s67 non segue; AUDUSD 2023-07-13 s67 segue [col tratto]; AUDUSD 2023-07-25 s67 non segue [col tratto]; AUDUSD 2024-09-05 s67 non segue [col tratto]; USDCAD 2023-07-13 s131 segue [col tratto]; NZDUSD 2021-12-08 s67 non segue; EURJPY 2021-05-06 s131 segue; EURJPY 2022-01-13 s131 non segue"
+ },
+ {
+  "forma": "1/7 L1",
+  "volte": 13,
+  "segue": 5,
+  "regola": "Se Shi morto (死) → SEGUE il trend (2/2); altrimenti NON SEGUE (8/11)",
+  "ok": "10/13",
+  "chiave": "Shi 死",
+  "se": 1,
+  "carte": "USDJPY 2023-06-27 s143 segue; USDJPY 2024-08-26 s143 non segue; USDCHF 2025-07-10 s79 non segue; USDCHF 2025-07-22 s79 segue; USDCHF 2025-07-28 s79 non segue; USDCHF 2025-11-13 s79 segue [col tratto]; USDCHF 2026-01-06 s79 non segue; USDCHF 2026-03-19 s79 non segue; USDCHF 2026-06-17 s79 non segue; AUDUSD 2021-02-25 s79 non segue; USDCAD 2024-12-18 s143 segue [col tratto]; USDCAD 2025-03-06 s143 segue; EURJPY 2022-10-06 s143 non segue"
+ },
+ {
+  "forma": "2/4 L3",
+  "volte": 13,
+  "segue": 6,
+  "regola": "Se arrivo della mobile fuori stagione → SEGUE il trend (6/8); altrimenti NON SEGUE (5/5)",
+  "ok": "11/13",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 1,
+  "carte": "USDJPY 2023-10-11 s148 segue [col tratto]; USDJPY 2024-02-08 s148 segue [col tratto]; USDJPY 2025-09-30 s148 non segue; USDCHF 2023-12-28 s84 non segue; USDCHF 2024-01-09 s84 non segue [col tratto]; USDCHF 2024-09-11 s84 non segue; USDCHF 2024-09-17 s84 non segue; EURJPY 2023-05-08 s148 segue [col tratto]; EURGBP 2021-04-06 s84 non segue [col tratto]; EURGBP 2021-11-26 s84 non segue; EURGBP 2024-06-13 s84 segue [col tratto]; EURGBP 2025-05-09 s84 segue [col tratto]; EURGBP 2025-05-15 s84 segue [col tratto]"
+ },
+ {
+  "forma": "1/6 L4",
+  "volte": 13,
+  "segue": 4,
+  "regola": "Se Shi prigioniero (囚) → SEGUE il trend (2/3); altrimenti NON SEGUE (8/10)",
+  "ok": "10/13",
+  "chiave": "Shi 囚",
+  "se": 1,
+  "carte": "USDJPY 2024-01-03 s142 non segue; USDCHF 2025-09-18 s78 non segue [col tratto]; USDCHF 2026-03-17 s78 non segue; USDCHF 2026-04-16 s78 non segue; USDCHF 2026-04-22 s78 non segue; USDCHF 2026-04-28 s78 segue; USDCHF 2026-05-04 s78 non segue; USDCHF 2026-05-28 s78 non segue; AUDUSD 2021-05-12 s78 non segue; USDCAD 2020-03-18 s142 segue; USDCAD 2026-10-07 s142 segue [col tratto]; EURJPY 2022-06-30 s142 non segue; EURJPY 2022-10-04 s142 segue [col tratto]"
+ },
+ {
+  "forma": "2/6 L6",
+  "volte": 13,
+  "segue": 3,
+  "regola": "Se Shi di stagione → SEGUE il trend (3/5); altrimenti NON SEGUE (8/8)",
+  "ok": "11/13",
+  "chiave": "Shi di stagione",
+  "se": 1,
+  "carte": "USDJPY 2024-02-15 s150 non segue [col tratto]; USDJPY 2024-03-04 s150 non segue [col tratto]; USDJPY 2024-12-05 s150 segue [col tratto]; USDCHF 2024-08-19 s86 non segue; EURJPY 2023-05-03 s150 non segue; EURGBP 2021-02-18 s86 segue [col tratto]; EURGBP 2021-03-08 s86 segue [col tratto]; EURGBP 2021-04-19 s86 non segue; EURGBP 2023-10-12 s86 non segue; EURGBP 2025-04-22 s86 non segue; EURGBP 2025-07-03 s86 non segue; EURGBP 2025-07-15 s86 non segue; EURGBP 2025-08-20 s86 non segue"
+ },
+ {
+  "forma": "3/8 L5",
+  "volte": 13,
+  "segue": 6,
+  "regola": "Se arrivo della mobile vuoto → SEGUE il trend (3/4); altrimenti NON SEGUE (6/9)",
+  "ok": "9/13",
+  "chiave": "arrivo della mobile vuoto",
+  "se": 1,
+  "carte": "USDJPY 2024-04-11 s152 segue; USDJPY 2024-12-13 s152 segue; USDCHF 2020-12-10 s88 segue; USDCHF 2020-12-22 s88 non segue; USDCHF 2021-01-21 s88 non segue; USDCHF 2023-05-11 s88 non segue; USDCHF 2023-08-21 s88 non segue; USDCHF 2025-03-07 s88 segue [col tratto]; USDCHF 2025-03-31 s88 non segue; EURGBP 2020-04-02 s88 segue [col tratto]; EURGBP 2020-04-08 s88 segue [col tratto]; EURGBP 2023-01-17 s88 non segue [col tratto]; EURGBP 2025-11-14 s88 non segue"
+ },
+ {
+  "forma": "3/2 L6",
+  "volte": 13,
+  "segue": 10,
+  "regola": "Se Ying vuoto → NON SEGUE il trend (3/5); altrimenti SEGUE (8/8)",
+  "ok": "11/13",
+  "chiave": "Ying vuoto",
+  "se": 0,
+  "carte": "USDJPY 2024-04-18 s154 segue; USDJPY 2024-04-24 s154 segue; USDJPY 2024-11-20 s154 segue; USDJPY 2024-11-26 s154 segue [col tratto]; USDJPY 2026-02-19 s154 segue; USDJPY 2026-09-11 s154 segue; USDCHF 2020-08-19 s90 non segue [col tratto]; USDCHF 2023-04-12 s90 segue [col tratto]; USDCHF 2023-05-24 s90 segue; USDCHF 2023-10-09 s90 non segue [col tratto]; USDCHF 2025-01-07 s90 segue; EURGBP 2020-11-05 s90 segue; EURGBP 2020-12-23 s90 non segue [col tratto]"
+ },
+ {
+  "forma": "3/7 L2",
+  "volte": 13,
+  "segue": 10,
+  "regola": "Se Shi a riposo (休) → NON SEGUE il trend (2/3); altrimenti SEGUE (9/10)",
+  "ok": "11/13",
+  "chiave": "Shi 休",
+  "se": 0,
+  "carte": "USDJPY 2024-06-26 s159 segue; USDJPY 2026-04-29 s159 segue; USDCHF 2020-06-17 s95 segue; USDCHF 2022-04-26 s95 segue; USDCHF 2022-06-01 s95 non segue; USDCHF 2022-08-18 s95 non segue [col tratto]; USDCHF 2022-11-22 s95 segue; EURJPY 2023-08-31 s159 non segue [col tratto]; EURJPY 2023-12-05 s159 segue; EURJPY 2024-09-30 s159 segue [col tratto]; EURJPY 2024-11-29 s159 segue; EURJPY 2025-03-05 s159 segue; EURJPY 2025-03-11 s159 segue"
+ },
+ {
+  "forma": "5/3 L3",
+  "volte": 12,
+  "segue": 7,
+  "regola": "Se Ying: il mese punisce → NON SEGUE il trend (2/3); altrimenti SEGUE (6/9)",
+  "ok": "8/12",
+  "chiave": "Ying: il mese punisce",
+  "se": 0,
+  "carte": "EURUSD 2020-02-21 s107 non segue [col tratto]; EURUSD 2023-05-24 s107 segue; EURUSD 2023-05-30 s107 non segue; EURUSD 2023-08-28 s107 non segue; EURUSD 2024-04-30 s107 non segue; EURUSD 2024-11-08 s107 segue; EURUSD 2025-03-26 s107 segue; GBPUSD 2022-09-26 s107 segue; USDJPY 2020-03-04 s107 non segue [col tratto]; USDJPY 2020-04-27 s107 segue; USDJPY 2021-03-05 s107 segue [col tratto]; EURJPY 2025-07-30 s171 segue"
+ },
+ {
+  "forma": "6/1 L3",
+  "volte": 12,
+  "segue": 7,
+  "regola": "Se Ying: il giorno combina → NON SEGUE il trend (4/6); altrimenti SEGUE (5/6)",
+  "ok": "9/12",
+  "chiave": "Ying: il giorno combina",
+  "se": 0,
+  "carte": "EURUSD 2020-03-11 s113 non segue [col tratto]; EURUSD 2020-06-09 s113 segue; EURUSD 2021-11-19 s113 segue; EURUSD 2022-01-12 s113 segue [col tratto]; EURUSD 2026-06-26 s113 non segue; EURUSD 2026-07-02 s113 non segue [col tratto]; GBPUSD 2022-09-21 s113 segue [col tratto]; USDJPY 2021-10-14 s113 segue; USDJPY 2021-10-26 s113 segue; USDJPY 2021-12-01 s113 segue; EURJPY 2025-11-04 s177 non segue [col tratto]; EURJPY 2026-10-06 s177 non segue [col tratto]"
+ },
+ {
+  "forma": "7/1 L2",
+  "volte": 12,
+  "segue": 6,
+  "regola": "Se Ying: l'ora stesso ramo → SEGUE il trend (4/5); altrimenti NON SEGUE (5/7)",
+  "ok": "9/12",
+  "chiave": "Ying: l'ora stesso ramo",
+  "se": 1,
+  "carte": "EURUSD 2020-12-16 s121 segue [col tratto]; EURUSD 2021-01-15 s121 segue [col tratto]; EURUSD 2021-01-21 s121 non segue [col tratto]; GBPUSD 2023-02-22 s121 segue [col tratto]; GBPUSD 2023-10-02 s121 segue [col tratto]; NZDUSD 2025-03-07 s57 non segue; NZDUSD 2025-03-13 s57 non segue; NZDUSD 2025-10-09 s57 segue; NZDUSD 2026-01-19 s57 non segue; NZDUSD 2026-09-16 s57 segue; NZDUSD 2026-09-22 s57 non segue; EURJPY 2026-08-23 s185 non segue"
+ },
+ {
+  "forma": "7/2 L3",
+  "volte": 12,
+  "segue": 5,
+  "regola": "Se arrivo della mobile fuori stagione → NON SEGUE il trend (7/10); altrimenti SEGUE (2/2)",
+  "ok": "9/12",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2020-12-22 s122 non segue [col tratto]; GBPUSD 2022-05-16 s122 non segue [col tratto]; GBPUSD 2022-08-02 s122 non segue [col tratto]; GBPUSD 2022-12-12 s122 segue [col tratto]; GBPUSD 2023-01-17 s122 segue [col tratto]; GBPUSD 2023-09-26 s122 segue; NZDUSD 2023-11-01 s58 non segue [col tratto]; NZDUSD 2024-04-17 s58 non segue [col tratto]; NZDUSD 2024-11-19 s58 non segue [col tratto]; NZDUSD 2026-04-19 s58 non segue [col tratto]; NZDUSD 2026-05-19 s58 segue [col tratto]; NZDUSD 2026-09-10 s58 segue"
+ },
+ {
+  "forma": "7/8 L6",
+  "volte": 12,
+  "segue": 5,
+  "regola": "Se Ying sostenuto dal giorno → NON SEGUE il trend (5/6); altrimenti SEGUE (4/6)",
+  "ok": "9/12",
+  "chiave": "Ying sostenuto dal giorno",
+  "se": 0,
+  "carte": "EURUSD 2021-05-06 s120 non segue [col tratto]; EURUSD 2026-01-28 s120 non segue [col tratto]; GBPUSD 2023-02-13 s120 non segue [col tratto]; USDCAD 2021-05-12 s120 non segue; USDCAD 2021-05-24 s120 segue; NZDUSD 2022-09-28 s56 non segue; NZDUSD 2022-10-10 s56 segue; NZDUSD 2026-10-01 s56 segue; NZDUSD 2026-10-07 s56 segue [col tratto]; EURJPY 2026-01-16 s184 non segue [col tratto]; EURJPY 2026-05-10 s184 segue; EURJPY 2026-06-09 s184 non segue [col tratto]"
+ },
+ {
+  "forma": "5/3 L6",
+  "volte": 12,
+  "segue": 6,
+  "regola": "Se Shi in piena stagione (旺) → NON SEGUE il trend (2/3); altrimenti SEGUE (5/9)",
+  "ok": "7/12",
+  "chiave": "Shi 旺",
+  "se": 0,
+  "carte": "EURUSD 2022-04-20 s107 non segue [col tratto]; EURUSD 2022-04-26 s107 segue [col tratto]; EURUSD 2023-02-08 s107 segue; EURUSD 2023-06-08 s107 non segue; EURUSD 2023-06-14 s107 segue; EURUSD 2024-02-15 s107 non segue; EURUSD 2024-06-26 s107 segue; EURUSD 2024-10-24 s107 non segue [col tratto]; EURUSD 2024-11-11 s107 segue; USDJPY 2020-05-12 s107 non segue; USDJPY 2020-06-17 s107 segue; USDJPY 2020-06-29 s107 non segue"
+ },
+ {
+  "forma": "6/4 L3",
+  "volte": 12,
+  "segue": 4,
+  "regola": "Se Ying: il giorno stesso ramo → NON SEGUE il trend (5/6); altrimenti SEGUE (3/6)",
+  "ok": "8/12",
+  "chiave": "Ying: il giorno stesso ramo",
+  "se": 0,
+  "carte": "EURUSD 2025-07-16 s116 non segue [col tratto]; EURUSD 2025-07-22 s116 segue; EURUSD 2025-08-15 s116 segue; EURUSD 2026-01-12 s116 non segue [col tratto]; EURUSD 2026-01-18 s116 segue; EURUSD 2026-04-24 s116 non segue; EURUSD 2026-05-24 s116 non segue [col tratto]; EURUSD 2026-06-05 s116 segue [col tratto]; EURUSD 2026-06-17 s116 non segue [col tratto]; EURUSD 2026-08-28 s116 non segue [col tratto]; GBPUSD 2022-09-12 s116 non segue; EURJPY 2025-12-01 s180 non segue"
+ },
+ {
+  "forma": "7/3 L3",
+  "volte": 12,
+  "segue": 5,
+  "regola": "Se Shi: l'ora combina → NON SEGUE il trend (5/7); altrimenti SEGUE (3/5)",
+  "ok": "8/12",
+  "chiave": "Shi: l'ora combina",
+  "se": 0,
+  "carte": "GBPUSD 2020-06-30 s123 non segue; GBPUSD 2024-04-22 s123 segue; GBPUSD 2025-01-23 s123 non segue; NZDUSD 2020-04-01 s59 non segue [col tratto]; NZDUSD 2020-04-07 s59 non segue [col tratto]; NZDUSD 2024-08-08 s59 segue [col tratto]; NZDUSD 2024-11-12 s59 segue [col tratto]; NZDUSD 2025-04-29 s59 non segue [col tratto]; NZDUSD 2025-09-02 s59 non segue [col tratto]; NZDUSD 2026-02-05 s59 non segue [col tratto]; EURJPY 2020-07-30 s123 segue; EURJPY 2020-09-22 s123 segue"
+ },
+ {
+  "forma": "7/4 L5",
+  "volte": 12,
+  "segue": 5,
+  "regola": "Se Shi in piena stagione (旺) → SEGUE il trend (4/6); altrimenti NON SEGUE (5/6)",
+  "ok": "9/12",
+  "chiave": "Shi 旺",
+  "se": 1,
+  "carte": "GBPUSD 2020-07-07 s124 segue [col tratto]; GBPUSD 2023-01-23 s124 non segue [col tratto]; GBPUSD 2024-04-17 s124 non segue [col tratto]; USDCAD 2021-07-08 s124 segue [col tratto]; NZDUSD 2022-09-07 s60 non segue; NZDUSD 2024-03-06 s60 non segue; NZDUSD 2024-07-16 s60 segue [col tratto]; NZDUSD 2024-07-22 s60 segue [col tratto]; NZDUSD 2025-06-11 s60 non segue; NZDUSD 2025-06-17 s60 non segue; NZDUSD 2026-02-18 s60 non segue; EURJPY 2020-08-12 s124 segue"
+ },
+ {
+  "forma": "1/2 L4",
+  "volte": 12,
+  "segue": 8,
+  "regola": "Se Shi in piena stagione (旺) → NON SEGUE il trend (3/3); altrimenti SEGUE (8/9)",
+  "ok": "11/12",
+  "chiave": "Shi 旺",
+  "se": 0,
+  "carte": "GBPUSD 2021-02-15 s138 segue; GBPUSD 2021-03-05 s138 segue; GBPUSD 2021-09-07 s138 non segue [col tratto]; AUDUSD 2021-07-15 s74 segue; AUDUSD 2021-09-07 s74 non segue [col tratto]; AUDUSD 2022-04-11 s74 non segue; USDCAD 2024-07-29 s138 segue; USDCAD 2024-11-08 s138 segue; USDCAD 2026-01-20 s138 segue; USDCAD 2026-03-27 s138 segue; USDCAD 2026-04-02 s138 segue; USDCAD 2026-08-18 s138 non segue [col tratto]"
+ },
+ {
+  "forma": "1/4 L1",
+  "volte": 12,
+  "segue": 9,
+  "regola": "Se Serpente morto su sede o mobile → NON SEGUE il trend (2/2); altrimenti SEGUE (9/10)",
+  "ok": "11/12",
+  "chiave": "Serpente morto su sede o mobile",
+  "se": 0,
+  "carte": "GBPUSD 2021-02-22 s140 segue; USDJPY 2023-07-12 s140 segue; USDJPY 2024-09-16 s140 segue; AUDUSD 2020-12-30 s76 segue; AUDUSD 2021-01-05 s76 segue; USDCAD 2020-03-17 s140 segue; USDCAD 2024-11-15 s140 segue; USDCAD 2024-11-27 s140 non segue [col tratto]; USDCAD 2024-12-03 s140 segue; USDCAD 2025-10-17 s140 non segue [col tratto]; USDCAD 2025-11-04 s140 segue; USDCAD 2026-07-20 s140 non segue"
+ },
+ {
+  "forma": "1/2 L6",
+  "volte": 12,
+  "segue": 5,
+  "regola": "Se Shi: il giorno clash → NON SEGUE il trend (4/6); altrimenti SEGUE (3/6)",
+  "ok": "7/12",
+  "chiave": "Shi: il giorno clash",
+  "se": 0,
+  "carte": "GBPUSD 2021-10-21 s138 non segue [col tratto]; USDJPY 2023-07-13 s138 segue; USDCAD 2024-07-31 s138 non segue; USDCAD 2024-08-06 s138 non segue [col tratto]; USDCAD 2024-10-29 s138 segue [col tratto]; USDCAD 2025-08-01 s138 non segue [col tratto]; USDCAD 2026-01-16 s138 segue [col tratto]; USDCAD 2026-01-22 s138 segue; USDCAD 2026-05-28 s138 non segue [col tratto]; USDCAD 2026-06-03 s138 segue; USDCAD 2026-08-26 s138 non segue; EURJPY 2022-09-28 s138 non segue"
+ },
+ {
+  "forma": "7/4 L2",
+  "volte": 12,
+  "segue": 10,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "7/6 L3",
+  "volte": 12,
+  "segue": 9,
+  "regola": "Se L3: il giorno combina → NON SEGUE il trend (3/5); altrimenti SEGUE (7/7)",
+  "ok": "10/12",
+  "chiave": "L3: il giorno combina",
+  "se": 0,
+  "carte": "GBPUSD 2023-08-29 s126 non segue [col tratto]; GBPUSD 2023-12-21 s126 segue; GBPUSD 2025-02-25 s126 segue; USDJPY 2022-04-18 s126 segue; AUDUSD 2025-02-13 s62 segue; USDCAD 2021-02-16 s126 non segue [col tratto]; NZDUSD 2022-05-12 s62 segue; NZDUSD 2022-08-10 s62 segue [col tratto]; NZDUSD 2023-03-02 s62 segue [col tratto]; NZDUSD 2023-03-20 s62 segue; NZDUSD 2023-12-21 s62 segue; EURJPY 2020-09-01 s126 non segue [col tratto]"
+ },
+ {
+  "forma": "2/8 L1",
+  "volte": 12,
+  "segue": 5,
+  "regola": "Se Shi morto (死) → SEGUE il trend (2/3); altrimenti NON SEGUE (6/9)",
+  "ok": "8/12",
+  "chiave": "Shi 死",
+  "se": 1,
+  "carte": "USDJPY 2022-09-22 s144 non segue; USDJPY 2022-09-28 s144 non segue; USDJPY 2022-10-04 s144 non segue; USDJPY 2024-01-09 s144 segue; USDJPY 2024-09-23 s144 segue; USDCHF 2025-06-26 s80 segue; USDCHF 2025-11-11 s80 non segue [col tratto]; USDCHF 2026-07-15 s80 non segue; USDCAD 2025-01-03 s144 segue [col tratto]; EURJPY 2022-12-15 s144 segue [col tratto]; EURJPY 2023-03-09 s144 non segue; EURJPY 2023-03-15 s144 non segue"
+ },
+ {
+  "forma": "2/4 L1",
+  "volte": 12,
+  "segue": 8,
+  "regola": "Se Shi di stagione → SEGUE il trend (7/8); altrimenti NON SEGUE (3/4)",
+  "ok": "10/12",
+  "chiave": "Shi di stagione",
+  "se": 1,
+  "carte": "USDJPY 2022-11-01 s148 non segue [col tratto]; USDJPY 2023-09-21 s148 non segue; USDJPY 2024-02-06 s148 non segue; USDJPY 2024-10-09 s148 segue [col tratto]; USDJPY 2025-07-30 s148 segue [col tratto]; USDCHF 2024-09-09 s84 non segue; EURGBP 2021-10-25 s84 segue [col tratto]; EURGBP 2021-11-30 s84 segue; EURGBP 2022-05-05 s84 segue [col tratto]; EURGBP 2022-05-17 s84 segue [col tratto]; EURGBP 2022-05-23 s84 segue [col tratto]; EURGBP 2024-06-11 s84 segue [col tratto]"
+ },
+ {
+  "forma": "2/6 L1",
+  "volte": 12,
+  "segue": 7,
+  "regola": "Se Shi in piena stagione (旺) → NON SEGUE il trend (3/4); altrimenti SEGUE (6/8)",
+  "ok": "9/12",
+  "chiave": "Shi 旺",
+  "se": 0,
+  "carte": "USDJPY 2024-03-05 s150 non segue [col tratto]; USDJPY 2025-02-28 s150 non segue [col tratto]; USDCHF 2023-07-27 s86 non segue; USDCHF 2024-01-17 s86 segue; USDCHF 2024-01-29 s86 non segue; USDCHF 2024-08-20 s86 segue; EURGBP 2022-11-23 s86 segue; EURGBP 2023-10-19 s86 segue; EURGBP 2024-01-17 s86 segue; EURGBP 2025-07-04 s86 segue; EURGBP 2026-02-17 s86 segue [col tratto]; EURGBP 2026-03-13 s86 non segue [col tratto]"
+ },
+ {
+  "forma": "2/7 L2",
+  "volte": 12,
+  "segue": 7,
+  "regola": "Se arrivo della mobile vuoto → NON SEGUE il trend (2/3); altrimenti SEGUE (6/9)",
+  "ok": "8/12",
+  "chiave": "arrivo della mobile vuoto",
+  "se": 0,
+  "carte": "USDJPY 2024-04-04 s151 non segue [col tratto]; USDJPY 2024-04-10 s151 segue; USDJPY 2024-11-06 s151 segue; USDCHF 2023-08-02 s87 segue; USDCHF 2023-08-08 s87 segue [col tratto]; USDCHF 2023-12-12 s87 segue; USDCHF 2023-12-18 s87 segue; EURJPY 2023-06-15 s151 segue; EURGBP 2022-10-06 s87 non segue; EURGBP 2023-10-31 s87 non segue; EURGBP 2025-07-28 s87 non segue [col tratto]; EURGBP 2025-12-01 s87 non segue"
+ },
+ {
+  "forma": "3/5 L1",
+  "volte": 12,
+  "segue": 4,
+  "regola": "Se Shi prigioniero (囚) → SEGUE il trend (2/4); altrimenti NON SEGUE (6/8)",
+  "ok": "8/12",
+  "chiave": "Shi 囚",
+  "se": 1,
+  "carte": "USDJPY 2024-06-03 s157 non segue [col tratto]; USDJPY 2024-12-30 s157 non segue; USDJPY 2026-05-06 s157 segue [col tratto]; USDJPY 2026-05-12 s157 non segue [col tratto]; USDJPY 2026-08-10 s157 non segue; USDJPY 2026-09-21 s157 segue; USDCHF 2021-03-09 s93 non segue; USDCHF 2022-03-28 s93 non segue; USDCHF 2022-12-05 s93 non segue; USDCHF 2023-01-04 s93 non segue; EURJPY 2023-07-03 s157 segue [col tratto]; EURJPY 2023-12-12 s157 segue"
+ },
+ {
+  "forma": "3/8 L3",
+  "volte": 12,
+  "segue": 1,
+  "regola": "Se arrivo della mobile vuoto → SEGUE il trend (1/2); altrimenti NON SEGUE (10/10)",
+  "ok": "11/12",
+  "chiave": "arrivo della mobile vuoto",
+  "se": 1,
+  "carte": "USDJPY 2024-10-24 s152 non segue; USDJPY 2024-11-05 s152 non segue; USDJPY 2024-11-11 s152 segue [col tratto]; USDJPY 2026-02-16 s152 non segue; USDCHF 2021-01-25 s88 non segue; USDCHF 2024-02-15 s88 non segue; USDCHF 2024-02-21 s88 non segue; USDCHF 2024-06-20 s88 non segue; USDCHF 2024-12-05 s88 non segue; EURGBP 2023-01-03 s88 non segue; EURGBP 2023-03-22 s88 non segue [col tratto]; EURGBP 2023-04-27 s88 non segue"
+ },
+ {
+  "forma": "3/8 L1",
+  "volte": 12,
+  "segue": 4,
+  "regola": "Se Ying: l'ora stesso ramo → SEGUE il trend (2/2); altrimenti NON SEGUE (8/10)",
+  "ok": "10/12",
+  "chiave": "Ying: l'ora stesso ramo",
+  "se": 1,
+  "carte": "USDJPY 2024-10-28 s152 segue [col tratto]; USDJPY 2024-11-27 s152 segue [col tratto]; USDCHF 2020-12-24 s88 non segue; USDCHF 2023-04-25 s88 non segue; USDCHF 2023-08-29 s88 non segue; USDCHF 2024-06-18 s88 segue; USDCHF 2024-11-27 s88 non segue; USDCHF 2025-03-27 s88 non segue; EURGBP 2020-04-22 s88 non segue; EURGBP 2020-06-03 s88 non segue; EURGBP 2021-02-04 s88 segue; EURGBP 2023-04-19 s88 non segue"
+ },
+ {
+  "forma": "3/4 L3",
+  "volte": 12,
+  "segue": 7,
+  "regola": "Se Shi a riposo (休) → NON SEGUE il trend (3/4); altrimenti SEGUE (6/8)",
+  "ok": "9/12",
+  "chiave": "Shi 休",
+  "se": 0,
+  "carte": "USDJPY 2024-11-15 s156 non segue; USDJPY 2025-01-20 s156 segue; USDJPY 2026-09-18 s156 segue [col tratto]; USDCHF 2020-10-01 s92 non segue [col tratto]; USDCHF 2021-03-12 s92 segue; USDCHF 2021-03-18 s92 non segue; USDCHF 2021-11-19 s92 segue; USDCHF 2022-02-23 s92 segue; USDCHF 2022-12-14 s92 segue; USDCHF 2022-12-20 s92 segue; USDCHF 2023-09-28 s92 non segue [col tratto]; USDCHF 2023-10-04 s92 non segue [col tratto]"
+ },
+ {
+  "forma": "3/5 L3",
+  "volte": 12,
+  "segue": 7,
+  "regola": "Se Shi sostenuto dal giorno → SEGUE il trend (7/8); altrimenti NON SEGUE (4/4)",
+  "ok": "11/12",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 1,
+  "carte": "USDJPY 2024-12-26 s157 segue [col tratto]; USDJPY 2025-01-07 s157 segue [col tratto]; USDJPY 2025-01-13 s157 non segue; USDJPY 2025-11-21 s157 non segue; USDJPY 2026-03-03 s157 segue [col tratto]; USDJPY 2026-05-14 s157 segue [col tratto]; USDJPY 2026-08-06 s157 non segue [col tratto]; USDJPY 2026-09-23 s157 segue [col tratto]; USDCHF 2021-10-13 s93 non segue; USDCHF 2022-12-13 s93 segue [col tratto]; EURJPY 2023-06-29 s157 non segue; EURJPY 2023-08-10 s157 segue [col tratto]"
+ },
+ {
+  "forma": "3/6 L2",
+  "volte": 12,
+  "segue": 6,
+  "regola": "Se arrivo della mobile vuoto → NON SEGUE il trend (4/4); altrimenti SEGUE (6/8)",
+  "ok": "10/12",
+  "chiave": "arrivo della mobile vuoto",
+  "se": 0,
+  "carte": "USDJPY 2026-01-18 s158 non segue [col tratto]; USDJPY 2026-09-03 s158 segue; USDCHF 2020-06-18 s94 non segue [col tratto]; USDCHF 2020-06-24 s94 non segue; USDCHF 2020-07-06 s94 segue; USDCHF 2022-04-21 s94 segue; USDCHF 2022-11-29 s94 non segue [col tratto]; EURJPY 2023-08-14 s158 segue; EURJPY 2023-10-31 s158 non segue; EURJPY 2023-12-06 s158 segue; EURJPY 2024-09-19 s158 non segue [col tratto]; EURJPY 2024-12-06 s158 segue"
+ },
+ {
+  "forma": "5/5 L5",
+  "volte": 11,
+  "segue": 7,
+  "regola": "Se Ying fuori stagione → NON SEGUE il trend (4/6); altrimenti SEGUE (5/5)",
+  "ok": "9/11",
+  "chiave": "Ying fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2020-05-27 s109 segue [col tratto]; EURUSD 2023-04-12 s109 segue; EURUSD 2023-04-18 s109 segue; EURUSD 2023-04-24 s109 segue; EURUSD 2023-06-29 s109 non segue [col tratto]; EURUSD 2023-12-20 s109 non segue [col tratto]; EURUSD 2024-03-13 s109 segue [col tratto]; EURUSD 2024-10-09 s109 segue; EURUSD 2025-03-20 s109 non segue [col tratto]; USDJPY 2020-06-08 s109 non segue [col tratto]; EURJPY 2025-09-22 s173 segue"
+ },
+ {
+  "forma": "6/5 L5",
+  "volte": 11,
+  "segue": 4,
+  "regola": "Se Shi fuori stagione → SEGUE il trend (3/5); altrimenti NON SEGUE (5/6)",
+  "ok": "8/11",
+  "chiave": "Shi fuori stagione",
+  "se": 1,
+  "carte": "EURUSD 2020-08-12 s117 segue [col tratto]; EURUSD 2021-07-08 s117 non segue; EURUSD 2021-07-14 s117 non segue; EURUSD 2021-07-26 s117 non segue; EURUSD 2025-07-23 s117 segue; EURUSD 2026-02-06 s117 non segue [col tratto]; EURUSD 2026-02-24 s117 segue [col tratto]; EURUSD 2026-04-19 s117 non segue; EURJPY 2020-04-02 s117 segue [col tratto]; EURJPY 2026-02-18 s181 non segue [col tratto]; EURJPY 2026-08-05 s181 non segue"
+ },
+ {
+  "forma": "6/7 L5",
+  "volte": 11,
+  "segue": 5,
+  "regola": "Se L2 vuota → SEGUE il trend (3/3); altrimenti NON SEGUE (6/8)",
+  "ok": "9/11",
+  "chiave": "L2 vuota",
+  "se": 1,
+  "carte": "EURUSD 2021-04-13 s119 segue [col tratto]; EURUSD 2021-04-19 s119 segue; GBPUSD 2022-07-07 s119 non segue; GBPUSD 2022-07-19 s119 non segue; GBPUSD 2022-07-25 s119 non segue; NZDUSD 2022-10-17 s55 non segue; NZDUSD 2025-01-10 s55 segue; NZDUSD 2025-02-03 s55 non segue; EURJPY 2020-02-18 s119 segue [col tratto]; EURJPY 2026-01-05 s183 non segue; EURJPY 2026-01-11 s183 segue [col tratto]"
+ },
+ {
+  "forma": "5/1 L2",
+  "volte": 11,
+  "segue": 4,
+  "regola": "Se arrivo della mobile fuori stagione → NON SEGUE il trend (5/6); altrimenti SEGUE (3/5)",
+  "ok": "8/11",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2022-05-12 s105 segue [col tratto]; EURUSD 2022-05-18 s105 non segue [col tratto]; EURUSD 2022-12-08 s105 segue; EURUSD 2023-09-28 s105 non segue [col tratto]; EURUSD 2023-10-10 s105 non segue [col tratto]; EURUSD 2023-10-16 s105 non segue [col tratto]; EURUSD 2024-11-21 s105 segue; USDJPY 2020-03-11 s105 segue; USDJPY 2020-11-12 s105 non segue; USDJPY 2021-02-22 s105 non segue; EURJPY 2025-07-01 s169 non segue [col tratto]"
+ },
+ {
+  "forma": "7/4 L4",
+  "volte": 11,
+  "segue": 6,
+  "regola": "Se Shi: l'ora combina → SEGUE il trend (5/6); altrimenti NON SEGUE (4/5)",
+  "ok": "9/11",
+  "chiave": "Shi: l'ora combina",
+  "se": 1,
+  "carte": "GBPUSD 2020-04-01 s124 non segue [col tratto]; GBPUSD 2023-04-04 s124 segue [col tratto]; GBPUSD 2023-05-22 s124 segue [col tratto]; USDCAD 2021-07-13 s124 segue [col tratto]; NZDUSD 2024-04-10 s60 non segue; NZDUSD 2024-08-14 s60 non segue; NZDUSD 2024-11-06 s60 segue; NZDUSD 2025-06-16 s60 non segue; NZDUSD 2026-01-30 s60 non segue; EURJPY 2020-08-05 s124 segue [col tratto]; EURJPY 2020-08-11 s124 segue [col tratto]"
+ },
+ {
+  "forma": "7/5 L2",
+  "volte": 11,
+  "segue": 7,
+  "regola": "Se Ying: il mese clash → NON SEGUE il trend (2/2); altrimenti SEGUE (7/9)",
+  "ok": "9/11",
+  "chiave": "Ying: il mese clash",
+  "se": 0,
+  "carte": "GBPUSD 2020-07-15 s125 segue; GBPUSD 2024-11-27 s125 non segue; AUDUSD 2020-03-17 s61 segue; USDCAD 2021-03-30 s125 segue; USDCAD 2021-04-05 s125 segue; USDCAD 2022-01-24 s125 segue; NZDUSD 2024-03-14 s61 non segue; NZDUSD 2024-06-12 s61 segue; NZDUSD 2024-09-16 s61 segue; EURJPY 2020-08-26 s125 non segue [col tratto]; EURJPY 2020-09-07 s125 non segue [col tratto]"
+ },
+ {
+  "forma": "1/5 L5",
+  "volte": 11,
+  "segue": 7,
+  "regola": "Se Shi in piena stagione (旺) → NON SEGUE il trend (3/4); altrimenti SEGUE (6/7)",
+  "ok": "9/11",
+  "chiave": "Shi 旺",
+  "se": 0,
+  "carte": "GBPUSD 2021-02-25 s141 non segue; USDJPY 2022-11-23 s141 segue; USDJPY 2023-06-21 s141 segue; USDJPY 2025-04-17 s141 non segue [col tratto]; USDCHF 2026-02-23 s77 segue; AUDUSD 2021-01-14 s77 segue [col tratto]; AUDUSD 2021-01-20 s77 non segue [col tratto]; AUDUSD 2021-02-19 s77 segue; USDCAD 2024-12-12 s141 segue; USDCAD 2026-06-23 s141 segue; EURJPY 2022-07-20 s141 non segue [col tratto]"
+ },
+ {
+  "forma": "1/1 L2",
+  "volte": 11,
+  "segue": 5,
+  "regola": "Se Shi in piena stagione (旺) → SEGUE il trend (3/4); altrimenti NON SEGUE (5/7)",
+  "ok": "8/11",
+  "chiave": "Shi 旺",
+  "se": 1,
+  "carte": "GBPUSD 2021-10-18 s137 non segue [col tratto]; AUDUSD 2021-11-11 s73 segue; AUDUSD 2022-03-11 s73 non segue; USDCAD 2022-10-19 s137 segue [col tratto]; USDCAD 2025-07-29 s137 segue [col tratto]; USDCAD 2025-08-28 s137 segue; USDCAD 2026-03-20 s137 non segue; USDCAD 2026-04-19 s137 segue [col tratto]; USDCAD 2026-08-23 s137 non segue; NZDUSD 2021-02-26 s73 non segue; EURJPY 2022-08-08 s137 non segue"
+ },
+ {
+  "forma": "8/3 L3",
+  "volte": 11,
+  "segue": 4,
+  "regola": "Se arrivo della mobile vuoto → NON SEGUE il trend (4/5); altrimenti SEGUE (3/6)",
+  "ok": "7/11",
+  "chiave": "arrivo della mobile vuoto",
+  "se": 0,
+  "carte": "GBPUSD 2022-04-14 s131 non segue [col tratto]; GBPUSD 2024-09-18 s131 segue; AUDUSD 2020-02-18 s67 segue; AUDUSD 2022-07-07 s67 non segue; AUDUSD 2022-11-28 s67 non segue; AUDUSD 2023-06-14 s67 segue [col tratto]; NZDUSD 2021-12-15 s67 non segue [col tratto]; NZDUSD 2021-12-21 s67 non segue [col tratto]; NZDUSD 2022-04-20 s67 non segue [col tratto]; EURJPY 2021-10-28 s131 segue; EURJPY 2021-11-03 s131 non segue"
+ },
+ {
+  "forma": "1/6 L1",
+  "volte": 11,
+  "segue": 6,
+  "regola": "Se Ying fuori stagione → SEGUE il trend (6/8); altrimenti NON SEGUE (3/3)",
+  "ok": "9/11",
+  "chiave": "Ying fuori stagione",
+  "se": 1,
+  "carte": "USDJPY 2022-09-13 s142 segue [col tratto]; USDJPY 2022-09-19 s142 segue [col tratto]; USDJPY 2023-07-10 s142 non segue [col tratto]; USDJPY 2023-12-19 s142 non segue; USDJPY 2025-04-30 s142 non segue [col tratto]; USDCHF 2026-01-25 s78 segue [col tratto]; USDCHF 2026-05-19 s78 segue [col tratto]; AUDUSD 2021-02-26 s78 non segue; USDCAD 2025-03-07 s142 non segue; USDCAD 2026-06-24 s142 segue [col tratto]; EURJPY 2022-06-27 s142 segue [col tratto]"
+ },
+ {
+  "forma": "2/8 L5",
+  "volte": 11,
+  "segue": 6,
+  "regola": "Se Shi Tai Sui → SEGUE il trend (3/3); altrimenti NON SEGUE (5/8)",
+  "ok": "8/11",
+  "chiave": "Shi Tai Sui",
+  "se": 1,
+  "carte": "USDJPY 2022-09-14 s144 non segue; USDJPY 2023-06-29 s144 segue; USDCHF 2025-08-11 s80 segue [col tratto]; USDCHF 2025-11-03 s80 segue [col tratto]; USDCHF 2025-11-21 s80 segue [col tratto]; USDCHF 2026-07-07 s80 non segue; USDCHF 2026-07-13 s80 segue; USDCHF 2026-08-06 s80 non segue; USDCAD 2025-01-13 s144 non segue; EURJPY 2022-09-14 s144 non segue; EURJPY 2023-03-13 s144 segue"
+ },
+ {
+  "forma": "2/4 L4",
+  "volte": 11,
+  "segue": 3,
+  "regola": "Se Shi vuoto → SEGUE il trend (1/2); altrimenti NON SEGUE (7/9)",
+  "ok": "8/11",
+  "chiave": "Shi vuoto",
+  "se": 1,
+  "carte": "USDJPY 2022-10-17 s148 segue [col tratto]; USDJPY 2025-02-27 s148 non segue; USDJPY 2025-07-21 s148 non segue; EURJPY 2023-05-09 s148 non segue; EURGBP 2021-10-28 s84 non segue; EURGBP 2022-04-26 s84 segue; EURGBP 2022-07-19 s84 non segue; EURGBP 2024-09-18 s84 non segue; EURGBP 2025-05-22 s84 segue; EURGBP 2025-06-03 s84 non segue [col tratto]; EURGBP 2026-07-16 s84 non segue"
+ },
+ {
+  "forma": "2/3 L5",
+  "volte": 11,
+  "segue": 6,
+  "regola": "Se Shi: il giorno clash → SEGUE il trend (6/8); altrimenti NON SEGUE (3/3)",
+  "ok": "9/11",
+  "chiave": "Shi: il giorno clash",
+  "se": 1,
+  "carte": "USDJPY 2022-10-31 s147 non segue [col tratto]; USDJPY 2023-09-20 s147 segue [col tratto]; USDJPY 2024-08-15 s147 non segue; USDJPY 2025-08-04 s147 non segue [col tratto]; EURGBP 2020-02-26 s83 non segue; EURGBP 2022-01-04 s83 segue [col tratto]; EURGBP 2022-03-17 s83 segue [col tratto]; EURGBP 2022-03-23 s83 non segue; EURGBP 2024-09-26 s83 segue [col tratto]; EURGBP 2025-02-17 s83 segue [col tratto]; EURGBP 2025-03-25 s83 segue [col tratto]"
+ },
+ {
+  "forma": "2/6 L2",
+  "volte": 11,
+  "segue": 5,
+  "regola": "Se Ying: il giorno clash → SEGUE il trend (3/4); altrimenti NON SEGUE (5/7)",
+  "ok": "8/11",
+  "chiave": "Ying: il giorno clash",
+  "se": 1,
+  "carte": "USDJPY 2023-10-26 s150 segue [col tratto]; USDJPY 2024-02-29 s150 non segue; USDCHF 2023-12-19 s86 segue; USDCHF 2024-01-18 s86 segue [col tratto]; USDCHF 2024-02-05 s86 non segue; USDCHF 2024-08-15 s86 non segue; EURGBP 2021-03-04 s86 segue; EURGBP 2025-07-11 s86 segue [col tratto]; EURGBP 2025-07-17 s86 non segue; EURGBP 2025-07-29 s86 non segue; EURGBP 2026-03-20 s86 non segue [col tratto]"
+ },
+ {
+  "forma": "2/7 L6",
+  "volte": 11,
+  "segue": 3,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (6/7); altrimenti SEGUE (2/4)",
+  "ok": "8/11",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "USDJPY 2024-03-27 s151 non segue [col tratto]; USDJPY 2024-10-23 s151 segue; USDJPY 2024-11-28 s151 non segue [col tratto]; USDJPY 2024-12-10 s151 non segue [col tratto]; USDCHF 2025-03-10 s87 non segue [col tratto]; EURGBP 2020-04-23 s87 segue; EURGBP 2022-12-21 s87 segue [col tratto]; EURGBP 2023-03-21 s87 non segue [col tratto]; EURGBP 2023-05-02 s87 non segue; EURGBP 2025-08-07 s87 non segue; EURGBP 2025-11-11 s87 non segue [col tratto]"
+ },
+ {
+  "forma": "4/1 L5",
+  "volte": 11,
+  "segue": 7,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (4/6); altrimenti SEGUE (5/5)",
+  "ok": "9/11",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "USDJPY 2024-07-04 s161 non segue [col tratto]; USDJPY 2024-07-10 s161 segue; USDJPY 2026-06-30 s161 segue; USDJPY 2026-07-06 s161 non segue [col tratto]; USDCHF 2022-05-04 s97 non segue [col tratto]; USDCHF 2022-07-21 s97 segue; USDCHF 2022-09-01 s97 segue [col tratto]; EURJPY 2023-11-13 s161 segue; EURJPY 2024-09-26 s161 segue [col tratto]; EURJPY 2025-03-13 s161 non segue [col tratto]; EURJPY 2025-03-31 s161 segue"
+ },
+ {
+  "forma": "3/1 L6",
+  "volte": 11,
+  "segue": 8,
+  "regola": "Se Ying: il mese clash → NON SEGUE il trend (2/3); altrimenti SEGUE (7/8)",
+  "ok": "9/11",
+  "chiave": "Ying: il mese clash",
+  "se": 0,
+  "carte": "USDJPY 2024-07-30 s153 segue; USDJPY 2025-11-10 s153 segue [col tratto]; USDCHF 2023-04-13 s89 segue; USDCHF 2023-11-09 s89 non segue [col tratto]; USDCHF 2024-03-26 s89 segue; USDCHF 2024-06-06 s89 segue; USDCHF 2024-06-12 s89 segue; USDCHF 2024-12-27 s89 segue; USDCHF 2025-02-25 s89 segue; EURGBP 2020-11-06 s89 non segue; EURGBP 2020-11-12 s89 non segue [col tratto]"
+ },
+ {
+  "forma": "3/1 L1",
+  "volte": 11,
+  "segue": 8,
+  "regola": "Se Serpente morto su sede o mobile → NON SEGUE il trend (2/2); altrimenti SEGUE (8/9)",
+  "ok": "10/11",
+  "chiave": "Serpente morto su sede o mobile",
+  "se": 0,
+  "carte": "USDJPY 2024-10-29 s153 segue; USDJPY 2024-12-16 s153 segue; USDJPY 2025-11-05 s153 segue; USDCHF 2021-02-23 s89 segue; USDCHF 2023-04-20 s89 segue; USDCHF 2023-05-02 s89 segue; USDCHF 2023-10-23 s89 segue; USDCHF 2025-02-26 s89 non segue [col tratto]; EURGBP 2020-03-30 s89 non segue; EURGBP 2020-06-04 s89 segue; EURGBP 2020-11-13 s89 non segue [col tratto]"
+ },
+ {
+  "forma": "3/7 L1",
+  "volte": 11,
+  "segue": 6,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (4/6); altrimenti SEGUE (4/5)",
+  "ok": "8/11",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "USDJPY 2026-03-23 s159 non segue [col tratto]; USDJPY 2026-04-28 s159 segue; USDJPY 2026-05-28 s159 non segue; USDCHF 2020-03-18 s95 segue [col tratto]; USDCHF 2020-03-30 s95 non segue [col tratto]; USDCHF 2020-06-22 s95 segue; USDCHF 2022-04-25 s95 segue; USDCHF 2022-11-21 s95 non segue [col tratto]; EURJPY 2023-12-04 s159 non segue [col tratto]; EURJPY 2024-08-06 s159 segue; EURJPY 2024-12-10 s159 segue [col tratto]"
+ },
+ {
+  "forma": "2/6 L3",
+  "volte": 11,
+  "segue": 7,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "6/1 L2",
+  "volte": 10,
+  "segue": 3,
+  "regola": "Se Shi in piena stagione (旺) → SEGUE il trend (2/2); altrimenti NON SEGUE (7/8)",
+  "ok": "9/10",
+  "chiave": "Shi 旺",
+  "se": 1,
+  "carte": "EURUSD 2020-06-08 s113 non segue; EURUSD 2021-11-18 s113 non segue; EURUSD 2025-05-01 s113 non segue; EURUSD 2025-05-07 s113 non segue; EURUSD 2026-09-29 s113 segue [col tratto]; USDJPY 2021-10-13 s113 non segue; USDJPY 2021-11-30 s113 segue; USDJPY 2021-12-06 s113 non segue; EURJPY 2025-10-28 s177 non segue; EURJPY 2026-10-05 s177 segue [col tratto]"
+ },
+ {
+  "forma": "7/1 L6",
+  "volte": 10,
+  "segue": 4,
+  "regola": "Se Shi a riposo (休) → SEGUE il trend (3/5); altrimenti NON SEGUE (4/5)",
+  "ok": "7/10",
+  "chiave": "Shi 休",
+  "se": 1,
+  "carte": "EURUSD 2021-01-25 s121 non segue; EURUSD 2021-05-31 s121 segue [col tratto]; GBPUSD 2023-02-14 s121 non segue; GBPUSD 2023-10-18 s121 segue; USDCAD 2021-05-13 s121 non segue [col tratto]; EURJPY 2020-06-11 s121 non segue [col tratto]; EURJPY 2026-02-10 s185 non segue; EURJPY 2026-06-16 s185 segue [col tratto]; EURJPY 2026-06-22 s185 segue [col tratto]; EURJPY 2026-09-02 s185 non segue"
+ },
+ {
+  "forma": "5/5 L3",
+  "volte": 10,
+  "segue": 4,
+  "regola": "Se Shi a riposo (休) → SEGUE il trend (2/2); altrimenti NON SEGUE (6/8)",
+  "ok": "8/10",
+  "chiave": "Shi 休",
+  "se": 1,
+  "carte": "EURUSD 2022-03-16 s109 non segue; EURUSD 2023-06-21 s109 segue [col tratto]; EURUSD 2023-06-27 s109 segue [col tratto]; EURUSD 2023-11-30 s109 non segue; EURUSD 2024-11-06 s109 non segue; EURUSD 2025-03-12 s109 non segue; EURUSD 2025-03-18 s109 segue; GBPUSD 2022-10-12 s109 non segue; USDJPY 2020-02-19 s109 segue; EURJPY 2025-07-28 s173 non segue"
+ },
+ {
+  "forma": "4/3 L6",
+  "volte": 10,
+  "segue": 6,
+  "regola": "Se L1: il giorno combina → SEGUE il trend (6/6); altrimenti NON SEGUE (4/4)",
+  "ok": "10/10",
+  "chiave": "L1: il giorno combina",
+  "se": 1,
+  "carte": "EURUSD 2022-09-06 s99 segue [col tratto]; USDJPY 2026-07-23 s163 segue [col tratto]; USDJPY 2026-07-29 s163 non segue; USDCHF 2022-06-14 s99 segue [col tratto]; USDCHF 2022-10-24 s99 segue [col tratto]; EURJPY 2024-03-05 s163 non segue; EURJPY 2024-11-12 s163 non segue; EURJPY 2025-03-18 s163 segue [col tratto]; EURJPY 2025-05-29 s163 segue [col tratto]; EURJPY 2025-06-04 s163 non segue"
+ },
+ {
+  "forma": "8/5 L5",
+  "volte": 10,
+  "segue": 2,
+  "regola": "Se Shi: l'ora combina → NON SEGUE il trend (7/7); altrimenti SEGUE (2/3)",
+  "ok": "9/10",
+  "chiave": "Shi: l'ora combina",
+  "se": 0,
+  "carte": "GBPUSD 2020-09-03 s133 non segue [col tratto]; GBPUSD 2020-11-26 s133 non segue [col tratto]; GBPUSD 2025-04-22 s133 non segue [col tratto]; GBPUSD 2025-12-12 s133 non segue [col tratto]; GBPUSD 2026-03-06 s133 non segue [col tratto]; USDJPY 2022-12-28 s133 non segue [col tratto]; USDJPY 2023-04-03 s133 non segue [col tratto]; AUDUSD 2020-06-11 s69 non segue; AUDUSD 2023-02-08 s69 segue; NZDUSD 2020-11-20 s69 segue"
+ },
+ {
+  "forma": "1/3 L3",
+  "volte": 10,
+  "segue": 7,
+  "regola": "Se Ying: il mese combina → NON SEGUE il trend (2/2); altrimenti SEGUE (7/8)",
+  "ok": "9/10",
+  "chiave": "Ying: il mese combina",
+  "se": 0,
+  "carte": "GBPUSD 2021-02-19 s139 segue; USDJPY 2023-06-15 s139 segue; AUDUSD 2020-12-15 s75 segue; AUDUSD 2022-03-28 s75 non segue [col tratto]; USDCAD 2024-11-12 s139 segue; USDCAD 2026-01-12 s139 non segue; USDCAD 2026-03-31 s139 non segue [col tratto]; USDCAD 2026-06-05 s139 segue; USDCAD 2026-06-17 s139 segue; USDCAD 2026-09-21 s139 segue"
+ },
+ {
+  "forma": "1/5 L4",
+  "volte": 10,
+  "segue": 3,
+  "regola": "Se Shi Tai Sui → SEGUE il trend (2/4); altrimenti NON SEGUE (5/6)",
+  "ok": "7/10",
+  "chiave": "Shi Tai Sui",
+  "se": 1,
+  "carte": "GBPUSD 2021-02-24 s141 segue [col tratto]; GBPUSD 2021-05-31 s141 segue [col tratto]; USDJPY 2023-06-20 s141 non segue; AUDUSD 2021-01-13 s77 non segue; AUDUSD 2021-03-02 s77 non segue [col tratto]; AUDUSD 2021-05-19 s77 non segue [col tratto]; USDCAD 2025-02-21 s141 non segue; USDCAD 2025-04-10 s141 segue; USDCAD 2026-07-22 s141 non segue; EURJPY 2023-02-02 s141 non segue"
+ },
+ {
+  "forma": "1/7 L2",
+  "volte": 10,
+  "segue": 10,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "1/6 L3",
+  "volte": 10,
+  "segue": 5,
+  "regola": "Se Shi Tai Sui → NON SEGUE il trend (3/3); altrimenti SEGUE (5/7)",
+  "ok": "8/10",
+  "chiave": "Shi Tai Sui",
+  "se": 0,
+  "carte": "USDJPY 2022-09-15 s142 segue; USDJPY 2023-12-27 s142 segue; USDCHF 2025-09-17 s78 non segue; AUDUSD 2021-02-22 s78 segue; USDCAD 2025-02-25 s142 segue; USDCAD 2026-07-02 s142 non segue [col tratto]; USDCAD 2026-07-08 s142 non segue [col tratto]; USDCAD 2026-10-06 s142 non segue [col tratto]; EURJPY 2022-09-15 s142 segue; EURJPY 2023-03-14 s142 non segue"
+ },
+ {
+  "forma": "1/6 L5",
+  "volte": 10,
+  "segue": 7,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "1/3 L1",
+  "volte": 10,
+  "segue": 5,
+  "regola": "Se Shi morto (死) → NON SEGUE il trend (4/4); altrimenti SEGUE (5/6)",
+  "ok": "9/10",
+  "chiave": "Shi 死",
+  "se": 0,
+  "carte": "USDJPY 2023-06-01 s139 non segue; USDJPY 2023-06-07 s139 segue; USDJPY 2023-06-13 s139 segue; AUDUSD 2021-11-02 s75 non segue [col tratto]; AUDUSD 2022-04-07 s75 non segue [col tratto]; USDCAD 2025-05-21 s139 segue; USDCAD 2025-10-30 s139 non segue [col tratto]; USDCAD 2026-06-15 s139 segue; USDCAD 2026-08-14 s139 segue; EURJPY 2022-07-18 s139 non segue [col tratto]"
+ },
+ {
+  "forma": "1/5 L2",
+  "volte": 10,
+  "segue": 6,
+  "regola": "Se Ying fuori stagione → SEGUE il trend (6/8); altrimenti NON SEGUE (2/2)",
+  "ok": "8/10",
+  "chiave": "Ying fuori stagione",
+  "se": 1,
+  "carte": "USDJPY 2023-07-24 s141 segue [col tratto]; USDJPY 2024-01-02 s141 non segue [col tratto]; USDCHF 2026-01-27 s77 segue [col tratto]; USDCHF 2026-04-21 s77 non segue [col tratto]; AUDUSD 2021-02-16 s77 non segue; USDCAD 2024-12-09 s141 segue [col tratto]; USDCAD 2025-02-19 s141 non segue; USDCAD 2026-09-24 s141 segue [col tratto]; USDCAD 2026-09-30 s141 segue [col tratto]; EURJPY 2022-10-03 s141 segue [col tratto]"
+ },
+ {
+  "forma": "2/4 L2",
+  "volte": 10,
+  "segue": 3,
+  "regola": "Se Shi: il mese clash → SEGUE il trend (1/2); altrimenti NON SEGUE (6/8)",
+  "ok": "7/10",
+  "chiave": "Shi: il mese clash",
+  "se": 1,
+  "carte": "USDJPY 2023-10-10 s148 non segue [col tratto]; USDCHF 2024-01-02 s84 non segue; USDCHF 2024-08-29 s84 non segue; USDCHF 2024-09-10 s84 segue; USDCHF 2024-09-16 s84 non segue; EURJPY 2023-04-25 s148 non segue; EURGBP 2021-11-01 s84 segue [col tratto]; EURGBP 2021-11-19 s84 segue; EURGBP 2022-05-18 s84 non segue; EURGBP 2025-05-20 s84 non segue"
+ },
+ {
+  "forma": "2/5 L5",
+  "volte": 10,
+  "segue": 4,
+  "regola": "Se Shi morto (死) → SEGUE il trend (3/5); altrimenti NON SEGUE (4/5)",
+  "ok": "7/10",
+  "chiave": "Shi 死",
+  "se": 1,
+  "carte": "USDJPY 2023-10-30 s149 non segue [col tratto]; USDJPY 2024-02-21 s149 segue; USDJPY 2024-08-01 s149 segue [col tratto]; USDCHF 2024-01-16 s85 segue [col tratto]; USDCHF 2024-08-07 s85 non segue [col tratto]; EURGBP 2021-11-15 s85 non segue; EURGBP 2021-12-09 s85 non segue; EURGBP 2021-12-21 s85 non segue; EURGBP 2025-04-28 s85 segue [col tratto]; EURGBP 2025-06-27 s85 non segue"
+ },
+ {
+  "forma": "2/8 L2",
+  "volte": 10,
+  "segue": 4,
+  "regola": "Se L4 vuota → SEGUE il trend (3/4); altrimenti NON SEGUE (5/6)",
+  "ok": "8/10",
+  "chiave": "L4 vuota",
+  "se": 1,
+  "carte": "USDJPY 2024-01-10 s144 segue [col tratto]; USDJPY 2024-08-07 s144 non segue; USDCHF 2025-06-27 s80 segue [col tratto]; USDCHF 2025-07-21 s80 non segue; USDCHF 2025-08-14 s80 non segue; USDCHF 2025-08-20 s80 non segue; USDCHF 2025-10-31 s80 segue [col tratto]; USDCHF 2025-11-12 s80 segue; USDCHF 2026-08-03 s80 non segue; USDCAD 2020-03-25 s144 non segue [col tratto]"
+ },
+ {
+  "forma": "3/7 L6",
+  "volte": 10,
+  "segue": 6,
+  "regola": "Se Shi: l'ora clash → SEGUE il trend (4/4); altrimenti NON SEGUE (4/6)",
+  "ok": "8/10",
+  "chiave": "Shi: l'ora clash",
+  "se": 1,
+  "carte": "USDJPY 2024-06-24 s159 non segue; USDJPY 2026-03-16 s159 non segue; USDJPY 2026-05-27 s159 segue; USDJPY 2026-06-02 s159 segue; USDJPY 2026-08-19 s159 non segue; USDCHF 2020-06-15 s95 segue [col tratto]; USDCHF 2022-06-29 s95 segue [col tratto]; USDCHF 2022-08-10 s95 segue [col tratto]; USDCHF 2022-08-22 s95 segue [col tratto]; EURJPY 2023-08-17 s159 non segue"
+ },
+ {
+  "forma": "3/6 L4",
+  "volte": 10,
+  "segue": 6,
+  "regola": "Se arrivo della mobile di stagione → SEGUE il trend (3/3); altrimenti NON SEGUE (4/7)",
+  "ok": "7/10",
+  "chiave": "arrivo della mobile di stagione",
+  "se": 1,
+  "carte": "USDJPY 2024-07-17 s158 segue [col tratto]; USDJPY 2026-03-09 s158 non segue; USDJPY 2026-05-26 s158 segue [col tratto]; USDCHF 2020-07-08 s94 segue [col tratto]; USDCHF 2022-08-15 s94 non segue; USDCHF 2022-12-01 s94 segue; EURJPY 2023-08-16 s158 segue; EURJPY 2023-08-28 s158 non segue; EURJPY 2025-02-06 s158 segue; EURJPY 2025-02-12 s158 non segue"
+ },
+ {
+  "forma": "2/7 L1",
+  "volte": 10,
+  "segue": 7,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "3/8 L4",
+  "volte": 10,
+  "segue": 9,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "3/2 L3",
+  "volte": 10,
+  "segue": 4,
+  "regola": "Se Ying: il mese stesso ramo → SEGUE il trend (3/3); altrimenti NON SEGUE (6/7)",
+  "ok": "9/10",
+  "chiave": "Ying: il mese stesso ramo",
+  "se": 1,
+  "carte": "USDJPY 2024-12-17 s154 non segue; USDJPY 2025-11-06 s154 non segue; USDJPY 2025-11-12 s154 segue; USDCHF 2021-05-13 s90 segue [col tratto]; USDCHF 2023-06-08 s90 non segue; USDCHF 2023-06-14 s90 non segue; USDCHF 2023-10-12 s90 non segue; USDCHF 2024-03-28 s90 non segue; USDCHF 2024-05-09 s90 segue [col tratto]; USDCHF 2024-05-15 s90 segue [col tratto]"
+ },
+ {
+  "forma": "3/8 L6",
+  "volte": 10,
+  "segue": 2,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (7/8); altrimenti SEGUE (1/2)",
+  "ok": "8/10",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "USDJPY 2025-02-06 s152 segue [col tratto]; USDJPY 2025-02-12 s152 non segue [col tratto]; USDCHF 2020-12-11 s88 non segue [col tratto]; USDCHF 2024-03-07 s88 non segue [col tratto]; USDCHF 2024-11-26 s88 non segue [col tratto]; USDCHF 2024-12-02 s88 non segue [col tratto]; EURGBP 2020-06-08 s88 non segue [col tratto]; EURGBP 2021-01-22 s88 non segue; EURGBP 2023-01-12 s88 segue; EURGBP 2025-11-21 s88 non segue [col tratto]"
+ },
+ {
+  "forma": "2/7 L3",
+  "volte": 10,
+  "segue": 1,
+  "regola": "Se mobile: arrivo vuoto ma di stagione → SEGUE il trend (1/2); altrimenti NON SEGUE (8/8)",
+  "ok": "9/10",
+  "chiave": "mobile: arrivo vuoto ma di stagione",
+  "se": 1,
+  "carte": "USDJPY 2025-02-11 s151 non segue [col tratto]; USDJPY 2025-10-15 s151 non segue; USDCHF 2023-08-03 s87 non segue; USDCHF 2023-12-13 s87 segue [col tratto]; USDCHF 2024-02-29 s87 non segue; EURGBP 2021-05-03 s87 non segue; EURGBP 2023-01-23 s87 non segue; EURGBP 2023-10-26 s87 non segue; EURGBP 2023-11-13 s87 non segue; EURGBP 2026-03-02 s87 non segue"
+ },
+ {
+  "forma": "2/7 L4",
+  "volte": 10,
+  "segue": 2,
+  "regola": "Se Ying sostenuto dal giorno → NON SEGUE il trend (6/6); altrimenti SEGUE (2/4)",
+  "ok": "8/10",
+  "chiave": "Ying sostenuto dal giorno",
+  "se": 0,
+  "carte": "USDJPY 2025-02-18 s151 non segue [col tratto]; USDCHF 2025-03-20 s87 non segue; EURGBP 2020-04-21 s87 non segue [col tratto]; EURGBP 2020-04-27 s87 segue; EURGBP 2023-01-18 s87 segue; EURGBP 2023-01-24 s87 non segue [col tratto]; EURGBP 2023-04-06 s87 non segue [col tratto]; EURGBP 2023-04-12 s87 non segue; EURGBP 2025-12-03 s87 non segue [col tratto]; EURGBP 2026-02-13 s87 non segue [col tratto]"
+ },
+ {
+  "forma": "3/4 L1",
+  "volte": 10,
+  "segue": 5,
+  "regola": "Se Ying di stagione → SEGUE il trend (4/6); altrimenti NON SEGUE (3/4)",
+  "ok": "7/10",
+  "chiave": "Ying di stagione",
+  "se": 1,
+  "carte": "USDJPY 2025-11-26 s156 segue [col tratto]; USDJPY 2026-02-06 s156 segue [col tratto]; USDJPY 2026-03-02 s156 segue [col tratto]; USDJPY 2026-05-07 s156 non segue; USDCHF 2020-09-29 s92 non segue; USDCHF 2021-03-16 s92 non segue [col tratto]; USDCHF 2021-07-08 s92 non segue; USDCHF 2021-10-12 s92 segue; EURJPY 2023-12-13 s156 segue [col tratto]; EURJPY 2025-02-11 s156 non segue [col tratto]"
+ },
+ {
+  "forma": "4/2 L4",
+  "volte": 10,
+  "segue": 5,
+  "regola": "Se Ying vuoto → NON SEGUE il trend (2/2); altrimenti SEGUE (5/8)",
+  "ok": "7/10",
+  "chiave": "Ying vuoto",
+  "se": 0,
+  "carte": "USDJPY 2026-07-10 s162 non segue; USDCHF 2020-02-18 s98 segue; USDCHF 2020-03-25 s98 non segue [col tratto]; USDCHF 2022-06-13 s98 segue; USDCHF 2022-07-13 s98 non segue [col tratto]; USDCHF 2022-09-05 s98 non segue; EURJPY 2023-11-23 s162 segue; EURJPY 2024-03-04 s162 segue; EURJPY 2024-08-01 s162 segue; EURJPY 2024-12-17 s162 non segue"
+ },
+ {
+  "forma": "5/6 L1",
+  "volte": 9,
+  "segue": 3,
+  "regola": "Se Shi di stagione → SEGUE il trend (2/2); altrimenti NON SEGUE (6/7)",
+  "ok": "8/9",
+  "chiave": "Shi di stagione",
+  "se": 1,
+  "carte": "EURUSD 2020-05-28 s110 segue [col tratto]; EURUSD 2023-04-25 s110 non segue; EURUSD 2023-05-01 s110 non segue; EURUSD 2023-12-27 s110 segue; EURUSD 2024-01-02 s110 non segue; EURUSD 2024-09-04 s110 non segue; USDJPY 2020-03-23 s110 segue [col tratto]; USDJPY 2021-04-05 s110 non segue; EURJPY 2025-09-29 s174 non segue"
+ },
+ {
+  "forma": "6/7 L6",
+  "volte": 9,
+  "segue": 5,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "5/4 L6",
+  "volte": 9,
+  "segue": 4,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (4/5); altrimenti SEGUE (3/4)",
+  "ok": "7/9",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2022-03-08 s108 non segue [col tratto]; EURUSD 2022-04-25 s108 segue; EURUSD 2023-02-01 s108 segue; EURUSD 2023-08-30 s108 non segue [col tratto]; EURUSD 2023-12-04 s108 non segue [col tratto]; EURUSD 2024-10-17 s108 segue; EURUSD 2025-03-10 s108 non segue [col tratto]; USDJPY 2021-03-25 s108 segue [col tratto]; EURJPY 2025-08-01 s172 non segue"
+ },
+ {
+  "forma": "5/2 L5",
+  "volte": 9,
+  "segue": 5,
+  "regola": "Se Ying fuori stagione → NON SEGUE il trend (4/5); altrimenti SEGUE (4/4)",
+  "ok": "8/9",
+  "chiave": "Ying fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2022-12-28 s106 non segue [col tratto]; EURUSD 2023-01-03 s106 non segue [col tratto]; EURUSD 2023-10-12 s106 non segue [col tratto]; EURUSD 2025-03-05 s106 segue; USDJPY 2020-04-30 s106 non segue [col tratto]; USDJPY 2020-05-06 s106 segue; USDJPY 2020-06-23 s106 segue; USDJPY 2020-08-04 s106 segue [col tratto]; EURJPY 2024-05-27 s170 segue"
+ },
+ {
+  "forma": "5/2 L6",
+  "volte": 9,
+  "segue": 5,
+  "regola": "Se Shi fuori stagione → SEGUE il trend (4/5); altrimenti NON SEGUE (3/4)",
+  "ok": "7/9",
+  "chiave": "Shi fuori stagione",
+  "se": 1,
+  "carte": "EURUSD 2022-12-29 s106 segue [col tratto]; EURUSD 2023-02-21 s106 segue [col tratto]; EURUSD 2023-09-25 s106 segue [col tratto]; EURUSD 2024-06-27 s106 non segue; EURUSD 2024-11-12 s106 segue [col tratto]; USDJPY 2020-06-24 s106 non segue; USDJPY 2020-08-17 s106 non segue [col tratto]; EURJPY 2024-05-28 s170 segue; EURJPY 2024-06-03 s170 non segue"
+ },
+ {
+  "forma": "5/3 L5",
+  "volte": 9,
+  "segue": 5,
+  "regola": "Se arrivo della mobile di stagione → NON SEGUE il trend (3/3); altrimenti SEGUE (5/6)",
+  "ok": "8/9",
+  "chiave": "arrivo della mobile di stagione",
+  "se": 0,
+  "carte": "EURUSD 2023-01-02 s107 non segue [col tratto]; EURUSD 2023-06-13 s107 segue; EURUSD 2023-09-11 s107 non segue [col tratto]; EURUSD 2024-02-20 s107 non segue; GBPUSD 2022-09-28 s107 non segue [col tratto]; USDJPY 2020-03-18 s107 segue; USDJPY 2020-03-30 s107 segue; USDJPY 2020-06-10 s107 segue; EURJPY 2025-07-08 s171 segue"
+ },
+ {
+  "forma": "5/3 L2",
+  "volte": 9,
+  "segue": 6,
+  "regola": "Se Shi prigioniero (囚) → NON SEGUE il trend (2/2); altrimenti SEGUE (6/7)",
+  "ok": "8/9",
+  "chiave": "Shi 囚",
+  "se": 0,
+  "carte": "EURUSD 2023-09-14 s107 segue; EURUSD 2023-12-07 s107 non segue [col tratto]; EURUSD 2024-07-04 s107 segue; EURUSD 2024-11-07 s107 non segue [col tratto]; EURUSD 2025-03-07 s107 segue; USDJPY 2020-04-02 s107 non segue; USDJPY 2021-03-04 s107 segue; EURJPY 2024-07-22 s171 segue; EURJPY 2025-07-11 s171 segue"
+ },
+ {
+  "forma": "6/3 L5",
+  "volte": 9,
+  "segue": 3,
+  "regola": "Se mobile: arrivo vuoto ma di stagione → SEGUE il trend (2/2); altrimenti NON SEGUE (6/7)",
+  "ok": "8/9",
+  "chiave": "mobile: arrivo vuoto ma di stagione",
+  "se": 1,
+  "carte": "EURUSD 2025-08-06 s115 non segue; EURUSD 2026-03-22 s115 non segue; EURUSD 2026-06-14 s115 segue; EURUSD 2026-08-19 s115 segue [col tratto]; EURUSD 2026-08-31 s115 non segue; GBPUSD 2022-09-15 s115 segue [col tratto]; USDJPY 2022-01-12 s115 non segue; USDJPY 2022-02-17 s115 non segue; EURJPY 2026-09-18 s179 non segue"
+ },
+ {
+  "forma": "7/4 L3",
+  "volte": 9,
+  "segue": 3,
+  "regola": "Se L2 vuota → SEGUE il trend (2/3); altrimenti NON SEGUE (5/6)",
+  "ok": "7/9",
+  "chiave": "L2 vuota",
+  "se": 1,
+  "carte": "GBPUSD 2020-05-06 s124 non segue; USDCAD 2021-11-03 s124 non segue; NZDUSD 2023-06-08 s60 non segue; NZDUSD 2024-04-09 s60 segue; NZDUSD 2024-08-13 s60 segue [col tratto]; NZDUSD 2024-08-19 s60 non segue; NZDUSD 2025-06-09 s60 segue [col tratto]; NZDUSD 2026-02-04 s60 non segue [col tratto]; EURJPY 2020-08-10 s124 non segue"
+ },
+ {
+  "forma": "1/3 L2",
+  "volte": 9,
+  "segue": 4,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (3/4); altrimenti SEGUE (3/5)",
+  "ok": "6/9",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "GBPUSD 2021-03-02 s139 non segue [col tratto]; USDJPY 2022-11-28 s139 segue [col tratto]; USDJPY 2023-06-08 s139 non segue [col tratto]; USDJPY 2023-07-20 s139 non segue; AUDUSD 2021-07-06 s75 segue; USDCAD 2025-04-16 s139 segue; USDCAD 2025-10-31 s139 non segue [col tratto]; EURJPY 2022-04-20 s139 non segue; EURJPY 2022-07-25 s139 segue"
+ },
+ {
+  "forma": "1/3 L4",
+  "volte": 9,
+  "segue": 6,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (3/5); altrimenti SEGUE (4/4)",
+  "ok": "7/9",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "GBPUSD 2021-03-04 s139 segue [col tratto]; USDJPY 2022-09-01 s139 segue; AUDUSD 2020-12-16 s75 segue; AUDUSD 2020-12-22 s75 non segue [col tratto]; USDCAD 2024-11-07 s139 non segue [col tratto]; USDCAD 2025-05-12 s139 segue; USDCAD 2025-10-09 s139 segue [col tratto]; USDCAD 2026-04-07 s139 non segue [col tratto]; USDCAD 2026-09-16 s139 segue"
+ },
+ {
+  "forma": "1/7 L4",
+  "volte": 9,
+  "segue": 3,
+  "regola": "Se arrivo della mobile fuori stagione → SEGUE il trend (3/5); altrimenti NON SEGUE (4/4)",
+  "ok": "7/9",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 1,
+  "carte": "USDJPY 2022-09-21 s143 segue [col tratto]; USDJPY 2023-12-21 s143 segue [col tratto]; USDCHF 2025-10-29 s79 non segue; USDCHF 2026-06-14 s79 non segue; USDCAD 2025-01-02 s143 segue [col tratto]; EURJPY 2022-06-23 s143 non segue; EURJPY 2022-06-29 s143 non segue; EURJPY 2022-09-21 s143 non segue [col tratto]; EURJPY 2022-12-08 s143 non segue [col tratto]"
+ },
+ {
+  "forma": "2/4 L6",
+  "volte": 9,
+  "segue": 4,
+  "regola": "Se Shi in piena stagione (旺) → NON SEGUE il trend (3/3); altrimenti SEGUE (4/6)",
+  "ok": "7/9",
+  "chiave": "Shi 旺",
+  "se": 0,
+  "carte": "USDJPY 2022-10-25 s148 non segue [col tratto]; USDJPY 2024-01-24 s148 non segue [col tratto]; USDJPY 2025-03-13 s148 segue; USDCHF 2024-08-27 s84 segue; EURGBP 2022-04-04 s84 non segue; EURGBP 2024-08-27 s84 segue; EURGBP 2025-01-24 s84 non segue [col tratto]; EURGBP 2025-03-19 s84 non segue; EURGBP 2025-05-12 s84 segue"
+ },
+ {
+  "forma": "2/4 L5",
+  "volte": 9,
+  "segue": 4,
+  "regola": "Se Shi: il giorno clash → SEGUE il trend (3/3); altrimenti NON SEGUE (5/6)",
+  "ok": "8/9",
+  "chiave": "Shi: il giorno clash",
+  "se": 1,
+  "carte": "USDJPY 2023-09-25 s148 segue [col tratto]; USDJPY 2024-01-23 s148 segue [col tratto]; USDJPY 2024-01-29 s148 non segue; USDJPY 2024-10-07 s148 non segue; USDJPY 2025-03-06 s148 segue [col tratto]; USDCHF 2024-09-25 s84 non segue; EURJPY 2023-05-10 s148 non segue; EURGBP 2021-11-16 s84 segue; EURGBP 2025-03-12 s84 non segue"
+ },
+ {
+  "forma": "3/4 L2",
+  "volte": 9,
+  "segue": 3,
+  "regola": "Se Shi morto (死) → NON SEGUE il trend (4/4); altrimenti SEGUE (3/5)",
+  "ok": "7/9",
+  "chiave": "Shi 死",
+  "se": 0,
+  "carte": "USDJPY 2024-04-30 s156 segue; USDJPY 2024-07-23 s156 segue; USDCHF 2021-03-17 s92 non segue [col tratto]; USDCHF 2021-07-21 s92 non segue; USDCHF 2021-11-18 s92 non segue; USDCHF 2021-11-30 s92 segue; USDCHF 2022-02-16 s92 non segue [col tratto]; USDCHF 2022-02-28 s92 non segue [col tratto]; EURJPY 2025-02-24 s156 non segue [col tratto]"
+ },
+ {
+  "forma": "3/5 L4",
+  "volte": 9,
+  "segue": 4,
+  "regola": "Se Ying di stagione → NON SEGUE il trend (4/5); altrimenti SEGUE (3/4)",
+  "ok": "7/9",
+  "chiave": "Ying di stagione",
+  "se": 0,
+  "carte": "USDJPY 2024-05-01 s157 non segue [col tratto]; USDJPY 2024-06-12 s157 non segue [col tratto]; USDJPY 2026-03-04 s157 non segue; USDJPY 2026-03-10 s157 segue; USDJPY 2026-05-03 s157 segue [col tratto]; USDCHF 2020-07-15 s93 non segue [col tratto]; USDCHF 2023-03-02 s93 segue; EURJPY 2023-07-24 s157 non segue [col tratto]; EURJPY 2025-03-03 s157 segue"
+ },
+ {
+  "forma": "4/8 L5",
+  "volte": 9,
+  "segue": 2,
+  "regola": "Se Shi: il mese stesso ramo → SEGUE il trend (1/2); altrimenti NON SEGUE (6/7)",
+  "ok": "7/9",
+  "chiave": "Shi: il mese stesso ramo",
+  "se": 1,
+  "carte": "USDJPY 2024-07-09 s160 segue [col tratto]; USDJPY 2026-06-11 s160 non segue; USDCHF 2020-04-01 s96 non segue; USDCHF 2022-06-02 s96 segue; USDCHF 2022-07-20 s96 non segue [col tratto]; USDCHF 2022-08-25 s96 non segue; EURJPY 2024-01-29 s160 non segue; EURJPY 2024-10-01 s160 non segue; EURJPY 2025-03-06 s160 non segue"
+ },
+ {
+  "forma": "3/7 L5",
+  "volte": 9,
+  "segue": 3,
+  "regola": "Se Shi in piena stagione (旺) → NON SEGUE il trend (4/5); altrimenti SEGUE (2/4)",
+  "ok": "6/9",
+  "chiave": "Shi 旺",
+  "se": 0,
+  "carte": "USDJPY 2026-01-14 s159 non segue [col tratto]; USDJPY 2026-06-01 s159 segue; USDJPY 2026-08-18 s159 segue; USDCHF 2022-07-04 s95 non segue; USDCHF 2022-07-28 s95 segue [col tratto]; USDCHF 2022-08-03 s95 non segue [col tratto]; EURJPY 2023-08-22 s159 non segue; EURJPY 2024-01-31 s159 non segue [col tratto]; EURJPY 2025-04-07 s159 non segue [col tratto]"
+ },
+ {
+  "forma": "3/6 L5",
+  "volte": 9,
+  "segue": 5,
+  "regola": "Se Ying: il mese combina → NON SEGUE il trend (2/2); altrimenti SEGUE (5/7)",
+  "ok": "7/9",
+  "chiave": "Ying: il mese combina",
+  "se": 0,
+  "carte": "USDJPY 2026-01-15 s158 segue; USDJPY 2026-05-15 s158 segue; USDJPY 2026-09-24 s158 segue; USDCHF 2020-03-17 s94 non segue; USDCHF 2022-08-16 s94 non segue [col tratto]; USDCHF 2022-12-08 s94 segue; EURJPY 2023-08-23 s158 non segue [col tratto]; EURJPY 2024-12-09 s158 non segue; EURJPY 2025-02-19 s158 segue"
+ },
+ {
+  "forma": "5/6 L4",
+  "volte": 8,
+  "segue": 5,
+  "regola": "Se Serpente morto su sede o mobile → NON SEGUE il trend (2/3); altrimenti SEGUE (4/5)",
+  "ok": "6/8",
+  "chiave": "Serpente morto su sede o mobile",
+  "se": 0,
+  "carte": "EURUSD 2020-03-02 s110 segue [col tratto]; EURUSD 2022-03-04 s110 segue; EURUSD 2022-03-10 s110 segue; EURUSD 2024-08-20 s110 segue; USDJPY 2020-02-25 s110 non segue [col tratto]; USDJPY 2020-03-26 s110 non segue [col tratto]; USDJPY 2021-07-13 s110 non segue; EURJPY 2024-07-09 s174 segue"
+ },
+ {
+  "forma": "6/8 L5",
+  "volte": 8,
+  "segue": 3,
+  "regola": "Se Shi di stagione → NON SEGUE il trend (4/5); altrimenti SEGUE (2/3)",
+  "ok": "6/8",
+  "chiave": "Shi di stagione",
+  "se": 0,
+  "carte": "EURUSD 2020-03-06 s112 segue [col tratto]; EURUSD 2020-03-12 s112 non segue [col tratto]; EURUSD 2020-06-04 s112 segue; EURUSD 2021-11-26 s112 non segue [col tratto]; EURUSD 2021-12-08 s112 non segue [col tratto]; EURUSD 2022-01-07 s112 non segue; EURUSD 2026-10-07 s112 segue; USDJPY 2021-12-02 s112 non segue [col tratto]"
+ },
+ {
+  "forma": "6/1 L1",
+  "volte": 8,
+  "segue": 5,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "6/5 L6",
+  "volte": 8,
+  "segue": 4,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (3/5); altrimenti SEGUE (2/3)",
+  "ok": "5/8",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2020-08-25 s117 non segue [col tratto]; EURUSD 2021-03-29 s117 segue [col tratto]; EURUSD 2025-06-30 s117 segue; EURUSD 2025-07-24 s117 non segue; EURUSD 2026-01-02 s117 non segue [col tratto]; EURUSD 2026-02-25 s117 non segue [col tratto]; EURUSD 2026-04-20 s117 segue; EURJPY 2025-12-09 s181 segue [col tratto]"
+ },
+ {
+  "forma": "7/1 L3",
+  "volte": 8,
+  "segue": 5,
+  "regola": "Se arrivo della mobile fuori stagione → SEGUE il trend (4/5); altrimenti NON SEGUE (2/3)",
+  "ok": "6/8",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 1,
+  "carte": "EURUSD 2020-12-11 s121 non segue [col tratto]; EURUSD 2021-05-10 s121 non segue; GBPUSD 2022-12-07 s121 segue [col tratto]; USDJPY 2022-03-24 s121 segue [col tratto]; NZDUSD 2022-09-26 s57 segue [col tratto]; NZDUSD 2025-10-10 s57 segue; NZDUSD 2026-09-23 s57 segue [col tratto]; EURJPY 2026-01-14 s185 non segue"
+ },
+ {
+  "forma": "6/5 L1",
+  "volte": 8,
+  "segue": 5,
+  "regola": "Se Shi: il mese clash → NON SEGUE il trend (2/3); altrimenti SEGUE (4/5)",
+  "ok": "6/8",
+  "chiave": "Shi: il mese clash",
+  "se": 0,
+  "carte": "EURUSD 2021-03-30 s117 segue; EURUSD 2021-04-05 s117 non segue [col tratto]; EURUSD 2021-07-22 s117 segue; EURUSD 2025-08-18 s117 non segue; EURUSD 2025-12-22 s117 segue; EURUSD 2026-04-21 s117 non segue [col tratto]; EURUSD 2026-05-03 s117 segue [col tratto]; EURJPY 2026-09-06 s181 segue"
+ },
+ {
+  "forma": "6/3 L3",
+  "volte": 8,
+  "segue": 5,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "6/2 L1",
+  "volte": 8,
+  "segue": 4,
+  "regola": "Se mobile: arriva nel vuoto → NON SEGUE il trend (4/4); altrimenti SEGUE (4/4)",
+  "ok": "8/8",
+  "chiave": "mobile: arriva nel vuoto",
+  "se": 0,
+  "carte": "EURUSD 2022-02-08 s114 non segue [col tratto]; EURUSD 2026-03-19 s114 non segue [col tratto]; EURUSD 2026-06-23 s114 segue; USDJPY 2021-11-16 s114 segue; USDJPY 2021-11-22 s114 segue; USDJPY 2022-02-02 s114 segue; EURJPY 2026-09-09 s178 non segue [col tratto]; EURJPY 2026-09-15 s178 non segue [col tratto]"
+ },
+ {
+  "forma": "5/2 L2",
+  "volte": 8,
+  "segue": 5,
+  "regola": "Se Ying fuori stagione → SEGUE il trend (4/4); altrimenti NON SEGUE (3/4)",
+  "ok": "7/8",
+  "chiave": "Ying fuori stagione",
+  "se": 1,
+  "carte": "EURUSD 2022-05-05 s106 segue [col tratto]; EURUSD 2023-03-07 s106 non segue; EURUSD 2023-03-13 s106 non segue; EURUSD 2024-04-18 s106 segue [col tratto]; EURUSD 2024-11-20 s106 segue [col tratto]; USDJPY 2020-03-16 s106 segue; EURJPY 2024-05-30 s170 non segue; EURJPY 2024-07-23 s170 segue [col tratto]"
+ },
+ {
+  "forma": "4/1 L3",
+  "volte": 8,
+  "segue": 4,
+  "regola": "Se Shi: l'ora clash → NON SEGUE il trend (4/6); altrimenti SEGUE (2/2)",
+  "ok": "6/8",
+  "chiave": "Shi: l'ora clash",
+  "se": 0,
+  "carte": "EURUSD 2022-10-17 s97 non segue [col tratto]; USDCHF 2020-04-30 s97 non segue [col tratto]; USDCHF 2022-05-02 s97 segue [col tratto]; USDCHF 2022-07-07 s97 segue [col tratto]; USDCHF 2022-07-19 s97 non segue [col tratto]; USDCHF 2022-09-29 s97 non segue [col tratto]; EURJPY 2023-11-29 s161 segue; EURJPY 2025-04-10 s161 segue"
+ },
+ {
+  "forma": "5/2 L1",
+  "volte": 8,
+  "segue": 2,
+  "regola": "Se arrivo della mobile di stagione → NON SEGUE il trend (5/5); altrimenti SEGUE (2/3)",
+  "ok": "7/8",
+  "chiave": "arrivo della mobile di stagione",
+  "se": 0,
+  "carte": "EURUSD 2023-01-05 s106 non segue [col tratto]; EURUSD 2023-02-28 s106 segue; EURUSD 2023-03-06 s106 non segue; EURUSD 2024-04-17 s106 non segue [col tratto]; EURUSD 2024-04-23 s106 non segue [col tratto]; USDJPY 2020-05-14 s106 non segue [col tratto]; USDJPY 2020-08-12 s106 segue; EURJPY 2024-05-29 s170 non segue [col tratto]"
+ },
+ {
+  "forma": "5/3 L4",
+  "volte": 8,
+  "segue": 6,
+  "regola": "Se Serpente morto su sede o mobile → NON SEGUE il trend (2/2); altrimenti SEGUE (6/6)",
+  "ok": "8/8",
+  "chiave": "Serpente morto su sede o mobile",
+  "se": 0,
+  "carte": "EURUSD 2023-02-06 s107 non segue [col tratto]; EURUSD 2023-05-25 s107 segue; EURUSD 2023-05-31 s107 segue; EURUSD 2024-02-13 s107 segue; EURUSD 2025-03-27 s107 non segue [col tratto]; GBPUSD 2022-09-27 s107 segue; USDJPY 2020-03-05 s107 segue; USDJPY 2020-04-28 s107 segue"
+ },
+ {
+  "forma": "6/4 L6",
+  "volte": 8,
+  "segue": 7,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "6/4 L4",
+  "volte": 8,
+  "segue": 5,
+  "regola": "Se Shi morto (死) → NON SEGUE il trend (2/2); altrimenti SEGUE (5/6)",
+  "ok": "7/8",
+  "chiave": "Shi 死",
+  "se": 0,
+  "carte": "EURUSD 2025-07-17 s116 segue; EURUSD 2026-01-13 s116 segue; EURUSD 2026-01-19 s116 non segue; EURUSD 2026-05-19 s116 segue; GBPUSD 2022-09-13 s116 non segue [col tratto]; EURJPY 2025-11-26 s180 segue; EURJPY 2025-12-08 s180 segue; EURJPY 2026-09-22 s180 non segue [col tratto]"
+ },
+ {
+  "forma": "1/3 L6",
+  "volte": 8,
+  "segue": 3,
+  "regola": "Se L2: il giorno clash → SEGUE il trend (3/5); altrimenti NON SEGUE (3/3)",
+  "ok": "6/8",
+  "chiave": "L2: il giorno clash",
+  "se": 1,
+  "carte": "GBPUSD 2021-03-12 s139 non segue [col tratto]; USDJPY 2023-06-06 s139 segue [col tratto]; USDJPY 2023-06-12 s139 non segue; AUDUSD 2022-04-06 s75 non segue; USDCAD 2025-05-14 s139 segue [col tratto]; USDCAD 2025-05-20 s139 non segue; USDCAD 2026-04-03 s139 segue [col tratto]; USDCAD 2026-06-14 s139 non segue [col tratto]"
+ },
+ {
+  "forma": "2/8 L6",
+  "volte": 8,
+  "segue": 3,
+  "regola": "Se Shi in crescita (相) → SEGUE il trend (2/2); altrimenti NON SEGUE (5/6)",
+  "ok": "7/8",
+  "chiave": "Shi 相",
+  "se": 1,
+  "carte": "USDJPY 2022-09-27 s144 segue; USDJPY 2023-07-06 s144 non segue; USDJPY 2024-08-29 s144 non segue; USDCHF 2025-06-13 s80 non segue; USDCHF 2025-11-10 s80 non segue; USDCHF 2026-07-02 s80 non segue; USDCAD 2020-03-23 s144 segue [col tratto]; USDCAD 2025-03-03 s144 segue [col tratto]"
+ },
+ {
+  "forma": "2/3 L2",
+  "volte": 8,
+  "segue": 3,
+  "regola": "Se Shi: l'ora combina → SEGUE il trend (2/3); altrimenti NON SEGUE (4/5)",
+  "ok": "6/8",
+  "chiave": "Shi: l'ora combina",
+  "se": 1,
+  "carte": "USDJPY 2022-11-03 s147 segue [col tratto]; USDJPY 2023-09-11 s147 non segue [col tratto]; USDJPY 2025-03-10 s147 segue [col tratto]; USDCHF 2026-10-01 s83 non segue; EURGBP 2022-01-25 s83 non segue; EURGBP 2022-01-31 s83 non segue; EURGBP 2024-09-23 s83 segue; EURGBP 2024-12-16 s83 non segue"
+ },
+ {
+  "forma": "1/5 L3",
+  "volte": 8,
+  "segue": 5,
+  "regola": "Se Serpente morto su sede o mobile → NON SEGUE il trend (2/2); altrimenti SEGUE (5/6)",
+  "ok": "7/8",
+  "chiave": "Serpente morto su sede o mobile",
+  "se": 0,
+  "carte": "USDJPY 2023-07-25 s141 non segue; USDJPY 2025-04-21 s141 segue; USDCHF 2026-02-03 s77 non segue [col tratto]; AUDUSD 2021-01-06 s77 segue; AUDUSD 2021-01-12 s77 segue; AUDUSD 2021-05-06 s77 segue; EURJPY 2022-09-22 s141 segue; EURJPY 2022-12-27 s141 non segue [col tratto]"
+ },
+ {
+  "forma": "2/7 L5",
+  "volte": 8,
+  "segue": 4,
+  "regola": "Se Shi prigioniero (囚) → SEGUE il trend (4/6); altrimenti NON SEGUE (2/2)",
+  "ok": "6/8",
+  "chiave": "Shi 囚",
+  "se": 1,
+  "carte": "USDJPY 2024-04-01 s151 segue [col tratto]; USDJPY 2025-02-07 s151 non segue [col tratto]; USDJPY 2025-02-19 s151 segue [col tratto]; USDCHF 2024-02-13 s87 segue [col tratto]; EURGBP 2022-09-21 s87 non segue; EURGBP 2022-10-03 s87 non segue; EURGBP 2023-03-20 s87 segue [col tratto]; EURGBP 2026-02-26 s87 non segue [col tratto]"
+ },
+ {
+  "forma": "3/1 L5",
+  "volte": 8,
+  "segue": 5,
+  "regola": "Se Shi Tai Sui → NON SEGUE il trend (2/2); altrimenti SEGUE (5/6)",
+  "ok": "7/8",
+  "chiave": "Shi Tai Sui",
+  "se": 0,
+  "carte": "USDJPY 2024-05-06 s153 non segue [col tratto]; USDJPY 2024-11-08 s153 non segue [col tratto]; USDCHF 2021-06-03 s89 non segue; USDCHF 2023-04-24 s89 segue; USDCHF 2023-05-18 s89 segue; USDCHF 2023-09-21 s89 segue; EURGBP 2020-11-23 s89 segue; EURGBP 2022-09-26 s89 segue"
+ },
+ {
+  "forma": "4/8 L3",
+  "volte": 8,
+  "segue": 2,
+  "regola": "Se Shi a riposo (休) → SEGUE il trend (1/2); altrimenti NON SEGUE (5/6)",
+  "ok": "6/8",
+  "chiave": "Shi 休",
+  "se": 1,
+  "carte": "USDJPY 2024-07-01 s160 segue; USDCHF 2022-06-06 s96 non segue; USDCHF 2022-07-06 s96 non segue; USDCHF 2022-09-22 s96 segue [col tratto]; EURJPY 2024-08-12 s160 non segue [col tratto]; EURJPY 2025-02-14 s160 non segue; EURJPY 2025-03-10 s160 non segue; EURJPY 2025-04-09 s160 non segue"
+ },
+ {
+  "forma": "3/5 L2",
+  "volte": 8,
+  "segue": 2,
+  "regola": "Se Shi morto (死) → SEGUE il trend (1/2); altrimenti NON SEGUE (5/6)",
+  "ok": "6/8",
+  "chiave": "Shi 死",
+  "se": 1,
+  "carte": "USDJPY 2024-07-22 s157 segue [col tratto]; USDJPY 2026-01-19 s157 non segue [col tratto]; USDJPY 2026-03-08 s157 segue; USDJPY 2026-03-20 s157 non segue; USDCHF 2021-09-30 s93 non segue; USDCHF 2022-03-23 s93 non segue; USDCHF 2023-03-06 s93 non segue; EURJPY 2023-07-04 s157 non segue"
+ },
+ {
+  "forma": "2/8 L4",
+  "volte": 8,
+  "segue": 4,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (4/6); altrimenti SEGUE (2/2)",
+  "ok": "6/8",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "USDJPY 2024-08-27 s144 segue [col tratto]; USDCHF 2025-07-17 s80 segue [col tratto]; USDCHF 2025-11-26 s80 non segue [col tratto]; USDCHF 2026-06-24 s80 segue; USDCAD 2024-12-19 s144 non segue [col tratto]; USDCAD 2025-01-06 s144 non segue [col tratto]; EURJPY 2022-09-13 s144 non segue [col tratto]; EURJPY 2023-03-06 s144 segue"
+ },
+ {
+  "forma": "1/7 L6",
+  "volte": 8,
+  "segue": 5,
+  "regola": "Se Shi sostenuto dal giorno → SEGUE il trend (5/6); altrimenti NON SEGUE (2/2)",
+  "ok": "7/8",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 1,
+  "carte": "USDJPY 2025-04-16 s143 segue [col tratto]; USDJPY 2025-04-28 s143 segue [col tratto]; USDCHF 2025-07-03 s79 non segue; USDCHF 2025-07-09 s79 segue [col tratto]; USDCHF 2025-07-15 s79 non segue; USDCHF 2025-11-18 s79 non segue [col tratto]; AUDUSD 2021-02-24 s79 segue [col tratto]; USDCAD 2025-02-27 s143 segue [col tratto]"
+ },
+ {
+  "forma": "3/1 L4",
+  "volte": 8,
+  "segue": 3,
+  "regola": "Se Ying di stagione → SEGUE il trend (2/3); altrimenti NON SEGUE (4/5)",
+  "ok": "6/8",
+  "chiave": "Ying di stagione",
+  "se": 1,
+  "carte": "USDJPY 2026-02-12 s153 segue [col tratto]; USDJPY 2026-02-18 s153 non segue [col tratto]; USDJPY 2026-09-10 s153 non segue; USDCHF 2023-04-17 s89 non segue; USDCHF 2023-05-23 s89 segue [col tratto]; USDCHF 2023-09-14 s89 segue; USDCHF 2023-10-26 s89 non segue; EURGBP 2020-11-04 s89 non segue"
+ },
+ {
+  "forma": "3/7 L3",
+  "volte": 8,
+  "segue": 4,
+  "regola": "Se Shi: il giorno clash → SEGUE il trend (3/4); altrimenti NON SEGUE (3/4)",
+  "ok": "6/8",
+  "chiave": "Shi: il giorno clash",
+  "se": 1,
+  "carte": "USDJPY 2026-03-13 s159 segue [col tratto]; USDJPY 2026-03-19 s159 non segue; USDJPY 2026-05-24 s159 non segue [col tratto]; USDJPY 2026-08-28 s159 segue [col tratto]; USDCHF 2020-06-30 s95 non segue; USDCHF 2022-08-01 s95 segue [col tratto]; USDCHF 2022-11-23 s95 segue; EURJPY 2024-08-08 s159 non segue"
+ },
+ {
+  "forma": "3/4 L4",
+  "volte": 8,
+  "segue": 3,
+  "regola": "Se Ying: l'ora combina → SEGUE il trend (3/5); altrimenti NON SEGUE (3/3)",
+  "ok": "6/8",
+  "chiave": "Ying: l'ora combina",
+  "se": 1,
+  "carte": "USDJPY 2026-05-04 s156 non segue [col tratto]; USDJPY 2026-09-07 s156 segue [col tratto]; USDCHF 2021-12-08 s92 non segue; USDCHF 2022-12-15 s92 non segue; EURJPY 2023-07-19 s156 segue [col tratto]; EURJPY 2023-07-25 s156 non segue [col tratto]; EURJPY 2025-02-26 s156 segue [col tratto]; EURGBP 2020-03-24 s92 non segue"
+ },
+ {
+  "forma": "4/3 L1",
+  "volte": 8,
+  "segue": 2,
+  "regola": "Se arrivo della mobile vuoto → SEGUE il trend (1/2); altrimenti NON SEGUE (5/6)",
+  "ok": "6/8",
+  "chiave": "arrivo della mobile vuoto",
+  "se": 1,
+  "carte": "USDJPY 2026-07-30 s163 non segue; USDCHF 2022-06-15 s99 non segue [col tratto]; USDCHF 2022-10-13 s99 segue [col tratto]; USDCHF 2022-10-19 s99 segue; USDCHF 2022-10-25 s99 non segue; USDCHF 2022-10-31 s99 non segue; EURJPY 2024-02-29 s163 non segue; EURJPY 2025-03-19 s163 non segue"
+ },
+ {
+  "forma": "5/5 L6",
+  "volte": 7,
+  "segue": 5,
+  "regola": "Se Ying vuoto → NON SEGUE il trend (2/3); altrimenti SEGUE (4/4)",
+  "ok": "6/7",
+  "chiave": "Ying vuoto",
+  "se": 0,
+  "carte": "EURUSD 2020-02-28 s109 segue; EURUSD 2023-04-13 s109 segue; EURUSD 2023-12-21 s109 segue; EURUSD 2024-03-14 s109 non segue [col tratto]; EURUSD 2024-07-18 s109 non segue [col tratto]; USDJPY 2020-02-28 s109 segue; USDJPY 2021-03-30 s109 segue [col tratto]"
+ },
+ {
+  "forma": "5/7 L1",
+  "volte": 7,
+  "segue": 2,
+  "regola": "Se L2: il giorno stesso ramo → NON SEGUE il trend (3/3); altrimenti SEGUE (2/4)",
+  "ok": "5/7",
+  "chiave": "L2: il giorno stesso ramo",
+  "se": 0,
+  "carte": "EURUSD 2020-03-04 s111 non segue [col tratto]; EURUSD 2020-03-16 s111 non segue [col tratto]; EURUSD 2020-06-02 s111 segue; EURUSD 2024-08-22 s111 non segue [col tratto]; EURUSD 2024-08-28 s111 non segue; USDJPY 2021-10-07 s111 segue; EURJPY 2024-07-11 s175 non segue"
+ },
+ {
+  "forma": "6/1 L4",
+  "volte": 7,
+  "segue": 5,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (2/3); altrimenti SEGUE (4/4)",
+  "ok": "6/7",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2020-06-10 s113 segue [col tratto]; EURUSD 2020-06-16 s113 non segue [col tratto]; EURUSD 2022-01-25 s113 segue; EURUSD 2026-07-27 s113 segue; EURUSD 2026-10-01 s113 segue; USDJPY 2021-11-08 s113 non segue [col tratto]; EURJPY 2025-10-30 s177 segue"
+ },
+ {
+  "forma": "6/1 L5",
+  "volte": 7,
+  "segue": 2,
+  "regola": "Se Ying fuori stagione → NON SEGUE il trend (4/5); altrimenti SEGUE (1/2)",
+  "ok": "5/7",
+  "chiave": "Ying fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2020-06-11 s113 non segue [col tratto]; EURUSD 2022-01-26 s113 segue [col tratto]; EURUSD 2025-05-28 s113 non segue [col tratto]; EURUSD 2026-07-28 s113 non segue [col tratto]; USDJPY 2021-10-28 s113 non segue [col tratto]; USDJPY 2021-11-09 s113 segue; USDJPY 2021-12-09 s113 non segue"
+ },
+ {
+  "forma": "6/7 L2",
+  "volte": 7,
+  "segue": 2,
+  "regola": "Se Ying: l'ora clash → SEGUE il trend (2/4); altrimenti NON SEGUE (3/3)",
+  "ok": "5/7",
+  "chiave": "Ying: l'ora clash",
+  "se": 1,
+  "carte": "EURUSD 2020-08-19 s119 non segue [col tratto]; EURUSD 2020-08-31 s119 segue [col tratto]; EURUSD 2021-03-11 s119 non segue [col tratto]; EURUSD 2021-03-23 s119 segue [col tratto]; NZDUSD 2025-11-21 s55 non segue; EURJPY 2026-02-01 s183 non segue; EURJPY 2026-06-25 s183 non segue"
+ },
+ {
+  "forma": "6/7 L4",
+  "volte": 7,
+  "segue": 4,
+  "regola": "Se Shi di stagione → NON SEGUE il trend (2/3); altrimenti SEGUE (3/4)",
+  "ok": "5/7",
+  "chiave": "Shi di stagione",
+  "se": 0,
+  "carte": "EURUSD 2020-09-02 s119 non segue [col tratto]; EURUSD 2020-12-01 s119 segue; GBPUSD 2022-07-06 s119 segue; EURJPY 2020-03-30 s119 non segue; EURJPY 2026-02-03 s183 non segue [col tratto]; EURJPY 2026-03-11 s183 segue; EURJPY 2026-08-14 s183 segue [col tratto]"
+ },
+ {
+  "forma": "6/3 L4",
+  "volte": 7,
+  "segue": 3,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (3/3); altrimenti SEGUE (3/4)",
+  "ok": "6/7",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2021-10-13 s115 non segue [col tratto]; EURUSD 2026-08-06 s115 non segue [col tratto]; EURUSD 2026-08-12 s115 non segue; GBPUSD 2022-09-08 s115 segue; USDJPY 2021-11-24 s115 segue; USDJPY 2022-02-28 s115 non segue [col tratto]; EURJPY 2026-09-11 s179 segue"
+ },
+ {
+  "forma": "6/4 L1",
+  "volte": 7,
+  "segue": 2,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (3/3); altrimenti SEGUE (2/4)",
+  "ok": "5/7",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "EURUSD 2021-10-21 s116 non segue [col tratto]; EURUSD 2026-01-22 s116 segue; EURUSD 2026-05-28 s116 non segue [col tratto]; EURUSD 2026-06-03 s116 segue; EURUSD 2026-08-26 s116 non segue; EURJPY 2025-12-05 s180 non segue; EURJPY 2026-09-25 s180 non segue [col tratto]"
+ },
+ {
+  "forma": "5/6 L5",
+  "volte": 7,
+  "segue": 5,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "5/8 L2",
+  "volte": 7,
+  "segue": 4,
+  "regola": "Se Shi in crescita (相) → NON SEGUE il trend (2/2); altrimenti SEGUE (4/5)",
+  "ok": "6/7",
+  "chiave": "Shi 相",
+  "se": 0,
+  "carte": "EURUSD 2022-05-17 s104 non segue [col tratto]; EURUSD 2022-12-01 s104 segue; EURUSD 2022-12-07 s104 segue; EURUSD 2024-11-26 s104 non segue; USDJPY 2020-11-05 s104 segue; USDJPY 2020-11-17 s104 segue; EURJPY 2024-06-05 s168 non segue [col tratto]"
+ },
+ {
+  "forma": "5/6 L3",
+  "volte": 7,
+  "segue": 3,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (4/5); altrimenti SEGUE (2/2)",
+  "ok": "6/7",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "EURUSD 2023-02-02 s110 non segue [col tratto]; EURUSD 2023-04-27 s110 non segue [col tratto]; EURUSD 2023-05-03 s110 segue; EURUSD 2023-11-29 s110 non segue [col tratto]; EURUSD 2024-08-19 s110 segue [col tratto]; GBPUSD 2022-10-11 s110 segue; USDJPY 2021-07-06 s110 non segue [col tratto]"
+ },
+ {
+  "forma": "5/1 L3",
+  "volte": 7,
+  "segue": 1,
+  "regola": "Se Shi prigioniero (囚) → SEGUE il trend (1/2); altrimenti NON SEGUE (5/5)",
+  "ok": "6/7",
+  "chiave": "Shi 囚",
+  "se": 1,
+  "carte": "EURUSD 2023-03-09 s105 non segue; EURUSD 2023-10-05 s105 non segue; EURUSD 2023-10-17 s105 non segue; EURUSD 2025-02-26 s105 non segue; USDJPY 2020-11-13 s105 non segue; EURJPY 2024-05-20 s169 segue [col tratto]; EURJPY 2025-06-26 s169 non segue [col tratto]"
+ },
+ {
+  "forma": "5/5 L4",
+  "volte": 7,
+  "segue": 2,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (4/5); altrimenti SEGUE (1/2)",
+  "ok": "5/7",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2023-04-17 s109 non segue [col tratto]; EURUSD 2023-05-11 s109 segue [col tratto]; EURUSD 2023-06-22 s109 non segue [col tratto]; EURUSD 2023-06-28 s109 non segue [col tratto]; EURUSD 2023-12-19 s109 segue; EURUSD 2025-03-19 s109 non segue; USDJPY 2021-08-25 s109 non segue [col tratto]"
+ },
+ {
+  "forma": "2/5 L1",
+  "volte": 7,
+  "segue": 4,
+  "regola": "Se arrivo della mobile fuori stagione → SEGUE il trend (4/4); altrimenti NON SEGUE (3/3)",
+  "ok": "7/7",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 1,
+  "carte": "USDJPY 2022-10-19 s149 segue [col tratto]; USDJPY 2023-10-02 s149 segue [col tratto]; USDJPY 2024-10-14 s149 segue [col tratto]; EURGBP 2021-03-22 s85 non segue; EURGBP 2023-12-13 s85 non segue; EURGBP 2024-01-18 s85 segue [col tratto]; EURGBP 2024-02-05 s85 non segue"
+ },
+ {
+  "forma": "2/3 L6",
+  "volte": 7,
+  "segue": 1,
+  "regola": "Se L2 vuota → SEGUE il trend (1/2); altrimenti NON SEGUE (5/5)",
+  "ok": "6/7",
+  "chiave": "L2 vuota",
+  "se": 1,
+  "carte": "USDJPY 2024-01-31 s147 non segue; EURJPY 2022-11-01 s147 non segue [col tratto]; EURGBP 2021-11-18 s83 non segue; EURGBP 2024-10-03 s83 non segue; EURGBP 2025-02-06 s83 non segue; EURGBP 2025-02-12 s83 non segue; EURGBP 2025-02-18 s83 segue [col tratto]"
+ },
+ {
+  "forma": "3/1 L3",
+  "volte": 7,
+  "segue": 5,
+  "regola": "Se Ying: il mese clash → NON SEGUE il trend (2/3); altrimenti SEGUE (4/4)",
+  "ok": "6/7",
+  "chiave": "Ying: il mese clash",
+  "se": 0,
+  "carte": "USDJPY 2024-11-12 s153 segue [col tratto]; USDJPY 2024-12-18 s153 segue; USDJPY 2026-02-17 s153 segue; USDCHF 2020-11-09 s89 non segue [col tratto]; USDCHF 2023-10-19 s89 segue; USDCHF 2025-03-06 s89 segue; EURGBP 2020-11-27 s89 non segue [col tratto]"
+ },
+ {
+  "forma": "3/6 L1",
+  "volte": 7,
+  "segue": 2,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (4/4); altrimenti SEGUE (2/3)",
+  "ok": "6/7",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "USDJPY 2025-01-10 s158 non segue [col tratto]; USDJPY 2026-01-23 s158 non segue [col tratto]; USDJPY 2026-03-18 s158 segue; USDCHF 2020-06-23 s94 segue; USDCHF 2020-06-29 s94 non segue; EURJPY 2024-08-07 s158 non segue [col tratto]; EURJPY 2024-12-05 s158 non segue [col tratto]"
+ },
+ {
+  "forma": "3/6 L6",
+  "volte": 7,
+  "segue": 2,
+  "regola": "Se Ying: il giorno combina → SEGUE il trend (2/3); altrimenti NON SEGUE (4/4)",
+  "ok": "6/7",
+  "chiave": "Ying: il giorno combina",
+  "se": 1,
+  "carte": "USDJPY 2025-01-15 s158 non segue [col tratto]; USDJPY 2026-01-16 s158 non segue; USDJPY 2026-03-11 s158 segue [col tratto]; USDJPY 2026-09-25 s158 non segue; USDJPY 2026-10-07 s158 non segue; USDCHF 2020-06-16 s94 non segue; EURJPY 2023-08-30 s158 segue [col tratto]"
+ },
+ {
+  "forma": "3/4 L6",
+  "volte": 7,
+  "segue": 4,
+  "regola": "Se Ying: l'ora combina → NON SEGUE il trend (2/3); altrimenti SEGUE (3/4)",
+  "ok": "5/7",
+  "chiave": "Ying: l'ora combina",
+  "se": 0,
+  "carte": "USDJPY 2025-01-23 s156 non segue [col tratto]; USDJPY 2025-11-25 s156 non segue [col tratto]; USDCHF 2021-03-15 s92 non segue; USDCHF 2021-11-16 s92 segue; USDCHF 2021-11-22 s92 segue; USDCHF 2022-12-29 s92 segue; EURJPY 2023-06-27 s156 segue [col tratto]"
+ },
+ {
+  "forma": "2/3 L3",
+  "volte": 7,
+  "segue": 5,
+  "regola": "Se Shi a riposo (休) → NON SEGUE il trend (2/3); altrimenti SEGUE (4/4)",
+  "ok": "6/7",
+  "chiave": "Shi 休",
+  "se": 0,
+  "carte": "USDJPY 2025-03-11 s147 non segue [col tratto]; EURJPY 2023-04-27 s147 segue; EURGBP 2020-02-24 s83 non segue [col tratto]; EURGBP 2022-02-25 s83 segue [col tratto]; EURGBP 2022-04-14 s83 segue; EURGBP 2022-05-02 s83 segue; EURGBP 2025-02-03 s83 segue"
+ },
+ {
+  "forma": "4/2 L2",
+  "volte": 7,
+  "segue": 4,
+  "regola": "Se L5 vuota → NON SEGUE il trend (2/3); altrimenti SEGUE (3/4)",
+  "ok": "5/7",
+  "chiave": "L5 vuota",
+  "se": 0,
+  "carte": "USDJPY 2026-07-02 s162 non segue [col tratto]; USDJPY 2026-07-08 s162 segue [col tratto]; USDCHF 2022-10-03 s98 segue; USDCHF 2022-10-27 s98 non segue; EURJPY 2023-11-21 s162 non segue [col tratto]; EURJPY 2024-10-16 s162 segue; EURJPY 2024-10-22 s162 segue"
+ },
+ {
+  "forma": "4/2 L1",
+  "volte": 7,
+  "segue": 3,
+  "regola": "Se Shi morto (死) → NON SEGUE il trend (4/4); altrimenti SEGUE (3/3)",
+  "ok": "7/7",
+  "chiave": "Shi 死",
+  "se": 0,
+  "carte": "USDCHF 2020-02-21 s98 non segue [col tratto]; USDCHF 2022-09-26 s98 segue; EURJPY 2023-11-14 s162 segue; EURJPY 2024-03-01 s162 non segue [col tratto]; EURJPY 2024-03-07 s162 non segue [col tratto]; EURJPY 2024-10-21 s162 segue; EURJPY 2025-04-01 s162 non segue [col tratto]"
+ },
+ {
+  "forma": "4/1 L4",
+  "volte": 7,
+  "segue": 3,
+  "regola": "Se Shi: l'ora clash → SEGUE il trend (3/4); altrimenti NON SEGUE (3/3)",
+  "ok": "6/7",
+  "chiave": "Shi: l'ora clash",
+  "se": 1,
+  "carte": "USDCHF 2020-03-26 s97 non segue [col tratto]; USDCHF 2022-06-08 s97 segue [col tratto]; USDCHF 2022-08-31 s97 segue [col tratto]; USDCHF 2022-09-06 s97 segue [col tratto]; EURJPY 2024-08-14 s161 non segue; EURJPY 2024-12-18 s161 non segue; EURJPY 2025-03-12 s161 non segue"
+ },
+ {
+  "forma": "3/7 L4",
+  "volte": 7,
+  "segue": 4,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (3/4); altrimenti SEGUE (3/3)",
+  "ok": "6/7",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "USDCHF 2022-09-13 s95 non segue [col tratto]; USDCHF 2022-11-30 s95 segue; EURJPY 2024-01-30 s159 non segue [col tratto]; EURJPY 2024-12-13 s159 segue; EURJPY 2025-02-05 s159 segue [col tratto]; EURJPY 2025-02-17 s159 non segue [col tratto]; EURJPY 2025-03-07 s159 segue"
+ },
+ {
+  "forma": "6/1 L6",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Shi morto (死) → NON SEGUE il trend (2/2); altrimenti SEGUE (2/4)",
+  "ok": "4/6",
+  "chiave": "Shi 死",
+  "se": 0,
+  "carte": "EURUSD 2020-06-24 s113 non segue [col tratto]; EURUSD 2022-02-14 s113 segue; EURUSD 2026-06-29 s113 non segue [col tratto]; EURUSD 2026-07-29 s113 non segue; GBPUSD 2022-10-06 s113 non segue; EURJPY 2025-10-08 s177 segue"
+ },
+ {
+  "forma": "6/5 L2",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Shi in piena stagione (旺) → NON SEGUE il trend (4/4); altrimenti SEGUE (2/2)",
+  "ok": "6/6",
+  "chiave": "Shi 旺",
+  "se": 0,
+  "carte": "EURUSD 2020-07-28 s117 non segue [col tratto]; EURUSD 2020-08-03 s117 non segue [col tratto]; EURUSD 2025-12-23 s117 segue; EURUSD 2026-04-22 s117 non segue [col tratto]; EURUSD 2026-05-04 s117 non segue [col tratto]; EURJPY 2026-09-07 s181 segue"
+ },
+ {
+  "forma": "6/5 L4",
+  "volte": 6,
+  "segue": 2,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "6/7 L3",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se L6 vuota → SEGUE il trend (2/2); altrimenti NON SEGUE (4/4)",
+  "ok": "6/6",
+  "chiave": "L6 vuota",
+  "se": 1,
+  "carte": "EURUSD 2020-11-30 s119 non segue; EURUSD 2021-03-12 s119 segue [col tratto]; EURUSD 2021-03-18 s119 non segue; NZDUSD 2025-01-20 s55 non segue; EURJPY 2026-06-26 s183 non segue; EURJPY 2026-08-13 s183 segue [col tratto]"
+ },
+ {
+  "forma": "6/2 L4",
+  "volte": 6,
+  "segue": 1,
+  "regola": "Se arrivo della mobile fuori stagione → NON SEGUE il trend (4/4); altrimenti SEGUE (1/2)",
+  "ok": "5/6",
+  "chiave": "arrivo della mobile fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2022-02-11 s114 non segue [col tratto]; EURUSD 2026-03-16 s114 non segue [col tratto]; USDJPY 2021-10-20 s114 non segue [col tratto]; USDJPY 2021-11-01 s114 non segue [col tratto]; USDJPY 2021-11-19 s114 non segue; EURJPY 2026-09-30 s178 segue"
+ },
+ {
+  "forma": "5/1 L5",
+  "volte": 6,
+  "segue": 0,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "4/3 L5",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Ying fuori stagione → NON SEGUE il trend (3/3); altrimenti SEGUE (2/3)",
+  "ok": "5/6",
+  "chiave": "Ying fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2022-09-05 s99 non segue [col tratto]; USDCHF 2022-10-11 s99 non segue; EURJPY 2024-03-28 s163 non segue [col tratto]; EURJPY 2024-04-15 s163 segue; EURJPY 2024-08-19 s163 non segue [col tratto]; EURJPY 2025-06-03 s163 segue"
+ },
+ {
+  "forma": "4/7 L5",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (3/3); altrimenti SEGUE (2/3)",
+  "ok": "5/6",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "EURUSD 2022-11-30 s103 segue; EURUSD 2025-01-06 s103 non segue; EURUSD 2025-02-05 s103 non segue [col tratto]; USDJPY 2020-03-09 s103 segue; USDJPY 2020-12-28 s103 non segue [col tratto]; EURJPY 2025-06-17 s167 non segue [col tratto]"
+ },
+ {
+  "forma": "5/2 L4",
+  "volte": 6,
+  "segue": 1,
+  "regola": "Se Ying sostenuto dal giorno → NON SEGUE il trend (4/4); altrimenti SEGUE (1/2)",
+  "ok": "5/6",
+  "chiave": "Ying sostenuto dal giorno",
+  "se": 0,
+  "carte": "EURUSD 2022-12-15 s106 non segue [col tratto]; EURUSD 2022-12-21 s106 non segue; EURUSD 2023-02-13 s106 non segue [col tratto]; EURUSD 2023-06-01 s106 non segue [col tratto]; USDJPY 2020-03-06 s106 segue; USDJPY 2020-05-11 s106 non segue [col tratto]"
+ },
+ {
+  "forma": "5/5 L1",
+  "volte": 6,
+  "segue": 4,
+  "regola": "Se Ying: il mese combina → SEGUE il trend (3/3); altrimenti NON SEGUE (2/3)",
+  "ok": "5/6",
+  "chiave": "Ying: il mese combina",
+  "se": 1,
+  "carte": "EURUSD 2023-04-26 s109 segue [col tratto]; EURUSD 2023-05-02 s109 segue [col tratto]; EURUSD 2023-06-19 s109 non segue; EURUSD 2023-11-28 s109 segue; EURUSD 2024-08-06 s109 non segue; USDJPY 2021-04-12 s109 segue [col tratto]"
+ },
+ {
+  "forma": "5/8 L3",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Shi: il giorno stesso ramo → NON SEGUE il trend (3/3); altrimenti SEGUE (2/3)",
+  "ok": "5/6",
+  "chiave": "Shi: il giorno stesso ramo",
+  "se": 0,
+  "carte": "EURUSD 2023-10-04 s104 non segue [col tratto]; EURUSD 2024-11-27 s104 non segue [col tratto]; EURUSD 2025-03-03 s104 non segue [col tratto]; USDJPY 2020-11-18 s104 segue; EURJPY 2024-05-01 s168 non segue; EURJPY 2025-06-25 s168 segue"
+ },
+ {
+  "forma": "5/6 L2",
+  "volte": 6,
+  "segue": 4,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "4/7 L6",
+  "volte": 6,
+  "segue": 4,
+  "regola": "Se Shi a riposo (休) → SEGUE il trend (4/4); altrimenti NON SEGUE (2/2)",
+  "ok": "6/6",
+  "chiave": "Shi 休",
+  "se": 1,
+  "carte": "EURUSD 2025-01-07 s103 segue [col tratto]; EURUSD 2025-01-31 s103 segue [col tratto]; USDJPY 2020-03-10 s103 non segue; USDJPY 2020-11-23 s103 non segue; EURJPY 2024-04-30 s167 segue [col tratto]; EURJPY 2024-07-29 s167 segue [col tratto]"
+ },
+ {
+  "forma": "6/2 L5",
+  "volte": 6,
+  "segue": 4,
+  "regola": "Se Shi a riposo (休) → NON SEGUE il trend (2/3); altrimenti SEGUE (3/3)",
+  "ok": "5/6",
+  "chiave": "Shi 休",
+  "se": 0,
+  "carte": "EURUSD 2025-04-21 s114 segue [col tratto]; USDJPY 2021-10-21 s114 non segue [col tratto]; USDJPY 2021-10-27 s114 non segue [col tratto]; EURJPY 2026-09-13 s178 segue; EURJPY 2026-10-01 s178 segue; EURJPY 2026-10-07 s178 segue"
+ },
+ {
+  "forma": "6/2 L3",
+  "volte": 6,
+  "segue": 4,
+  "regola": "Se Shi di stagione → NON SEGUE il trend (2/3); altrimenti SEGUE (3/3)",
+  "ok": "5/6",
+  "chiave": "Shi di stagione",
+  "se": 0,
+  "carte": "EURUSD 2026-03-15 s114 segue [col tratto]; EURUSD 2026-07-07 s114 non segue [col tratto]; EURUSD 2026-09-23 s114 segue; GBPUSD 2022-09-20 s114 segue; USDJPY 2022-02-22 s114 non segue [col tratto]; EURJPY 2026-09-29 s178 segue"
+ },
+ {
+  "forma": "6/3 L6",
+  "volte": 6,
+  "segue": 1,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (4/4); altrimenti SEGUE (1/2)",
+  "ok": "5/6",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2026-03-23 s115 non segue [col tratto]; EURUSD 2026-08-14 s115 segue; GBPUSD 2020-03-24 s115 non segue [col tratto]; USDJPY 2021-11-26 s115 non segue; USDJPY 2022-01-07 s115 non segue [col tratto]; EURJPY 2020-04-29 s115 non segue [col tratto]"
+ },
+ {
+  "forma": "1/4 L2",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Shi in crescita (相) → SEGUE il trend (1/2); altrimenti NON SEGUE (3/4)",
+  "ok": "4/6",
+  "chiave": "Shi 相",
+  "se": 1,
+  "carte": "GBPUSD 2021-02-23 s140 segue [col tratto]; USDJPY 2024-09-17 s140 non segue; USDCHF 2026-01-28 s76 non segue; USDCAD 2020-03-30 s140 non segue [col tratto]; USDCAD 2026-07-21 s140 segue; EURJPY 2022-12-21 s140 non segue"
+ },
+ {
+  "forma": "1/3 L5",
+  "volte": 6,
+  "segue": 4,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "1/6 L6",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Shi di stagione → NON SEGUE il trend (3/4); altrimenti SEGUE (1/2)",
+  "ok": "4/6",
+  "chiave": "Shi di stagione",
+  "se": 0,
+  "carte": "GBPUSD 2021-06-01 s142 non segue [col tratto]; USDJPY 2022-09-12 s142 segue; USDJPY 2023-12-18 s142 non segue; USDCHF 2026-03-13 s78 segue [col tratto]; AUDUSD 2021-03-03 s78 non segue [col tratto]; USDCAD 2020-03-26 s142 non segue [col tratto]"
+ },
+ {
+  "forma": "1/4 L6",
+  "volte": 6,
+  "segue": 4,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "1/4 L3",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Shi vuoto → NON SEGUE il trend (2/2); altrimenti SEGUE (2/4)",
+  "ok": "4/6",
+  "chiave": "Shi vuoto",
+  "se": 0,
+  "carte": "USDJPY 2023-07-26 s140 non segue [col tratto]; USDJPY 2025-04-22 s140 non segue; USDCAD 2024-12-05 s140 non segue; EURJPY 2022-07-19 s140 segue; EURJPY 2022-09-29 s140 non segue [col tratto]; EURJPY 2022-12-22 s140 segue"
+ },
+ {
+  "forma": "2/5 L6",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Shi fuori stagione → SEGUE il trend (2/4); altrimenti NON SEGUE (2/2)",
+  "ok": "4/6",
+  "chiave": "Shi fuori stagione",
+  "se": 1,
+  "carte": "USDJPY 2024-02-16 s149 segue [col tratto]; EURGBP 2021-09-23 s85 non segue; EURGBP 2022-07-20 s85 non segue [col tratto]; EURGBP 2022-12-05 s85 non segue; EURGBP 2023-06-21 s85 non segue [col tratto]; EURGBP 2024-05-22 s85 segue [col tratto]"
+ },
+ {
+  "forma": "3/6 L3",
+  "volte": 6,
+  "segue": 4,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "4/2 L3",
+  "volte": 6,
+  "segue": 2,
+  "regola": "Se Shi in piena stagione (旺) → SEGUE il trend (2/3); altrimenti NON SEGUE (3/3)",
+  "ok": "5/6",
+  "chiave": "Shi 旺",
+  "se": 1,
+  "carte": "USDJPY 2026-07-21 s162 segue [col tratto]; EURJPY 2023-11-28 s162 non segue; EURJPY 2024-04-02 s162 non segue; EURJPY 2024-10-17 s162 segue [col tratto]; EURJPY 2025-04-15 s162 non segue [col tratto]; EURJPY 2025-05-27 s162 non segue"
+ },
+ {
+  "forma": "1/2 L5",
+  "volte": 6,
+  "segue": 4,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "6/8 L6",
+  "volte": 5,
+  "segue": 2,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "EURUSD 2020-06-17 s112 non segue [col tratto]; EURUSD 2020-06-23 s112 segue; EURUSD 2022-02-01 s112 non segue; EURJPY 2025-10-07 s176 segue; EURJPY 2025-10-13 s176 non segue [col tratto]"
+ },
+ {
+  "forma": "6/8 L1",
+  "volte": 5,
+  "segue": 3,
+  "regola": "Se L4 vuota → SEGUE il trend (2/2); altrimenti NON SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "L4 vuota",
+  "se": 1,
+  "carte": "EURUSD 2020-06-18 s112 non segue; EURUSD 2021-11-22 s112 segue [col tratto]; EURUSD 2022-01-27 s112 segue [col tratto]; EURUSD 2022-02-02 s112 segue; USDJPY 2021-11-10 s112 non segue"
+ },
+ {
+  "forma": "6/4 L5",
+  "volte": 5,
+  "segue": 2,
+  "regola": "Se Ying: il mese stesso ramo → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "Ying: il mese stesso ramo",
+  "se": 0,
+  "carte": "EURUSD 2021-10-25 s116 non segue [col tratto]; EURUSD 2025-08-11 s116 non segue; EURUSD 2025-10-16 s116 non segue [col tratto]; EURUSD 2025-12-03 s116 segue; EURUSD 2026-01-20 s116 segue"
+ },
+ {
+  "forma": "5/1 L6",
+  "volte": 5,
+  "segue": 3,
+  "regola": "Se Shi vuoto → NON SEGUE il trend (2/2); altrimenti SEGUE (3/3)",
+  "ok": "5/5",
+  "chiave": "Shi vuoto",
+  "se": 0,
+  "carte": "EURUSD 2022-04-28 s105 segue; EURUSD 2022-05-04 s105 non segue [col tratto]; EURUSD 2023-09-26 s105 segue; EURUSD 2023-10-02 s105 segue; EURJPY 2024-04-29 s169 non segue [col tratto]"
+ },
+ {
+  "forma": "5/1 L4",
+  "volte": 5,
+  "segue": 3,
+  "regola": "Se Shi: il mese clash → SEGUE il trend (2/2); altrimenti NON SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "Shi: il mese clash",
+  "se": 1,
+  "carte": "EURUSD 2022-05-02 s105 segue; EURJPY 2024-05-15 s169 non segue; EURJPY 2024-05-21 s169 non segue; EURJPY 2025-06-27 s169 segue [col tratto]; EURJPY 2025-07-03 s169 segue [col tratto]"
+ },
+ {
+  "forma": "5/1 L1",
+  "volte": 5,
+  "segue": 3,
+  "regola": "Se Shi in piena stagione (旺) → SEGUE il trend (2/2); altrimenti NON SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "Shi 旺",
+  "se": 1,
+  "carte": "EURUSD 2022-12-13 s105 segue [col tratto]; EURUSD 2023-03-01 s105 non segue; EURUSD 2023-09-27 s105 segue; EURUSD 2024-11-14 s105 segue [col tratto]; USDJPY 2020-08-19 s105 non segue"
+ },
+ {
+  "forma": "5/2 L3",
+  "volte": 5,
+  "segue": 3,
+  "regola": "Se Ying vuoto → SEGUE il trend (2/2); altrimenti NON SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "Ying vuoto",
+  "se": 1,
+  "carte": "EURUSD 2022-12-14 s106 segue [col tratto]; EURUSD 2023-03-02 s106 segue; USDJPY 2020-03-17 s106 non segue; USDJPY 2020-08-20 s106 segue [col tratto]; EURJPY 2024-07-18 s170 non segue"
+ },
+ {
+  "forma": "5/5 L2",
+  "volte": 5,
+  "segue": 2,
+  "regola": "Se Shi Tai Sui → NON SEGUE il trend (3/3); altrimenti SEGUE (2/2)",
+  "ok": "5/5",
+  "chiave": "Shi Tai Sui",
+  "se": 0,
+  "carte": "EURUSD 2023-05-09 s109 non segue [col tratto]; EURUSD 2023-08-31 s109 non segue [col tratto]; EURUSD 2024-01-10 s109 non segue [col tratto]; EURUSD 2024-08-13 s109 segue; USDJPY 2021-04-13 s109 segue"
+ },
+ {
+  "forma": "5/4 L5",
+  "volte": 5,
+  "segue": 3,
+  "regola": "Se Ying fuori stagione → NON SEGUE il trend (2/3); altrimenti SEGUE (2/2)",
+  "ok": "4/5",
+  "chiave": "Ying fuori stagione",
+  "se": 0,
+  "carte": "EURUSD 2023-08-29 s108 non segue [col tratto]; USDJPY 2020-06-09 s108 non segue [col tratto]; USDJPY 2021-03-12 s108 segue; USDJPY 2021-03-24 s108 segue; EURJPY 2025-07-25 s172 segue [col tratto]"
+ },
+ {
+  "forma": "4/7 L1",
+  "volte": 5,
+  "segue": 5,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "6/3 L1",
+  "volte": 5,
+  "segue": 1,
+  "regola": "Se Shi sostenuto dal giorno → NON SEGUE il trend (3/3); altrimenti SEGUE (1/2)",
+  "ok": "4/5",
+  "chiave": "Shi sostenuto dal giorno",
+  "se": 0,
+  "carte": "EURUSD 2025-04-22 s115 non segue [col tratto]; EURUSD 2026-03-18 s115 segue; EURUSD 2026-08-03 s115 non segue [col tratto]; USDJPY 2022-02-01 s115 non segue [col tratto]; EURJPY 2020-04-30 s115 non segue"
+ },
+ {
+  "forma": "6/2 L2",
+  "volte": 5,
+  "segue": 3,
+  "regola": "Se Ying fuori stagione → SEGUE il trend (2/2); altrimenti NON SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "Ying fuori stagione",
+  "se": 1,
+  "carte": "EURUSD 2025-06-11 s114 segue [col tratto]; EURUSD 2026-07-30 s114 segue; USDJPY 2021-11-23 s114 segue [col tratto]; USDJPY 2022-02-03 s114 non segue; EURJPY 2026-09-10 s178 non segue"
+ },
+ {
+  "forma": "6/3 L2",
+  "volte": 5,
+  "segue": 4,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "1/4 L5",
+  "volte": 5,
+  "segue": 1,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "1/4 L4",
+  "volte": 5,
+  "segue": 2,
+  "regola": "Se Shi vuoto → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "Shi vuoto",
+  "se": 0,
+  "carte": "USDJPY 2022-09-06 s140 segue; USDCHF 2026-01-30 s76 non segue; USDCAD 2024-11-18 s140 non segue [col tratto]; USDCAD 2024-12-06 s140 segue; USDCAD 2025-11-13 s140 non segue [col tratto]"
+ },
+ {
+  "forma": "2/8 L3",
+  "volte": 5,
+  "segue": 3,
+  "regola": "Se Shi fuori stagione → NON SEGUE il trend (2/3); altrimenti SEGUE (2/2)",
+  "ok": "4/5",
+  "chiave": "Shi fuori stagione",
+  "se": 0,
+  "carte": "USDJPY 2022-10-06 s144 segue [col tratto]; USDJPY 2023-07-03 s144 segue; USDCHF 2026-01-12 s80 non segue [col tratto]; USDCAD 2024-12-30 s144 non segue [col tratto]; USDCAD 2025-02-28 s144 segue"
+ },
+ {
+  "forma": "2/1 L3",
+  "volte": 5,
+  "segue": 4,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "2/3 L1",
+  "volte": 5,
+  "segue": 3,
+  "regola": "Se Shi a riposo (休) → SEGUE il trend (2/2); altrimenti NON SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "Shi 休",
+  "se": 1,
+  "carte": "USDJPY 2024-02-07 s147 segue [col tratto]; EURJPY 2022-10-27 s147 non segue; EURGBP 2022-01-24 s83 segue; EURGBP 2024-11-15 s83 non segue; EURGBP 2025-02-07 s83 segue [col tratto]"
+ },
+ {
+  "forma": "4/1 L6",
+  "volte": 5,
+  "segue": 1,
+  "regola": "Se Shi a riposo (休) → SEGUE il trend (1/2); altrimenti NON SEGUE (3/3)",
+  "ok": "4/5",
+  "chiave": "Shi 休",
+  "se": 1,
+  "carte": "USDJPY 2024-07-11 s161 non segue [col tratto]; USDCHF 2022-05-05 s97 segue [col tratto]; USDCHF 2022-05-23 s97 non segue; USDCHF 2022-09-08 s97 non segue; EURJPY 2024-08-22 s161 non segue"
+ },
+ {
+  "forma": "2/6 L4",
+  "volte": 5,
+  "segue": 4,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "3/5 L5",
+  "volte": 5,
+  "segue": 2,
+  "regola": "Se Shi: il mese stesso ramo → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3)",
+  "ok": "4/5",
+  "chiave": "Shi: il mese stesso ramo",
+  "se": 0,
+  "carte": "USDJPY 2026-02-09 s157 non segue; USDJPY 2026-10-01 s157 segue; USDCHF 2021-11-26 s93 non segue [col tratto]; USDCHF 2022-12-27 s93 segue; EURJPY 2024-12-04 s157 non segue [col tratto]"
+ },
+ {
+  "forma": "4/8 L2",
+  "volte": 5,
+  "segue": 1,
+  "regola": "Se Shi in crescita (相) → SEGUE il trend (1/2); altrimenti NON SEGUE (3/3)",
+  "ok": "4/5",
+  "chiave": "Shi 相",
+  "se": 1,
+  "carte": "USDJPY 2026-06-14 s160 non segue [col tratto]; USDJPY 2026-08-31 s160 non segue; USDCHF 2022-05-24 s96 segue [col tratto]; USDCHF 2022-09-21 s96 non segue; EURJPY 2025-02-13 s160 non segue"
+ },
+ {
+  "forma": "4/8 L6",
+  "volte": 5,
+  "segue": 3,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "4/2 L5",
+  "volte": 5,
+  "segue": 5,
+  "regola": "nessuna caratteristica separa i casi",
+  "ok": ""
+ },
+ {
+  "forma": "1/6 L2",
+  "volte": 5,
+  "segue": 1,
+  "regola": "Se Shi in piena stagione (旺) → NON SEGUE il trend (3/3); altrimenti SEGUE (1/2)",
+  "ok": "4/5",
+  "chiave": "Shi 旺",
+  "se": 0,
+  "carte": "USDCHF 2026-04-20 s78 segue; USDCHF 2026-05-26 s78 non segue [col tratto]; AUDUSD 2021-05-10 s78 non segue [col tratto]; USDCAD 2025-02-24 s142 non segue; USDCAD 2026-06-25 s142 non segue [col tratto]"
+ },
+ {
+  "forma": "5/7 L6",
+  "volte": 4,
+  "segue": 3,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/7 L2",
+  "volte": 4,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/7 L3",
+  "volte": 4,
+  "segue": 0,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "6/2 L6",
+  "volte": 4,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/8 L4",
+  "volte": 4,
+  "segue": 3,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/7 L4",
+  "volte": 4,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/8 L1",
+  "volte": 4,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "1/5 L1",
+  "volte": 4,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "3/5 L6",
+  "volte": 4,
+  "segue": 3,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "3/8 L2",
+  "volte": 4,
+  "segue": 3,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/8 L1",
+  "volte": 4,
+  "segue": 3,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/8 L4",
+  "volte": 4,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/3 L2",
+  "volte": 4,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/3 L3",
+  "volte": 4,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/3 L4",
+  "volte": 4,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "6/8 L4",
+  "volte": 3,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "6/4 L2",
+  "volte": 3,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "6/8 L3",
+  "volte": 3,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/6 L2",
+  "volte": 3,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/6 L6",
+  "volte": 3,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/8 L5",
+  "volte": 3,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/6 L6",
+  "volte": 3,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "1/5 L6",
+  "volte": 3,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/2 L6",
+  "volte": 3,
+  "segue": 0,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "1/7 L5",
+  "volte": 3,
+  "segue": 3,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/1 L1",
+  "volte": 3,
+  "segue": 3,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "6/7 L1",
+  "volte": 2,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/7 L2",
+  "volte": 2,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/7 L5",
+  "volte": 2,
+  "segue": 0,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/8 L6",
+  "volte": 2,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/6 L1",
+  "volte": 2,
+  "segue": 0,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "2/1 L2",
+  "volte": 2,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "2/1 L1",
+  "volte": 2,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/1 L2",
+  "volte": 2,
+  "segue": 2,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "6/8 L2",
+  "volte": 1,
+  "segue": 0,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/7 L3",
+  "volte": 1,
+  "segue": 0,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "5/7 L4",
+  "volte": 1,
+  "segue": 0,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/5 L1",
+  "volte": 1,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/5 L2",
+  "volte": 1,
+  "segue": 1,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/5 L3",
+  "volte": 1,
+  "segue": 0,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ },
+ {
+  "forma": "4/6 L5",
+  "volte": 1,
+  "segue": 0,
+  "regola": "troppo poche ripetizioni",
+  "ok": ""
+ }
+]
