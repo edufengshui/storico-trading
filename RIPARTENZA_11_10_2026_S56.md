@@ -139,6 +139,23 @@ E. Metodo di lavoro (Edu, 13/10): prima di portare una carta leggerla con tutte 
    dottrina la chiude, cablarla e riportare solo il risultato. Non portare carte lette giuste e perse sul mercato.
    Se una sua spiegazione va contro una regola codificata, dirglielo. Non chiedere "procedo?" a ogni carta.
 
+## SISTEMA D E SCALA S57 (Edu, 17/10/2026)
+- SISTEMA D (livello_d.js, catalogo livello_d.json, rigenerare con livello_d_costruisci.js + livello_d_genera.js): per
+  ognuna delle 258 carte (esagramma + linea mobile) ripetute almeno 5 volte, la caratteristica della data che separa
+  meglio "segue/non segue il trend". Edu: "il sistema D e' tuo perche' le regole le hai trovate tu". Sulle sue
+  ripetizioni spiega il 76,7% (2.286/2.982); con la carta fuori dalla propria regola 53,2%. Excel: Livello_D.xlsx.
+- Sui 696 casi in cui D sbaglia il metodo del trend ha ragione al 51,7% (non li recupera).
+- SCALA S57 nell'app e nella raccolta notturna (Edu: "un sistema gerarchico che integri tutti i livelli per scala di
+  efficienza"). Prima la cantina (PB=LY=DLR, non si trada), poi: A attuale=DLR=metodo del trend 268 · 68,3%;
+  B PB=DLR=Lettura S47 252 · 64,7%; C attuale=DLR=D 194 · 67,5%; D LY=attuale=DLR 256 · 61,7% (26 gen-lug 40% su 25).
+  Totale 970 carte 65,5% +20.085 pip (D contato senza la carta nella propria regola). SCALA=S48 nel localStorage
+  rimette la scala vecchia. I record del registro prima del 17/10 usano le lettere della scala S48.
+- La raccolta notturna ora carica lettura_trend.js, inventario_carta.js, livello_d.js (prima il metodo del trend
+  non girava di notte: l'app.js dell'archivio era indietro).
+- PUNTO APERTO: la stessa caratteristica da' verdetti opposti su carte diverse ("Shi fuori stagione": non segue su
+  13 carte, segue su 6). Chiedere a Edu se e' coerente con la dottrina. Prossimo lavoro: la carta 8/1 L3 (28 volte)
+  con i casi sbagliati da D affiancati ai giusti, da leggere con Edu.
+
 ## DA DOVE RIPARTIRE
 1. Le bestie dal lato (42%): leggere da solo le carte storte (`node lettura_trend_categorie.js "bestie dal lato"`).
    Ipotesi di Claude da EURUSD 30/11/2021, da provare: senza movimenti utili vince la sede piu' di stagione e le bestie

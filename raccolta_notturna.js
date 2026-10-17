@@ -26,6 +26,8 @@ global.XKDGDaLiuRen = R('daliuren.js'); global.XKDGTrend = R('trend.js');
 global.XKDGPlumBlossom = R('plumblossom.js'); global.XKDGLiuYao = R('liuyao.js');
 global.XKDGMotoreDLR = R('motore_dlr.js'); global.creaMotore = R('motore_lettura.js').creaMotore;
 global.TrendLY = R('trend_ly.js');
+// S57 (17/10/2026): la scala nuova usa il metodo del trend e il sistema D, come nell'app
+global.LetturaTrend = R('lettura_trend.js'); global.InventarioCarta = R('inventario_carta.js'); global.SistemaD = R('livello_d.js');
 
 // il registro dell'app vive nel localStorage: qui vive in registro_live.json
 const store = {};
