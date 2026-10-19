@@ -244,6 +244,10 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   partenza_arrivo_trend.js; esempio EURJPY 25/09/2026 s180, L1 B Zi->Wei, trend LONG, esito -145): arrivo che controlla/clasha/害
   la partenza -> opposto al trend, che la genera/stesso/合 -> segue: 50,3-50,6% su 2.000+ carte. Solo il 害: 52,3% su 621; solo
   l'arrivo che controlla: 51,3% su 616. Andare sempre contro il trend da' gia' 51,4% (il trend segue il 48,6%). Nessun effetto.
+  Gemella che sbaglia: EURUSD 22/01/2026 s116 (stessa forma, +83, segue). Edu: "questa e' combinata e l'arrivo e' clashato,
+  ovvio che non puo' cambiare trend" (il MESE Chou combina Zi e clasha Wei) - segnalato il conflitto con "anno e mese non
+  clashano" (09/09) e "il mese che combina non ferma la mobile" (13/10). Misura col movimento libero (dal giorno, o giorno+mese):
+  arrivo che controlla -> opposto 50,8-51,0% su 310-413; bloccato -> segue 47,8-48,4%. Nessun effetto.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte

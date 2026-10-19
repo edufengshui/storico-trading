@@ -21,6 +21,17 @@ for (const r of JSON.parse(fs.readFileSync(process.argv[2] || '/tmp/tresist.json
   add('C come B, piu\' la punizione (刑) fra i "contro"', (contro || XING[a] === d) && !sostiene ? false : sostiene && !(contro || XING[a] === d) ? true : null, r);
   add('D solo il 害 (come Zi -> Wei) -> opposto al trend', HAI[a] === d ? false : null, r);
   add('E solo l\'arrivo che controlla -> opposto al trend', KE[aE] === dE ? false : null, r);
+  // Edu (19/10/2026, EURUSD 22/01/2026): "questa e' combinata e l'arrivo e' clashato, ovvio che non puo' cambiare trend".
+  // Il movimento si compie solo se la partenza non e' combinata/clashata e l'arrivo non e' clashato/combinato: dal giorno (G)
+  // oppure dal giorno o dal mese (GM, come sulla carta di Edu: mese Chou combina Zi e clasha Wei).
+  const lib = (p, fonti) => fonti.every(b => HE[b] !== p && CL[b] === undefined || (HE[b] !== p && CL[b] !== p));
+  const libero = fonti => lib(d, fonti) && lib(a, fonti);
+  for (const [nome, fonti] of [['dal giorno', [r.ramo]], ['dal giorno o dal mese', [r.ramo, r.mese]]]) {
+    const ok = libero(fonti);
+    add('F movimento libero ' + nome + ': arrivo controlla/clash/害 -> opposto; genera/stesso/合 -> segue', !ok ? null : contro && !sostiene ? false : sostiene && !contro ? true : null, r);
+    add('G movimento libero ' + nome + ': arrivo che controlla la partenza -> opposto al trend', ok && KE[aE] === dE ? false : null, r);
+    add('H movimento BLOCCATO ' + nome + ': arrivo che controlla -> SEGUE il trend', !ok && KE[aE] === dE ? true : null, r);
+  }
   add('0 seguire sempre il trend', true, r);
 }
 for (const k of Object.keys(V).sort()) console.log(k.padEnd(84) + ['tutto', '2020-23', '2024-26', 'dal 08/09/26'].map(p => { const o = V[k][p]; return o ? p + ' ' + (100 * o[1] / o[0]).toFixed(1) + '% (' + o[0] + ', ' + (o[2] > 0 ? '+' : '') + o[2] + ')' : ''; }).join(' · '));
