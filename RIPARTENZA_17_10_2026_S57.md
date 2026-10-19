@@ -180,6 +180,10 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   M9 nata dopo aver visto M5 e M6b: da confermare su carte nuove. Prossimo: giorno, poi ora, poi anno.
   M10 (Edu: 'il mese clasha Y o S, e che succede?'): niente, 601 carte 49,8% (ferma 48%, mobile 53%, anche dal giorno 52%);
   il mese che clasha l'arrivo della mobile 54,6% su 293 (z 1,6). Conferma 'anno e mese non clashano, solo il giorno'.
+- GIORNO (Edu "Passa al giorno", 19/10; tavola_data.js giorno, 18 ipotesi): tutte 44-52% (clash che sveglia o elimina,
+  vuoto, sostegno, controllo, 六合, punizione, ramo del giorno, bestie del giorno, partenza bloccata, arrivo punito).
+  Unica sopra: lo STELO del giorno genera la sede -> vince, 1.163 carte 53,5% z 2,4 (53%/54% nei due periodi), debole.
+  Il "colpo" del giorno (stesso meccanismo di M9) fa 47,4% su 418: il colpo del mese potrebbe essere caso, va seguito.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte

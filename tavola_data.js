@@ -28,7 +28,7 @@ for (const r of JSON.parse(fs.readFileSync(DUMP, 'utf8')).filter(r => Math.abs(r
   const ms = ST[((ST.indexOf(yp[0]) % 5) * 2 + 2 + ((BR.indexOf(r.mese) + 10) % 12)) % 10], hs = ST[(ST.indexOf(WUSHU[r.stelo]) + BR.indexOf(R.oraBranch)) % 10];
   const inv = IV.inventario(R, { dayBranch: r.ramo, monthBranch: r.mese, yearBranch: yp[1], oraBranch: R.oraBranch, dayStem: r.stelo, yearStem: yp[0], monthStem: ms, hourStem: hs, emaDir: r.ema });
   const shiAlto = R.shi >= 4;
-  carte.push({ R, inv, date: r.date, mese: r.mese, giorno: r.ramo, ora: R.oraBranch, anno: yp[1], vinceShi: (r.move > 0) === shiAlto, move: Math.abs(r.move),
+  carte.push({ R, inv, date: r.date, mese: r.mese, giorno: r.ramo, stelo: r.stelo, ora: R.oraBranch, anno: yp[1], vinceShi: (r.move > 0) === shiAlto, move: Math.abs(r.move),
     triS: shiAlto ? R.sup : R.inf, triY: shiAlto ? R.inf : R.sup });
 }
 // ogni ipotesi: f(carta) -> 'S' (la dottrina dice: vince lo Shi), 'Y', oppure null (non si applica)
@@ -95,6 +95,35 @@ if (PIL === 'mese') {
   ipotesi('M8c l\'arrivo DI STAGIONE della mobile genera una sede: quella sede vince', c => { const m = c.inv.movimenti.find(z => z.tipo === 'mobile' && z.parte !== false);
     if (!m || !m.arrTimely || m.arrVuoto) return null; const v = (m.versoLinee || []).filter(x => x.sede && x.azioni.includes('la genera')).map(x => x.sede);
     return v.length === 1 ? v[0] : null; });
+}
+if (PIL === 'giorno') {
+  // Edu, 19/10/2026: "Passa al giorno". Dottrina: solo il giorno clasha una linea; il clash sveglia la linea piena e di
+  // stagione (暗動) ed elimina quella fuori stagione; il clash sveglia il vuoto (冲空); il vuoto non agisce; la sede
+  // combinata e controllata dal giorno e' bloccata; il giorno distribuisce il qi (sostiene o colpisce); le bestie del
+  // giorno si intromettono; la mobile combinata o clashata alla partenza non parte.
+  const neg = l => l === 'S' ? 'Y' : l === 'Y' ? 'S' : null;
+  const CL = { '子':'午','午':'子','丑':'未','未':'丑','寅':'申','申':'寅','卯':'酉','酉':'卯','辰':'戌','戌':'辰','巳':'亥','亥':'巳' };
+  const SX = { '甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water' };
+  const tim = (L, c) => ['旺','相'].includes(stg(L.el, c.mese));
+  const mov = (L, c) => c.inv.movimenti.find(z => z.pos === L.pos);
+  ipotesi('G1 il giorno clasha la sede ferma, piena e di stagione: la sveglia, vince', c => lato(L => CL[c.giorno] === L.ramo && !mov(L, c) && !L.vuoto && tim(L, c), c));
+  ipotesi('G2 il giorno clasha la sede ferma fuori stagione: eliminata, perde', c => neg(lato(L => CL[c.giorno] === L.ramo && !mov(L, c) && !tim(L, c), c)));
+  ipotesi('G3 il giorno clasha la sede vuota: la sveglia (冲空), vince', c => lato(L => CL[c.giorno] === L.ramo && L.vuotoFormale !== false && (c.inv.vuoti || []).includes(L.ramo), c));
+  ipotesi('G4 la sede vuota (non mobile, non clashata dal giorno) perde', c => neg(lato(L => (c.inv.vuoti || []).includes(L.ramo) && CL[c.giorno] !== L.ramo && !mov(L, c), c)));
+  ipotesi('G5 il giorno sostiene la sede (stesso elemento o la genera): vince', c => lato(L => L.giornoSostiene, c));
+  ipotesi('G6 il giorno controlla la sede: perde', c => neg(lato(L => L.giornoRel === 'controlla', c)));
+  ipotesi('G6b il giorno controlla la sede fuori stagione: perde', c => neg(lato(L => L.giornoRel === 'controlla' && !tim(L, c), c)));
+  ipotesi('G7 il giorno combina e controlla la sede: bloccata, perde', c => neg(lato(L => L.giorno.includes('combina') && L.giornoRel === 'controlla', c)));
+  ipotesi('G7b il giorno combina la sede (六合): vince', c => lato(L => L.giorno.includes('combina'), c));
+  ipotesi('G8 il giorno punisce la sede: perde', c => neg(lato(L => L.giorno.includes('punisce') || L.giorno.includes('autopunizione'), c)));
+  ipotesi('G9 la sede sul ramo del giorno vince', c => lato(L => L.ramo === c.giorno, c));
+  ipotesi('G10 la bestia del giorno controlla la sede: perde', c => neg(lato(L => (L.bestie || []).some(b => b.pilastro === 'giorno' && b.rel === 'controlla'), c)));
+  ipotesi('G10b la bestia del giorno aiuta la sede (stesso o genera): vince', c => lato(L => (L.bestie || []).some(b => b.pilastro === 'giorno' && ['stesso', 'genera'].includes(b.rel)), c));
+  ipotesi('G11 il giorno colpisce la sede (bestia che controlla o 六合+controllo): perde', c => neg(lato(L => (L.bestie || []).some(b => b.pilastro === 'giorno' && b.rel === 'controlla') || (L.giorno.includes('combina') && L.giornoRel === 'controlla'), c)));
+  ipotesi('G12 la sede mobile combinata o clashata dal giorno alla partenza non parte: perde', c => neg(lato(L => { const m = mov(L, c); return m && m.tipo === 'mobile' && m.blocchi.some(b => /giorno (combina|clasha) la partenza/.test(b)); }, c)));
+  ipotesi('G13 il giorno punisce l\'arrivo della sede mobile: il movimento muore, la sede perde', c => neg(lato(L => { const m = mov(L, c); return m && m.blocchi.some(b => /giorno punisce l'arrivo/.test(b)); }, c)));
+  ipotesi('G14 lo stelo del giorno genera la sede: vince', c => lato(L => GEN[SX[c.stelo]] === L.el, c));
+  ipotesi('G14b lo stelo del giorno controlla la sede: perde', c => neg(lato(L => KE[SX[c.stelo]] === L.el, c)));
 }
 const base = carte.filter(c => c.vinceShi).length / carte.length;
 console.log('TAVOLA DELLA DATA — pilastro: ' + PIL.toUpperCase() + ' · ' + carte.length + ' carte >= 20 pip · lo Shi vince il ' + (100 * base).toFixed(1) + '%');
