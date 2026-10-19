@@ -180,6 +180,15 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   M9 nata dopo aver visto M5 e M6b: da confermare su carte nuove. Prossimo: giorno, poi ora, poi anno.
   M10 (Edu: 'il mese clasha Y o S, e che succede?'): niente, 601 carte 49,8% (ferma 48%, mobile 53%, anche dal giorno 52%);
   il mese che clasha l'arrivo della mobile 54,6% su 293 (z 1,6). Conferma 'anno e mese non clashano, solo il giorno'.
+- COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
+  "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
+  (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
+  2024-26, 1.545): piramide 1.370 · 55,4% · +11.164 -> 1.389 · 55,7% · +11.909. Colpo da solo 145 · 57,9%.
+  Dal vivo 29/09-16/10 (cataloghi completi): 79 · 75% · +1.501 -> 79 · 76% · +1.601.
+- ATTENZIONE, stessa prova pulita 2024-26: DLR da solo 1.448 · 61,0% · +18.554 (2024 62%, 2025 63%, 2026 59%); DLR=attuale
+  726 · 67,6% · +16.528; attuale 56,6%; LY 55,1%; voci per forma LYF 45,8%, PBF 52,1%, DLRF 50,9%, D 51,9%. La piramide
+  fuori campione e' sotto il DLR da solo. Ma dal vivo 29/09-16/10 il DLR ha fatto 43% su 70 (dump e app diversi? GBPUSD 06/10).
+  Detto a Edu.
 - Raccolta notturna: il report del giorno si fa una volta (il weekend riscriveva il venerdi'); ripristinato il 16/10.
 
 ## PUNTI APERTI (oltre a quelli del S56)
