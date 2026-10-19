@@ -80,7 +80,12 @@ async function main() {
   global.fetch = realFetch;
   __app.set(feed);
   const prima = __app.leggi();
-  if (!weekend) __app.report();        // rifà il report e lo salva nel registro (come nell'app)
+  // S58 (19/10/2026): il report si fa UNA volta per giorno di feed. Nel fine settimana il feed resta al venerdi' e la
+  // raccolta del sabato/domenica rifaceva il report del venerdi' col software nuovo, sovrascrivendo i trade proposti
+  // davvero (16/10/2026: USDJPY/EURUSD/NZDUSD diventati NZDUSD/EURJPY/EURGBP). Ora se il giorno c'e' gia' non si tocca.
+  const giaFatto = (prima[feed.date] || []).length > 0;
+  if (giaFatto) console.log('report del ' + feed.date + ' gia\' nel registro: non si rifa\'');
+  if (!weekend && !giaFatto) __app.report();        // rifà il report e lo salva nel registro (come nell'app)
   __app.esiti();                       // esiti del giorno prima dal feed (il report li compila gia')
   const reg = __app.leggi();
   let scritti = 0;
