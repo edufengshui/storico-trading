@@ -230,7 +230,7 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   Sulla carta EURUSD 19/10: col trend LONG il mercato che scende = non segue (nel metodo del trend vince la Ying).
   CORRETTO (Edu "Sistema subito questo EMA sbagliato!"): trend solo lun-ven in worker_index.js (isWeekendDate: chiusure
   giornaliere ed esito di ieri), raccolta_notturna.js (confronto), misura_vivo.js, pb_stress.js (default; FERIALI=0 rimette).
-  IL WORKER VA RIPUBBLICATO DA EDU su Cloudflare (file inviato), poi /run?token=... per rifare il feed del giorno.
+  WORKER PUBBLICATO DA EDU il 19/10/2026 alle 17:09. /run senza token (la raccolta lo chiama gia' cosi').
   Dal vivo 29/09-16/10 col trend corretto (cataloghi completi, dentro il campione): piramide 83 · 76% · +1.635; trend 87 · 56%.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
