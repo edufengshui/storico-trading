@@ -57,6 +57,10 @@ function todayGmtDate(now) {
 }
 // 03/10/2026: sabato (6) e domenica (0) il mercato e' chiuso
 function isWeekend(now) { var g = (now || new Date()).getUTCDay(); return g === 0 || g === 6; }
+// S58 (Edu, 19/10/2026: "Sistema subito questo EMA sbagliato!"): dal 2026 Twelve Data da' anche le barre di sabato (prezzo
+// fermo) e domenica (riapertura). Contate come giorni spostavano l'EMA(12) giornaliera (19/10/2026: EURUSD, AUDUSD, EURJPY col
+// trend rovesciato). Lo storico 2020-25, su cui sono nate le regole, non le ha: il trend si calcola SOLO coi giorni lun-ven.
+function isWeekendDate(d) { var g = new Date(d + 'T12:00:00Z').getUTCDay(); return g === 0 || g === 6; }
 
 var SEED_EDGE_GUARD = 3;
 
@@ -135,7 +139,7 @@ async function fetchDailyAll(cross, dateStr, apiKey) {
   for (var i = 0; i < vals.length; i++) {
     var dt = (vals[i].datetime || '').slice(0, 10);
     if (dt === dateStr) { if (vals[i].open != null) todayOpen = Number(vals[i].open); }
-    else if (dt < dateStr && vals[i].close != null) { closes.push(Number(vals[i].close)); }
+    else if (dt < dateStr && vals[i].close != null && !isWeekendDate(dt)) { closes.push(Number(vals[i].close)); }
   }
   return { todayOpen: todayOpen, closes: closes };
 }
@@ -161,7 +165,7 @@ async function fetchHourlyInfo(cross, dateStr, apiKey) {
   }
   var open00 = by[dateStr] && by[dateStr].o != null ? by[dateStr].o : null;
   var days = Object.keys(by).filter(function (d) {
-    return d < dateStr && by[d].o != null && by[d].c != null;
+    return d < dateStr && by[d].o != null && by[d].c != null && !isWeekendDate(d);
   }).sort();
   var prev = null;
   if (days.length) {
@@ -466,4 +470,4 @@ export default {
   }
 };
 
-export { computeDaily, computeEarliest, fetchPage, rowFor, seedEdgeDistance, SEED_EDGE_GUARD, firstThreeSignificant, seedToBranchIndex, todayGmtDate, isWeekend, toPair, emaSeries, emaDirs, countChanges, emaRunLen, fetchDailyAll, fetchHourlyInfo, pipFactor, CROSSES, BRANCHES };
+export { isWeekendDate, computeDaily, computeEarliest, fetchPage, rowFor, seedEdgeDistance, SEED_EDGE_GUARD, firstThreeSignificant, seedToBranchIndex, todayGmtDate, isWeekend, toPair, emaSeries, emaDirs, countChanges, emaRunLen, fetchDailyAll, fetchHourlyInfo, pipFactor, CROSSES, BRANCHES };

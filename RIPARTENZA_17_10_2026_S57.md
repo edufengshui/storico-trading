@@ -228,6 +228,10 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   2020-25 identico; 2026 trend cambiato su 12/368, AT 55,9->57,4, LY 54,1->56,5, DLR 58,6->56,2; il 2026 aveva anche ~66 carte di
   sabato/domenica tradate. PROPOSTA a Edu: trend solo lun-ven ovunque (Worker da ripubblicare da Edu, raccolta, misura_vivo, backtest).
   Sulla carta EURUSD 19/10: col trend LONG il mercato che scende = non segue (nel metodo del trend vince la Ying).
+  CORRETTO (Edu "Sistema subito questo EMA sbagliato!"): trend solo lun-ven in worker_index.js (isWeekendDate: chiusure
+  giornaliere ed esito di ieri), raccolta_notturna.js (confronto), misura_vivo.js, pb_stress.js (default; FERIALI=0 rimette).
+  IL WORKER VA RIPUBBLICATO DA EDU su Cloudflare (file inviato), poi /run?token=... per rifare il feed del giorno.
+  Dal vivo 29/09-16/10 col trend corretto (cataloghi completi, dentro il campione): piramide 83 · 76% · +1.635; trend 87 · 56%.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte

@@ -198,7 +198,7 @@ async function confronto(feed) {
     orario[r.cross] = Object.keys(m).sort().map(k => m[k]);
     const by = {};
     pg.bars.forEach(x => { const d = x.t.slice(0, 10), hh = x.t.slice(11, 13); by[d] = by[d] || {}; if (hh === '00') by[d].o = x.o; if (hh === '21') by[d].c = x.c; });
-    const giorni = Object.keys(by).sort().filter(d => by[d].o != null && by[d].c != null && d < feed.date);
+    const giorni = Object.keys(by).sort().filter(d => by[d].o != null && by[d].c != null && d < feed.date && ![0, 6].includes(new Date(d + 'T12:00:00Z').getUTCDay()));   // S58: solo lun-ven
     const e = T.emaTrend(giorni.map(d => by[d].c));
     const oggiO = by[feed.date] && by[feed.date].o;
     const seme = oggiO != null ? parseInt(f3(oggiO), 10) : null;
