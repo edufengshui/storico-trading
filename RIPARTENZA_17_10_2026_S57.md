@@ -221,6 +221,13 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   2) liuyao.js §94: se l'arrivo della B e' VUOTO la combinazione del giorno non la sospende (dal vuoto si esce solo col clash;
      la linea nel vuoto e' invalidata, 16/09). VIA94VUOTO=off spegne. Carte guida 84/114 invariate; nel backtest cambia 1 carta
      (NZDUSD 15/12/2021, ora giusta); LY 56,19 -> 56,22%. Sulla carta il LY passa da LONG (§94) a SHORT (§132 Shi/Ying).
+- TREND E WEEKEND (Edu 19/10, grafico H1: "sicuro che e' short?"): il grafico di Edu e' H1 (EMA 12 ore). Il nostro trend e' l'EMA(12)
+  sulle chiusure giornaliere delle 21:00. Dal 2026 i dati (storico e feed del Worker) hanno barre di SABATO (prezzo fermo) e
+  DOMENICA (riapertura): contano come giorni nell'EMA. Lo storico 2020-25, su cui sono nate le regole, non le ha. Oggi 19/10 senza
+  sabato e domenica cambia il trend di EURUSD (down->up), AUDUSD (up->down), EURJPY (down->up). Backtest FERIALI=1 (pb_stress.js):
+  2020-25 identico; 2026 trend cambiato su 12/368, AT 55,9->57,4, LY 54,1->56,5, DLR 58,6->56,2; il 2026 aveva anche ~66 carte di
+  sabato/domenica tradate. PROPOSTA a Edu: trend solo lun-ven ovunque (Worker da ripubblicare da Edu, raccolta, misura_vivo, backtest).
+  Sulla carta EURUSD 19/10: col trend LONG il mercato che scende = non segue (nel metodo del trend vince la Ying).
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte

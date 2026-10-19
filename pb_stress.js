@@ -1186,7 +1186,7 @@ Object.keys(hist.crosses).forEach(cross => {
   const by = {}; const BM = {}; if (LON_LUOGO != null) hist.crosses[cross].forEach(x => { BM[x.t] = x; });
   hist.crosses[cross].forEach(x => { const d=x.t.slice(0,10), hh=x.t.slice(11,13);
     by[d]=by[d]||{}; if(hh===(process.env.ORAINGRESSO||'00')) by[d].o=x.o; if(hh==='21') by[d].c=x.c; });   // S58 (Edu 19/10/2026): ORAINGRESSO=03 prende le tre cifre e l'entrata alle 03:00 GMT
-  const days = Object.keys(by).sort().filter(d => by[d].o!=null && by[d].c!=null);
+  const days = Object.keys(by).sort().filter(d => by[d].o!=null && by[d].c!=null && !(process.env.FERIALI && [0,6].includes(new Date(d+'T12:00:00Z').getUTCDay())));   // S58 (19/10/2026): FERIALI=1 toglie sabato e domenica (dal 2026 lo storico ha le barre del weekend)
   const f = pipFactor(cross);
   for (let k=12;k<days.length;k++){
     const d=days[k]; if(d<FROM||d>TO) continue;
