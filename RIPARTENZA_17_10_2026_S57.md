@@ -236,6 +236,10 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   pb_stress.js SEME5=1 SEME5OFF=pip. Bo L6 esce con 1,12248 (Twelve Data 1,12251, broker di Edu 1,12265 medio). Backtest 2020-26:
   3 cifre PB 53,5 · LY 56,6 · AT 57,3 · DLR 60,4%; 5 cifre 50,8 · 50,9 · 50,7 · 51,3%; -0,3 pip 50,3 · 51,2 · 51,1 · 51,2%;
   +0,3 pip 52,0 · 50,3 · 50,7 · 50,6%. Con 5 cifre ogni carta e' nuova per le regole (nate sulle carte a 3 cifre): tutto ~51%.
+- SOLO LA LINEA MOBILE (Edu 19/10: "la partenza ci dice come il cross e' partito, l'arrivo come finisce"; linea_mobile.js):
+  13 letture fissate prima (yin->yang, arrivo piu' forte nel mese, arrivo genera/controlla la partenza, avanza/retrocede; in
+  assoluto, col trend, o facendo vincere/perdere il trigramma della mobile): tutte 48,6-52,3% su 3.309 carte. La migliore:
+  avanza -> il suo trigramma vince, retrocede -> perde, 52,3% su 623 (53% / 52% nei due periodi).
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
