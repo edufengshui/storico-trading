@@ -28,14 +28,15 @@ for (const r of JSON.parse(fs.readFileSync(DUMP, 'utf8')).filter(r => Math.abs(r
   const ms = ST[((ST.indexOf(yp[0]) % 5) * 2 + 2 + ((BR.indexOf(r.mese) + 10) % 12)) % 10], hs = ST[(ST.indexOf(WUSHU[r.stelo]) + BR.indexOf(R.oraBranch)) % 10];
   const inv = IV.inventario(R, { dayBranch: r.ramo, monthBranch: r.mese, yearBranch: yp[1], oraBranch: R.oraBranch, dayStem: r.stelo, yearStem: yp[0], monthStem: ms, hourStem: hs, emaDir: r.ema });
   const shiAlto = R.shi >= 4;
-  carte.push({ R, inv, date: r.date, mese: r.mese, giorno: r.ramo, stelo: r.stelo, ora: R.oraBranch, anno: yp[1], vinceShi: (r.move > 0) === shiAlto, move: Math.abs(r.move),
+  carte.push({ R, inv, date: r.date, mese: r.mese, giorno: r.ramo, stelo: r.stelo, steloOra: hs, steloAnno: yp[0], ora: R.oraBranch, anno: yp[1], vinceShi: (r.move > 0) === shiAlto, move: Math.abs(r.move),
     triS: shiAlto ? R.sup : R.inf, triY: shiAlto ? R.inf : R.sup });
 }
 // ogni ipotesi: f(carta) -> 'S' (la dottrina dice: vince lo Shi), 'Y', oppure null (non si applica)
 const tav = [];
+const PRED = carte.map(() => []);
 function ipotesi(nome, f) {
   let n = 0, ok = 0; const per = [[0, 0], [0, 0]];
-  carte.forEach(c => { const p = f(c); if (!p) return; const giusto = (p === 'S') === c.vinceShi; n++; ok += giusto; const k = c.date < '2023' ? 0 : 1; per[k][0]++; per[k][1] += giusto; });
+  carte.forEach((c, i) => { const p = f(c); if (p) PRED[i].push(p); if (!p) return; const giusto = (p === 'S') === c.vinceShi; n++; ok += giusto; const k = c.date < '2023' ? 0 : 1; per[k][0]++; per[k][1] += giusto; });
   const a = n ? ok / n : 0, z = n ? (a - .5) / Math.sqrt(.25 / n) : 0;
   tav.push({ nome, n, a, z, p1: per[0][0] ? per[0][1] / per[0][0] : null, n1: per[0][0], p2: per[1][0] ? per[1][1] / per[1][0] : null, n2: per[1][0] });
 }
@@ -125,9 +126,40 @@ if (PIL === 'giorno') {
   ipotesi('G14 lo stelo del giorno genera la sede: vince', c => lato(L => GEN[SX[c.stelo]] === L.el, c));
   ipotesi('G14b lo stelo del giorno controlla la sede: perde', c => neg(lato(L => KE[SX[c.stelo]] === L.el, c)));
 }
+if (PIL === 'ora' || PIL === 'anno') {
+  // Edu, 19/10/2026: "Vai con ora e anno". Dottrina: l'ora decide la stagione al 30% (il mese al 70%); l'ora riempie il
+  // vuoto della sede di stagione (13/10); l'anno e il mese non clashano; il Tai Sui sulla linea genera il nascosto; un ramo
+  // vuoto che e' ramo del mese e dell'anno e' riempito; le bestie dei pilastri si intromettono nella linea su cui cadono.
+  const P = PIL, nome = P === 'ora' ? 'l\'ora' : 'l\'anno', SX = { '甲':'Wood','乙':'Wood','丙':'Fire','丁':'Fire','戊':'Earth','己':'Earth','庚':'Metal','辛':'Metal','壬':'Water','癸':'Water' };
+  const neg = l => l === 'S' ? 'Y' : l === 'Y' ? 'S' : null;
+  const CL = { '子':'午','午':'子','丑':'未','未':'丑','寅':'申','申':'寅','卯':'酉','酉':'卯','辰':'戌','戌':'辰','巳':'亥','亥':'巳' };
+  const tim = (L, c) => ['旺','相'].includes(stg(L.el, c.mese));
+  const b = c => c[P], e = c => WX[c[P]];
+  ipotesi('1 ' + nome + ' sostiene la sede (stesso elemento o la genera): vince', c => lato(L => e(c) === L.el || GEN[e(c)] === L.el, c));
+  ipotesi('2 ' + nome + ' controlla la sede: perde', c => neg(lato(L => KE[e(c)] === L.el, c)));
+  ipotesi('3 la sede sul ramo de' + (P === 'ora' ? 'll\'ora' : 'll\'anno (Tai Sui)') + ' vince', c => lato(L => L.ramo === b(c), c));
+  ipotesi('4 ' + nome + ' clasha la sede ferma di stagione: la sveglia, vince', c => lato(L => CL[b(c)] === L.ramo && !c.inv.movimenti.some(z => z.pos === L.pos) && tim(L, c), c));
+  ipotesi('4b ' + nome + ' clasha la sede fuori stagione: perde', c => neg(lato(L => CL[b(c)] === L.ramo && !tim(L, c), c)));
+  ipotesi('5 ' + nome + ' combina la sede (六合): vince', c => lato(L => COMB[b(c)] === L.ramo, c));
+  ipotesi('5b ' + nome + ' combina e controlla la sede: perde', c => neg(lato(L => COMB[b(c)] === L.ramo && KE[e(c)] === L.el, c)));
+  ipotesi('6 la bestia de' + (P === 'ora' ? 'll\'ora' : 'll\'anno') + ' controlla la sede: perde', c => neg(lato(L => (L.bestie || []).some(x => x.pilastro === P && x.rel === 'controlla'), c)));
+  ipotesi('6b la bestia de' + (P === 'ora' ? 'll\'ora' : 'll\'anno') + ' aiuta la sede (stesso o genera): vince', c => lato(L => (L.bestie || []).some(x => x.pilastro === P && ['stesso', 'genera'].includes(x.rel)), c));
+  ipotesi('7 ' + nome + ' colpisce la sede (bestia che controlla o 六合+controllo): perde', c => neg(lato(L => (L.bestie || []).some(x => x.pilastro === P && x.rel === 'controlla') || (COMB[b(c)] === L.ramo && KE[e(c)] === L.el), c)));
+  ipotesi('8 lo stelo de' + (P === 'ora' ? 'll\'ora' : 'll\'anno') + ' genera la sede: vince', c => lato(L => GEN[SX[c[P === 'ora' ? 'steloOra' : 'steloAnno']]] === L.el, c));
+  ipotesi('8b lo stelo de' + (P === 'ora' ? 'll\'ora' : 'll\'anno') + ' controlla la sede: perde', c => neg(lato(L => KE[SX[c[P === 'ora' ? 'steloOra' : 'steloAnno']]] === L.el, c)));
+  if (P === 'ora') {
+    ipotesi('9 la sede piu\' in stagione nell\'ora vince', c => piu(STG[stg(S(c).el, c.ora)], STG[stg(Y(c).el, c.ora)]));
+    ipotesi('10 l\'ora riempie il vuoto della sede di stagione: vince', c => lato(L => (c.inv.vuoti || []).includes(L.ramo) && L.ramo === c.ora && tim(L, c), c));
+    ipotesi('10b la sede vuota che l\'ora non riempie perde', c => neg(lato(L => (c.inv.vuoti || []).includes(L.ramo) && L.ramo !== c.ora && CL[c.giorno] !== L.ramo && !c.inv.movimenti.some(z => z.pos === L.pos), c)));
+  } else {
+    ipotesi('9 la sede vuota sul ramo del mese E dell\'anno e\' riempita: vince', c => lato(L => (c.inv.vuoti || []).includes(L.ramo) && L.ramo === c.anno && L.ramo === c.mese, c));
+    ipotesi('10 la sede vuota sul ramo dell\'anno: vince', c => lato(L => (c.inv.vuoti || []).includes(L.ramo) && L.ramo === c.anno, c));
+  }
+}
 const base = carte.filter(c => c.vinceShi).length / carte.length;
 console.log('TAVOLA DELLA DATA — pilastro: ' + PIL.toUpperCase() + ' · ' + carte.length + ' carte >= 20 pip · lo Shi vince il ' + (100 * base).toFixed(1) + '%');
 console.log('ipotesi della dottrina'.padEnd(78) + '    n  giusta     z   2020-22    2023-26');
 tav.forEach(t => console.log(t.nome.padEnd(78) + String(t.n).padStart(5) + (100 * t.a).toFixed(1).padStart(7) + '%' + t.z.toFixed(1).padStart(6) +
   ((t.p1 != null ? (100 * t.p1).toFixed(0) + '%' : '-') + ' (' + t.n1 + ')').padStart(11) + ((t.p2 != null ? (100 * t.p2).toFixed(0) + '%' : '-') + ' (' + t.n2 + ')').padStart(11)));
 fs.writeFileSync('/tmp/tavola_' + PIL + '.json', JSON.stringify(tav, null, 1));
+fs.writeFileSync('/tmp/pred_' + PIL + '.json', JSON.stringify(carte.map((c, i) => ({ k: c.date + ' ' + c.R.sup + c.R.inf + c.R.shi, date: c.date, vinceShi: c.vinceShi, p: PRED[i] }))));

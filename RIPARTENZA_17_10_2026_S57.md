@@ -184,6 +184,13 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   vuoto, sostegno, controllo, 六合, punizione, ramo del giorno, bestie del giorno, partenza bloccata, arrivo punito).
   Unica sopra: lo STELO del giorno genera la sede -> vince, 1.163 carte 53,5% z 2,4 (53%/54% nei due periodi), debole.
   Il "colpo" del giorno (stesso meccanismo di M9) fa 47,4% su 418: il colpo del mese potrebbe essere caso, va seguito.
+- ORA e ANNO (Edu "Vai con ora e anno", 19/10): ora 15 ipotesi 45-51% (stagione nell'ora, ora che riempie il vuoto 45% su 56,
+  bestie, clash, 六合, stelo dell'ora); anno 14 ipotesi 48-53% (Tai Sui sulla sede 53,2% su 596, sede vuota sul ramo
+  dell'anno 58% su 91, z 1,6). Su ~65 ipotesi di tutti i pilastri: 2 sopra z 2 (colpo del mese 3,0; stelo del giorno 2,4),
+  quante ne darebbe il caso.
+- ACCUMULO (accumulo.js, principio di Edu 07/09 "e' l'accumulo a determinare il risultato, uno scalino sulla soglia"):
+  condizioni per S meno condizioni per Y su tutte le ipotesi, senza pesi. Scarto 1: 50%, 2: 57%, 3: 49%, 4-5: 51%, 6+: 50,7%
+  su 1.361. Nessuno scalino. Detto a Edu.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
