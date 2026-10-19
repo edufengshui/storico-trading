@@ -197,6 +197,9 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   (con carte diverse, 3 in comune: 53,3%). Su 71 ipotesi 3 a |z| 2,0: G1 il giorno clasha la sede ferma piena di stagione,
   vince 58,2% su 146; l'anno combina e controlla la sede, perde 56,5% su 230; (contro) M2b 46,6%. In CANDIDATI_OSSERVAZIONE.md.
   Colpo del mese nel quadro del trend 50,8%. Accumulo: scarto 1: 47%, 2: 46%, 3: 54%, 4-5: 52%, 6+: 49% (1.361). Nessuno scalino.
+- CURVA DI APPRENDIMENTO (obiezione di Edu: cataloghi costruiti su backtest piu' limitati; curva_apprendimento.sh): stesse
+  510 carte del 2026, cataloghi su 3/4/5/6 anni: piramide 57,2 / 54,9 / 56,8 / 57,5%; D 56,6/47,8/51,0/51,6; LYF 52,6/46,4/
+  48,7/54,9; PBF 51,5/54,5/58,8/54,8; DLRF 46,0/46,6/51,0/55,6. Con la carta fuori e TUTTE le altre (3.300): LY per forma 51,8%.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
