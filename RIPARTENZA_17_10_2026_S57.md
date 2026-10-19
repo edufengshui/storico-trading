@@ -240,6 +240,10 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   13 letture fissate prima (yin->yang, arrivo piu' forte nel mese, arrivo genera/controlla la partenza, avanza/retrocede; in
   assoluto, col trend, o facendo vincere/perdere il trigramma della mobile): tutte 48,6-52,3% su 3.309 carte. La migliore:
   avanza -> il suo trigramma vince, retrocede -> perde, 52,3% su 623 (53% / 52% nei due periodi).
+- PARTENZA/ARRIVO RISPETTO AL TREND (Edu: "Zi -> Wei finisce all'opposto ... rispetto al trend la spiegazione piu' ovvia";
+  partenza_arrivo_trend.js; esempio EURJPY 25/09/2026 s180, L1 B Zi->Wei, trend LONG, esito -145): arrivo che controlla/clasha/害
+  la partenza -> opposto al trend, che la genera/stesso/合 -> segue: 50,3-50,6% su 2.000+ carte. Solo il 害: 52,3% su 621; solo
+  l'arrivo che controlla: 51,3% su 616. Andare sempre contro il trend da' gia' 51,4% (il trend segue il 48,6%). Nessun effetto.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
