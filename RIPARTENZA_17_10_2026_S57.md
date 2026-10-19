@@ -189,6 +189,11 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   726 · 67,6% · +16.528; attuale 56,6%; LY 55,1%; voci per forma LYF 45,8%, PBF 52,1%, DLRF 50,9%, D 51,9%. La piramide
   fuori campione e' sotto il DLR da solo. Ma dal vivo 29/09-16/10 il DLR ha fatto 43% su 70 (dump e app diversi? GBPUSD 06/10).
   Detto a Edu.
+- VERIFICA DLR (Edu "Si", 19/10): DLR dell'app = DLR del backtest su tutti i 66 cross-giorno dal vivo presenti nel dump
+  (0 differenze; 24/54 in tutti e due). Nessun errore. Ma il motore DLR e' stato costruito dal 02/09 al 06/10/2026 sulle
+  carte 2020-2026: il 61% sul 2024-26 e' dentro il campione anche lui. Carte MAI viste da nessuna regola (dal 08/09/2026,
+  >= 20 pip, 95 carte): trend 60% (57/95), attuale 59%, LY 56%, DLR 52% (44/85), PB 46%. Mesi DLR: set 59%, ott 42% su 33.
+  Detto a Edu: sui giorni nuovi nessun sistema batte chiaramente il trend; 95 carte = +-10 punti.
 - Raccolta notturna: il report del giorno si fa una volta (il weekend riscriveva il venerdi'); ripristinato il 16/10.
 
 ## PUNTI APERTI (oltre a quelli del S56)
