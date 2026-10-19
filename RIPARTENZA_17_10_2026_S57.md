@@ -200,6 +200,10 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
 - CURVA DI APPRENDIMENTO (obiezione di Edu: cataloghi costruiti su backtest piu' limitati; curva_apprendimento.sh): stesse
   510 carte del 2026, cataloghi su 3/4/5/6 anni: piramide 57,2 / 54,9 / 56,8 / 57,5%; D 56,6/47,8/51,0/51,6; LYF 52,6/46,4/
   48,7/54,9; PBF 51,5/54,5/58,8/54,8; DLRF 46,0/46,6/51,0/55,6. Con la carta fuori e TUTTE le altre (3.300): LY per forma 51,8%.
+- ORA DI INGRESSO (Edu: "le tre cifre a 03:00 GMT?"): pb_stress.js accetta ORAINGRESSO=hh (seme ed entrata alla barra hh:00,
+  uscita 21:00); confronto_ingresso.js. Alle 03: 3.303 carte, PB 52,8 · LY 55,4 · AT 55,9 · DLR 58,8% (alle 00: 53,5 · 56,2 ·
+  57,1 · 60,7). Ma il seme cambia solo in 216 cross-giorno su 2.705 (tre cifre significative, quasi sempre di 1): li'
+  00 -> 03: PB 54->52, LY 53->50, AT 56->50, DLR 58->53% (216 carte, +-7 punti).
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
