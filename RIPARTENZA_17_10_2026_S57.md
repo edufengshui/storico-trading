@@ -167,6 +167,19 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
 - Size per gradino: NON proposta, dal vivo pulito l'ordine dei gradini non tiene (punta 45%).
 - DA DECIDERE CON EDU: tenere la piramide com'e', MINLATO=4/5, o tornare a un sistema piu' semplice.
 
+## S58 (19/10/2026) — LA TAVOLA DELLA DATA (Edu: rendere prevedibile l'impatto di ora, giorno, mese, anno)
+- Verifiche prima: dentro una forma ora e ramo del giorno sono quasi fissi (seme e linea mobile): ~2 ore e ~2 rami per
+  forma; combinazioni reali ~138.000 (1,7 milioni con gli anni), non 3,3 milioni. Coppie della stessa forma: stesso vincitore
+  S/Y 50% qualunque sia la somiglianza della data (stesso mese e giorno 188 coppie 47,9%). Regola per forma su 11 carte:
+  esiti veri 77,6%, esiti a moneta 77,1% (103 forme da 9-13 carte). Tutto detto a Edu.
+- tavola_data.js [mese|giorno|ora|anno]: ipotesi della dottrina scritte prima, misurate su tutte le carte, "vince S o Y".
+  MESE (3.375 carte): stagione mese 70%/ora 30%, dodici stadi, trigrammi forti (tabella di Edu), sede sul ramo del mese,
+  vuoto riempito dal mese, colpo dell'arrivo di stagione: tutte 48-53%. Tiene solo: il mese COLPISCE la sede (la sua bestia
+  la controlla, o 六合 + controllo) -> la sede perde: M9 307 carte 58,6% z 3,0, 59% in tutti e due i periodi (LY sulle
+  stesse 52,6%; in disaccordo col LY 136 carte, M9 56,6%; ago-ott 2026 10/15). La bestia del mese che AIUTA: 50,7%.
+  M9 nata dopo aver visto M5 e M6b: da confermare su carte nuove. Prossimo: giorno, poi ora, poi anno.
+- Raccolta notturna: il report del giorno si fa una volta (il weekend riscriveva il venerdi'); ripristinato il 16/10.
+
 ## PUNTI APERTI (oltre a quelli del S56)
 - Soglia minima di casi per le regole di D.
 - Verdetti opposti della stessa caratteristica su carte diverse (domanda a Edu).
