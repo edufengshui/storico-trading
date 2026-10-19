@@ -214,6 +214,13 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   (100% stesse carte). Mercato locale assegnato prima (AUD,NZD->Sidney; JPY->Tokyo; CAD->New York; il resto Londra):
   DLR 57,9% contro 60,7% sempre Londra (2024-26 57,1 / 61,0); AT 54,7/57,1; LY 54,2/56,2; PB 53,1/53,5. Scelta per cross sul
   2020-23 provata sul 2024-26: nessun guadagno. Resta la mezzanotte di Londra (00:00 GMT). LOCALI=1 node sessioni_cross.js.
+- EURUSD 19/10/2026 s112 (Edu: "sta andando parecchio short, se il trend e' short S sta vincendo", "Si" a cablare), due regole:
+  1) lettura_trend.js: L'ORA SALVA DAL FUORI GIOCO (mese 70% / ora 30%): sede troppo fuori stagione nel mese ma sul ramo/elemento
+     dell'ora o generata dall'ora non e' fuori gioco (c.oraSalva=false spegne). Riferimenti 53/53. Il metodo parla su 184 carte in
+     piu': 56,5% (2020-23 54%, 2024-ago26 59%); totale 53,8% -> 54,0%. Sulla carta: la Ying genera lo Shi -> segue -> SHORT.
+  2) liuyao.js §94: se l'arrivo della B e' VUOTO la combinazione del giorno non la sospende (dal vuoto si esce solo col clash;
+     la linea nel vuoto e' invalidata, 16/09). VIA94VUOTO=off spegne. Carte guida 84/114 invariate; nel backtest cambia 1 carta
+     (NZDUSD 15/12/2021, ora giusta); LY 56,19 -> 56,22%. Sulla carta il LY passa da LONG (§94) a SHORT (§132 Shi/Ying).
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
