@@ -232,6 +232,10 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   giornaliere ed esito di ieri), raccolta_notturna.js (confronto), misura_vivo.js, pb_stress.js (default; FERIALI=0 rimette).
   WORKER PUBBLICATO DA EDU il 19/10/2026 alle 17:09. /run senza token (la raccolta lo chiama gia' cosi').
   Dal vivo 29/09-16/10 col trend corretto (cataloghi completi, dentro il campione): piramide 83 · 76% · +1.635; trend 87 · 56%.
+- SEME A 5 CIFRE (Edu 19/10: carta divinatoria Bo L6 su EURUSD; "calcolare tutte e 5 le cifre sottraendo lo 0,3 e fare un backtest"):
+  pb_stress.js SEME5=1 SEME5OFF=pip. Bo L6 esce con 1,12248 (Twelve Data 1,12251, broker di Edu 1,12265 medio). Backtest 2020-26:
+  3 cifre PB 53,5 · LY 56,6 · AT 57,3 · DLR 60,4%; 5 cifre 50,8 · 50,9 · 50,7 · 51,3%; -0,3 pip 50,3 · 51,2 · 51,1 · 51,2%;
+  +0,3 pip 52,0 · 50,3 · 50,7 · 50,6%. Con 5 cifre ogni carta e' nuova per le regole (nate sulle carte a 3 cifre): tutto ~51%.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte

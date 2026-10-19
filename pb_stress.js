@@ -1208,9 +1208,11 @@ Object.keys(hist.crosses).forEach(cross => {
       if (chs && !chs.error) (global.__inizio=global.__inizio||{})[cross+'|'+d] = { data:days[k-runLen], ramo:chs.dayBranch, stelo:chs.dayStem, eta:runLen };
       if (process.env.INIZIODBG && cross+'|'+d===process.env.INIZIODBG) console.log('INIZIO '+cross+' '+d+' -> '+days[k-runLen]+' '+(chs&&chs.dayBranch)+' eta '+runLen); }   // S51: TUTTIGIORNI=1 toglie il filtro del trend consolidato
     const o=IST?OL:by[d].o, c=IST?CL:by[d].c;
-    const e=seedEdge(o); if(e!=null&&e<3) continue;
+    const e=seedEdge(o); if(!process.env.SEME5 && e!=null&&e<3) continue;   // con SEME5 il bordo delle tre cifre non conta
     const move=(c-o)*f; if(Math.abs(move)<=10) continue;
-    const seed=parseInt(f3(o),10);
+    // S58 (Edu, 19/10/2026: "calcolare tutte e 5 le cifre di apertura sottraendo lo 0,3 e fare un backtest"): SEME5=1 usa come seme
+    // il prezzo d'apertura con TUTTE le cifre (EURUSD 1,12251 -> 112251; JPY 154,123 -> 154123), SEME5OFF=-0.3 sposta di 0,3 pip.
+    const seed = process.env.SEME5 ? Math.round(o*f*10 + (+(process.env.SEME5OFF||0))*10) : parseInt(f3(o),10);
     const p=d.split('-').map(Number);
     const ch=IST ? DLR.buildChartFromForexSeed(IST.ms, LON_LUOGO, '子') : DLR.buildChartFromForexSeed(process.env.MEZZOGIORNO ? Date.UTC(p[0],p[1]-1,p[2],12,0,0) : mezzanotteTST(p[0],p[1],p[2]),0,'子');
     if(!ch||ch.error) continue;
