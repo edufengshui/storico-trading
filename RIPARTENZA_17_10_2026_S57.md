@@ -208,6 +208,12 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   uscita 21:00): Sidney 00 e' la migliore o pari per quasi tutti i cross e tutti i sistemi (DLR 00: 57-65% per cross, 08: 51-59%,
   13: 49-57%). Sessione scelta per cross sul 2020-23 e provata sul 2024-26: DLR 59,5% contro 61,0% sempre alle 00; AT 56,5/56,6;
   LY 55,0/55,1; PB 52,2/52,5. Nessun guadagno: resta l'ingresso alle 00:00.
+- MEZZANOTTE SOLARE LOCALE (Edu: "sempre alle 00:00 locali ... Londra, New York, Sidney/Tokyo, ora solare vera, per i cross
+  piu' localmente affetti"): pb_stress.js LUOGO=londra|newyork|sidney|tokyo (pilastri in TST della citta', seme alla barra piu'
+  vicina alla mezzanotte solare locale, uscita 22 ore dopo, trend con le chiusure prima dell'ingresso). Londra = sistema attuale
+  (100% stesse carte). Mercato locale assegnato prima (AUD,NZD->Sidney; JPY->Tokyo; CAD->New York; il resto Londra):
+  DLR 57,9% contro 60,7% sempre Londra (2024-26 57,1 / 61,0); AT 54,7/57,1; LY 54,2/56,2; PB 53,1/53,5. Scelta per cross sul
+  2020-23 provata sul 2024-26: nessun guadagno. Resta la mezzanotte di Londra (00:00 GMT). LOCALI=1 node sessioni_cross.js.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte

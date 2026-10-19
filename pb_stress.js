@@ -43,6 +43,19 @@ function mezzanotteTST(y, mo, d){
   return ms;
 }
 const fs = require('fs');
+// S58 (Edu, 19/10/2026: "sempre alle 00:00 locali ... di Londra, New York e Sidney/Tokyo (ora solare vera) per i cross piu'
+// localmente affetti"): LUOGO=londra|newyork|sidney|tokyo -> carta (pilastri in ora solare vera della citta') e seme
+// all'apertura della barra oraria piu' vicina alla mezzanotte solare locale; uscita 22 ore dopo (come 00:00 -> 22:00 GMT);
+// il trend usa solo le chiusure dei giorni prima dell'ingresso.
+const LUOGHI = { londra: -0.13, newyork: -74.01, sidney: 151.21, tokyo: 139.69 };
+const LON_LUOGO = process.env.LUOGO ? LUOGHI[process.env.LUOGO] : null;
+function mezzanotteTSTlon(y, mo, d, lon){
+  const approx = Date.UTC(y, mo-1, d, 0, 0, 0) - lon*4*60000;
+  let ms = approx;
+  for (let i=0;i<3;i++) ms = approx - ST.equationOfTimeMinutes(new Date(ms))*60000;
+  return ms;
+}
+const tChiave = ms => new Date(ms).toISOString().slice(0,19).replace('T',' ');
 
 const B = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
 const TRIGRAM = {
@@ -1170,7 +1183,7 @@ function emaTrendVar(closes, period){
 }
 
 Object.keys(hist.crosses).forEach(cross => {
-  const by = {};
+  const by = {}; const BM = {}; if (LON_LUOGO != null) hist.crosses[cross].forEach(x => { BM[x.t] = x; });
   hist.crosses[cross].forEach(x => { const d=x.t.slice(0,10), hh=x.t.slice(11,13);
     by[d]=by[d]||{}; if(hh===(process.env.ORAINGRESSO||'00')) by[d].o=x.o; if(hh==='21') by[d].c=x.c; });   // S58 (Edu 19/10/2026): ORAINGRESSO=03 prende le tre cifre e l'entrata alle 03:00 GMT
   const days = Object.keys(by).sort().filter(d => by[d].o!=null && by[d].c!=null);
@@ -1180,7 +1193,11 @@ Object.keys(hist.crosses).forEach(cross => {
     // S51: l'esito della giornata precedente (per il test "l'ora conferma ieri?")
     (global.__prev=global.__prev||{})[cross+'|'+d] = by[days[k-1]].c - by[days[k-1]].o;
     (global.__ultimi=global.__ultimi||{})[cross+'|'+d] = [1,2,3].map(q=>by[days[k-q]] ? by[days[k-q]].c - by[days[k-q]].o : 0);
-    const closes=[]; for(let j=0;j<k;j++) closes.push(by[days[j]].c);
+    let IST = null, OL = null, CL = null;
+    if (LON_LUOGO != null) { const pp = d.split('-').map(Number); IST = mezzanotteTSTlon(pp[0], pp[1], pp[2], LON_LUOGO);
+      const eh = Math.round(IST / 3600000) * 3600000, bE = BM[tChiave(eh)], bX = BM[tChiave(eh + 21 * 3600000)];
+      if (!bE || !bX) continue; OL = bE.o; CL = bX.c; IST = { ms: IST, data: tChiave(eh).slice(0, 10) }; }
+    const closes=[]; for(let j=0;j<k;j++) { if (IST && days[j] >= IST.data) break; closes.push(by[days[j]].c); }
     const ema=process.env.EMAPER ? emaTrendVar(closes, parseInt(process.env.EMAPER,10)) : T.emaTrend(closes);
     const runLen = ema.runLen || 0;
     if(!ema.direction||ema.direction==='flat'||(!ema.consolidated && !process.env.TUTTIGIORNI)) continue;
@@ -1190,12 +1207,12 @@ Object.keys(hist.crosses).forEach(cross => {
     if (runLen > 0 && days[k-runLen]) { const ds=days[k-runLen].split('-').map(Number); const chs=DLR.buildChartFromForexSeed(mezzanotteTST(ds[0],ds[1],ds[2]),0,'子');
       if (chs && !chs.error) (global.__inizio=global.__inizio||{})[cross+'|'+d] = { data:days[k-runLen], ramo:chs.dayBranch, stelo:chs.dayStem, eta:runLen };
       if (process.env.INIZIODBG && cross+'|'+d===process.env.INIZIODBG) console.log('INIZIO '+cross+' '+d+' -> '+days[k-runLen]+' '+(chs&&chs.dayBranch)+' eta '+runLen); }   // S51: TUTTIGIORNI=1 toglie il filtro del trend consolidato
-    const o=by[d].o, c=by[d].c;
+    const o=IST?OL:by[d].o, c=IST?CL:by[d].c;
     const e=seedEdge(o); if(e!=null&&e<3) continue;
     const move=(c-o)*f; if(Math.abs(move)<=10) continue;
     const seed=parseInt(f3(o),10);
     const p=d.split('-').map(Number);
-    const ch=DLR.buildChartFromForexSeed(process.env.MEZZOGIORNO ? Date.UTC(p[0],p[1]-1,p[2],12,0,0) : mezzanotteTST(p[0],p[1],p[2]),0,'子');
+    const ch=IST ? DLR.buildChartFromForexSeed(IST.ms, LON_LUOGO, '子') : DLR.buildChartFromForexSeed(process.env.MEZZOGIORNO ? Date.UTC(p[0],p[1]-1,p[2],12,0,0) : mezzanotteTST(p[0],p[1],p[2]),0,'子');
     if(!ch||ch.error) continue;
     const yb=yearBranchAt(p[0],p[1],p[2]);
     G_CASA_ATTORE = casaAttoreFrom(d, ch.dayStem, seedToBranch(seed), ch.dayBranch, ch.monthBranch, yb);
