@@ -1882,3 +1882,11 @@ e 121 sbagliate. **Il default resta il Tai Sui.** Da notare che spegnere del tut
 Vedi REGISTRO_DLR, S42, per la scomposizione. Nessuna voce esistente le risolve. Le due voci
 sottili sono lo Spirito (parla sul 27,6% del perimetro) e lo stelo del giorno debole (36,3%):
 e' la loro assenza a lasciare quattro voci che si dividono due a due. **Da riprendere.**
+
+## Dalla tavola della data, quadro del METODO DEL TREND (S58, 19/10/2026 — `TREND=1 node tavola_data.js giorno|anno`)
+Su 71 ipotesi della dottrina (mese, giorno, ora, anno) 3 a |z| = 2,0: quante ne darebbe il caso. Restano qui, non cablate.
+- G1 il giorno clasha la sede ferma, piena e di stagione (暗動): la sede vince. n 146 · 58,2% · z 2,0 · 2020-22 62% (60), 2023-26 56% (86) · n per z4 ~600.
+  Gia' nel metodo del trend per la sede clashata dal giorno che si sveglia (USDJPY 24/07/2023).
+- A5b l'anno combina e controlla la sede: la sede perde. n 230 · 56,5% · z 2,0 · 54% (78), 58% (152) · n per z4 ~950.
+- (contro) M2b la sede in 帝旺/臨官 nel mese vince: 46,6% su 872, z -2,0.
+- Il colpo del mese (colpo_mese.js, cablato nel quadro LY: 58,6% su 307) nel quadro del trend fa 50,8%.

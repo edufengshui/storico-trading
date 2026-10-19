@@ -2,7 +2,8 @@
 // questi quattro fattori (ora, giorno, mese e anno) all'interno del sistema" · "Va bene, vai" (si parte dal mese).
 // Metodo: ogni ipotesi viene dalla dottrina ed e' scritta PRIMA di misurare, con il verso che la dottrina prevede.
 // Si misura su TUTTE le carte insieme (non forma per forma), con la domanda del LY: vince lo Shi o la Ying?
-// (Shi in alto e lo Shi vince -> alto). Ogni ipotesi: n, % in cui la dottrina ha ragione, z, i due periodi.
+// (Shi in alto e lo Shi vince -> alto). Con TREND=1 (Edu, 19/10/2026: "Hai usato il sistema trend?") la domanda e' quella
+// del metodo del trend: Shi = trend, Ying = contro-trend; "vince lo Shi" = la carta segue il trend del suo cross. Ogni ipotesi: n, % in cui la dottrina ha ragione, z, i due periodi.
 // Uso: node tavola_data.js [pilastro: mese|giorno|ora|anno, default mese] [dump, default /tmp/tresist.json]
 const D = __dirname; global.window = global; const lj = require(D + '/node_modules/lunar-javascript'); global.Solar = lj.Solar; global.Lunar = lj.Lunar;
 const LYM = require(D + '/liuyao.js'), IV = require(D + '/inventario_carta.js'), fs = require('fs');
@@ -28,7 +29,7 @@ for (const r of JSON.parse(fs.readFileSync(DUMP, 'utf8')).filter(r => Math.abs(r
   const ms = ST[((ST.indexOf(yp[0]) % 5) * 2 + 2 + ((BR.indexOf(r.mese) + 10) % 12)) % 10], hs = ST[(ST.indexOf(WUSHU[r.stelo]) + BR.indexOf(R.oraBranch)) % 10];
   const inv = IV.inventario(R, { dayBranch: r.ramo, monthBranch: r.mese, yearBranch: yp[1], oraBranch: R.oraBranch, dayStem: r.stelo, yearStem: yp[0], monthStem: ms, hourStem: hs, emaDir: r.ema });
   const shiAlto = R.shi >= 4;
-  carte.push({ R, inv, date: r.date, mese: r.mese, giorno: r.ramo, stelo: r.stelo, steloOra: hs, steloAnno: yp[0], ora: R.oraBranch, anno: yp[1], vinceShi: (r.move > 0) === shiAlto, move: Math.abs(r.move),
+  carte.push({ R, inv, date: r.date, mese: r.mese, giorno: r.ramo, stelo: r.stelo, steloOra: hs, steloAnno: yp[0], ora: R.oraBranch, anno: yp[1], vinceShi: process.env.TREND ? ((r.move > 0) === (r.ema === 'up')) : ((r.move > 0) === shiAlto), move: Math.abs(r.move),
     triS: shiAlto ? R.sup : R.inf, triY: shiAlto ? R.inf : R.sup });
 }
 // ogni ipotesi: f(carta) -> 'S' (la dottrina dice: vince lo Shi), 'Y', oppure null (non si applica)
@@ -157,9 +158,9 @@ if (PIL === 'ora' || PIL === 'anno') {
   }
 }
 const base = carte.filter(c => c.vinceShi).length / carte.length;
-console.log('TAVOLA DELLA DATA — pilastro: ' + PIL.toUpperCase() + ' · ' + carte.length + ' carte >= 20 pip · lo Shi vince il ' + (100 * base).toFixed(1) + '%');
+console.log('TAVOLA DELLA DATA' + (process.env.TREND ? ' (METODO DEL TREND: S = trend)' : ' (LY: S alto/basso)') + ' — pilastro: ' + PIL.toUpperCase() + ' · ' + carte.length + ' carte >= 20 pip · lo Shi vince il ' + (100 * base).toFixed(1) + '%');
 console.log('ipotesi della dottrina'.padEnd(78) + '    n  giusta     z   2020-22    2023-26');
 tav.forEach(t => console.log(t.nome.padEnd(78) + String(t.n).padStart(5) + (100 * t.a).toFixed(1).padStart(7) + '%' + t.z.toFixed(1).padStart(6) +
   ((t.p1 != null ? (100 * t.p1).toFixed(0) + '%' : '-') + ' (' + t.n1 + ')').padStart(11) + ((t.p2 != null ? (100 * t.p2).toFixed(0) + '%' : '-') + ' (' + t.n2 + ')').padStart(11)));
 fs.writeFileSync('/tmp/tavola_' + PIL + '.json', JSON.stringify(tav, null, 1));
-fs.writeFileSync('/tmp/pred_' + PIL + '.json', JSON.stringify(carte.map((c, i) => ({ k: c.date + ' ' + c.R.sup + c.R.inf + c.R.shi, date: c.date, vinceShi: c.vinceShi, p: PRED[i] }))));
+fs.writeFileSync('/tmp/pred_' + (process.env.TREND ? 'trend_' : '') + PIL + '.json', JSON.stringify(carte.map((c, i) => ({ k: c.date + ' ' + c.R.sup + c.R.inf + c.R.shi, date: c.date, vinceShi: c.vinceShi, p: PRED[i] }))));

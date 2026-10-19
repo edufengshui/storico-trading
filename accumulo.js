@@ -3,7 +3,7 @@
 // contano, su tutte le ipotesi della tavola della data (mese, giorno, ora, anno; nessun peso stimato dai dati), le
 // condizioni che danno la vittoria allo Shi meno quelle che la danno alla Ying. Se l'accumulo conta, piu' grande e' lo
 // scarto, piu' spesso vince il lato indicato. Prima: node tavola_data.js mese|giorno|ora|anno.
-const P = ['mese', 'giorno', 'ora', 'anno'].map(p => require('/tmp/pred_' + p + '.json'));
+const P = ['mese', 'giorno', 'ora', 'anno'].map(p => require('/tmp/pred_' + (process.env.TREND ? 'trend_' : '') + p + '.json'));
 const rows = P[0].map((c, i) => { const all = P.flatMap(x => x[i].p); const s = all.filter(v => v === 'S').length - all.filter(v => v === 'Y').length; return { s, date: c.date, vinceShi: c.vinceShi, n: all.length }; });
 console.log('condizioni per carta in media: ' + (rows.reduce((a, r) => a + r.n, 0) / rows.length).toFixed(1));
 const bins = [[0, 0], [1, 1], [2, 2], [3, 3], [4, 5], [6, 99]];

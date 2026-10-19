@@ -191,6 +191,12 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
 - ACCUMULO (accumulo.js, principio di Edu 07/09 "e' l'accumulo a determinare il risultato, uno scalino sulla soglia"):
   condizioni per S meno condizioni per Y su tutte le ipotesi, senza pesi. Scarto 1: 50%, 2: 57%, 3: 49%, 4-5: 51%, 6+: 50,7%
   su 1.361. Nessuno scalino. Detto a Edu.
+- TAVOLA NEL QUADRO DEL TREND (Edu: "Hai usato il sistema trend per queste carte?"; TREND=1 node tavola_data.js ...):
+  stessa carta stesso giorno su cross diversi: stesso esito rispetto al trend 67% su 52 coppie (col LY 42%). Coppie della
+  stessa forma per elementi della data in comune: 48,5 / 49,6 / 50,4 / 51,1 / 53,7 (374) / 57,9% (19) -> leggera salita
+  (con carte diverse, 3 in comune: 53,3%). Su 71 ipotesi 3 a |z| 2,0: G1 il giorno clasha la sede ferma piena di stagione,
+  vince 58,2% su 146; l'anno combina e controlla la sede, perde 56,5% su 230; (contro) M2b 46,6%. In CANDIDATI_OSSERVAZIONE.md.
+  Colpo del mese nel quadro del trend 50,8%. Accumulo: scarto 1: 47%, 2: 46%, 3: 54%, 4-5: 52%, 6+: 49% (1.361). Nessuno scalino.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
