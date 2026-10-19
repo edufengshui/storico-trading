@@ -70,6 +70,19 @@ if (PIL === 'mese') {
   const colpita = (L, c) => (L.bestie || []).some(b => b.pilastro === 'mese' && b.rel === 'controlla') || (COMB[c.mese] === L.ramo && KE[WX[c.mese]] === L.el);
   ipotesi('M9 il mese colpisce la sede (bestia che la controlla o 六合+controllo): perde', c => { const l = lato(L => colpita(L, c), c); return l === 'S' ? 'Y' : l === 'Y' ? 'S' : null; });
   ipotesi('M9b ... e la sede colpita e\' fuori stagione', c => { const l = lato(L => colpita(L, c) && !['旺','相'].includes(stg(L.el, c.mese)), c); return l === 'S' ? 'Y' : l === 'Y' ? 'S' : null; });
+  // M10 (domanda di Edu, 19/10/2026: "Il mese clasha Y o S, e che succede?"). Dottrina: "anno e mese NON hanno la forza
+  // di clashare una linea: solo il giorno" -> la dottrina prevede NESSUN effetto. Il LY classico (月破) prevede che perda.
+  const CLM = { '子':'午','午':'子','丑':'未','未':'丑','寅':'申','申':'寅','卯':'酉','酉':'卯','辰':'戌','戌':'辰','巳':'亥','亥':'巳' };
+  const neg = l => l === 'S' ? 'Y' : l === 'Y' ? 'S' : null;
+  ipotesi('M10 il mese clasha una sede: la sede clashata perde (月破)', c => neg(lato(L => CLM[c.mese] === L.ramo, c)));
+  ipotesi('M10a ... sede clashata dal mese e ferma', c => neg(lato(L => CLM[c.mese] === L.ramo && !L.muove, c)));
+  ipotesi('M10b ... sede clashata dal mese e mobile', c => neg(lato(L => CLM[c.mese] === L.ramo && !!L.muove, c)));
+  ipotesi('M10c ... sede clashata dal mese e anche dal giorno', c => neg(lato(L => CLM[c.mese] === L.ramo && CLM[c.giorno] === L.ramo, c)));
+  ipotesi('M10d ... sede clashata dal mese, sostenuta dal giorno (stesso o genera)', c => neg(lato(L => CLM[c.mese] === L.ramo && L.giornoSostiene, c)));
+  ipotesi('M10e ... sede clashata dal mese e vuota', c => neg(lato(L => CLM[c.mese] === L.ramo && L.vuoto, c)));
+  ipotesi('M10f ... sede clashata dal mese e la bestia del mese cade su di lei', c => neg(lato(L => CLM[c.mese] === L.ramo && (L.bestie || []).some(b => b.pilastro === 'mese'), c)));
+  ipotesi('M10g il mese clasha l\'arrivo della mobile: la sede della mobile perde', c => { const m = c.inv.movimenti.find(z => z.tipo === 'mobile'); if (!m || CLM[c.mese] !== m.arr) return null;
+    const L = c.inv.linee[m.pos - 1]; return L.campo === 'S' ? 'Y' : L.campo === 'Y' ? 'S' : null; });
   // M7 forza stagionale dei TRIGRAMMI (tabella di Edu): il trigramma della sede forte nel mese, l'altro no
   ipotesi('M7 il trigramma forte nel mese (tabella di Edu) vince', c => { const t = TRIFORTE[c.mese]; const s = t.includes(c.triS), y = t.includes(c.triY); return s && !y ? 'S' : y && !s ? 'Y' : null; });
   // M8 "la forza nel mese decide se il colpo riesce": la mobile (non sede) che controlla una sede col suo arrivo

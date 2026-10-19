@@ -178,6 +178,8 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   la controlla, o 六合 + controllo) -> la sede perde: M9 307 carte 58,6% z 3,0, 59% in tutti e due i periodi (LY sulle
   stesse 52,6%; in disaccordo col LY 136 carte, M9 56,6%; ago-ott 2026 10/15). La bestia del mese che AIUTA: 50,7%.
   M9 nata dopo aver visto M5 e M6b: da confermare su carte nuove. Prossimo: giorno, poi ora, poi anno.
+  M10 (Edu: 'il mese clasha Y o S, e che succede?'): niente, 601 carte 49,8% (ferma 48%, mobile 53%, anche dal giorno 52%);
+  il mese che clasha l'arrivo della mobile 54,6% su 293 (z 1,6). Conferma 'anno e mese non clashano, solo il giorno'.
 - Raccolta notturna: il report del giorno si fa una volta (il weekend riscriveva il venerdi'); ripristinato il 16/10.
 
 ## PUNTI APERTI (oltre a quelli del S56)
