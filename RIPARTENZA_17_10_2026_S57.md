@@ -248,6 +248,11 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   ovvio che non puo' cambiare trend" (il MESE Chou combina Zi e clasha Wei) - segnalato il conflitto con "anno e mese non
   clashano" (09/09) e "il mese che combina non ferma la mobile" (13/10). Misura col movimento libero (dal giorno, o giorno+mese):
   arrivo che controlla -> opposto 50,8-51,0% su 310-413; bloccato -> segue 47,8-48,4%. Nessun effetto.
+- METODO SEMPLIFICATO (Edu 20/10: "metodo semplificato in cui non conosciamo le regole complete" · "prendi la mia ultima
+  correzione come prima regola"): metodo_semplificato.js. R1 = movimento bloccato (partenza o arrivo combinati/clashati dal
+  giorno o dal mese) -> non cambia il trend, segue: 49,6% su 1.646 (base: il trend segue il 48,6%); solo dal giorno 50,0% su 1.005;
+  dal 08/09/26 63,2% su 38 (trend 58%). In prova: movimento libero, arrivo contro -> opposto 51,5% su 557; arrivo che sostiene ->
+  segue 47,0% su 491. Totale 49,6% su 2.694. Le regole successive le detta Edu, una alla volta.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
