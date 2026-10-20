@@ -9,6 +9,8 @@
 //   e' Wu e il giorno e' Xu" · "il potenziale ritiro della linea ci fa comunque capire che il trend non tiene"): se la mobile
 //   non ha sostegno (nessuna linea non vuota che la genera, ne' mese ne' giorno che la generano o sono del suo elemento) ->
 //   il trend non tiene, opposto al trend.
+//   REGOLA 3 (Edu, 20/10/2026, GBPUSD 20/03/2023 s121: "Se l'arrivo e' vuoto esiste solo la partenza quindi il trend rimane lo
+//   stesso"): arrivo vuoto -> segue il trend. Viene prima della regola 2. Misura: 546 carte, 47,1% (2020-23 46,3%, 2024-26 48,1%).
 //   (in prova, non ancora regola) se il movimento si compie: l'arrivo che va contro la partenza (controlla, clash, 害) -> finisce
 //   all'opposto del trend; l'arrivo che la sostiene (genera, stesso elemento, 合) -> segue.
 // Uso: node metodo_semplificato.js [dump]
@@ -23,6 +25,7 @@ function leggi(d, a, giorno, mese, R) {
   const tocca = (b, x) => HE[x] === b || CL[x] === b;   // x combina o clasha b
   const fermo = [giorno, mese].some(x => tocca(d, x) || tocca(a, x));
   if (fermo) return { segue: true, regola: 'R1 movimento bloccato (partenza o arrivo combinati/clashati dal giorno o dal mese): non cambia il trend' };
+  if (R && (R.vuoti || []).indexOf(a) >= 0) return { segue: true, regola: 'R3 arrivo vuoto: esiste solo la partenza, il trend rimane lo stesso' };
   if (R && R.linee) { const e = WX[d], vuoti = R.vuoti || [], pos = R.mutante && R.mutante.pos;
     const daLinee = R.linee.some(L => L.pos !== pos && GEN[WX[L.ramo]] === e && !vuoti.includes(L.ramo));
     if (!daLinee && WX[mese] !== e && GEN[WX[mese]] !== e && WX[giorno] !== e && GEN[WX[giorno]] !== e)

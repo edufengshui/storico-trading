@@ -294,3 +294,6 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   nell'app, ultimo gradino della piramide DLR dopo CM. localStorage SENZA_SEMP=1 lo toglie (misura_vivo: env SENZA_SEMP=1).
   Caricato in index.html, sw.js (cache v72), raccolta_notturna.js; riga "metodo semplificato da solo" in misura_vivo.
 - Dal vivo 29/09-20/10: piramide con SEMP 94 trade · 73% · +2.044; senza 90 · 77% · +2.098 (il gradino SEMP: 4 trade, 0 vinti, -54).
+- REGOLA 3 del semplificato (Edu, 20/10, GBPUSD 20/03/2023): arrivo vuoto -> esiste solo la partenza, il trend rimane (segue).
+  Ordine R1 -> R3 -> R2 -> P. Arrivo vuoto: 546 carte, segue 47,1% (stabile nei due periodi). carta_auto.js SOLOMOBILE=1
+  (Edu: "lascia solo la linea originaria") per le carte del semplificato.
