@@ -10,7 +10,8 @@ const COD={'子':'z','丑':'c','寅':'y','卯':'m','辰':'cn','巳':'si','午':'
 const ST={'甲':'Jia','乙':'Yi','丙':'Bing','丁':'Ding','戊':'Wu','己':'Ji','庚':'Geng','辛':'Xin','壬':'Ren','癸':'Gui'};
 const STL=Object.keys(ST), BRL=Object.keys(COD);
 const mS=STL[((STL.indexOf(yS)%5)*2+2+((BRL.indexOf(mB)+10)%12))%10];
-const muove=[R.mutante.pos].concat(R.incompatibili||[]);
+// SOLOMOBILE=1 (Edu 20/10/2026, metodo semplificato: "Le linee inconcludenti le possiamo togliere, lascia solo la linea originaria")
+const muove=[R.mutante.pos].concat(process.env.SOLOMOBILE==='1'?[]:(R.incompatibili||[]));
 const t=R.linee.map(L=>muove.includes(L.pos)?(L.yang?'O':'X'):(L.yang?'-':'- -'));
 console.log('incompatibili:',(R.incompatibili||[]).join(',')||'nessuna');
 execFileSync('node',[__dirname+'/carta_grafica.js',out,tit,dataISO,COD[yB],ST[yS],COD[mB],ST[mS],COD[dB],ST[dS],seed,...t],{stdio:'inherit'});
