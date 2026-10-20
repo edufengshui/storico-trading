@@ -1656,7 +1656,8 @@
    "fiducia": "media",
    "voci": "PB SHORT · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 SHORT (T1 sostituzione) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend segue (+2, LONG) · Sistema D SHORT (7/8 L6: Se Ying sostenuto dal giorno → NON SEGUE il trend (5/6); altrimenti SEGUE (4/6) · casi giusti 9/12 · oggi il tratto c'e': non segue il trend) · Sistema LY per forma SHORT (7/8 L6: Se Ying di stagione → ALTO (4/6); altrimenti BASSO (5/6) · casi giusti 9/12 · oggi il tratto non c'e': basso) · Sistema PB per forma SHORT (7/8 L6: Se il giorno controlla il Trend → NON SEGUE il trend (5/6); altrimenti SEGUE (4/6) · casi giusti 9/12 · oggi il tratto c'e': non segue il trend) · Sistema DLR per forma LONG (POOW: Se R1 piu' forte di R3 nel mese → ALTO (2/3); altrimenti BASSO (2/2) · casi giusti 4/5 · oggi il tratto c'e': alto)",
    "dlrVia": "il pari su R1",
-   "esito": null
+   "esito": -5,
+   "auto": true
   },
   {
    "cross": "EURJPY",
@@ -1674,7 +1675,8 @@
    "fiducia": "bassa",
    "voci": "PB SHORT · LY LONG · attuale SHORT · DLR SHORT · Lettura S47 LONG (T0k0 l'arrivo incompatibile agisce fuori) · Spirito SHORT · stelo tace · Sistema-trend non segue (-2, LONG) · Metodo del trend non segue (-1, LONG) · Sistema D SHORT (6/1 L4: Se Shi fuori stagione → NON SEGUE il trend (2/3); altrimenti SEGUE (4/4) · casi giusti 6/7 · oggi il tratto non c'e': segue il trend) · Sistema LY per forma SHORT (6/1 L4: Se Shi sostenuto dal giorno → ALTO (2/4); altrimenti BASSO (3/3) · casi giusti 5/7 · oggi il tratto non c'e': basso) · Sistema PB per forma SHORT (6/1 L4: Se lo stelo del giorno ha lo stesso elemento del Trend → NON SEGUE il trend (2/2); altrimenti SEGUE (5/5) · casi giusti 7/7 · oggi il tratto non c'e': segue il trend) · Sistema DLR per forma tace (CWCB senza regola)",
    "dlrVia": "la catena scorre nella tomba",
-   "esito": null
+   "esito": -57,
+   "auto": true
   },
   {
    "cross": "EURGBP",
@@ -1692,7 +1694,8 @@
    "fiducia": "alta",
    "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 tace (tace) · Spirito tace · stelo tace · Sistema-trend non segue (-2, LONG) · Metodo del trend non segue (-1, LONG) · Sistema D LONG (2/4 L3: Se Shi in crescita (相) → SEGUE il trend (4/4); altrimenti NON SEGUE (8/11) · casi giusti 12/15 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma LONG (2/4 L3: Se Shi in crescita (相) → BASSO (4/4); altrimenti ALTO (9/11) · casi giusti 13/15 · oggi il tratto non c'e': alto) · Sistema PB per forma LONG (2/4 L3: Se Trend morto (死) → SEGUE il trend (4/4); altrimenti NON SEGUE (8/11) · casi giusti 12/15 · oggi il tratto non c'e': non segue il trend) · Sistema DLR per forma tace (CPCG senza regola)",
    "dlrVia": "R2 al posto di R1 vuoto",
-   "esito": null
+   "esito": 9,
+   "auto": true
   },
   {
    "cross": "EURUSD",
@@ -1710,7 +1713,8 @@
    "fiducia": "media",
    "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T8 Shi contro Ying) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend tace · Sistema D LONG (6/8 L5: Se Ying Tai Sui → SEGUE il trend (2/3); altrimenti NON SEGUE (5/6) · casi giusti 7/9 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma tace (6/8 L5 senza regola) · Sistema PB per forma SHORT (6/8 L5: Se l'anno ha lo stesso elemento del Trend → NON SEGUE il trend (4/4); altrimenti SEGUE (3/5) · casi giusti 7/9 · oggi il tratto non c'e': segue il trend) · Sistema DLR per forma LONG (BCPC: Se Cielo Vuoto (天空) sopra l'ora → BASSO (3/4); altrimenti ALTO (7/8) · casi giusti 10/12 · oggi il tratto non c'e': alto)",
    "dlrVia": "B su R1 legato in 六合",
-   "esito": null
+   "esito": -11,
+   "auto": true
   },
   {
    "cross": "USDJPY",
@@ -1728,6 +1732,117 @@
    "fiducia": "bassa",
    "voci": "PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 LONG (T0y la sede presa si muove) · Spirito LONG · stelo tace · Sistema-trend segue (+2, SHORT) · Metodo del trend non segue (-1, LONG) · Sistema D SHORT (3/5 L5: Se Shi: il mese stesso ramo → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3) · casi giusti 4/5 · oggi il tratto non c'e': segue il trend) · Sistema LY per forma LONG (3/5 L5: Se L1 vuota → BASSO (2/2); altrimenti ALTO (2/3) · casi giusti 4/5 · oggi il tratto non c'e': alto) · Sistema PB per forma SHORT (3/5 L5: Se ora vuota → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3) · casi giusti 4/5 · oggi il tratto non c'e': segue il trend) · Sistema DLR per forma tace (WCBC senza regola)",
    "dlrVia": "la coppia R1/R2",
+   "esito": 65,
+   "auto": true
+  }
+ ],
+ "2026-10-20": [
+  {
+   "cross": "EURGBP",
+   "signal": "LONG",
+   "trend": "SHORT",
+   "segue": false,
+   "decisore": "Livello 3 · sistema D, sistema LY per forma, sistema PB per forma concordano · PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0t il B genera la C) · Spirito tace · stelo tace · Sistema-trend non segue (-2, LONG) · Metodo del trend tace · Sistema D LONG (2/4 L4: Se Shi vuoto → SEGUE il trend (1/2); altrimenti NON SEGUE (7/9) · casi giusti 8/11 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma LONG (2/4 L4: Se Shi in piena stagione (旺) → ALTO (5/6); altrimenti BASSO (4/5) · casi giusti 9/11 · oggi il tratto c'e': alto) · Sistema PB per forma LONG (2/4 L4: Se l'anno ha lo stesso elemento del Trend → SEGUE il trend (2/4); altrimenti NON SEGUE (6/7) · casi giusti 8/11 · oggi il tratto non c'e': non segue il trend) · Colpo del mese tace · Sistema DLR per forma tace (OBWC senza regola)",
+   "seed": 84,
+   "sup": 2,
+   "inf": 4,
+   "linea": 4,
+   "bazi": "丙午 戌 丁卯",
+   "livello": "3",
+   "cantina": false,
+   "fiducia": "alta",
+   "voci": "PB LONG · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0t il B genera la C) · Spirito tace · stelo tace · Sistema-trend non segue (-2, LONG) · Metodo del trend tace · Sistema D LONG (2/4 L4: Se Shi vuoto → SEGUE il trend (1/2); altrimenti NON SEGUE (7/9) · casi giusti 8/11 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma LONG (2/4 L4: Se Shi in piena stagione (旺) → ALTO (5/6); altrimenti BASSO (4/5) · casi giusti 9/11 · oggi il tratto c'e': alto) · Sistema PB per forma LONG (2/4 L4: Se l'anno ha lo stesso elemento del Trend → SEGUE il trend (2/4); altrimenti NON SEGUE (6/7) · casi giusti 8/11 · oggi il tratto non c'e': non segue il trend) · Colpo del mese tace · Sistema DLR per forma tace (OBWC senza regola)",
+   "dlrVia": "R1 genera il ramo del giorno",
+   "esito": null
+  },
+  {
+   "cross": "AUDUSD",
+   "signal": "LONG",
+   "trend": "LONG",
+   "segue": true,
+   "decisore": "Livello 4 · sistema D, sistema PB per forma, sistema DLR per forma concordano · PB LONG · LY tace · attuale LONG · DLR LONG · Lettura S47 SHORT (T0g3 la mobile generata indietro) · Spirito tace · stelo tace · Sistema-trend segue (+1, LONG) · Metodo del trend segue (+1, LONG) · Sistema D LONG (8/5 L5: Se Shi: l'ora combina → NON SEGUE il trend (6/7); altrimenti SEGUE (2/3) · casi giusti 8/10 · oggi il tratto non c'e': segue il trend) · Sistema LY per forma SHORT (8/5 L5: Se Shi prigioniero (囚) → ALTO (2/4); altrimenti BASSO (6/6) · casi giusti 8/10 · oggi il tratto non c'e': basso) · Sistema PB per forma LONG (8/5 L5: Se lo stelo del giorno drena il Trend → SEGUE il trend (2/2); altrimenti NON SEGUE (7/8) · casi giusti 9/10 · oggi il tratto c'e': segue il trend) · Colpo del mese tace · Sistema DLR per forma LONG (PGGC: Se l'anno e' controllato da R1 (testa dell'Host) → BASSO (2/3); altrimenti ALTO (2/2) · casi giusti 4/5 · oggi il tratto non c'e': alto)",
+   "seed": 69,
+   "sup": 8,
+   "inf": 5,
+   "linea": 5,
+   "bazi": "丙午 戌 丁卯",
+   "livello": "4",
+   "cantina": false,
+   "fiducia": "alta",
+   "voci": "PB LONG · LY tace · attuale LONG · DLR LONG · Lettura S47 SHORT (T0g3 la mobile generata indietro) · Spirito tace · stelo tace · Sistema-trend segue (+1, LONG) · Metodo del trend segue (+1, LONG) · Sistema D LONG (8/5 L5: Se Shi: l'ora combina → NON SEGUE il trend (6/7); altrimenti SEGUE (2/3) · casi giusti 8/10 · oggi il tratto non c'e': segue il trend) · Sistema LY per forma SHORT (8/5 L5: Se Shi prigioniero (囚) → ALTO (2/4); altrimenti BASSO (6/6) · casi giusti 8/10 · oggi il tratto non c'e': basso) · Sistema PB per forma LONG (8/5 L5: Se lo stelo del giorno drena il Trend → SEGUE il trend (2/2); altrimenti NON SEGUE (7/8) · casi giusti 9/10 · oggi il tratto c'e': segue il trend) · Colpo del mese tace · Sistema DLR per forma LONG (PGGC: Se l'anno e' controllato da R1 (testa dell'Host) → BASSO (2/3); altrimenti ALTO (2/2) · casi giusti 4/5 · oggi il tratto non c'e': alto)",
+   "dlrVia": "il pari su R1",
+   "esito": null
+  },
+  {
+   "cross": "USDJPY",
+   "signal": "LONG",
+   "trend": "LONG",
+   "segue": true,
+   "decisore": "Livello 5 · Da Liu Ren, sistema LY per forma, sistema DLR per forma concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0k la sede raggiunge una linea) · Spirito SHORT · stelo tace · Sistema-trend segue (+3, LONG) · Metodo del trend segue (+1, LONG) · Sistema D SHORT (3/6 L1: Se Shi fuori stagione → NON SEGUE il trend (4/4); altrimenti SEGUE (2/3) · casi giusti 6/7 · oggi il tratto c'e': non segue il trend) · Sistema LY per forma LONG (3/6 L1: Se Shi sostenuto dal giorno → ALTO (4/5); altrimenti BASSO (2/2) · casi giusti 6/7 · oggi il tratto c'e': alto) · Sistema PB per forma SHORT (3/6 L1: Se Trend a riposo (休) → NON SEGUE il trend (3/3); altrimenti SEGUE (2/4) · casi giusti 5/7 · oggi il tratto c'e': non segue il trend) · Colpo del mese tace · Sistema DLR per forma LONG (CCBW: Se R3 piu' forte di R1 nel mese → BASSO (2/2); altrimenti ALTO (2/4) · casi giusti 4/6 · oggi il tratto non c'e': alto)",
+   "seed": 158,
+   "sup": 3,
+   "inf": 6,
+   "linea": 1,
+   "bazi": "丙午 戌 丁卯",
+   "livello": "5",
+   "cantina": false,
+   "fiducia": "alta",
+   "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T0k la sede raggiunge una linea) · Spirito SHORT · stelo tace · Sistema-trend segue (+3, LONG) · Metodo del trend segue (+1, LONG) · Sistema D SHORT (3/6 L1: Se Shi fuori stagione → NON SEGUE il trend (4/4); altrimenti SEGUE (2/3) · casi giusti 6/7 · oggi il tratto c'e': non segue il trend) · Sistema LY per forma LONG (3/6 L1: Se Shi sostenuto dal giorno → ALTO (4/5); altrimenti BASSO (2/2) · casi giusti 6/7 · oggi il tratto c'e': alto) · Sistema PB per forma SHORT (3/6 L1: Se Trend a riposo (休) → NON SEGUE il trend (3/3); altrimenti SEGUE (2/4) · casi giusti 5/7 · oggi il tratto c'e': non segue il trend) · Colpo del mese tace · Sistema DLR per forma LONG (CCBW: Se R3 piu' forte di R1 nel mese → BASSO (2/2); altrimenti ALTO (2/4) · casi giusti 4/6 · oggi il tratto non c'e': alto)",
+   "dlrVia": "W sul primo messaggio",
+   "esito": null
+  },
+  {
+   "cross": "EURUSD",
+   "signal": "SHORT",
+   "trend": "SHORT",
+   "segue": true,
+   "decisore": "Livello 6 · sistema LY per forma, sistema DLR per forma concordano · PB SHORT · LY LONG · attuale SHORT · DLR LONG · Lettura S47 SHORT (T5 le tre porte) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend segue (+1, SHORT) · Sistema D LONG (6/8 L6: Se Shi sostenuto dal giorno → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3) · casi giusti 4/5 · oggi il tratto c'e': non segue il trend) · Sistema LY per forma SHORT (6/8 L6: Se Shi sostenuto dal giorno → BASSO (2/2); altrimenti ALTO (3/3) · casi giusti 5/5 · oggi il tratto c'e': basso) · Sistema PB per forma LONG (6/8 L6: Se il giorno controlla il Trend → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3) · casi giusti 4/5 · oggi il tratto c'e': non segue il trend) · Colpo del mese tace · Sistema DLR per forma SHORT (WWCB: Se R1 piu' forte di R3 nel mese → ALTO (6/6); altrimenti BASSO (2/2) · casi giusti 8/8 · oggi il tratto non c'e': basso)",
+   "seed": 112,
+   "sup": 6,
+   "inf": 8,
+   "linea": 6,
+   "bazi": "丙午 戌 丁卯",
+   "livello": "6",
+   "cantina": false,
+   "fiducia": "media",
+   "voci": "PB SHORT · LY LONG · attuale SHORT · DLR LONG · Lettura S47 SHORT (T5 le tre porte) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend segue (+1, SHORT) · Sistema D LONG (6/8 L6: Se Shi sostenuto dal giorno → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3) · casi giusti 4/5 · oggi il tratto c'e': non segue il trend) · Sistema LY per forma SHORT (6/8 L6: Se Shi sostenuto dal giorno → BASSO (2/2); altrimenti ALTO (3/3) · casi giusti 5/5 · oggi il tratto c'e': basso) · Sistema PB per forma LONG (6/8 L6: Se il giorno controlla il Trend → NON SEGUE il trend (2/2); altrimenti SEGUE (2/3) · casi giusti 4/5 · oggi il tratto c'e': non segue il trend) · Colpo del mese tace · Sistema DLR per forma SHORT (WWCB: Se R1 piu' forte di R3 nel mese → ALTO (6/6); altrimenti BASSO (2/2) · casi giusti 8/8 · oggi il tratto non c'e': basso)",
+   "dlrVia": "la coppia R1/R2",
+   "esito": null
+  },
+  {
+   "cross": "EURJPY",
+   "signal": "LONG",
+   "trend": "LONG",
+   "segue": true,
+   "decisore": "Livello 8 · Liu Yao, sistema DLR per forma concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0k0 l'arrivo incompatibile agisce fuori) · Spirito tace · stelo tace · Sistema-trend segue (+2, LONG) · Metodo del trend non segue (-1, SHORT) · Sistema D SHORT (6/1 L5: Se L6 vuota → SEGUE il trend (2/2); altrimenti NON SEGUE (5/6) · casi giusti 7/8 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma tace (6/1 L5 senza regola) · Sistema PB per forma SHORT (6/1 L5: Se lo stelo del giorno ha lo stesso elemento del Trend → SEGUE il trend (2/3); altrimenti NON SEGUE (4/5) · casi giusti 6/8 · oggi il tratto non c'e': non segue il trend) · Colpo del mese tace · Sistema DLR per forma LONG (PGGC: Se l'anno e' controllato da R1 (testa dell'Host) → BASSO (2/3); altrimenti ALTO (2/2) · casi giusti 4/5 · oggi il tratto non c'e': alto)",
+   "seed": 177,
+   "sup": 6,
+   "inf": 1,
+   "linea": 5,
+   "bazi": "丙午 戌 丁卯",
+   "livello": "8",
+   "cantina": false,
+   "fiducia": "alta",
+   "voci": "PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 LONG (T0k0 l'arrivo incompatibile agisce fuori) · Spirito tace · stelo tace · Sistema-trend segue (+2, LONG) · Metodo del trend non segue (-1, SHORT) · Sistema D SHORT (6/1 L5: Se L6 vuota → SEGUE il trend (2/2); altrimenti NON SEGUE (5/6) · casi giusti 7/8 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma tace (6/1 L5 senza regola) · Sistema PB per forma SHORT (6/1 L5: Se lo stelo del giorno ha lo stesso elemento del Trend → SEGUE il trend (2/3); altrimenti NON SEGUE (4/5) · casi giusti 6/8 · oggi il tratto non c'e': non segue il trend) · Colpo del mese tace · Sistema DLR per forma LONG (PGGC: Se l'anno e' controllato da R1 (testa dell'Host) → BASSO (2/3); altrimenti ALTO (2/2) · casi giusti 4/5 · oggi il tratto non c'e': alto)",
+   "dlrVia": "il pari su R1",
+   "esito": null
+  },
+  {
+   "cross": "USDCAD",
+   "signal": "SHORT",
+   "trend": "SHORT",
+   "segue": true,
+   "decisore": "Livello 10 · Liu Yao, sistema attuale, Lettura S47 concordano · PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 SHORT (T4 il giorno tiene) · Spirito tace · stelo tace · Sistema-trend non segue (-2, LONG) · Metodo del trend non segue (-1, LONG) · Sistema D LONG (1/5 L4: Se Shi Tai Sui → SEGUE il trend (2/4); altrimenti NON SEGUE (5/6) · casi giusti 7/10 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma SHORT (1/5 L4: Se Shi morto (死) → ALTO (3/3); altrimenti BASSO (6/7) · casi giusti 9/10 · oggi il tratto non c'e': basso) · Sistema PB per forma SHORT (1/5 L4: Se il giorno ha lo stesso elemento del Trend → SEGUE il trend (2/4); altrimenti NON SEGUE (5/6) · casi giusti 7/10 · oggi il tratto c'e': segue il trend) · Colpo del mese tace · Sistema DLR per forma LONG (PGGC: Se l'anno e' controllato da R1 (testa dell'Host) → BASSO (2/3); altrimenti ALTO (2/2) · casi giusti 4/5 · oggi il tratto non c'e': alto)",
+   "seed": 141,
+   "sup": 1,
+   "inf": 5,
+   "linea": 4,
+   "bazi": "丙午 戌 丁卯",
+   "livello": "10",
+   "cantina": false,
+   "fiducia": "bassa",
+   "voci": "PB LONG · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 SHORT (T4 il giorno tiene) · Spirito tace · stelo tace · Sistema-trend non segue (-2, LONG) · Metodo del trend non segue (-1, LONG) · Sistema D LONG (1/5 L4: Se Shi Tai Sui → SEGUE il trend (2/4); altrimenti NON SEGUE (5/6) · casi giusti 7/10 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma SHORT (1/5 L4: Se Shi morto (死) → ALTO (3/3); altrimenti BASSO (6/7) · casi giusti 9/10 · oggi il tratto non c'e': basso) · Sistema PB per forma SHORT (1/5 L4: Se il giorno ha lo stesso elemento del Trend → SEGUE il trend (2/4); altrimenti NON SEGUE (5/6) · casi giusti 7/10 · oggi il tratto c'e': segue il trend) · Colpo del mese tace · Sistema DLR per forma LONG (PGGC: Se l'anno e' controllato da R1 (testa dell'Host) → BASSO (2/3); altrimenti ALTO (2/2) · casi giusti 4/5 · oggi il tratto non c'e': alto)",
+   "dlrVia": "il pari su R1",
    "esito": null
   }
  ]

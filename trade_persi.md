@@ -1,12 +1,12 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-19 05:19 GMT · feed del 2026-10-19 · trade proposti oggi: 5 (NZDUSD SHORT, EURJPY SHORT, EURGBP LONG, EURUSD LONG, USDJPY LONG) · esiti compilati stanotte: 0
+Aggiornato: 2026-10-20 05:17 GMT · feed del 2026-10-20 · trade proposti oggi: 6 (EURGBP LONG, AUDUSD LONG, USDJPY LONG, EURUSD SHORT, EURJPY LONG, USDCAD SHORT) · esiti compilati stanotte: 5
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 49 | 27 | 22 | 55,1% | +375 |
+| **Totale** | 54 | 29 | 25 | 53,7% | +376 |
 | *Scala dal 09/10/2026: A = sistema attuale e DLR concordi · B = PB e LY concordi, DLR tace · C = DLR e Lettura concordi; i trade prima del 09/10 sono tradotti nella scala nuova* | | | | | |
 | Livello A | 28 | 15 | 13 | 53,6% | +150 |
 | Livello B | 6 | 4 | 2 | 66,7% | +162 |
@@ -14,11 +14,38 @@ Aggiornato: 2026-10-19 05:19 GMT · feed del 2026-10-19 · trade proposti oggi: 
 | In cantina, tradato fino all'08/10 (PB, LY e DLR concordi) | 22 | 6 | 16 | 27,3% | -428 |
 | In cantina dal 09/10, non tradato (solo osservato) | 7 | 4 | 3 | 57,1% | -34 |
 | Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
-| Mese 2026-10 | 27 | 12 | 15 | 44,4% | +117 |
+| Mese 2026-10 | 32 | 14 | 18 | 43,8% | +118 |
 
-Trade ancora senza esito: 17. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 16. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
+
+NZDUSD, 2026-10-19
+Trend EMA: LONG
+Il sistema dice: SHORT (non segue il trend)
+Esito: -5 pip
+Seme 56 · superiore 7 · inferiore 8 · mutante L6
+Bazi: 丙午 戌 丙寅
+Livello: 3 · fiducia media · PB SHORT · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 SHORT (T1 sostituzione) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend segue (+2, LONG) · Sistema D SHORT (7/8 L6: Se Ying sostenuto dal giorno → NON SEGUE il trend (5/6); altrimenti SEGUE (4/6) · casi giusti 9/12 · oggi il tratto c'e': non segue il trend) · Sistema LY per forma SHORT (7/8 L6: Se Ying di stagione → ALTO (4/6); altrimenti BASSO (5/6) · casi giusti 9/12 · oggi il tratto non c'e': basso) · Sistema PB per forma SHORT (7/8 L6: Se il giorno controlla il Trend → NON SEGUE il trend (5/6); altrimenti SEGUE (4/6) · casi giusti 9/12 · oggi il tratto c'e': non segue il trend) · Sistema DLR per forma LONG (POOW: Se R1 piu' forte di R3 nel mese → ALTO (2/3); altrimenti BASSO (2/2) · casi giusti 4/5 · oggi il tratto c'e': alto) · via DLR: il pari su R1
+Deciso da: Livello 3 · sistema D, sistema LY per forma, sistema PB per forma concordano · PB SHORT · LY SHORT · attuale SHORT · DLR LONG · Lettura S47 SHORT (T1 sostituzione) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend segue (+2, LONG) · Sistema D SHORT (7/8 L6: Se Ying sostenuto dal giorno → NON SEGUE il trend (5/6); altrimenti SEGUE (4/6) · casi giusti 9/12 · oggi il tratto c'e': non segue il trend) · Sistema LY per forma SHORT (7/8 L6: Se Ying di stagione → ALTO (4/6); altrimenti BASSO (5/6) · casi giusti 9/12 · oggi il tratto non c'e': basso) · Sistema PB per forma SHORT (7/8 L6: Se il giorno controlla il Trend → NON SEGUE il trend (5/6); altrimenti SEGUE (4/6) · casi giusti 9/12 · oggi il tratto c'e': non segue il trend) · Sistema DLR per forma LONG (POOW: Se R1 piu' forte di R3 nel mese → ALTO (2/3); altrimenti BASSO (2/2) · casi giusti 4/5 · oggi il tratto c'e': alto)
+
+EURJPY, 2026-10-19
+Trend EMA: SHORT
+Il sistema dice: SHORT (segue il trend)
+Esito: -57 pip
+Seme 177 · superiore 6 · inferiore 1 · mutante L4
+Bazi: 丙午 戌 丙寅
+Livello: 3 · fiducia bassa · PB SHORT · LY LONG · attuale SHORT · DLR SHORT · Lettura S47 LONG (T0k0 l'arrivo incompatibile agisce fuori) · Spirito SHORT · stelo tace · Sistema-trend non segue (-2, LONG) · Metodo del trend non segue (-1, LONG) · Sistema D SHORT (6/1 L4: Se Shi fuori stagione → NON SEGUE il trend (2/3); altrimenti SEGUE (4/4) · casi giusti 6/7 · oggi il tratto non c'e': segue il trend) · Sistema LY per forma SHORT (6/1 L4: Se Shi sostenuto dal giorno → ALTO (2/4); altrimenti BASSO (3/3) · casi giusti 5/7 · oggi il tratto non c'e': basso) · Sistema PB per forma SHORT (6/1 L4: Se lo stelo del giorno ha lo stesso elemento del Trend → NON SEGUE il trend (2/2); altrimenti SEGUE (5/5) · casi giusti 7/7 · oggi il tratto non c'e': segue il trend) · Sistema DLR per forma tace (CWCB senza regola) · via DLR: la catena scorre nella tomba
+Deciso da: Livello 3 · sistema D, sistema LY per forma, sistema PB per forma concordano · PB SHORT · LY LONG · attuale SHORT · DLR SHORT · Lettura S47 LONG (T0k0 l'arrivo incompatibile agisce fuori) · Spirito SHORT · stelo tace · Sistema-trend non segue (-2, LONG) · Metodo del trend non segue (-1, LONG) · Sistema D SHORT (6/1 L4: Se Shi fuori stagione → NON SEGUE il trend (2/3); altrimenti SEGUE (4/4) · casi giusti 6/7 · oggi il tratto non c'e': segue il trend) · Sistema LY per forma SHORT (6/1 L4: Se Shi sostenuto dal giorno → ALTO (2/4); altrimenti BASSO (3/3) · casi giusti 5/7 · oggi il tratto non c'e': basso) · Sistema PB per forma SHORT (6/1 L4: Se lo stelo del giorno ha lo stesso elemento del Trend → NON SEGUE il trend (2/2); altrimenti SEGUE (5/5) · casi giusti 7/7 · oggi il tratto non c'e': segue il trend) · Sistema DLR per forma tace (CWCB senza regola)
+
+EURUSD, 2026-10-19
+Trend EMA: SHORT
+Il sistema dice: LONG (non segue il trend)
+Esito: -11 pip
+Seme 112 · superiore 6 · inferiore 8 · mutante L5
+Bazi: 丙午 戌 丙寅
+Livello: 8 · fiducia media · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T8 Shi contro Ying) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend tace · Sistema D LONG (6/8 L5: Se Ying Tai Sui → SEGUE il trend (2/3); altrimenti NON SEGUE (5/6) · casi giusti 7/9 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma tace (6/8 L5 senza regola) · Sistema PB per forma SHORT (6/8 L5: Se l'anno ha lo stesso elemento del Trend → NON SEGUE il trend (4/4); altrimenti SEGUE (3/5) · casi giusti 7/9 · oggi il tratto non c'e': segue il trend) · Sistema DLR per forma LONG (BCPC: Se Cielo Vuoto (天空) sopra l'ora → BASSO (3/4); altrimenti ALTO (7/8) · casi giusti 10/12 · oggi il tratto non c'e': alto) · via DLR: B su R1 legato in 六合
+Deciso da: Livello 8 · Liu Yao, sistema DLR per forma concordano · PB SHORT · LY LONG · attuale LONG · DLR LONG · Lettura S47 SHORT (T8 Shi contro Ying) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend tace · Sistema D LONG (6/8 L5: Se Ying Tai Sui → SEGUE il trend (2/3); altrimenti NON SEGUE (5/6) · casi giusti 7/9 · oggi il tratto non c'e': non segue il trend) · Sistema LY per forma tace (6/8 L5 senza regola) · Sistema PB per forma SHORT (6/8 L5: Se l'anno ha lo stesso elemento del Trend → NON SEGUE il trend (4/4); altrimenti SEGUE (3/5) · casi giusti 7/9 · oggi il tratto non c'e': segue il trend) · Sistema DLR per forma LONG (BCPC: Se Cielo Vuoto (天空) sopra l'ora → BASSO (3/4); altrimenti ALTO (7/8) · casi giusti 10/12 · oggi il tratto non c'e': alto)
 
 USDJPY, 2026-10-15
 Trend EMA: LONG
