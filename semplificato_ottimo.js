@@ -39,6 +39,7 @@ for (const r of JSON.parse(fs.readFileSync(DUMP, 'utf8')).filter(r => Math.abs(r
   else f.add('movimento libero');
   carte.push({ date: r.date, cross: r.cross, seed: r.seed, move: r.move, segue: (r.ema === 'up') === (r.move > 0) ? 1 : 0, f: [...f], forma: R.sup + '/' + R.inf + ' L' + m.pos, mob: IT[d] + '->' + IT[a] });
 }
+if (process.env.CARTE_OUT) fs.writeFileSync(process.env.CARTE_OUT, JSON.stringify(carte));
 const train = TRAIN ? carte.filter(c => c.date < TRAIN) : carte, test = TRAIN ? carte.filter(c => c.date >= TRAIN) : null;
 const feats = [...new Set(train.flatMap(c => c.f))];
 const cond = []; feats.forEach(x => cond.push([x])); for (let i = 0; i < feats.length; i++) for (let j = i + 1; j < feats.length; j++) cond.push([feats[i], feats[j]]);
@@ -58,4 +59,6 @@ console.log('METODO SEMPLIFICATO SPINTO AL MASSIMO · ' + carte.length + ' carte
 regole.forEach((g, i) => console.log(String(i + 1).padStart(2) + '. se ' + g.k.join(' E ') + ' -> ' + (g.v ? 'SEGUE il trend' : 'OPPOSTO al trend') + '  (' + g.n + ' carte, ' + (100 * g.acc).toFixed(1) + '%)'));
 const T = misura(train, TRAIN ? 'sulle carte da cui e\' costruito' : 'su tutto il backtest');
 if (test) misura(test, 'sulle carte DOPO il ' + TRAIN + ' (mai viste)');
-fs.writeFileSync('/tmp/semplificato_regole.json', JSON.stringify(regole));
+fs.writeFileSync(process.env.REGOLE_OUT || '/tmp/semplificato_regole.json', JSON.stringify(regole));
+// verdetto per carta (LONG/SHORT) per il confronto con le altre voci
+if (process.env.PRED_OUT) { const out = {}; carte.forEach(c => { const v = applica(c); if (v == null) return; const T = JSON.parse('0'); out[c.cross + '|' + c.date] = v; }); fs.writeFileSync(process.env.PRED_OUT, JSON.stringify(out)); }

@@ -257,6 +257,10 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   semplificato_ottimo.js, risultato in semplificato_ottimo_risultato.txt): 84 caratteristiche della mobile + giorno/mese,
   3.570 condizioni, lista gradino per gradino (>=40 carte, >=56%). 62 regole, 3.239 carte su 3.309, 66,4%, +62.561 pip, ogni
   anno 63-70%. Costruito sul 2020-23 e provato sul 2024-26: 49,9% su 1.452. Costruito fino al 07/09/26 e provato dopo: 48,8% su 86.
+- LINEA SENZA SOSTEGNO (Edu 20/10, EURJPY 17/06/2026 s186: "Non ha sostegno perche' l'unica linea Zi acqua su L5 e' vuota. Il
+  mese e' Wu e il giorno e' Xu"; linea_senza_sostegno.js). Sostegno = linea non vuota che genera la mobile, o mese/giorno che la
+  generano o stesso elemento. Mobile senza sostegno -> il trend non tiene: 54,4% su 401 (2020-23 52%, 2024-26 57%; base 51,4%).
+  Ritirata + senza sostegno: 44,7% su 38. Ritirata sostenuta: 49% su 249. Candidata REGOLA 2 del semplificato (da confermare).
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
