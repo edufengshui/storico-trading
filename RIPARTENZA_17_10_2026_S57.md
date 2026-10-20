@@ -286,3 +286,11 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   lunedi'. Fino ad allora si calcolano da orario_live.json (lo fa misura_vivo.js).
 - Domande del S56 ancora aperte: linea vuota in mezzo che ferma l'attacco (GBPUSD 13/12/2021); l'ora riempie il vuoto
   solo se di stagione?; Serpente morto sulla mobile (2 riferimenti contro +14); doppia combinazione col mese.
+
+## S58 · 20/10/2026 — Regola 2 del semplificato e semplificato nella piramide
+- metodo_semplificato.js: REGOLA 2 di Edu (mobile senza sostegno -> il trend non tiene), dopo la regola 1. Sulle carte non
+  bloccate: 182 carte, 53,8% (2020-23 53,6%, 2024-26 54,1%). Totale metodo con regole 1+2: 49,6% su 2.778.
+- semplificato.js (generato da semplificato_genera.js con le 62 regole di semplificato_ottimo.js, fisse dal 20/10): voce SEMP
+  nell'app, ultimo gradino della piramide DLR dopo CM. localStorage SENZA_SEMP=1 lo toglie (misura_vivo: env SENZA_SEMP=1).
+  Caricato in index.html, sw.js (cache v72), raccolta_notturna.js; riga "metodo semplificato da solo" in misura_vivo.
+- Dal vivo 29/09-20/10: piramide con SEMP 94 trade · 73% · +2.044; senza 90 · 77% · +2.098 (il gradino SEMP: 4 trade, 0 vinti, -54).
