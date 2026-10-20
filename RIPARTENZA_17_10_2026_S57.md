@@ -253,6 +253,10 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   giorno o dal mese) -> non cambia il trend, segue: 49,6% su 1.646 (base: il trend segue il 48,6%); solo dal giorno 50,0% su 1.005;
   dal 08/09/26 63,2% su 38 (trend 58%). In prova: movimento libero, arrivo contro -> opposto 51,5% su 557; arrivo che sostiene ->
   segue 47,0% su 491. Totale 49,6% su 2.694. Le regole successive le detta Edu, una alla volta.
+- SEMPLIFICATO SPINTO AL MASSIMO (Edu 20/10: "trova tu tutte le regole che portano al massimo successo su tutto il backtest";
+  semplificato_ottimo.js, risultato in semplificato_ottimo_risultato.txt): 84 caratteristiche della mobile + giorno/mese,
+  3.570 condizioni, lista gradino per gradino (>=40 carte, >=56%). 62 regole, 3.239 carte su 3.309, 66,4%, +62.561 pip, ogni
+  anno 63-70%. Costruito sul 2020-23 e provato sul 2024-26: 49,9% su 1.452. Costruito fino al 07/09/26 e provato dopo: 48,8% su 86.
 - COLPO DEL MESE CABLATO (Edu 19/10: "devi cablarlo, non aspettare"): colpo_mese.js (app, sw v70, raccolta notturna, voce
   "Colpo del mese"). Nella piramide DLR: il LY corretto dal colpo dove c'e', e il colpo da solo come ultimo gradino
   (SCALA=DLR_SENZA_CM lo toglie). PROVA PULITA (voci_da_moduli.js: cataloghi da 2020-23 con rigenera_cataloghi.sh, carte
