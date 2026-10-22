@@ -48,7 +48,7 @@ const riga = (nome, f) => { let n = 0, w = 0, p = 0; C.forEach(x => { const d = 
   console.log(nome.padEnd(46) + String(n).padStart(4) + ' trade ' + String(w).padStart(3) + ' vinti ' + (n ? (100 * w / n).toFixed(0) : '-').padStart(3) + '% ' + ((p > 0 ? '+' : '') + p).padStart(6) + ' pip'); };
 console.log('dal ' + DAL + ' al ' + AL + ': ' + [...new Set(C.map(x => x.date))].length + ' giorni di mercato, ' + C.length + ' cross-giorno');
 riga('seguire sempre il trend', x => x.trend);
-riga('D da solo', x => x.D); riga('LY da solo', x => x.LY); riga('sistema LY per forma da solo', x => x.LYF); riga('PB da solo', x => x.PB); riga('sistema PB per forma da solo', x => x.PBF); riga('DLR da solo', x => x.DLR); riga('sistema DLR per forma da solo', x => x.DLRF); riga('colpo del mese da solo', x => x.CM); riga('metodo semplificato da solo', x => x.SEMP);
+riga('D da solo', x => x.D); riga('LY da solo', x => x.LY); riga('Leggo io da solo', x => x.LETT); riga('sistema LY per forma da solo', x => x.LYF); riga('PB da solo', x => x.PB); riga('sistema PB per forma da solo', x => x.PBF); riga('DLR da solo', x => x.DLR); riga('sistema DLR per forma da solo', x => x.DLRF); riga('colpo del mese da solo', x => x.CM); riga('metodo semplificato da solo', x => x.SEMP);
 riga('DLR = metodo del trend (senza D)', x => hit(['DLR', 'MT'], x));
 riga('PIRAMIDE intera', x => x.liv && x.liv !== 'cantina' && /^[0-9]+$/.test(x.liv) ? x.dirLiv : null);
 riga('  gradino 1 (punta)', x => x.liv === '1' ? x.dirLiv : null);
