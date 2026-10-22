@@ -331,3 +331,7 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   Leggo io: 2022-23 ~64%; 2024-26 59-61% (soglia 0,4: 62,5% su 869); dal vivo 29/09-22/10 50% su 86 (cataloghi fino al 28/09);
   coi cataloghi in produzione 62% su 90 (dentro il campione fino al 16/10); 19-20/10 (giorni nuovi) 7 su 12, +87 pip.
   I 7 persi della piramide: Leggo io ne prende 2 (EURJPY 19, EURUSD 20), saldo -6 pip invece di -164.
+- PESO DEL DLR (Edu 22/10: "Dobbiamo trovare una via di mezzo, abbassa di un quarto fino a che non vediamo che riprende"):
+  in leggo_io.js PESO = { LY: 1, PB: 1, DLR: 0,75 } (localStorage PESO_DLR lo cambia). Prova (leggo_io_peso_dlr.js): 2024-26
+  peso 1 60,2% · 0,75 59,7% · 0,5 58,5% · 0,25 56,5% · 0 55,0%; dal vivo 50 / 50 / 50 / 52,9 / 52,6%. DA RIPORTARE A 1 quando
+  misura_vivo.js "DLR da solo, ultimi 20 giorni di mercato" torna sopra il 55% (oggi 44% su 88). Controllarlo ogni lunedi'.
