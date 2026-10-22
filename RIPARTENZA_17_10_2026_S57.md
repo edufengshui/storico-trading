@@ -350,3 +350,8 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   Misura: 24 carte del backtest hanno la linea nascosta nella tomba, nessuna cambia verdetto (LY 56,71%, lettura della
   carta 53,58%, attuale 57,40%, metodo del trend 54% identici); carte guida 84/114, trend 53/53.
 - Domanda ancora aperta (1/5): con una via dottrinale netta, il metodo LY deve poter prevalere su PB e DLR concordi?
+- TERRA SENZA TOMBA (Edu 22/10: "per la Terra la tomba non esiste"): tolta anche da motore_lettura.js (TOMBA delle righe
+  94 e 116; la Terra -> 辰 era un'estensione nostra, la guida di T0f2 e' Fuoco -> 戌). Lettura della carta 53,58% -> 53,61%
+  (+84 pip): 15 carte cambiano (14 erano T0f2 su Terra in 辰), 8 ora giuste e 7 ora storte. LY, attuale, carte guida 84/114,
+  trend 53/53 invariati. Lasciati: inventario_carta.js (struttura descrittiva da cui nascono le caratteristiche dei
+  cataloghi per forma) e tombSha in pb_stress.js (prova del backtest).
