@@ -319,3 +319,15 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   "fuori campione"). Ora tutto relativo a __dirname. Le prove pulite S58 (lanciate nell'archivio) non ne sono toccate.
 - PROSSIMO: Edu legge a mano i 7 trade persi del 19-20/10 (formato completo gia' dato, 21/10); le sue letture diventano
   regole della "lettura della carta", che e' la voce dottrinale dentro Leggo io.
+- S59 bis (22/10, Edu: "Leggo Io deve leggere ciascun metodo da solo, sottoporlo a pro e contro dentro quell'unico metodo,
+  trarre una conclusione e poi passare al successivo" · "metti in pausa i sistemi che combinano vari metodi e rifai lo scan"):
+  leggo_io.js RIFATTO PER METODI (generato da leggo_io_misura.js + parametri): Metodo LY (LY con la sua via, lettura della carta
+  col suo gradino, metodo del trend, colpo del mese, D, LY per forma), Metodo PB (PB, PB per forma), Metodo DLR (DLR con la sua
+  via, DLR per forma). Dentro ogni metodo argomento = ln(p/(1-p)) con p della via/gradino (stima prima del 2024, ristretta
+  verso la media), conclusione del metodo con l'affidabilita' della sua fascia di margine (2022-23); poi le tre conclusioni.
+  Soglia 0,1 scelta sul 2022-23; si trada ogni conclusione sopra soglia. IN PAUSA: sistema attuale (non entra), piramide,
+  cantina, scale A/B/C/D (restano con SCALA=...).
+  Misure con cataloghi tagliati: metodi da soli 2024-26 LY 55,3 · PB 53,1 · DLR 60,7%; dal vivo LY 61 · PB 52 · DLR 47,5%.
+  Leggo io: 2022-23 ~64%; 2024-26 59-61% (soglia 0,4: 62,5% su 869); dal vivo 29/09-22/10 50% su 86 (cataloghi fino al 28/09);
+  coi cataloghi in produzione 62% su 90 (dentro il campione fino al 16/10); 19-20/10 (giorni nuovi) 7 su 12, +87 pip.
+  I 7 persi della piramide: Leggo io ne prende 2 (EURJPY 19, EURUSD 20), saldo -6 pip invece di -164.
