@@ -297,3 +297,25 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
 - REGOLA 3 del semplificato (Edu, 20/10, GBPUSD 20/03/2023): arrivo vuoto -> esiste solo la partenza, il trend rimane (segue).
   Ordine R1 -> R3 -> R2 -> P. Arrivo vuoto: 546 carte, segue 47,1% (stabile nei due periodi). carta_auto.js SOLOMOBILE=1
   (Edu: "lascia solo la linea originaria") per le carte del semplificato.
+
+## S59 · 22/10/2026 — LEGGO IO, IL METODO CHE USA TUTTI GLI ALTRI (sistema in uso)
+- Edu: la Lettura S47 si chiama "Leggo io" (22/10); poi "Leggo io dovrebbe scannerizzare tutti i metodi, uno per uno e
+  giungere ad una conclusione sensata. Rendilo il metodo che usa tutti gli altri". Il vecchio motore (motore_lettura.js)
+  ora si chiama "lettura della carta" ed e' una delle voci.
+- leggo_io.js (app, raccolta notturna, sw v74): ogni voce (DLR, PBF, attuale, LY, colpo del mese, metodo del trend, PB,
+  LYF, D, lettura della carta, DLRF) pesa ln(p/(1-p)) con p = affidabilita' sul 2022-23 su carte mai viste (cataloghi
+  per forma costruiti solo sul 2020-21). Racconto: per LONG / per SHORT / tacciono / conclusione con margine e forza.
+  Scelta della variante sul solo 2022-23 (pesi semplici, soglia 0). Si trada solo la conclusione FORTE (margine >= 0,6);
+  media e debole si mostrano in "DA OSSERVARE" e si registrano. SCALA=PIRAMIDE (localStorage / env) rimette la piramide,
+  LEGGOIO_TUTTE=1 trada anche media e debole.
+- Misure (leggo_io_misura.js, cataloghi tagliati in una copia dell'archivio): 2022-23 forte 66,5% su 499, media 56,3%,
+  debole 55,7%; 2024-26 (mai viste) forte 65,1% su 733 +15.086, media 53,9% su 393, debole 51,9% su 370, tutte 58,9% su
+  1.496; dal vivo 29/09-22/10 con cataloghi fino al 28/09: forte 58,8% su 51, tutte 52,0% su 100. Con i cataloghi in
+  produzione (dentro il campione fino al 16/10): forte 52 · 67% · +682. Giorni nuovi 19-20/10: forte 6 · 50% · -26.
+- Voci da sole sul 2024-26 (mai viste): DLR 61,2% · attuale 56,6 · colpo del mese 57,1 (140) · LY 55,1 · lettura della
+  carta 54,5 · metodo 54,3 · PB 52,9 · D 51,9 · PBF 51,5 · DLRF 51,0 · LYF 46,5 · trend 49,1. Dal vivo il DLR e' a 44%.
+- BUG CORRETTO: livello_d_costruisci.js scriveva livello_d.json con percorso assoluto nell'archivio e livello_d_genera.js
+  scriveva in ../trading relativo alla cartella corrente: lanciati da una copia, il catalogo D non veniva tagliato (D 76%
+  "fuori campione"). Ora tutto relativo a __dirname. Le prove pulite S58 (lanciate nell'archivio) non ne sono toccate.
+- PROSSIMO: Edu legge a mano i 7 trade persi del 19-20/10 (formato completo gia' dato, 21/10); le sue letture diventano
+  regole della "lettura della carta", che e' la voce dottrinale dentro Leggo io.

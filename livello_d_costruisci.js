@@ -19,7 +19,7 @@ Object.entries(fo).sort((a,b)=>b[1].length-a[1].length).forEach(([forma,rip])=>{
  const testo='Se '+parla(g.k)+' → '+(g.vc?'SEGUE':'NON SEGUE')+' il trend ('+(g.vc?g.sc:g.nc-g.sc)+'/'+g.nc+'); altrimenti '+(g.vc?'NON SEGUE':'SEGUE')+' ('+(g.vc?g.ns-g.ss:g.ss)+'/'+g.ns+')';
  righe.push({forma,volte:rip.length,segue:seg,regola:testo,ok:g.ok+'/'+rip.length,chiave:g.k,se:g.vc,
   carte:rip.map(x=>x.cross+' '+x.date+' s'+x.seed+' '+(x.segue?'segue':'non segue')+(x.f.includes(g.k)?' [col tratto]':'')).join('; ')});});
-fs.writeFileSync('/home/claude/edufengshui/storico-trading/livello_d.json',JSON.stringify(righe,null,1));
+fs.writeFileSync(require('path').join(__dirname,'livello_d.json'),JSON.stringify(righe,null,1));
 console.log('forme',righe.length,'con regola',righe.filter(r=>r.chiave).length,'casi spiegati',totok+'/'+tot,(100*totok/tot).toFixed(1)+'%');
 // caratteristiche che ricorrono più spesso come regola
 const cnt={};righe.filter(r=>r.chiave).forEach(r=>{const k=r.chiave+' → '+(r.se?'segue':'non segue');cnt[k]=(cnt[k]||0)+1;});

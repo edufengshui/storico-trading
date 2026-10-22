@@ -45,4 +45,4 @@ const src=`// livello_d.js — IL SISTEMA D (S57, 17/10/2026): una regola per og
   return { leggi: leggi, caratteristiche: caratteristiche, catalogo: CAT };
 }));
 `;
-require('fs').writeFileSync('livello_d.js',src);require('fs').writeFileSync('../trading/livello_d.js',src);console.log('ok',Object.keys(cat).length);
+{const p=require('path'),f=require('fs');f.writeFileSync(p.join(__dirname,'livello_d.js'),src);if(f.existsSync(p.join(__dirname,'../trading')))f.writeFileSync(p.join(__dirname,'../trading/livello_d.js'),src);}console.log('ok',Object.keys(cat).length);
