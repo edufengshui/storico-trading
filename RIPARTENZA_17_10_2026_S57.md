@@ -378,3 +378,8 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   controlla. EURUSD 19/10 -> non segue, SHORT. Backtest: 4 carte cambiano (1 giusta), metodo 53,1% invariato; carte di Edu 49/53.
 - Provate e senza effetto (22/10): pilastro d'inizio e picco dei 12 giorni del trend (50-52%); giorno precedente col pilastro
   bestia+ramo di Shi e Ying (49-51%).
+- LY §140 (R87_MEZZO, Edu 22/10, EURJPY 30/07/2026 s187: "L3 in mezzo clashato dal giorno si attiva assorbendo la forte You e
+  trasferendo la sua energia a S" · "L3 e' sostenuta dal nascosto"): la ferma non sede clashata dal giorno, di stagione o
+  sostenuta dal nascosto, in mezzo fra la mobile e una sede, generata dall'arrivo e che genera la sede -> la sede vince (la
+  vuota solo se l'arrivo la clasha). Prima di §125. Backtest: decide 2 carte, 2 giuste (+354), LY 56,71 -> 56,74%; guida 84/114.
+  Anche qui Edu col LY fa vincere lo Shi e il trend la Ying, stesso verso (come EURUSD 19/10).
