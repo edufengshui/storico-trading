@@ -369,3 +369,12 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   cambiate: mese S 45 · 51,1% / S+Y 70 · 52,9%; giorno 38 · 44,7% / 68 · 48,5%; ora 46 · 56,5% / 126 · 48,4%; anno 55 · 52,7% /
   93 · 49,5%; tutti i pilastri 158 · 51,9% / 274 · 51,8%. Metodo intero 52,9-53,3%; opposte al LY 647-663. Su EURUSD 19/10 col
   mese -> SHORT. Carte di Edu 49/53 (tutti i pilastri S+Y 48/53).
+- TOMBA SOLO FUORI STAGIONE (Edu 22/10: "la tomba e' tale solo quando l'elemento e' untimely"): il 暗動 nella propria tomba
+  non agisce solo se la linea e' fuori stagione nel mese (liuyao.js, lettura_trend.js). LY, lettura della carta, attuale
+  invariati; carte guida 84/114.
+- FORZA PORTATA DALLA COMBINAZIONE (Edu 22/10, EURUSD 19/10: "Il giorno clasha L4 che si muove su Chou che si combina con Y,
+  quindi Y riceve Shen che controlla S"), metodo del trend, principio 2 (c.forzaCombinata): la ferma non sede clashata dal
+  giorno va al ramo del trasformato; se combina una sede, la sede riceve l'elemento della partenza e colpisce l'altra se lo
+  controlla. EURUSD 19/10 -> non segue, SHORT. Backtest: 4 carte cambiano (1 giusta), metodo 53,1% invariato; carte di Edu 49/53.
+- Provate e senza effetto (22/10): pilastro d'inizio e picco dei 12 giorni del trend (50-52%); giorno precedente col pilastro
+  bestia+ramo di Shi e Ying (49-51%).
