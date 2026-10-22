@@ -355,3 +355,17 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   (+84 pip): 15 carte cambiano (14 erano T0f2 su Terra in 辰), 8 ora giuste e 7 ora storte. LY, attuale, carte guida 84/114,
   trend 53/53 invariati. Lasciati: inventario_carta.js (struttura descrittiva da cui nascono le caratteristiche dei
   cataloghi per forma) e tombSha in pb_stress.js (prova del backtest).
+- LY E METODO DEL TREND IN CONTRADDIZIONE (EURUSD 19/10): stesso vincitore (lo Shi), ma il LY lo traduce con la sede (basso ->
+  SHORT) e il trend col trend (Shi = trend -> LONG). Su 2.705 carte dove parlano tutti e due: stesso vincitore e direzione
+  opposta 703 (LY 52,6%), concordi 1.343 (61%). Come EURUSD (Shi vince, in basso, trend LONG) 215 carte, LY 52,1%.
+  Regole solo del trend che pesano sulle opposte: oraSalva 48 (nata da EURUSD 19/10 col trend sbagliato del weekend; li' LY 42%),
+  vuotoTimely 30 (LY 73%), vuotaPerde 24 (LY 71%), sostVuota 43 (LY 65%). Domande a Edu ancora aperte su oraSalva e sul vuoto.
+- METODO DEL TREND SENZA CARATTERI (Edu 22/10: "In ogni caso, togli i caratteri"): spenti nutrire P/B rovescia, ritirata della
+  sede B/P G/W, eliminazione G/W clashata, G/W non sede che retrocede, mese G che combina lo Shi. 53,7% -> 53,1% (2.652; 2024-26
+  51,8%), opposte al LY 703 -> 648. Carte di Edu 53 -> 49 (EURGBP 07/10 s84, USDCAD 24/08 s137, EURJPY 26/08 s185, AUDUSD 24/09 s70):
+  lettura_trend_rif.js ora da' 49/53 per scelta di Edu. c.senzaCaratteri=false rimette i caratteri.
+- IL PILASTRO CHE COMBINA UNA SEDE LA BLOCCA (Edu: "il mese o il giorno o l'ora o l'anno che combina S o Y possono bloccarlo"),
+  scritta in lettura_trend.js e SPENTA (c.meseBlocca 'S'|'entrambe'|'quieta', c.pilastriBlocca). Misura senza caratteri, carte
+  cambiate: mese S 45 · 51,1% / S+Y 70 · 52,9%; giorno 38 · 44,7% / 68 · 48,5%; ora 46 · 56,5% / 126 · 48,4%; anno 55 · 52,7% /
+  93 · 49,5%; tutti i pilastri 158 · 51,9% / 274 · 51,8%. Metodo intero 52,9-53,3%; opposte al LY 647-663. Su EURUSD 19/10 col
+  mese -> SHORT. Carte di Edu 49/53 (tutti i pilastri S+Y 48/53).
