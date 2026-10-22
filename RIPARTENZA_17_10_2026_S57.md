@@ -335,3 +335,18 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   in leggo_io.js PESO = { LY: 1, PB: 1, DLR: 0,75 } (localStorage PESO_DLR lo cambia). Prova (leggo_io_peso_dlr.js): 2024-26
   peso 1 60,2% · 0,75 59,7% · 0,5 58,5% · 0,25 56,5% · 0 55,0%; dal vivo 50 / 50 / 50 / 52,9 / 52,6%. DA RIPORTARE A 1 quando
   misura_vivo.js "DLR da solo, ultimi 20 giorni di mercato" torna sopra il 55% (oggi 44% su 88). Controllarlo ogni lunedi'.
+
+## S59 ter · 22/10/2026 — Le carte che Leggo io sbaglia (19-20/10), una alla volta
+- Leggo io sul 19-20/10: 12 trade, 7 vinti; sbaglia EURUSD 19, NZDUSD 19, USDJPY 20, EURJPY 20, EURGBP 20. Formato (Edu):
+  in testa trend EMA ed esito, poi carta, poi il ragionamento metodo per metodo e la conclusione.
+- 1/5 EURUSD 19/10 s112 (trend LONG, Lio LONG media, -11): metodo LY SHORT 61% (giusto), PB LONG 58%, DLR LONG 67% x 0,75
+  -> LONG 0,44. Senza il DLR sarebbe stato SHORT. Lettura di Edu del metodo LY, uguale al motore (§132): L5 Xu -> Hai,
+  arrivo vuoto e fuori stagione, inutile; L4 Shen clashata dal giorno Yin va in Chou, sua tomba: zero per il trigramma
+  alto; Y Zi genera S Mao -> SHORT.
+- CABLATA (Edu: "e' dottrina"): 暗動 NELLA PROPRIA TOMBA -> nessuna azione. liuyao.js (la linea esce da R.anDong, va in
+  R.anDongTomba, L.andongTomba), motore_lettura.js (la sveglia T4c non parla), lettura_trend.js (la sede sveglia non fa
+  la sfida). Tombe: Legno 未, Fuoco 戌, Metallo 丑, Acqua 辰. LA TERRA NO: con Terra -> 辰 si rompeva USDJPY 24/07/2023
+  s141 (Edu: "S clashato dal giorno avanza da Chou a Chen e vince"). ANDONGTOMBA=off / c.andongTomba=false spengono.
+  Misura: 24 carte del backtest hanno la linea nascosta nella tomba, nessuna cambia verdetto (LY 56,71%, lettura della
+  carta 53,58%, attuale 57,40%, metodo del trend 54% identici); carte guida 84/114, trend 53/53.
+- Domanda ancora aperta (1/5): con una via dottrinale netta, il metodo LY deve poter prevalere su PB e DLR concordi?
