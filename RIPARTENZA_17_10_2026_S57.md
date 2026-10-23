@@ -404,3 +404,8 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
 - PB MUTO CON LO YONG IN APICE (Edu "Si"): plumblossom.js out.yongApice (Yong originale dello stesso elemento del mese); in Leggo io
   la voce PB tace (app.js, localStorage PB_APICE=1 la riaccende). PB da solo 54,3 -> 55,9% (2020-23), 52,6 -> 53,3% (2024-26).
   Lio: backtest 2024-26 75,9 -> 75,1% (cataloghi dentro il campione), dal vivo 97 · 63% · +1.486 -> 99 · 63% · +1.460.
+- USCITE (23/10, uscite.js, barre orarie solo apertura/chiusura: stop e obiettivi controllati sulle chiusure orarie, spread
+  escluso; dump SOGLIAPIP=0, tutti i giorni). Tenere fino alle 21 da' piu' pip quasi sempre. Gli obiettivi tagliano i vincenti
+  (obiettivo 20-50: pip -15/-80%). Lo STOP 50 tiene i pip e taglia il peggior calo: LY 2024-26 +13.757 -> +12.161, calo -953 -> -808;
+  DLR +17.294 -> +17.369, calo -1.022 -> -656; Lio (backtest) +39.335 -> +36.773, calo -710 -> -488; Lio dal vivo +1.455 -> +933 (99 trade).
+  Stop 30: calo dimezzato, pip -6/-15%. Uscita anticipata (12/16): sempre peggio.
