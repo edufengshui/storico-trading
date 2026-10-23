@@ -398,3 +398,9 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   75,9 -> 75,0% (cataloghi dentro il campione), dal vivo invariato. localStorage PB_HU=1 la accende.
 - Prove sul seme del PB (23/10), tutte sotto l'attuale 53,5%: + pilastri (ciclo 60 / rami / lunari / solari, togliendo a turno
   anno-mese-giorno) 48-52%; seme del giorno d'inizio del trend 50,9-51,7%; somma dei due semi 49,8-49,9%.
+- SLIDE DI JOSEPH YU SULLO HU GUA (23/10): tre tempi (presente / Hu Gua / Bian Gua), Hu letto sempre contro il Ti, stagione dei
+  trigrammi, vuoto = "non ora". Lette a regole fisse: 49-51% (PB attuale 53,5%). Stagione dello Yong nel mese: morto 57,3%, a
+  riposo 56,6%, in crescita 53,1%, prigioniero 51,7%, in apice 49,3% (668). Ti/Yong vuoti: nessun effetto.
+- PB MUTO CON LO YONG IN APICE (Edu "Si"): plumblossom.js out.yongApice (Yong originale dello stesso elemento del mese); in Leggo io
+  la voce PB tace (app.js, localStorage PB_APICE=1 la riaccende). PB da solo 54,3 -> 55,9% (2020-23), 52,6 -> 53,3% (2024-26).
+  Lio: backtest 2024-26 75,9 -> 75,1% (cataloghi dentro il campione), dal vivo 97 · 63% · +1.486 -> 99 · 63% · +1.460.
