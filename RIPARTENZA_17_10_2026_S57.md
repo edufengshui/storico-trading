@@ -13,6 +13,8 @@ Leggere anche RIPARTENZA_11_10_2026_S56.md (regole cablate del metodo del trend,
 - "Prosegui, non devi chiedermelo ogni volta". "Parti dall'assunto che il sistema esiste e sei tu che non lo catturi".
 - All'inizio di ogni sessione: PRIMA i trade (esiti della notte, la tabella di misura_vivo.js), POI le carte.
 - Carte: immagine prima (carta_auto.js -> invio file), poi il formato del S56. Nomi in italiano.
+- ORA DI PECHINO ESCLUSA CATEGORICAMENTE (Edu, 23/10/2026: "ricordalo"): giornata e ore sempre sull'ora di Londra (00:00 GMT);
+  non proporla ne' misurarla, neanche per confronto.
 
 ## IL SISTEMA IN USO DAL 17/10/2026: LA PIRAMIDE (dal 17/10 ore 12:55 la PIRAMIDE DLR, vedi sezioni S58)
 Edu: "metti l'85% in cima alla piramide da usare solo ed esclusivamente su quel numero limitato di carte; al secondo
