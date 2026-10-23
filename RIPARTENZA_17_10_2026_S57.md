@@ -383,3 +383,9 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   sostenuta dal nascosto, in mezzo fra la mobile e una sede, generata dall'arrivo e che genera la sede -> la sede vince (la
   vuota solo se l'arrivo la clasha). Prima di §125. Backtest: decide 2 carte, 2 giuste (+354), LY 56,71 -> 56,74%; guida 84/114.
   Anche qui Edu col LY fa vincere lo Shi e il trend la Ying, stesso verso (come EURUSD 19/10).
+
+## S60 · 23/10/2026
+- METODO DEL TREND E SEMPLIFICATO A DORMIRE (Edu: "Mettili a dormire allora"): MT esce dal metodo LY di Leggo io (leggo_io.js,
+  localStorage CON_MT=1 lo rimette); il semplificato non era in Leggo io. Dal vivo 29/09-22/10: Lio con MT 95 · 63% · +1.417,
+  senza 97 · 63% · +1.486; col semplificato al posto di MT 102 · 61% · +1.207 (semplificato da solo dal vivo 49%).
+- PB e trend: il PB dice "segui il trend" solo nel 29% dei casi (2020-26); PB 54,3% (2020-23), 52,6% (2024-26), dal vivo 51%.
