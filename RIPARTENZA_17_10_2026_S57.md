@@ -389,3 +389,7 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   localStorage CON_MT=1 lo rimette); il semplificato non era in Leggo io. Dal vivo 29/09-22/10: Lio con MT 95 · 63% · +1.417,
   senza 97 · 63% · +1.486; col semplificato al posto di MT 102 · 61% · +1.207 (semplificato da solo dal vivo 49%).
 - PB e trend: il PB dice "segui il trend" solo nel 29% dei casi (2020-26); PB 54,3% (2020-23), 52,6% (2024-26), dal vivo 51%.
+- PB, prove del 23/10 (nessuna cambiata, Edu: "tieni il sistema originario"): base Ti/Yong senza correzioni 52,0/48,6%; Yong =
+  trend e' lo specchio (45,7/47,4%); EMA 3-50: PB 52,3-53,5%, il 12 gia' nella zona migliore (8-26); seme + numeri dei pilastri
+  (ciclo di 60) 52,0%, + numeri dei rami 50,3%; combinazione semplificato (arrivo che controlla indietro) + PB per posizione
+  51,5% su 260 (EURJPY 02/09/2026 giusta, NZDUSD 22/01/2026 stesso schema sbagliata).
