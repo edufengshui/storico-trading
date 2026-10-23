@@ -393,3 +393,8 @@ del sistema D, bersaglio "il LY ha ragione?"), livello_ly_forma.js. Dump TRESIST
   trend e' lo specchio (45,7/47,4%); EMA 3-50: PB 52,3-53,5%, il 12 gia' nella zona migliore (8-26); seme + numeri dei pilastri
   (ciclo di 60) 52,0%, + numeri dei rami 50,3%; combinazione semplificato (arrivo che controlla indietro) + PB per posizione
   51,5% su 260 (EURJPY 02/09/2026 giusta, NZDUSD 22/01/2026 stesso schema sbagliata).
+- HU GUA NEL PB (Edu 23/10: "buon segnale ed e' anche dottrina"): il PB dove decide lo Hu Gua fa 59% (2020-23, 154) e 63%
+  (2024-26, 101); senza 53,8/51,7%. Via del PB in Leggo io (ROUTE.PB = pbHu, app passa e.pbHu) provata e SPENTA: Lio 2024-26
+  75,9 -> 75,0% (cataloghi dentro il campione), dal vivo invariato. localStorage PB_HU=1 la accende.
+- Prove sul seme del PB (23/10), tutte sotto l'attuale 53,5%: + pilastri (ciclo 60 / rami / lunari / solari, togliendo a turno
+  anno-mese-giorno) 48-52%; seme del giorno d'inizio del trend 50,9-51,7%; somma dei due semi 49,8-49,9%.
