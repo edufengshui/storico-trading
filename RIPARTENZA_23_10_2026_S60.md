@@ -45,7 +45,7 @@ Leggere anche RIPARTENZA_17_10_2026_S57.md (sezioni S58, S59, S59 ter, S60 in fo
   massimo 1,10 (debole, tutti e due i periodi); il resto ~1. Rami dell'esagramma clashati da giorno/mese/anno/ora: movimento +5% ma
   uguale anche senza esagramma (effetto dell'ora). Script in prove_23_10_*.js (usano uscite.js e un dump SOGLIAPIP=0).
 
-## IN CORSO: MASSIMI E MINIMI ORARI VERI
+## MASSIMI E MINIMI ORARI VERI — ARRIVATI (commit 53e06eb, 23/10 16:13 UTC): tutte le barre 2020-26 dei 9 cross hanno h e l
 - aggiorna_storico.js ora, se aggiorna_storico.txt contiene "HL", chiede al Worker /page?full=1 le barre complete fino al 29/01/2020 e
   aggiunge h e l alle barre di history_full_1h_f.zip. Lanciato il 23/10 alle 17:38 (push di aggiorna_storico.txt). Controllare con
   git fetch che ci sia il commit "Storico prezzi aggiornato al ..." e che le barre abbiano h/l (unzip, campo h).
