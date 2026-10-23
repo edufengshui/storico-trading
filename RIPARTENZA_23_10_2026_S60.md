@@ -59,3 +59,20 @@ Londra? giornaliera?), quale sistema (rotante 转盘 / volante 飞盘, chai bu /
 (simbolo utile: porta, stella, spirito, stelo del giorno contro stelo dell'ora? palazzi?), come si traduce in LONG/SHORT o in
 "segue/non segue il trend". Poi: motore QMDJ in un modulo (qmdj.js), verifica su carte che Edu legge a mano, misura sul backtest
 (2020-23 e 2024-26 separati) e dal vivo, e solo dopo un Metodo QMDJ dentro Leggo io.
+
+## FATTO 23/10 sera (chat S61): MASSIMI E MINIMI VERI
+- Storico con h/l su tutte le barre (9 cross, ~44.000 barre ciascuno, 29/01/2020 -> oggi). history_full_1h_from20200129.json
+  si ricava dallo zip (unzip); full1h.json e' il link. Dump delle carte: flag del baseline + TRESIST=1 SOGLIAPIP=0 TRESISTDUMP=...
+  (4.255 carte 2020-26; servono /root/trading e /root/storico-trading come link ai cloni).
+- USCITE (uscite.js, ora stampa chiusure e h/l; h/l = prima il lato sfavorevole, stop/obiettivo eseguiti al livello, spread escluso).
+  Tenere fino alle 21 / STOP 50 (pip, peggior calo):
+  DLR 2020-23 +21.930 -957 / +21.509 -660 · DLR 2024-26 +17.141 -1.022 / +17.601 -510
+  LY 2020-23 +17.805 -1.086 / +16.906 -1.022 · LY 2024-26 +14.144 -953 / +12.617 -667
+  Con h/l lo STOP 50 e' ancora piu' netto sul DLR (pip uguali o piu', calo dimezzato); sul LY costa ~900-1.500 pip e taglia il calo.
+  Gli OBIETTIVI peggiorano molto (ob. 50: DLR -5.500, LY -8.000); il pareggio dopo +30 peggiora. Stop 30: calo minimo, pip -10/-15%.
+- ESTREMI DEL GIORNO coi massimi/minimi veri (prove_23_10_estremi/clash_ora/ora_w.js, HL=0 rimette le chiusure; Pechino tolta):
+  nessuna caratteristica della carta regge nei due periodi (rapporti 0,92-1,11; linee W -> massimo 1,10 diventa 1,06: 1,03/1,10).
+  Rami clashati: con l'escursione vera dell'ora l'effetto sparisce (giorno 1,01, controllo senza esagramma 1,00).
+  Ora della W vibrante = picco: 4,0% contro 5,6% atteso. CHIUSO: l'ora degli estremi non si legge dalla carta.
+- PROSSIMO: decidere con Edu se mettere lo STOP 50 sul DLR (e/o su Lio); poi Qi Men Dun Jia (qmdj.js in trading: motore di XKDG,
+  ora dal seme, Jú chai bu e carta giornaliera sulla mezzanotte di Londra; simboli ancora da scegliere).
