@@ -32,7 +32,33 @@ async function main() {
     aggiunte += tot;
     await sleep(9000);                                   // il Worker/Twelve Data vuole respiro fra le chiamate
   }
-  if (!aggiunte) { console.log('niente di nuovo'); return; }
+  // MASSIMI E MINIMI ORARI (23/10/2026, Edu: "Se hai i massimi e i minimi del giorno puoi confrontarli con le carte"):
+  // se aggiorna_storico.txt contiene la parola HL, chiede al Worker (/page con full=1) le barre complete andando indietro
+  // fino al 29/01/2020 e aggiunge h e l alle barre dello storico (stessa ora). Le altre letture usano solo t, o, c.
+  let hl = 0;
+  if (/HL/.test(fs.readFileSync(path.join(DIR, 'aggiorna_storico.txt'), 'utf8'))) {
+    for (const cross of Object.keys(H.crosses)) {
+      const bars = H.crosses[cross]; if (!Array.isArray(bars)) continue;
+      const idx = new Map(bars.map((b, i) => [b.t, i])); let end = null, n = 0;
+      for (let giro = 0; giro < 20; giro++) {
+        const url = WORKER + 'page?symbol=' + cross + '&interval=1h&size=5000&full=1' + (end ? '&end=' + encodeURIComponent(end) : '');
+        let pg;
+        try { pg = await (await fetch(url)).json(); } catch (e) { console.log(cross + ' HL: ' + e.message); await sleep(20000); continue; }
+        if (pg.error) { console.log(cross + ' HL: ' + pg.error); if (pg.code === 429) { await sleep(65000); continue; } break; }
+        const pb = (pg.bars || []).filter(b => Number.isFinite(b.h) && Number.isFinite(b.l));
+        if (!pb.length) break;
+        let nuove = 0;
+        for (const b of pb) { const i = idx.get(b.t); if (i != null && bars[i].h == null) { bars[i].h = b.h; bars[i].l = b.l; nuove++; } }
+        n += nuove; console.log(cross + ' HL: pagina ' + (giro + 1) + ' da ' + pb[0].t + ', ' + nuove + ' barre completate');
+        if (pb[0].t <= bars[0].t || pb[0].t === end) break;
+        end = pb[0].t;
+        await sleep(9000);
+      }
+      console.log(cross + ' HL: ' + n + ' barre con massimo e minimo su ' + bars.length);
+      hl += n; await sleep(9000);
+    }
+  }
+  if (!aggiunte && !hl) { console.log('niente di nuovo'); return; }
   H.generatedAt = new Date().toISOString();
   H.source = (H.source || '') + ' + aggiornamenti via Worker /page (aggiorna_storico.js)';
   fs.writeFileSync(JSONF, JSON.stringify(H));
