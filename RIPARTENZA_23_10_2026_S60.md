@@ -111,7 +111,7 @@ Londra? giornaliera?), quale sistema (rotante 转盘 / volante 飞盘, chai bu /
 - Google Drive: cartella "DLR Trading Guides" id 17Ehl7JsiDrdpC2kJ6_SYj7c09TNOD-v- (Google Docs convertiti dall'HTML; senza colori e
   link interni). Doc: index 1jrEdDyIEOg__L5vNxrdY4ZvaDSmK2AmVDRHHED7Thlw · results 1V3zj3v1jxj3XRqWpfO_5rayxfsU5OQS0uMiNpWvaqfY ·
   qmdj 1UBvwbCqXywuUT1R-nqWJGWMUtDmYeGYr_OqeUqcFg1c · foundations 1L3wr-RllmvTO0KUD_wwuwZsAI3ZR6HBOIpdWXnDkC84 ·
-  leggo-io 1eSCwlsiIJpFO8y1jar2HfFRWfosfGVFp-i0U_zJ-UVU · liu-yao 1K0bnloE-AEkuE7NtSCo8iK4kzfeOXHZnTZ6M43SvmZo ·
+  leggo-io 1XS0Ytw-RO9TvG-hHvYaw2eiq7stZslYL0hjIOQ96qUg · liu-yao 1K0bnloE-AEkuE7NtSCo8iK4kzfeOXHZnTZ6M43SvmZo ·
   plum-blossom 1is55kwKIgbRBpNEoUub4BEYkCpipoCTX9jPKk1zJVwg · da-liu-ren 1mMSFklgvInZDyz8gLGNb8RiunxrkCL13U9Kc7EWEAFQ.
 - QUANDO AGGIORNARLE (senza chiedere): regola cablata o tolta, interruttore acceso/spento, peso cambiato, metodo nuovo (QMDJ), sistema in
   uso cambiato, prova chiusa, decisione su stop/uscite. Le cifre dal vivo si aggiornano insieme a questi cambi (non ogni giorno).
