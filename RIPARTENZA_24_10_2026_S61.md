@@ -109,3 +109,7 @@ CLASH INTERNI (Edu 15:44: "i palazzi con clash interni hanno problemi e potrebbe
 cielo contro stelo della terra (甲庚 乙辛 丙壬 丁癸). NON messo in qmdj.js. prove_24_10_qmdj_clash.py: peggiora ovunque
 (niente ponte: 2024-26 -2.487, vivo -372). Contraddizione: EURJPY 22/10 lo Zhi Shi a N e' 辛/乙 (clash) eppure ha fatto ponte.
 Chiesto a Edu cosa intende per clash interno.
+CLASH INTERNI precisati (Edu 18:15): fra i due steli (甲庚 乙辛 丙壬 丁癸) O fra i due rami dei 六仪 (戊=子 己=戌 庚=申 辛=午 壬=辰 癸=寅:
+戊/辛, 庚/癸, 壬/己). prove_24_10_qmdj_clash2.py: nessuna variante migliora. Clash dei soli rami, vincitore in clash fermo:
+2020-23 -3.054 · 2024-26 -1.765 · vivo 61% +112. Con gli steli il ponte di EURJPY 22/10 (Zhi Shi 辛/乙) cade e il vivo va a -372.
+La regola giorno/ora resta ~50% sullo storico in tutte le varianti. Proposto a Edu: verifica a mano su carte storiche sbagliate.
