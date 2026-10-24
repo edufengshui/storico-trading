@@ -105,3 +105,7 @@ Commander + Zhi Shi: 2020-23 50,2% -2.154 · 2024-26 50,2% -1.213 · vivo 55 · 
 PONTI SOLO SE NON VUOTI (Edu 15:42: "lo ZS fa sempre da ponte, se non e' vuoto, proprio come il commander"). In qmdj.js.
 Misura (prove_24_10_qmdj_ponti.py): 2020-23 50,0% -2.440 · 2024-26 49,8% -1.941 · vivo 55 · 60% · +102.
 Ponte solo Zhi Shi: 2020-23 92 · 42% · -1.443; 2024-26 70 · 47% · -616; vivo 7 · 71% · +238. Ponte Commander: +112 e +212.
+CLASH INTERNI (Edu 15:44: "i palazzi con clash interni hanno problemi e potrebbero non vincere o non fare da ponte"). Letto come stelo del
+cielo contro stelo della terra (甲庚 乙辛 丙壬 丁癸). NON messo in qmdj.js. prove_24_10_qmdj_clash.py: peggiora ovunque
+(niente ponte: 2024-26 -2.487, vivo -372). Contraddizione: EURJPY 22/10 lo Zhi Shi a N e' 辛/乙 (clash) eppure ha fatto ponte.
+Chiesto a Edu cosa intende per clash interno.
