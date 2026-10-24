@@ -100,3 +100,20 @@ Londra? giornaliera?), quale sistema (rotante 转盘 / volante 飞盘, chai bu /
   (pb_stress) e dell'app identici su 3.967 carte 2020-26. Il DLR dal vivo a 44% NON e' un problema di dati: e' un tratto cattivo.
   DLR per mese 2026: gen 57 · feb 60 · mar 46 · apr 53 · mag 56 · giu 61 · lug 57 · ago 46 · set 59 · ott 43% (anni 2020-25: 55-58%).
   Gia' successo (marzo, agosto) e poi tornato. Il peso 0,75 resta finche' "ultimi 20 giorni" non torna sopra il 55%.
+
+## GUIDE DEI METODI (24/10/2026, Edu: "creare delle guide sui metodi... salvarle in Dropbox, in Google Drive... Quando ci sono
+## importanti aggiornamenti puoi aggiornarle automaticamente") — in INGLESE, PRIVATE (NON sul sito, NON nei repo)
+- Dropbox: /Edu Teaching/DLR Trading Guides/ (HTML originali = fonte da cui aggiornare: leggerle con mcp__Dropbox__fetch).
+  File: index, foundations, liu-yao, plum-blossom, da-liu-ren, leggo-io, results-and-exits, qi-men-dun-jia (.html).
+- Google Drive: cartella "DLR Trading Guides" id 17Ehl7JsiDrdpC2kJ6_SYj7c09TNOD-v- (Google Docs convertiti dall'HTML; senza colori e
+  link interni). Doc: index 1jrEdDyIEOg__L5vNxrdY4ZvaDSmK2AmVDRHHED7Thlw · results 1V3zj3v1jxj3XRqWpfO_5rayxfsU5OQS0uMiNpWvaqfY ·
+  qmdj 1UBvwbCqXywuUT1R-nqWJGWMUtDmYeGYr_OqeUqcFg1c · foundations 1L3wr-RllmvTO0KUD_wwuwZsAI3ZR6HBOIpdWXnDkC84 ·
+  leggo-io 1eSCwlsiIJpFO8y1jar2HfFRWfosfGVFp-i0U_zJ-UVU · liu-yao 1K0bnloE-AEkuE7NtSCo8iK4kzfeOXHZnTZ6M43SvmZo ·
+  plum-blossom 1is55kwKIgbRBpNEoUub4BEYkCpipoCTX9jPKk1zJVwg · da-liu-ren 1mMSFklgvInZDyz8gLGNb8RiunxrkCL13U9Kc7EWEAFQ.
+- QUANDO AGGIORNARLE (senza chiedere): regola cablata o tolta, interruttore acceso/spento, peso cambiato, metodo nuovo (QMDJ), sistema in
+  uso cambiato, prova chiusa, decisione su stop/uscite. Le cifre dal vivo si aggiornano insieme a questi cambi (non ogni giorno).
+- COME: i connettori non sovrascrivono. Dropbox: delete del vecchio file + create_file con lo stesso nome. Drive: trash del Doc + create_file
+  (text/html, parentId della cartella) e scrivere qui il nuovo id. Cambiare la data "updated" in testa alla guida. Dirlo a Edu in una riga.
+- Note emerse scrivendo le guide (da vedere con Edu): §140 e altre vie (§130 §108 §101 §102 §116 §117 §126 §96 §98 §63 M18 ritiro) non
+  hanno affidabilita' propria in PR.LY di leggo_io.js -> pesano 0,571 generico; con PB nullo (pareggio/clash) l'app ferma tutto il cross
+  (LY e DLR non calcolati); commenti vecchi in app.js (solo forte, LEGGOIO_TUTTE senza effetto, "3+ inversioni in 10 giorni", SCALA=DLR_SENZA_SEMP).
