@@ -2,6 +2,9 @@
 
 Leggere anche RIPARTENZA_17_10_2026_S57.md (sezioni S58, S59, S59 ter, S60 in fondo) e RIPARTENZA_11_10_2026_S56.md.
 
+## PROMEMORIA PER EDU (chiesto il 24/10/2026: "Facciamolo più avanti, ricordamelo"): rendere privati i metodi — storico-trading
+## privato su GitHub; app trading su Cloudflare Pages + Access, poi repo trading privato. Ricordarlo a inizio sessione finche' non e' fatto.
+
 ## REGOLE DI LAVORO (invariate + nuove)
 - Niente add_repo: clonare con git; push col token nell'header (token MAI in file, memoria, registro, repo). Se chiave.txt non
   c'e' nella nuova chat, chiederla a Edu. Commit come claude-push (Co-Authored-By / Claude-Session).
