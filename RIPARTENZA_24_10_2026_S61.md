@@ -113,3 +113,4 @@ CLASH INTERNI precisati (Edu 18:15): fra i due steli (甲庚 乙辛 丙壬 丁�
 戊/辛, 庚/癸, 壬/己). prove_24_10_qmdj_clash2.py: nessuna variante migliora. Clash dei soli rami, vincitore in clash fermo:
 2020-23 -3.054 · 2024-26 -1.765 · vivo 61% +112. Con gli steli il ponte di EURJPY 22/10 (Zhi Shi 辛/乙) cade e il vivo va a -372.
 La regola giorno/ora resta ~50% sullo storico in tutte le varianti. Proposto a Edu: verifica a mano su carte storiche sbagliate.
+DECISIONE (Edu 18:18): il clash interno NON si usa. qmdj.js resta senza clash.
