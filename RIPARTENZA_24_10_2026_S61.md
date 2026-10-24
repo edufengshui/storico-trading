@@ -80,3 +80,11 @@ stesso palazzo/elemento: "fai una statistica". Script prove_24_10_qmdj_giorno_or
 - Variante migliore: oraria, solo mese, vuoti dell'ora: 52,5% +2.923 · 51,5% -111 · vivo 59% -249.
 - Stesso palazzo (se segue): 2020-23 54,8% +1.883, 2024-26 44,1% -2.627 -> si rovescia, resta fermo. Stesso elemento idem.
 - "Giorno controlla ora" (senza 反侮) segue: 47,1% e 40,6% -> in tutti e due i periodi il trend PERDE quando il giorno controlla l'ora.
+
+## QMDJ — PONTE DEL COMMANDER (Edu, 24/10/2026 15:17)
+"Se il Commander fa da ponte fra il palazzo che controlla e quello controllato l'esito si ribalta." Implementato: palazzo del deity
+Commander (non 5, diverso dai due palazzi); controllante = elemento che controlla (反侮 incluso); ponte = controllante genera il Commander
+e il Commander genera il controllato. Script prove_24_10_qmdj_commander.py.
+- Regola di Edu (oraria, mese+stagione, vuoti del giorno): 2020-23 -2.109 · 2024-26 -763 · vivo 61% +9 (prima -1.538/-4.217/-127).
+- Oraria, mese+stagione, vuoti dell'ora: +915 · +1.476 · vivo -235. Oraria, solo mese, vuoti dell'ora: +3.155 · +865 · vivo 59% -113.
+- Carte col ponte: 2020-23 100 carte -437; 2024-26 69 carte +1.624 (66-79% sui casi "giorno controlla ora").
