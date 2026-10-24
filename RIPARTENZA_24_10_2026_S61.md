@@ -88,3 +88,10 @@ e il Commander genera il controllato. Script prove_24_10_qmdj_commander.py.
 - Regola di Edu (oraria, mese+stagione, vuoti del giorno): 2020-23 -2.109 · 2024-26 -763 · vivo 61% +9 (prima -1.538/-4.217/-127).
 - Oraria, mese+stagione, vuoti dell'ora: +915 · +1.476 · vivo -235. Oraria, solo mese, vuoti dell'ora: +3.155 · +865 · vivo 59% -113.
 - Carte col ponte: 2020-23 100 carte -437; 2024-26 69 carte +1.624 (66-79% sui casi "giorno controlla ora").
+
+## QMDJ — REGOLA FISSATA (Edu, 24/10/2026 15:24): "togli la carta del giorno e i vuoti del giorno"
+Solo carta ORARIA, vuoti del 旬 dell'ORA, forza mese + stagione, 反侮, vince il generato, ponte del Commander (contato anche se vuoto:
+Edu non ha ancora deciso), stesso palazzo/elemento fermo. Scritta in trading/qmdj.js: XKDGQimen.giornoOra(cartaOraria) ->
+{segue, motivo, palGiorno, palOra, forzaGiorno, forzaOra}. Verificata con prove_24_10_qmdj_verifica.js: 0 differenze su 3.776 carte.
+Misura: 2020-23 1.588 · 51,4% · +915 · 2024-26 1.226 · 51,7% · +1.476 · vivo 54 · 56% · -235. Spread 1,5 pip.
+PROSSIMO: mettere "Metodo QMDJ" in leggo_io.js/app.js/index.html/misura_vivo.js (passo 4) se Edu approva; poi guide.
