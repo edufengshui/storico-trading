@@ -102,3 +102,6 @@ PONTE DELLO ZHI SHI (Edu 15:40, da EURJPY 22/10: Metallo -> Zhi Shi a N Acqua ->
 In qmdj.js (un ribaltamento solo anche se fanno ponte tutti e due). Misura (prove_24_10_qmdj_zhishi.py):
 Commander + Zhi Shi: 2020-23 50,2% -2.154 · 2024-26 50,2% -1.213 · vivo 55 · 62% · +352. Carte col solo ponte Zhi Shi: 2020-23 99 · 43% · -1.513,
 2024-26 74 · 49% · -493, vivo 7 · 71% · +280. Ponte Commander da solo positivo nei due periodi (+412, +360).
+PONTI SOLO SE NON VUOTI (Edu 15:42: "lo ZS fa sempre da ponte, se non e' vuoto, proprio come il commander"). In qmdj.js.
+Misura (prove_24_10_qmdj_ponti.py): 2020-23 50,0% -2.440 · 2024-26 49,8% -1.941 · vivo 55 · 60% · +102.
+Ponte solo Zhi Shi: 2020-23 92 · 42% · -1.443; 2024-26 70 · 47% · -616; vivo 7 · 71% · +238. Ponte Commander: +112 e +212.
