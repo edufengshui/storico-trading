@@ -117,3 +117,11 @@ Londra? giornaliera?), quale sistema (rotante 转盘 / volante 飞盘, chai bu /
 - Note emerse scrivendo le guide (da vedere con Edu): §140 e altre vie (§130 §108 §101 §102 §116 §117 §126 §96 §98 §63 M18 ritiro) non
   hanno affidabilita' propria in PR.LY di leggo_io.js -> pesano 0,571 generico; con PB nullo (pareggio/clash) l'app ferma tutto il cross
   (LY e DLR non calcolati); commenti vecchi in app.js (solo forte, LEGGOIO_TUTTE senza effetto, "3+ inversioni in 10 giorni", SCALA=DLR_SENZA_SEMP).
+
+## 24/10/2026 — PB CHE NON SCIOGLIE: misurato, il fermo resta (in attesa di Edu)
+- Edu: "Correggi assolutamente" (lettura col PB muto). Scritta in app.js (pbNullo, out.letta, livelloTreSistemi) ma dietro
+  localStorage PB_MUTO_LEGGE=1, SPENTA: su 1.527 cross-giorno 2020-26 (pareggio 925, clash giorno/mese 602) tutti i metodi stanno al 50%
+  (LY 49,4 · lettura 49,6 · DLR 51,7 · D 48,6 · LYF 49,6 · PBF 50,1 · DLRF 51,4 · CM 46,7%). Lio: 2020-23 729 · 51,4% · +61;
+  2024-26 610 · 50,7% · +772; vivo 31 · 54,8% · -38. Forte 48,5 / 45,0%. Pareggio 52,7/50,4%; clash 49,2/51,0%.
+  Lettura: la carta che il PB non scioglie non si legge con nessun metodo; il fermo protegge. misura_vivo.js conta anche le carte lette
+  col PB muto quando l'interruttore e' acceso (campo pbMuto nel dump).
