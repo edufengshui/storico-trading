@@ -98,3 +98,7 @@ PROSSIMO: mettere "Metodo QMDJ" in leggo_io.js/app.js/index.html/misura_vivo.js 
 CORREZIONE (Edu 15:37): "Fowl segue sempre Rice" -> lo stelo del centro sta nel palazzo di Rice (天芮); prima usavo Grass (天蓬), errore.
 Rimisurata: 2020-23 1.583 · 51,0% · +575 · 2024-26 1.225 · 50,4% · -449 · vivo 55 · 56% · -230 -> col centro giusto NON regge piu'.
 EURJPY 22/10: 壬 a W (palazzo 7, Metallo, forza 7) controlla 己 a E (palazzo 3, forza 1) -> vince l'ora, LONG: perde comunque -179.
+PONTE DELLO ZHI SHI (Edu 15:40, da EURJPY 22/10: Metallo -> Zhi Shi a N Acqua -> Legno): come il Commander, ribalta il controllo.
+In qmdj.js (un ribaltamento solo anche se fanno ponte tutti e due). Misura (prove_24_10_qmdj_zhishi.py):
+Commander + Zhi Shi: 2020-23 50,2% -2.154 · 2024-26 50,2% -1.213 · vivo 55 · 62% · +352. Carte col solo ponte Zhi Shi: 2020-23 99 · 43% · -1.513,
+2024-26 74 · 49% · -493, vivo 7 · 71% · +280. Ponte Commander da solo positivo nei due periodi (+412, +360).
