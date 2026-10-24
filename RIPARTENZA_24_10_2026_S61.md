@@ -71,3 +71,12 @@ Script prove_24_10_qmdj_giorno_ora.py. TARATURE MIE, da far decidere a Edu: forz
 palazzo vuoto = forza 0; chi controlla vince se forza >= dell'altro, altrimenti 反侮; chi e' generato vince; stesso palazzo fermo.
 Migliore: carta ORARIA, relazione, senza vuoti: 2020-23 1.588 · 53,0% · +2.953; 2024-26 1.226 · 51,5% · +384; vivo 54 · 63% · -109.
 Coi vuoti dell'ora: 52,7% e 51,3% ma 2024-26 -1.303. Giornaliera: non regge. Debole: serve la dottrina di Edu sulle tarature.
+
+## QMDJ — GIORNO CONTRO ORA, REGOLE DI EDU COMPLETE (24/10/2026, 15:11)
+Edu: forza = timeliness sul mese E sulla stagione; vuoti DEL GIORNO (provare anche dell'ora); palazzo vuoto a meta' -> vuoto solo se lo
+stelo del di pan ha la polarita' del ramo vuoto; palazzo vuoto intero = forza 0; controllo e 反侮 giusti; vince il generato giusto;
+stesso palazzo/elemento: "fai una statistica". Script prove_24_10_qmdj_giorno_ora_2.py.
+- Oraria, mese+stagione, vuoti del giorno: 2020-23 50,9% -1.538 · 2024-26 48,7% -4.217 · vivo 61% -127 -> non regge.
+- Variante migliore: oraria, solo mese, vuoti dell'ora: 52,5% +2.923 · 51,5% -111 · vivo 59% -249.
+- Stesso palazzo (se segue): 2020-23 54,8% +1.883, 2024-26 44,1% -2.627 -> si rovescia, resta fermo. Stesso elemento idem.
+- "Giorno controlla ora" (senza 反侮) segue: 47,1% e 40,6% -> in tutti e due i periodi il trend PERDE quando il giorno controlla l'ora.
