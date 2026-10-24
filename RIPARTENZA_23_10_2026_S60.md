@@ -89,3 +89,14 @@ Londra? giornaliera?), quale sistema (rotante 转盘 / volante 飞盘, chai bu /
   si mette se lo STOP 50 da' pip >= tenere e calo minore. Al 23/10: 62 trade, tenere +516 calo -221 / stop 50 +274 calo -302.
 - raccolta_notturna.js ora salva anche h e l in orario_live.json (seconda richiesta /page full=1, size 300). PRIMA di misura_vivo
   fare unzip -o history_full_1h_f.zip: il .json nel repo e' vecchio (senza h/l); non committarlo (git checkout dopo).
+
+## 24/10/2026 — CORREZIONE E DATI DEL DLR
+- ATTENZIONE: le misure dello stop su Lio scritte sopra (24/10 mattina) erano fatte col .json vecchio SENZA h/l (fallback apertura/chiusura).
+  Rifatte coi massimi e minimi veri: Lio tenere / stop 50: 2020-23 +52.470 -469 / +43.160 -422 · 2024-26 +37.645 -421 / +31.753 -388 ·
+  vivo (99) +1.455 -182 / +1.103 -202. Col DLR concorde: 2020-23 +35.679 -705 / +29.305 -465 · 2024-26 +27.374 -552 / +23.627 -349.
+  Lo stop 50 su Lio costa 15-20% dei pip; col DLR concorde taglia il calo di un terzo. Resta da seguire dal vivo (deciso con Edu).
+- DATI DEL DLR (Edu 24/10, punto 3): stessi giorni dal vivo con lo storico (ORARIO=full1h.json) e con la raccolta notturna: 106 cross-giorno
+  in comune, trend, PB, LY, DLR, Lio ed esito IDENTICI (i 4 mancanti sono del 23/10, storico fermo alle 15:00). DLR del backtest
+  (pb_stress) e dell'app identici su 3.967 carte 2020-26. Il DLR dal vivo a 44% NON e' un problema di dati: e' un tratto cattivo.
+  DLR per mese 2026: gen 57 · feb 60 · mar 46 · apr 53 · mag 56 · giu 61 · lug 57 · ago 46 · set 59 · ott 43% (anni 2020-25: 55-58%).
+  Gia' successo (marzo, agosto) e poi tornato. Il peso 0,75 resta finche' "ultimi 20 giorni" non torna sopra il 55%.
