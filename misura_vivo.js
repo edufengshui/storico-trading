@@ -56,6 +56,14 @@ riga('LEGGO IO (si trada)', x => x.liDir);
 riga('  Leggo io, conclusione forte', x => x.liForza === 'forte' ? x.liDir : null);
 riga('  Leggo io, media', x => x.liForza === 'media' ? x.liDir : null);
 riga('  Leggo io, debole', x => x.liForza === 'debole' ? x.liDir : null);
+// STOP 50 SUI TRADE DI LEGGO IO COL DLR CONCORDE (24/10/2026, Edu: "Aspettiamo ma tienimi aggiornato e quando abbiamo molti casi
+// così, lo mettiamo"). Stop controllato su massimi e minimi veri (uscite.js; barre senza h/l -> apertura/chiusura, segnalate).
+{ const U = require('./uscite.js'), st = (nome, f, reg) => { let n = 0, w = 0, p = 0, run = 0, top = 0, calo = 0, senza = 0;
+    C.forEach(x => { const d = f(x); if (!d) return; const pa = U.percorso(x.cross, x.date); if (!pa) return; n++;
+      senza += pa.p.some(b => b.hiVero === false) ? 1 : 0; const v = U.esito(pa, d, x.cross, reg, true); w += v > 0; p += v; run += v; top = Math.max(top, run); calo = Math.min(calo, run - top); });
+    console.log(nome.padEnd(46) + String(n).padStart(4) + ' trade ' + String(w).padStart(3) + ' vinti ' + (n ? (100 * w / n).toFixed(0) : '-').padStart(3) + '% ' + ((p > 0 ? '+' : '') + Math.round(p)).padStart(6) + ' pip  calo ' + Math.round(calo) + (senza ? '  (' + senza + ' senza h/l)' : '')); };
+  const conc = x => x.liDir && x.DLR === x.liDir ? x.liDir : null;
+  st('Lio col DLR concorde, tenere fino alle 21', conc, {}); st('Lio col DLR concorde, STOP 50', conc, { stop: 50 }); }
 riga('PIRAMIDE intera', x => x.liv && x.liv !== 'cantina' && /^[0-9]+$/.test(x.liv) ? x.dirLiv : null);
 riga('  gradino 1 (punta)', x => x.liv === '1' ? x.dirLiv : null);
 riga('  gradini 2-4', x => /^[234]$/.test(x.liv || '') ? x.dirLiv : null);

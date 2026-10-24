@@ -83,3 +83,9 @@ Londra? giornaliera?), quale sistema (rotante 转盘 / volante 飞盘, chai bu /
 - Lio dove il DLR e' concorde: 2020-23 +35.679 -705 / +33.751 -441 · 2024-26 +27.374 -552 / +27.434 -265 · vivo (49) +379 -221 / +195 -302.
 - Su tutto Lio lo stop costa pip e taglia poco il calo; dove il DLR concorda il calo si dimezza (pip uguali nel 2024-26). Dal vivo
   (pochi trade) lo stop peggiora sempre. DA DECIDERE con Edu.
+- DECISO (Edu 24/10: "Aspettiamo ma tienimi aggiornato e quando abbiamo molti casi così, lo mettiamo"): lo stop 50 sui trade di Lio col
+  DLR concorde NON va nell'app per ora. misura_vivo.js stampa ogni volta "Lio col DLR concorde, tenere / STOP 50" (pip e calo):
+  RIPORTARLO A EDU A OGNI INIZIO, insieme ai trade della notte. Proposta di soglia: 150 trade dal vivo col DLR concorde (~2 mesi);
+  si mette se lo STOP 50 da' pip >= tenere e calo minore. Al 23/10: 62 trade, tenere +516 calo -221 / stop 50 +274 calo -302.
+- raccolta_notturna.js ora salva anche h e l in orario_live.json (seconda richiesta /page full=1, size 300). PRIMA di misura_vivo
+  fare unzip -o history_full_1h_f.zip: il .json nel repo e' vecchio (senza h/l); non committarlo (git checkout dopo).

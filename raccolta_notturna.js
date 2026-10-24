@@ -194,7 +194,14 @@ async function confronto(feed) {
     await new Promise(z => setTimeout(z, 8000));
     if (!pg || !pg.bars) { righe.push('| ' + r.cross + ' | nessuna barra: ' + JSON.stringify(pg).slice(0, 80) + ' |'); continue; }
     const m = {}; (orario[r.cross] || []).forEach(b => { m[b.t] = b; });
-    pg.bars.forEach(b => { if (b.t >= '2026-07-01') m[b.t] = { t: b.t, o: b.o, c: b.c }; });
+    pg.bars.forEach(b => { if (b.t >= '2026-07-01') m[b.t] = Object.assign({}, m[b.t], { t: b.t, o: b.o, c: b.c }); });
+    // MASSIMI E MINIMI (24/10/2026, Edu: stop 50 sui trade di Leggo io col DLR concorde, da seguire dal vivo): seconda richiesta
+    // piccola con full=1 (come aggiorna_storico HL), solo h e l delle barre; apertura e chiusura restano quelle di sopra.
+    try {
+      const ph = await (await fetch(WORKER_URL + 'page?symbol=' + r.cross + '&interval=1h&size=300&full=1', { cache: 'no-store' })).json();
+      (ph.bars || []).forEach(b => { if (m[b.t] && Number.isFinite(b.h) && Number.isFinite(b.l)) { m[b.t].h = b.h; m[b.t].l = b.l; } });
+    } catch (e) { console.log(r.cross + ' h/l: ' + e.message); }
+    await new Promise(z => setTimeout(z, 8000));
     orario[r.cross] = Object.keys(m).sort().map(k => m[k]);
     const by = {};
     pg.bars.forEach(x => { const d = x.t.slice(0, 10), hh = x.t.slice(11, 13); by[d] = by[d] || {}; if (hh === '00') by[d].o = x.o; if (hh === '21') by[d].c = x.c; });

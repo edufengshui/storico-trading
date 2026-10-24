@@ -3,11 +3,11 @@
 // controllano sul massimo e sul minimo della barra, prima il lato sfavorevole (conservativo: se nella stessa ora si
 // toccano stop e obiettivo, conta lo stop), eseguiti esattamente al livello (niente slittamento, spread escluso).
 // Con hl=false il vecchio controllo sulle chiusure orarie.
-const D='/root/storico-trading';const fs=require('fs');
+const D=__dirname;const fs=require('fs');
 const H=JSON.parse(fs.readFileSync(D+'/full1h.json')).crosses;const O=JSON.parse(fs.readFileSync(D+'/orario_live.json'));
 const BARS={};for(const c in H){const g={};const add=b=>{const d=b.t.slice(0,10);(g[d]=g[d]||{})[+b.t.slice(11,13)]=b;};H[c].forEach(add);(O[c]||[]).forEach(b=>{const d=b.t.slice(0,10);if(!g[d]||!g[d][+b.t.slice(11,13)])add(b);});BARS[c]=g;}
 const pipf=c=>/JPY$/.test(c)?100:10000;
-function percorso(c,d){const g=BARS[c]&&BARS[c][d];if(!g||!g[0]||!g[21])return null;const o=g[0].o,p=[];for(let h=0;h<=21;h++)if(g[h])p.push({h,c:g[h].c,hi:g[h].h!=null?g[h].h:Math.max(g[h].o,g[h].c),lo:g[h].l!=null?g[h].l:Math.min(g[h].o,g[h].c)});return {o,p};}
+function percorso(c,d){const g=BARS[c]&&BARS[c][d];if(!g||!g[0]||!g[21])return null;const o=g[0].o,p=[];for(let h=0;h<=21;h++)if(g[h])p.push({h,c:g[h].c,hiVero:g[h].h!=null,hi:g[h].h!=null?g[h].h:Math.max(g[h].o,g[h].c),lo:g[h].l!=null?g[h].l:Math.min(g[h].o,g[h].c)});return {o,p};}
 function esito(path,dir,c,reg,hl){const s=dir==='LONG'?1:-1,f=pipf(c);let be=false;
  for(const b of path.p){const pip=s*(b.c-path.o)*f;
   if(hl){const peg=(s>0?b.lo-path.o:path.o-b.hi)*f,mig=(s>0?b.hi-path.o:path.o-b.lo)*f;
