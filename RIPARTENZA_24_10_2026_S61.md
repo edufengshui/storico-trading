@@ -1,0 +1,54 @@
+# RIPARTENZA S62 — QI MEN DUN JIA (dalla chat S61, 23-24/10/2026)
+
+Leggere prima: questo file, poi RIPARTENZA_23_10_2026_S60.md (stato, regole di lavoro, tutte le sezioni del 23-24/10), poi le guide
+in Dropbox "/Edu Teaching/DLR Trading Guides" (index, leggo-io, qi-men-dun-jia) se serve il quadro del sistema.
+
+## ALL'INIZIO (sempre, in quest'ordine, risposte SINTETICHE)
+1. Trade della notte: unzip -o history_full_1h_f.zip history_full_1h_from20200129.json, poi node misura_vivo.js (poi git checkout del .json,
+   non committarlo). Riportare: esiti del giorno (formato: trend EMA ed esito in testa), Leggo io dal vivo, "DLR da solo, ultimi 20 giorni"
+   (peso DLR 0,75 finche' non torna sopra 55%), "Lio col DLR concorde, tenere / STOP 50" (stop deciso: si aspetta ~150 trade), "Leggo io a misura".
+2. PROMEMORIA privacy (Edu: "ricordamelo"): storico-trading privato su GitHub; app trading su Cloudflare Pages + Access. Ricordarlo finche' non e' fatto.
+3. Poi il QMDJ.
+
+## REGOLE DI LAVORO (invariate)
+- Niente add_repo: git clone con il token di chiave.txt (chiederlo a Edu se manca); push col token nell'header, MAI nei file.
+  Commit come claude-push con Co-Authored-By / Claude-Session. Il token non ha scope workflow.
+- I cloni vanno in /home/claude; creare i link /root/trading e /root/storico-trading verso i cloni (servono a work_trading/pwa e ai vecchi script).
+- ORA DI PECHINO ESCLUSA CATEGORICAMENTE: tutto sulla mezzanotte di Londra.
+- Regola #10: una percentuale non respinge una lettura di Edu; il rischio di sovradattamento si dice una volta.
+- Guide (inglese, private, Dropbox + Drive): aggiornarle senza chiedere quando cambia qualcosa di importante (vedi S60, sezione GUIDE).
+  Quando entra il QMDJ: aggiornare qi-men-dun-jia.html, leggo-io.html, index.html.
+
+## STATO AL 24/10 (dettagli nella S60)
+- Sistema in uso: Leggo io (LY 1, PB 1, DLR 0,75). Dal vivo 29/09-23/10: 102 · 64% · +1.479; a misura +1.108.
+- Nuovo 24/10: misura della posizione (piena sulle forti, meta' su medie e deboli); PB che non scioglie -> il fermo resta (lettura col PB
+  muto scritta e spenta, PB_MUTO_LEGGE=1: su quelle carte tutti i metodi al 50%); massimi/minimi veri nello storico e nella raccolta notturna;
+  stop su Lio misurato e rinviato; il DLR dal vivo e' un tratto cattivo, non un problema di dati.
+
+## QI MEN DUN JIA — DA DOVE SI RIPARTE
+Scelte di Edu (23/10): carta ORARIA e GIORNALIERA; rotante 转盘, chai bu 拆补; ora = ramo del SEME del cross (stelo col 五鼠遁);
+Ju calcolato sulla mezzanotte di Londra; le carte le fa il motore di XKDG (non uno nuovo).
+Codice (repo trading, NON ancora nell'app/index.html):
+- qmdj-water-scanner.js: copia invariata da eduXKDG (getRotatingHourChart). Caricarlo con window = global (vedi qmdj.js engine()).
+- qmdj.js (XKDGQimen): oraria(utcMs, seedBranch), giornaliera(utcMs), testo(chart), juOraria, juGiornaliera. Il Ju passa sempre con
+  forceJuDun. Oraria: termine in corso (jieqi-gmt, <= 00:00 GMT) + Yuan dal 符头 del giorno. Giornaliera: dayChartJu di XKDG
+  (qmdj-daymonth.js, sessione 32) con i termini contati sulla mezzanotte di Londra.
+- Verificato 23/10/2026: oraria yin 9 中元, identica palazzo per palazzo fra motore XKDG e costruzione indipendente; giornaliera 庚午 yin 1.
+- Differenza dalla giornaliera di XKDG (lon 0): quando il giorno di Londra del termine e' un giorno 甲 tutto il periodo slitta di un Ju
+  (3 volte nel 2020-26, ~45 giorni: 立春 2025, 春分 2026, 立秋 2026). DOMANDA APERTA a Edu: tenere la regola di Londra o il giorno del termine di XKDG.
+- Uso in node: global.window=global; Solar/Lunar da lunar-javascript (NODE_PATH=storico-trading/node_modules); global.XKDGSolarTime e
+  XKDGJieQiGMT dai file del repo trading; poi require('./qmdj.js'). Il seme: rowFor(cross, apertura 00:00) da worker_index.js.
+- Celle del motore: palaces[p] = { deity, star, doorName/door, tiH (stelo del cielo), diH (stelo della terra), zhiShi }; nomi inglesi
+  (porte Open Rest Birth View Injury Delusion Shocking Death; spiriti Commander Snake Yin Harmonies Tiger Warrior Earth Heaven).
+
+PROSSIMI PASSI
+1. Chiedere a Edu cosa rappresenta il cross e chi vince (simbolo utile) e come diventa LONG/SHORT o segue/non segue il trend.
+   Candidati proposti il 23/10 (Edu non ha scelto): stelo del giorno contro stelo dell'ora; palazzo dello Zhi Fu contro quello dello Zhi Shi;
+   porta del palazzo dell'ora. Edu e' l'autorita': nessuna interpretazione inventata, solo le sue regole.
+2. Verifica su carte che Edu legge a mano (2-3 date note).
+3. Misura: dump carte 2020-26 (misura_vivo.js ORARIO=full1h.json DUMPC=... da' cross, data, seme, esito, trend), carta QMDJ per ognuna,
+   regola scelta sul 2020-23, verifica sul 2024-26 e dal vivo, spread incluso (1-2 pip per cross). Soglia minima per entrare: utile su
+   tutti e due i periodi.
+4. Solo dopo: "Metodo QMDJ" dentro leggo_io.js (FAM.QMDJ, affidabilita' stimata prima del 2024, CAL per fascia, PESO), app.js
+   (voce qmdjDir in analizzaCrossPerReport e in livelloTreSistemi), index.html (script qmdj-water-scanner.js e qmdj.js), misura_vivo.js
+   (riga "QMDJ da solo"), raccolta_notturna (stessa app.js: copiare app.js anche in storico-trading). Poi aggiornare le guide.
