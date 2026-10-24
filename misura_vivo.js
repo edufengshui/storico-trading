@@ -9,7 +9,8 @@ const DAL = process.argv[2] || '2026-09-29', AL = process.argv[3] || new Date().
 const W = fs.readFileSync(path.join(DIR, 'worker_index.js'), 'utf8');
 const BRANCHES = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'], BRANCH_PINYIN = BRANCHES;
 eval(W.slice(W.indexOf('var EMA_PERIOD'), W.indexOf('async function fetchDailyAll')));
-const O = JSON.parse(fs.readFileSync(path.join(DIR, 'orario_live.json'), 'utf8'));
+// ORARIO=full1h.json (24/10/2026): stessa misura su tutto lo storico 2020-26 (barre con massimi e minimi), per le uscite di Lio.
+const _O = JSON.parse(fs.readFileSync(path.join(DIR, process.env.ORARIO || 'orario_live.json'), 'utf8')), O = _O.crosses || _O;
 const pip = c => /JPY$/.test(c) ? 100 : 10000, festivo = d => [0, 6].includes(new Date(d + 'T12:00:00Z').getUTCDay());
 const perGiorno = {}; for (const c in O) { perGiorno[c] = {}; O[c].forEach(b => { const d = b.t.slice(0, 10); (perGiorno[c][d] = perGiorno[c][d] || []).push(b); }); }
 // l'app come nel browser

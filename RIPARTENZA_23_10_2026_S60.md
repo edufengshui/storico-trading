@@ -76,3 +76,10 @@ Londra? giornaliera?), quale sistema (rotante 转盘 / volante 飞盘, chai bu /
   Ora della W vibrante = picco: 4,0% contro 5,6% atteso. CHIUSO: l'ora degli estremi non si legge dalla carta.
 - PROSSIMO: decidere con Edu se mettere lo STOP 50 sul DLR (e/o su Lio); poi Qi Men Dun Jia (qmdj.js in trading: motore di XKDG,
   ora dal seme, Jú chai bu e carta giornaliera sulla mezzanotte di Londra; simboli ancora da scegliere).
+
+## 24/10/2026 — STOP SU LEGGO IO (massimi e minimi veri; prove_24_10_stop_lio.js, misura_vivo.js ORARIO=full1h.json su tutto lo storico,
+## cataloghi dentro il campione: conta il confronto fra uscite, non il livello)
+- Lio tenere / stop 50 (pip, calo): 2020-23 +52.470 -469 / +49.920 -399 · 2024-26 +37.645 -421 / +36.895 -304 · vivo (80) +1.060 -182 / +751 -202.
+- Lio dove il DLR e' concorde: 2020-23 +35.679 -705 / +33.751 -441 · 2024-26 +27.374 -552 / +27.434 -265 · vivo (49) +379 -221 / +195 -302.
+- Su tutto Lio lo stop costa pip e taglia poco il calo; dove il DLR concorda il calo si dimezza (pip uguali nel 2024-26). Dal vivo
+  (pochi trade) lo stop peggiora sempre. DA DECIDERE con Edu.
