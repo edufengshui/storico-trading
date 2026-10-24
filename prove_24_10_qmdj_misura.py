@@ -12,7 +12,7 @@ def pal(ch,s):
     for p,c in ch.items():
         if p!='5' and c['t']==s: return p
     for p,c in ch.items():
-        if p!='5' and c['s']=='Grass': return p
+        if p!='5' and c['s']=='Rice': return p
     return None
 def rel(a,b):
     if a is None or b is None: return None

@@ -95,3 +95,6 @@ Edu non ha ancora deciso), stesso palazzo/elemento fermo. Scritta in trading/qmd
 {segue, motivo, palGiorno, palOra, forzaGiorno, forzaOra}. Verificata con prove_24_10_qmdj_verifica.js: 0 differenze su 3.776 carte.
 Misura: 2020-23 1.588 · 51,4% · +915 · 2024-26 1.226 · 51,7% · +1.476 · vivo 54 · 56% · -235. Spread 1,5 pip.
 PROSSIMO: mettere "Metodo QMDJ" in leggo_io.js/app.js/index.html/misura_vivo.js (passo 4) se Edu approva; poi guide.
+CORREZIONE (Edu 15:37): "Fowl segue sempre Rice" -> lo stelo del centro sta nel palazzo di Rice (天芮); prima usavo Grass (天蓬), errore.
+Rimisurata: 2020-23 1.583 · 51,0% · +575 · 2024-26 1.225 · 50,4% · -449 · vivo 55 · 56% · -230 -> col centro giusto NON regge piu'.
+EURJPY 22/10: 壬 a W (palazzo 7, Metallo, forza 7) controlla 己 a E (palazzo 3, forza 1) -> vince l'ora, LONG: perde comunque -179.
