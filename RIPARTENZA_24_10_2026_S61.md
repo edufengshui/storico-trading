@@ -123,3 +123,8 @@ In qmdj.js: (1) generazione verso un palazzo vuoto non avviene -> vince chi gene
 - Regola ora: 2020-23 1.583 · 51,3% · +3.166 · 2024-26 1.225 · 50,9% · +462 · vivo 55 · 62% · +106.
 - Generato vuoto da solo: carte toccate 112 · 57% · +1.549 e 100 · 57% · +829 (regge). Commander opposto: 160 · +765 e 118 · -25 (neutro).
 Prossime carte pronte: EURJPY 19/12/2024 (反侮), EURJPY 12/02/2025 (ponte Zhi Shi) — da rifare con la regola nuova.
+
+## CARTA 2: USDJPY 06/11/2024 (Edu 18:31): "Qian e' vuoto ma il mese e' Xu, il palazzo e' molto forte, il vuoto non e' significativo"
+In qmdj.js: un palazzo che contiene il ramo del mese non e' mai vuoto. La carta ora da' SEGUE (giusto).
+Misura: 2020-23 51,4% +2.561 · 2024-26 50,4% +948 · vivo 62% +106 (prima +3.166 / +462 / +106). Variante non adottata
+(anche il ramo del giorno riempie): +1.887 / +1.078 / +218.
