@@ -53,6 +53,8 @@ riga('seguire sempre il trend', x => x.trend);
 riga('D da solo', x => x.D); riga('LY da solo', x => x.LY); riga('lettura della carta da solo', x => x.LETT); riga('sistema LY per forma da solo', x => x.LYF); riga('PB da solo', x => x.PB); riga('sistema PB per forma da solo', x => x.PBF); riga('DLR da solo', x => x.DLR); riga('DLR da solo, ultimi 20 giorni di mercato (riprende sopra il 55%)', x => (C.__ultimi || (C.__ultimi = [...new Set(C.map(y => y.date))].sort().slice(-20))).includes(x.date) ? x.DLR : null); riga('sistema DLR per forma da solo', x => x.DLRF); riga('colpo del mese da solo', x => x.CM); riga('metodo semplificato da solo', x => x.SEMP);
 riga('DLR = metodo del trend (senza D)', x => hit(['DLR', 'MT'], x));
 riga('LEGGO IO (si trada)', x => x.liDir);
+{ let n = 0, p = 0; C.forEach(x => { if (!x.liDir) return; n++; const v = x.liDir === x.real ? x.move : -x.move; p += x.liForza === 'forte' ? v : v / 2; });   // 24/10/2026
+  console.log('Leggo io a misura (piena forte, meta\' media/debole)'.padEnd(46) + String(n).padStart(4) + ' trade' + ' '.repeat(22) + ((p > 0 ? '+' : '') + Math.round(p)).padStart(6) + ' pip (in posizioni piene)'); }
 riga('  Leggo io, conclusione forte', x => x.liForza === 'forte' ? x.liDir : null);
 riga('  Leggo io, media', x => x.liForza === 'media' ? x.liDir : null);
 riga('  Leggo io, debole', x => x.liForza === 'debole' ? x.liDir : null);

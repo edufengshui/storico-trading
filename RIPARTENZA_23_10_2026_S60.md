@@ -128,3 +128,9 @@ Londra? giornaliera?), quale sistema (rotante 转盘 / volante 飞盘, chai bu /
   2024-26 610 · 50,7% · +772; vivo 31 · 54,8% · -38. Forte 48,5 / 45,0%. Pareggio 52,7/50,4%; clash 49,2/51,0%.
   Lettura: la carta che il PB non scioglie non si legge con nessun metodo; il fermo protegge. misura_vivo.js conta anche le carte lette
   col PB muto quando l'interruttore e' acceso (campo pbMuto nel dump).
+
+## 24/10/2026 — MISURA DELLA POSIZIONE (Edu: "Si")
+- Deboli misurate con lo spread (1-2 pip per cross, anche doppio), Lio senza voci per forma (niente dati visti in anticipo), pip netti a
+  trade: forte +19,7 (2020-23) / +12,8 (2024-26) · media +8,1 / +4,1 · debole +2,8 / +3,8; deboli in attivo anche a spread doppio. Non si tolgono.
+- app.js: e.misura = 'piena' (Lio forte) / 'metà' (media, debole); badge nel report, campi misura e forza nel registro, riga "Misura" nei
+  trade persi. misura_vivo.js: riga "Leggo io a misura" (pip in posizioni piene). Dal vivo 29/09-23/10: +1.479 a misura piena, +1.108 a misura.
