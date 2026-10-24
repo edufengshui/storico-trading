@@ -128,3 +128,4 @@ Prossime carte pronte: EURJPY 19/12/2024 (反侮), EURJPY 12/02/2025 (ponte Zhi 
 In qmdj.js: un palazzo che contiene il ramo del mese non e' mai vuoto. La carta ora da' SEGUE (giusto).
 Misura: 2020-23 51,4% +2.561 · 2024-26 50,4% +948 · vivo 62% +106 (prima +3.166 / +462 / +106). Variante non adottata
 (anche il ramo del giorno riempie): +1.887 / +1.078 / +218.
+Edu 18:32: anche il ramo del GIORNO riempie il vuoto -> adottato in qmdj.js (mese o giorno): +1.887 · +1.078 · vivo 64% +218.
