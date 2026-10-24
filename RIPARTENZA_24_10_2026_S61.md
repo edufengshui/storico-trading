@@ -63,3 +63,11 @@ e prove_24_10_qmdj_misura.py. Regola scelta sul 2020-23 (segue/non segue per cat
   Base "contro il trend sempre" ~ +1 pip/trade nei due periodi; C ~ +6 e +4 pip/trade.
 - C giornaliera (porta del palazzo del giorno): 2020-23 +8.919, 2024-26 -988 -> NON regge.
 Attesa: lettura di Edu su C (perche' Birth/Open contro il trend?) e sue regole prima di metterlo in Leggo io.
+
+## QMDJ — REGOLA DI EDU: GIORNO CONTRO ORA (24/10/2026)
+Edu: "il trend e' lo stelo del giorno, cio' che accade durante la giornata lo stelo dell'ora; si confrontano i palazzi e si vede
+chi vince; considerare i vuoti e la timeliness dei palazzi". Vince il giorno -> SEGUE; vince l'ora -> NON SEGUE; pari -> fermo.
+Script prove_24_10_qmdj_giorno_ora.py. TARATURE MIE, da far decidere a Edu: forza del palazzo 旺4 相3 休2 囚1 死0 sul ramo del mese;
+palazzo vuoto = forza 0; chi controlla vince se forza >= dell'altro, altrimenti 反侮; chi e' generato vince; stesso palazzo fermo.
+Migliore: carta ORARIA, relazione, senza vuoti: 2020-23 1.588 · 53,0% · +2.953; 2024-26 1.226 · 51,5% · +384; vivo 54 · 63% · -109.
+Coi vuoti dell'ora: 52,7% e 51,3% ma 2024-26 -1.303. Giornaliera: non regge. Debole: serve la dottrina di Edu sulle tarature.

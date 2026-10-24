@@ -12,7 +12,7 @@ const pf=c=>/JPY$/.test(c)?100:10000;
 const cell=c=>c?Object.fromEntries(Object.entries(c.palaces).map(([p,d])=>[p,{t:d.tiH,e:d.diH,s:d.star,g:d.deity,d:d.doorName||d.door||'',zf:!!d.zhiFu,zs:!!d.zhiShi}])):null;
 function carte(date,seed){const p=date.split('-').map(Number),ms=Date.UTC(p[0],p[1]-1,p[2],0,0,0);
   const o=Q.oraria(ms,BR[((seed-1)%12+12)%12]), g=Q.giornaliera(ms);
-  return {giorno:o.giorno,ora:o.pilastro,ju:o.dun+o.ju,po:cell(o),jug:g?g.dun+g.ju:null,pg:cell(g)};}
+  return {giorno:o.giorno,ora:o.pilastro,mese:o.mese,ju:o.dun+o.ju,po:cell(o),jug:g?g.dun+g.ju:null,pg:cell(g)};}
 const out=[];
 if(process.argv[2]==='vivo'){
   const reg=JSON.parse(fs.readFileSync(S+'registro_live.json','utf8'));
