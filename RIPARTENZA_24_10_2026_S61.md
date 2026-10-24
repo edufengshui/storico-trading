@@ -114,3 +114,12 @@ CLASH INTERNI precisati (Edu 18:15): fra i due steli (甲庚 乙辛 丙壬 丁�
 2020-23 -3.054 · 2024-26 -1.765 · vivo 61% +112. Con gli steli il ponte di EURJPY 22/10 (Zhi Shi 辛/乙) cade e il vivo va a -372.
 La regola giorno/ora resta ~50% sullo storico in tutte le varianti. Proposto a Edu: verifica a mano su carte storiche sbagliate.
 DECISIONE (Edu 18:18): il clash interno NON si usa. qmdj.js resta senza clash.
+
+## QMDJ — VERIFICA A MANO, CARTA 1: USDJPY 01/05/2024 (Edu 18:26)
+FORMATO CARTE (Edu 18:23): in testa se ha seguito o no; poi DS in <trigramma> (Dui...), HS in <trigramma>; subito vuoti e data bazi.
+Edu: "DS e' vuoto quindi non puo' essere generato; il Commander e' pure contro (opposto a Dui). Non segue sembra logico."
+In qmdj.js: (1) generazione verso un palazzo vuoto non avviene -> vince chi genera; (2) Commander nel palazzo opposto al vincitore
+(1-9, 2-8, 3-7, 4-6) -> ribalta. Misura (prove_24_10_qmdj_vuoto_commander.py):
+- Regola ora: 2020-23 1.583 · 51,3% · +3.166 · 2024-26 1.225 · 50,9% · +462 · vivo 55 · 62% · +106.
+- Generato vuoto da solo: carte toccate 112 · 57% · +1.549 e 100 · 57% · +829 (regge). Commander opposto: 160 · +765 e 118 · -25 (neutro).
+Prossime carte pronte: EURJPY 19/12/2024 (反侮), EURJPY 12/02/2025 (ponte Zhi Shi) — da rifare con la regola nuova.
