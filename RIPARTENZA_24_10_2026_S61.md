@@ -52,3 +52,14 @@ PROSSIMI PASSI
 4. Solo dopo: "Metodo QMDJ" dentro leggo_io.js (FAM.QMDJ, affidabilita' stimata prima del 2024, CAL per fascia, PESO), app.js
    (voce qmdjDir in analizzaCrossPerReport e in livelloTreSistemi), index.html (script qmdj-water-scanner.js e qmdj.js), misura_vivo.js
    (riga "QMDJ da solo"), raccolta_notturna (stessa app.js: copiare app.js anche in storico-trading). Poi aggiornare le guide.
+
+## QMDJ — PRIMA MISURA DEI TRE CANDIDATI (24/10/2026, Edu: "prova questi")
+Script: prove_24_10_qmdj_costruisci.js (carte 2020-26 + vivo con carta oraria e giornaliera; output in /home/claude/qm, non committato)
+e prove_24_10_qmdj_misura.py. Regola scelta sul 2020-23 (segue/non segue per categoria, fermo dove |z|<1), spread 1,5 pip.
+- A stelo giorno vs stelo ora (relazione degli elementi dei palazzi): 2020-23 +5.970, 2024-26 -3.639 -> NON regge.
+- B Zhi Fu vs Zhi Shi: oraria nessuna categoria; giornaliera 2020-23 +2.562, 2024-26 -1.183 -> NON regge.
+- C porta del palazzo dell'ora (oraria): Birth e Open -> NON SEGUE il trend. 2020-23 537 · 53,6% · +3.429;
+  2024-26 444 · 53,4% · +1.812 (unico che regge); dal vivo 25 · 28% · -328 (campione piccolo).
+  Base "contro il trend sempre" ~ +1 pip/trade nei due periodi; C ~ +6 e +4 pip/trade.
+- C giornaliera (porta del palazzo del giorno): 2020-23 +8.919, 2024-26 -988 -> NON regge.
+Attesa: lettura di Edu su C (perche' Birth/Open contro il trend?) e sue regole prima di metterlo in Leggo io.
