@@ -181,3 +181,6 @@ posizione uguale (23,3 / 17,5 / 14,8 pip): piu' esposizione, non piu' vantaggio.
 FORMATO BAZI (Edu 12:27): in colonna Ora / Giorno / Mese / Anno.
 USDJPY 19/10/2026 (Edu 12:43): "un clash interno ad un palazzo lo fa uscire dal vuoto" (Li 癸/丁). prove_25_10_qmdj_clash_vuoto.py, NON in qmdj.js:
 +3.768 · +2.387 · vivo +92 (attuale +4.577 · +1.904 · +92). Sulla carta: Li esce dal vuoto, Zhi Shi fa passamano Xun->Li->Kun, vince Kun -> segue (ancora sbagliata).
+FAN YIN (Edu 12:46: "una carta fan yin non segue quasi mai"). Fan yin = stelo del cielo di ogni palazzo = stelo della terra dell'opposto.
+Carte fan yin: il trend segue 48,2% (249) / 44,1% (179) / vivo 50% (8). In qmdj.js: fan yin -> non segue (sopra a tutto). 0 diff.
+REGOLA ATTUALE: 2020-23 1.672 · 52,8% · +4.721 · 2024-26 1.276 · 52,4% · +1.726 · vivo 58 · 53% · +461. USDJPY 19/10 ora giusta.
