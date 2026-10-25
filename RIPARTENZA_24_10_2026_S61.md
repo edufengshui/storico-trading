@@ -150,3 +150,8 @@ REGOLA ATTUALE: 2020-23 1.583 · 51,9% · +5.147 · 2024-26 1.225 · 50,3% · +1
 AIUTO AL PALAZZO CHE CONTROLLA (Edu 11:32, USDCAD 06/10: "Xun untimely fa fatica a controllare un Gen molto timely, senza aiuti fallisce;
 aiuto = ZF o ZS su Kan; il ponte di Wu su Li da' la botta finale"). prove_25_10_qmdj_aiuto.py, NON in qmdj.js:
 aiuto ZF: +5.286 · +1.121 · -320 | aiuto ZS: +5.638 · +1.832 · -338 | ZF+ZS: +5.389 · +880 · -320 (attuale +5.147 · +1.881 · -338).
+CORREZIONE (Edu 11:40): "ponte = non segue" era un mio ERRORE di lettura. Il ponte e' un PASSAMANO: riceve il qi da chi controlla e lo
+passa al controllato secondo i 5 elementi -> vince il controllato (es. EURJPY 22/10: Dui controlla Zhen, Kan fa da ponte -> segue).
+In qmdj.js (Commander, Zhi Shi, Wu nel cielo; non vuoti). Verificato 0 diff.
+REGOLA ATTUALE: 2020-23 51,8% +3.290 · 2024-26 50,3% -153 · vivo 58% +108. Senza Wu: +2.481 · +318 · 60% +126.
+Carte a mano: 4 su 5 giuste; sbaglia EURJPY 19/12/2024 (Qian controlla Zhen, Wu in Kan ponte -> segue, reale non segue).
