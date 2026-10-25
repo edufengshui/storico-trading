@@ -242,3 +242,4 @@ Lio fermo: QMDJ 50,0% -339 / 51,8% +257 / vivo 60% (5). Lio sbaglia: QMDJ giusto
 GBPUSD 01/10 (Lio fermo, carta fu yin; Edu 17:12: "se il Tai Sui clasha il Commander lo eccita ancora di piu'"). Opzione QMDJ_TS_CMD (spenta):
 true (il palazzo del Commander vince) +2.663 / +5.336 / +187; 'neutro' (il Tai Sui non danneggia) +2.895 / +5.377 / +187. Attuale +3.150 / +6.465 / +187.
 Edu 17:14: solo col Commander SPOSTATO (ora 癸): QMDJ_TS_CMD='spostato' +3.035 / +6.232 / +187 (attuale +3.150 / +6.465 / +187). Spenta.
+DECISIONE (Edu 17:17): QMDJ_TS_CMD='spostato' ACCESO. REGOLA ATTUALE: +3.035 / +6.232 / vivo +187.
