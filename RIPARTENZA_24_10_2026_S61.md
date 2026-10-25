@@ -250,3 +250,8 @@ Stesse regole di DsHs. qmdj.js: lettura(carta, trend, 'zfty'). prove_25_10_qmdj_
 ZFTY: 49,7% -690 / 52,5% +2.286 / vivo 47% -23 (DsHs 51,7% +3.035 / 53,8% +6.232 / 59% +187). Confermate ZFTY 56,3% / 57,5% / 69%.
 Su tutte le carte di Lio: ZFTY 49,7% / 51,0% / 50,6%; Lio fermo: ZFTY 51,7% / 51,7%; DsHs+ZFTY d'accordo 50,4% / 51,9% / 57%.
 Lio con DsHs+ZFTY d'accordo con lui 67,2% / 65,9% / 62%; contrari 65,5% / 60,2% / 52%.
+ZFTY + porta View (Edu 17:33/17:37, EURJPY 07/10: "questo metodo usa la porta View... qui fa da ponte"; TY Zhen -> View in Li -> ZF Kun).
+qmdj.js: nello ZFTY la porta View fa da ponte (QMDJ_VIEW_PONTE 'zfty' default | 'tutti' | 'off') e il Commander non si sposta nell'ora 癸
+(QMDJ_ZFTY_SPOSTA=true per riaccenderlo). ZFTY: originale -690 / +2.286 / 47% -23; senza spostamento -964 / +3.324 / 51% +294;
+senza spostamento + View (ATTUALE) -943 / +2.741 / 51% +294 (EURJPY 07/10 giusta). DsHs con View ponte: +3.366 / +6.214 / +187 (non acceso).
+Prova scartata: ZF contro porta View (sis 'zfview') -1.451 / -3.942 / +286.
