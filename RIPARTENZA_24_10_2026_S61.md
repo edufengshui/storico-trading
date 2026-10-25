@@ -187,3 +187,4 @@ REGOLA ATTUALE: 2020-23 1.672 · 52,8% · +4.721 · 2024-26 1.276 · 52,4% · +1
 TOMBA NEL MESE (Edu 12:59, EURUSD 12/10: "Li e' in tomba nel mese"). In qmdj.js: palazzo con l'elemento in tomba nel ramo del mese = vuoto
 (Legno 未, Fuoco 戌, Metallo 丑, Acqua 辰, Terra 辰 — Terra da confermare con Edu; con Terra 戌: +5.336 · +1.873 · +495). 0 diff.
 REGOLA ATTUALE: 2020-23 1.672 · 53,6% · +5.433 · 2024-26 1.276 · 52,6% · +2.650 · vivo 58 · 55% · +563. EURUSD 12/10 ora giusta.
+Edu 13:13: la Terra NON ha tomba -> tolta. REGOLA ATTUALE: 2020-23 1.672 · 53,5% · +5.643 · 2024-26 1.276 · 52,7% · +2.657 · vivo 58 · 55% · +563. 0 diff.

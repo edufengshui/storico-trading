@@ -3,7 +3,7 @@
 exec(open('/home/claude/qm/misura17.py').read().split("for m,nm in ((0,'attuale'),(1,'fan")[0])
 FY=1
 TOMB={'L':'未','F':'戌','M':'丑','W':'辰','E':'戌'}
-def tomba(p,mb): return TOMB[PEL[p]]==mb
+def tomba(p,mb): return TOMB.get(PEL[p])==mb
 TM=0
 _v3=vuoto
 def vuoto(p,ch,vu):
