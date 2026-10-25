@@ -155,3 +155,7 @@ passa al controllato secondo i 5 elementi -> vince il controllato (es. EURJPY 22
 In qmdj.js (Commander, Zhi Shi, Wu nel cielo; non vuoti). Verificato 0 diff.
 REGOLA ATTUALE: 2020-23 51,8% +3.290 · 2024-26 50,3% -153 · vivo 58% +108. Senza Wu: +2.481 · +318 · 60% +126.
 Carte a mano: 4 su 5 giuste; sbaglia EURJPY 19/12/2024 (Qian controlla Zhen, Wu in Kan ponte -> segue, reale non segue).
+COMBINAZIONE (Edu 11:53, EURJPY 19/12/2024 Zhen 丁/壬): "il DS e' bloccato da una combinazione dentro il suo stesso palazzo".
+In qmdj.js: stelo cielo/terra in 五合 -> palazzo bloccato, non vince (DS -> non segue; HS -> segue (mia estensione simmetrica); tutti e due -> fermo).
+prove_25_10_qmdj_combinazione.py, 0 diff. REGOLA ATTUALE: 2020-23 1.599 · 52,3% · +4.577 · 2024-26 1.233 · 51,1% · +1.904 · vivo 57 · 54% · +92.
+Le 5 carte viste a mano: tutte giuste. Varianti: solo DS +3.727/+2.789/-25; bloccato=fermo +2.634/+667/+204.
