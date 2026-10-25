@@ -220,3 +220,7 @@ ORA INIBITA (Edu 16:20, USDCAD 12/10: "il Commander clasha l'ora e l'ora e' oppo
 Commander nel palazzo opposto all'HS + HS nel palazzo opposto al ramo dell'ora -> segue (sopra il fan yin); simmetrico per il giorno.
 Tutte e due: +5.740 / +2.108 / vivo 62% +701 (attuale +4.540 / +3.500 / 59% +663); una sola: +1.030 / +3.448 / +405.
 Utility: prove_25_10_qmdj_dettaglio.js CROSS DATA (seme, pilastri, lettura, palazzi).
+COMMANDER CON 庚 (Edu 16:28, USDJPY 18/07/2024: "il Commander sopra o sotto Geng e' pessimo"). QMDJ_CMD_GENG: 'inibita' (default: il
+Commander con 庚 non inibisce l'ora), 'ovunque' (ignorato in tutte le regole), 'off'. Con ora inibita accesa: +5.328 / +2.086 / +663
+(USDCAD 12/10 e USDJPY 18/07/24 giuste); ovunque +4.531 / +1.960 / +659; solo ovunque senza inibita +3.743 / +3.374 / +659.
+Ora inibita resta SPENTA (attuale +4.540 / +3.500 / +663). Utility: prove_25_10_qmdj_diff_opt.js "global.OPZ=..;" (carte 2024-26 cambiate).
