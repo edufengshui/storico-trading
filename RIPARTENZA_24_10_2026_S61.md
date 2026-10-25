@@ -228,3 +228,6 @@ DS/HS SOPRA 庚 (Edu 16:30: "Commander sopra o sotto 庚 molto negativo e' dottr
 prove_25_10_qmdj_geng_dshs.js: carte con DS sopra 庚 -> il trend segue 50,8% / 50,5% / 50% (4); HS sopra 庚 -> 50,7% / 50,0% / 62% (8): nessun effetto netto.
 Come regola (palazzo sopra 庚 non vince, opzione QMDJ_GENG_DSHS, spenta): +3.676 / +3.754 / vivo 60% +781 (attuale +4.540 / +3.500 / +663);
 confermate 57,1% / 61,2% / 72%.
+TAI SUI (Edu 16:46, NZDUSD 07/10: "lo stelo dell'anno e' il Tai Sui e puo' opporsi e clashare dal palazzo opposto se e' timely"; 丙 in Kan
+contro HS in Li). Opzione QMDJ_TAISUI (spenta): 'mese' +4.073 / +5.720 / vivo +223; 'forza' (mese+stagione>=5) +4.203 / +5.755 / +223;
+'ctl' +3.285 / +3.811 / +223. Attuale +4.540 / +3.500 / +663. Confermate col Tai Sui: vivo 75% (16).
