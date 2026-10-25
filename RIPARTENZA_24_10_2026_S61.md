@@ -192,3 +192,8 @@ PROSSIMO COMMANDER (Edu 15:30, EURUSD 05/10: "癸卯 e' l'ultima ora della decad
 direttamente col giorno"). In qmdj.js come OPZIONE spenta (QMDJ_PROSSIMO=true): l'ora 癸 si costruisce col 旬 seguente (stesso stelo, +10).
 Su EURUSD 05/10 DS 壬 va in Kun col Commander (壬 sopra 癸); HS 癸 in Kan; Kun controlla Kan ma Kan piu' forte -> non segue (ancora sbagliata).
 Carte con ora 癸: attuale 51,7% +16 / 55,4% +1.113 / vivo 60% +14; prossimo Commander 50,3% -29 / 39,4% -1.700 / 80% +58. Tutto: 2024-26 da +2.657 a -156.
+CORREZIONE Edu 15:42: niente carta nuova, stessa carta col Commander TRASFERITO sul palazzo dello stelo della decade seguente (癸卯 -> 壬, in Li).
+qmdj.js: opzioni QMDJ_CMD_SPOSTA (sposta il Commander nelle ore 癸) e QMDJ_CMD_AIUTO (Commander nel palazzo che controlla: niente controllo
+rovesciato), tutte e due SPENTE. prove_25_10_qmdj_commander_spostato.js:
+nessuna +5.643 / +2.657 / +563 | spostato +6.042 / +1.918 / +607 | spostato+aiuto +5.620 / +1.491 / +619 | solo aiuto +6.013 / +2.357 / +511.
+EURUSD 05/10 torna giusta solo con spostato + aiuto (Li col Commander controlla Qian). In attesa di Edu.
