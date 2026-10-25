@@ -147,3 +147,6 @@ Prova "ponte (Commander/ZS/Wu) = sempre NON SEGUE": +5.147 · +1.881 · vivo 56%
 REGOLA DEL PONTE (Edu 11:28): "senza ponte vince il giorno -> segue; col ponte non segue: giusto. Senza ponte vince l'ora -> non segue;
 col ponte segue: non ha senso." -> in qmdj.js il ponte (Commander, Zhi Shi, Wu nel cielo, non vuoti) da' sempre NON SEGUE. Verificato 0 diff.
 REGOLA ATTUALE: 2020-23 1.583 · 51,9% · +5.147 · 2024-26 1.225 · 50,3% · +1.881 · vivo 55 · 56% · -338. (EURJPY 22/10 ora sbagliata.)
+AIUTO AL PALAZZO CHE CONTROLLA (Edu 11:32, USDCAD 06/10: "Xun untimely fa fatica a controllare un Gen molto timely, senza aiuti fallisce;
+aiuto = ZF o ZS su Kan; il ponte di Wu su Li da' la botta finale"). prove_25_10_qmdj_aiuto.py, NON in qmdj.js:
+aiuto ZF: +5.286 · +1.121 · -320 | aiuto ZS: +5.638 · +1.832 · -338 | ZF+ZS: +5.389 · +880 · -320 (attuale +5.147 · +1.881 · -338).
