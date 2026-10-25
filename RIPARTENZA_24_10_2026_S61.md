@@ -205,3 +205,7 @@ Edu 15:48: la forza del Commander vale SOLO nell'ora 癸. Spostato + forza solo 
 Edu 15:51: "Li e Qian sono nello stesso Dun". Opzione QMDJ_DUN (spenta). prove_25_10_qmdj_dun.js, col motore di oggi:
 Dun +6.169/+1.767/+545 | Dun + Commander spostato (lettura completa di Edu su EURUSD 05/10, carta giusta) +6.178/+1.581/+653 |
 Dun + spostato + forza +8 +6.205/+1.666/+653 | attuale +5.643/+2.657/+563. Il Dun toglie ~900-1.000 pip al 2024-26.
+Edu 15:58 (USDJPY 31/07/2024): "il nuovo Commander che arriva su Xun trova un clash che lo limita" (甲申 contro 癸=甲寅). In qmdj.js:
+il Commander spostato non agisce se nel palazzo c'e' un clash (steli o rami dei 六仪) con lo stelo della nuova decade. prove_25_10_qmdj_dun_clash.js:
+Dun + spostato + clash: +5.974 / +1.697 / +653 (EURUSD 05/10 e USDJPY 31/07/24 giuste); senza Dun: +5.838 / +2.470 / +607;
+attuale +5.643 / +2.657 / +563. Opzioni ancora spente (QMDJ_DUN, QMDJ_CMD_SPOSTA; il clash e' attivo quando lo spostamento e' acceso).
