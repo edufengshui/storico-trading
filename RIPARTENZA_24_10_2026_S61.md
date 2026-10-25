@@ -197,3 +197,6 @@ qmdj.js: opzioni QMDJ_CMD_SPOSTA (sposta il Commander nelle ore 癸) e QMDJ_CMD_
 rovesciato), tutte e due SPENTE. prove_25_10_qmdj_commander_spostato.js:
 nessuna +5.643 / +2.657 / +563 | spostato +6.042 / +1.918 / +607 | spostato+aiuto +5.620 / +1.491 / +619 | solo aiuto +6.013 / +2.357 / +511.
 EURUSD 05/10 torna giusta solo con spostato + aiuto (Li col Commander controlla Qian). In attesa di Edu.
+Edu 15:46: "il Commander spostato toglie il ponte da Kun; Li diventa molto piu' forte col Commander". Opzione QMDJ_CMD_FORZA (punti in piu'
+al palazzo del Commander), spenta. prove_25_10_qmdj_commander_forza.js: ogni bonus (2-8) peggiora lo storico, con o senza spostamento;
+EURUSD 05/10 torna giusta solo con spostato + forza >= 6: +5.276 / +968 / +653 (attuale +5.643 / +2.657 / +563). Non adottato.
