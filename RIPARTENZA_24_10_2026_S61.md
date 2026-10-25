@@ -184,3 +184,6 @@ USDJPY 19/10/2026 (Edu 12:43): "un clash interno ad un palazzo lo fa uscire dal 
 FAN YIN (Edu 12:46: "una carta fan yin non segue quasi mai"). Fan yin = stelo del cielo di ogni palazzo = stelo della terra dell'opposto.
 Carte fan yin: il trend segue 48,2% (249) / 44,1% (179) / vivo 50% (8). In qmdj.js: fan yin -> non segue (sopra a tutto). 0 diff.
 REGOLA ATTUALE: 2020-23 1.672 · 52,8% · +4.721 · 2024-26 1.276 · 52,4% · +1.726 · vivo 58 · 53% · +461. USDJPY 19/10 ora giusta.
+TOMBA NEL MESE (Edu 12:59, EURUSD 12/10: "Li e' in tomba nel mese"). In qmdj.js: palazzo con l'elemento in tomba nel ramo del mese = vuoto
+(Legno 未, Fuoco 戌, Metallo 丑, Acqua 辰, Terra 辰 — Terra da confermare con Edu; con Terra 戌: +5.336 · +1.873 · +495). 0 diff.
+REGOLA ATTUALE: 2020-23 1.672 · 53,6% · +5.433 · 2024-26 1.276 · 52,6% · +2.650 · vivo 58 · 55% · +563. EURUSD 12/10 ora giusta.
