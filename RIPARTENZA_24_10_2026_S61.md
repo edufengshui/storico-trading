@@ -209,3 +209,5 @@ Edu 15:58 (USDJPY 31/07/2024): "il nuovo Commander che arriva su Xun trova un cl
 il Commander spostato non agisce se nel palazzo c'e' un clash (steli o rami dei 六仪) con lo stelo della nuova decade. prove_25_10_qmdj_dun_clash.js:
 Dun + spostato + clash: +5.974 / +1.697 / +653 (EURUSD 05/10 e USDJPY 31/07/24 giuste); senza Dun: +5.838 / +2.470 / +607;
 attuale +5.643 / +2.657 / +563. Opzioni ancora spente (QMDJ_DUN, QMDJ_CMD_SPOSTA; il clash e' attivo quando lo spostamento e' acceso).
+DECISIONE (Edu 15:59): "togli il Dun". qmdj.js: Dun SPENTO; Commander spostato nelle ore 癸 + limitato dal clash ACCESO; forza del Commander spenta.
+REGOLA ATTUALE: 2020-23 1.672 · 53,6% · +5.838 · 2024-26 1.276 · 52,4% · +2.470 · vivo 58 · 57% · +607.
