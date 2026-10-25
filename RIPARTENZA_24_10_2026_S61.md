@@ -166,3 +166,9 @@ WU/BIRTH A CONFERMA (Edu 12:00) in qmdj.js: wuBirth(c) -> Birth controlla Wu = S
 {dir, segue, motivo, wuBirth, conferma}. prove_25_10_qmdj_conferma.js:
 confermate 302 · 56,3% · +2.926 | 250 · 58,8% · +1.702 | vivo 17 · 65% · +187
 contraddette 335 · 49,6% · +4 | 216 · 46,3% · -538 | vivo 13 · 46% · -9 ; senza Wu/Birth 52,0% +1.647 | 49,9% +740 | 52% -87
+
+## LIO + QMDJ (Edu 12:02: "se mettiamo il QMDJ insieme a Lio che succede?")
+Dump Lio 2020-26: ORARIO=full1h.json DUMPC=... node misura_vivo.js 2020-02-20 2026-10-23 (~4 min). prove_25_10_lio_qmdj.js/.py.
+Lio da solo 66,2% / 63,1% / vivo 60,8% (storico in-sample per Lio). QMDJ su tutte le carte di Lio 50,2% / 49,4% / 53% (senza i filtri della misura QMDJ).
+Lio con QMDJ CONFERMATO concorde 68,5% / 70,8% / 57% (14); confermato contrario 59,9% / 58,7% / 50% (8): ~10 punti di scarto.
+Filtro "fermo se QMDJ confermato contrario": win% +0,5 ma pip leggermente giu'. Proposta: QMDJ confermato come misura della posizione.
