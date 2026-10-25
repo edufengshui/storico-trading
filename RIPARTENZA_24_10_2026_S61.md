@@ -135,3 +135,10 @@ Zhi Fu e Zhi Shi. Qui Wu fa da ponte" (戊 nel cielo in Kan). prove_25_10_qmdj_p
 - attuale (Commander+ZS): +1.887 · +1.078 · vivo 64% +218
 - + Wu cielo: +1.687 · +1.269 · vivo 60% +68 | + Birth: +1.451 · +115 · +200 | + Wu cielo + Birth: +1.316 · +904 · +50
 NON ancora in qmdj.js: in attesa della decisione di Edu.
+
+## SEZIONE DELLA CARTA (Edu 25/10 11:17): "Dun" = sezione interna/esterna. Kan Gen Zhen Xun (1 8 3 4) contro Li Kun Dui Qian (9 2 7 6)
+(interni i primi in yang dun, i secondi in yin dun). Con DS e HS nella stessa sezione chi controlla vince sempre; il controllo
+rovesciato (controllato piu' forte) vale solo fra sezioni diverse. Ponte = ribalta l'esito finale (come prima).
+prove_25_10_qmdj_sezione.py: con Wu (cielo) come ponte TUTTE e 5 le carte viste a mano sono giuste.
+Commander+ZS: -865 · -138 · vivo -6 | + Wu: +1.249 · +181 · vivo 58% +108 | + Wu + Birth: +2.503 · -912 · +126.
+(Attuale in qmdj.js, senza sezione e senza Wu: +1.887 · +1.078 · vivo 64% +218.) NON ancora in qmdj.js: attesa decisione di Edu.
