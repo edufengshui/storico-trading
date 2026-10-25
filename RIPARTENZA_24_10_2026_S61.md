@@ -231,3 +231,4 @@ confermate 57,1% / 61,2% / 72%.
 TAI SUI (Edu 16:46, NZDUSD 07/10: "lo stelo dell'anno e' il Tai Sui e puo' opporsi e clashare dal palazzo opposto se e' timely"; 丙 in Kan
 contro HS in Li). Opzione QMDJ_TAISUI (spenta): 'mese' +4.073 / +5.720 / vivo +223; 'forza' (mese+stagione>=5) +4.203 / +5.755 / +223;
 'ctl' +3.285 / +3.811 / +223. Attuale +4.540 / +3.500 / +663. Confermate col Tai Sui: vivo 75% (16).
+DECISIONE (Edu 16:48): Tai Sui ACCESO ('forza'). REGOLA ATTUALE: 2020-23 52,3% +4.203 · 2024-26 54,2% +5.755 · vivo 59% +223.
