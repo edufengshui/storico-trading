@@ -188,3 +188,7 @@ TOMBA NEL MESE (Edu 12:59, EURUSD 12/10: "Li e' in tomba nel mese"). In qmdj.js:
 (Legno 未, Fuoco 戌, Metallo 丑, Acqua 辰, Terra 辰 — Terra da confermare con Edu; con Terra 戌: +5.336 · +1.873 · +495). 0 diff.
 REGOLA ATTUALE: 2020-23 1.672 · 53,6% · +5.433 · 2024-26 1.276 · 52,6% · +2.650 · vivo 58 · 55% · +563. EURUSD 12/10 ora giusta.
 Edu 13:13: la Terra NON ha tomba -> tolta. REGOLA ATTUALE: 2020-23 1.672 · 53,5% · +5.643 · 2024-26 1.276 · 52,7% · +2.657 · vivo 58 · 55% · +563. 0 diff.
+PROSSIMO COMMANDER (Edu 15:30, EURUSD 05/10: "癸卯 e' l'ultima ora della decade 甲午辛: si vede il prossimo Commander, 甲辰壬, quindi
+direttamente col giorno"). In qmdj.js come OPZIONE spenta (QMDJ_PROSSIMO=true): l'ora 癸 si costruisce col 旬 seguente (stesso stelo, +10).
+Su EURUSD 05/10 DS 壬 va in Kun col Commander (壬 sopra 癸); HS 癸 in Kan; Kun controlla Kan ma Kan piu' forte -> non segue (ancora sbagliata).
+Carte con ora 癸: attuale 51,7% +16 / 55,4% +1.113 / vivo 60% +14; prossimo Commander 50,3% -29 / 39,4% -1.700 / 80% +58. Tutto: 2024-26 da +2.657 a -156.
