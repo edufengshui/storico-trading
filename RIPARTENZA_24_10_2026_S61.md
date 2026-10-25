@@ -172,3 +172,7 @@ Dump Lio 2020-26: ORARIO=full1h.json DUMPC=... node misura_vivo.js 2020-02-20 20
 Lio da solo 66,2% / 63,1% / vivo 60,8% (storico in-sample per Lio). QMDJ su tutte le carte di Lio 50,2% / 49,4% / 53% (senza i filtri della misura QMDJ).
 Lio con QMDJ CONFERMATO concorde 68,5% / 70,8% / 57% (14); confermato contrario 59,9% / 58,7% / 50% (8): ~10 punti di scarto.
 Filtro "fermo se QMDJ confermato contrario": win% +0,5 ma pip leggermente giu'. Proposta: QMDJ confermato come misura della posizione.
+MISURA DELLA POSIZIONE con QMDJ confermato (prove_25_10_lio_qmdj_posizione.py): attuale +41.850 / +27.589 / vivo +978;
+proposta (accordo media piena, contrario meta') +41.376 / +27.260 / +990; solo accordo->media piena +42.432 / +28.028 / +989 ma resa per
+posizione uguale (23,3 / 17,5 / 14,8 pip): piu' esposizione, non piu' vantaggio. Le forti con QMDJ contrario vincono comunque 77% / 72%.
+-> il QMDJ come misura della posizione NON aggiunge. Non applicato.
