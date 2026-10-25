@@ -129,3 +129,9 @@ In qmdj.js: un palazzo che contiene il ramo del mese non e' mai vuoto. La carta 
 Misura: 2020-23 51,4% +2.561 · 2024-26 50,4% +948 · vivo 62% +106 (prima +3.166 / +462 / +106). Variante non adottata
 (anche il ramo del giorno riempie): +1.887 / +1.078 / +218.
 Edu 18:32: anche il ramo del GIORNO riempie il vuoto -> adottato in qmdj.js (mese o giorno): +1.887 · +1.078 · vivo 64% +218.
+
+## CARTA 4: EURJPY 19/12/2024 (Edu 25/10 10:34): "lo stelo Wu e la porta Birth sono indicatori economici, possono fare da ponte come
+Zhi Fu e Zhi Shi. Qui Wu fa da ponte" (戊 nel cielo in Kan). prove_25_10_qmdj_ponte_wu.py (vuoto riempito da mese/giorno):
+- attuale (Commander+ZS): +1.887 · +1.078 · vivo 64% +218
+- + Wu cielo: +1.687 · +1.269 · vivo 60% +68 | + Birth: +1.451 · +115 · +200 | + Wu cielo + Birth: +1.316 · +904 · +50
+NON ancora in qmdj.js: in attesa della decisione di Edu.
