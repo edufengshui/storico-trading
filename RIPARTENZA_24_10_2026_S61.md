@@ -176,3 +176,8 @@ MISURA DELLA POSIZIONE con QMDJ confermato (prove_25_10_lio_qmdj_posizione.py): 
 proposta (accordo media piena, contrario meta') +41.376 / +27.260 / +990; solo accordo->media piena +42.432 / +28.028 / +989 ma resa per
 posizione uguale (23,3 / 17,5 / 14,8 pip): piu' esposizione, non piu' vantaggio. Le forti con QMDJ contrario vincono comunque 77% / 72%.
 -> il QMDJ come misura della posizione NON aggiunge. Non applicato.
+
+## CARTE DOVE LIO SBAGLIA (Edu 12:23). Dal vivo 37 errori di Lio: QMDJ giusto 15, sbagliato 17, tace 5.
+FORMATO BAZI (Edu 12:27): in colonna Ora / Giorno / Mese / Anno.
+USDJPY 19/10/2026 (Edu 12:43): "un clash interno ad un palazzo lo fa uscire dal vuoto" (Li 癸/丁). prove_25_10_qmdj_clash_vuoto.py, NON in qmdj.js:
++3.768 · +2.387 · vivo +92 (attuale +4.577 · +1.904 · +92). Sulla carta: Li esce dal vuoto, Zhi Shi fa passamano Xun->Li->Kun, vince Kun -> segue (ancora sbagliata).
