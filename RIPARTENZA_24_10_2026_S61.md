@@ -255,3 +255,6 @@ qmdj.js: nello ZFTY la porta View fa da ponte (QMDJ_VIEW_PONTE 'zfty' default | 
 (QMDJ_ZFTY_SPOSTA=true per riaccenderlo). ZFTY: originale -690 / +2.286 / 47% -23; senza spostamento -964 / +3.324 / 51% +294;
 senza spostamento + View (ATTUALE) -943 / +2.741 / 51% +294 (EURJPY 07/10 giusta). DsHs con View ponte: +3.366 / +6.214 / +187 (non acceso).
 Prova scartata: ZF contro porta View (sis 'zfview') -1.451 / -3.942 / +286.
+VIEW CLASHA IL TY (Edu 17:50, EURUSD 07/10: View in Zhen opposto al TY in Dui). qmdj.js QMDJ_VIEW_CLASH ('zfty' default | 'tutti' | 'off'):
+la porta View nel palazzo opposto a TY (o ZF) -> quel palazzo non vince. ZFTY ATTUALE: 49,5% -424 / 52,2% +3.746 / vivo 54% +344
+(prima -943 / +2.741 / 51% +294). Nel DsHs ('tutti'): +3.694 / +6.467 / +199 (attuale DsHs +3.035 / +6.232 / +187) -> migliora tutto, da proporre.
