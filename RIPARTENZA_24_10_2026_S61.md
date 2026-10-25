@@ -211,3 +211,7 @@ Dun + spostato + clash: +5.974 / +1.697 / +653 (EURUSD 05/10 e USDJPY 31/07/24 g
 attuale +5.643 / +2.657 / +563. Opzioni ancora spente (QMDJ_DUN, QMDJ_CMD_SPOSTA; il clash e' attivo quando lo spostamento e' acceso).
 DECISIONE (Edu 15:59): "togli il Dun". qmdj.js: Dun SPENTO; Commander spostato nelle ore 癸 + limitato dal clash ACCESO; forza del Commander spenta.
 REGOLA ATTUALE: 2020-23 1.672 · 53,6% · +5.838 · 2024-26 1.276 · 52,4% · +2.470 · vivo 58 · 57% · +607.
+PALAZZO COLPITO (Edu 16:06, EURGBP 20/10: "l'ora e' in clash e lo ZS dal palazzo opposto clasha"; Qian 辛/戊 = 午/子, ZS in Xun).
+In qmdj.js (ACCESO, QMDJ_COLPITO='zs'): DS o HS con clash interno e Zhi Shi nel palazzo opposto -> non vince. prove_25_10_qmdj_colpito.js:
+REGOLA ATTUALE: 2020-23 53,0% +4.540 · 2024-26 53,0% +3.500 · vivo 59% +663 (prima +5.838 / +2.470 / +607).
+Confermate: 57,2% +3.105 · 60,3% +2.166 · vivo 71% +266. Varianti: +Commander opposto +4.664/+3.447/+663; solo ZS opposto -1.706/+2.690/+627.
