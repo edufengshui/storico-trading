@@ -235,3 +235,4 @@ DECISIONE (Edu 16:48): Tai Sui ACCESO ('forza'). REGOLA ATTUALE: 2020-23 52,3% +
 AUDUSD 07/10 (Edu 16:56): "il ponte Kun ha un clash interno e l'ora e' clashata dal mese (stelo e ramo opposti: clash piu' forte)".
 Opzioni spente: QMDJ_PONTE_CLASH (ponte con clash non passa) +4.520 / +5.057 / +119; QMDJ_MESE 'opposto' +1.151 / +5.926 / 62% +265;
 'forte' (stelo e ramo del mese in palazzi opposti) +3.150 / +6.465 / +187; 'timely' +3.727 / +5.462 / +255. Attuale +4.203 / +5.755 / +223.
+DECISIONE (Edu 16:59): mese opposto 'forte' ACCESO. REGOLA ATTUALE: 2020-23 51,9% +3.150 · 2024-26 54,1% +6.465 · vivo 59% +187.
