@@ -159,3 +159,6 @@ COMBINAZIONE (Edu 11:53, EURJPY 19/12/2024 Zhen 丁/壬): "il DS e' bloccato da 
 In qmdj.js: stelo cielo/terra in 五合 -> palazzo bloccato, non vince (DS -> non segue; HS -> segue (mia estensione simmetrica); tutti e due -> fermo).
 prove_25_10_qmdj_combinazione.py, 0 diff. REGOLA ATTUALE: 2020-23 1.599 · 52,3% · +4.577 · 2024-26 1.233 · 51,1% · +1.904 · vivo 57 · 54% · +92.
 Le 5 carte viste a mano: tutte giuste. Varianti: solo DS +3.727/+2.789/-25; bloccato=fermo +2.634/+667/+204.
+WU CONTRO BIRTH (Edu 11:57: "Wu controlla Birth o il contrario -> il cross va SHORT, indipendente dal trend"). prove_25_10_qmdj_wu_birth.py,
+tutte le carte, % SHORT: controllo (tutti e due) 49,6% / 49,3% / vivo 64% -> sullo storico NO. Spaccato: Birth controlla Wu 52,5% / 56,0% /
+vivo 80% (pip +407 / -45 / +290); Wu controlla Birth 47,2% / 44,0% / 50% (va piuttosto LONG). Non messo in qmdj.js.
