@@ -243,3 +243,10 @@ GBPUSD 01/10 (Lio fermo, carta fu yin; Edu 17:12: "se il Tai Sui clasha il Comma
 true (il palazzo del Commander vince) +2.663 / +5.336 / +187; 'neutro' (il Tai Sui non danneggia) +2.895 / +5.377 / +187. Attuale +3.150 / +6.465 / +187.
 Edu 17:14: solo col Commander SPOSTATO (ora 癸): QMDJ_TS_CMD='spostato' +3.035 / +6.232 / +187 (attuale +3.150 / +6.465 / +187). Spenta.
 DECISIONE (Edu 17:17): QMDJ_TS_CMD='spostato' ACCESO. REGOLA ATTUALE: +3.035 / +6.232 / vivo +187.
+
+## SISTEMA ZFTY (Edu 25/10 17:23). Il sistema finora = "DsHs". ZFTY: trend = palazzo dello Zhi Fu; controparte = Tian Yi = la stella originaria
+del palazzo dove sta lo ZF (1 Grass 2 Rice 3 Aggressor 4 Assistant 6 Heart 7 Pillar 8 Official 9 Hero), nel palazzo dove si trova ora.
+Stesse regole di DsHs. qmdj.js: lettura(carta, trend, 'zfty'). prove_25_10_qmdj_conferma_sis.js (SIS=zfty), prove_25_10_lio_dshs_zfty.js.
+ZFTY: 49,7% -690 / 52,5% +2.286 / vivo 47% -23 (DsHs 51,7% +3.035 / 53,8% +6.232 / 59% +187). Confermate ZFTY 56,3% / 57,5% / 69%.
+Su tutte le carte di Lio: ZFTY 49,7% / 51,0% / 50,6%; Lio fermo: ZFTY 51,7% / 51,7%; DsHs+ZFTY d'accordo 50,4% / 51,9% / 57%.
+Lio con DsHs+ZFTY d'accordo con lui 67,2% / 65,9% / 62%; contrari 65,5% / 60,2% / 52%.
