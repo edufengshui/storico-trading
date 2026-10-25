@@ -1,5 +1,5 @@
 const {execFileSync}=require('child_process'); const out=[];
-for(const sp of [false,true]) for(const fz of [0,2,4,6,8]){
+for(const sp of [true]) for(const fz of [0,2,4,6,8,20]){
   const pre=`global.QMDJ_CMD_SPOSTA=${sp};global.QMDJ_CMD_FORZA=${fz};`;
   const o=execFileSync('node',['-e',pre+"require('/home/claude/qm/conferma.js')"],{env:process.env}).toString().split('\n')[0];
   const card=execFileSync('node',['-e',pre+`global.window=global; const lj=require('lunar-javascript'); global.Solar=lj.Solar; global.Lunar=lj.Lunar;

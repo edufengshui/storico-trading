@@ -200,3 +200,5 @@ EURUSD 05/10 torna giusta solo con spostato + aiuto (Li col Commander controlla 
 Edu 15:46: "il Commander spostato toglie il ponte da Kun; Li diventa molto piu' forte col Commander". Opzione QMDJ_CMD_FORZA (punti in piu'
 al palazzo del Commander), spenta. prove_25_10_qmdj_commander_forza.js: ogni bonus (2-8) peggiora lo storico, con o senza spostamento;
 EURUSD 05/10 torna giusta solo con spostato + forza >= 6: +5.276 / +968 / +653 (attuale +5.643 / +2.657 / +563). Non adottato.
+Edu 15:48: la forza del Commander vale SOLO nell'ora 癸. Spostato + forza solo 癸: +0 +6.042/+1.918/+607; +6 +5.606/+1.720/+671;
++8 o piu' +5.730/+1.785/+671 (EURUSD 05/10 giusta da +6). Attuale +5.643/+2.657/+563 -> 2024-26 -872. Opzioni ancora spente.
