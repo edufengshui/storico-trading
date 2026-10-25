@@ -236,3 +236,8 @@ AUDUSD 07/10 (Edu 16:56): "il ponte Kun ha un clash interno e l'ora e' clashata 
 Opzioni spente: QMDJ_PONTE_CLASH (ponte con clash non passa) +4.520 / +5.057 / +119; QMDJ_MESE 'opposto' +1.151 / +5.926 / 62% +265;
 'forte' (stelo e ramo del mese in palazzi opposti) +3.150 / +6.465 / +187; 'timely' +3.727 / +5.462 / +255. Attuale +4.203 / +5.755 / +223.
 DECISIONE (Edu 16:59): mese opposto 'forte' ACCESO. REGOLA ATTUALE: 2020-23 51,9% +3.150 · 2024-26 54,1% +6.465 · vivo 59% +187.
+
+## QMDJ DOVE LIO TACE O SBAGLIA (Edu 17:07: "il qimen deve dare risposte positive dove Lio tace o sbaglia")
+Lio fermo: QMDJ 50,0% -339 / 51,8% +257 / vivo 60% (5). Lio sbaglia: QMDJ giusto 45,4% / 49,2% / vivo 59,4% (32).
+GBPUSD 01/10 (Lio fermo, carta fu yin; Edu 17:12: "se il Tai Sui clasha il Commander lo eccita ancora di piu'"). Opzione QMDJ_TS_CMD (spenta):
+true (il palazzo del Commander vince) +2.663 / +5.336 / +187; 'neutro' (il Tai Sui non danneggia) +2.895 / +5.377 / +187. Attuale +3.150 / +6.465 / +187.
