@@ -232,3 +232,6 @@ TAI SUI (Edu 16:46, NZDUSD 07/10: "lo stelo dell'anno e' il Tai Sui e puo' oppor
 contro HS in Li). Opzione QMDJ_TAISUI (spenta): 'mese' +4.073 / +5.720 / vivo +223; 'forza' (mese+stagione>=5) +4.203 / +5.755 / +223;
 'ctl' +3.285 / +3.811 / +223. Attuale +4.540 / +3.500 / +663. Confermate col Tai Sui: vivo 75% (16).
 DECISIONE (Edu 16:48): Tai Sui ACCESO ('forza'). REGOLA ATTUALE: 2020-23 52,3% +4.203 · 2024-26 54,2% +5.755 · vivo 59% +223.
+AUDUSD 07/10 (Edu 16:56): "il ponte Kun ha un clash interno e l'ora e' clashata dal mese (stelo e ramo opposti: clash piu' forte)".
+Opzioni spente: QMDJ_PONTE_CLASH (ponte con clash non passa) +4.520 / +5.057 / +119; QMDJ_MESE 'opposto' +1.151 / +5.926 / 62% +265;
+'forte' (stelo e ramo del mese in palazzi opposti) +3.150 / +6.465 / +187; 'timely' +3.727 / +5.462 / +255. Attuale +4.203 / +5.755 / +223.
