@@ -216,3 +216,7 @@ In qmdj.js (ACCESO, QMDJ_COLPITO='zs'): DS o HS con clash interno e Zhi Shi nel 
 REGOLA ATTUALE: 2020-23 53,0% +4.540 · 2024-26 53,0% +3.500 · vivo 59% +663 (prima +5.838 / +2.470 / +607).
 Confermate: 57,2% +3.105 · 60,3% +2.166 · vivo 71% +266. Varianti: +Commander opposto +4.664/+3.447/+663; solo ZS opposto -1.706/+2.690/+627.
 Edu 16:13: solo clash interno (senza ZS opposto): +1.379 / +1.703 / vivo 52% +411 -> peggio. Resta clash + ZS opposto.
+ORA INIBITA (Edu 16:20, USDCAD 12/10: "il Commander clasha l'ora e l'ora e' opposta al suo stesso ramo"). Opzione QMDJ_INIBITA (spenta):
+Commander nel palazzo opposto all'HS + HS nel palazzo opposto al ramo dell'ora -> segue (sopra il fan yin); simmetrico per il giorno.
+Tutte e due: +5.740 / +2.108 / vivo 62% +701 (attuale +4.540 / +3.500 / 59% +663); una sola: +1.030 / +3.448 / +405.
+Utility: prove_25_10_qmdj_dettaglio.js CROSS DATA (seme, pilastri, lettura, palazzi).
