@@ -162,3 +162,7 @@ Le 5 carte viste a mano: tutte giuste. Varianti: solo DS +3.727/+2.789/-25; bloc
 WU CONTRO BIRTH (Edu 11:57: "Wu controlla Birth o il contrario -> il cross va SHORT, indipendente dal trend"). prove_25_10_qmdj_wu_birth.py,
 tutte le carte, % SHORT: controllo (tutti e due) 49,6% / 49,3% / vivo 64% -> sullo storico NO. Spaccato: Birth controlla Wu 52,5% / 56,0% /
 vivo 80% (pip +407 / -45 / +290); Wu controlla Birth 47,2% / 44,0% / 50% (va piuttosto LONG). Non messo in qmdj.js.
+WU/BIRTH A CONFERMA (Edu 12:00) in qmdj.js: wuBirth(c) -> Birth controlla Wu = SHORT, Wu controlla Birth = LONG; lettura(c, trend) ->
+{dir, segue, motivo, wuBirth, conferma}. prove_25_10_qmdj_conferma.js:
+confermate 302 · 56,3% · +2.926 | 250 · 58,8% · +1.702 | vivo 17 · 65% · +187
+contraddette 335 · 49,6% · +4 | 216 · 46,3% · -538 | vivo 13 · 46% · -9 ; senza Wu/Birth 52,0% +1.647 | 49,9% +740 | 52% -87
