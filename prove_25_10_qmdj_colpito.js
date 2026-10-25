@@ -1,5 +1,5 @@
 const {execFileSync}=require('child_process');
-const V=[['nessuno',"global.QMDJ_COLPITO='off';"],['clash + ZS opposto',''],['clash + ZS o Commander opposto',"global.QMDJ_COLPITO='zscmd';"],['solo ZS opposto',"global.QMDJ_COLPITO='solozs';"]];
+const V=[['nessuno',"global.QMDJ_COLPITO='off';"],['clash + ZS opposto',''],['clash + ZS o Commander opposto',"global.QMDJ_COLPITO='zscmd';"],['solo ZS opposto',"global.QMDJ_COLPITO='solozs';"],['solo clash interno',"global.QMDJ_COLPITO='soloclash';"]];
 const card=(pre,d,b)=>execFileSync('node',['-e',pre+`global.window=global; const lj=require('lunar-javascript'); global.Solar=lj.Solar; global.Lunar=lj.Lunar;
 global.XKDGSolarTime=require('/home/claude/trading/solar-time.js'); global.XKDGJieQiGMT=require('/home/claude/trading/jieqi-gmt.js');
 const Q=require('/home/claude/trading/qmdj.js'); const p='${d}'.split('-').map(Number); const c=Q.oraria(Date.UTC(p[0],p[1]-1,p[2]),'${b}'); process.stdout.write(Q.giornoOra(c).segue?'segue':'non segue');`],{env:process.env}).toString();

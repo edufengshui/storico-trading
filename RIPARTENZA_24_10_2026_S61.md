@@ -215,3 +215,4 @@ PALAZZO COLPITO (Edu 16:06, EURGBP 20/10: "l'ora e' in clash e lo ZS dal palazzo
 In qmdj.js (ACCESO, QMDJ_COLPITO='zs'): DS o HS con clash interno e Zhi Shi nel palazzo opposto -> non vince. prove_25_10_qmdj_colpito.js:
 REGOLA ATTUALE: 2020-23 53,0% +4.540 · 2024-26 53,0% +3.500 · vivo 59% +663 (prima +5.838 / +2.470 / +607).
 Confermate: 57,2% +3.105 · 60,3% +2.166 · vivo 71% +266. Varianti: +Commander opposto +4.664/+3.447/+663; solo ZS opposto -1.706/+2.690/+627.
+Edu 16:13: solo clash interno (senza ZS opposto): +1.379 / +1.703 / vivo 52% +411 -> peggio. Resta clash + ZS opposto.
