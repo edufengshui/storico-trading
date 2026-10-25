@@ -142,3 +142,5 @@ rovesciato (controllato piu' forte) vale solo fra sezioni diverse. Ponte = ribal
 prove_25_10_qmdj_sezione.py: con Wu (cielo) come ponte TUTTE e 5 le carte viste a mano sono giuste.
 Commander+ZS: -865 · -138 · vivo -6 | + Wu: +1.249 · +181 · vivo 58% +108 | + Wu + Birth: +2.503 · -912 · +126.
 (Attuale in qmdj.js, senza sezione e senza Wu: +1.887 · +1.078 · vivo 64% +218.) NON ancora in qmdj.js: attesa decisione di Edu.
+DECISIONE (Edu 11:21): regola del Dun MEMORIZZATA ma TOLTA (fa scendere la %). qmdj.js resta senza sezione e senza Wu.
+Prova "ponte (Commander/ZS/Wu) = sempre NON SEGUE": +5.147 · +1.881 · vivo 56% -338 (contraddice EURJPY 22/10, ponte ZS -> segue).
