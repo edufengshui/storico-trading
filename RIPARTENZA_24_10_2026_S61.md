@@ -202,3 +202,6 @@ al palazzo del Commander), spenta. prove_25_10_qmdj_commander_forza.js: ogni bon
 EURUSD 05/10 torna giusta solo con spostato + forza >= 6: +5.276 / +968 / +653 (attuale +5.643 / +2.657 / +563). Non adottato.
 Edu 15:48: la forza del Commander vale SOLO nell'ora 癸. Spostato + forza solo 癸: +0 +6.042/+1.918/+607; +6 +5.606/+1.720/+671;
 +8 o piu' +5.730/+1.785/+671 (EURUSD 05/10 giusta da +6). Attuale +5.643/+2.657/+563 -> 2024-26 -872. Opzioni ancora spente.
+Edu 15:51: "Li e Qian sono nello stesso Dun". Opzione QMDJ_DUN (spenta). prove_25_10_qmdj_dun.js, col motore di oggi:
+Dun +6.169/+1.767/+545 | Dun + Commander spostato (lettura completa di Edu su EURUSD 05/10, carta giusta) +6.178/+1.581/+653 |
+Dun + spostato + forza +8 +6.205/+1.666/+653 | attuale +5.643/+2.657/+563. Il Dun toglie ~900-1.000 pip al 2024-26.
