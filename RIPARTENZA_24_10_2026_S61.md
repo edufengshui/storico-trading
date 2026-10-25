@@ -144,3 +144,6 @@ Commander+ZS: -865 · -138 · vivo -6 | + Wu: +1.249 · +181 · vivo 58% +108 | 
 (Attuale in qmdj.js, senza sezione e senza Wu: +1.887 · +1.078 · vivo 64% +218.) NON ancora in qmdj.js: attesa decisione di Edu.
 DECISIONE (Edu 11:21): regola del Dun MEMORIZZATA ma TOLTA (fa scendere la %). qmdj.js resta senza sezione e senza Wu.
 Prova "ponte (Commander/ZS/Wu) = sempre NON SEGUE": +5.147 · +1.881 · vivo 56% -338 (contraddice EURJPY 22/10, ponte ZS -> segue).
+REGOLA DEL PONTE (Edu 11:28): "senza ponte vince il giorno -> segue; col ponte non segue: giusto. Senza ponte vince l'ora -> non segue;
+col ponte segue: non ha senso." -> in qmdj.js il ponte (Commander, Zhi Shi, Wu nel cielo, non vuoti) da' sempre NON SEGUE. Verificato 0 diff.
+REGOLA ATTUALE: 2020-23 1.583 · 51,9% · +5.147 · 2024-26 1.225 · 50,3% · +1.881 · vivo 55 · 56% · -338. (EURJPY 22/10 ora sbagliata.)
