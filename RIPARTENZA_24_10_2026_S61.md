@@ -259,3 +259,4 @@ VIEW CLASHA IL TY (Edu 17:50, EURUSD 07/10: View in Zhen opposto al TY in Dui). 
 la porta View nel palazzo opposto a TY (o ZF) -> quel palazzo non vince. ZFTY ATTUALE: 49,5% -424 / 52,2% +3.746 / vivo 54% +344
 (prima -943 / +2.741 / 51% +294). Nel DsHs ('tutti'): +3.694 / +6.467 / +199 (attuale DsHs +3.035 / +6.232 / +187) -> migliora tutto, da proporre.
 DECISIONE (Edu 17:59): View che clasha ACCESO anche nel DsHs. DsHs ATTUALE: +3.694 / +6.467 / +199.
+ZFTY coi vuoti del GIORNO (Edu 18:09): 48,9% -2.253 / 51,5% +1.876 / vivo 56% +440 (vuoti dell'ora: -424 / +3.746 / +344). Non acceso.
