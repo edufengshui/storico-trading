@@ -290,3 +290,9 @@ Opzione QMDJ_STADI_PESO = {stadio: punti} sommati alla forza (mese+stagione); QM
   - peso {8:-1,9:-2,10:-3}: −585 | +3.193 | +522 ; {8:-2,9:-3,10:-4}: −620 | +3.343 | +522
   - peso + perde se forza<3: −1.940 | 53,5% +4.979 | 57,9% +506
 Il peso da solo sposta pochissimo (cambia raramente chi vince); la soglia combinata migliora il 2024-26 ma non il 2020-23 né il vivo.
+
+### 26/10 14:55 — Edu: "lo stadio di vita è secondo la posizione nel Luoshu, non secondo il mese"
+Corretto: QMDJ_STADI_POS='luoshu' (default; 'mese' = vecchia lettura). Angoli: con 8-9-10 i due rami danno sempre stadi entrambi dentro o entrambi fuori (QMDJ_STADI_ANGOLO indifferente). Stadi ancora SPENTI.
+- ZFTY base −661 | +3.191 | vivo 59,6% +522 ; 8-9-10 tutti −120 | −1.819 | 52,6% +518 ; [10] −821 | −233 | +356 ; ctpclashaiuto −1.329 | +1.906 | 61,4% +542 ; peso −979 | +2.806 | +522
+- DsHs base +4.264 | +7.703 | 60,3% +123 ; 8-9-10 tutti +4.228 | +6.310 | 56,9% +287 ; 8-9-10 senza combinazione +5.707 | +7.577 | 55,2% +267 ; ctpclashaiuto +3.258 | +7.157 | 62,1% +163
+- Le due carte guida (EURJPY 07/12/2023, 09/03/2022) col Luoshu tornano giuste: Li 戊 = 5 (forte), Qian 乙 = 9/8; Dui 丙 = 8, Qian 辛 = 3/2.
