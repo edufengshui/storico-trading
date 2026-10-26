@@ -302,3 +302,5 @@ Corretto: QMDJ_STADI_POS='luoshu' (default; 'mese' = vecchia lettura). Angoli: c
 - Edu 18:39: "Birth fa da ponte e ZF sta sopra Geng". QMDJ_BIRTH_PONTE='zfty': −655 | +3.236 | +522 (cambia 21 carte, neutro).
 - ZF/TY sopra 庚 non vince (QMDJ_GENG_DSHS in ZFTY): 50,9% +2.259 | 51,6% +2.057 | vivo 61,4% +930 (2020-23 +2.920, 2024-26 −1.134, vivo +408). Spento, da decidere.
 - In DsHs: Birth ponte +4.720 | +7.292 | +123 ; GENG_DSHS +3.791 | +7.183 | 65,5% +405.
+- 18:42 Edu "Si": ACCESI nello ZFTY ponte Birth (QMDJ_BIRTH_PONTE default 'zfty') e sopra 庚 non vince (QMDJ_GENG_ZFTY, false per spegnere).
+  ZFTY ora: 1546 · 51,0% · +2.414 | 1187 · 51,5% · +1.749 | vivo 57 · 61,4% · +930 ; confermate 57,2% +2.797 | 58,0% +1.903 | 80% +290. DsHs invariato.
