@@ -277,3 +277,6 @@ Edu 14:28: "8-9-10 hanno piu' senso (10 il peggiore); il clash con HS/TY a quest
 QMDJ_STADI_MODO: tutti | ctp (solo controparte) | ctpclash (10 sempre, 8-9 con clash interno) | ctpclashaiuto (come ctpclash, senza Commander/ZS
 nel palazzo o in quello che lo genera). DsHs: tutti +2.897/+8.128/48% | ctp +461/+7.186/59% +511 | ctpclash +4.624/+7.192/59% +105 |
 ctpclashaiuto +4.392/+8.322/59% +105. ZFTY: tutti +50/+4.470/54% | ctp -3.663/+3.447/60% +874 | ctpclash -2.257/+2.357/58% | ctpclashaiuto -1.154/+3.387/58% +504.
+Perche' ZFTY 8-9-10 'tutti' crolla dal vivo (prove_26_10_qmdj_diff_vivo.js): 6 carte peggiorate, 5 sono "trend allo stadio 8/9" e in 4 lo ZF porta
+戊 (甲子) nei mesi 酉 (stadio 8 死) e 戌 (stadio 9 墓): lo ZF perde anche con forza 6-7. Con QMDJ_STADI_FORTE=5 (lo stadio conta solo sotto forza 5):
+-1.501 / +4.354 / 60% +524 (il guadagno del 2020-23 veniva proprio dai palazzi forti).
