@@ -263,3 +263,6 @@ ZFTY coi vuoti del GIORNO (Edu 18:09): 48,9% -2.253 / 51,5% +1.876 / vivo 56% +4
 26/10 — EURJPY 29/09 (ZFTY; Edu: "vedo il TY bloccato da una combinazione"): View che clasha ribaltava sopra la combinazione. qmdj.js: con un
 palazzo bloccato da combinazione View non ribalta (QMDJ_VIEW_DOPO_COMB, ACCESO). DsHs: 52,2% +3.935 / 53,3% +5.822 / vivo 60% +123
 (prima +3.694 / +6.467 / +199; confermate 57,0% / 60,2% / 75%). ZFTY: 49,2% -966 / 52,3% +3.702 / 56% +388 (prima -424 / +3.746 / +344).
+EURJPY 12/10 (Edu 26/10 10:19: "View clasha ma non ribalta perche' Gen e' forte"). qmdj.js QMDJ_VIEW_FORTE (default 5): View non ribalta un palazzo
+con forza >= 5. Soglie (DsHs | ZFTY): 0 +3.935/+5.822/+123 | -966/+3.702/+388; 4 +3.471/+8.018/+105 | -916/+3.276/+338;
+5 +4.448/+7.666/+105 | -380/+3.363/+356 (ATTUALE); 6 +4.589/+6.655/+105 | -197/+3.851/+356; 'rel' +3.102/+7.101/+105 | -955/+2.250/+294.
