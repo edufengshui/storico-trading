@@ -296,3 +296,9 @@ Corretto: QMDJ_STADI_POS='luoshu' (default; 'mese' = vecchia lettura). Angoli: c
 - ZFTY base −661 | +3.191 | vivo 59,6% +522 ; 8-9-10 tutti −120 | −1.819 | 52,6% +518 ; [10] −821 | −233 | +356 ; ctpclashaiuto −1.329 | +1.906 | 61,4% +542 ; peso −979 | +2.806 | +522
 - DsHs base +4.264 | +7.703 | 60,3% +123 ; 8-9-10 tutti +4.228 | +6.310 | 56,9% +287 ; 8-9-10 senza combinazione +5.707 | +7.577 | 55,2% +267 ; ctpclashaiuto +3.258 | +7.157 | 62,1% +163
 - Le due carte guida (EURJPY 07/12/2023, 09/03/2022) col Luoshu tornano giuste: Li 戊 = 5 (forte), Qian 乙 = 9/8; Dui 丙 = 8, Qian 辛 = 3/2.
+
+### 26/10 sera — ZFTY: Commander e Birth (USDJPY 11/07/2024: Zhen in tomba 未 forza 0 vs Gen 7, non segue, -263)
+- QMDJ_CMD_AIUTO (Commander impedisce il controllo rovesciato): ZFTY −171 | +2.658 | 57,9% +428 ; con QMDJ_CMD_AIUTO_PIENO (non da tomba/vuoto) −673 | +3.311 | +428. Spento.
+- Edu 18:39: "Birth fa da ponte e ZF sta sopra Geng". QMDJ_BIRTH_PONTE='zfty': −655 | +3.236 | +522 (cambia 21 carte, neutro).
+- ZF/TY sopra 庚 non vince (QMDJ_GENG_DSHS in ZFTY): 50,9% +2.259 | 51,6% +2.057 | vivo 61,4% +930 (2020-23 +2.920, 2024-26 −1.134, vivo +408). Spento, da decidere.
+- In DsHs: Birth ponte +4.720 | +7.292 | +123 ; GENG_DSHS +3.791 | +7.183 | 65,5% +405.
