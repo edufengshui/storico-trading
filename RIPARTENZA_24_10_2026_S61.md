@@ -266,3 +266,4 @@ palazzo bloccato da combinazione View non ribalta (QMDJ_VIEW_DOPO_COMB, ACCESO).
 EURJPY 12/10 (Edu 26/10 10:19: "View clasha ma non ribalta perche' Gen e' forte"). qmdj.js QMDJ_VIEW_FORTE (default 5): View non ribalta un palazzo
 con forza >= 5. Soglie (DsHs | ZFTY): 0 +3.935/+5.822/+123 | -966/+3.702/+388; 4 +3.471/+8.018/+105 | -916/+3.276/+338;
 5 +4.448/+7.666/+105 | -380/+3.363/+356 (ATTUALE); 6 +4.589/+6.655/+105 | -197/+3.851/+356; 'rel' +3.102/+7.101/+105 | -955/+2.250/+294.
+La forza (>=5) protegge da View SOLO il palazzo del trend (cosi' EURUSD 07/10 e EURJPY 12/10 sono giuste tutte e due). ATTUALE DsHs +4.112 / +7.765 / 60% +123; ZFTY -661 / +3.191 / 60% +510.
