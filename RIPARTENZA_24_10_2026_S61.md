@@ -304,3 +304,10 @@ Corretto: QMDJ_STADI_POS='luoshu' (default; 'mese' = vecchia lettura). Angoli: c
 - In DsHs: Birth ponte +4.720 | +7.292 | +123 ; GENG_DSHS +3.791 | +7.183 | 65,5% +405.
 - 18:42 Edu "Si": ACCESI nello ZFTY ponte Birth (QMDJ_BIRTH_PONTE default 'zfty') e sopra 庚 non vince (QMDJ_GENG_ZFTY, false per spegnere).
   ZFTY ora: 1546 · 51,0% · +2.414 | 1187 · 51,5% · +1.749 | vivo 57 · 61,4% · +930 ; confermate 57,2% +2.797 | 58,0% +1.903 | 80% +290. DsHs invariato.
+
+### 26/10 18:48-19:03 — Flusso del qi via View (USDJPY 13/10: TY Gen genera ZF Qian che genera View Kan; Gen controlla Kan -> vince il TY, -19)
+Edu: guardare dove va il qi. Catena g -> h -> View: il qi finisce su View che g controlla -> vince g, in tutti e due i versi (Edu 19:01 "si, vincerebbe lo ZF").
+ZF controlla TY e genera View = ponte (gia' nel motore). View che fa gia' da ponte non drena. View conta anche vuoto.
+"View drena lo ZF in ogni caso" (+3.092 | +3.627) rifiutato da Edu: "non ha nessun senso".
+ACCESO: QMDJ_VIEW_DRENA='flusso' (default), QMDJ_VIEW_DRENA_VUOTO (default on). ZFTY: 51,9% +2.856 | 50,8% +1.936 | vivo 61,4% +796 ;
+confermate 57,7% +2.813 | 58,1% +1.989 | 78,6% +264. DsHs invariato.
