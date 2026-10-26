@@ -311,3 +311,8 @@ ZF controlla TY e genera View = ponte (gia' nel motore). View che fa gia' da pon
 "View drena lo ZF in ogni caso" (+3.092 | +3.627) rifiutato da Edu: "non ha nessun senso".
 ACCESO: QMDJ_VIEW_DRENA='flusso' (default), QMDJ_VIEW_DRENA_VUOTO (default on). ZFTY: 51,9% +2.856 | 50,8% +1.936 | vivo 61,4% +796 ;
 confermate 57,7% +2.813 | 58,1% +1.989 | 78,6% +264. DsHs invariato.
+
+### 26/10 19:12 — USDCHF 13/10 (Lio LONG forte, -15): "TY con Birth controlla ZF e non c'e' ponte. Non segue"
+Regola: palazzo che controlla con Birth (o 戊 nel cielo: indicatori economici) -> il controllo tiene, niente controllo rovesciato.
+Solo Birth: +2.936 | +1.739 | 59,6% +702 ; Birth o Wu: +3.461 | +2.566 | 59,6% +702 (vivo -94: USDCHF 01/10). DsHs non aiuta.
+ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (default on).
