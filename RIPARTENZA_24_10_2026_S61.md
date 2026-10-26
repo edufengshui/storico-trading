@@ -269,3 +269,7 @@ con forza >= 5. Soglie (DsHs | ZFTY): 0 +3.935/+5.822/+123 | -966/+3.702/+388; 4
 La forza (>=5) protegge da View SOLO il palazzo del trend (cosi' EURUSD 07/10 e EURJPY 12/10 sono giuste tutte e due). ATTUALE DsHs +4.112 / +7.765 / 60% +123; ZFTY -661 / +3.191 / 60% +510.
 EURGBP 20/10 ZFTY (Edu 10:26: 'il TY ha un clash interno'): QMDJ_CTP_CLASH (controparte con clash interno -> segue) ZFTY -1.582 / +1.269 / 58% +388; DsHs 'tutti' +2.617 / +5.929 / +13. Peggiora tutto: SPENTA. Opzione QMDJ_TS_CMD_ZFTY (Tai Sui non danneggia lo ZF) -2.807 / +1.940 / 61% +566: spenta.
 Edu 10:29: 'clash interno con ZS dal palazzo opposto' -> il palazzo colpito viene PRIMA del Tai Sui (QMDJ_COLPITO_PRIMA, acceso). DsHs +4.264 / +7.703 / 60% +123; ZFTY -661 / +3.191 / 60% +522. EURGBP 20/10 ZFTY giusta.
+STADI DI VITA (Edu 26/10 14:22, GBPUSD 07/10: "lo stadio di vita di 乙 in 酉 e' 10, Vanishing"). qmdj.js QMDJ_STADI (spento): il palazzo il cui
+stelo del cielo e' in uno degli stadi indicati nel ramo del mese non vince (1 长生 ... 8 死 9 墓 10 绝). DsHs: [10] +5.531 / +8.910 / vivo 52% -109;
+[9,10] +4.711 / +8.352 / 52% +149; [8,9,10] +2.897 / +8.128 / 48% +45 (attuale +4.264 / +7.703 / 60% +123). ZFTY: [10] -3.144 / +3.553 / 58% +504;
+[9,10] -2.410 / +4.209 / 51% +250; [8,9,10] +50 / +4.470 / 54% +194 (attuale -661 / +3.191 / 60% +522). Con [10] GBPUSD 07/10 e EURJPY 04/03/25 giuste.
