@@ -268,3 +268,4 @@ con forza >= 5. Soglie (DsHs | ZFTY): 0 +3.935/+5.822/+123 | -966/+3.702/+388; 4
 5 +4.448/+7.666/+105 | -380/+3.363/+356 (ATTUALE); 6 +4.589/+6.655/+105 | -197/+3.851/+356; 'rel' +3.102/+7.101/+105 | -955/+2.250/+294.
 La forza (>=5) protegge da View SOLO il palazzo del trend (cosi' EURUSD 07/10 e EURJPY 12/10 sono giuste tutte e due). ATTUALE DsHs +4.112 / +7.765 / 60% +123; ZFTY -661 / +3.191 / 60% +510.
 EURGBP 20/10 ZFTY (Edu 10:26: 'il TY ha un clash interno'): QMDJ_CTP_CLASH (controparte con clash interno -> segue) ZFTY -1.582 / +1.269 / 58% +388; DsHs 'tutti' +2.617 / +5.929 / +13. Peggiora tutto: SPENTA. Opzione QMDJ_TS_CMD_ZFTY (Tai Sui non danneggia lo ZF) -2.807 / +1.940 / 61% +566: spenta.
+Edu 10:29: 'clash interno con ZS dal palazzo opposto' -> il palazzo colpito viene PRIMA del Tai Sui (QMDJ_COLPITO_PRIMA, acceso). DsHs +4.264 / +7.703 / 60% +123; ZFTY -661 / +3.191 / 60% +522. EURGBP 20/10 ZFTY giusta.
