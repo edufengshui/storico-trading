@@ -280,3 +280,13 @@ ctpclashaiuto +4.392/+8.322/59% +105. ZFTY: tutti +50/+4.470/54% | ctp -3.663/+3
 Perche' ZFTY 8-9-10 'tutti' crolla dal vivo (prove_26_10_qmdj_diff_vivo.js): 6 carte peggiorate, 5 sono "trend allo stadio 8/9" e in 4 lo ZF porta
 戊 (甲子) nei mesi 酉 (stadio 8 死) e 戌 (stadio 9 墓): lo ZF perde anche con forza 6-7. Con QMDJ_STADI_FORTE=5 (lo stadio conta solo sotto forza 5):
 -1.501 / +4.354 / 60% +524 (il guadagno del 2020-23 veniva proprio dai palazzi forti).
+
+### 26/10 — Forza del palazzo bilanciata con lo stadio dello stelo (Edu: "se il palazzo è forte bilancia lo stelo, considerare tutti e due")
+Opzione QMDJ_STADI_PESO = {stadio: punti} sommati alla forza (mese+stagione); QMDJ_STADI_COMB = soglia sotto la quale lo stadio 8-9-10 fa perdere. Spente.
+- DsHs base 1672·52,3%·+4.264 | 1276·54,3%·+7.703 | vivo 58·60,3%·+123
+  - peso {8:-1,9:-2,10:-3}: +4.008 | +7.751 | +123 ; peso {8:-2,9:-3,10:-4}: +3.784 | +7.851 | +123
+  - peso + perde se forza<3: 51,9% +4.598 | 55,1% +8.768 | 55,2% +25
+- ZFTY base 1546·49,4%·−661 | 1187·52,5%·+3.191 | 57·59,6%·+522
+  - peso {8:-1,9:-2,10:-3}: −585 | +3.193 | +522 ; {8:-2,9:-3,10:-4}: −620 | +3.343 | +522
+  - peso + perde se forza<3: −1.940 | 53,5% +4.979 | 57,9% +506
+Il peso da solo sposta pochissimo (cambia raramente chi vince); la soglia combinata migliora il 2024-26 ma non il 2020-23 né il vivo.
