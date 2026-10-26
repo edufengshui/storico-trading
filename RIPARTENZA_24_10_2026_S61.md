@@ -273,3 +273,7 @@ STADI DI VITA (Edu 26/10 14:22, GBPUSD 07/10: "lo stadio di vita di 乙 in 酉 e
 stelo del cielo e' in uno degli stadi indicati nel ramo del mese non vince (1 长生 ... 8 死 9 墓 10 绝). DsHs: [10] +5.531 / +8.910 / vivo 52% -109;
 [9,10] +4.711 / +8.352 / 52% +149; [8,9,10] +2.897 / +8.128 / 48% +45 (attuale +4.264 / +7.703 / 60% +123). ZFTY: [10] -3.144 / +3.553 / 58% +504;
 [9,10] -2.410 / +4.209 / 51% +250; [8,9,10] +50 / +4.470 / 54% +194 (attuale -661 / +3.191 / 60% +522). Con [10] GBPUSD 07/10 e EURJPY 04/03/25 giuste.
+Edu 14:28: "8-9-10 hanno piu' senso (10 il peggiore); il clash con HS/TY a questi stadi e senza aiuti dovrebbe perdere sempre". QMDJ_STADI=[8,9,10] +
+QMDJ_STADI_MODO: tutti | ctp (solo controparte) | ctpclash (10 sempre, 8-9 con clash interno) | ctpclashaiuto (come ctpclash, senza Commander/ZS
+nel palazzo o in quello che lo genera). DsHs: tutti +2.897/+8.128/48% | ctp +461/+7.186/59% +511 | ctpclash +4.624/+7.192/59% +105 |
+ctpclashaiuto +4.392/+8.322/59% +105. ZFTY: tutti +50/+4.470/54% | ctp -3.663/+3.447/60% +874 | ctpclash -2.257/+2.357/58% | ctpclashaiuto -1.154/+3.387/58% +504.
