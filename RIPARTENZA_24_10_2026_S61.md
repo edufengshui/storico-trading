@@ -316,3 +316,14 @@ confermate 57,7% +2.813 | 58,1% +1.989 | 78,6% +264. DsHs invariato.
 Regola: palazzo che controlla con Birth (o 戊 nel cielo: indicatori economici) -> il controllo tiene, niente controllo rovesciato.
 Solo Birth: +2.936 | +1.739 | 59,6% +702 ; Birth o Wu: +3.461 | +2.566 | 59,6% +702 (vivo -94: USDCHF 01/10). DsHs non aiuta.
 ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (default on).
+
+### 27/10 mattina
+- USDJPY 28/03/2022 (Edu 08:54): "lo stelo del mese Gui non fa da ponte?" -> si', 癸 in Li ponte fra ZS (Xun) e ZF (Kun). QMDJ_ZS_PONTI 'Birth Mese'.
+  Regola ZS (QMDJ_ZS_FLUSSO=5, ponti Birth+mese): 3.270 | 2.360 | vivo 63,2% +740 (16 carte; -192 | -207 | +38). SPENTA.
+  Stelo del mese come ponte generale (QMDJ_MESE_PONTE): ZFTY -304 | +88, DsHs -939 | -252. SPENTO.
+- REGOLA DI LAVORO (Edu 08:56): "se una regola peggiora tanto su un metodo e non su un altro, spegnila solo su quello".
+  qmdj.js: PER_DEFAULT / QMDJ_PER = valori per metodo (un globale impostato a mano vince). Sweep di 30 regole x 2 metodi:
+  prove_27_10_qmdj_regole_per_metodo.txt. Nessuna regola accesa su tutti e due peggiora chiaramente un solo metodo.
+  Accese solo dove migliorano entrambi i periodi: DsHs QMDJ_STADI_PESO {8:-1,9:-2,10:-3}; ZFTY QMDJ_PONTE_CLASH + QMDJ_CMD_AIUTO.
+  DsHs ora 52,3% +4.357 | 54,5% +7.893 | vivo 60,3% +123 ; ZFTY 52,1% +4.029 | 51,5% +3.241 | 59,6% +702.
+  Da chiedere a Edu: in ZFTY togliere View come ponte migliora +99 | +903 (dottrina sua del 25/10, non toccata).
