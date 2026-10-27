@@ -327,3 +327,9 @@ ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (def
   Accese solo dove migliorano entrambi i periodi: DsHs QMDJ_STADI_PESO {8:-1,9:-2,10:-3}; ZFTY QMDJ_PONTE_CLASH + QMDJ_CMD_AIUTO.
   DsHs ora 52,3% +4.357 | 54,5% +7.893 | vivo 60,3% +123 ; ZFTY 52,1% +4.029 | 51,5% +3.241 | 59,6% +702.
   Da chiedere a Edu: in ZFTY togliere View come ponte migliora +99 | +903 (dottrina sua del 25/10, non toccata).
+- 11:29-11:54 EURJPY 12/08/2020 (ZFTY, ponte View Qian sbagliato, +97 LONG). Death con ZF/TY non ribalta (porte_zfty.js: ZF Death 48,4% +647 | 55,6% +1.789;
+  TY Death 52,4% +669 | 50,6% +12). Unica porta sotto 50% in entrambi: TY con Rest 46,3% -1.181 | 48,4% -102.
+  Edu: "Birth controlla View" -> QMDJ_PONTE_BIRTH (ponte controllato dal palazzo di Birth non passa il qi), _PIENO = Birth non vuoto.
+  Edu: "un palazzo con clash interno non e' mai vuoto" -> QMDJ_CLASH_PIENO (clashInterno: steli 甲庚 乙辛 丙壬 丁癸 o rami dei 六仪).
+  Da solo: ZFTY -688 | -498 | +46 ; DsHs -283 | -305. Con Birth che frena: ZFTY -163 | +180 | +46.
+  ACCESI SOLO IN ZFTY (Edu "Ok"): ZFTY 52,2% +3.866 | 51,6% +3.421 | vivo 61,4% +748 ; confermate 58,4% +3.302 | 59,6% +2.461 | 83,3% +243.
