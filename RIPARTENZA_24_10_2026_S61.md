@@ -338,3 +338,6 @@ ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (def
   QMDJ_TRIGONO: rami = 六仪 degli steli (戊子 己戌 庚申 辛午 壬辰 癸寅) + porta e stella (rami del palazzo d'origine); 三合 completo con
   tomba = ramo del mese -> palazzo vuoto (prima del riempimento da mese/giorno). ZFTY +517 | +153 | +148 ; DsHs +131 | -354 | +148.
   ACCESO SOLO IN ZFTY: 52,5% +4.383 | 51,7% +3.574 | vivo 63,2% +896. Mezzo trigono (QMDJ_TRIGONO_MIN=2) da chiedere.
+- 12:54 Edu: "servono tutti e tre" (niente mezzo trigono) + "ci sono anche i trigoni direzionali" (三会 亥子丑 寅卯辰 巳午未 申酉戌, tombe 辰 未 戌 丑).
+  Aggiunti (QMDJ_TRIGONO_DIR=false per toglierli). ZFTY 52,5% +4.597 | 51,7% +3.548 | vivo 63,2% +896 (direzionali: +214 | -26 | 0, 3 carte).
+  DsHs col trigono: +4.431 | +7.539 | +271 (2024-26 -354): resta spento.
