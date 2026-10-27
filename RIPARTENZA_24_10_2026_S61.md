@@ -333,3 +333,8 @@ ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (def
   Edu: "un palazzo con clash interno non e' mai vuoto" -> QMDJ_CLASH_PIENO (clashInterno: steli 甲庚 乙辛 丙壬 丁癸 o rami dei 六仪).
   Da solo: ZFTY -688 | -498 | +46 ; DsHs -283 | -305. Con Birth che frena: ZFTY -163 | +180 | +46.
   ACCESI SOLO IN ZFTY (Edu "Ok"): ZFTY 52,2% +3.866 | 51,6% +3.421 | vivo 61,4% +748 ; confermate 58,4% +3.302 | 59,6% +2.461 | 83,3% +243.
+- 12:45-12:50 AUDUSD 14/10 (ZFTY: ZF Kun genera TY Dui, -11 SHORT seguito). Edu: "己, 癸 e 午 dentro View sono un trigono di fuoco in tomba nel
+  mese 戌"; "午 viene dalla porta View (o dalla stella Hero): nel qimen porte e stelle contengono i rami, si usano per fare trigoni".
+  QMDJ_TRIGONO: rami = 六仪 degli steli (戊子 己戌 庚申 辛午 壬辰 癸寅) + porta e stella (rami del palazzo d'origine); 三合 completo con
+  tomba = ramo del mese -> palazzo vuoto (prima del riempimento da mese/giorno). ZFTY +517 | +153 | +148 ; DsHs +131 | -354 | +148.
+  ACCESO SOLO IN ZFTY: 52,5% +4.383 | 51,7% +3.574 | vivo 63,2% +896. Mezzo trigono (QMDJ_TRIGONO_MIN=2) da chiedere.
