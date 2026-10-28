@@ -346,3 +346,10 @@ ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (def
 - USDJPY 18/09/2026 (fan yin, LONG +72, Lio SHORT forte): Edu "segue perche' Wu su Kan fa da ponte" -> il ponte Wu vince il fan yin.
   QMDJ_FANYIN_PONTE 'wu' | 'tutti' | 'off'. ZFTY wu +210 | +193 | 0 ; tutti +435 | -647 | +26. DsHs wu -49 | -89 ; tutti -280 | -472.
   ACCESO 'wu' SOLO IN ZFTY: 52,6% +4.807 | 51,9% +3.741 | vivo 63,2% +896.
+- AUDUSD 01/10 (fan yin, SHORT -16 seguito): Edu "ZF sta con Birth che di norma e' piu' forte di Death". GBPUSD 05/02/2026 (fan yin, -113
+  LONG non seguito): "il mese con il suo ramo 寅 sta direttamente dalla parte del TY". QMDJ_BIRTH_DEATH ('fanyin'): Birth batte Death salvo
+  ramo del mese nel palazzo di Death (QMDJ_BIRTH_DEATH_MESE). QMDJ_MESE_LATO ('fanyin' | 'fermo'): vince il palazzo col ramo del mese.
+  A sola +829 | -433 ; B fanyin +171 | +1.619 | -104 ; A+B fanyin +646 | +1.130 | -72 ; A+B fermo +1.144 | +1.590 | -102.
+  Edu 09:41 "Accendi, dobbiamo migliorare da qualche parte, se stiamo sempre fermi ci vorranno mesi" -> REGOLA DI LAVORO: meno prudenza,
+  accendere le regole sue che migliorano lo storico anche se il vivo cala di poco. ACCESO ZFTY A + B 'fermo':
+  1569 · 52,7% · +5.951 | 1199 · 52,5% · +5.331 | vivo 60 · 61,7% · +794.
