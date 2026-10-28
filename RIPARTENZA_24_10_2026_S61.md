@@ -367,3 +367,12 @@ ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (def
   QMDJ_GENG_ECC: sostegni ts (ramo dell'anno nel palazzo) / gen (stelo mese o anno nel cielo in un palazzo che lo genera) / deb (l'altro forza<=1).
   uno -1.257 | +352 ; due -784 | +83 ; tre -74 | +362 ; ts -656 | +317 ; gen -543 | +594 ; deb -916 | -114. Vivo invariato.
   ACCESO 'tre' SOLO IN ZFTY: 52,6% +5.834 | 52,7% +5.932 | vivo 61,7% +794.
+
+### 28/10 10:31 — Edu: "Lio ragiona e giunge a conclusioni, non scorre un elenco di regole: fai lo stesso nel qimen"
+qmdj.js: lettura().argomenti = relazione di base + ogni regola scattata col suo verso. Prove (prove_28_10_qmdj_ragionata.js / _margine.js):
+- Voto pesato alla Lio (affidabilita' 2020-23, ristretta K 30-300, famiglie di regole): 2020-23 sale (ZFTY +6.500..+11.000) ma 2024-26 crolla
+  (ZFTY -2.100..+1.000; DsHs +300..+1.900 contro +7.893): sovradattato. La cascata (ordine di Edu: regola generale, poi eccezioni) tiene meglio.
+- Margine = argomenti a favore - contro: non separa (DsHs >=1 +4.238 | +5.802; ZFTY >=1 +4.995 | +4.475).
+- Ragionamento fra metodi (come Lio fra LY/PB/DLR): DsHs + ZFTY, disaccordo = fermo: 1.424 · 53,7% +6.421 | 1.164 · 54,6% +9.466 |
+  vivo 49 · 65,3% +540 -> meglio di ciascun metodo da solo. Con Wu/Birth non contrario: 53,8% | 55,4% | 69,4% (36).
+- Impegno: nelle carte proporre per primo la mia lettura ragionata, poi chiedere a Edu.
