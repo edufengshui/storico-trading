@@ -381,3 +381,4 @@ qmdj.js: lettura().argomenti = relazione di base + ogni regola scattata col suo 
   QMDJ_TIMELY_PIENO=8 (旺相不空) + QMDJ_TRIGONO_VIVO ('vivo' = elemento non in tomba | 'nascita' = il mese e' uno dei tre rami): il palazzo
   vivo vince. ZFTY vivo -1.848 | -1.362 | +18 ; nascita -18 | -11 | 0 (carta giusta). DsHs vivo +1.826 | -577 | +114 ; nascita +1.383 | -608.
   ACCESO SOLO IN ZFTY 'nascita' + 旺相不空 8: 52,5% +5.816 | 52,8% +5.921 | vivo 61,7% +794. DsHs da chiedere.
+  10:54 Edu "Accendi": acceso anche in DsHs (+1.383 | -608 | 0).
