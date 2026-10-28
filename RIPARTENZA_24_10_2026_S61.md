@@ -359,3 +359,6 @@ ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (def
   Edu: "lo ZF ha 丙 che controlla 庚, 丙 e' il Tai Sui" -> QMDJ_STELI_INT (terra|tutti|taisui): tutte peggiorano lo storico
   (ZFTY taisui -1.173 | -2.002 | +120). "庚 su 丙 o viceversa e' conflittuale" -> QMDJ_GENG_BING 'perde': ZFTY -528 | -963 ; DsHs
   -1.284 | -935 | +498. Spente.
+- USDJPY 30/07/2026 (ZFTY: ZF/Commander 戊 sopra 庚, TY Qian 庚/丙 vuoto, -371 LONG non seguito): Edu "il Commander sopra 庚 era negativo"
+  -> la regola del 庚 viene prima: 庚/丙 non ribalta se "sopra 庚" ha gia' deciso (QMDJ_GENG_BING_DOPO). ZFTY -43 | +239 | 0, entrambe le
+  carte giuste. ACCESO SOLO IN ZFTY: 52,6% +5.908 | 52,5% +5.570 | vivo 61,7% +794. DsHs (senza regola del 庚) resta spento.
