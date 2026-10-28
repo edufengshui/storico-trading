@@ -353,3 +353,9 @@ ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (def
   Edu 09:41 "Accendi, dobbiamo migliorare da qualche parte, se stiamo sempre fermi ci vorranno mesi" -> REGOLA DI LAVORO: meno prudenza,
   accendere le regole sue che migliorano lo storico anche se il vivo cala di poco. ACCESO ZFTY A + B 'fermo':
   1569 · 52,7% · +5.951 | 1199 · 52,5% · +5.331 | vivo 60 · 61,7% · +794.
+- EURJPY 18/09/2026 (ZFTY: Li vuoto genera Kun, +100 contro SHORT). Vuoti del giorno (QMDJ_VUOTI ora|giorno|entrambi, ora applicato
+  ovunque): ZFTY -1.893 | -871 ; DsHs -3.576 | +631. Giorno che non riempie (QMDJ_GIORNO_RIEMPIE=false): ZFTY -91 | -231, DsHs +499 | -5.
+  Restano i vuoti dell'ora col giorno che riempie (dottrina 24/10).
+  Edu: "lo ZF ha 丙 che controlla 庚, 丙 e' il Tai Sui" -> QMDJ_STELI_INT (terra|tutti|taisui): tutte peggiorano lo storico
+  (ZFTY taisui -1.173 | -2.002 | +120). "庚 su 丙 o viceversa e' conflittuale" -> QMDJ_GENG_BING 'perde': ZFTY -528 | -963 ; DsHs
+  -1.284 | -935 | +498. Spente.
