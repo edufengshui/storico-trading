@@ -341,3 +341,8 @@ ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (def
 - 12:54 Edu: "servono tutti e tre" (niente mezzo trigono) + "ci sono anche i trigoni direzionali" (三会 亥子丑 寅卯辰 巳午未 申酉戌, tombe 辰 未 戌 丑).
   Aggiunti (QMDJ_TRIGONO_DIR=false per toglierli). ZFTY 52,5% +4.597 | 51,7% +3.548 | vivo 63,2% +896 (direzionali: +214 | -26 | 0, 3 carte).
   DsHs col trigono: +4.431 | +7.539 | +271 (2024-26 -354): resta spento.
+
+### 28/10
+- USDJPY 18/09/2026 (fan yin, LONG +72, Lio SHORT forte): Edu "segue perche' Wu su Kan fa da ponte" -> il ponte Wu vince il fan yin.
+  QMDJ_FANYIN_PONTE 'wu' | 'tutti' | 'off'. ZFTY wu +210 | +193 | 0 ; tutti +435 | -647 | +26. DsHs wu -49 | -89 ; tutti -280 | -472.
+  ACCESO 'wu' SOLO IN ZFTY: 52,6% +4.807 | 51,9% +3.741 | vivo 63,2% +896.
