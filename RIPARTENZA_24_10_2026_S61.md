@@ -376,3 +376,8 @@ qmdj.js: lettura().argomenti = relazione di base + ogni regola scattata col suo 
 - Ragionamento fra metodi (come Lio fra LY/PB/DLR): DsHs + ZFTY, disaccordo = fermo: 1.424 · 53,7% +6.421 | 1.164 · 54,6% +9.466 |
   vivo 49 · 65,3% +540 -> meglio di ciascun metodo da solo. Con Wu/Birth non contrario: 53,8% | 55,4% | 69,4% (36).
 - Impegno: nelle carte proporre per primo la mia lettura ragionata, poi chiedere a Edu.
+- USDCAD 14/08/2026 (ZFTY: ZF/Commander Qian vuoto, TY Kun; -52 SHORT seguito). Mia lettura proposta; Edu 10:45: convincenti "旺相不空"
+  (Qian Metallo in 申 forza 8: vuoto non vero) e "trigono d'Acqua vivo 申子辰 in Qian (庚申 戊子 Delusion辰), mese 申 nascita, attori non vuoti".
+  QMDJ_TIMELY_PIENO=8 (旺相不空) + QMDJ_TRIGONO_VIVO ('vivo' = elemento non in tomba | 'nascita' = il mese e' uno dei tre rami): il palazzo
+  vivo vince. ZFTY vivo -1.848 | -1.362 | +18 ; nascita -18 | -11 | 0 (carta giusta). DsHs vivo +1.826 | -577 | +114 ; nascita +1.383 | -608.
+  ACCESO SOLO IN ZFTY 'nascita' + 旺相不空 8: 52,5% +5.816 | 52,8% +5.921 | vivo 61,7% +794. DsHs da chiedere.
