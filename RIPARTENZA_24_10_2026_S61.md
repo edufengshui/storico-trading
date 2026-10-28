@@ -362,3 +362,8 @@ ACCESO 19:14 nello ZFTY: QMDJ_BIRTH_CTL='zfty' (default), QMDJ_BIRTH_CTL_WU (def
 - USDJPY 30/07/2026 (ZFTY: ZF/Commander 戊 sopra 庚, TY Qian 庚/丙 vuoto, -371 LONG non seguito): Edu "il Commander sopra 庚 era negativo"
   -> la regola del 庚 viene prima: 庚/丙 non ribalta se "sopra 庚" ha gia' deciso (QMDJ_GENG_BING_DOPO). ZFTY -43 | +239 | 0, entrambe le
   carte giuste. ACCESO SOLO IN ZFTY: 52,6% +5.908 | 52,5% +5.570 | vivo 61,7% +794. DsHs (senza regola del 庚) resta spento.
+- EURUSD 19/08/2026 (ZFTY: ZF/Commander Li 戊 sopra 庚, TY Xun 庚/丙 forza 0, +101 LONG seguito): Edu "a generare il Commander ci sono i due 丙
+  di mese e anno, lo ZF sta nel palazzo del Tai Sui e il TY e' molto debole: nonostante lo ZF su 庚 il Commander vince".
+  QMDJ_GENG_ECC: sostegni ts (ramo dell'anno nel palazzo) / gen (stelo mese o anno nel cielo in un palazzo che lo genera) / deb (l'altro forza<=1).
+  uno -1.257 | +352 ; due -784 | +83 ; tre -74 | +362 ; ts -656 | +317 ; gen -543 | +594 ; deb -916 | -114. Vivo invariato.
+  ACCESO 'tre' SOLO IN ZFTY: 52,6% +5.834 | 52,7% +5.932 | vivo 61,7% +794.
