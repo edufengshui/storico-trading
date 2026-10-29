@@ -1,0 +1,9 @@
+base|
+ds_segue|global.QMDJ_QINGLONG='tutti';
+ds_contro|global.QMDJ_QINGLONG='tutti';global.QMDJ_QINGLONG_MODO='contro';
+ds_fermo|global.QMDJ_QINGLONG='tutti';global.QMDJ_QINGLONG_MODO='fermo';
+ds_segue_simm|global.QMDJ_QINGLONG='tutti';global.QMDJ_QINGLONG_SIMM=true;
+ds_contro_simm|global.QMDJ_QINGLONG='tutti';global.QMDJ_QINGLONG_MODO='contro';global.QMDJ_QINGLONG_SIMM=true;
+gio_segue|global.QMDJ_QINGLONG='tutti';global.QMDJ_QINGLONG_ATTORE='giorno';
+gio_contro|global.QMDJ_QINGLONG='tutti';global.QMDJ_QINGLONG_ATTORE='giorno';global.QMDJ_QINGLONG_MODO='contro';
+gio_contro_simm|global.QMDJ_QINGLONG='tutti';global.QMDJ_QINGLONG_ATTORE='giorno';global.QMDJ_QINGLONG_MODO='contro';global.QMDJ_QINGLONG_SIMM=true;
