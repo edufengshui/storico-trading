@@ -1,12 +1,12 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-10-28 06:16 GMT · feed del 2026-10-28 · trade proposti oggi: 4 (AUDUSD SHORT, NZDUSD LONG, EURJPY LONG, EURGBP LONG) · esiti compilati stanotte: 4
+Aggiornato: 2026-10-29 06:27 GMT · feed del 2026-10-29 · trade proposti oggi: 3 (AUDUSD LONG, USDCAD LONG, EURJPY LONG) · esiti compilati stanotte: 4
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 76 | 40 | 35 | 53,3% | +109 |
+| **Totale** | 80 | 42 | 37 | 53,2% | +59 |
 | *Scala dal 09/10/2026: A = sistema attuale e DLR concordi · B = PB e LY concordi, DLR tace · C = DLR e Lettura concordi; i trade prima del 09/10 sono tradotti nella scala nuova* | | | | | |
 | Livello A | 28 | 15 | 13 | 53,6% | +150 |
 | Livello B | 6 | 4 | 2 | 66,7% | +162 |
@@ -14,11 +14,29 @@ Aggiornato: 2026-10-28 06:16 GMT · feed del 2026-10-28 · trade proposti oggi: 
 | In cantina, tradato fino all'08/10 (PB, LY e DLR concordi) | 22 | 6 | 16 | 27,3% | -428 |
 | In cantina dal 09/10, non tradato (solo osservato) | 7 | 4 | 3 | 57,1% | -34 |
 | Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
-| Mese 2026-10 | 54 | 25 | 28 | 47,2% | -149 |
+| Mese 2026-10 | 58 | 27 | 30 | 47,4% | -199 |
 
-Trade ancora senza esito: 14. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 13. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
+
+AUDUSD, 2026-10-28
+Trend EMA: LONG
+Il sistema dice: SHORT (non segue il trend)
+Esito: -23 pip
+Seme 70 · superiore 8 · inferiore 6 · mutante L2
+Bazi: 丙午 戌 乙亥
+Livello: LI · fiducia alta · LEGGO IO: Metodo Liu Yao: Liu Yao SHORT (scala) 55%, lettura della carta SHORT (T0y) 51%, sistema D LONG 52%, LY per forma SHORT 52% → SHORT, affidabile 55% · Metodo Plum Blossom: Plum Blossom LONG 54%, PB per forma LONG 57% → LONG, affidabile 58% · Metodo Da Liu Ren: Da Liu Ren SHORT (返吟 · lo stelo del giorno controlla il ramo del mese) 66% → SHORT, affidabile 67%, peso 0,75 · Conclusione: SHORT (margine 0,4, media) ‖ PB LONG · LY SHORT · attuale SHORT · DLR SHORT · lettura della carta SHORT (T0y la sede presa si muove) · Spirito SHORT · stelo SHORT · Sistema-trend non segue (-4, SHORT) · Metodo del trend non segue (-1, SHORT) · Sistema D LONG (8/6 L2: Se Ying: l'ora stesso ramo → SEGUE il trend (5/8); altrimenti NON SEGUE (6/9) · casi giusti 11/17 · oggi il tratto c'e': segue il trend) · Sistema LY per forma SHORT (8/6 L2: Se mobile: arriva nel vuoto → ALTO (4/6); altrimenti BASSO (7/11) · casi giusti 11/17 · oggi il tratto non c'e': basso) · Sistema PB per forma LONG (8/6 L2: Se palazzo del Trend combinato → NON SEGUE il trend (5/6); altrimenti SEGUE (7/11) · casi giusti 12/17 · oggi il tratto non c'e': segue il trend) · Colpo del mese tace · Semplificato LONG (regola 15: se l'arrivo genera la partenza e il mese clasha la partenza -> segue il trend (45 carte, 66.7%)) · Sistema DLR per forma tace (WWCP senza regola) · via DLR: 返吟 · lo stelo del giorno controlla il ramo del mese
+Deciso da: Livello LI · Leggo io, conclusione media · LEGGO IO: Metodo Liu Yao: Liu Yao SHORT (scala) 55%, lettura della carta SHORT (T0y) 51%, sistema D LONG 52%, LY per forma SHORT 52% → SHORT, affidabile 55% · Metodo Plum Blossom: Plum Blossom LONG 54%, PB per forma LONG 57% → LONG, affidabile 58% · Metodo Da Liu Ren: Da Liu Ren SHORT (返吟 · lo stelo del giorno controlla il ramo del mese) 66% → SHORT, affidabile 67%, peso 0,75 · Conclusione: SHORT (margine 0,4, media) ‖ PB LONG · LY SHORT · attuale SHORT · DLR SHORT · lettura della carta SHORT (T0y la sede presa si muove) · Spirito SHORT · stelo SHORT · Sistema-trend non segue (-4, SHORT) · Metodo del trend non segue (-1, SHORT) · Sistema D LONG (8/6 L2: Se Ying: l'ora stesso ramo → SEGUE il trend (5/8); altrimenti NON SEGUE (6/9) · casi giusti 11/17 · oggi il tratto c'e': segue il trend) · Sistema LY per forma SHORT (8/6 L2: Se mobile: arriva nel vuoto → ALTO (4/6); altrimenti BASSO (7/11) · casi giusti 11/17 · oggi il tratto non c'e': basso) · Sistema PB per forma LONG (8/6 L2: Se palazzo del Trend combinato → NON SEGUE il trend (5/6); altrimenti SEGUE (7/11) · casi giusti 12/17 · oggi il tratto non c'e': segue il trend) · Colpo del mese tace · Semplificato LONG (regola 15: se l'arrivo genera la partenza e il mese clasha la partenza -> segue il trend (45 carte, 66.7%)) · Sistema DLR per forma tace (WWCP senza regola)
+
+NZDUSD, 2026-10-28
+Trend EMA: LONG
+Il sistema dice: LONG (segue il trend)
+Esito: -51 pip
+Seme 56 · superiore 7 · inferiore 8 · mutante L3
+Bazi: 丙午 戌 乙亥
+Livello: LI · fiducia media · LEGGO IO: Metodo Liu Yao: Liu Yao LONG (日沖) 60%, lettura della carta LONG (T0c) 56% → LONG, affidabile 63% · Metodo Plum Blossom: tace → nessuna conclusione · Metodo Da Liu Ren: Da Liu Ren LONG (il pari su R1) 58%, DLR per forma SHORT 51% → LONG, affidabile 55%, peso 0,75 · Conclusione: LONG (margine 0,65, forte) ‖ PB LONG · LY LONG · attuale LONG · DLR LONG · lettura della carta LONG (T0c la sede eliminata dal clash) · Spirito tace · stelo SHORT · Sistema-trend tace · Metodo del trend segue (+2, LONG) · Sistema D tace (7/8 L3 senza regola) · Sistema LY per forma tace (7/8 L3 senza regola) · Sistema PB per forma tace (7/8 L3 senza regola) · Colpo del mese tace · Semplificato SHORT (regola 1: se arrivo vuoto e il mese combina la partenza -> opposto al trend (42 carte, 73.8%)) · Sistema DLR per forma SHORT (POWB: Se l'anno stesso ramo R1 (testa dell'Host) → ALTO (2/2); altrimenti BASSO (5/6) · casi giusti 7/8 · oggi il tratto non c'e': basso) · via DLR: il pari su R1
+Deciso da: Livello LI · Leggo io, conclusione forte · LEGGO IO: Metodo Liu Yao: Liu Yao LONG (日沖) 60%, lettura della carta LONG (T0c) 56% → LONG, affidabile 63% · Metodo Plum Blossom: tace → nessuna conclusione · Metodo Da Liu Ren: Da Liu Ren LONG (il pari su R1) 58%, DLR per forma SHORT 51% → LONG, affidabile 55%, peso 0,75 · Conclusione: LONG (margine 0,65, forte) ‖ PB LONG · LY LONG · attuale LONG · DLR LONG · lettura della carta LONG (T0c la sede eliminata dal clash) · Spirito tace · stelo SHORT · Sistema-trend tace · Metodo del trend segue (+2, LONG) · Sistema D tace (7/8 L3 senza regola) · Sistema LY per forma tace (7/8 L3 senza regola) · Sistema PB per forma tace (7/8 L3 senza regola) · Colpo del mese tace · Semplificato SHORT (regola 1: se arrivo vuoto e il mese combina la partenza -> opposto al trend (42 carte, 73.8%)) · Sistema DLR per forma SHORT (POWB: Se l'anno stesso ramo R1 (testa dell'Host) → ALTO (2/2); altrimenti BASSO (5/6) · casi giusti 7/8 · oggi il tratto non c'e': basso)
 
 AUDUSD, 2026-10-27
 Trend EMA: LONG
