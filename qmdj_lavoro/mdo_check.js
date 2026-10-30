@@ -11,7 +11,7 @@ const f3=p=>{const s=String(p).replace(/[^0-9]/g,'').replace(/^0+/,'');return s.
 for(const [cr,d,edu] of CARTE){ let s=((reg[d]||[]).find(x=>x.cross===cr)||{}).seed; if(!s){ const b=(H[cr]||[]).find(x=>x.t===d+' 00:00:00')||((OO[cr]||[]).find(x=>x.t===d+' 00:00:00')); s=parseInt(f3(b.o),10);} const p=d.split('-').map(Number); const ch=Q.oraria(Date.UTC(p[0],p[1]-1,p[2]),BR[((s-1)%12+12)%12]);
  let zs=null; for(let q=1;q<=9;q++) if(q!==5&&ch.palaces[q].zhiShi) zs=q;
  const t=(LQ.find(x=>x.cross===cr&&x.date===d)||{}).trend||'LONG'; const g=Q.lettura(ch,t,'zfty').giornoOra, g2=Q.lettura(ch,t,'dshs').giornoOra;
- console.log(cr,d,'Edu:',edu,'| ZS',NOME[zs],'| ZFTY ZF',NOME[g.palGiorno],'TY',NOME[g.palOra],'| DsHs DS',NOME[g2.palGiorno],'HS',NOME[g2.palOra]);
+ const ld=Q.lettura(ch,t,'dshs'), lz=Q.lettura(ch,t,'zfty'); console.log(cr,d,'Edu:',edu,'| decide DsHs',NOME[ld.palDecide],'ZFTY',NOME[lz.palDecide],'| ZS',NOME[zs],'| ZFTY ZF',NOME[g.palGiorno],'TY',NOME[g.palOra],'| DsHs DS',NOME[g2.palGiorno],'HS',NOME[g2.palOra]);
  for(const hb of edu.split(' ')){ const gz=hb; const v=visib(gz); const pr=[];
   for(const q of [1,2,3,4,6,7,8,9]){ const r=PB[q].includes(gz[1])?'ramo':(LIU[gz[1]]&&steli(ch.palaces[q]).includes(LIU[gz[1]]))?'ramo(六仪)':''; const st=steli(ch.palaces[q]).includes(v)?'stelo':''; if(r||st) pr.push(NOME[q]+':'+[st,r].filter(Boolean).join('+')); }
   console.log('   ',gz,'accende',pr.join('  ')); } }
