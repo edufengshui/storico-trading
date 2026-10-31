@@ -26,3 +26,4 @@ table{border-collapse:collapse;font-variant-numeric:tabular-nums}
 .ore tr.si td{background:var(--hl)}.ore .gz{font-family:var(--disp);font-size:1.1rem;white-space:nowrap}.ore .num{white-space:nowrap;font-weight:600}
 .com p,.sintesi p{margin:6px 0 0;max-width:65ch}
 .sintesi{border-top:2px solid var(--accent);padding-top:14px}
+.esito .good{color:var(--good);border-color:var(--good)}
