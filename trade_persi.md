@@ -1,6 +1,6 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-11-02 06:49 GMT · feed del 2026-11-02 · trade proposti oggi: 0 · esiti compilati stanotte: 4
+Aggiornato: 2026-11-03 07:14 GMT · feed del 2026-11-03 · trade proposti oggi: 3 (USDCAD SHORT, NZDUSD SHORT, EURGBP SHORT) · esiti compilati stanotte: 0
 
 ## Statistica dal 2026-09-15
 
@@ -16,7 +16,7 @@ Aggiornato: 2026-11-02 06:49 GMT · feed del 2026-11-02 · trade proposti oggi: 
 | Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
 | Mese 2026-10 | 65 | 31 | 33 | 48,4% | -189 |
 
-Trade ancora senza esito: 10. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 13. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
 
