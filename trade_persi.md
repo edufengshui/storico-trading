@@ -1,12 +1,12 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-11-11 07:07 GMT · feed del 2026-11-11 · trade proposti oggi: 2 (USDCAD SHORT, EURGBP SHORT) · esiti compilati stanotte: 2
+Aggiornato: 2026-11-12 07:43 GMT · feed del 2026-11-12 · trade proposti oggi: 2 (USDCAD SHORT, EURGBP SHORT) · esiti compilati stanotte: 2
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 106 | 59 | 44 | 57,3% | +537 |
+| **Totale** | 108 | 60 | 45 | 57,1% | +483 |
 | *Scala dal 09/10/2026: A = sistema attuale e DLR concordi · B = PB e LY concordi, DLR tace · C = DLR e Lettura concordi; i trade prima del 09/10 sono tradotti nella scala nuova* | | | | | |
 | Livello A | 28 | 15 | 13 | 53,6% | +150 |
 | Livello B | 6 | 4 | 2 | 66,7% | +162 |
@@ -15,11 +15,20 @@ Aggiornato: 2026-11-11 07:07 GMT · feed del 2026-11-11 · trade proposti oggi: 
 | In cantina dal 09/10, non tradato (solo osservato) | 7 | 4 | 3 | 57,1% | -34 |
 | Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
 | Mese 2026-10 | 65 | 31 | 33 | 48,4% | -189 |
-| Mese 2026-11 | 19 | 13 | 4 | 76,5% | +468 |
+| Mese 2026-11 | 21 | 14 | 5 | 73,7% | +414 |
 
 Trade ancora senza esito: 12. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
+
+USDCAD, 2026-11-11
+Trend EMA: LONG
+Il sistema dice: SHORT (non segue il trend)
+Esito: -66 pip
+Seme 141 · superiore 1 · inferiore 5 · mutante L2
+Bazi: 丙午 亥 己丑
+Livello: LI · fiducia alta · LEGGO IO: Metodo Liu Yao: Liu Yao SHORT (§111) 65%, lettura della carta SHORT (T4b) 51%, sistema D LONG 52%, LY per forma LONG 52% → SHORT, affidabile 63% · Metodo Plum Blossom: Plum Blossom LONG 54%, PB per forma LONG 57% → LONG, affidabile 58% · Metodo Da Liu Ren: DLR per forma SHORT 51% → SHORT, affidabile 42%, non pesa · Conclusione: SHORT (margine 0,18, debole) ‖ PB LONG · LY SHORT · attuale SHORT · DLR tace · lettura della carta SHORT (T4b la sede presa (mobile ferma) una sede · bestie 2) · Spirito SHORT · stelo SHORT · Sistema-trend non segue (-1, SHORT) · Metodo del trend tace · Sistema D LONG (1/5 L2: Se Ying fuori stagione → SEGUE il trend (6/8); altrimenti NON SEGUE (2/2) · casi giusti 8/10 · oggi il tratto c'e': segue il trend) · Sistema LY per forma LONG (1/5 L2: Se Shi in piena stagione (旺) → BASSO (2/3); altrimenti ALTO (6/7) · casi giusti 8/10 · oggi il tratto non c'e': alto) · Sistema PB per forma LONG (1/5 L2: Se lo stelo del giorno e' controllato dal Trend → NON SEGUE il trend (3/3); altrimenti SEGUE (6/7) · casi giusti 9/10 · oggi il tratto non c'e': segue il trend) · Colpo del mese tace · Semplificato LONG (regola 12: se il giorno drena l'arrivo e mobile su L2 -> segue il trend (48 carte, 66.7%)) · Sistema DLR per forma SHORT (OCCG: Se R1 (testa dell'Host) prigioniero (囚) → ALTO (5/7); altrimenti BASSO (7/9) · casi giusti 12/16 · oggi il tratto non c'e': basso)
+Deciso da: Livello LI · Leggo io, conclusione debole · LEGGO IO: Metodo Liu Yao: Liu Yao SHORT (§111) 65%, lettura della carta SHORT (T4b) 51%, sistema D LONG 52%, LY per forma LONG 52% → SHORT, affidabile 63% · Metodo Plum Blossom: Plum Blossom LONG 54%, PB per forma LONG 57% → LONG, affidabile 58% · Metodo Da Liu Ren: DLR per forma SHORT 51% → SHORT, affidabile 42%, non pesa · Conclusione: SHORT (margine 0,18, debole) ‖ PB LONG · LY SHORT · attuale SHORT · DLR tace · lettura della carta SHORT (T4b la sede presa (mobile ferma) una sede · bestie 2) · Spirito SHORT · stelo SHORT · Sistema-trend non segue (-1, SHORT) · Metodo del trend tace · Sistema D LONG (1/5 L2: Se Ying fuori stagione → SEGUE il trend (6/8); altrimenti NON SEGUE (2/2) · casi giusti 8/10 · oggi il tratto c'e': segue il trend) · Sistema LY per forma LONG (1/5 L2: Se Shi in piena stagione (旺) → BASSO (2/3); altrimenti ALTO (6/7) · casi giusti 8/10 · oggi il tratto non c'e': alto) · Sistema PB per forma LONG (1/5 L2: Se lo stelo del giorno e' controllato dal Trend → NON SEGUE il trend (3/3); altrimenti SEGUE (6/7) · casi giusti 9/10 · oggi il tratto non c'e': segue il trend) · Colpo del mese tace · Semplificato LONG (regola 12: se il giorno drena l'arrivo e mobile su L2 -> segue il trend (48 carte, 66.7%)) · Sistema DLR per forma SHORT (OCCG: Se R1 (testa dell'Host) prigioniero (囚) → ALTO (5/7); altrimenti BASSO (7/9) · casi giusti 12/16 · oggi il tratto non c'e': basso)
 
 EURGBP, 2026-11-10
 Trend EMA: SHORT
