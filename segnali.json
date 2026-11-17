@@ -1,0 +1,18 @@
+{
+ "data": "2026-11-17",
+ "generato": "2026-11-17T10:02:03.330Z",
+ "entrata_gmt": "01:00",
+ "uscita_gmt": "21:00",
+ "trades": [
+  {
+   "cross": "USDCAD",
+   "dir": "SHORT",
+   "forza": "forte"
+  },
+  {
+   "cross": "EURGBP",
+   "dir": "LONG",
+   "forza": "media"
+  }
+ ]
+}

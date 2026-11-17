@@ -97,6 +97,16 @@ async function main() {
   const auto = { scritti };
   fs.writeFileSync(REG_FILE, JSON.stringify(reg, null, 1));
 
+  // S70 (17/11/2026, Edu: EA su MetaTrader 4 che entra alle 01:00 GMT sui segnali di Lio): i trade di Lio del
+  // giorno del feed in un file piccolo, segnali.json, che l'EA legge. Solo cross, verso e forza: niente dottrina.
+  try {
+    const lio = (reg[feed.date] || []).filter(t => t.livello === 'LI' && !t.cantina && (t.signal === 'LONG' || t.signal === 'SHORT'));
+    const segnali = { data: feed.date, generato: new Date().toISOString(), entrata_gmt: '01:00', uscita_gmt: '21:00',
+      trades: weekend ? [] : lio.map(t => ({ cross: t.cross, dir: t.signal, forza: t.forza || 'forte' })) };
+    fs.writeFileSync(path.join(DIR, 'segnali.json'), JSON.stringify(segnali, null, 1));
+    require('child_process').execSync('git add segnali.json', { cwd: DIR, stdio: 'ignore' });
+  } catch (e) { console.log('segnali.json non scritto: ' + e.message); }
+
   // storico permanente: ogni trade una volta sola (giorno + cross), l'esito si aggiorna
   let storico = {};
   try { storico = JSON.parse(fs.readFileSync(STORICO_FILE, 'utf8')); } catch (e) {}
