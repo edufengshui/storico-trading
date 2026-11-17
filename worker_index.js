@@ -23,6 +23,17 @@
  *         GET /page?symbol=EURUSD&interval=1h[&end=...][&size=5000][&full=1]
  *              → ONE page of at most 5000 bars ending at `end` (Twelve Data's per-call cap).
  *
+ *
+ * S70 (17/11/2026) — CENTRALINO PER L'EA DI METATRADER 4 (Lio, entrata 01:00 GMT, uscita 21:00 GMT):
+ *   - dopo il feed delle 00:10 GMT il Worker sveglia la raccolta notturna su GitHub (repository_dispatch
+ *     "raccolta"), perche' l'orologio di GitHub parte con 6-8 ore di ritardo;
+ *         GET  /segnali?k=EA_KEY            → i trade di Lio del giorno (segnali.json del repo), testo semplice:
+ *                                             DATA=AAAA-MM-GG / CROSS;VERSO;FORZA / FINE
+ *         POST /esiti?k=EA_KEY&date=AAAA-MM-GG → l'EA manda i risultati veri (CSV); finiscono nel repo in
+ *                                             esiti_ea/AAAA-MM-GG.csv
+ *         GET  /sveglia?k=EA_KEY            → sveglia la raccolta a mano (prova)
+ *   Secret nuovi: GH_TOKEN (token GitHub con scrittura su storico-trading), EA_KEY (la chiave dell'EA).
+ *
  * Secret:  TWELVEDATA_API_KEY   Optional: RUN_TOKEN, DELAY_MS (throttle, default 8000)
  * Binding: SEEDS (KV).  Basic (free) plan = 8 credits/min, 800/day; 2 calls/cross, throttled.
  */
@@ -357,6 +368,45 @@ async function fetchPage(cross, interval, size, endDate, startDate, apiKey, full
   };
 }
 
+// ── S70: centralino per l'EA ─────────────────────────────────────────────────────────────────────
+var GH_REPO = 'edufengshui/storico-trading';
+function ghFetch(env, percorso, init) {
+  init = init || {};
+  var h = { 'Authorization': 'Bearer ' + env.GH_TOKEN, 'User-Agent': 'trading-forex-seed', 'X-GitHub-Api-Version': '2022-11-28', 'Accept': 'application/vnd.github+json' };
+  var extra = init.headers || {}; for (var k in extra) h[k] = extra[k];
+  init.headers = h;
+  return fetch('https://api.github.com/repos/' + GH_REPO + percorso, init);
+}
+async function svegliaRaccolta(env) {
+  if (!env.GH_TOKEN) return { ok: false, errore: 'manca GH_TOKEN' };
+  var r = await ghFetch(env, '/dispatches', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ event_type: 'raccolta' }) });
+  return { ok: r.status === 204, stato: r.status };
+}
+async function leggiSegnali(env) {
+  var r = await ghFetch(env, '/contents/segnali.json?ref=main&t=' + Date.now(), { headers: { 'Accept': 'application/vnd.github.raw+json' } });
+  if (!r.ok) return 'ERRORE github ' + r.status + '\n';
+  var s; try { s = JSON.parse(await r.text()); } catch (e) { return 'ERRORE segnali.json illeggibile\n'; }
+  var righe = ['DATA=' + (s.data || '')];
+  (s.trades || []).forEach(function (t) {
+    if (/^[A-Z]{6}$/.test(t.cross) && (t.dir === 'LONG' || t.dir === 'SHORT')) righe.push(t.cross + ';' + t.dir + ';' + (t.forza || 'forte'));
+  });
+  righe.push('FINE');
+  return righe.join('\n') + '\n';
+}
+async function salvaEsiti(env, data, corpo) {
+  var percorso = '/contents/esiti_ea/' + data + '.csv';
+  var sha = null;
+  var g = await ghFetch(env, percorso + '?ref=main');
+  if (g.ok) { try { sha = (await g.json()).sha; } catch (e) {} }
+  var bytes = new TextEncoder().encode(corpo), bin = '';
+  for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  var dati = { message: 'Esiti EA ' + data, content: btoa(bin), branch: 'main' };
+  if (sha) dati.sha = sha;
+  var r = await ghFetch(env, percorso, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dati) });
+  return r.status;
+}
+function testo(t, stato) { return new Response(t, { status: stato || 200, headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' } }); }
+
 function corsHeaders() {
   return { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS', 'Content-Type': 'application/json; charset=utf-8' };
 }
@@ -364,13 +414,34 @@ function corsHeaders() {
 export default {
   async scheduled(controller, env, ctx) {
     if (isWeekend()) return;   // 03/10/2026: niente feed il sabato e la domenica
-    ctx.waitUntil(computeDaily(env));
+    // S70: finito il feed (anche se fallisce: la raccolta sa chiamare /run da sola) si sveglia la raccolta su GitHub
+    ctx.waitUntil((async function () {
+      try { await computeDaily(env); } catch (e) { console.log('feed fallito: ' + ((e && e.message) || e)); }
+      try { console.log('sveglia raccolta: ' + JSON.stringify(await svegliaRaccolta(env))); } catch (e) { console.log('sveglia fallita: ' + ((e && e.message) || e)); }
+    })());
   },
 
   async fetch(request, env, ctx) {
     var url = new URL(request.url);
     var headers = corsHeaders();
     if (request.method === 'OPTIONS') return new Response(null, { headers: headers });
+
+    // S70: le tre porte dell'EA, tutte chiuse dalla chiave EA_KEY
+    if (url.pathname === '/segnali' || url.pathname === '/esiti' || url.pathname === '/sveglia') {
+      if (!env.EA_KEY || url.searchParams.get('k') !== env.EA_KEY) return testo('ERRORE chiave\n', 403);
+      if (!env.GH_TOKEN) return testo('ERRORE manca GH_TOKEN\n', 500);
+      try {
+        if (url.pathname === '/segnali') return testo(await leggiSegnali(env));
+        if (url.pathname === '/sveglia') return testo(JSON.stringify(await svegliaRaccolta(env)) + '\n');
+        if (request.method !== 'POST') return testo('ERRORE serve POST\n', 405);
+        var dataE = url.searchParams.get('date') || '';
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(dataE)) return testo('ERRORE data\n', 400);
+        var corpoE = await request.text();
+        if (!corpoE || corpoE.length > 20000) return testo('ERRORE corpo\n', 400);
+        var st = await salvaEsiti(env, dataE, corpoE);
+        return testo((st === 200 || st === 201) ? 'OK\n' : 'ERRORE github ' + st + '\n', (st === 200 || st === 201) ? 200 : 502);
+      } catch (e) { return testo('ERRORE ' + String((e && e.message) || e) + '\n', 500); }
+    }
 
     if (url.pathname === '/run') {
       if (env.RUN_TOKEN && url.searchParams.get('token') !== env.RUN_TOKEN) {

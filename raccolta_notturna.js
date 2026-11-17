@@ -115,6 +115,21 @@ async function main() {
     const i = storico[d].findIndex(x => x.cross === t.cross);
     if (i < 0) storico[d].push(t); else storico[d][i] = t;
   }));
+  // S70 (17/11/2026): i risultati VERI dell'EA di MetaTrader (file esiti_ea/AAAA-MM-GG.csv, scritti dal Worker alle
+  // 21:00 GMT) entrano nello storico accanto all'esito del feed, nel campo "ea" del trade. Riga del CSV:
+  // CROSS;VERSO;LOTTI;ORA_ENTRATA_GMT;PREZZO_ENTRATA;ORA_USCITA_GMT;PREZZO_USCITA;PIP;PROFITTO;SWAP;COMMISSIONE;VALUTA
+  try {
+    const dirEA = path.join(DIR, 'esiti_ea');
+    (fs.existsSync(dirEA) ? fs.readdirSync(dirEA) : []).filter(f => /^\d{4}-\d{2}-\d{2}\.csv$/.test(f)).forEach(f => {
+      const d = f.slice(0, 10);
+      fs.readFileSync(path.join(dirEA, f), 'utf8').split(/\r?\n/).forEach(r => {
+        const c = r.split(';'); if (c.length < 11 || !/^[A-Z]{6}$/.test(c[0])) return;
+        const t = (storico[d] || []).find(x => x.cross === c[0]); if (!t) return;
+        t.ea = { verso: c[1], lotti: +c[2], entrata: c[3], prezzoEntrata: +c[4], uscita: c[5], prezzoUscita: +c[6],
+          pip: +c[7], profitto: +c[8], swap: +c[9], commissione: +c[10], valuta: c[11] || '' };
+      });
+    });
+  } catch (e) { console.log('esiti dell\'EA non letti: ' + e.message); }
   fs.writeFileSync(STORICO_FILE, JSON.stringify(storico, null, 1));
   // il file raccolta.yml salva solo registro_live.json e trade_persi.md: lo storico lo mette in lista qui
   try { require('child_process').execSync('git add storico_live.json', { cwd: DIR, stdio: 'ignore' }); } catch (e) {}
