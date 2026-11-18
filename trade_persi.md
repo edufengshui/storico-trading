@@ -1,6 +1,6 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-11-18 00:13 GMT · feed del 2026-11-18 · trade proposti oggi: 2 (USDCHF SHORT, EURGBP LONG) · esiti compilati stanotte: 2
+Aggiornato: 2026-11-18 07:55 GMT · feed del 2026-11-18 · trade proposti oggi: 2 (USDCHF SHORT, EURGBP LONG) · esiti compilati stanotte: 0
 
 ## Statistica dal 2026-09-15
 
