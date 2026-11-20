@@ -24,6 +24,11 @@ lunar-javascript sta in storico-trading/node_modules.
   vivo (dal 17/10) DsHs 38 su 58 -> 36 su 58, ZFTY 40 su 61 -> 39 su 61. E' misura, non dottrina; le condizioni sono state scelte
   dopo aver guardato tutte le altre: seguirle dal vivo.
 - qmdj.js NON e' caricato dall'app (index.html non lo include): Lio e l'EA non cambiano. Niente da aggiornare in sw.js.
+- CARTA VOLANTE contro rotante (documento ESITI_CARTA_VOLANTE_QMDJ_20_11_2026.md nel progetto): con la volante DsHs e ZFTY scendono
+  verso il 50% (DsHs 50,3% · 50,1%, ZFTY 50,9% · 50,2%; vivo 24 su 48 e 18 su 37 contro 38 su 58 e 40 su 61 della rotante), tacciono
+  piu' spesso, e le tre condizioni di View spariscono. Il confronto non e' alla pari (regole nate su carte rotanti; il software non
+  legge il centro). Il software resta sulla rotante. La volante si costruisce con getHourChart del motore XKDG + il file
+  qmdj-water-scanner-data.js, che sta nel repo xkdg (non nel repo trading).
 - Script di prova non salvati nel repo (il metodo per rifarli e' negli ESITI).
 
 ## NOTE TECNICHE UTILI
