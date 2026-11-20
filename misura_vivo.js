@@ -41,7 +41,7 @@ for (let t = Date.parse(DAL + 'T00:00:00Z'); t <= Date.parse(AL + 'T00:00:00Z');
     const e = sb.__ana(row, D); if (!e.pbDir && !e.letta) continue;   // 24/10/2026: anche le carte col PB muto (pareggio/clash)
     const m = Math.round((b21.c - b0.o) * pip(c)), L = sb.__liv(e);
     C.push({ date: D, cross: c, real: m > 0 ? 'LONG' : 'SHORT', move: Math.abs(m), trend: row.direction === 'up' ? 'LONG' : 'SHORT', liv: L.liv, dirLiv: L.dir,
-      PB: e.pbDir, LY: e.lyDir || null, AT: e.attuale || null, DLR: e.dlrDir || null, LETT: e.lettDir || null, MT: e.mtDir || null, D: e.dDir || null, liDir: e.liDir || null, pbMuto: e.pbMuto || null, liForza: e.liForza || null, liR: e.liRacconto || null, LYF: e.lyfDir || null, PBF: e.pbfDir || null, DLRF: e.dlrfDir || null, CM: e.cmDir || null, SEMP: e.sempDir || null, lySez: e.lySez || null, lettGrad: (e.lettGradino || '').split(' ')[0] || null, dlrVia: e.dlrVia || null });
+      PB: e.pbDir, LY: e.lyDir || null, AT: e.attuale || null, DLR: e.dlrDir || null, LETT: e.lettDir || null, MT: e.mtDir || null, D: e.dDir || null, liDir: e.liDir || null, pbMuto: e.pbMuto || null, liForza: e.liForza || null, ST: e.stDir || null, stP: (e.stPunti == null ? null : e.stPunti), liR: e.liRacconto || null, LYF: e.lyfDir || null, PBF: e.pbfDir || null, DLRF: e.dlrfDir || null, CM: e.cmDir || null, SEMP: e.sempDir || null, lySez: e.lySez || null, lettGrad: (e.lettGradino || '').split(' ')[0] || null, dlrVia: e.dlrVia || null });
   }
 }
 if (process.env.DUMPC) require('fs').writeFileSync(process.env.DUMPC, JSON.stringify(C));
