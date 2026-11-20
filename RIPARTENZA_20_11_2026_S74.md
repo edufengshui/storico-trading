@@ -58,6 +58,11 @@ Base: tutti i lun-ven 2020-02-20 / 2026-10-16 (7.225 e 5.988 carte), carta del s
    vivo 64,5% col Commander. Avvertenza: le regole dello ZFTY sono nate sul Commander, il confronto non e' alla pari.
    Spunto, non cablato: con Wu nello stesso palazzo dello ZF il mercato segue meno (46,4% su 1.365 carte, 48,8% su 1.083).
 
+3. WU NEL CIELO (tian pan) CONTRO WU NELLA TERRA (di pan): rapporto fra i due palazzi (controlla, genera, paralleli, stesso palazzo,
+   opposti). Nessuno separa: "segue" fra 47,0% e 51,2% in tutti i gruppi e nei due periodi; "sale" fra 48% e 54%.
+   Spunto debole, non cablato: Wu del cielo in un palazzo esterno e Wu della terra in uno interno -> segue 47,5% (1.644 carte,
+   410 giorni) e 47,6% (1.324 carte, 335 giorni); vivo 8 su 23.
+
 ## PATTO (18/11) — STATO
 Contatore: 1 USDCAD 11/11 · 2 NZDUSD 28/10 · 3 USDCAD 27/10 · 4 USDCHF 19/11 · 5 EURGBP 19/11 · 6 USDCHF 18/11.
 Misura alla quinta: fatta solo sul gruppo "ZF vuoto del giorno che controlla il TY" (Lio non va sotto il 50%).
