@@ -29,6 +29,10 @@ lunar-javascript sta in storico-trading/node_modules.
   piu' spesso, e le tre condizioni di View spariscono. Il confronto non e' alla pari (regole nate su carte rotanti; il software non
   legge il centro). Il software resta sulla rotante. La volante si costruisce con getHourChart del motore XKDG + il file
   qmdj-water-scanner-data.js, che sta nel repo xkdg (non nel repo trading).
+- Edu, 20/11: "Nella volante il centro si legge. E' terra." Prova rifatta col centro come palazzo di Terra (documento
+  ESITI_CARTA_VOLANTE_COL_CENTRO_20_11_2026.md nel progetto): i due sistemi restano al 50% (DsHs 50,0% · 50,2%, ZFTY 50,7% · 49,6%).
+  Spunto nuovo, non cablato: con lo ZF nel centro (carta volante) il cross sale 55,1% · 54,2% (810 e 716 giorni).
+  Il motore di XKDG non segna mai lo ZF nel centro: lo si riconosce dal Commander nel palazzo 5.
 - Script di prova non salvati nel repo (il metodo per rifarli e' negli ESITI).
 
 ## NOTE TECNICHE UTILI
