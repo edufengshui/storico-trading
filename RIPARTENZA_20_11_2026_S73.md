@@ -16,7 +16,15 @@ lunar-javascript sta in storico-trading/node_modules.
 - Esito: nessuna regola singola tiene nei due periodi (2020-23 e 2024-26) su nessuna delle due carte. A coppie i sopravvissuti
   sono circa il doppio di quelli attesi per caso. Nessun gruppo porta Lio sotto il 50% (patto del 18/11).
 - Gli spunti salvati e l'elenco di cio' che non separa stanno nei documenti del progetto. Niente e' cablato nel software.
-- Nessun push al software in S72. Script di prova non salvati nel repo (il metodo per rifarli e' negli ESITI).
+- Poi le regole incrociate con DsHs e ZFTY (documento ESITI_REGOLE_CON_DSHS_ZFTY_20_11_2026.md nel progetto): non rendono i due
+  sistemi piu' affidabili su segue/non segue; restano tre condizioni di View in cui il cross tende a salire.
+- CABLATO IN qmdj.js (repo trading, 20/11, scelta di Edu "dentro DsHs e ZFTY"): QMDJ_VIEW_SU, default 'tutti' ('dshs' | 'zfty' | 'off').
+  In quelle tre condizioni un verdetto SHORT dei due sistemi diventa LONG (campi viewSu, viewSuRibalta; funzioni Q.viewSu e
+  Q.letturaBase = lettura senza questa regola). Misura: DsHs 51,2% · 50,9% -> 52,0% · 52,3%; ZFTY 50,9% · 50,9% -> 51,9% · 51,9%;
+  vivo (dal 17/10) DsHs 38 su 58 -> 36 su 58, ZFTY 40 su 61 -> 39 su 61. E' misura, non dottrina; le condizioni sono state scelte
+  dopo aver guardato tutte le altre: seguirle dal vivo.
+- qmdj.js NON e' caricato dall'app (index.html non lo include): Lio e l'EA non cambiano. Niente da aggiornare in sw.js.
+- Script di prova non salvati nel repo (il metodo per rifarli e' negli ESITI).
 
 ## NOTE TECNICHE UTILI
 - Il dump di misura_vivo.js (ORARIO=full1h.json DUMPC=/tmp/dump.json, 4-5 minuti) ha solo i giorni letti dall'app (5.384): serve
