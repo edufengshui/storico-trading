@@ -37,6 +37,11 @@ aggiungere la carta in cima dopo <main><h1>...</h1>, publish_files con base_vers
   Misura: in quei giorni il mercato segue 55,6% (266 carte) nel 2020-23 e 45,0% (169) nel 2024-26: NON tiene nei due periodi.
   ZFTY prima -> dopo: 51,8% +11.744 -> 52,3% +14.128 | 51,9% +14.379 -> 51,9% +13.683 | vivo 65,6% -> 64,5% (3 carte cambiate, 1 giusta).
   Acceso perche' dottrina; da seguire dal vivo.
+- Controesempio chiesto da Edu: GBPUSD 16/07/2026 (seme 135, Wu Yin, yin 5; trend LONG, sceso 64 pip; ZF in Kun, Tai Sui/DS/ZS in Li,
+  TY e HS in Qian). Edu: "ZF genera il TY quindi e' giusto" (che non segua). CABLATO: QMDJ_ZF_AIUTI non scatta se lo ZF genera il TY
+  (QMDJ_ZF_AIUTI_GENERA=true lo riaccende). ZFTY dopo: 52,2% +13.950 | 51,9% +13.971 | vivo 64,5% (carte cambiate 115, giuste 74;
+  67, giuste 34; vivo 3, giusta 1). Nel 2024-26 la regola resta al 50%: non so ancora cosa separa le carte buone.
+  Altre prove fatte, nessuna regge nei due periodi: solo "ZF controlla TY" (62% e 36%), solo con aiuti non vuoti (55% e 45%).
 - Sul DsHs della stessa carta Edu ha scritto "DsHs avrebbe dovuto dire la cosa giusta: non segue"; gli ho fatto notare che il mercato
   ha seguito. Non ha ancora detto se la lettura del DsHs resta cosi' (trade perso) o se qualcosa ferma View.
 - qmdj.js non e' caricato dall'app: Lio e l'EA non cambiano. Niente da aggiornare in sw.js.
