@@ -30,6 +30,15 @@ aggiungere la carta in cima dopo <main><h1>...</h1>, publish_files con base_vers
   vivo 1 carta ribaltata, giusta). Acceso perche' dottrina. 'tutti' (mia estensione) misura uguale o peggio: resta spento.
   Sulla carta lo ZFTY ora dice "segue" (giusto). Il DsHs resta "non segue" per View in Kan (con l'HS) che clasha il DS in Li:
   PUNTO APERTO da portare a Edu.
+- Stessa carta, lettura di Edu per lo ZFTY: "Il commander e' generato dal Tai Sui e dal DS. Segue perche' le forze che lo aiutano
+  sono superiori" (ZF in Kun, Terra; Tai Sui Wu e DS Bing in Li, Fuoco). CABLATO in qmdj.js: QMDJ_ZF_AIUTI, default 'zfty' ('off'):
+  nello ZFTY il palazzo dello ZF generato dal palazzo del Tai Sui (ramo dell'anno) e dal palazzo del DS -> segue (prima della regola
+  dello ZF vuoto, che vince). La forma "tutti e due generano" e' la mia traduzione della sua frase.
+  Misura: in quei giorni il mercato segue 55,6% (266 carte) nel 2020-23 e 45,0% (169) nel 2024-26: NON tiene nei due periodi.
+  ZFTY prima -> dopo: 51,8% +11.744 -> 52,3% +14.128 | 51,9% +14.379 -> 51,9% +13.683 | vivo 65,6% -> 64,5% (3 carte cambiate, 1 giusta).
+  Acceso perche' dottrina; da seguire dal vivo.
+- Sul DsHs della stessa carta Edu ha scritto "DsHs avrebbe dovuto dire la cosa giusta: non segue"; gli ho fatto notare che il mercato
+  ha seguito. Non ha ancora detto se la lettura del DsHs resta cosi' (trade perso) o se qualcosa ferma View.
 - qmdj.js non e' caricato dall'app: Lio e l'EA non cambiano. Niente da aggiornare in sw.js.
 
 ## PATTO (18/11) — STATO
