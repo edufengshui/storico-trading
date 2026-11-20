@@ -46,6 +46,18 @@ aggiungere la carta in cima dopo <main><h1>...</h1>, publish_files con base_vers
   ha seguito. Non ha ancora detto se la lettura del DsHs resta cosi' (trade perso) o se qualcosa ferma View.
 - qmdj.js non e' caricato dall'app: Lio e l'EA non cambiano. Niente da aggiornare in sw.js.
 
+## DUE PROVE CHIESTE DA EDU (20/11, pomeriggio) — nessuna delle due separa
+Base: tutti i lun-ven 2020-02-20 / 2026-10-16 (7.225 e 5.988 carte), carta del seme rotante. "Segue" di base: 49,8% e 49,6%.
+1. PALAZZI INTERNI PIU' FORTI DEGLI ESTERNI (Edu ha scritto "interni piu' forti di quelli interni": letto come interni contro esterni;
+   interni = Kan Gen Zhen Xun nel dun yang, Li Kun Dui Qian nel dun yin). Attore del trend interno e avversario esterno -> segue?
+   DsHs: 49,9% e 50,9% (al contrario 50,7% e 50,0%). ZF-TY: 49,6% e 48,3% (al contrario 51,1% e 50,3%).
+   Wu-TY: 52,7% e 50,2% (al contrario 50,4% e 48,8%). Niente.
+2. WU AL POSTO DEL COMMANDER, CONTRO IL SUO TIAN YI (stella di casa del palazzo dove Wu sta nel cielo).
+   Rapporti nudi fra i due palazzi: nessuno separa nei due periodi. Tutto lo ZFTY rifatto con Wu (interruttore di prova
+   QMDJ_ZFTY_ATTORE='wu' in qmdj.js, SPENTO): 51,8% +10.545 | 51,5% +8.602 | vivo 61,9% contro 52,2% +13.950 | 51,9% +13.971 |
+   vivo 64,5% col Commander. Avvertenza: le regole dello ZFTY sono nate sul Commander, il confronto non e' alla pari.
+   Spunto, non cablato: con Wu nello stesso palazzo dello ZF il mercato segue meno (46,4% su 1.365 carte, 48,8% su 1.083).
+
 ## PATTO (18/11) — STATO
 Contatore: 1 USDCAD 11/11 · 2 NZDUSD 28/10 · 3 USDCAD 27/10 · 4 USDCHF 19/11 · 5 EURGBP 19/11 · 6 USDCHF 18/11.
 Misura alla quinta: fatta solo sul gruppo "ZF vuoto del giorno che controlla il TY" (Lio non va sotto il 50%).
