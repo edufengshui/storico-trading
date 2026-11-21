@@ -3237,7 +3237,20 @@
    "forza": "media",
    "voci": "LEGGO IO: Metodo Liu Yao: Liu Yao SHORT (—) 56%, lettura della carta SHORT (T1a) 56%, sistema D LONG 52%, LY per forma SHORT 52% → SHORT, affidabile 63% · Metodo Plum Blossom: Plum Blossom LONG 54%, PB per forma LONG 57% → LONG, affidabile 58% · Metodo Da Liu Ren: Da Liu Ren SHORT (casella isolata) 57%, DLR per forma LONG 51% → SHORT, affidabile 55%, peso 0,75 · Conclusione: SHORT (margine 0,32, media) ‖ PB LONG · LY SHORT · attuale SHORT · DLR SHORT · lettura della carta SHORT (T1a il vantaggio retrocede) · Spirito tace · stelo SHORT · Sistema-trend tace · Metodo del trend tace · Sistema D LONG (2/4 L5: Se Shi: il giorno clash → SEGUE il trend (3/3); altrimenti NON SEGUE (5/6) · casi giusti 8/9 · oggi il tratto c'e': segue il trend) · Sistema LY per forma SHORT (2/4 L5: Se Ying vuoto → ALTO (3/4); altrimenti BASSO (5/5) · casi giusti 8/9 · oggi il tratto non c'e': basso) · Sistema PB per forma LONG (2/4 L5: Se palazzo: difesa piu' forte dell'attacco → NON SEGUE il trend (3/3); altrimenti SEGUE (4/6) · casi giusti 7/9 · oggi il tratto non c'e': segue il trend) · Colpo del mese tace · Semplificato SHORT (regola 18: se mobile G e mobile su L5 -> opposto al trend (59 carte, 66.1%)) · Sistema DLR per forma LONG (CBGP: Se l'anno combina R1 (testa dell'Host) → BASSO (2/2); altrimenti ALTO (5/7) · casi giusti 7/9 · oggi il tratto non c'e': alto)",
    "dlrVia": "casella isolata",
-   "esito": null
+   "esito": null,
+   "ea": {
+    "verso": "SHORT",
+    "lotti": 0.01,
+    "entrata": "01:00",
+    "prezzoEntrata": 0.84312,
+    "uscita": "21:00",
+    "prezzoUscita": 0.83959,
+    "pip": 35.3,
+    "profitto": 3.84,
+    "swap": 0,
+    "commissione": 0,
+    "valuta": "EUR"
+   }
   },
   {
    "cross": "USDCAD",
@@ -3257,7 +3270,20 @@
    "forza": "forte",
    "voci": "LEGGO IO: Metodo Liu Yao: Liu Yao LONG (§64) 64%, lettura della carta LONG (T0b) 59%, colpo del mese LONG 57%, sistema D LONG 52%, LY per forma LONG 52% → LONG, affidabile 80% · Metodo Plum Blossom: Plum Blossom LONG 54%, PB per forma SHORT 57% → SHORT, affidabile 57% · Metodo Da Liu Ren: Da Liu Ren LONG (B su R1 legato in 六合) 65%, DLR per forma LONG 51% → LONG, affidabile 67%, peso 0,75 · Conclusione: LONG (margine 1,61, forte) ‖ PB LONG · LY LONG · attuale LONG · DLR LONG · lettura della carta LONG (T0b la bestia blocca la mobile) · Spirito SHORT · stelo SHORT · Sistema-trend non segue (-4, SHORT) · DA OSSERVARE: Serpente morto sullo Shi (L2): il trend non tiene · Metodo del trend non segue (-1, SHORT) · Sistema D LONG (1/7 L1: Se Ying fuori stagione → SEGUE il trend (4/5); altrimenti NON SEGUE (5/6) · casi giusti 9/11 · oggi il tratto c'e': segue il trend) · Sistema LY per forma LONG (1/7 L1: Se Shi vuoto → BASSO (3/3); altrimenti ALTO (6/8) · casi giusti 9/11 · oggi il tratto non c'e': alto) · Sistema PB per forma SHORT (1/7 L1: Se lo stelo del giorno controlla il Trend → SEGUE il trend (3/3); altrimenti NON SEGUE (6/8) · casi giusti 9/11 · oggi il tratto non c'e': non segue il trend) · Colpo del mese LONG (Shi colpito: la bestia del mese cade su L2 e la controlla -> vince la Ying) · Semplificato SHORT (regola 53: se mobile yin -> yang e partenza prigioniera -> opposto al trend (48 carte, 64.6%)) · Sistema DLR per forma LONG (BOOC: Se ora C → BASSO (2/3); altrimenti ALTO (6/8) · casi giusti 8/11 · oggi il tratto non c'e': alto)",
    "dlrVia": "B su R1 legato in 六合",
-   "esito": null
+   "esito": null,
+   "ea": {
+    "verso": "LONG",
+    "lotti": 0.02,
+    "entrata": "01:00",
+    "prezzoEntrata": 1.43364,
+    "uscita": "21:00",
+    "prezzoUscita": 1.43484,
+    "pip": 12,
+    "profitto": 1.52,
+    "swap": 0,
+    "commissione": 0,
+    "valuta": "EUR"
+   }
   }
  ]
 }
