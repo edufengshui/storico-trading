@@ -1,6 +1,6 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-11-21 07:41 GMT · feed del 2026-11-20 · trade proposti oggi: 2 (USDCHF SHORT, USDCAD LONG) · esiti compilati stanotte: 0
+Aggiornato: 2026-11-22 07:26 GMT · feed del 2026-11-20 · trade proposti oggi: 2 (USDCHF SHORT, USDCAD LONG) · esiti compilati stanotte: 0
 
 ## Statistica dal 2026-09-15
 
