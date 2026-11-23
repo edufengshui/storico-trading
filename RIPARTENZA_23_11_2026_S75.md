@@ -1,0 +1,73 @@
+# RIPARTENZA S75 — carta 7 e prove interno/esterno (chat del 22-23/11/2026)
+
+Leggere prima: questo file, poi RIPARTENZA_20_11_2026_S74.md (patto, carte 5 e 6, note tecniche) e, per avvio e formato delle carte,
+RIPARTENZA_20_11_2026_S72.md e RIPARTENZA_19_11_2026_S71.md.
+
+## ALL'INIZIO
+Come in S74: clonare storico-trading e trading con git diretto (mai add_repo), ln -sfn /home/claude/trading /root/trading,
+ln -sfn storico-trading/qmdj_lavoro /home/claude/qm, NODE_PATH=/home/claude/storico-trading/node_modules,
+push col token di chiave.txt (Edu lo carica; chiederglielo se manca), header Authorization Basic claude-push:TOKEN.
+Pagina "Carte dove Lio sbaglia" (slug 5ef71a7f-9123-48e2-8d52-fcc0c3cb1b44): read_file con paths ["index.html"], copiare il file,
+aggiungere la carta in cima dopo <main><h1>...</h1>, publish_files con base_version.
+
+## CARTA 7 — USDCAD 03/11/2026 (presentata il 22/11, IN ATTESA DELLA LETTURA DI EDU)
+Seme 139, ora Jia Wu, yin 5; trend SHORT, salito 27 pip; Lio SHORT forte sbagliato; DsHs e ZFTY tacciono ("stesso palazzo: fermo").
+Carta Fu Yin: DS (Xin), HS (Jia sotto Xin), ZF, ZS e TY tutti in Kun con la porta Death. View in Li. Vuoti del giorno Shen You,
+dell'ora Chen Si. Il mercato gira nell'ora Jia Wu (11-13 GMT, 16 pip contro), poi Yi Wei e Bing Shen (12 e 12 contro).
+Domanda fatta a Edu: "con tutto il comando in Kun e la carta Fu Yin, e' giusto che il QMDJ taccia, o qualcosa dice non segue?"
+
+## DOTTRINA (Edu 22/11): "Per Tai Sui nel qimen si intende lo stelo dell'anno"
+Gia' detto il 25/10. Nel software due regole usavano invece il RAMO dell'anno:
+- QMDJ_ZF_AIUTI ("ZF generato dal Tai Sui e dal DS: segue", Edu 20/11);
+- viewSu, condizione 2 ("View nel palazzo del Tai Sui": misura del 20/11).
+Aggiunto in qmdj.js l'interruttore QMDJ_TAISUI_DOVE ('ramo' = com'era, default | 'stelo'). DEFAULT ANCORA 'ramo': Edu non ha deciso.
+Misura con lo stelo (2020-23 · 2024-26 · vivo): ZF aiuti, il mercato segue 52,7% (93 carte) · 45,3% (139) · 1 su 4 (col ramo 56,9% · 39,8%);
+View nel palazzo del Tai Sui, il cross sale 51,1% · 51,9% (col ramo 53,1% · 54,7%: l'effetto vale solo col ramo);
+DsHs 51,7% · 51,7% · vivo 65,5% (ramo 52,0% · 52,3% · 62,1%); ZFTY 51,3% · 51,4% · vivo 73,0% su 63 (ramo 52,2% · 51,8% · 64,5%).
+PROPOSTO A EDU, SENZA RISPOSTA: (1) mettere lo stelo nella regola dello ZF aiutato (dottrina); (2) la regola di View o si rinomina
+"View nel palazzo del ramo dell'anno" o si spegne; (3) spegnere anche il "segue forte" (vedi sotto), che e' solo misura.
+
+## CABLATO IL 22/11 (repo trading, qmdj.js) — nessun verdetto cambia
+- QMDJ_WU_INTERNO, default 'zfty' ('off'): nello ZFTY, Wu nel cielo in un palazzo interno (Kan Gen Zhen Xun nel dun yang; Li Kun Dui Qian
+  nel dun yin) e ZF in un palazzo esterno; se lo ZFTY dice gia' "segue" la lettura porta segueForte (e wuInterno). Edu: "Cablalo".
+  Misura: il mercato segue 55,1% (690 carte) · 54,9% (621) · vivo 6 su 6. E' misura, non dottrina (gruppo scelto dopo averne guardati ~20).
+  Su Lio NON separa: nei giorni segue forte Lio contro il trend 61,8% (102) · 64,3% (112), col trend 65,3% (121) · 63,7% (102).
+  Solo sui trade forti: col trend 89,4% (47) · 78,6% (42), contro 69,8% (43) · 68,3% (63). Per il patto: no.
+- QMDJ_ZFTY_CONTRO='wu' (prova, spento): ZF contro Wu nel cielo al posto del Tian Yi. ZFTY 51,6% +10.368 · 51,4% +8.974 (peggio).
+- qmdj.js non e' caricato dall'app: Lio e l'EA non cambiano.
+
+## PROVE DEL 22/11 CHIESTE DA EDU — nessuna separa (tutto entro 1-3 punti)
+Base: tutti i lun-ven 2020-02-20 / 2026-10-16 (7.333 e 5.988 carte), carta rotante del seme, vuoti dell'ora.
+Segue di base 50,0% · 49,6%; sale 51,1% · 51,3%.
+1. ZF CONTRO WU (rapporto fra i due palazzi: controlla, genera, stesso elemento, stesso palazzo), Wu nel cielo e nella terra:
+   segue fra 46,7% e 52,4%. Spunti deboli: Wu della terra controllato dallo ZF 48,5% · 46,8%; stesso elemento 47,6% · 47,4%.
+2. WU INTERNO O ESTERNO: cielo interno 51,2% · 50,1%, esterno 48,7% · 49,1%; terra niente. Con lo ZF: Wu interno/ZF esterno 52,9% · 51,9%.
+3. Edu: "Interno/esterno potrebbe essere riferito alle due valute del cross" poi "EUR e' interno, USD esterno; attori ZF, Wu, Birth,
+   DS, Tai Sui, Open". Attore interno -> il cross sale: tutti fra 50,7% e 52,0%. Anche solo palazzi non vuoti, e contando quanti
+   dei sei sono interni: niente. Solo EURGBP: ZF interno +7/+6 punti, Wu interno +5/+5 (circa 400 carte per gruppo).
+4. Edu: "interno = EUR solo quando EUR sale; se scende, il contrario" (interno = valuta del trend, quindi attore interno = segue).
+   ZF 49,5% · 48,8% (esterno 50,4% · 50,4%); Wu 51,2% · 50,1% (48,7% · 49,1%); Tai Sui (stelo) 49,4% · 48,8% (50,5% · 50,5%);
+   Birth, DS, Open niente. A coppie il massimo e' ancora ZF esterno/Wu interno.
+5. QUALE LATO E' PIU' FORTE NEL MESE (somma tempo mese+stagione dei 4 palazzi, vuoto = 0): interni piu' forti 49,5% · 49,1%,
+   esterni piu' forti 51,4% · 50,9% (contrario all'idea, 2 punti, senza scala). Forza dei sei attori per lato: niente.
+   ZF interno e forte 47,3% · 48,0%; ZF esterno e forte 50,3% · 52,3%.
+Edu, 22/11: "Sembra che nulla di questo abbia un valore superiore al caso". D'accordo. Poi: "Abbiamo altri test da fare".
+Unica cosa che si ripete: lo ZF nel lato del trend (interno) segue 1-3 punti MENO; Wu interno 1-2 punti di piu'.
+Script delle prove: storico-trading/qmdj_lavoro/prove_22_11/ (zf_wu.js = base e misura rapida; wu_int.js, wu_zfty.js, lio.js,
+valute*.js, forza.js, ts.js). lio.js vuole il dump: ORARIO=full1h.json DUMPC=/tmp/dump.json node misura_vivo.js 2020-02-20 <oggi> (3 minuti).
+
+## PATTO (18/11) — STATO
+Contatore: 1 USDCAD 11/11 · 2 NZDUSD 28/10 · 3 USDCAD 27/10 · 4 USDCHF 19/11 · 5 EURGBP 19/11 · 6 USDCHF 18/11 · 7 USDCAD 03/11.
+Nessun gruppo porta Lio sotto il 50%. Controllo alla decima. Da presentare: AUDUSD 29/10, AUDUSD 28/10, EURJPY 06/11
+(ricontrollare che non siano gia' lette).
+In attesa della lettura di Edu: carta 3 (USDCAD 27/10, fan yin), carta 4 (USDCHF 19/11, ZS vuoto in Xun), carta 6 (USDCHF 18/11,
+DsHs: View in Kan con l'HS clasha il DS in Li, "non segue" ma il mercato ha seguito), carta 7 (Fu Yin).
+
+## NOTE TECNICHE
+- Il mio conteggio del primo periodo da' 7.333 carte contro le 7.225 del 20/11 (ZFTY uguale in percentuale, pip +15.509 contro +13.950).
+- Lio sul dump: 4.801 trade, 66,2% contando vinto = direzione giusta (65,5% scritto il 19/11), pip uguali +91.073.
+- Nel repo storico-trading ci sono gli esiti EA del 20/11 e le raccolte notturne fino al 23/11: non guardati in questa chat.
+
+## PUNTI APERTI
+- Le tre decisioni sul Tai Sui / View / segue forte (sopra).
+- Wu = quale valuta del cross; repo pubblici o privati (da S73).
