@@ -1,6 +1,6 @@
 {
- "data": "2026-11-23",
- "generato": "2026-11-23T08:12:57.263Z",
+ "data": "2026-11-24",
+ "generato": "2026-11-24T00:12:58.406Z",
  "entrata_gmt": "01:00",
  "uscita_gmt": "21:00",
  "trades": [
@@ -12,12 +12,7 @@
   {
    "cross": "AUDUSD",
    "dir": "LONG",
-   "forza": "media"
-  },
-  {
-   "cross": "USDCAD",
-   "dir": "SHORT",
-   "forza": "media"
+   "forza": "debole"
   }
  ]
 }
