@@ -121,5 +121,13 @@ DsHs: View in Kan con l'HS clasha il DS in Li, "non segue" ma il mercato ha segu
   del mese Ji clasha il TY. Non credo che date queste condizioni il TY abbia una probabilita' di vincere." E: "A volte a decidere
   chi vince non e' un solo fattore, ma una combinazione di piu' fattori in cui ognuno contribuisce per una piccola parte ma sommate
   fanno la differenza." Sulla carta: in Kun Gui sopra Ding; DS in Kan di fronte a View in Li (Xin clasha Yi sotto View); Ji in Gen
-  di fronte a Kun. TY perde = segue. NON ANCORA CABLATO: chiesto a Edu come contare i fattori (vedi chat del 24/11).
+  di fronte a Kun. TY perde = segue. Edu: lo stelo del mese conta "perche' Ji sta nel palazzo di fronte a Kun" (posizione).
+  CABLATO (trading 05c6b2d, copia in storico-trading 50e85f6): tyDebole() + QMDJ_TY_SOMMA 'zfty' (default) | 'off',
+  QMDJ_TY_SOMMA_MIN (default 3), QMDJ_TY_SOMMA_PONTE 'view' (default) | 'tutti'. Solo dove lo ZFTY si fermava per "Output del
+  controllato non timely" e lo ZF controlla il TY: con i fattori -> segue. Misura: con 3 fattori scatta su 0 carte dello storico
+  (solo AUDUSD 23/11); con 2: 9 e 8 carte, verdetto giusto 77,8% e 25,0%; da soli i fattori non separano (clash interno 44,9% · 41,1%).
+  Spunto: nei fermi per Output non timely il mercato segue solo 47,0% (451) · 44,2% (339).
+  SULLA CARTA IL VERDETTO RESTA SBAGLIATO: dopo la somma la regola di View ("View nel palazzo del Tai Sui") ribalta in LONG.
+  Regola di View (misura del 20/11): unito accesa (ramo) 52,3% · 51,7% · vivo 63,2%; accesa (stelo) 51,3% · 51,4% · vivo 70,6%;
+  SPENTA 51,2% · 50,3% · vivo 66,2% (e AUDUSD 23/11 giusta). Nello storico aiuta di circa 1 punto, dal vivo costa. Decisione a Edu.
 - Sul DsHs di USDCAD 23/11 (Fan Yin: "non segue", sbagliato): non piu' urgente, col sistema unito il DsHs li' non parla.
