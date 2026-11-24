@@ -109,4 +109,12 @@ DsHs: View in Kan con l'HS clasha il DS in Li, "non segue" ma il mercato ha segu
   non conta come prova. Accordo: contano i casi nuovi, letti prima dell'esito (da qui il registro in avanti).
 - Pagina delle carte: tabella delle ore resa leggibile su telefono (blocchi; tolta la colonna "Muove").
 - Contatore del patto: 8 (USDCAD 23/11). Da presentare: AUDUSD 23/11, USDCHF 23/11, poi AUDUSD 29/10, AUDUSD 28/10, EURJPY 06/11.
+- CARTA 9, AUDUSD 23/11/2026 (presentata il 24/11, IN ATTESA DELLA LETTURA DI EDU). Seme 66, ora Gui Si, yin 8; trend SHORT,
+  sceso 11 pip (EA -25,1); Lio LONG media sbagliato. ZFTY tace (ZF in Zhen controlla TY in Kun, ma "l'Output del controllato non e'
+  timely: fermo"); unito -> DsHs: HS in Kun controlla DS in Kan, di base "segue", ribaltato dalla regola di View ("View nel palazzo
+  del Tai Sui", col ramo; con lo stelo scatta "View vuota e fuori stagione"): "non segue", sbagliato. Senza la regola di View: giusto.
+  DS Xin in Kan (dal centro), HS Gui in Kun col TY (porta Death), ZF in Zhen (Geng sopra Gui), ZS in Qian a casa, View in Li con Wu,
+  Tai Sui Bing in Xun (vuoto del giorno). Vuoti: giorno Chen Si, ora Wu Wei. Ore: Jia Wu 21 con, Yi Wei 20 contro, Bing Shen 21 con.
+  Domanda fatta: "lo ZF controlla il TY: basta per dire segue anche se l'Output di Kun non e' timely? E View in Li, vuota e fuori
+  stagione, puo' dire qualcosa sul verso?". Contatore del patto: 9. Prossima: USDCHF 23/11 (decima: controllo del patto).
 - Sul DsHs di USDCAD 23/11 (Fan Yin: "non segue", sbagliato): non piu' urgente, col sistema unito il DsHs li' non parla.
