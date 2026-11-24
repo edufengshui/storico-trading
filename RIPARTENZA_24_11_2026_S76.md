@@ -41,6 +41,15 @@ Regola di View accesa/spenta (prima delle due regole): unito accesa ramo 52,3% �
 spenta 51,2% · 50,3% · 66,2%. Edu non ha ancora deciso fra ramo e stelo (resta 'ramo').
 Script: qmdj_lavoro/prove_22_11/somma.js, view_off.js, view_clash.js.
 
+## PRINCIPIO DI EDU (24/11, 16:30)
+"Spesso non c'e' un unico indicatore Si'/No nella carta. Occorre valutare i pro e i contro di ogni ipotesi e poi giungere ad una
+ragionevole conclusione. Cosi' era nato Lio (Leggo io): un sistema in cui sei tu che devi prendere una decisione sulla base dei
+molti fatti in tuo possesso, proprio come farei io."
+PROPOSTA DI CLAUDE (da confermare): passare il QMDJ da cascata di regole (l'ultima che scatta ribalta) a BILANCIO: per ogni carta
+l'elenco dei fattori pro ZF e pro TY (quelli gia' dettati da Edu), ognuno con peso 1 (o pesi fissati da Edu PRIMA di guardare gli
+esiti), somma, e la carta mostra l'elenco cosi' Edu controlla il ragionamento. Pesi tarati sullo storico = rischio di adattarsi al
+passato; la prova resta il registro in avanti.
+
 ## PATTO (18/11) — STATO
 Contatore 9: 1 USDCAD 11/11 · 2 NZDUSD 28/10 · 3 USDCAD 27/10 · 4 USDCHF 19/11 · 5 EURGBP 19/11 · 6 USDCHF 18/11 · 7 USDCAD 03/11 ·
 8 USDCAD 23/11 · 9 AUDUSD 23/11.
