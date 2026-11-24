@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//| LioEA.mq4 — S70 (17/11/2026)                                     |
+//| LioEA.mq4 — S70 (17/11/2026), segno di vita S77 (24/11/2026)    |
 //| Entra alle 01:00 GMT sui segnali di Lio del giorno, esce alle    |
 //| 21:00 GMT, manda i risultati al Worker. Nessuno stop.            |
 //| Lotto: 0,02 sui segnali forti, 0,01 su medi e deboli.            |
@@ -8,7 +8,7 @@
 //| per l'indirizzo del Worker.                                      |
 //+------------------------------------------------------------------+
 #property copyright "Edu - DLR trading"
-#property version   "1.00"
+#property version   "1.10"
 #property strict
 
 input string UrlWorker             = "https://trading-forex-seed.decumano16.workers.dev";
@@ -21,11 +21,12 @@ input int    OraUscitaGMT          = 21;      // ora di uscita (GMT)
 input int    Magic                 = 70117;   // numero che marca gli ordini di Lio
 input int    Slippage              = 30;      // scarto massimo (punti)
 input string Suffisso              = "";      // suffisso dei simboli del broker (vuoto su ThinkMarkets)
+input int    MinutiSegnoDiVita     = 30;      // ogni quanti minuti l'EA dice al Worker che e' vivo (0 = mai)
 
 string GV_E, GV_R;
 string statoEntrata = "in attesa";
 string statoUscita  = "in attesa";
-datetime ultimoSegnali = 0, ultimoEsiti = 0;
+datetime ultimoSegnali = 0, ultimoEsiti = 0, ultimoVivo = 0;
 
 int OnInit()
   {
@@ -228,10 +229,22 @@ bool MandaRisultati(datetime g)
    return(true);
   }
 
+// S77 (24/11/2026): il 23/11 il VPS si e' riavviato da solo e l'EA e' rimasto fermo senza che nessuno
+// lo sapesse. Ogni MinutiSegnoDiVita minuti l'EA chiama il Worker; se il Worker non lo sente, avvisa Edu.
+void SegnoDiVita(datetime g)
+  {
+   if(MinutiSegnoDiVita <= 0 || g - ultimoVivo < MinutiSegnoDiVita * 60) return;
+   ultimoVivo = g;
+   string risposta = "";
+   if(!Http("GET", UrlWorker + "/vivo?k=" + Chiave + "&aperti=" + IntegerToString(ContaAperti()), "", risposta))
+      Print("LioEA: segno di vita non mandato: ", risposta);
+  }
+
 void OnTimer()
   {
    datetime g = TimeGMT();
    int gs = TimeDayOfWeek(g), oggi = GiornoNum(g), minuti = TimeHour(g) * 60 + TimeMinute(g);
+   SegnoDiVita(g);                                       // S77: anche il sabato e la domenica
    if(gs == 0 || gs == 6) { statoEntrata = "fine settimana"; statoUscita = "fine settimana"; Mostra(); return; }
    if((int)GlobalVariableGet(GV_E) != oggi && minuti < OraEntrataGMT * 60) statoEntrata = "in attesa";
    if((int)GlobalVariableGet(GV_R) != oggi && minuti < OraUscitaGMT * 60) statoUscita = "in attesa";

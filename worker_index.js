@@ -32,6 +32,9 @@
  *         POST /esiti?k=EA_KEY&date=AAAA-MM-GG → l'EA manda i risultati veri (CSV); finiscono nel repo in
  *                                             esiti_ea/AAAA-MM-GG.csv
  *         GET  /sveglia?k=EA_KEY            → sveglia la raccolta a mano (prova)
+ *   S77 (24/11/2026): GET /vivo?k=EA_KEY&aperti=N → segno di vita dell'EA (ogni 30 minuti);
+ *         GET /stato-ea → da quanto tace (pubblico); GET /prova-avviso?k=EA_KEY → avviso di prova.
+ *         Serve un secondo cron ogni 30 minuti (tutti i giorni) e il secret NTFY_TOPIC (argomento di ntfy.sh).
  *   Secret nuovi: GH_TOKEN (token GitHub con scrittura su storico-trading), EA_KEY (la chiave dell'EA).
  *
  * Secret:  TWELVEDATA_API_KEY   Optional: RUN_TOKEN, DELAY_MS (throttle, default 8000)
@@ -405,6 +408,43 @@ async function salvaEsiti(env, data, corpo) {
   var r = await ghFetch(env, percorso, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dati) });
   return r.status;
 }
+// ── S77 (24/11/2026): segno di vita dell'EA ────────────────────────────────────────────────────────
+// Il 23/11 il VPS si e' riavviato da solo e l'EA e' rimasto caricato ma fermo: nessuna entrata il 24/11.
+// L'EA chiama /vivo ogni 30 minuti; il cron (ogni 30 minuti) guarda da quanto tace e avvisa Edu su ntfy.
+var EA_TACE_MIN = 75;          // oltre 75 minuti senza segno di vita l'EA e' considerato fermo
+var EA_RIPETI_ORE = 6;         // finche' resta fermo l'avviso si ripete ogni 6 ore
+async function statoEA(env) {
+  var v = null; try { v = JSON.parse(await env.SEEDS.get('ea_vivo')); } catch (e) {}
+  if (!v || !v.t) return { visto: false, fermo: false };
+  var minuti = Math.round((Date.now() - v.t) / 60000);
+  return { visto: true, ultimo: new Date(v.t).toISOString(), minuti: minuti, aperti: v.aperti, fermo: minuti > EA_TACE_MIN };
+}
+async function avvisa(env, titolo, messaggio, priorita) {
+  if (!env.NTFY_TOPIC) return 'manca NTFY_TOPIC';
+  var r = await fetch('https://ntfy.sh/' + encodeURIComponent(env.NTFY_TOPIC), {
+    method: 'POST', body: messaggio, headers: { 'Title': titolo, 'Priority': priorita || 'default', 'Tags': 'robot' } });
+  return r.status;
+}
+async function controlloEA(env) {
+  var s = await statoEA(env);
+  if (!s.visto) return 'mai visto';
+  var all = Number(await env.SEEDS.get('ea_allarme')) || 0;
+  if (s.fermo) {
+    if (all && Date.now() - all < EA_RIPETI_ORE * 3600000) return 'fermo, gia avvisato';
+    var ore = Math.floor(s.minuti / 60), min = s.minuti % 60;
+    var esito = await avvisa(env, 'EA di Lio FERMO', 'Il VPS non da segni di vita da ' + (ore ? ore + ' ore e ' : '') + min +
+      ' minuti. Apri MetaTrader sul PC, accendi AutoTrading, tasto destro sul VPS > sincronizza Esperti, poi controlla nel diario la riga "LioEA avviato". Prossima entrata: 01:00 GMT.', 'urgent');
+    await env.SEEDS.put('ea_allarme', String(Date.now()));
+    return 'fermo, avviso ' + esito;
+  }
+  if (all) {
+    var esito2 = await avvisa(env, 'EA di Lio ripartito', 'Il VPS ha ripreso a dare segni di vita.', 'default');
+    await env.SEEDS.delete('ea_allarme');
+    return 'ripartito, avviso ' + esito2;
+  }
+  return 'vivo';
+}
+
 function testo(t, stato) { return new Response(t, { status: stato || 200, headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' } }); }
 
 function corsHeaders() {
@@ -413,6 +453,13 @@ function corsHeaders() {
 
 export default {
   async scheduled(controller, env, ctx) {
+    // S77: il controllo dell'EA gira a ogni scatto del cron (ogni 30 minuti, tutti i giorni)
+    ctx.waitUntil((async function () {
+      try { console.log('controllo EA: ' + await controlloEA(env)); } catch (e) { console.log('controllo EA fallito: ' + ((e && e.message) || e)); }
+    })());
+    // il feed resta solo allo scatto delle 00:10 GMT
+    var quando = new Date(controller.scheduledTime || Date.now());
+    if (!(quando.getUTCHours() === 0 && quando.getUTCMinutes() === 10)) return;
     if (isWeekend()) return;   // 03/10/2026: niente feed il sabato e la domenica
     // S70: finito il feed (anche se fallisce: la raccolta sa chiamare /run da sola) si sveglia la raccolta su GitHub
     ctx.waitUntil((async function () {
@@ -441,6 +488,18 @@ export default {
         var st = await salvaEsiti(env, dataE, corpoE);
         return testo((st === 200 || st === 201) ? 'OK\n' : 'ERRORE github ' + st + '\n', (st === 200 || st === 201) ? 200 : 502);
       } catch (e) { return testo('ERRORE ' + String((e && e.message) || e) + '\n', 500); }
+    }
+
+    // S77: segno di vita dell'EA (chiuso dalla chiave) e stato pubblico per l'app
+    if (url.pathname === '/vivo') {
+      if (!env.EA_KEY || url.searchParams.get('k') !== env.EA_KEY) return testo('ERRORE chiave\n', 403);
+      await env.SEEDS.put('ea_vivo', JSON.stringify({ t: Date.now(), aperti: Number(url.searchParams.get('aperti')) || 0 }));
+      return testo('OK\n');
+    }
+    if (url.pathname === '/stato-ea') return new Response(JSON.stringify(await statoEA(env)), { headers: headers });
+    if (url.pathname === '/prova-avviso') {
+      if (!env.EA_KEY || url.searchParams.get('k') !== env.EA_KEY) return testo('ERRORE chiave\n', 403);
+      return testo('avviso: ' + await avvisa(env, 'Prova avviso EA di Lio', 'Se leggi questo, gli avvisi funzionano.', 'default') + '\n');
     }
 
     if (url.pathname === '/run') {
