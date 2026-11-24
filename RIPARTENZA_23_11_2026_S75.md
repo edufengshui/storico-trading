@@ -71,3 +71,35 @@ DsHs: View in Kan con l'HS clasha il DS in Li, "non segue" ma il mercato ha segu
 ## PUNTI APERTI
 - Le tre decisioni sul Tai Sui / View / segue forte (sopra).
 - Wu = quale valuta del cross; repo pubblici o privati (da S73).
+
+## AGGIUNTE DEL 23-24/11 (stessa chat)
+- PROVA "Wu sopra lo stelo del di pan" (Edu 23/11: "se lo controlla o lo drena non segue"): non separa. Yi/Geng/Xin sotto Wu:
+  segue 50,8% · 50,2% (altri 49,6% · 49,4%). Per palazzo e per stagione del palazzo: niente. Solo spunto: Wu sopra Ren/Gui in un
+  palazzo fuori stagione 45,6% · 47,1% (467 e 382 carte). Script wu_sotto.js, wu_sotto2.js.
+- EA: il 24/11 NON e' entrato (segnali.json era pronto alle 00:13 GMT, token valido). Causa da cercare nel diario del VPS
+  (Consiglieri, righe "LioEA:" fra le 03:00 e le 03:45 ora del server). Edu deve mandare la foto. Saldo demo 494,44 EUR.
+  EA dal 18/11: 10 trade, 4 vinti, -58,6 pip, -5,46 EUR. Il 23/11 tre persi su tre (EA -76 pip, registro -40: l'EA entra alle 01:00).
+- LIO DAL VIVO al 23/11: 60 trade, 34 vinti (57%), +346 pip; picco +442 il 10/11. Dal 16/11: 10 trade su 14 contro il trend, 2 vinti.
+- CARTA 8, USDCAD 23/11/2026 (seme 143, Wu Xu, yin 8; trend LONG, salito 23; Lio SHORT media sbagliato; DsHs e ZFTY "non segue").
+  Edu: "Quando ZF e TY sono paralleli vince il palazzo piu' timely. In inverno Gen e' piu' timely di Kun" e
+  "La regola della stagione vale solo su Gen e Kun perche' sono due terre in posizione opposta e quindi solo in estate/inverno".
+  CABLATO (trading 51673f7): QMDJ_PAR_TIMELY, default 'zfty' ('off'). ZF e TY in Gen e Kun: d'inverno (亥子丑) vince Gen, d'estate
+  (巳午未) vince Kun; vince lo ZF = segue. Altrimenti DsHs come prima. Misura: 157 e 136 carte, cambiate 53 e 48, giuste meta';
+  ZFTY 52,2% · 51,7% · vivo 64,6%. (La mia prima traduzione, con tutte le coppie e le quattro stagioni, era sbagliata e peggiorava.)
+- Edu 24/11: "Io farei intervenire DsHs solo quando il ZFTY da' un responso incerto" e "Procedi col sistema unito (Lio + qimen)".
+  CABLATO (trading 0ae1357): Q.unito(c, trend) = ZFTY; se tace, DsHs (campo "da"). Misura: 52,3% · 51,7% · vivo 63,2% (68 carte su 74).
+  "Incerto" l'ho inteso come "tace": Edu non ha ancora confermato.
+- REGISTRO IN AVANTI (storico-trading fb1f01d): qmdj_registro.js + raccolta_notturna.js scrivono ogni notte qmdj_live.json:
+  per ogni trade di Lio il verdetto del sistema unito (accordo | contro | muto), con l'impronta delle regole, PRIMA dell'entrata;
+  una data gia' scritta non si riscrive. In storico-trading ora ci sono le copie di qmdj.js e qmdj-water-scanner.js: quando
+  qmdj.js cambia nel repo trading va ricopiato qui. La riga del 24/11 e' stata scritta a mano alle 10:17 GMT (prima dell'esito).
+  NON ancora visto girare sul runner di GitHub: controllare la raccolta della notte del 25/11.
+- LIO E SISTEMA UNITO. Storico (4.801 trade): QMDJ d'accordo 70,7% · 66,9% (+27.900 e +20.941 pip); contro 63,7% · 62,6%
+  (+17.605 e +13.646); muto 69,1% · 63,8%. Forti: d'accordo 84,5% · 74,8%, contro 72,9% · 70,0%. Saltare i trade "contro"
+  nello storico PERDE pip. Vivo: contro 12 su 25, d'accordo 20 su 27 (ma molte di quelle carte sono state lette e corrette).
+  DA DECIDERE CON EDU: cosa fa l'EA col verdetto (io propongo il lotto, non il salto). Finora l'EA non cambia.
+- Discussione del 24/11: Edu tiene fermo che le regole non valicano la dottrina; io che una carta su cui si accende una regola
+  non conta come prova. Accordo: contano i casi nuovi, letti prima dell'esito (da qui il registro in avanti).
+- Pagina delle carte: tabella delle ore resa leggibile su telefono (blocchi; tolta la colonna "Muove").
+- Contatore del patto: 8 (USDCAD 23/11). Da presentare: AUDUSD 23/11, USDCHF 23/11, poi AUDUSD 29/10, AUDUSD 28/10, EURJPY 06/11.
+- Sul DsHs di USDCAD 23/11 (Fan Yin: "non segue", sbagliato): non piu' urgente, col sistema unito il DsHs li' non parla.
