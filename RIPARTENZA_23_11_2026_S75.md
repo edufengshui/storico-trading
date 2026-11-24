@@ -88,7 +88,9 @@ DsHs: View in Kan con l'HS clasha il DS in Li, "non segue" ma il mercato ha segu
   ZFTY 52,2% · 51,7% · vivo 64,6%. (La mia prima traduzione, con tutte le coppie e le quattro stagioni, era sbagliata e peggiorava.)
 - Edu 24/11: "Io farei intervenire DsHs solo quando il ZFTY da' un responso incerto" e "Procedi col sistema unito (Lio + qimen)".
   CABLATO (trading 0ae1357): Q.unito(c, trend) = ZFTY; se tace, DsHs (campo "da"). Misura: 52,3% · 51,7% · vivo 63,2% (68 carte su 74).
-  "Incerto" l'ho inteso come "tace": Edu non ha ancora confermato.
+  "Incerto" = "tace": CONFERMATO da Edu il 24/11 ("Si, tace").
+- REGOLA DI EDU (24/11): ogni volta che si chiede una ripartenza (frase da incollare per aprire la chat nuova), la PRIMA PAROLA
+  e' "Trading" (es. "Trading - leggi ripartenza S76"), cosi' riconosce il titolo della chat fra i vari progetti.
 - REGISTRO IN AVANTI (storico-trading fb1f01d): qmdj_registro.js + raccolta_notturna.js scrivono ogni notte qmdj_live.json:
   per ogni trade di Lio il verdetto del sistema unito (accordo | contro | muto), con l'impronta delle regole, PRIMA dell'entrata;
   una data gia' scritta non si riscrive. In storico-trading ora ci sono le copie di qmdj.js e qmdj-water-scanner.js: quando
