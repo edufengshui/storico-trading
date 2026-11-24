@@ -117,4 +117,9 @@ DsHs: View in Kan con l'HS clasha il DS in Li, "non segue" ma il mercato ha segu
   Tai Sui Bing in Xun (vuoto del giorno). Vuoti: giorno Chen Si, ora Wu Wei. Ore: Jia Wu 21 con, Yi Wei 20 contro, Bing Shen 21 con.
   Domanda fatta: "lo ZF controlla il TY: basta per dire segue anche se l'Output di Kun non e' timely? E View in Li, vuota e fuori
   stagione, puo' dire qualcosa sul verso?". Contatore del patto: 9. Prossima: USDCHF 23/11 (decima: controllo del patto).
+  LETTURA DI EDU (24/11): "Il TY ha un clash interno. Il DS Xin molto timely clasha il debole View che farebbe da ponte. Lo stelo
+  del mese Ji clasha il TY. Non credo che date queste condizioni il TY abbia una probabilita' di vincere." E: "A volte a decidere
+  chi vince non e' un solo fattore, ma una combinazione di piu' fattori in cui ognuno contribuisce per una piccola parte ma sommate
+  fanno la differenza." Sulla carta: in Kun Gui sopra Ding; DS in Kan di fronte a View in Li (Xin clasha Yi sotto View); Ji in Gen
+  di fronte a Kun. TY perde = segue. NON ANCORA CABLATO: chiesto a Edu come contare i fattori (vedi chat del 24/11).
 - Sul DsHs di USDCAD 23/11 (Fan Yin: "non segue", sbagliato): non piu' urgente, col sistema unito il DsHs li' non parla.
