@@ -107,6 +107,13 @@ async function main() {
     require('child_process').execSync('git add segnali.json', { cwd: DIR, stdio: 'ignore' });
   } catch (e) { console.log('segnali.json non scritto: ' + e.message); }
 
+  // S75 (24/11/2026, Edu: "Procedi col sistema unito (Lio + qimen)"): il verdetto del QMDJ unito sui trade di Lio del giorno,
+  // scritto prima dell'entrata in qmdj_live.json. Non cambia segnali.json ne' i trade.
+  try {
+    if (!weekend) { require(path.join(DIR, 'qmdj_registro.js')).aggiorna(reg, feed.date, DIR);
+      require('child_process').execSync('git add qmdj_live.json', { cwd: DIR, stdio: 'ignore' }); }
+  } catch (e) { console.log('qmdj_live.json non scritto: ' + e.message); }
+
   // storico permanente: ogni trade una volta sola (giorno + cross), l'esito si aggiorna
   let storico = {};
   try { storico = JSON.parse(fs.readFileSync(STORICO_FILE, 'utf8')); } catch (e) {}

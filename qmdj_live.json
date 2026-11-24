@@ -1,0 +1,30 @@
+{
+ "2026-11-24": {
+  "scritto": "2026-11-24T10:17:07.208Z",
+  "regole": "de048ca8",
+  "trades": [
+   {
+    "cross": "USDCHF",
+    "lio": "SHORT",
+    "forza": "media",
+    "trend": "LONG",
+    "seed": 84,
+    "qmdj": "LONG",
+    "da": "zfty",
+    "verso": "contro",
+    "segueForte": false
+   },
+   {
+    "cross": "AUDUSD",
+    "lio": "LONG",
+    "forza": "debole",
+    "trend": "SHORT",
+    "seed": 66,
+    "qmdj": "LONG",
+    "da": "zfty",
+    "verso": "accordo",
+    "segueForte": false
+   }
+  ]
+ }
+}
