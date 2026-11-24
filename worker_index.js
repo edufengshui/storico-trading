@@ -34,7 +34,8 @@
  *         GET  /sveglia?k=EA_KEY            → sveglia la raccolta a mano (prova)
  *   S77 (24/11/2026): GET /vivo?k=EA_KEY&aperti=N → segno di vita dell'EA (ogni 30 minuti);
  *         GET /stato-ea → da quanto tace (pubblico); GET /prova-avviso?k=EA_KEY → avviso di prova.
- *         Serve un secondo cron ogni 30 minuti (tutti i giorni) e il secret NTFY_TOPIC (argomento di ntfy.sh).
+ *         GET /telegram-collega?k=EA_KEY → registra la chat Telegram di Edu (dopo che ha scritto al bot).
+ *         Serve un secondo cron ogni 30 minuti (tutti i giorni) e il secret TG_TOKEN (token del bot Telegram).
  *   Secret nuovi: GH_TOKEN (token GitHub con scrittura su storico-trading), EA_KEY (la chiave dell'EA).
  *
  * Secret:  TWELVEDATA_API_KEY   Optional: RUN_TOKEN, DELAY_MS (throttle, default 8000)
@@ -419,11 +420,37 @@ async function statoEA(env) {
   var minuti = Math.round((Date.now() - v.t) / 60000);
   return { visto: true, ultimo: new Date(v.t).toISOString(), minuti: minuti, aperti: v.aperti, fermo: minuti > EA_TACE_MIN };
 }
+// Avviso a Edu: Telegram (secret TG_TOKEN = token del bot; la chat si registra una volta con /telegram-collega).
+// ntfy.sh resta come ripiego, ma dal Worker risponde 429 (indirizzi di Cloudflare condivisi): provato il 24/11/2026.
+async function telegram(env, metodo, dati) {
+  var r = await fetch('https://api.telegram.org/bot' + env.TG_TOKEN + '/' + metodo, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dati || {}) });
+  var j = null; try { j = await r.json(); } catch (e) {}
+  return { stato: r.status, j: j };
+}
 async function avvisa(env, titolo, messaggio, priorita) {
-  if (!env.NTFY_TOPIC) return 'manca NTFY_TOPIC';
+  if (env.TG_TOKEN) {
+    var chat = env.TG_CHAT || await env.SEEDS.get('tg_chat');
+    if (!chat) return 'telegram: chat non ancora collegata (/telegram-collega)';
+    var t = await telegram(env, 'sendMessage', { chat_id: chat, text: (priorita === 'urgent' ? '\u26a0\ufe0f ' : '') + titolo + '\n\n' + messaggio });
+    return 'telegram ' + t.stato;
+  }
+  if (!env.NTFY_TOPIC) return 'manca TG_TOKEN';
   var r = await fetch('https://ntfy.sh/' + encodeURIComponent(env.NTFY_TOPIC), {
     method: 'POST', body: messaggio, headers: { 'Title': titolo, 'Priority': priorita || 'default', 'Tags': 'robot' } });
-  return r.status;
+  return 'ntfy ' + r.status;
+}
+// Edu scrive un messaggio qualsiasi al bot, poi apre /telegram-collega: il Worker legge chi ha scritto e se lo ricorda.
+async function telegramCollega(env) {
+  if (!env.TG_TOKEN) return 'ERRORE manca TG_TOKEN';
+  var u = await telegram(env, 'getUpdates', {});
+  if (u.stato !== 200 || !u.j || !u.j.ok) return 'ERRORE telegram ' + u.stato + ' (token del bot sbagliato?)';
+  var chat = null, nome = '';
+  (u.j.result || []).forEach(function (x) { var m = x.message; if (m && m.chat && m.chat.type === 'private') { chat = m.chat.id; nome = m.chat.first_name || ''; } });
+  if (!chat) return 'ERRORE nessun messaggio trovato: scrivi "ciao" al bot su Telegram e riapri questa pagina';
+  await env.SEEDS.put('tg_chat', String(chat));
+  var t = await telegram(env, 'sendMessage', { chat_id: chat, text: 'Collegato. Qui arrivano gli avvisi dell\'EA di Lio.' });
+  return 'OK collegato a ' + nome + ' (messaggio di prova: ' + t.stato + ')';
 }
 async function controlloEA(env) {
   var s = await statoEA(env);
@@ -497,6 +524,10 @@ export default {
       return testo('OK\n');
     }
     if (url.pathname === '/stato-ea') return new Response(JSON.stringify(await statoEA(env)), { headers: headers });
+    if (url.pathname === '/telegram-collega') {
+      if (!env.EA_KEY || url.searchParams.get('k') !== env.EA_KEY) return testo('ERRORE chiave\n', 403);
+      return testo(await telegramCollega(env) + '\n');
+    }
     if (url.pathname === '/prova-avviso') {
       if (!env.EA_KEY || url.searchParams.get('k') !== env.EA_KEY) return testo('ERRORE chiave\n', 403);
       return testo('avviso: ' + await avvisa(env, 'Prova avviso EA di Lio', 'Se leggi questo, gli avvisi funzionano.', 'default') + '\n');
