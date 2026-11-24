@@ -25,8 +25,18 @@ function aggiorna(reg, data, DIR) {
   fs.writeFileSync(file, JSON.stringify(arch, null, 1));
   return arch[data];
 }
-module.exports = { aggiorna };
+// LOTTO (Edu 24/11/2026, "D'accordo con la tua proposta"): 0,02 solo sui trade FORTI di Lio col QMDJ unito d'accordo; 0,01 su tutto
+// il resto. L'EA da' il lotto pieno solo quando il campo forza e' esattamente "forte": quindi un forte senza l'accordo del QMDJ
+// esce come "forte-lotto-minimo". La forza vera di Lio resta in forza_lio. Se il verdetto manca (errore) si va al lotto minimo.
+function segnaliTrades(lio, qm) {
+  const per = {}; ((qm && qm.trades) || []).forEach(r => { per[r.cross] = r.verso; });
+  return lio.map(t => { const fl = t.forza || 'forte', v = per[t.cross] || 'manca';
+    return { cross: t.cross, dir: t.signal, forza: fl !== 'forte' ? fl : (v === 'accordo' ? 'forte' : 'forte-lotto-minimo'), forza_lio: fl, qmdj: v }; });
+}
+module.exports = { aggiorna, segnaliTrades };
 if (require.main === module) {   // prova a mano: node qmdj_registro.js AAAA-MM-GG
   global.window = global; const lj = require('lunar-javascript'); global.Solar = lj.Solar; global.Lunar = lj.Lunar;
-  console.log(JSON.stringify(aggiorna(JSON.parse(fs.readFileSync(path.join(__dirname, 'registro_live.json'), 'utf8')), process.argv[2], __dirname), null, 1));
+  const reg = JSON.parse(fs.readFileSync(path.join(__dirname, 'registro_live.json'), 'utf8')), qm = aggiorna(reg, process.argv[2], __dirname);
+  console.log(JSON.stringify(qm, null, 1));
+  console.log(JSON.stringify(segnaliTrades((reg[process.argv[2]] || []).filter(t => t.livello === 'LI' && !t.cantina && (t.signal === 'LONG' || t.signal === 'SHORT')), qm)));
 }

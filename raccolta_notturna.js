@@ -99,20 +99,22 @@ async function main() {
 
   // S70 (17/11/2026, Edu: EA su MetaTrader 4 che entra alle 01:00 GMT sui segnali di Lio): i trade di Lio del
   // giorno del feed in un file piccolo, segnali.json, che l'EA legge. Solo cross, verso e forza: niente dottrina.
+  // S75 (24/11/2026, Edu: "Procedi col sistema unito (Lio + qimen)"): prima il verdetto del QMDJ unito sui trade di Lio del giorno
+  // (qmdj_live.json, scritto prima dell'entrata e mai riscritto), poi i segnali: lotto pieno solo sui forti col QMDJ d'accordo.
+  let qmGiorno = null, QR = null;
+  try { QR = require(path.join(DIR, 'qmdj_registro.js'));
+    if (!weekend) { qmGiorno = QR.aggiorna(reg, feed.date, DIR);
+      require('child_process').execSync('git add qmdj_live.json', { cwd: DIR, stdio: 'ignore' }); }
+  } catch (e) { console.log('qmdj_live.json non scritto: ' + e.message); }
   try {
     const lio = (reg[feed.date] || []).filter(t => t.livello === 'LI' && !t.cantina && (t.signal === 'LONG' || t.signal === 'SHORT'));
+    const trades = QR ? QR.segnaliTrades(lio, qmGiorno)
+      : lio.map(t => ({ cross: t.cross, dir: t.signal, forza: (t.forza || 'forte') === 'forte' ? 'forte-lotto-minimo' : t.forza, forza_lio: t.forza || 'forte', qmdj: 'manca' }));
     const segnali = { data: feed.date, generato: new Date().toISOString(), entrata_gmt: '01:00', uscita_gmt: '21:00',
-      trades: weekend ? [] : lio.map(t => ({ cross: t.cross, dir: t.signal, forza: t.forza || 'forte' })) };
+      trades: weekend ? [] : trades };
     fs.writeFileSync(path.join(DIR, 'segnali.json'), JSON.stringify(segnali, null, 1));
     require('child_process').execSync('git add segnali.json', { cwd: DIR, stdio: 'ignore' });
   } catch (e) { console.log('segnali.json non scritto: ' + e.message); }
-
-  // S75 (24/11/2026, Edu: "Procedi col sistema unito (Lio + qimen)"): il verdetto del QMDJ unito sui trade di Lio del giorno,
-  // scritto prima dell'entrata in qmdj_live.json. Non cambia segnali.json ne' i trade.
-  try {
-    if (!weekend) { require(path.join(DIR, 'qmdj_registro.js')).aggiorna(reg, feed.date, DIR);
-      require('child_process').execSync('git add qmdj_live.json', { cwd: DIR, stdio: 'ignore' }); }
-  } catch (e) { console.log('qmdj_live.json non scritto: ' + e.message); }
 
   // storico permanente: ogni trade una volta sola (giorno + cross), l'esito si aggiorna
   let storico = {};

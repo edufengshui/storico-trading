@@ -97,7 +97,12 @@ DsHs: View in Kan con l'HS clasha il DS in Li, "non segue" ma il mercato ha segu
 - LIO E SISTEMA UNITO. Storico (4.801 trade): QMDJ d'accordo 70,7% · 66,9% (+27.900 e +20.941 pip); contro 63,7% · 62,6%
   (+17.605 e +13.646); muto 69,1% · 63,8%. Forti: d'accordo 84,5% · 74,8%, contro 72,9% · 70,0%. Saltare i trade "contro"
   nello storico PERDE pip. Vivo: contro 12 su 25, d'accordo 20 su 27 (ma molte di quelle carte sono state lette e corrette).
-  DA DECIDERE CON EDU: cosa fa l'EA col verdetto (io propongo il lotto, non il salto). Finora l'EA non cambia.
+  DECISO DA EDU IL 24/11 ("D'accordo con la tua proposta"): lotto 0,02 solo sui trade FORTI col QMDJ unito d'accordo; 0,01 su tutto
+  il resto (contro, muto, medie, deboli). Fatto senza toccare EA ne' Worker: raccolta_notturna.js scrive in segnali.json il campo
+  forza = "forte" solo in quel caso, altrimenti "forte-lotto-minimo" (l'EA da' 0,02 solo se forza e' esattamente "forte");
+  campi nuovi forza_lio (forza vera) e qmdj (accordo | contro | muto | manca). Se il verdetto manca: lotto minimo.
+  Vale dalla raccolta della notte del 25/11. NON visto girare sul runner: controllare segnali.json e qmdj_live.json la mattina del 25/11
+  e, al primo forte, il lotto nell'esito dell'EA.
 - Discussione del 24/11: Edu tiene fermo che le regole non valicano la dottrina; io che una carta su cui si accende una regola
   non conta come prova. Accordo: contano i casi nuovi, letti prima dell'esito (da qui il registro in avanti).
 - Pagina delle carte: tabella delle ore resa leggibile su telefono (blocchi; tolta la colonna "Muove").
