@@ -180,3 +180,7 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   ESITI_1080_CARTE_25_11_2026.md. Tavola congelata QMDJ_1080_A_PRIORI.json (bilancia sulla sola carta: bilanciaCarta in qmdj.js).
   Avverate 51,1% · 51,1% (2020-23 · 2024-26); dal vivo 34 su 54 (63%, pochi casi). PASSO 2 DA FARE: Claude legge le carte una per
   una coi pro e i contro, a blocchi, partendo da quelle uscite piu' volte dove il passo 1 sbaglia; lettura scritta prima dell'esito.
+- 1080 CARTE, PASSO 2 avviato: LETTURE_1080_CLAUDE.md (carte scelte per numero di uscite, lettura caricata PRIMA dell'esito).
+  Edu: "Mica vorrai che ti leggo tutte e 1080 carte spero" -> NON chiedergli la lettura delle carte: le legge Claude, a Edu solo
+  il conto. Carte 1-21: 88 giuste su 175 uscite (50,3%); ogni carta ha solo 3-13 uscite con esito. La sola carta, letta da Claude,
+  vale quanto la bilancia del software (51,1%). Da decidere con Edu se proseguire sulle altre o leggere la carta insieme a giorno e mese.

@@ -42,3 +42,15 @@ Formato: carta | per segue | per non segue | PREVISIONE.
 19. yin 2 Ren Chen 壬辰 | niente | ZF (Dui) genera TY (Kan); HS e Zhi Shi col TY | NON SEGUE
 20. yin 5 Gui Wei 癸未 | lo Zhi Shi (Xun) genera lo ZF (Li); TY (Kun) toccato dai vuoti | ZF (Li) genera TY (Kun); HS col TY | NON SEGUE
 21. yang 7 Bing Zi 丙子 | niente | ZF (Kun) e TY (Gen) paralleli e di fronte; ZF toccato dai vuoti (Shen); HS col TY | NON SEGUE
+
+### Esito del blocco 1 (guardato dopo, 25/11/2026; uscite con trend ed esito nello storico fino al 16/10/2026)
+Giuste su uscite: 2) 4/11 · 3) 3/5 · 4) 7/9 · 5) 2/6 · 6) 2/10 · 7) 7/13 · 8) 1/4 · 9) 5/7 · 10) 3/6 · 11) 5/8 · 12) 3/7 · 13) 9/11 ·
+14) 5/10 · 15) 6/9 · 16) 3/4 · 17) 1/3 · 18) 6/9 · 19) 2/8 · 20) 6/10 · 21) 8/13.
+- TOTALE carte 2-21: 88 giuste su 163 uscite (54,0%). Con la carta 1 (0 su 12): 88 su 175 (50,3%).
+- Per carta (21 carte): 11 giuste piu' della meta' delle volte, 8 sbagliate, 2 alla pari.
+- Le carte piu' nette: 13 (yang 2 Geng Chen: ZF sopra Geng con Ji sopra Geng, ZF genera TY) non segue 9 su 11, previsto;
+  1 (yin 4 Ren Zi) segue 12 su 12, sbagliata; 6 (yin 4 Gui Chou) segue 8 su 10, sbagliata; 19 (yin 2 Ren Chen) segue 6 su 8, sbagliata:
+  nelle carte 6 e 19 lo ZF genera il TY e il mercato ha seguito lo stesso.
+- LIMITE: ogni carta ha solo 3-13 uscite con esito (non 25-30: quel conto prendeva anche le giornate senza trend). Sulla singola
+  carta il conto non regge; regge solo il totale.
+- CONCLUSIONE ONESTA: la lettura di Claude sulla sola carta vale quanto la bilancia del software: intorno al 50%.
