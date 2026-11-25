@@ -99,6 +99,15 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Carta 12 con le due correzioni: ZFTY LONG, bilancia QMDJ LONG 2-0. Dal 26/11 la notte usa queste regole.
   In pagina "Carte dove Lio sbaglia" in cima.
 
+- Edu (25/11, alla proposta di cambiare chat): "Ancora una nuova chat? Abbiamo appena iniziato" -> non proporla presto; solo
+  quando serve davvero.
+- CARTA 13, EURJPY 06/11/2026 (seme 176, Xin Wei, yin 8; trend LONG, sceso 21; Lio LONG forte sbagliato; DsHs, ZFTY (paralleli
+  Kun/Gen) e unito "non segue" GIUSTI per il fan yin; bilancia QMDJ SHORT 2-1 giusta, con Lio forte LONG 3-2 sbagliata).
+  Lettura di Claude a bilancia, DA VALIDARE: stessa figura della carta 11 (fan yin di stelle e steli, ZF in Kun toccato dai vuoti
+  del giorno Wu Wei, ramo dell'ora Wei vuoto del giorno e nel palazzo dello ZF). Ora che decide: Xin Wei (13-15 GMT) 31 pip contro.
+  DOMANDA A EDU: il fan yin delle sole stelle e steli (non delle porte) pesa come il fan yin totale o meno?
+  In pagina in cima (versione nuova). Da presentare dopo: le altre carte sbagliate da Lio dal registro (trade_persi.md).
+
 ## PUNTI APERTI
 - La bilancia va RICOSTRUITA dentro qmdj.js: tutte le indicazioni valutate sempre (non solo quelle che la cascata raggiunge),
   stato del palazzo (debole, vuoto, clash interno, clash contro lo stelo del mese), elenco pro/contro mostrato sulla carta,
