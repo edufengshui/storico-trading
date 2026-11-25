@@ -67,3 +67,16 @@ Edu: "E' un fan yin totale" (stelle e porte tutte nel palazzo di fronte; ZF e ZS
 Misura (qmdj_lavoro/fanyin_totale.js, tutti i lun-ven): fan yin totale (stelle e porte) il mercato segue 48,4% (157 carte) ·
 50,9% (110); fan yin del software (steli cielo/terra) 51,5% (814) · 47,4% (698); solo stelle 52,2% · 46,8%; solo porte 49,8% · 52,4%.
 Da solo il fan yin totale NON separa nello storico. Detto a Edu.
+
+## BILANCIA DENTRO qmdj.js — prima misura (25/11, tarda mattina)
+Funzione bilancia(c, trend) in qmdj.js; script qmdj_lavoro/bilancia_dentro.js. Base: 4.801 trade di Lio (LI), 2020-23 · 2024-26. Pesi a 1.
+Edu sullo ZF: "Lo ZF sarebbe Jia quindi l'unico clash serio avviene se sta sopra Geng" (sullo ZF pesa solo Geng nel di pan).
+Solo QMDJ (Lio vince): bilancia per Lio 70,0% (924) · 66,1% (830); pari o muta 69,2% · 64,0%; contro Lio 63,5% (871) · 63,8% (803).
+Scarto +2 o piu' per Lio 72,2% · 68,6%; -2 o piu' contro 63,0% · 66,3%. Ordina poco e non porta Lio sotto il 50%.
+Con Lio dentro (1 punto, 2 se forte): per Lio 70,2% · 66,0%; pari 59,1% · 59,0%; contro 60,8% (240) · 64,5% (214).
+Per forza: forte + QMDJ per 85,1% · 73,3%; forte + contro 72,8% · 71,3%; media per 62,8% · 61,8%, contro 61,8% · 58,7%;
+debole per 50,7% · 59,3%, contro 49,8% (215) · 58,7% (208): i deboli stanno al 50% nel primo periodo comunque giri il QMDJ.
+Voci (Lio vince: voce per lui | contro di lui): View su 69,7% | 62,2% · 69,5% | 62,4% (regge); ZF vuoto del giorno 72,4% | 66,0% ·
+73,0% | 66,4% (regge); clash interno TY 62,8% | 67,2% · 64,3% | 61,3% (non separa); ZF sopra Geng 69,7% | 61,8% · 61,7% | 65,6%
+(non regge); ZF toccato dai vuoti del giorno 68,9% | 77,8% · 58,9% | 62,9% (al contrario); fan yin totale e fattori del TY: pochi casi.
+CONCLUSIONE: con i pesi a 1 la bilancia nuova non separa meglio della prima. Le due voci che reggono sono View su e ZF vuoto del giorno.
