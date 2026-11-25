@@ -120,6 +120,18 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Dal vivo (23/10-24/11) i due filtri avrebbero tolto 11 trade: 5 vinti, 6 persi, -72 pip (fra cui AUDUSD 28/10, 29/10 e 23/11,
   USDCAD 11/11, EURGBP 19/11). ATTENZIONE: gruppi scelti guardando lo storico; la prova e' il registro in avanti.
 
+- COSA SAREBBE CAMBIATO DAL VIVO con le modifiche del 25/11 (chiesto da Edu): registro 62 trade 58,1% +418 -> 46 trade 60,9% +445
+  (16 tolti: 8 vinti, 8 persi, -27); EA 10 trade -58,6 pip -> 7 trade -13,1 pip. I FORTI non cambiano: 28 trade, 16 vinti (57%), +84.
+- I 28 FORTI DAL VIVO (Edu: "Si", guardare i 12 persi). Trovato:
+  1) I forti CALANO NEL TEMPO: 78,7% (2020-23, dove sono state stimate le affidabilita' di Lio) · 73,2% (2024-25) · 69,6% (2026 fino
+     al 16/10) · 57% dal vivo. I piu' "sicuri" calano di piu': margine >= 1,3: 86,2% · 78,6% · 66,7%, dal vivo 2 vinti su 6;
+     metodo Liu Yao "affidabile 80%": 78,8% · 72,4% · 64,4%, dal vivo 3 su 8 (via 合全: 2 su 2 persi).
+  2) Dal vivo, col qimen di oggi: forte + qimen contro 13 trade, 4 vinti, -152 pip; forte + qimen d'accordo 13 trade, 12 vinti,
+     +273. MA molte di quelle carte sono proprio quelle su cui le regole del qimen sono state corrette (patto): nello storico
+     forte + qimen contro vince 74,8% · 70,4%. Non e' una prova; la prova e' qmdj_live.json in avanti (dal 24/11).
+  3) Per cross dal vivo: USDCHF 3 su 3 persi (SHORT contro trend, 16-19/11); USDCAD 4 vinti su 9; EURGBP 8 su 9.
+  PROPOSTA A EDU (in attesa): ristimare le affidabilita' di Lio su anni recenti (fino al 2025) e provarle su 2026 + vivo.
+
 ## PUNTI APERTI
 - La bilancia va RICOSTRUITA dentro qmdj.js: tutte le indicazioni valutate sempre (non solo quelle che la cascata raggiunge),
   stato del palazzo (debole, vuoto, clash interno, clash contro lo stelo del mese), elenco pro/contro mostrato sulla carta,
