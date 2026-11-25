@@ -146,3 +146,25 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
 - EA: i 6 passi di S77 (TG_TOKEN, Worker nuovo, /telegram-collega, secondo cron, LioEA 1.10, prova). AutoTrading sul PC: spento?
 - 25/11 mattina: la raccolta notturna HA girato (segnali.json con forza, forza_lio, qmdj; qmdj_live.json con impronta bb9a43ae).
   Da guardare: l'EA e' entrato all'01:00 GMT del 25/11? (oggi 3 trade: USDCHF SHORT media, AUDUSD LONG debole, USDCAD SHORT debole)
+
+## 25/11 POMERIGGIO (chat nuova aperta con "Trading - leggi ripartenza S78")
+- Edu, carta 13: il fan yin di sole stelle e steli "non e' uguale al fan yin totale". Carta 10: "non dovresti farmi questa domanda
+  se sai che devi raccogliere i pro e i contro prima di scegliere". "Perche' la bilancia non e' ancora stata calata?"
+- CABLATO e caricato (qmdj.js in trading e copia in storico-trading; qmdj_registro.js): LA BILANCIA DA' IL VERDETTO DEL QIMEN.
+  unito() ora restituisce il verdetto della bilancia (da: 'bilancia'), con l'elenco PER SEGUE / PER NON SEGUE nel motivo; alla pari il
+  qimen e' fermo. La vecchia cascata resta in unitoCascata() e nel campo "cascata" (anche in qmdj_live.json, per contare in avanti).
+  QMDJ_BILANCIA_DECIDE=false torna alla cascata. Vale dalla notte del 26/11 (lotto 0,02 dei forti e filtro "media col Semplificato
+  e il qimen contro" usano il verdetto della bilancia).
+  La bilancia pesa SEMPRE gli argomenti di tutti e due i sistemi (ZFTY e DsHs), lo stesso argomento una volta sola.
+  Fan yin: totale (anche le porte) peso 3; solo stelle e steli peso 1 (pesi di Claude, da provare); superato da un ponte: non pesa.
+  Stato del palazzo esteso (ZF/TY deboli nel mese; clash interno, debole, vuoti del giorno su DS e HS): estensione di Claude,
+  SPENTA (QMDJ_BIL_STATO=true l'accende) perche' non migliora.
+- MISURA (qmdj_lavoro/bilancia_decide.js, 2020-23 · 2024-26). Carte giuste: cascata 53,9% · 52,3%; bilancia 52,7% · 52,0%
+  (parla su 2.049 · 1.889 carte contro 2.464 · 2.298). Lio con la bilancia d'accordo 68,6% · 66,2%; contro 63,9% · 63,4%;
+  pari 70,7% · 64,3%. Con la cascata: accordo 70,6% · 66,3%; contro 63,6% · 63,2%. La bilancia NON batte la cascata: costa circa
+  un punto. Accesa perche' e' il metodo dettato da Edu. Detto a Edu.
+- Carte con la bilancia: 10 (USDCHF 23/11) nessuna indicazione, fermo; 11 (AUDUSD 29/10) SHORT 4-3 giusto; 12 (AUDUSD 28/10) LONG
+  2-0 giusto; 13 (EURJPY 06/11) SHORT 2-1 giusto. 25/11: USDCHF qimen LONG (cascata SHORT), AUDUSD SHORT, USDCAD LONG: tutti e tre
+  contro Lio. ESITO DA GUARDARE (chiusura 21:00 GMT). La riga del 25/11 in qmdj_live.json non e' stata toccata.
+- DA FARE: mostrare PER SEGUE / PER NON SEGUE nella pagina "Carte dove Lio sbaglia"; portare dentro la bilancia le indicazioni che
+  la cascata non scrive (va smontata regola per regola); provare i pesi sul registro in avanti.

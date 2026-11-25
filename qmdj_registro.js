@@ -26,7 +26,8 @@ function aggiorna(reg, data, DIR) {
         bil = { qmdj: b.dir, long_qmdj: b.long, short_qmdj: b.short, long: L, short: S, dir: L > S ? 'LONG' : S > L ? 'SHORT' : null,
           voci: b.voci.map(v => (v.dir ? v.dir + ' ' + v.peso : '-') + ' | ' + v.t).concat([t.signal + ' ' + pl + ' | Lio ' + (t.forza || 'forte')]) };
         bil.verso = !bil.dir ? 'pari' : (bil.dir === t.signal ? 'per Lio' : 'contro Lio'); } } catch (e) {}
-    righe.push({ cross: t.cross, lio: t.signal, forza: t.forza || '', trend: tr, seed: t.seed, qmdj: u.dir || null, da: u.da || null,
+    // S79 (25/11/2026): il verdetto (qmdj) lo da' la bilancia; "cascata" = cosa avrebbe detto la vecchia cascata, per contare in avanti.
+    righe.push({ cross: t.cross, lio: t.signal, forza: t.forza || '', trend: tr, seed: t.seed, qmdj: u.dir || null, da: u.da || null, cascata: u.cascata === undefined ? null : u.cascata, motivo: u.motivo || null,
       verso: !u.dir ? 'muto' : (u.dir === t.signal ? 'accordo' : 'contro'), segueForte: !!u.segueForte, bilancia: bil });
   }
   arch[data] = { scritto: new Date().toISOString(), regole: regole, trades: righe };
