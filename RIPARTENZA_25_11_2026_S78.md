@@ -86,7 +86,12 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Geng-Yi; Zhen debole nel mese Xu; Kan debolissimo; You vuoto del giorno. Conclusione: segue.
   TROVATO: con QMDJ_TAISUI_DOVE='stelo' (dottrina di Edu del 22/11) la regola di View scatta e il verdetto e' LONG, giusto; il
   software sta ancora su 'ramo' perche' la decisione ramo/stelo era aperta.
-  DOMANDA A EDU: Geng sopra Yi nel palazzo dello ZF blocca davvero lo ZF, anche quando Yi e' lo stelo del giorno?
+  RISPOSTA DI EDU: "No, non lo blocca perche' quel Geng non e' veramente Geng, e' Jia". CABLATO in bloccato() (qmdj.js, trading e
+  copia): lo stelo del Commander nel cielo del palazzo dello ZF e' Jia, non si combina con la terra; QMDJ_COMB_JIA=false per le
+  prove. Ora la carta 12 dice LONG, segue, giusto. Misura (qmdj_lavoro/comb_jia.js, trade di Lio): carte cambiate 37 -> 28 e
+  26 -> 22; su quelle il verdetto giusto passa da 32,4% a 60,7% nel 2020-23 e resta 50,0% nel 2024-26; unito 54,4% -> 54,8% ·
+  52,4% -> 52,4%. Dottrina: resta accesa.
+  ANCORA DA DECIDERE CON EDU: Tai Sui della regola di View su 'stelo' (oggi 'ramo').
   In pagina "Carte dove Lio sbaglia" in cima.
 
 ## PUNTI APERTI
