@@ -214,3 +214,14 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   si conta una volta sola. Carta USDCHF 12/10/2023: ora ponte dello stelo del mese, non segue, LONG, GIUSTO.
   Misura (bilancia_decide.js): bilancia giusta 52,7% · 52,2% (prima 53,0% · 52,0%): invariata. Carte 10-13 invariate.
   DA FARE: il flusso del qi fra palazzi come lettura generale (non solo per la tomba): chi nutre chi, dove finisce il qi.
+- FLUSSO DEL QI COME LETTURA GENERALE (Edu 25/11: "Implementalo"). Prima versione, costruzione di Claude: flussoQi(c) in qmdj.js
+  (il qi parte dal palazzo del ramo del mese e scorre per generazione solo attraverso palazzi con ZF, Zhi Shi o TY; dice chi viene
+  raggiunto e per che strada). MISURA (qmdj_lavoro/flusso_qi.js, 2020-23 · 2024-26, "il mercato segue"): nutre solo lo ZF 48,1% (428)
+  · 46,1% (375); nutre solo il TY 45,2% · 49,0%; passa dallo ZF e finisce sul TY 49,2% · 52,3%; passa dal TY e finisce sullo ZF
+  48,8% · 56,1%; non arriva a nessuno 52,7% · 48,6%. NON SEPARA: "chi viene nutrito vince" non e' la regola. Anche con DS e HS
+  come attori non cambia. NIENTE nella bilancia: il flusso non da' voti. Prova "anche un palazzo vuoto, se nutrito, e' operativo"
+  (QMDJ_VUOTO_FLUSSO): 52,9% · 52,1%, invariato, SPENTA.
+  FATTO: qmdj_registro.js scrive ogni notte il campo "flusso" (il percorso del qi in parole) in qmdj_live.json, prima dell'entrata:
+  serve a portare a Edu le carte nuove gia' con il percorso scritto. Non decide niente.
+  MANCA LA DOTTRINA: cosa ferma il qi (vuoto, clash, combinazione, controllo), dove si accumula, e cosa vuol dire per ZF e TY. Da Edu
+  finora un solo caso (USDCHF 12/10/2023: il flusso rende operativo il palazzo del ponte). Da raccogliere sulle carte nuove.

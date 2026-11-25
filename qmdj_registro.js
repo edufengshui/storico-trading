@@ -27,7 +27,7 @@ function aggiorna(reg, data, DIR) {
           voci: b.voci.map(v => (v.dir ? v.dir + ' ' + v.peso : '-') + ' | ' + v.t).concat([t.signal + ' ' + pl + ' | Lio ' + (t.forza || 'forte')]) };
         bil.verso = !bil.dir ? 'pari' : (bil.dir === t.signal ? 'per Lio' : 'contro Lio'); } } catch (e) {}
     // S79 (25/11/2026): il verdetto (qmdj) lo da' la bilancia; "cascata" = cosa avrebbe detto la vecchia cascata, per contare in avanti.
-    righe.push({ cross: t.cross, lio: t.signal, forza: t.forza || '', trend: tr, seed: t.seed, qmdj: u.dir || null, da: u.da || null, cascata: u.cascata === undefined ? null : u.cascata, motivo: u.motivo || null,
+    righe.push({ cross: t.cross, lio: t.signal, forza: t.forza || '', trend: tr, seed: t.seed, qmdj: u.dir || null, da: u.da || null, cascata: u.cascata === undefined ? null : u.cascata, motivo: u.motivo || null, flusso: flussoTesto(Q, ch),
       verso: !u.dir ? 'muto' : (u.dir === t.signal ? 'accordo' : 'contro'), segueForte: !!u.segueForte, bilancia: bil });
   }
   arch[data] = { scritto: new Date().toISOString(), regole: regole, trades: righe };
@@ -47,6 +47,15 @@ const NON_TRADARE = [{ cross: 'AUDUSD', forza: 'debole', trend: 'contro' }, { cr
 //   - Lio debole col sistema D contro: 36,7% (245) · 42,0% (193), in perdita di pip in tutti e due;
 //   - Lio media col Semplificato E il qimen contro: 47,9% (146) · 45,4% (163), in perdita di pip in tutti e due.
 // Le voci si leggono dal testo del registro ("Sistema D SHORT", "Semplificato SHORT"); il qimen da qmdj_live (verso 'contro').
+// S79 (Edu 25/11/2026, flusso del qi): il percorso del qi del mese scritto in parole, PRIMA dell'entrata. Solo informazione: non decide.
+function flussoTesto(Q, ch) { try { const f = Q.flussoQi && Q.flussoQi(ch); if (!f) return null;
+  const N = { 1:'Kan', 2:'Kun', 3:'Zhen', 4:'Xun', 6:'Qian', 7:'Dui', 8:'Gen', 9:'Li' }, giro = v => v.map(k => N[k] + (k === f.zf ? ' (ZF)' : k === f.ty ? ' (TY)' : ch.palaces[k].zhiShi ? ' (ZS)' : k === f.pm ? ' (ramo del mese)' : '')).join(' genera ');
+  if (f.zf === f.ty) return 'ZF e TY nello stesso palazzo';
+  if (f.arrivaZF && f.arrivaTY) return f.viaTY.includes(f.zf) ? 'il qi passa dallo ZF e finisce sul TY: ' + giro(f.viaTY) : f.viaZF.includes(f.ty) ? 'il qi passa dal TY e finisce sullo ZF: ' + giro(f.viaZF) : 'il qi arriva a tutti e due: ' + giro(f.viaZF) + ' | ' + giro(f.viaTY);
+  if (f.arrivaZF) return 'il qi del mese nutre lo ZF: ' + giro(f.viaZF);
+  if (f.arrivaTY) return 'il qi del mese nutre il TY: ' + giro(f.viaTY);
+  return 'il qi del mese (' + N[f.pm] + ') non arriva ne\' allo ZF ne\' al TY';
+} catch (e) { return null; } }
 function voce(t, nome) { const m = new RegExp('(?:^|[ ·‖]) ?' + nome + ' (LONG|SHORT)').exec(t.voci || t.decisore || ''); return m ? m[1] : null; }
 function motivoNo(t, versoQm) {
   const fl = t.forza || 'forte', ct = (t.trend === 'LONG' || t.trend === 'SHORT') ? (t.trend === t.signal ? 'con' : 'contro') : null;
