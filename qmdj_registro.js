@@ -31,7 +31,8 @@ function aggiorna(reg, data, DIR) {
 // S78 (25/11/2026, Edu: "dove Lio sta intorno al 50% non si trada!"; "non voglio che il disastro di una perdita continua su
 // AUDUSD si ripeta"): caselle di Lio che NON vanno all'EA. AUDUSD debole contro il trend: Lio 46,7% (30) · 40,9% (22),
 // unica casella sotto il 50% nei due periodi (ESITI_BILANCIA_25_11_2026.md). Il trade resta nel registro: si continua a misurarlo.
-const NON_TRADARE = [{ cross: 'AUDUSD', forza: 'debole', trend: 'contro' }];
+// EURGBP debole (col trend e contro): 50,6% · 50,7% (Edu 25/11/2026: "Ovvio").
+const NON_TRADARE = [{ cross: 'AUDUSD', forza: 'debole', trend: 'contro' }, { cross: 'EURGBP', forza: 'debole' }];
 function nonTradare(t) {
   const fl = t.forza || 'forte', ct = (t.trend === 'LONG' || t.trend === 'SHORT') ? (t.trend === t.signal ? 'con' : 'contro') : null;
   return NON_TRADARE.some(n => n.cross === t.cross && (!n.forza || n.forza === fl) && (!n.trend || n.trend === ct));

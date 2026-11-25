@@ -58,7 +58,8 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   segnaliSaltati; raccolta_notturna.js scrive "saltati" in segnali.json): AUDUSD debole contro il trend NON va piu' all'EA
   (Lio 46,7% su 30 · 40,9% su 22). Resta nel registro e si continua a misurare. Vale dalla notte del 26/11. Il trade del 25/11
   (AUDUSD LONG debole) era gia' aperto: segnali.json di oggi non toccato.
-  Non ferma i "media" (il perso del 23/11 era media). DA CHIEDERE: EURGBP debole (50,6% · 50,7%) va trattato allo stesso modo?
+  Non ferma i "media" (il perso del 23/11 era media). EURGBP debole (50,6% · 50,7%), col trend e contro: tolto dall'EA allo stesso modo (Edu: "Ovvio").
+  REGOLA: ogni casella dove Lio sta intorno al 50% nei due periodi si toglie dall'EA senza chiedere.
 - Edu: "anche ieri abbiamo discusso di un clash interno come fattore negativo che pesa sulla decisione finale che si fa prendendo
   in considerazione molti aspetti, non solo uno". Il clash interno era gia' stato dettato sulla carta 9 (TY) il 24/11: vale come
   PESO NEGATIVO su chiunque stia in quel palazzo (TY, View, ZF...), dentro la bilancia; non un interruttore per un solo caso.
