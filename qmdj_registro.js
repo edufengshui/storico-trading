@@ -28,12 +28,21 @@ function aggiorna(reg, data, DIR) {
 // LOTTO (Edu 24/11/2026, "D'accordo con la tua proposta"): 0,02 solo sui trade FORTI di Lio col QMDJ unito d'accordo; 0,01 su tutto
 // il resto. L'EA da' il lotto pieno solo quando il campo forza e' esattamente "forte": quindi un forte senza l'accordo del QMDJ
 // esce come "forte-lotto-minimo". La forza vera di Lio resta in forza_lio. Se il verdetto manca (errore) si va al lotto minimo.
+// S78 (25/11/2026, Edu: "dove Lio sta intorno al 50% non si trada!"; "non voglio che il disastro di una perdita continua su
+// AUDUSD si ripeta"): caselle di Lio che NON vanno all'EA. AUDUSD debole contro il trend: Lio 46,7% (30) · 40,9% (22),
+// unica casella sotto il 50% nei due periodi (ESITI_BILANCIA_25_11_2026.md). Il trade resta nel registro: si continua a misurarlo.
+const NON_TRADARE = [{ cross: 'AUDUSD', forza: 'debole', trend: 'contro' }];
+function nonTradare(t) {
+  const fl = t.forza || 'forte', ct = (t.trend === 'LONG' || t.trend === 'SHORT') ? (t.trend === t.signal ? 'con' : 'contro') : null;
+  return NON_TRADARE.some(n => n.cross === t.cross && (!n.forza || n.forza === fl) && (!n.trend || n.trend === ct));
+}
 function segnaliTrades(lio, qm) {
   const per = {}; ((qm && qm.trades) || []).forEach(r => { per[r.cross] = r.verso; });
-  return lio.map(t => { const fl = t.forza || 'forte', v = per[t.cross] || 'manca';
+  return lio.filter(t => !nonTradare(t)).map(t => { const fl = t.forza || 'forte', v = per[t.cross] || 'manca';
     return { cross: t.cross, dir: t.signal, forza: fl !== 'forte' ? fl : (v === 'accordo' ? 'forte' : 'forte-lotto-minimo'), forza_lio: fl, qmdj: v }; });
 }
-module.exports = { aggiorna, segnaliTrades };
+function segnaliSaltati(lio) { return lio.filter(nonTradare).map(t => ({ cross: t.cross, dir: t.signal, forza_lio: t.forza || 'forte', motivo: 'Lio intorno al 50% in questa casella' })); }
+module.exports = { aggiorna, segnaliTrades, segnaliSaltati };
 if (require.main === module) {   // prova a mano: node qmdj_registro.js AAAA-MM-GG
   global.window = global; const lj = require('lunar-javascript'); global.Solar = lj.Solar; global.Lunar = lj.Lunar;
   const reg = JSON.parse(fs.readFileSync(path.join(__dirname, 'registro_live.json'), 'utf8')), qm = aggiorna(reg, process.argv[2], __dirname);

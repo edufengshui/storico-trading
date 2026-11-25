@@ -50,6 +50,19 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Unico gruppo debole visto: ZF toccato + Lio debole contro il trend 43,6% (55) · 50,0% (62).
 - Pagina "Carte dove Lio sbaglia": carte 10 e 11 in cima (versione 1795597825-9c05).
 
+## DOPO LA RIPARTENZA (25/11, chat nuova, mattina)
+- Edu: "Non voglio che il disastro di una perdita continua su AUDUSD si ripeta. Il qimen aveva detto di andare Short ma tu lo hai
+  ignorato". Fatti: l'EA non legge il qimen (solo cross, verso, forza di Lio); qmdj_live.json del 25/11 (00:12 GMT) diceva AUDUSD
+  LONG "accordo" per la regola di View; lo SHORT e' venuto solo dopo la correzione di Edu (View con clash interno).
+- Edu: "dove Lio sta intorno al 50% non si trada!". CABLATO in storico-trading (qmdj_registro.js: NON_TRADARE, nonTradare,
+  segnaliSaltati; raccolta_notturna.js scrive "saltati" in segnali.json): AUDUSD debole contro il trend NON va piu' all'EA
+  (Lio 46,7% su 30 · 40,9% su 22). Resta nel registro e si continua a misurare. Vale dalla notte del 26/11. Il trade del 25/11
+  (AUDUSD LONG debole) era gia' aperto: segnali.json di oggi non toccato.
+  Non ferma i "media" (il perso del 23/11 era media). DA CHIEDERE: EURGBP debole (50,6% · 50,7%) va trattato allo stesso modo?
+- Edu: "anche ieri abbiamo discusso di un clash interno come fattore negativo che pesa sulla decisione finale che si fa prendendo
+  in considerazione molti aspetti, non solo uno". Il clash interno era gia' stato dettato sulla carta 9 (TY) il 24/11: vale come
+  PESO NEGATIVO su chiunque stia in quel palazzo (TY, View, ZF...), dentro la bilancia; non un interruttore per un solo caso.
+
 ## PUNTI APERTI
 - La bilancia va RICOSTRUITA dentro qmdj.js: tutte le indicazioni valutate sempre (non solo quelle che la cascata raggiunge),
   stato del palazzo (debole, vuoto, clash interno, clash contro lo stelo del mese), elenco pro/contro mostrato sulla carta,

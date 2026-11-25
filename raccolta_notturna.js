@@ -111,7 +111,7 @@ async function main() {
     const trades = QR ? QR.segnaliTrades(lio, qmGiorno)
       : lio.map(t => ({ cross: t.cross, dir: t.signal, forza: (t.forza || 'forte') === 'forte' ? 'forte-lotto-minimo' : t.forza, forza_lio: t.forza || 'forte', qmdj: 'manca' }));
     const segnali = { data: feed.date, generato: new Date().toISOString(), entrata_gmt: '01:00', uscita_gmt: '21:00',
-      trades: weekend ? [] : trades };
+      trades: weekend ? [] : trades, saltati: (weekend || !QR || !QR.segnaliSaltati) ? [] : QR.segnaliSaltati(lio) };
     fs.writeFileSync(path.join(DIR, 'segnali.json'), JSON.stringify(segnali, null, 1));
     require('child_process').execSync('git add segnali.json', { cwd: DIR, stdio: 'ignore' });
   } catch (e) { console.log('segnali.json non scritto: ' + e.message); }
