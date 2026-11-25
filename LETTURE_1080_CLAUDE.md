@@ -13,3 +13,8 @@ ZF, TY e HS (Ren) stanno tutti in Li. Zhi Shi = View, in Kan. Vuoti dell'ora: Yi
 - Per "non segue": le porte sono tutte rovesciate; lo Zhi Shi (View) sta in Kan, di fronte allo ZF, e Kan (acqua) controlla Li (fuoco);
   nel palazzo dello ZF la porta Rest (acqua) controlla il palazzo (fuoco) e lo stelo Ren (acqua) sta in un palazzo di fuoco.
 - PREVISIONE DI CLAUDE: NON SEGUE, con movimento piccolo (le stelle ferme frenano). Passo 1 (bilancia): vedi tavola.
+- ESITO (guardato dopo, 25/11/2026): 12 uscite nello storico con trend ed esito, in 9 giorni: il mercato ha SEGUITO 12 volte su 12
+  (6 su 6 nel 2020-23, 6 su 6 nel 2024-26), in media 55 pip. PREVISIONE DI CLAUDE SBAGLIATA (12 su 12); il passo 1 diceva "fermo".
+- Controllo (qmdj_lavoro/fuyin.js): il fu yin di stelle e steli in generale NON dice "segue": 48,4% (678) · 48,5% (579); con le porte
+  di fronte 44,4% (36) · 73,0% (37); con le porte a casa 50,3% · 45,3%. Quindi il 12 su 12 e' di questa carta, non del fu yin.
+  Fra piu' di mille carte un 12 su 12 puo' anche uscire per caso. DA CHIEDERE A EDU: cosa in questa carta dice "segue".
