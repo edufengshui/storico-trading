@@ -237,3 +237,10 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   stelo dell'anno 53,6% · 46,1%. Il "nutrito" come lo calcola Claude NON separa: la definizione va rivista con Edu sulle carte.
   CABLATO (QMDJ_YS_PONTE default 'zfty'): fanno da ponte anche lo stelo dell'anno, Wu sopra Bing e Bing sopra Wu (Birth, View,
   stelo del mese e del giorno lo facevano gia'). Bilancia 52,7% · 52,2%, invariata. Carte 10-13 e USDCHF 12/10/2023 giuste.
+- CARTA 14, USDCAD 05/11/2026 (seme 139, Wu Wu, yin 5; trend SHORT, salito 46; Lio SHORT forte sbagliato; ZFTY "non segue" GIUSTO
+  perche' ZF in Kun genera TY in Dui; bilancia LONG 2-0 giusta). Portata a Edu col percorso del qi e gli Yong Shen scritti. Lettura di
+  Claude (conoscendo l'esito), DA VALIDARE: per non segue ZF genera TY, nel palazzo del TY stelo del mese (= HS) e Wu sopra Bing, Dui
+  forte nel mese, Birth in Zhen controlla lo ZF; per segue Dui tutto nel vuoto del giorno (Shen You), porta Death sul TY. Il giro
+  parte nell'ora Wu Wu (11-13 GMT). Flusso: il ramo del mese Xu in Qian genera Kan senza attori: il qi del mese non arriva a ZF ne' TY.
+  In pagina "Carte dove Lio sbaglia" in cima (artifact "Carte OAP", versione 1795622849-2aad). IN ATTESA della lettura di Edu,
+  soprattutto sul percorso del qi. Prossime carte perse da Lio mai presentate: EURJPY 30/10, USDCAD 12/11, AUDUSD 27/10, EURGBP 27/10.
