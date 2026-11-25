@@ -130,7 +130,11 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
      +273. MA molte di quelle carte sono proprio quelle su cui le regole del qimen sono state corrette (patto): nello storico
      forte + qimen contro vince 74,8% · 70,4%. Non e' una prova; la prova e' qmdj_live.json in avanti (dal 24/11).
   3) Per cross dal vivo: USDCHF 3 su 3 persi (SHORT contro trend, 16-19/11); USDCAD 4 vinti su 9; EURGBP 8 su 9.
-  PROPOSTA A EDU (in attesa): ristimare le affidabilita' di Lio su anni recenti (fino al 2025) e provarle su 2026 + vivo.
+  RISTIMA DI LIO FATTA (Edu: "Procedi"): vedi ESITI_LIO_RISTIMA_25_11_2026.md. ESITO NEGATIVO, NIENTE CABLATO IN LIO.
+  La prima prova (70% sul 2026) era gonfiata: le voci per forma hanno i cataloghi fatti su tutto lo storico (64-72% in ogni anno,
+  dal vivo 51-61%). Ristimando solo la dottrina: +1 punto sul 2026, 3-5 trade dal vivo: non basta. Abbassare i pesi di PB e DLR non
+  migliora. Fatto certo: il metodo Da Liu Ren e' calato (57,3% 2024-25 · 54,8% 2026 · 50,0% 19/09-16/10 · 45,9% vivo su 61).
+  NON RIPROVARE la ristima con le voci per forma dentro: e' una strada chiusa finche' i cataloghi non sono separati per data.
 
 ## PUNTI APERTI
 - La bilancia va RICOSTRUITA dentro qmdj.js: tutte le indicazioni valutate sempre (non solo quelle che la cascata raggiunge),
