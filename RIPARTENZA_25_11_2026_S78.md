@@ -76,6 +76,19 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   (Sul TY e su View il clash interno resta un peso, come dettato il 24 e il 25/11.) AUDUSD 25/11: bilancia QMDJ SHORT 2-0,
   con Lio LONG debole SHORT 2-1 (contro Lio).
 
+- Dal vivo (contato il 25/11): EA 10 trade in 4 giorni (18, 19, 20, 23/11), 4 vinti, -58,6 pip, -5,46 EUR. Lio nel registro dal
+  23/10: 62 trade chiusi, 36 vinti (58,1%), +418 pip; forti 16 su 28.
+- Edu (25/11): "Vorrei che tu applicassi il ragionamento multiplo che gia' hai adottato con Lio, alle carte qimen. Fallo sulla
+  prossima che Lio ha sbagliato". CARTA 12, AUDUSD 28/10/2026 (seme 70, Yi You, yin 2; trend LONG, salito 23; Lio SHORT media
+  sbagliato; ZFTY "non segue" sbagliato per la sola regola "ZF bloccato da una combinazione" Geng su Yi in Zhen; DsHs tace).
+  Lettura di Claude a bilancia (scritta conoscendo l'esito), DA VALIDARE: per "segue" TY in Kan genera ZF; DS e HS in Kan generano
+  ZF; View in Gen col Tai Sui (Bing, stelo dell'anno) forte e non clashata; ora Yi You che tocca lo ZF. Contro: combinazione
+  Geng-Yi; Zhen debole nel mese Xu; Kan debolissimo; You vuoto del giorno. Conclusione: segue.
+  TROVATO: con QMDJ_TAISUI_DOVE='stelo' (dottrina di Edu del 22/11) la regola di View scatta e il verdetto e' LONG, giusto; il
+  software sta ancora su 'ramo' perche' la decisione ramo/stelo era aperta.
+  DOMANDA A EDU: Geng sopra Yi nel palazzo dello ZF blocca davvero lo ZF, anche quando Yi e' lo stelo del giorno?
+  In pagina "Carte dove Lio sbaglia" in cima.
+
 ## PUNTI APERTI
 - La bilancia va RICOSTRUITA dentro qmdj.js: tutte le indicazioni valutate sempre (non solo quelle che la cascata raggiunge),
   stato del palazzo (debole, vuoto, clash interno, clash contro lo stelo del mese), elenco pro/contro mostrato sulla carta,
