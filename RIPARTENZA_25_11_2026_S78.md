@@ -91,7 +91,12 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   prove. Ora la carta 12 dice LONG, segue, giusto. Misura (qmdj_lavoro/comb_jia.js, trade di Lio): carte cambiate 37 -> 28 e
   26 -> 22; su quelle il verdetto giusto passa da 32,4% a 60,7% nel 2020-23 e resta 50,0% nel 2024-26; unito 54,4% -> 54,8% ·
   52,4% -> 52,4%. Dottrina: resta accesa.
-  ANCORA DA DECIDERE CON EDU: Tai Sui della regola di View su 'stelo' (oggi 'ramo').
+  TAI SUI: Edu (25/11): "Si', il Tai Sui e' lo stelo dell'anno nel qimen". CABLATO: QMDJ_TAISUI_DOVE default 'stelo' (View nel
+  palazzo del Tai Sui, ZF aiutato, eccezione di Geng 'ts', decide()); 'ramo' solo per le prove. DECISIONE CHIUSA (era aperta da S75).
+  Misura (qmdj_lavoro/taisui_stelo.js, taisui_view.js): COSTA un po'. Unito 54,8% -> 54,2% · 52,4% -> 51,6%; sulle carte cambiate
+  (176 · 189) il verdetto giusto scende da 54% a 46%. View col ramo dell'anno: il cross sale 51,1% · 55,2%; con lo stelo 52,9% ·
+  52,0% (tutte le carte 50,4% · 50,5%). ZF aiutato da Tai Sui (stelo) e DS: segue 59,0% · 42,5%. Detto a Edu; resta 'stelo' per dottrina.
+  Carta 12 con le due correzioni: ZFTY LONG, bilancia QMDJ LONG 2-0. Dal 26/11 la notte usa queste regole.
   In pagina "Carte dove Lio sbaglia" in cima.
 
 ## PUNTI APERTI
@@ -100,7 +105,7 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   e scritta ogni notte nel registro in avanti PRIMA dell'entrata. Proposto a Edu, non ancora fatto.
 - Fan yin totale nella bilancia: decide da solo o pesa di piu'? (Edu ha detto solo "e' un fan yin totale"; la misura non lo conferma.)
 - Carta 10: domanda senza risposta. Carte 3, 4, 6, 7 ancora in attesa (vedi S75). Da presentare: AUDUSD 28/10, EURJPY 06/11.
-- Regola di View: Tai Sui ramo/stelo, tenerla o spegnerla (S75/S76). "Segue forte". Wu = quale valuta. Repo pubblici o privati.
+- Regola di View: tenerla o spegnerla (S75/S76); il Tai Sui e' deciso: stelo (25/11). "Segue forte". Wu = quale valuta. Repo pubblici o privati.
 - EA: i 6 passi di S77 (TG_TOKEN, Worker nuovo, /telegram-collega, secondo cron, LioEA 1.10, prova). AutoTrading sul PC: spento?
 - 25/11 mattina: la raccolta notturna HA girato (segnali.json con forza, forza_lio, qmdj; qmdj_live.json con impronta bb9a43ae).
   Da guardare: l'EA e' entrato all'01:00 GMT del 25/11? (oggi 3 trade: USDCHF SHORT media, AUDUSD LONG debole, USDCAD SHORT debole)
