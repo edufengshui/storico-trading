@@ -39,6 +39,10 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Misura (qmdj_lavoro/fanyin_vuoti.js): fan yin totale + ZF toccato dai vuoti del giorno: segue 50,0% (32) · 50,0% (26), non separa;
   fan yin totale + ramo dell'ora vuoto del giorno: segue 41,9% (31) · 45,5% (11), nel verso giusto ma pochi casi.
   DA CHIEDERE A EDU: i vuoti del giorno su COSA (ZF/ZS in Kun, o l'ora You)?
+- Edu: "Se fan yin sta intorno al 50% non lo tradare!". ATTENZIONE, equivoco mio: il 50% era "il mercato segue il trend" (che e'
+  50% su TUTTE le carte), non "Lio vince". Misura giusta (qmdj_lavoro/fanyin_lio.js): nei giorni di fan yin totale Lio vince
+  70,9% (55 trade, +875 pip) · 59,0% (39, +455); col fan yin del software 67,0% (276, +5.733) · 63,5% (282, +4.229).
+  Saltarli farebbe perdere pip. Il principio di Edu resta: dove LIO sta intorno al 50% non si trada.
 - Pagina "Carte dove Lio sbaglia": carte 10 e 11 in cima (versione 1795597825-9c05).
 
 ## PUNTI APERTI
