@@ -1,3 +1,25 @@
+# Confronto fra il feed del Worker e il calcolo del backtest — 2026-11-25
+
+Ogni casella: Worker / backtest (barre orarie, chiusure delle 21:00 UTC lun-ven).
+
+| cross | seme | trend | consolidato | durata | esito di ieri (pip) | differenze |
+|---|---|---|---|---|---|---|
+| EURUSD | 109 / 109 | down / down | false / false | 11 / 11 | 57.7 / 57.7 | uguale |
+| GBPUSD | 131 / 131 | down / down | false / false | 11 / 11 | 82 / 82 | uguale |
+| USDJPY | 159 / 159 | up / up | false / false | 1 / 1 | 23.6 / 23.6 | uguale |
+| USDCHF | 83 / 83 | down / down | true / true | 1 / 1 | -60 / -60 | uguale |
+| AUDUSD | 66 / 66 | down / down | true / true | 14 / 14 | 12.1 / 12.1 | uguale |
+| USDCAD | 142 / 142 | up / up | true / true | 13 / 13 | -96.4 / -96.4 | uguale |
+| NZDUSD | 54 / 54 | down / down | true / true | 11 / 11 | 33.5 / 33.5 | uguale |
+| EURJPY | 174 / 174 | down / down | false / false | 9 / 9 | 117.2 / 117.2 | uguale |
+| EURGBP | 83 / 83 | down / up | false / false | 1 / 4 | -8.2 / -8.2 | TREND, durata |
+
+Trade del report col feed del Worker: USDCHF SHORT LI, AUDUSD LONG LI, USDCAD SHORT LI
+
+Trade del report coi dati calcolati come nel backtest: USDCHF SHORT LI, AUDUSD LONG LI, USDCAD SHORT LI
+
+---
+
 # Confronto fra il feed del Worker e il calcolo del backtest — 2026-11-24
 
 Ogni casella: Worker / backtest (barre orarie, chiusure delle 21:00 UTC lun-ven).

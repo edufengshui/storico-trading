@@ -1,6 +1,6 @@
 {
- "data": "2026-11-24",
- "generato": "2026-11-24T15:36:35.612Z",
+ "data": "2026-11-25",
+ "generato": "2026-11-25T00:12:58.355Z",
  "entrata_gmt": "01:00",
  "uscita_gmt": "21:00",
  "trades": [
@@ -9,7 +9,7 @@
    "dir": "SHORT",
    "forza": "media",
    "forza_lio": "media",
-   "qmdj": "contro"
+   "qmdj": "accordo"
   },
   {
    "cross": "AUDUSD",
@@ -17,6 +17,13 @@
    "forza": "debole",
    "forza_lio": "debole",
    "qmdj": "accordo"
+  },
+  {
+   "cross": "USDCAD",
+   "dir": "SHORT",
+   "forza": "debole",
+   "forza_lio": "debole",
+   "qmdj": "contro"
   }
  ]
 }

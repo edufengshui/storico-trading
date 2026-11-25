@@ -1,12 +1,12 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-11-24 15:36 GMT · feed del 2026-11-24 · trade proposti oggi: 2 (USDCHF SHORT, AUDUSD LONG) · esiti compilati stanotte: 0
+Aggiornato: 2026-11-25 00:12 GMT · feed del 2026-11-25 · trade proposti oggi: 3 (USDCHF SHORT, AUDUSD LONG, USDCAD SHORT) · esiti compilati stanotte: 2
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 126 | 68 | 55 | 55,3% | +441 |
+| **Totale** | 128 | 70 | 55 | 56% | +513 |
 | *Scala dal 09/10/2026: A = sistema attuale e DLR concordi · B = PB e LY concordi, DLR tace · C = DLR e Lettura concordi; i trade prima del 09/10 sono tradotti nella scala nuova* | | | | | |
 | Livello A | 28 | 15 | 13 | 53,6% | +150 |
 | Livello B | 6 | 4 | 2 | 66,7% | +162 |
@@ -15,9 +15,9 @@ Aggiornato: 2026-11-24 15:36 GMT · feed del 2026-11-24 · trade proposti oggi: 
 | In cantina dal 09/10, non tradato (solo osservato) | 7 | 4 | 3 | 57,1% | -34 |
 | Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
 | Mese 2026-10 | 65 | 31 | 33 | 48,4% | -189 |
-| Mese 2026-11 | 39 | 22 | 15 | 59,5% | +372 |
+| Mese 2026-11 | 41 | 24 | 15 | 61,5% | +444 |
 
-Trade ancora senza esito: 12. Un trade a 0 pip non conta ne' come vinto ne' come perso.
+Trade ancora senza esito: 13. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
 
