@@ -264,7 +264,7 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   bilancia "non segue" 3 a 1 SBAGLIATA). In pagina in cima (versione 1795630128-1a83). Lettura di Claude: Bing (HS, col TY) in tomba in
   Qian (Xu) e nel suo pilastro: NON validata da Edu, non cablata.
   RISPOSTA DI EDU: "Temo che la porta Death non porti benefici" (letta cosi': Death nel palazzo del TY non giova al TY).
-  CABLATO SOLO IN LOCALE (manca chiave.txt: DA PUSHARE in trading e copia in storico-trading): voce "Death TY" nella bilancia, peso 1,
+  CABLATO e caricato (trading de366b1, copia in storico-trading): voce "Death TY" nella bilancia, peso 1,
   solo sul TY, QMDJ_BIL_DEATH=false la spegne. Carta 15: 3 a 2, ancora "non segue" (sbagliata). Carta 14 (USDCAD 05/11): 2 a 1, resta giusta.
   MISURA (qmdj_lavoro/death_ty.js e conto a parte, 2020-23 · 2024-26): Death sul TY, il mercato segue 52,4% (315) · 53,2% (282);
   ZF genera TY CON Death sul TY: segue 57,8% (90) · 59,8% (82); ZF genera TY SENZA Death: segue 47,7% (369) · 47,8% (368).
@@ -273,3 +273,10 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Dubbio di Claude detto a Edu, senza risposta: il voto "Geng sopra Bing nel palazzo del trend" contro lo ZF vale, se quel Geng e' Jia?
 - ORA DI ENTRATA (Edu, foto AUDUSD 25/11: entrata 21 pip sopra l'apertura). Misura sui 65 trade dal vivo (23/10-25/11), 62 chiusi:
   entrata 00:00 407 pip (38 vinti) · 01:00 441 (37) · 02:00 393 (34) · 03:00 340 (36). Resta 01:00 GMT.
+- Edu alla proposta sull'annullamento: "Hai gia' corretto perche' chiedi ancora?" -> NON chiedere il permesso per completare una
+  correzione che lui ha gia' dettato: si cabla, si misura e gli si porta il risultato.
+  CABLATO e caricato (estensione di Claude, QMDJ_BIL_DEATH_GENERA=false la spegne): se lo ZF genera il TY e il TY ha la porta Death,
+  il voto "ZF genera il TY" non pesa. Misura (2020-23 · 2024-26): bilancia su tutte 53,0% -> 53,2% · 52,2% -> 52,6%; Lio col qimen
+  d'accordo 69,6% · 66,7%, contro 63,2% · 61,9%. Carta 15 (EURGBP 17/11): 2 a 2, qimen FERMO (non piu' sbagliata, non ancora giusta).
+  CONFLITTO DETTO A EDU: la carta 14 (USDCAD 05/11, Death sul TY in Dui, NON ha seguito; Edu: "ZF genera il TY") passa da "non segue"
+  giusto a FERMO 1 a 1. Da capire con Edu cosa distingue le due carte (nella 14 Dui era forte nel mese e aveva lo stelo del mese).
