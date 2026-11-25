@@ -193,3 +193,11 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   10 hanno seguito. Le 3 no: USDCHF 12/10/2023 (70 pip contro, giorno di notizia USA), EURJPY 04/07/2025 (12), USDJPY 29/09/2026 (8).
   Quindi l'idea di Edu regge nei casi puliti; le misure "sulla sola carta" al 48-49% erano gruppi troppo grossolani.
   Script: qmdj_lavoro/controllo_non_funziona.js. Mostrata a Edu USDCHF 12/10/2023: in attesa della sua lettura.
+- USDCHF 12/10/2023, Edu: "Ren del mese non fa da ponte?" (Ren, stelo del mese, e' il secondo stelo del cielo in Li, palazzo di
+  fuoco fra ZF in Zhen e TY in Gen). TROVATO: la regola "lo stelo del mese nel cielo fa da ponte" (Edu 27/10/2026) era SPENTA dal
+  24/10 per i pip e guardava solo il primo stelo. CABLATO: QMDJ_MESE_PONTE default 'zfty', vale anche il secondo stelo del cielo.
+  Misura (qmdj_lavoro/ponte_mese.js): con questo ponte vince il controllato 63,3% (109) · 58,3% (115); ZF controlla TY: non segue
+  58,6% (58) · 63,6% (66); senza ponti 50%. Bilancia su tutte le carte 53,0% · 52,0% (prima 52,9% · 51,8%).
+  CONFLITTO DETTO A EDU: sulla carta del 12/10/2023 il ponte NON scatta lo stesso, perche' il mese e' Xu e Li (fuoco) e' in tomba
+  nel mese = vuoto (regola di Edu del 24/10/2026, EURUSD 12/10: "Li e' in tomba nel mese"), e un ponte vuoto non passa il qi.
+  DOMANDA APERTA: lo stelo del mese nel palazzo lo fa passare lo stesso (lo "riempie") o no? In attesa di Edu.
