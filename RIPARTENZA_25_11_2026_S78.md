@@ -258,3 +258,18 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   PROSSIMA CARTA DA PORTARE A EDU: EURGBP 17/11/2026 (seme 83; trend SHORT, mercato SHORT 15; Lio LONG media sbagliato; bilancia
   "non segue" 3 a 1, SBAGLIATA). Poi EURGBP 27/10/2026 (zero voci, fermo; ha seguito di 10 pip).
   DA GUARDARE: esito dei tre trade del 25/11 (qimen contro Lio su tutti e tre: USDCHF LONG, AUDUSD SHORT, USDCAD LONG).
+
+## 25/11 SERA (chat aperta con "Trading - leggi ripartenza S78 e portami la carta EURGBP 17/11/2026")
+- CARTA 15, EURGBP 17/11/2026 (seme 83, Bing Xu, yin 6; trend SHORT, sceso 15; Lio LONG media sbagliato; ZF in Gen genera TY in Qian;
+  bilancia "non segue" 3 a 1 SBAGLIATA). In pagina in cima (versione 1795630128-1a83). Lettura di Claude: Bing (HS, col TY) in tomba in
+  Qian (Xu) e nel suo pilastro: NON validata da Edu, non cablata.
+  RISPOSTA DI EDU: "Temo che la porta Death non porti benefici" (letta cosi': Death nel palazzo del TY non giova al TY).
+  CABLATO SOLO IN LOCALE (manca chiave.txt: DA PUSHARE in trading e copia in storico-trading): voce "Death TY" nella bilancia, peso 1,
+  solo sul TY, QMDJ_BIL_DEATH=false la spegne. Carta 15: 3 a 2, ancora "non segue" (sbagliata). Carta 14 (USDCAD 05/11): 2 a 1, resta giusta.
+  MISURA (qmdj_lavoro/death_ty.js e conto a parte, 2020-23 · 2024-26): Death sul TY, il mercato segue 52,4% (315) · 53,2% (282);
+  ZF genera TY CON Death sul TY: segue 57,8% (90) · 59,8% (82); ZF genera TY SENZA Death: segue 47,7% (369) · 47,8% (368).
+  Bilancia su tutte 52,7% -> 53,0% · 52,2% -> 52,2%. Lio col qimen d'accordo 69,3% · 66,2%, contro 63,4% · 62,1% (invariato).
+  PROPOSTO A EDU, NON CABLATO: quando lo ZF genera il TY e il TY ha Death, Death annulla il voto "ZF genera TY" (o pesa di piu').
+  Dubbio di Claude detto a Edu, senza risposta: il voto "Geng sopra Bing nel palazzo del trend" contro lo ZF vale, se quel Geng e' Jia?
+- ORA DI ENTRATA (Edu, foto AUDUSD 25/11: entrata 21 pip sopra l'apertura). Misura sui 65 trade dal vivo (23/10-25/11), 62 chiusi:
+  entrata 00:00 407 pip (38 vinti) · 01:00 441 (37) · 02:00 393 (34) · 03:00 340 (36). Resta 01:00 GMT.
