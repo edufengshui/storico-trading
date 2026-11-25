@@ -188,3 +188,8 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   contrario"): misurato sulla sola carta e poi diviso per la stagione del mese (ESITI_1080_CARTE_25_11_2026.md, in fondo).
   NON CONFERMATO: senza ponte 48,1% · 49,4%; con ZF forte e TY debole 49,2% · 46,2%. Tengono nei due periodi solo: TY genera ZF con
   almeno uno dei due forte nel mese (segue 55,4% · 54,5%) e ZF/TY paralleli (segue solo 46,1% · 44,8%). Niente cablato. Detto a Edu.
+- CORREZIONE (25/11 pomeriggio): Edu ha chiesto "una carta dove il controllo non funziona e non ci sono altre spiegazioni". Nei casi
+  davvero puliti (ZFTY dice che ZF controlla TY e segue, niente ponte, niente fermo, niente contro, non lunedi') le giornate sono 13:
+  10 hanno seguito. Le 3 no: USDCHF 12/10/2023 (70 pip contro, giorno di notizia USA), EURJPY 04/07/2025 (12), USDJPY 29/09/2026 (8).
+  Quindi l'idea di Edu regge nei casi puliti; le misure "sulla sola carta" al 48-49% erano gruppi troppo grossolani.
+  Script: qmdj_lavoro/controllo_non_funziona.js. Mostrata a Edu USDCHF 12/10/2023: in attesa della sua lettura.
