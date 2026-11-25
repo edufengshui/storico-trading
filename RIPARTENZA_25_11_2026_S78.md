@@ -225,3 +225,15 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   serve a portare a Edu le carte nuove gia' con il percorso scritto. Non decide niente.
   MANCA LA DOTTRINA: cosa ferma il qi (vuoto, clash, combinazione, controllo), dove si accumula, e cosa vuol dire per ZF e TY. Da Edu
   finora un solo caso (USDCHF 12/10/2023: il flusso rende operativo il palazzo del ponte). Da raccogliere sulle carte nuove.
+- YONG SHEN (Edu 25/11, DOTTRINA): "Non e' che chi e' nutrito vince. Chi e' nutrito e' in grado di fare qualcosa allo ZF o al TY solo
+  se e' uno Yong Shen (YS), ovvero se ha qualcosa a che fare con l'argomento che stiamo trattando. Per esempio, lo stelo del mese,
+  del giorno, dell'anno, la porta View, la porta Birth, oppure Wu sopra Bing e il suo contrario sono YS."
+  In qmdj.js: yongShen(c, q), nutritoYS(c, p), azioniYS(c) (strumenti, esportati).
+  MISURE: a) YS nutrito che genera o controlla ZF o TY, contato come voto (qmdj_lavoro/yong_shen.js): 49,8% · 50,4%, non separa;
+  nutrito o non nutrito uguale. Lettura di Claude ("genera aiuta, controlla danneggia") SBAGLIATA o troppo grossolana: NON cablata.
+  b) YS come PONTE fra chi controlla e chi e' controllato (qmdj_lavoro/yong_shen_ponte.js): senza YS sul ponte vince il controllato
+  48,3% (377) · 48,9% (360); con uno YS sul ponte 53,6% (412) · 51,4% (395) nutrito, 54,2% (131) · 53,8% (132) non nutrito.
+  Per tipo: stelo del mese 62,6% · 57,9% (il piu' solido); Birth 55,0% · 52,6%; stelo del giorno 63,5% · 41,3%; View 49,7% · 52,2%;
+  stelo dell'anno 53,6% · 46,1%. Il "nutrito" come lo calcola Claude NON separa: la definizione va rivista con Edu sulle carte.
+  CABLATO (QMDJ_YS_PONTE default 'zfty'): fanno da ponte anche lo stelo dell'anno, Wu sopra Bing e Bing sopra Wu (Birth, View,
+  stelo del mese e del giorno lo facevano gia'). Bilancia 52,7% · 52,2%, invariata. Carte 10-13 e USDCHF 12/10/2023 giuste.
