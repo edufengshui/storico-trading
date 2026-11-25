@@ -34,6 +34,11 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   (59,7%, 58,3%; da giugno 53,6%) ma mai in perdita. Proposta fatta: sorvegliare ogni cross nel registro in avanti.
 - CARTA 11, AUDUSD 29/10/2026 (seme 70, Ding You, yin 2; trend LONG, sceso 29; Lio LONG debole sbagliato; QMDJ "non segue" GIUSTO
   per il fan yin; bilancia a 1 sbagliata). Edu: "E' un fan yin totale". Misura: il fan yin totale da solo non separa (48,4% · 50,9%).
+- Stessa carta, Edu alla domanda "oltre al fan yin totale cosa rendeva chiaro che non avrebbe seguito?": "I vuoti del giorno"
+  (Shen You: toccano Kun, dove stanno ZF e ZS, e Dui; anche il ramo dell'ora You e' vuoto del giorno). NON CABLATO: va nella bilancia.
+  Misura (qmdj_lavoro/fanyin_vuoti.js): fan yin totale + ZF toccato dai vuoti del giorno: segue 50,0% (32) · 50,0% (26), non separa;
+  fan yin totale + ramo dell'ora vuoto del giorno: segue 41,9% (31) · 45,5% (11), nel verso giusto ma pochi casi.
+  DA CHIEDERE A EDU: i vuoti del giorno su COSA (ZF/ZS in Kun, o l'ora You)?
 - Pagina "Carte dove Lio sbaglia": carte 10 e 11 in cima (versione 1795597825-9c05).
 
 ## PUNTI APERTI
