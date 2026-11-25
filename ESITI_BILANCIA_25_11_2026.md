@@ -59,3 +59,11 @@ AUDUSD anno per anno: 2020 62,0% +1.512 · 2021 62,2% +1.408 · 2022 72,2% +1.25
 2025 59,7% +871 · 2026 58,3% +758 (da giugno 2026: 53,6% su 28 trade, +289). Dal vivo col livello LI: 8 trade, 4 vinti, -3 pip.
 In calo dal 2025 ma mai in perdita in nessun anno.
 Bilancia sugli 8 AUDUSD dal vivo: dei 4 persi ne avrebbe fermato 1 (23/11, solo coi pesi a 1) e avrebbe saltato il migliore (04/11, +38).
+
+## CARTA 11 — AUDUSD 29/10/2026 e il fan yin totale (25/11)
+Seme 70, ora Ding You, yin 2; trend LONG, sceso 29 pip; Lio LONG debole sbagliato; DsHs, ZFTY e unito "non segue" GIUSTI (fan yin).
+La bilancia coi pesi a 1 sbagliava: 2 indicazioni per "segue" (l'ora genera il giorno, ora colpita) contro 1 (fan yin).
+Edu: "E' un fan yin totale" (stelle e porte tutte nel palazzo di fronte; ZF e ZS in Kun, TY e HS in Gen).
+Misura (qmdj_lavoro/fanyin_totale.js, tutti i lun-ven): fan yin totale (stelle e porte) il mercato segue 48,4% (157 carte) ·
+50,9% (110); fan yin del software (steli cielo/terra) 51,5% (814) · 47,4% (698); solo stelle 52,2% · 46,8%; solo porte 49,8% · 52,4%.
+Da solo il fan yin totale NON separa nello storico. Detto a Edu.
