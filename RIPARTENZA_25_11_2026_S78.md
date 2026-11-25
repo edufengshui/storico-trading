@@ -168,3 +168,10 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   contro Lio. ESITO DA GUARDARE (chiusura 21:00 GMT). La riga del 25/11 in qmdj_live.json non e' stata toccata.
 - DA FARE: mostrare PER SEGUE / PER NON SEGUE nella pagina "Carte dove Lio sbaglia"; portare dentro la bilancia le indicazioni che
   la cascata non scrive (va smontata regola per regola); provare i pesi sul registro in avanti.
+- CARTA 10 ripresentata (USDCHF 23/11/2026). Lettura di Claude a pro e contro: pesa di piu' il TY (HS, stelo del mese, ramo del
+  mese in Qian) -> non segue: SBAGLIATA. RISPOSTA DI EDU: "Il TY ha una penalita' nel suo palazzo". Capito da Claude (DA CONFERMARE
+  con Edu): autopenalita' Hai-Hai, mese Ji Hai e ora Ji Hai, e Hai sta in Qian. CABLATO nella bilancia (voce "penalita TY",
+  QMDJ_BIL_PENA=false la spegne): un ramo che si punisce da solo (Chen, Wu, You, Hai) in almeno due dei quattro pilastri e nel
+  palazzo del TY -> TY indebolito, segue. Solo sul TY. Ora la carta 10 dice LONG 1-0, segue, giusto.
+  Misura (qmdj_lavoro/pena_ty.js): pochi casi, 23 · 49 carte; il mercato segue 47,8% · 46,9%: la misura NON la conferma. Resta
+  accesa perche' dettata. Da chiedere se servono altre penalita' (Chou-Xu-Wei, Yin-Si-Shen, Zi-Mao) e se pesa anche su ZF, DS, HS.
