@@ -42,3 +42,20 @@ Le altre famiglie non spostano il risultato in modo stabile (Geng e View che cla
 - Edu, AUDUSD 25/11: "View ha un clash interno! Dui e' pure debole e il clash e' contro lo stelo del mese nel dipan". CABLATO come
   interruttore (trading: QMDJ_VIEW_SU_CLASH_INT, View con clash interno non spinge in su), poi Edu: va ragionato a bilancia, non con
   un interruttore. Misura dell'interruttore: unito 52,3% -> 52,2% · 51,8% -> 51,6%.
+
+## LIO PER CROSS (25/11, chiesto da Edu: "alcuni aggiustamenti sul singolo cross siano comunque necessari")
+Script: qmdj_lavoro/per_cross.py (tutti i trade LI del dump fino al 24/11/2026).
+Lio per cross (2020-23 · 2024-26): EURJPY 70,5% · 75,4%; USDJPY 69,4% · 70,2%; GBPUSD 73,4% · 60,4%; EURUSD 69,6% · 62,0%;
+AUDUSD 66,9% · 63,6%; EURGBP 65,7% · 59,1%; USDCHF 64,1% · 65,7%; NZDUSD 64,3% · 62,9%; USDCAD 62,3% · 63,0%.
+PROVA IN AVANTI (la decisione usa solo i trade precedenti di quel cross o di quel cross+forza):
+- SALTARE dove il passato e' negativo (sotto il 50%, sotto il 55%, in perdita di pip, ultimi 20/40/60 trade, anche con col/contro
+  il trend): TUTTE le varianti perdono pip nei due periodi. I trade saltati continuano a vincere (dal 52% al 75%) e a guadagnare
+  (da +343 a +3.401 pip per periodo). Un cross che e' andato male di recente NON continua ad andare male.
+- RADDOPPIARE dove il passato e' buono (cross+forza sopra il 70%): +27.441 e +24.446 pip, ma e' quasi lo stesso che raddoppiare
+  tutti i forti senza guardare il cross (+36.740 e +22.886): il cross aggiunge poco alla forza.
+- Caselle piatte nei due periodi: EURGBP debole 50,6% (+441) · 50,7% (-133). Le altre deboli cambiano da un periodo all'altro
+  (USDCAD debole 39,2% -> 58,6%; USDCHF debole 44,7% -> 61,7%; EURUSD media 69,2% -> 47,4%; GBPUSD media 71,3% -> 50,6%).
+AUDUSD anno per anno: 2020 62,0% +1.512 · 2021 62,2% +1.408 · 2022 72,2% +1.257 · 2023 75,0% +1.398 · 2024 71,4% +1.077 ·
+2025 59,7% +871 · 2026 58,3% +758 (da giugno 2026: 53,6% su 28 trade, +289). Dal vivo col livello LI: 8 trade, 4 vinti, -3 pip.
+In calo dal 2025 ma mai in perdita in nessun anno.
+Bilancia sugli 8 AUDUSD dal vivo: dei 4 persi ne avrebbe fermato 1 (23/11, solo coi pesi a 1) e avrebbe saltato il migliore (04/11, +38).
