@@ -249,3 +249,12 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Misura (qmdj_lavoro/genera_pulito.js): ZF genera TY, ZFTY dice non segue, niente ponti e nessuna voce per "segue": NON segue
   55,3% (114) · 53,4% (103); tutte le "ZF genera TY" 50,3% · 50,0%. In quelle giornate pulite Lio col qimen vince 73,2% · 65,9%,
   Lio contro il qimen (col trend) 59,6% · 61,7%: resta la regola di oggi (forte col qimen contro = lotto minimo), niente di nuovo cablato.
+- RASSEGNA DELLE 23 CARTE PERSE DA LIO DAL VIVO (23/10-24/11) con le regole di stasera: qimen (bilancia) giusto 17, sbagliato 2
+  (USDCAD 27/10, gia' vista; EURGBP 17/11/2026, MAI VISTA), fermo 4 (EURGBP 27/10 mai vista: zero voci; NZDUSD 28/10; USDCHF 19/11;
+  USDCAD 23/11). Su tutti i 59 trade dal vivo: Lio col qimen d'accordo 17 vinti su 19 (+420 pip); col qimen contro 9 su 26 (-130);
+  col qimen fermo 10 su 14 (+128). Qimen da solo giusto 34 su 45; vecchia cascata 43 su 54. ATTENZIONE: molte regole sono state
+  corrette proprio su queste carte: NON e' una prova (nello storico Lio col qimen d'accordo 69,0% · 66,6%, contro 64,1% · 62,9%).
+  La prova e' qmdj_live.json in avanti dal 26/11.
+  PROSSIMA CARTA DA PORTARE A EDU: EURGBP 17/11/2026 (seme 83; trend SHORT, mercato SHORT 15; Lio LONG media sbagliato; bilancia
+  "non segue" 3 a 1, SBAGLIATA). Poi EURGBP 27/10/2026 (zero voci, fermo; ha seguito di 10 pip).
+  DA GUARDARE: esito dei tre trade del 25/11 (qimen contro Lio su tutti e tre: USDCHF LONG, AUDUSD SHORT, USDCAD LONG).
