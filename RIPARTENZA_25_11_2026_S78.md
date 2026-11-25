@@ -184,3 +184,7 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Edu: "Mica vorrai che ti leggo tutte e 1080 carte spero" -> NON chiedergli la lettura delle carte: le legge Claude, a Edu solo
   il conto. Carte 1-21: 88 giuste su 175 uscite (50,3%); ogni carta ha solo 3-13 uscite con esito. La sola carta, letta da Claude,
   vale quanto la bilancia del software (51,1%). Da decidere con Edu se proseguire sulle altre o leggere la carta insieme a giorno e mese.
+- IMPRONTA DI BASE (Edu 25/11: "Se ZF controlla il TY e non c'e' un ponte, statisticamente dovrebbe seguire piu' spesso del
+  contrario"): misurato sulla sola carta e poi diviso per la stagione del mese (ESITI_1080_CARTE_25_11_2026.md, in fondo).
+  NON CONFERMATO: senza ponte 48,1% · 49,4%; con ZF forte e TY debole 49,2% · 46,2%. Tengono nei due periodi solo: TY genera ZF con
+  almeno uno dei due forte nel mese (segue 55,4% · 54,5%) e ZF/TY paralleli (segue solo 46,1% · 44,8%). Niente cablato. Detto a Edu.
