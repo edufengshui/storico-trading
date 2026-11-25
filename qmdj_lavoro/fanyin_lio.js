@@ -15,6 +15,13 @@ for(const x of D){const o=O[x.cross+x.date];if(o==null)continue;const seed=parse
   for(let k=1;k<=9;k++){if(k===5)continue;const d=c.palaces[k];if(SH[d.star]===OP[k])st++;if(DH[d.doorName||d.door]===OP[k])dr++;}
   const T=st>=7&&dr>=7,fy=/fan yin: non segue/.test(Q.lettura(c,x.trend,'dshs').motivo||''),ov=vuoti(c.giorno).indexOf(c.pilastro[1])>=0;
   const ct=x.liDir===x.trend?'col trend':'contro trend';
+  let zf=0;for(let k=1;k<=9;k++)if(k!==5&&c.palaces[k].zhiFu)zf=k;const PB={1:'子',8:'丑寅',3:'卯',4:'辰巳',9:'午',2:'未申',7:'酉',6:'戌亥'};const vg=vuoti(c.giorno);
+  const toc=zf&&PB[zf].split('').some(b=>vg.indexOf(b)>=0),tut=zf&&PB[zf].split('').every(b=>vg.indexOf(b)>=0);
+  if(toc){add('5 ZF toccato dai vuoti del giorno',x);add('5 ZF toccato dai vuoti del giorno | '+ct,x);add('5 ZF toccato dai vuoti del giorno | '+ct+' | '+x.liForza,x);}
+  if(tut){add('6 ZF tutto vuoto (giorno)',x);add('6 ZF tutto vuoto (giorno) | '+ct,x);}
+  if(!toc)add('7 ZF non toccato | '+ct,x);
+  if(T&&toc){add('8 fan yin totale + ZF toccato',x);add('8 fan yin totale + ZF toccato | '+ct,x);}
+  if((T||fy)&&toc){add('9 fan yin (totale o software) + ZF toccato',x);add('9 fan yin (totale o software) + ZF toccato | '+ct,x);}
   add('0 tutti i trade',x);
   if(T){add('1 fan yin TOTALE',x);add('1 fan yin TOTALE | '+ct,x);add('1 fan yin TOTALE | '+x.liForza,x);if(ov)add('1 fan yin TOTALE + ora vuota del giorno',x);}
   else add('2 senza fan yin totale',x);

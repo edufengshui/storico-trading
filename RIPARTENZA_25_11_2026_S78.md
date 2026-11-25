@@ -43,6 +43,11 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   50% su TUTTE le carte), non "Lio vince". Misura giusta (qmdj_lavoro/fanyin_lio.js): nei giorni di fan yin totale Lio vince
   70,9% (55 trade, +875 pip) · 59,0% (39, +455); col fan yin del software 67,0% (276, +5.733) · 63,5% (282, +4.229).
   Saltarli farebbe perdere pip. Il principio di Edu resta: dove LIO sta intorno al 50% non si trada.
+- Edu: "Ho anche detto che lo ZF e' vuoto": la sua lettura della carta 11 e' fan yin totale + ZF vuoto coi vuoti del giorno
+  (ZF in Kun, Shen vuoto) = non segue. Risposta alla domanda aperta: i vuoti del giorno sono sullo ZF.
+  Misura su Lio (fanyin_lio.js): ZF toccato dai vuoti del giorno, Lio vince 70,2% (554) · 65,5% (516), col trend 71,8% · 65,7%:
+  come sempre. Fan yin totale + ZF toccato: 9 trade (9 vinti) · 13 trade (7 vinti): troppo pochi per dire qualcosa.
+  Unico gruppo debole visto: ZF toccato + Lio debole contro il trend 43,6% (55) · 50,0% (62).
 - Pagina "Carte dove Lio sbaglia": carte 10 e 11 in cima (versione 1795597825-9c05).
 
 ## PUNTI APERTI
