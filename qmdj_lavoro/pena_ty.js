@@ -1,4 +1,4 @@
-// S79 (25/11/2026): penalita' nel palazzo del TY (carta 10). Nei giorni in cui la voce scatta: il mercato segue il trend? Lio vince?
+// S79 (25/11/2026): penalita' nel palazzo del TY (carta 10): Ji sopra Geng o Geng sopra Ji. Il mercato segue il trend? Lio vince?
 global.window=global; const lj=require('lunar-javascript'); global.Solar=lj.Solar; global.Lunar=lj.Lunar;
 const path=require('path'), DIR=path.join(__dirname,'..'); global.XKDGSolarTime=require(DIR+'/solar-time.js'); global.XKDGJieQiGMT=require(DIR+'/jieqi-gmt.js');
 const Q=require(DIR+'/qmdj.js'), fs=require('fs'), BR='子丑寅卯辰巳午未申酉戌亥';

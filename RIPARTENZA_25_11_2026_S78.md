@@ -169,9 +169,10 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
 - DA FARE: mostrare PER SEGUE / PER NON SEGUE nella pagina "Carte dove Lio sbaglia"; portare dentro la bilancia le indicazioni che
   la cascata non scrive (va smontata regola per regola); provare i pesi sul registro in avanti.
 - CARTA 10 ripresentata (USDCHF 23/11/2026). Lettura di Claude a pro e contro: pesa di piu' il TY (HS, stelo del mese, ramo del
-  mese in Qian) -> non segue: SBAGLIATA. RISPOSTA DI EDU: "Il TY ha una penalita' nel suo palazzo". Capito da Claude (DA CONFERMARE
-  con Edu): autopenalita' Hai-Hai, mese Ji Hai e ora Ji Hai, e Hai sta in Qian. CABLATO nella bilancia (voce "penalita TY",
-  QMDJ_BIL_PENA=false la spegne): un ramo che si punisce da solo (Chen, Wu, You, Hai) in almeno due dei quattro pilastri e nel
-  palazzo del TY -> TY indebolito, segue. Solo sul TY. Ora la carta 10 dice LONG 1-0, segue, giusto.
-  Misura (qmdj_lavoro/pena_ty.js): pochi casi, 23 · 49 carte; il mercato segue 47,8% · 46,9%: la misura NON la conferma. Resta
-  accesa perche' dettata. Da chiedere se servono altre penalita' (Chou-Xu-Wei, Yin-Si-Shen, Zi-Mao) e se pesa anche su ZF, DS, HS.
+  mese in Qian) -> non segue: SBAGLIATA. EDU: "Il TY ha una penalita' nel suo palazzo". Claude aveva capito l'autopenalita' Hai-Hai:
+  SBAGLIATO. EDU: "No, la penalita' e' Ji sopra Geng o l'opposto. E' tipica del qimen" (in Qian: Ji nel cielo sopra Geng nella terra).
+  CABLATO nella bilancia (voce "penalita TY", QMDJ_BIL_PENA=false la spegne): Ji sopra Geng o Geng sopra Ji nel palazzo del TY ->
+  TY indebolito, segue. Solo sul TY, come dettato (non chiesto: se pesa anche su ZF, DS, HS, View). Carta 10: LONG 1-0, segue, giusto.
+  MISURA (qmdj_lavoro/pena_ty.js): coi giorni di penalita' nel palazzo del TY il mercato segue 52,5% (101 carte, 2020-23) ma
+  37,0% (81 carte, 2024-26): nel secondo periodo va al contrario. Bilancia su quelle carte: 54,9% -> 58,6% · 41,3% -> 37,3%;
+  su tutte 52,9% · 51,8%. Lio in quei giorni 68,1% · 55,1%. Accesa perche' dettata. Detto a Edu.
