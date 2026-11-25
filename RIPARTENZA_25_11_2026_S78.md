@@ -108,6 +108,18 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   DOMANDA A EDU: il fan yin delle sole stelle e steli (non delle porte) pesa come il fan yin totale o meno?
   In pagina in cima (versione nuova). Da presentare dopo: le altre carte sbagliate da Lio dal registro (trade_persi.md).
 
+- Edu su EURJPY 06/11: "Lio ha comunque sbagliato questa carta, quindi o il qimen interviene per aggiustare la decisione finale
+  oppure bisogna capire perche' Lio ha sbagliato". TROVATO: "forte" in Lio vuol dire che i tre metodi sono d'accordo (qui 55%, 58%,
+  60%), non che non c'e' niente contro; fuori da Lio erano contro: Semplificato (regola 13), stelo, sistema D, qimen.
+  Misura (qmdj_lavoro/lio_voci_contro.js, 2020-23 · 2024-26): forte senza voci contro 85,2% · 77,4%; forte con Semplificato E qimen
+  contro 64,1% · 61,8% (resta sopra: si trada, a lotto minimo perche' il qimen e' contro); media con Semplificato E qimen contro
+  47,9% (146) · 45,4% (163), pip -461 · -617; debole col sistema D contro 36,7% (245) · 42,0% (193), pip -3.667 · -908;
+  media senza voci contro 77,5% · 73,0%; media col sistema D contro 51,4% · 45,0% (non cablato).
+  CABLATO in qmdj_registro.js (motivoNo; segnali.json scrive "saltati" col motivo), dal 26/11 NON vanno all'EA:
+  Lio debole col sistema D contro; Lio media col Semplificato e il qimen contro. Restano nel registro.
+  Dal vivo (23/10-24/11) i due filtri avrebbero tolto 11 trade: 5 vinti, 6 persi, -72 pip (fra cui AUDUSD 28/10, 29/10 e 23/11,
+  USDCAD 11/11, EURGBP 19/11). ATTENZIONE: gruppi scelti guardando lo storico; la prova e' il registro in avanti.
+
 ## PUNTI APERTI
 - La bilancia va RICOSTRUITA dentro qmdj.js: tutte le indicazioni valutate sempre (non solo quelle che la cascata raggiunge),
   stato del palazzo (debole, vuoto, clash interno, clash contro lo stelo del mese), elenco pro/contro mostrato sulla carta,

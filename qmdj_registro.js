@@ -41,16 +41,27 @@ function aggiorna(reg, data, DIR) {
 // unica casella sotto il 50% nei due periodi (ESITI_BILANCIA_25_11_2026.md). Il trade resta nel registro: si continua a misurarlo.
 // EURGBP debole (col trend e contro): 50,6% · 50,7% (Edu 25/11/2026: "Ovvio").
 const NON_TRADARE = [{ cross: 'AUDUSD', forza: 'debole', trend: 'contro' }, { cross: 'EURGBP', forza: 'debole' }];
-function nonTradare(t) {
+// S78 (25/11/2026, Edu su EURJPY 06/11: "o il qimen interviene per aggiustare la decisione finale oppure bisogna capire perche' Lio
+// ha sbagliato"): due tipi di trade dove Lio sta sotto il 50% nei due periodi (qmdj_lavoro/lio_voci_contro.js):
+//   - Lio debole col sistema D contro: 36,7% (245) · 42,0% (193), in perdita di pip in tutti e due;
+//   - Lio media col Semplificato E il qimen contro: 47,9% (146) · 45,4% (163), in perdita di pip in tutti e due.
+// Le voci si leggono dal testo del registro ("Sistema D SHORT", "Semplificato SHORT"); il qimen da qmdj_live (verso 'contro').
+function voce(t, nome) { const m = new RegExp('(?:^|[ ·‖]) ?' + nome + ' (LONG|SHORT)').exec(t.voci || t.decisore || ''); return m ? m[1] : null; }
+function motivoNo(t, versoQm) {
   const fl = t.forza || 'forte', ct = (t.trend === 'LONG' || t.trend === 'SHORT') ? (t.trend === t.signal ? 'con' : 'contro') : null;
-  return NON_TRADARE.some(n => n.cross === t.cross && (!n.forza || n.forza === fl) && (!n.trend || n.trend === ct));
+  if (NON_TRADARE.some(n => n.cross === t.cross && (!n.forza || n.forza === fl) && (!n.trend || n.trend === ct))) return 'casella del cross dove Lio sta intorno al 50%';
+  const op = t.signal === 'LONG' ? 'SHORT' : 'LONG';
+  if (fl === 'debole' && voce(t, 'Sistema D') === op) return 'Lio debole col sistema D contro';
+  if (fl === 'media' && voce(t, 'Semplificato') === op && versoQm === 'contro') return 'Lio media col Semplificato e il qimen contro';
+  return null;
 }
 function segnaliTrades(lio, qm) {
   const per = {}; ((qm && qm.trades) || []).forEach(r => { per[r.cross] = r.verso; });
-  return lio.filter(t => !nonTradare(t)).map(t => { const fl = t.forza || 'forte', v = per[t.cross] || 'manca';
+  return lio.filter(t => !motivoNo(t, per[t.cross])).map(t => { const fl = t.forza || 'forte', v = per[t.cross] || 'manca';
     return { cross: t.cross, dir: t.signal, forza: fl !== 'forte' ? fl : (v === 'accordo' ? 'forte' : 'forte-lotto-minimo'), forza_lio: fl, qmdj: v }; });
 }
-function segnaliSaltati(lio) { return lio.filter(nonTradare).map(t => ({ cross: t.cross, dir: t.signal, forza_lio: t.forza || 'forte', motivo: 'Lio intorno al 50% in questa casella' })); }
+function segnaliSaltati(lio, qm) { const per = {}; ((qm && qm.trades) || []).forEach(r => { per[r.cross] = r.verso; });
+  return lio.map(t => ({ t, m: motivoNo(t, per[t.cross]) })).filter(x => x.m).map(x => ({ cross: x.t.cross, dir: x.t.signal, forza_lio: x.t.forza || 'forte', motivo: x.m })); }
 module.exports = { aggiorna, segnaliTrades, segnaliSaltati };
 if (require.main === module) {   // prova a mano: node qmdj_registro.js AAAA-MM-GG
   global.window = global; const lj = require('lunar-javascript'); global.Solar = lj.Solar; global.Lunar = lj.Lunar;
