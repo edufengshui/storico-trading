@@ -200,4 +200,17 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   58,6% (58) · 63,6% (66); senza ponti 50%. Bilancia su tutte le carte 53,0% · 52,0% (prima 52,9% · 51,8%).
   CONFLITTO DETTO A EDU: sulla carta del 12/10/2023 il ponte NON scatta lo stesso, perche' il mese e' Xu e Li (fuoco) e' in tomba
   nel mese = vuoto (regola di Edu del 24/10/2026, EURUSD 12/10: "Li e' in tomba nel mese"), e un ponte vuoto non passa il qi.
-  DOMANDA APERTA: lo stelo del mese nel palazzo lo fa passare lo stesso (lo "riempie") o no? In attesa di Edu.
+  RISPOSTA DI EDU (25/11, DOTTRINA - FLUSSO DEL QI): "Quando si legge una carta qimen si deve comprendere la dinamica interna alla
+  carta e quindi il flusso del Qi. I palazzi comunicano fra di loro. Qui Qian, dove sta il ramo Xu del mese, genera Kan dove sta il
+  ZS, che genera Zhen dove sta il ZF, che genera Li dove sta un'ottima combinazione (Bing sopra Wu) con lo stelo del mese. Quindi e'
+  vero che Li sta in tomba ma riceve nutrimento quindi e' operativo. In piu', combinazioni di steli particolarmente favorevoli tipo
+  Bing + Wu con porta favorevole sono naturalmente significative."
+  CABLATO in qmdj.js (trading e copia), dentro vuoto(): un palazzo in tomba nel mese NON vale come vuoto se
+  a) e' nutrito: il qi parte dal palazzo del ramo del mese e gli arriva per generazione passando solo da palazzi con lo Zhi Shi o
+     lo ZF, al massimo tre passaggi (nutrito(); QMDJ_TOMBA_FLUSSO=false la spegne);
+  b) ha Bing nel cielo sopra Wu nella terra con porta Open, Rest o Birth (comboFavorevole(); QMDJ_TOMBA_COMBO=false la spegne).
+     Solo Bing-Wu: le altre combinazioni favorevoli NON sono cablate (Edu ha detto "tipo": da raccogliere carta per carta).
+  In piu' nella bilancia: se DS sta nel palazzo dello ZF e HS in quello del TY, il DsHs ripete la stessa relazione dello ZFTY e
+  si conta una volta sola. Carta USDCHF 12/10/2023: ora ponte dello stelo del mese, non segue, LONG, GIUSTO.
+  Misura (bilancia_decide.js): bilancia giusta 52,7% · 52,2% (prima 53,0% · 52,0%): invariata. Carte 10-13 invariate.
+  DA FARE: il flusso del qi fra palazzi come lettura generale (non solo per la tomba): chi nutre chi, dove finisce il qi.
