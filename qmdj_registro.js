@@ -18,8 +18,16 @@ function aggiorna(reg, data, DIR) {
     const tr = /LONG/i.test(t.trend) ? 'LONG' : /SHORT/i.test(t.trend) ? 'SHORT' : null; if (!tr) continue;
     const ch = Q.oraria(Date.UTC(p[0], p[1] - 1, p[2]), BR[((t.seed - 1) % 12 + 12) % 12]); if (!ch) continue;
     const u = Q.unito(ch, tr) || {};
+    // S78 (Edu 25/11/2026): la BILANCIA scritta prima dell'entrata. Indicazioni del QMDJ (pesi a 1) + Lio (1 punto, 2 se forte).
+    // Non decide niente: serve a contare in avanti.
+    let bil = null;
+    try { const b = Q.bilancia ? Q.bilancia(ch, tr) : null;
+      if (b) { const pl = (t.forza || 'forte') === 'forte' ? 2 : 1, L = b.long + (t.signal === 'LONG' ? pl : 0), S = b.short + (t.signal === 'SHORT' ? pl : 0);
+        bil = { qmdj: b.dir, long_qmdj: b.long, short_qmdj: b.short, long: L, short: S, dir: L > S ? 'LONG' : S > L ? 'SHORT' : null,
+          voci: b.voci.map(v => (v.dir ? v.dir + ' ' + v.peso : '-') + ' | ' + v.t).concat([t.signal + ' ' + pl + ' | Lio ' + (t.forza || 'forte')]) };
+        bil.verso = !bil.dir ? 'pari' : (bil.dir === t.signal ? 'per Lio' : 'contro Lio'); } } catch (e) {}
     righe.push({ cross: t.cross, lio: t.signal, forza: t.forza || '', trend: tr, seed: t.seed, qmdj: u.dir || null, da: u.da || null,
-      verso: !u.dir ? 'muto' : (u.dir === t.signal ? 'accordo' : 'contro'), segueForte: !!u.segueForte });
+      verso: !u.dir ? 'muto' : (u.dir === t.signal ? 'accordo' : 'contro'), segueForte: !!u.segueForte, bilancia: bil });
   }
   arch[data] = { scritto: new Date().toISOString(), regole: regole, trades: righe };
   fs.writeFileSync(file, JSON.stringify(arch, null, 1));

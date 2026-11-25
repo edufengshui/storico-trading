@@ -64,6 +64,17 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   in considerazione molti aspetti, non solo uno". Il clash interno era gia' stato dettato sulla carta 9 (TY) il 24/11: vale come
   PESO NEGATIVO su chiunque stia in quel palazzo (TY, View, ZF...), dentro la bilancia; non un interruttore per un solo caso.
 
+- BILANCIA DENTRO qmdj.js (Edu: "Si"), 25/11 mattina: funzione bilancia(c, trend) in qmdj.js (trading e copia in storico-trading).
+  NON cambia nessun verdetto, non entra nell'EA. Elenca, pesi a 1: argomenti dello ZFTY (DsHs se tace o paralleli) compreso
+  "il controllo tiene"; clash interno nel palazzo dello ZF (contro lo ZF) e del TY (contro il TY); se ZF controlla TY gli altri
+  fattori del 24/11; ZF vuoto / toccato dai vuoti del giorno; fan yin totale; ZF aiutato da Tai Sui e DS; View su, che vale 0 se
+  indebolita (clash interno, clash contro lo stelo del mese nel di pan, palazzo debole nel mese, DS timely, prossimo Commander).
+  qmdj_registro.js la scrive ogni notte in qmdj_live.json (campo "bilancia": voci, somma con Lio 1 punto, 2 se forte) dal 26/11.
+  LIMITE: gli argomenti interni sono ancora quelli che la cascata scrive. NON ANCORA MISURATA sullo storico.
+  Oggi 25/11: AUDUSD bilancia QMDJ SHORT 2-1 (con Lio 2-2 pari); USDCHF QMDJ LONG 2-1; USDCAD QMDJ LONG 2-1.
+  DOMANDA A EDU IN SOSPESO: il clash interno nel palazzo dello ZF (oggi Kun, Gui su Ding; il 23/11 Zhen) pesa contro lo ZF?
+  Lui l'ha dettato solo per TY e View: sullo ZF e' un'estensione di Claude.
+
 ## PUNTI APERTI
 - La bilancia va RICOSTRUITA dentro qmdj.js: tutte le indicazioni valutate sempre (non solo quelle che la cascata raggiunge),
   stato del palazzo (debole, vuoto, clash interno, clash contro lo stelo del mese), elenco pro/contro mostrato sulla carta,
