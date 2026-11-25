@@ -176,3 +176,7 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   MISURA (qmdj_lavoro/pena_ty.js): coi giorni di penalita' nel palazzo del TY il mercato segue 52,5% (101 carte, 2020-23) ma
   37,0% (81 carte, 2024-26): nel secondo periodo va al contrario. Bilancia su quelle carte: 54,9% -> 58,6% · 41,3% -> 37,3%;
   su tutte 52,9% · 51,8%. Lio in quei giorni 68,1% · 55,1%. Accesa perche' dettata. Detto a Edu.
+- LE 1080 CARTE (Edu 25/11: previsione a priori su tutte, poi verifica; "prima la 1 e poi la 2"). PASSO 1 FATTO: vedi
+  ESITI_1080_CARTE_25_11_2026.md. Tavola congelata QMDJ_1080_A_PRIORI.json (bilancia sulla sola carta: bilanciaCarta in qmdj.js).
+  Avverate 51,1% · 51,1% (2020-23 · 2024-26); dal vivo 34 su 54 (63%, pochi casi). PASSO 2 DA FARE: Claude legge le carte una per
+  una coi pro e i contro, a blocchi, partendo da quelle uscite piu' volte dove il passo 1 sbaglia; lettura scritta prima dell'esito.
