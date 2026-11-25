@@ -244,3 +244,8 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   parte nell'ora Wu Wu (11-13 GMT). Flusso: il ramo del mese Xu in Qian genera Kan senza attori: il qi del mese non arriva a ZF ne' TY.
   In pagina "Carte dove Lio sbaglia" in cima (artifact "Carte OAP", versione 1795622849-2aad). IN ATTESA della lettura di Edu,
   soprattutto sul percorso del qi. Prossime carte perse da Lio mai presentate: EURJPY 30/10, USDCAD 12/11, AUDUSD 27/10, EURGBP 27/10.
+  RISPOSTA DI EDU sulla carta 14: "ZF genera il TY". Basta questo: e' l'impronta di base, non servono altre spiegazioni (la domanda
+  di Claude su Dui vuoto era superflua). NON portargli carte che il qimen legge gia' giuste con una regola sola.
+  Misura (qmdj_lavoro/genera_pulito.js): ZF genera TY, ZFTY dice non segue, niente ponti e nessuna voce per "segue": NON segue
+  55,3% (114) · 53,4% (103); tutte le "ZF genera TY" 50,3% · 50,0%. In quelle giornate pulite Lio col qimen vince 73,2% · 65,9%,
+  Lio contro il qimen (col trend) 59,6% · 61,7%: resta la regola di oggi (forte col qimen contro = lotto minimo), niente di nuovo cablato.
