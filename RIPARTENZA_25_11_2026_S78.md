@@ -295,3 +295,11 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Lio col qimen d'accordo 69,6% · 67,3%, contro 62,3% · 61,9%. Dove il DsHs conferma, la relazione di base ha ragione 54,6% (434) ·
   54,5% (431). MA nel caso preciso "ZF genera TY confermato dal DsHs" il mercato segue 53,6% (112) · 53,3% (107): li' la conferma NON
   rafforza il "non segue" (detto a Edu). Con anche Death sul TY: 17 e 15 carte, troppo poche.
+- ESITO DEI TRE TRADE DEL 25/11 (qimen contro Lio su tutti e tre): USDCHF Lio SHORT vinto 49 (qimen LONG sbagliato); AUDUSD Lio LONG
+  perso 4 (qimen SHORT giusto); USDCAD Lio SHORT vinto 57 (qimen LONG sbagliato). Qimen 1 su 3, Lio 2 su 3.
+  DA PORTARE A EDU, una alla volta: le due carte del 25/11 dove il qimen ha sbagliato (USDCHF seme 83, USDCAD seme 142).
+- CARTA 16, EURGBP 27/10/2026 (seme 83, Jia Xu, yin 2; trend SHORT, sceso 10; Lio LONG forte sbagliato; fu yin totale, ZF/ZS/TY/DS/HS
+  tutti in Kan; qimen fermo, zero voci). Portata a Edu con immagine e in pagina in cima. Lettura di Claude: fermo e' giusto.
+  Stessa famiglia della carta 7 (USDCAD 03/11, fu yin, tutto in Kun), ancora in attesa.
+  Misure rifatte: fu yin totale, il mercato segue 50,3% (374) · 45,3% (311); Lio nei giorni di fu yin 68,4% · 64,9%.
+  qmdj_lavoro/fuyin_ampiezza.js: nei giorni di fu yin il mercato NON si muove meno (EURGBP mediana 20 · 12 pip contro 18 · 14).
