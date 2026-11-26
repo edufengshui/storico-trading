@@ -318,3 +318,16 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   (carta in cima con dati, bazi, disegno e lettura). Ogni carta: pubblicarla in cima alla pagina e dirgli subito, in testa alla
   risposta, di aprire la pagina "Carte OAP" (link https://claude.ai/artifact/Cj9fZazDDXeX4mb45V5TXq). Niente immagini sparse del solo
   disegno; in chat solo due righe di sintesi e l'eventuale domanda. carta_png.py resta come riserva se la pagina non si apre.
+- LETTURA DI EDU della carta 17 (USDCHF 25/11/2026), 26/11: "Gui sopra Ren con Injury e' una combinazione direzionale del Legno che e'
+  molto timely nel mese Hai e nel giorno Mao. Il TY sta su Li che e' invece drenato da View". (Gui = Jia Yin, Ren = Jia Chen, Injury =
+  Mao: Yin Mao Chen.) La traccia di Claude (il vuoto che si riempie nelle ore Chen e Si) NON e' stata confermata: non cablata.
+  CABLATO e caricato nella bilancia (qmdj.js, trading e copia): voce "direzionale ZF" = i rami portati dal palazzo dello ZF (steli,
+  porta, stella: rami3) formano una combinazione direzionale completa il cui elemento e' timely nel mese -> segue, peso 1
+  (QMDJ_BIL_DIREZ=false la spegne). Solo sullo ZF. "TY drenato da View" e' gia' la voce "flusso: ZF genera TY genera View" (non doppia).
+  Estensioni di Claude SPENTE: QMDJ_BIL_DIREZ_GIORNO (un punto in piu' se timely anche nel giorno), QMDJ_BIL_DIREZ_VUOTO (con la
+  combinazione i vuoti del giorno sullo ZF non pesano).
+  LA CARTA RESTA SBAGLIATA: non segue 3 (ZF genera TY; ZF tutto nel vuoto del giorno; il DsHs dice la stessa cosa) a 2 (flusso su
+  View; direzionale). Detto a Edu.
+  MISURA (qmdj_lavoro/direzionale_zf.js, 2020-23 · 2024-26): caso raro. Direzionale timely sullo ZF: il mercato segue 46,2% (52) ·
+  50,9% (55); timely anche nel giorno 41,7% (24) · 50,0% (22); con ZF genera TY 28,6% (14) · 40,0% (10). NON conferma.
+  Bilancia su tutte 53,8% -> 53,6% · 52,9% -> 52,6%. Accesa perche' dettata. Detto a Edu.
