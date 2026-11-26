@@ -381,3 +381,23 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   MISURA INSIEME (qmdj_lavoro/zf_sopra_xin.js, 2020-23 · 2024-26): ZF sopra Xin, il mercato segue 48,2% (249) · 51,8% (251); con ZF
   controlla TY 50,0% (60) · 51,4% (72); con ZF genera TY 61,5% (52) · 62,5% (56) (li' va al contrario); con Death sul TY 50,0% · 57,1%.
   Bilancia su tutte: 53,4% · 52,4% (senza) -> 53,5% · 52,5% (annulla); peso 1 53,6% · 52,5%; peso 3 53,9% · 52,2%. Non sposta.
+- DOTTRINA DI EDU (26/11 sera, carta 18): "Ma insomma, non riesci a collezionare? Injury in Kun sta pure in tomba e Gui (Jia Yin Gui)
+  clasha il palazzo. Lo ZF non ha l'energia per proseguire il trend." TAVOLE DETTATE ("per tua conoscenza"):
+  PORTE IN TOMBA: Rest in Xun; Injury e Delusion in Kun; View in Qian; Open e Shocking in Gen.
+  STELO DEL COMMANDER CHE CLASHA IL PALAZZO: Jia Yin Gui in Kun; Jia Shen Geng in Gen; "Jia Wu Zi in Li" (letto come Jia Zi Wu in Li,
+  Zi contro Wu: DA CONFERMARE; Jia Wu Xin in Kan non dettato, spento); Jia Xu Ji in Xun; Jia Chen Ren in Qian.
+  "Non vuole dire che con questi qua lo ZF va sempre male ma solo che vanno tenuti in considerazione nei punteggi".
+  RICHIAMO: Claude deve RACCOGLIERE da solo tutte le indicazioni di un palazzo (stelo sopra stelo, porta in tomba, clash col palazzo),
+  non aspettare che Edu le detti una alla volta.
+  CABLATO e caricato nella bilancia (qmdj.js, trading e copia): voci "porta ZF in tomba" e "ZF clasha il palazzo", peso 1 ciascuna, contro
+  lo ZF (non segue); QMDJ_BIL_ZFPAL=false le spegne. L'annullamento dei voti del controllo non scatta piu' per il solo Xin ma con almeno
+  2 indicazioni contro lo ZF nel suo palazzo (Geng, Xin, porta in tomba, clash): QMDJ_BIL_ZF_ENERGIA (costruzione di Claude).
+  Carta 18: NON segue 3 a 1, GIUSTA. Carta 14: non segue 5 a 1, giusta. Carta 17: 3 a 3 fermo. Carta 15 (EURGBP 17/11, ZF in Gen con
+  Open in tomba e Geng che clasha): torna "non segue" 4 a 2, SBAGLIATA (aveva seguito di 15).
+  MISURA INSIEME (qmdj_lavoro/zf_energia.js, 2020-23 · 2024-26, "il mercato segue"): indicazioni contro lo ZF 0: 49,4% (1978) · 48,0%
+  (1817); 1: 47,2% · 50,8%; 2: 54,8% (168) · 54,8% (166); 3 o 4: 62,5% (16) · 42,1% (19). Porta in tomba 57,2% · 51,9%; clash col
+  palazzo 55,7% · 52,0%. VA AL CONTRARIO: con due indicazioni contro lo ZF il mercato segue di piu'. Con ZF genera TY e 2 o piu':
+  segue 58,9% (56) · 61,3% (62); con ZF controlla TY e 2 o piu': 55,0% (40) · 47,7% (44).
+  Bilancia su tutte: 53,4% · 52,5% (prima) -> 52,4% · 52,1% (dettato). COSTA circa un punto. Accesa perche' dettata. Detto a Edu.
+  PROVA DI CLAUDE, SPENTA (QMDJ_BIL_ZFDEB='relazione'): uno ZF senza energia non fa cio' che dice la relazione di base (se controlla il
+  TY: non segue; se genera il TY: segue). Bilancia 52,9% · 52,9%; carta 15 giusta, carta 18 giusta, ma carta 14 sbagliata. Non scelta.
