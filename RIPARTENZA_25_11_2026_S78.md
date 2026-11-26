@@ -280,3 +280,18 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   d'accordo 69,6% · 66,7%, contro 63,2% · 61,9%. Carta 15 (EURGBP 17/11): 2 a 2, qimen FERMO (non piu' sbagliata, non ancora giusta).
   CONFLITTO DETTO A EDU: la carta 14 (USDCAD 05/11, Death sul TY in Dui, NON ha seguito; Edu: "ZF genera il TY") passa da "non segue"
   giusto a FERMO 1 a 1. Da capire con Edu cosa distingue le due carte (nella 14 Dui era forte nel mese e aveva lo stelo del mese).
+
+## 26/11 POMERIGGIO (stessa chat)
+- Edu ha richiesto la carta 14 (USDCAD 05/11/2026) e ha voluto ANCHE l'immagine in chat: ogni carta va mandata come immagine PNG
+  (node qmdj_lavoro/render.js ... poi google-chrome --headless --screenshot), non solo messa nella pagina.
+- RISPOSTA DI EDU sul conflitto fra carta 14 e carta 15 (Death sul TY in tutte e due): "Qui anche DsHs dicono la stessa cosa"
+  (carta 14: DS col ZF in Kun, HS col TY in Dui; il DsHs ripete "genera").
+  CABLATO e caricato nella bilancia (qmdj.js, trading e copia): quando DS sta nel palazzo dello ZF e HS in quello del TY
+  a) la porta Death sul TY NON toglie il peso a "ZF genera il TY" (QMDJ_BIL_DSHS_TIENE=false la spegne);
+  b) estensione di Claude: la conferma del DsHs e' una voce in piu', peso 1, nel verso della relazione di base dello ZFTY
+     (QMDJ_BIL_DSHS_CONF=false la spegne). Sostituisce nei fatti il "si conta una volta sola" del 25/11.
+  Carta 14: non segue 3 a 1, giusta. Carta 15 (EURGBP 17/11): resta 2 a 2, fermo.
+  MISURA (qmdj_lavoro/dshs_conferma.js, 2020-23 · 2024-26): bilancia giusta 53,2% · 52,6% (ieri) -> a) 53,4% · 52,5% -> a+b) 53,8% · 52,9%.
+  Lio col qimen d'accordo 69,6% · 67,3%, contro 62,3% · 61,9%. Dove il DsHs conferma, la relazione di base ha ragione 54,6% (434) ·
+  54,5% (431). MA nel caso preciso "ZF genera TY confermato dal DsHs" il mercato segue 53,6% (112) · 53,3% (107): li' la conferma NON
+  rafforza il "non segue" (detto a Edu). Con anche Death sul TY: 17 e 15 carte, troppo poche.
