@@ -341,3 +341,11 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Provato sui giorni 19, 23, 25, 26/11: stessi salti dell'EA. NON provato a schermo dal telefono: lo guarda Edu.
   LIMITE: la terza regola (Lio media col Semplificato e il qimen contro) l'app la sa solo dal file della notte (non ha il qimen dentro).
 - TITOLO DELL'APP (Edu 26/11: "devi mettere anche Lio e QMDJ nel titolo"): da "Scala A/B/C/D" a "Lio + QMDJ · Trading Calculator" (index.html, caricato).
+- CARTA 17, seconda indicazione di Edu (26/11): "Ren con Assistant e/o Delusion fa autopenalita' perche' entrambi contengono il ramo
+  Chen" (nel palazzo del TY in Li: Ren = Jia Chen; Assistant e Delusion di casa in Xun). CABLATO e caricato nella bilancia: voce
+  "autopenalita TY", Ren nel palazzo del TY con la stella Assistant o la porta Delusion -> TY indebolito, segue, peso 1
+  (QMDJ_BIL_AUTOPENA=false la spegne). Solo sul TY. Estensione di Claude SPENTA: QMDJ_BIL_AUTOPENA_WU (Xin con Hero o View, Wu-Wu).
+  Carta 17: 3 a 3, qimen FERMO (non piu' sbagliata, non ancora giusta). Carte 14 e 15 invariate.
+  MISURA (qmdj_lavoro/autopena_ty.js, 2020-23 · 2024-26): Ren con Assistant o Delusion sul TY, il mercato segue 45,5% (110) · 36,8% (95):
+  VA AL CONTRARIO nei due periodi. Bilancia su tutte 53,6% -> 53,4% · 52,6% -> 52,4%. Accesa perche' dettata. Detto a Edu.
+  DA CAPIRE con Edu: perche' sullo storico l'autopenalita' sul TY va col TY (forse pesa su chi sta nel palazzo solo in certe condizioni).
