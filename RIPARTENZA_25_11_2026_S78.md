@@ -331,3 +331,12 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   MISURA (qmdj_lavoro/direzionale_zf.js, 2020-23 · 2024-26): caso raro. Direzionale timely sullo ZF: il mercato segue 46,2% (52) ·
   50,9% (55); timely anche nel giorno 41,7% (24) · 50,0% (22); con ZF genera TY 28,6% (14) · 40,0% (10). NON conferma.
   Bilancia su tutte 53,8% -> 53,6% · 52,9% -> 52,6%. Accesa perche' dettata. Detto a Edu.
+- APP (Edu 26/11, foto di MT4 con due soli trade: "Il software non e' stato aggiornato altrimenti mostrerebbe solo due trade da
+  lanciare"). Il 25/11 i filtri dell'EA erano stati messi solo nella raccolta notturna (qmdj_registro.js), NON nell'app: errore di
+  Claude (regola del 21/09: cio' che decide va anche nel software a schermo).
+  CABLATO e caricato (app.js, i18n.js in trading; copie in storico-trading): i trade di Lio che non vanno all'EA escono da "DA TRADARE"
+  e vanno in una sezione "NON SI TRADANO · saltati anche su MetaTrader"; il conto in testata dice solo quelli da lanciare. Fonte:
+  segnali.json del giorno (lo stesso file dell'EA, letto da raw.githubusercontent); prima che esista, due regole calcolate dall'app
+  (casella del cross; Lio debole col sistema D contro). Il motivo si vede solo con le REGOLE accese. I saltati restano nel registro.
+  Provato sui giorni 19, 23, 25, 26/11: stessi salti dell'EA. NON provato a schermo dal telefono: lo guarda Edu.
+  LIMITE: la terza regola (Lio media col Semplificato e il qimen contro) l'app la sa solo dal file della notte (non ha il qimen dentro).
