@@ -366,3 +366,8 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   qi del mese solo al TY 40,4% (146) · 44,4% (142); TY in stagione 41,6% (190) · 51,9% (183); TY vuoto dell'ora 56,0% (50) · 34,6% (52);
   tre o quattro indicazioni 41,6% (113) · 46,9% (98); nessuna 53,7% (147) · 48,4% (122). La piu' solida: il qi del mese solo al TY.
   IN ATTESA della lettura di Edu. Prossime: le carte perse da Lio mai presentate con movimento sopra i 10 pip (trade_persi.md).
+- LETTURA DI EDU della carta 18 (USDCAD 25/11/2026), 26/11: "ZF controlla TY, View non fa da ponte per via della combinazione"
+  (View in Qian: Yi sopra Geng, combinazione Yi-Geng che lega il ponte). E' la stessa lettura della bilancia: SEGUE. Ma il mercato NON
+  ha seguito (57 pip contro). CONFLITTO DETTO A EDU: con la sua lettura la carta resta sbagliata; niente da cablare (la regola del ponte
+  legato da una combinazione c'e' gia', USDCHF 18/11). In attesa: per lui e' una carta persa contro il mercato o c'e' altro?
+  La traccia di Claude (il qi del mese va solo al TY: 40,4% · 44,4%) resta NON validata e non cablata.
