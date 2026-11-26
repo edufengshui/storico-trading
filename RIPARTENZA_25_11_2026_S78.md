@@ -314,3 +314,7 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
 - FORMATO (Edu 26/11: "Prima facevi la carta con tutti i commenti insieme"): ogni carta va mandata in chat come UNA SOLA immagine con
   intestazione, dati, bazi, disegno e lettura insieme (non il solo disegno piu' il testo a parte). Si fa cosi': prima la carta in cima
   alla pagina "Carte dove Lio sbaglia", poi python3 qmdj_lavoro/carta_png.py <index.html della pagina> 1 uscita.png, poi SendUserFile.
+- CORREZIONE SUL FORMATO (Edu 26/11, mostrando la pagina "Carte OAP": "Perche' non fai piu' questo?"): il formato che vuole e' LA PAGINA
+  (carta in cima con dati, bazi, disegno e lettura). Ogni carta: pubblicarla in cima alla pagina e dirgli subito, in testa alla
+  risposta, di aprire la pagina "Carte OAP" (link https://claude.ai/artifact/Cj9fZazDDXeX4mb45V5TXq). Niente immagini sparse del solo
+  disegno; in chat solo due righe di sintesi e l'eventuale domanda. carta_png.py resta come riserva se la pagina non si apre.
