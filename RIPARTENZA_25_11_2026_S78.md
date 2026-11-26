@@ -371,3 +371,13 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   ha seguito (57 pip contro). CONFLITTO DETTO A EDU: con la sua lettura la carta resta sbagliata; niente da cablare (la regola del ponte
   legato da una combinazione c'e' gia', USDCHF 18/11). In attesa: per lui e' una carta persa contro il mercato o c'e' altro?
   La traccia di Claude (il qi del mese va solo al TY: 40,4% · 44,4%) resta NON validata e non cablata.
+- CORREZIONE DI EDU sulla carta 18 (26/11): "Mi sono dimenticato di vedere lo ZF sopra Xin che cambia tutto" (ZF in Kun: Gui sopra
+  Ding e Xin, Xin e' lo stelo venuto dal centro). Quindi la carta dice NON segue (giusto). Corregge il "l'unico clash serio e' sopra
+  Geng" del 25/11: per lo ZF contano Geng e Xin (detto a Edu).
+  CABLATO e caricato nella bilancia (qmdj.js, trading e copia): voce "ZF sopra Xin" (Xin nel di pan del palazzo dello ZF, anche lo
+  stelo del centro) -> non segue, peso 1; in piu', lettura di Claude del "cambia tutto": se lo ZF controlla il TY, i voti che poggiano
+  sul controllo (base "controlla", "il controllo tiene", conferma del DsHs) non pesano. QMDJ_BIL_XIN: 'annulla' (default) | 'peso1' |
+  'peso3' | 'off'. Carta 18: da "segue" 4 a 0 a FERMO 1 a 1 (resta per "segue" la porta Death sul TY). Carte 14, 15, 17 invariate.
+  MISURA INSIEME (qmdj_lavoro/zf_sopra_xin.js, 2020-23 · 2024-26): ZF sopra Xin, il mercato segue 48,2% (249) · 51,8% (251); con ZF
+  controlla TY 50,0% (60) · 51,4% (72); con ZF genera TY 61,5% (52) · 62,5% (56) (li' va al contrario); con Death sul TY 50,0% · 57,1%.
+  Bilancia su tutte: 53,4% · 52,4% (senza) -> 53,5% · 52,5% (annulla); peso 1 53,6% · 52,5%; peso 3 53,9% · 52,2%. Non sposta.
