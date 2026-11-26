@@ -303,3 +303,11 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Stessa famiglia della carta 7 (USDCAD 03/11, fu yin, tutto in Kun), ancora in attesa.
   Misure rifatte: fu yin totale, il mercato segue 50,3% (374) · 45,3% (311); Lio nei giorni di fu yin 68,4% · 64,9%.
   qmdj_lavoro/fuyin_ampiezza.js: nei giorni di fu yin il mercato NON si muove meno (EURGBP mediana 20 · 12 pip contro 18 · 14).
+- REGOLA DI EDU (26/11): "se stiamo sotto i 10 pip non vale neanche la pena analizzare" -> NON portargli carte con un movimento
+  piccolo (fino a 10 pip circa); non analizzarle. La EURGBP 27/10 (10 pip) non andava portata.
+- CARTA 17, USDCHF 25/11/2026 (seme 83, Ren Xu, yin 8; trend SHORT, sceso 49; Lio SHORT media GIUSTO; cascata della notte SHORT
+  giusta; BILANCIA "non segue" 3 a 1 SBAGLIATA: ZF in Xun genera TY in Li, DsHs dice la stessa cosa (voto aggiunto il 26/11), ZF tutto
+  nel vuoto del giorno Chen Si; per segue solo il flusso ZF -> TY -> View che lo ZF controlla). Portata a Edu con immagine e in pagina.
+  Lettura di Claude, DA VALIDARE, NON cablata: il vuoto dello ZF si riempie nelle ore Chen e Si (il mercato parte in Bing Chen 7-9 GMT,
+  24 pip, poi Ding Si 17 e Wu Wu 19); Xun forte nel mese Hai, Li (TY) morto nel mese. IN ATTESA della lettura di Edu.
+  Poi: USDCAD 25/11/2026 (seme 142; Lio SHORT vinto 57, qimen LONG sbagliato).
