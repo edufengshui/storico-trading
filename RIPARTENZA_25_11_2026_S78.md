@@ -311,3 +311,6 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Lettura di Claude, DA VALIDARE, NON cablata: il vuoto dello ZF si riempie nelle ore Chen e Si (il mercato parte in Bing Chen 7-9 GMT,
   24 pip, poi Ding Si 17 e Wu Wu 19); Xun forte nel mese Hai, Li (TY) morto nel mese. IN ATTESA della lettura di Edu.
   Poi: USDCAD 25/11/2026 (seme 142; Lio SHORT vinto 57, qimen LONG sbagliato).
+- FORMATO (Edu 26/11: "Prima facevi la carta con tutti i commenti insieme"): ogni carta va mandata in chat come UNA SOLA immagine con
+  intestazione, dati, bazi, disegno e lettura insieme (non il solo disegno piu' il testo a parte). Si fa cosi': prima la carta in cima
+  alla pagina "Carte dove Lio sbaglia", poi python3 qmdj_lavoro/carta_png.py <index.html della pagina> 1 uscita.png, poi SendUserFile.
