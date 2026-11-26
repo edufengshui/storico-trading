@@ -401,3 +401,7 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   Bilancia su tutte: 53,4% · 52,5% (prima) -> 52,4% · 52,1% (dettato). COSTA circa un punto. Accesa perche' dettata. Detto a Edu.
   PROVA DI CLAUDE, SPENTA (QMDJ_BIL_ZFDEB='relazione'): uno ZF senza energia non fa cio' che dice la relazione di base (se controlla il
   TY: non segue; se genera il TY: segue). Bilancia 52,9% · 52,9%; carta 15 giusta, carta 18 giusta, ma carta 14 sbagliata. Non scelta.
+- CONFERMA DI EDU (26/11): "Giusto Jia Zi Wu in Li, Zi contro Wu. Jia Wu Xin in Kan pure, aggiungi entrambi". CABLATO e caricato: la
+  tavola dello stelo del Commander che clasha il palazzo ora ha tutte e sei le coppie (Gui/Kun, Geng/Gen, Wu/Li, Xin/Kan, Ji/Xun,
+  Ren/Qian). Misura gia' fatta (zf_energia.js, variante con Xin in Kan): bilancia 52,3% · 52,1% (senza Xin in Kan 52,4% · 52,1%).
+  Carte 14, 15, 17, 18 invariate. PUNTO APERTO: la tavola vale solo per lo ZF (cosi' dettata); non chiesto se pesa anche sul TY.
