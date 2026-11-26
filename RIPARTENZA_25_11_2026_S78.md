@@ -357,3 +357,12 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   BILANCIA PER MARGINE (tutte le voci insieme): giusta con margine 1 52,6% · 52,1%; margine 2 54,0% · 52,2%; margine 3 o piu' 54,6% ·
   53,2%. Lio col qimen d'accordo, margine 2 o piu' 71,2% · 67,1% (margine 1: 67,6% · 66,3%); qimen contro 63% · 62%; fermo 71,7% · 65,4%.
   Cioe': piu' indicazioni concordi, piu' la bilancia ha ragione (poco, ma nei due periodi).
+- Edu (26/11): "Bene, fai cosi'. Vai con la prossima" (misurare le indicazioni insieme e per margine: CONFERMATO come metodo).
+- CARTA 18, USDCAD 25/11/2026 (seme 142, Xin You, yin 8; trend LONG, sceso 57; Lio SHORT debole GIUSTO; BILANCIA "segue" 4 a 0
+  SBAGLIATA: ZF in Kun controlla TY in Kan, il controllo tiene, Death sul TY, DsHs dice la stessa cosa). In pagina in cima.
+  Lettura di Claude, DA VALIDARE, NON cablata: il controllo non tiene perche' il qi del mese va al TY (Hai in Qian con View genera Kan),
+  l'acqua e' in stagione nel mese Hai e la terra dello ZF debole, Kan tutto nel vuoto dell'ora (un vuoto non si lascia controllare).
+  Misura INSIEME (qmdj_lavoro/controllo_stagione.js, 2020-23 · 2024-26; ZF controlla TY: segue 48,1% (459) · 47,8% (450)):
+  qi del mese solo al TY 40,4% (146) · 44,4% (142); TY in stagione 41,6% (190) · 51,9% (183); TY vuoto dell'ora 56,0% (50) · 34,6% (52);
+  tre o quattro indicazioni 41,6% (113) · 46,9% (98); nessuna 53,7% (147) · 48,4% (122). La piu' solida: il qi del mese solo al TY.
+  IN ATTESA della lettura di Edu. Prossime: le carte perse da Lio mai presentate con movimento sopra i 10 pip (trade_persi.md).
