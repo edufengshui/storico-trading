@@ -340,3 +340,4 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   (casella del cross; Lio debole col sistema D contro). Il motivo si vede solo con le REGOLE accese. I saltati restano nel registro.
   Provato sui giorni 19, 23, 25, 26/11: stessi salti dell'EA. NON provato a schermo dal telefono: lo guarda Edu.
   LIMITE: la terza regola (Lio media col Semplificato e il qimen contro) l'app la sa solo dal file della notte (non ha il qimen dentro).
+- TITOLO DELL'APP (Edu 26/11: "devi mettere anche Lio e QMDJ nel titolo"): da "Scala A/B/C/D" a "Lio + QMDJ · Trading Calculator" (index.html, caricato).
