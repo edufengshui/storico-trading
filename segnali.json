@@ -1,29 +1,30 @@
 {
- "data": "2026-11-25",
- "generato": "2026-11-25T09:08:22.011Z",
+ "data": "2026-11-26",
+ "generato": "2026-11-26T00:13:00.111Z",
  "entrata_gmt": "01:00",
  "uscita_gmt": "21:00",
  "trades": [
   {
    "cross": "USDCHF",
-   "dir": "SHORT",
+   "dir": "LONG",
    "forza": "media",
    "forza_lio": "media",
-   "qmdj": "accordo"
-  },
-  {
-   "cross": "AUDUSD",
-   "dir": "LONG",
-   "forza": "debole",
-   "forza_lio": "debole",
-   "qmdj": "accordo"
+   "qmdj": "muto"
   },
   {
    "cross": "USDCAD",
    "dir": "SHORT",
-   "forza": "debole",
+   "forza": "forte",
+   "forza_lio": "forte",
+   "qmdj": "accordo"
+  }
+ ],
+ "saltati": [
+  {
+   "cross": "AUDUSD",
+   "dir": "SHORT",
    "forza_lio": "debole",
-   "qmdj": "contro"
+   "motivo": "Lio debole col sistema D contro"
   }
  ]
 }

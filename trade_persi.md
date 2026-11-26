@@ -1,12 +1,12 @@
 # Trade persi — raccolta automatica
 
-Aggiornato: 2026-11-25 09:08 GMT · feed del 2026-11-25 · trade proposti oggi: 3 (USDCHF SHORT, AUDUSD LONG, USDCAD SHORT) · esiti compilati stanotte: 0
+Aggiornato: 2026-11-26 00:13 GMT · feed del 2026-11-26 · trade proposti oggi: 3 (USDCHF LONG, AUDUSD SHORT, USDCAD SHORT) · esiti compilati stanotte: 3
 
 ## Statistica dal 2026-09-15
 
 | | trade chiusi | vinti | persi | successo | pip |
 |---|---|---|---|---|---|
-| **Totale** | 128 | 70 | 55 | 56% | +513 |
+| **Totale** | 131 | 72 | 56 | 56,3% | +615 |
 | *Scala dal 09/10/2026: A = sistema attuale e DLR concordi · B = PB e LY concordi, DLR tace · C = DLR e Lettura concordi; i trade prima del 09/10 sono tradotti nella scala nuova* | | | | | |
 | Livello A | 28 | 15 | 13 | 53,6% | +150 |
 | Livello B | 6 | 4 | 2 | 66,7% | +162 |
@@ -15,11 +15,20 @@ Aggiornato: 2026-11-25 09:08 GMT · feed del 2026-11-25 · trade proposti oggi: 
 | In cantina dal 09/10, non tradato (solo osservato) | 7 | 4 | 3 | 57,1% | -34 |
 | Mese 2026-09 | 22 | 15 | 7 | 68,2% | +258 |
 | Mese 2026-10 | 65 | 31 | 33 | 48,4% | -189 |
-| Mese 2026-11 | 41 | 24 | 15 | 61,5% | +444 |
+| Mese 2026-11 | 44 | 26 | 16 | 61,9% | +546 |
 
 Trade ancora senza esito: 13. Un trade a 0 pip non conta ne' come vinto ne' come perso.
 
 Trade perdenti del report:
+
+AUDUSD, 2026-11-25
+Trend EMA: SHORT
+Il sistema dice: LONG (non segue il trend)
+Esito: -4 pip
+Seme 66 · superiore 8 · inferiore 2 · mutante L2
+Bazi: 丙午 亥 癸卯
+Livello: LI · fiducia media · LEGGO IO: Metodo Liu Yao: Liu Yao LONG (—) 56%, lettura della carta LONG (T0k) 54%, sistema D SHORT 52%, LY per forma LONG 52% → LONG, affidabile 61% · Metodo Plum Blossom: Plum Blossom LONG 54%, PB per forma LONG 57% → LONG, affidabile 58% · Metodo Da Liu Ren: Da Liu Ren SHORT (O sul primo messaggio dal lato dello stelo, non nutrito) 68% → SHORT, affidabile 67%, peso 0,75 · Conclusione: LONG (margine 0,22, debole) ‖ PB LONG · LY LONG · attuale LONG · DLR SHORT · lettura della carta LONG (T0k si muove per combinarsi con una sede) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend segue (+1, SHORT) · Sistema D SHORT (8/2 L2: Se Shi: l'ora clash → NON SEGUE il trend (6/8); altrimenti SEGUE (7/12) · casi giusti 13/20 · oggi il tratto non c'e': segue il trend) · Sistema LY per forma LONG (8/2 L2: Se Shi prigioniero (囚) → BASSO (6/8); altrimenti ALTO (9/12) · casi giusti 15/20 · oggi il tratto non c'e': alto) · Sistema PB per forma LONG (8/2 L2: Se lo stelo del giorno ha lo stesso elemento del Trend → SEGUE il trend (5/8); altrimenti NON SEGUE (8/12) · casi giusti 13/20 · oggi il tratto non c'e': non segue il trend) · Colpo del mese tace · Semplificato SHORT (regola 9: se partenza in crescita e il giorno stesso ramo la partenza -> segue il trend (59 carte, 67.8%)) · Sistema DLR per forma tace (OGBP senza regola) · via DLR: O sul primo messaggio dal lato dello stelo, non nutrito
+Deciso da: Livello LI · Leggo io, conclusione debole · LEGGO IO: Metodo Liu Yao: Liu Yao LONG (—) 56%, lettura della carta LONG (T0k) 54%, sistema D SHORT 52%, LY per forma LONG 52% → LONG, affidabile 61% · Metodo Plum Blossom: Plum Blossom LONG 54%, PB per forma LONG 57% → LONG, affidabile 58% · Metodo Da Liu Ren: Da Liu Ren SHORT (O sul primo messaggio dal lato dello stelo, non nutrito) 68% → SHORT, affidabile 67%, peso 0,75 · Conclusione: LONG (margine 0,22, debole) ‖ PB LONG · LY LONG · attuale LONG · DLR SHORT · lettura della carta LONG (T0k si muove per combinarsi con una sede) · Spirito tace · stelo tace · Sistema-trend tace · Metodo del trend segue (+1, SHORT) · Sistema D SHORT (8/2 L2: Se Shi: l'ora clash → NON SEGUE il trend (6/8); altrimenti SEGUE (7/12) · casi giusti 13/20 · oggi il tratto non c'e': segue il trend) · Sistema LY per forma LONG (8/2 L2: Se Shi prigioniero (囚) → BASSO (6/8); altrimenti ALTO (9/12) · casi giusti 15/20 · oggi il tratto non c'e': alto) · Sistema PB per forma LONG (8/2 L2: Se lo stelo del giorno ha lo stesso elemento del Trend → SEGUE il trend (5/8); altrimenti NON SEGUE (8/12) · casi giusti 13/20 · oggi il tratto non c'e': non segue il trend) · Colpo del mese tace · Semplificato SHORT (regola 9: se partenza in crescita e il giorno stesso ramo la partenza -> segue il trend (59 carte, 67.8%)) · Sistema DLR per forma tace (OGBP senza regola)
 
 USDCHF, 2026-11-23
 Trend EMA: LONG

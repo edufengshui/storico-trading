@@ -65,5 +65,98 @@
     "segueForte": false
    }
   ]
+ },
+ "2026-11-26": {
+  "scritto": "2026-11-26T00:12:59.986Z",
+  "regole": "2efe0119",
+  "trades": [
+   {
+    "cross": "USDCHF",
+    "lio": "LONG",
+    "forza": "media",
+    "trend": "SHORT",
+    "seed": 83,
+    "qmdj": null,
+    "da": "bilancia",
+    "cascata": "SHORT",
+    "motivo": "Bilancia: per \"segue\" 1, per \"non segue\" 1 -> alla pari, fermo · PER SEGUE: DsHs (ZF e TY paralleli): View clasha la controparte · PER NON SEGUE: DsHs (ZF e TY paralleli): il giorno genera l'ora",
+    "flusso": "ZF e TY nello stesso palazzo",
+    "verso": "muto",
+    "segueForte": false,
+    "bilancia": {
+     "qmdj": null,
+     "long_qmdj": 1,
+     "short_qmdj": 1,
+     "long": 2,
+     "short": 1,
+     "dir": "LONG",
+     "voci": [
+      "LONG 1 | DsHs (ZF e TY paralleli): il giorno genera l'ora -> non segue",
+      "SHORT 1 | DsHs (ZF e TY paralleli): View clasha la controparte -> segue",
+      "LONG 1 | Lio media"
+     ],
+     "verso": "per Lio"
+    }
+   },
+   {
+    "cross": "AUDUSD",
+    "lio": "SHORT",
+    "forza": "debole",
+    "trend": "SHORT",
+    "seed": 66,
+    "qmdj": "LONG",
+    "da": "bilancia",
+    "cascata": "LONG",
+    "motivo": "Bilancia: per \"segue\" 0, per \"non segue\" 2 -> non segue · PER SEGUE: niente · PER NON SEGUE: ZFTY: il giorno genera l'ora; DsHs: l'ora controlla il giorno",
+    "flusso": "il qi passa dallo ZF e finisce sul TY: Qian (ZS) genera Kan (ZF) genera Xun (TY)",
+    "verso": "contro",
+    "segueForte": false,
+    "bilancia": {
+     "qmdj": "LONG",
+     "long_qmdj": 2,
+     "short_qmdj": 0,
+     "long": 2,
+     "short": 1,
+     "dir": "LONG",
+     "voci": [
+      "LONG 1 | ZFTY: il giorno genera l'ora -> non segue",
+      "LONG 1 | DsHs: l'ora controlla il giorno -> non segue",
+      "LONG 0 | View in Dui: il cross tende a salire — ma View e' indebolita, non spinge",
+      "- | contro View: clash interno nel suo palazzo",
+      "- | contro View: Dui e' debole nel mese",
+      "SHORT 1 | Lio debole"
+     ],
+     "verso": "contro Lio"
+    }
+   },
+   {
+    "cross": "USDCAD",
+    "lio": "SHORT",
+    "forza": "forte",
+    "trend": "SHORT",
+    "seed": 142,
+    "qmdj": "SHORT",
+    "da": "bilancia",
+    "cascata": "SHORT",
+    "motivo": "Bilancia: per \"segue\" 2, per \"non segue\" 0 -> segue · PER SEGUE: ZFTY: l'ora genera il giorno; DsHs: l'ora controlla il giorno (反侮) · ponte Wu: passamano, vince il giorno · PER NON SEGUE: niente",
+    "flusso": "il qi del mese nutre lo ZF: Qian (ZF)",
+    "verso": "accordo",
+    "segueForte": false,
+    "bilancia": {
+     "qmdj": "SHORT",
+     "long_qmdj": 0,
+     "short_qmdj": 2,
+     "long": 0,
+     "short": 4,
+     "dir": "SHORT",
+     "voci": [
+      "SHORT 1 | ZFTY: l'ora genera il giorno -> segue",
+      "SHORT 1 | DsHs: l'ora controlla il giorno (反侮) · ponte Wu: passamano, vince il giorno -> segue",
+      "SHORT 2 | Lio forte"
+     ],
+     "verso": "per Lio"
+    }
+   }
+  ]
  }
 }
