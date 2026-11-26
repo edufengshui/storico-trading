@@ -349,3 +349,11 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
   MISURA (qmdj_lavoro/autopena_ty.js, 2020-23 · 2024-26): Ren con Assistant o Delusion sul TY, il mercato segue 45,5% (110) · 36,8% (95):
   VA AL CONTRARIO nei due periodi. Bilancia su tutte 53,6% -> 53,4% · 52,6% -> 52,4%. Accesa perche' dettata. Detto a Edu.
   DA CAPIRE con Edu: perche' sullo storico l'autopenalita' sul TY va col TY (forse pesa su chi sta nel palazzo solo in certe condizioni).
+- RIMPROVERO DI EDU (26/11): "Hai messo insieme le tre condizioni oppure fai sempre le statistiche su una singola come se una sola
+  condizione deve sempre decidere?" -> le indicazioni dettate su una carta si misurano INSIEME (quante ne sono presenti, e la bilancia
+  per margine), non una per volta. Misura (qmdj_lavoro/insieme_26_11.js, 2020-23 · 2024-26, "il mercato segue"):
+  le tre della carta 17 insieme (direzionale ZF, TY drenato da View, autopenalita' Chen sul TY): 1 sola carta in sei anni (non ha
+  seguito) -> non misurabile; due su tre 41,9% (43) · 36,2% (47); una 50,5% (479) · 47,8% (418); nessuna 49,2% · 49,6%.
+  BILANCIA PER MARGINE (tutte le voci insieme): giusta con margine 1 52,6% · 52,1%; margine 2 54,0% · 52,2%; margine 3 o piu' 54,6% ·
+  53,2%. Lio col qimen d'accordo, margine 2 o piu' 71,2% · 67,1% (margine 1: 67,6% · 66,3%); qimen contro 63% · 62%; fermo 71,7% · 65,4%.
+  Cioe': piu' indicazioni concordi, piu' la bilancia ha ragione (poco, ma nei due periodi).
