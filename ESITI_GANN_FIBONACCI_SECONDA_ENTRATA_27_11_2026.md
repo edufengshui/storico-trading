@@ -145,3 +145,12 @@ ampiezza 0,94 · 1,01; ora piu' forte del giorno 13,5% · 11,8% (caso 11%). Stel
 nel cielo 47,4% (57) · 49,0% (49). Autoclash dello ZF col TY che genera lo ZF: 58,7% (150), +16 · 55,6% (169), +23.
 Giorni col TY che genera lo ZF e DUE ore di autoclash del TY (come questa carta): 11 · 11 giorni soltanto.
 Da sola l'indicazione non separa e i casi sono pochi: va raccolta con le altre, carta per carta. Pagina "Carte OAP": carta in cima.
+
+CARTA ORE 2 — EURJPY 24/09/2026 (seme 180, Ji Hai, yin 1; trend LONG, salito 54: SEGUE; Lio LONG media giusto; bilancia LONG 5 a 1 giusta).
+ZF in Li (Xin sopra Ji), TY in Zhen (Ji sopra Bing), DS Xin in Li con lo ZF (e nella terra di Dui), HS Ji in Zhen col TY. Vuoti Chen Si. Mese You in Dui,
+di fronte al TY. Ore: Wu Zi 00-01 27 contro; Xin Mao 05-07 66 pip con il trend (tutta la giornata); Jia Wu 11-13 (ora propria del Commander) 6 contro;
+Yi Wei 13-15 25 con. Lettura di Claude, DA VALIDARE: TY genera ZF; Xin Mao clasha il TY al rovescio (ramo Mao nel palazzo del TY, stelo Xin nel palazzo
+opposto Dui e con lo ZF). DOMANDA A EDU, IN ATTESA: e' anche questo un autoclash del TY o conta che Xin e' il DS e sta con lo ZF?
+Portata in pagina "Carte OAP" in cima. Strumento nuovo: qmdj_lavoro/carta_dump.js CROSS data (dati della carta per i giorni prima del registro).
+Prossime candidate (un'ora sola, mai lette, da /tmp/cand.js rifacibile): USDJPY 11/09 (Wu Wu 46 con), EURUSD 01/10 (Geng Shen 46 con), EURJPY 14/10
+(Jia Wu 47 con), USDCAD 14/10 (Jia Wu 52 con), EURJPY 02/10 (Xin Wei 78 contro), EURUSD 15/10 (Xin Chou 46 contro), AUDUSD 16/09 (Xin You 40 con, giorno fermo).
