@@ -65,3 +65,14 @@ Il campo medio oggi: EURUSD 57 pip, USDCHF 51, USDCAD 59, USDJPY 67, EURGBP 19 (
   un piccolo effetto di ripresa dopo le svolte grandi, non legato ai numeri di Fibonacci.
   Con Lio nello stesso verso della gamba (svolta 1,5): 68,5% (203) · 65,1% (169); Lio nel verso opposto 43,3% · 46,4%: è Lio, non il livello.
 CONCLUSIONE: Fibonacci non aggiunge niente, comunque lo si agganci. Strada chiusa salvo regole precise di un trader.
+
+## 7. Fibonacci agganciato ai JieQi (Edu: "Se lo agganciano ai JieQi?") — gann_fibo/fibo_jieqi.py
+Ancora = prezzo orario all'istante del JieQi (GMT). Due serie: i 24 termini e i soli 12 Jie.
+- Gamba dal JieQi al prezzo più lontano raggiunto, entrata sul ritracciamento nel verso della gamba, uscita 21:00:
+  24 termini Fibonacci 47,9% · 47,1% (-2,3 pip), qualunque 47,8% · 47,7%; 12 Jie Fibonacci 48,6% · 47,5%, qualunque 48,4% · 47,4%. UGUALI.
+  Con Lio nello stesso verso 61,0% · 60,9%; nel verso opposto 39,4% · 40,9%: decide Lio.
+- Livelli dal prezzo del JieQi misurati col campo del termine precedente (A ± r × campo), attraversamento: prosegue 47-51% sia coi
+  rapporti di Fibonacci sia coi qualunque.
+- Giorno del JieQi: il mercato segue il trend EMA 46,9% · 46,7% nel giorno del Jie (414 · 306), 46,1% · 51,2% nel giorno del Qi;
+  Lio nel giorno del Jie 70,1% (154) · 68,3% (101), negli altri giorni 66,5% · 64,3%. Giorni di Fibonacci dal Jie (5, 8, 13, 21): 50,8% · 51,1%.
+CONCLUSIONE: nemmeno agganciato ai JieQi. Unico spunto, debole: nel giorno del Jie il mercato segue il trend un po' meno (47%).
