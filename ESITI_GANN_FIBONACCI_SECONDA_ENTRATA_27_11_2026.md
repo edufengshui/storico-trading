@@ -97,3 +97,21 @@ alla media di quell'ora dell'orologio. Relazioni SINGOLE, una per volta (limite:
 - Ampiezza: nessuna relazione muove il prezzo più del normale (tutte fra 0,95 e 1,06).
 Le ore dello schema del Commander (qimen) erano già state misurate il 28/10/2026 (S63): in media come le ore normali; tiene solo
 "fu yin + ramo opposto" (36-38% col trend). Strada ancora aperta: le carte con lo schema completo, lette una per una con Edu.
+
+## 10. L'ora del qimen per scegliere QUANDO fare la seconda entrata (Edu 27/11: "Ore qimen") — qmdj_lavoro/ore_seconda.js
+Trade di Lio forti e medi (1.877 · 1.779). Seconda entrata all'apertura della prima ora dello schema del Commander (qmdj_ore.js), nel verso di
+Lio, uscita 21:00, 1,5 pip di spread. Confronto: l'attesa della stessa ora dell'orologio su tutti i trade (entrare piu' tardi rende meno:
+ore 02 +23,5 · +16,1; ore 07 +20,7 · +12,9; ore 12 +12,6 · +8,3).
+- Schema completo (stelo dell'ora col Commander, ramo opposto/identico/che genera, carta normale, mese non opposto), ore 02-07:
+  70,2% (904), +20,9 pip · 63,1% (884), +15,5; attesa di quelle ore +22,1 · +14,6. UGUALE a un'ora qualunque.
+- Con lo stelo del giorno positivo: +20,4 · +16,5 (attesa +22,2 · +14,6). Ramo opposto: +20,9 · +15,3. Ramo identico: +20,8 · +17,6.
+  Ora propria del Commander: +20,9 · +11,9. Schema largo 02-16: +22,0 · +14,0. Niente si stacca nei due periodi.
+- Ritracciamento raggiunto (regola cablata) e poi un'ora dello schema: entrare SUBITO +24,4 · +21,9; ASPETTARE l'ora +23,1 · +19,3. Aspettare costa.
+- Ritracciamento raggiunto dentro un'ora dello schema completo: 67,8% (146), +26,4 · 57,1% (154), +15,0; fuori: 75,2%, +28,5 · 66,8%, +20,5.
+- Movimento dentro l'ora (due barre) nel verso di Lio, millesimi di campo: schema completo +28 · +27; ore normali +38 · +29. L'ora non spinge verso Lio.
+- Diviso per il verdetto del qimen (bilancia): qimen con Lio, ora dello schema +23,9 · +15,8 (attesa +24,4 · +15,2); contro Lio +16,8 · +12,8
+  (attesa +19,0 · +12,3); fermo +19,0 · +17,4 (attesa +20,5 · +15,4). Uguale.
+- Cio' che conta resta il PREZZO: all'ora dello schema col prezzo contro Lio di 0,2 o piu' +28,5 · +16,9; gia' a favore di Lio +16,3 · +10,4.
+CONCLUSIONE: lo schema dell'ora del Commander, cosi' com'e' nel codice, non dice quando fare la seconda entrata. Resta la regola del
+ritracciamento. LIMITE: lo schema nel codice e' largo (un'ora dello schema c'e' quasi ogni giorno); le regole OAP lette da Edu sulle carte
+(S66, OAP_S69.md: stelo e ramo dell'ora nel palazzo che decide) non sono nel codice e non sono misurate qui.
