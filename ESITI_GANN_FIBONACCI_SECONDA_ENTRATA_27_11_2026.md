@@ -193,3 +193,14 @@ ZF in Kun (Wu sopra Yi e Gui, Death), TY in Zhen (Yi e Gui sopra Bing, Injury): 
 Gui in Zhen e nella terra di Kun. Vuoti del giorno Zi Chou, dell'ora Xu Hai. Ore: fermo fino alle 11; Geng Wu 11-13 42 pip con il trend; Xin Wei
 13-15 21 contro. L'ora grande NON e' autoclash ne' completa. Lettura di Claude, DA VALIDARE: Geng (cielo di Dui, palazzo del mese, di fronte al TY)
 controlla il TY; Wu (Li, View) genera lo ZF. DOMANDA A EDU IN ATTESA: "Geng Wu come la leggi?". In pagina in cima.
+
+CORREZIONE DI EDU su Bing Chen (EURUSD 01/10/2026), 27/11 pomeriggio: "Sai perche' Bing Chen in questa carta e' un autoclash?" Claude aveva detto:
+Bing nella terra di Qian sotto lo ZF, Chen clasha Xu. EDU: "Bing e' opposto a Delusion che contiene Chen (anche Assistant). Ieri abbiamo detto che
+anche stelle e porte contengono i rami. Si possono usare nell'interpretazione se rilevanti." (Bing nel cielo di Kun col TY; in Gen, di fronte, la
+porta Delusion e la stella Assistant, di casa in Xun, contengono Chen: autoclash sul palazzo del TY.)
+CABLATO in trading/qmdj_ore.js: autoclash PORTATO (autoTYlato/autoZFlato = 'portato', autoTYvia/autoZFvia = quale porta o stella): lo stelo dell'ora
+in un palazzo e il ramo dell'ora contenuto nella porta o nella stella del palazzo di fronte (e il rovescio). Tenuto SEPARATO dalle altre forme
+perche' Edu ha detto "se rilevanti": contato sempre segna circa un'ora su cinque in piu' (ora_grande.js, voci 7 e 8: col TY che genera lo ZF l'ora
+grande e' una delle forme, portato compreso, in 22 giorni su 72 e 19 su 44; il caso 32% e 35%). DA CAPIRE CON EDU: quando una porta o una stella
+e' "rilevante" (in Bing Chen: e' il pilastro della carta, Bing e' l'HS e sta col TY, e Delusion e Assistant portano Chen tutte e due).
+RICHIAMO: quando Claude cerca dove sta un ramo deve guardare anche porte e stelle (gia' detto il 26/11 e il 28/10), non solo i rami del palazzo.

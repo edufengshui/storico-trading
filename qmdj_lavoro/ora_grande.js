@@ -19,10 +19,10 @@ for(const x of D){ const B=idx[x.cross+'|'+x.date]; if(!B||!B[0]||!B[21]) contin
   const s=x.trend==='LONG'?1:-1, per=x.date<'2024'?0:1, ore=[];
   const inP=(q,st)=>{const P=c.palaces[q];return [P.tiH,P.ti2H,P.diH,P.di2H].includes(st);};
   const auto=(q,gz)=>{ const st=vis(gz), b=gz[1]; if(inP(q,st)&&PB[q].split('').some(y=>cl(y,b))) return true; if(PB[q].includes(b)&&inP(OPP[q],st)) return true; return false; };
-  const OQ=QO.ore(c,null); for(let i=1;i<=9;i++){ const h=2*i-1; if(!B[h]||!B[h+1]){ ore.length=0; break; } const q=OQ[i]||{}; ore.push({gz:q.pilastro,m:(B[h+1].c-B[h].o)/pip*s,ty:!!q.autoTY,zf:!!q.autoZF,ct:!!q.completoTY,cz:!!q.completoZF}); }
+  const OQ=QO.ore(c,null); for(let i=1;i<=9;i++){ const h=2*i-1; if(!B[h]||!B[h+1]){ ore.length=0; break; } const q=OQ[i]||{}; ore.push({gz:q.pilastro,m:(B[h+1].c-B[h].o)/pip*s,ty:!!q.autoTY&&q.autoTYlato!=='portato',zf:!!q.autoZF&&q.autoZFlato!=='portato',ct:!!q.completoTY,cz:!!q.completoZF,pt:q.autoTYlato==='portato',pz:q.autoZFlato==='portato'}); }
   if(ore.length<9) continue; const srt=ore.slice().sort((a,b)=>Math.abs(b.m)-Math.abs(a.m)), top=srt[0];
   for(const [pp,rr,nome] of SOGLIE){ if(Math.abs(top.m)<pp||Math.abs(top.m)<rr*Math.abs(srt[2].m)) continue;
-    for(const [lab,fn] of [['1 autoclash del TY',o=>o.ty],['2 autoclash dello ZF',o=>o.zf],['3 completa nel TY',o=>o.ct],['4 completa nello ZF',o=>o.cz],['5 una delle quattro',o=>o.ty||o.zf||o.ct||o.cz],['6 le tre dettate oggi (autoclash TY, autoclash ZF, completa nel TY)',o=>o.ty||o.zf||o.ct]]){
+    for(const [lab,fn] of [['1 autoclash del TY',o=>o.ty],['2 autoclash dello ZF',o=>o.zf],['3 completa nel TY',o=>o.ct],['4 completa nello ZF',o=>o.cz],['5 una delle quattro',o=>o.ty||o.zf||o.ct||o.cz],['7 autoclash portato da porta o stella (TY o ZF)',o=>o.pt||o.pz],['8 le tre dettate + autoclash portato',o=>o.ty||o.zf||o.ct||o.pt||o.pz],['6 le tre dettate oggi (autoclash TY, autoclash ZF, completa nel TY)',o=>o.ty||o.zf||o.ct]]){
       const base=ore.filter(fn).length/9, con=top.m>0?1:0;
       add(nome+' | '+lab+' | tutte le carte',per,1,fn(top)?1:0,base,con); add(nome+' | '+lab+' | '+rel,per,1,fn(top)?1:0,base,con); } } }
 const f=g=>g[0]?String(g[0]).padStart(5)+' giorni: l\'ora grande e\' di autoclash '+(100*g[1]/g[0]).toFixed(1).padStart(5)+'% (caso '+(100*g[2]/g[0]).toFixed(1)+'%)'+(g[3]?', e va col trend '+(100*g[4]/g[3]).toFixed(0)+'%':''):'0';
