@@ -85,3 +85,15 @@ Barre orarie, movimento nel verso del trend EMA12 diviso per il campo medio. NES
 - Autocorrelazione a 1-120 ore: nessuna distanza sopra la soglia nei due periodi (17 ore: -2,3 · +1,4; 27 ore: +1,7 · -2,9 millesimi).
 - Distanza fra l'inizio di un ritracciamento (ritorno di 0,3 campi) e il successivo: mediana 25 ore in tutti e due i periodi
   (2.696 · 2.104 ritracciamenti), ma distribuzione larga, senza picchi: 17 ore 2,4% · 1,9%, 27 ore 2,1% · 1,2%, come le vicine.
+
+## 9. Le ore cinesi dentro il trend (Edu: "Sì, pensavo alle ore cinesi") — gann_fibo/ritmo_ore_cinesi.py
+Pilastro dell'ora in GMT (Zi = 23-01). Movimento dell'ora nel verso del trend EMA12, millesimi di campo medio; ampiezza rispetto
+alla media di quell'ora dell'orologio. Relazioni SINGOLE, una per volta (limite: Edu vuole le indicazioni lette insieme).
+- Ramo dell'ora: solo Zi (23-01 GMT) va col trend nei due periodi (+4,3 · +3,4 millesimi, t +3,8 · +2,5): circa un quarto di pip, inutile.
+- Ramo dell'ora col ramo del giorno (clash, liu he, san he, penalità, danno, stesso): niente (clash +1,9 · +0,2).
+- Ramo dell'ora nel vuoto del giorno: -0,3 · -4,0 (solo il secondo periodo). Col ramo del mese: clash -0,9 · -3,4; niente che tenga.
+- Stelo dell'ora con lo stelo del giorno: niente che tenga nei due periodi (ora genera il giorno -1,6 · -4,5; giorno genera l'ora -2,3 · +3,4).
+- Ramo dell'ora col ramo del seme del cross: niente (tutto fra -1 e +1).
+- Ampiezza: nessuna relazione muove il prezzo più del normale (tutte fra 0,95 e 1,06).
+Le ore dello schema del Commander (qimen) erano già state misurate il 28/10/2026 (S63): in media come le ore normali; tiene solo
+"fu yin + ramo opposto" (36-38% col trend). Strada ancora aperta: le carte con lo schema completo, lette una per una con Edu.
