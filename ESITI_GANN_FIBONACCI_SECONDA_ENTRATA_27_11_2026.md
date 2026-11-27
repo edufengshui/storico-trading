@@ -50,3 +50,18 @@ prima entrata degli stessi forti e medi 71,7%, +25,3 · 64,9%, +17,7; totale pip
 Con X 0,15: 74,2% · 62,9%; 0,25: 73,9% · 63,1%; 0,30: 72,8% · 63,8% (la soglia conta poco).
 Dal vivo (forti e medi, 53 trade, 30 vinti, +327 pip): seconda entrata 14 trade, 13 vinti, +216 pip.
 Il campo medio oggi: EURUSD 57 pip, USDCHF 51, USDCAD 59, USDJPY 67, EURGBP 19 (0,2 = 11, 10, 12, 13, 4 pip).
+
+## 6. Fibonacci dall'apertura delle 00:00 e sulle svolte dello zig-zag (chiesti da Edu dopo la seconda entrata)
+- Dall'apertura delle 00:00 (gann_fibo/fibo_apertura.py; seconda entrata, forti e medi, ore 02-07, distanza in frazione del campo
+  medio): 0,236 73,8% · 63,9% (+31 · +20 pip); 0,20 73,1% · 63,8%; 0,30 72,8% · 63,8%; 0,382 73,2% · 60,5%; 0,45 68,8% · 62,3%;
+  0,618 63,5% · 64,6% (+40 · +32, 63 e 65 casi); 0,70 62,5% · 60,5%. Curva regolare, nessun salto sui numeri di Fibonacci. Col campo
+  del giorno prima al posto della media: uguale. Più vicino il livello, più casi con la stessa percentuale (0,10: 913 · 823 trade,
+  73,8% · 64,3%): LA SECONDA ENTRATA RENDE QUANTO LA PRIMA (28 contro 25 pip · 20 contro 18), è soprattutto più esposizione su Lio.
+- Svolte dello zig-zag (gann_fibo/fibo_zigzag.py; Edu: "Di solito il Fibonacci parte da un importante reverse del trend"): svolta =
+  ritorno di 0,5 / 1 / 1,5 / 3 campi medi; gamba fra le ultime due svolte; entrata nel verso della gamba al livello, prezzo orario.
+  Uscita alle 21:00: Fibonacci 49,0% · 48,6% (svolta 0,5), 49,1% · 48,4% (1), 51,2% · 49,2% (1,5), 51,9% · 48,8% (3);
+  rapporti qualunque 48,8% · 48,0%, 49,5% · 47,3%, 50,0% · 48,3%, 50,8% · 52,7%. UGUALI, intorno al 50%.
+  Con obiettivo (ritorno alla svolta) e stop, svolta di 3 campi: Fibonacci +5,0 · +2,9 pip a trade (594 · 441), qualunque +4,5 · +1,0:
+  un piccolo effetto di ripresa dopo le svolte grandi, non legato ai numeri di Fibonacci.
+  Con Lio nello stesso verso della gamba (svolta 1,5): 68,5% (203) · 65,1% (169); Lio nel verso opposto 43,3% · 46,4%: è Lio, non il livello.
+CONCLUSIONE: Fibonacci non aggiunge niente, comunque lo si agganci. Strada chiusa salvo regole precise di un trader.
