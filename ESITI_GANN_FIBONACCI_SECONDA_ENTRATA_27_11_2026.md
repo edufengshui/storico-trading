@@ -175,3 +175,21 @@ ZF in Qian (Gui sopra Bing, Birth, ZS), TY in Kun (Bing sopra Geng e Yi, Open): 
 Vuoti del giorno Yin Mao, dell'ora Zi Chou. Ore: Bing Chen 07-09 27 con; Ji Wei 13-15 20 con; Geng Shen 15-17 46 con; Xin You 17-19 17 contro.
 Lettura di Claude, DA VALIDARE: Geng Shen = stelo (terra di Kun) e ramo (Shen di Kun) tutti e due nel palazzo del TY (configurazione identica, non
 clash); Bing Chen = autoclash dello ZF (Bing nella terra di Qian, Chen clasha Xu); Ji Wei non spiegata. DOMANDA A EDU IN ATTESA. In pagina in cima.
+LETTURA DI EDU della carta ore 3 (EURUSD 01/10/2026): "Bing Chen e' di nuovo un autoclash mentre Geng Shen e' invece completo in TY che genera ZF."
+CABLATO in trading/qmdj_ore.js (indicazioni, non decidono): autoZF (autoclash sul palazzo dello ZF, due modi, campo autoZFlato), completoTY
+(stelo dell'ora, cielo o terra, e ramo dell'ora nel palazzo del TY; completoTYgenera se il TY genera lo ZF), completoZF (la "identica" del 28/10,
+qui anche con lo stelo nella terra: estensione di Claude). Sulle tre carte di oggi segnano le ore grandi: USDCAD 10/11 Ji Wei e Geng Shen (autoclash
+TY), EURJPY 24/09 Xin Mao (autoclash TY al rovescio), EURUSD 01/10 Bing Chen (autoclash ZF) e Geng Shen (completa nel TY).
+CONTO DALLE ORE GRANDI (ora_grande.js; ora >= 40 pip e >= 2,2 volte la terza; TY genera ZF): l'ora grande e' una delle tre forme dettate in 15
+giorni su 72 (20,8%, il caso 17,0%) · 12 su 44 (27,3%, il caso 20,7%). Su tutte le carte 14,8% (caso 14,4%) · 14,3% (15,9%).
+Conferma senza portarla a Edu: USDJPY 11/09/2026 (TY genera ZF, trend SHORT, 92 con): l'ora grande Wu Wu 11-13, 46 pip con il trend, e' un autoclash
+dello ZF al rovescio (Wu ramo di Li dove sta lo ZF, stelo Wu nel cielo di Kan di fronte).
+Ore grandi del 2026 mai lette e NON segnate dalle forme di oggi (da agosto): EURJPY 22/09 (Wu Chen 65 contro), USDJPY 22/09 (Wu Chen 50 contro),
+USDCAD 07/10 (Geng Wu 42 con), USDJPY 14/10 (Ding You 59 contro), EURJPY 02/10 (Xin Wei 78 contro), EURUSD 15/10 (Xin Chou 46 contro),
+EURJPY 14/10 e USDCAD 14/10 (Jia Wu, ora del Commander).
+
+CARTA ORE 4 — USDCAD 07/10/2026 (seme 142, Gui You, yin 1; trend LONG, salito 44: SEGUE; Lio LONG forte giusto; bilancia LONG 1 a 0 giusta).
+ZF in Kun (Wu sopra Yi e Gui, Death), TY in Zhen (Yi e Gui sopra Bing, Injury): il TY CONTROLLA lo ZF. Giorno Jia Yin (Jia sotto Gui = stelo dell'ora),
+Gui in Zhen e nella terra di Kun. Vuoti del giorno Zi Chou, dell'ora Xu Hai. Ore: fermo fino alle 11; Geng Wu 11-13 42 pip con il trend; Xin Wei
+13-15 21 contro. L'ora grande NON e' autoclash ne' completa. Lettura di Claude, DA VALIDARE: Geng (cielo di Dui, palazzo del mese, di fronte al TY)
+controlla il TY; Wu (Li, View) genera lo ZF. DOMANDA A EDU IN ATTESA: "Geng Wu come la leggi?". In pagina in cima.
