@@ -42,6 +42,15 @@ Avvio come in S76. REGOLA DI EDU: la frase per aprire una chat nuova comincia co
 - Qimen nel registro anche quando Lio è fermo: in attesa di Edu.
 - Seconda entrata: contarla in avanti (campo "ea2" e livello in segnali.json). EURGBP ha un campo piccolo (4 pip) e nel 2024-26
   rendeva poco (+2 pip): da sorvegliare. Il controllo delle 01:00 non c'è (coincide con la prima entrata).
+- ORE DEL QIMEN PER ENTRARE O PER LA SECONDA ENTRATA (Edu 27/11: "l'analisi delle ore in cui entrare o aprire un secondo ordine con
+  il qimen era promettente ma non l'abbiamo più sviluppata"): DA RIPRENDERE. È il lavoro del 28/10 (S63, memoria "ore che colpiscono
+  il Commander"): schema dell'ora (stelo dell'ora nel palazzo del Commander, ramo che clasha il palazzo, stelo del giorno che aiuta lo
+  ZF). Allora: in media le ore dello schema come le ore normali; tiene "fu yin + ramo opposto" (36-38% col trend). Si era rimasti a
+  guardare con Edu, una per una, le carte con lo schema completo dove nell'ora non succede niente (vista solo USDCAD 13/10; prossime
+  USDJPY 10/09, AUDUSD 10/09, EURJPY 15/10, GBPUSD 13/10). Idea nuova: usare quell'ora per scegliere QUANDO fare la seconda entrata.
+  Le relazioni semplici dell'ora (ramo/stelo dell'ora con giorno, mese, vuoto, seme), una per volta, NON danno niente (27/11).
+- Gann, Fibonacci (inizio del trend, apertura 00:00, zig-zag, JieQi), ritmo in ore dell'orologio: provati il 27/11, NIENTE. Per ora
+  Edu tiene solo la seconda entrata sul ritracciamento ("teniamo il rintraccio che hai trovato tu").
 - Trend consumato: non cablato, Edu non convinto.
 - Script di oggi: gann_fibo/*.py, qmdj_lavoro/qimen_lio_fermo.js, qmdj_lavoro/trend_consumato.js, misura_vivo_fermi.js
   (come misura_vivo.js ma con DUMPF=file tiene anche le carte ferme per clash o pareggio).
