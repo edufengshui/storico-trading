@@ -154,3 +154,12 @@ opposto Dui e con lo ZF). DOMANDA A EDU, IN ATTESA: e' anche questo un autoclash
 Portata in pagina "Carte OAP" in cima. Strumento nuovo: qmdj_lavoro/carta_dump.js CROSS data (dati della carta per i giorni prima del registro).
 Prossime candidate (un'ora sola, mai lette, da /tmp/cand.js rifacibile): USDJPY 11/09 (Wu Wu 46 con), EURUSD 01/10 (Geng Shen 46 con), EURJPY 14/10
 (Jia Wu 47 con), USDCAD 14/10 (Jia Wu 52 con), EURJPY 02/10 (Xin Wei 78 contro), EURUSD 15/10 (Xin Chou 46 contro), AUDUSD 16/09 (Xin You 40 con, giorno fermo).
+RISPOSTA DI EDU sulla carta ore 2: "Anche EURJPY 24/09/2026 ha un autoclash nell'ora Xin Mao." -> l'autoclash del TY vale nei DUE MODI:
+a) stelo dell'ora nel palazzo del TY e ramo dell'ora che clasha il palazzo (USDCAD 10/11: Ji Wei, Geng Shen);
+b) ramo dell'ora nel palazzo del TY e stelo dell'ora nel palazzo di fronte (EURJPY 24/09: Mao in Zhen, Xin nella terra di Dui).
+CABLATO in trading/qmdj_ore.js: autoTY nei due modi, campo autoTYlato 'stelo' | 'ramo'. Solo indicazione.
+MISURA dei due modi insieme (ty_autoclash.js, voci 8 e 9): TY genera ZF, ore di autoclash: con il trend 49,2% (307), -16,5 · 50,0% (314), +17,2;
+ampiezza 1,01 · 0,92; ora piu' forte del giorno 12,7% · 10,5% (caso 11%). Solo al rovescio: 47,0% (166) · 49,4% (178). Su tutte le carte 46,2% · 51,0%.
+Nei giorni che hanno seguito l'ora va con il trend 64% · 62%, in quelli che non hanno seguito 34% · 36%: l'ora va dove va la giornata, come ogni ora.
+Scritta cosi' larga NON separa e non muove di piu': manca cio' che la restringe (un'ora di autoclash del TY c'e' in circa un giorno su tre).
+PROSSIMO PASSO PROPOSTO: una carta col TY che genera lo ZF e l'autoclash del TY dove nell'ora NON succede niente, per trovare cosa lo spegne.

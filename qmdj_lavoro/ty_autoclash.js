@@ -26,13 +26,18 @@ for(const x of D){ const k=x.cross+'|'+x.date, B=idx[k], atr=campo[k]; if(!B||!a
   const s=x.trend==='LONG'?1:-1, per=x.date<'2024'?0:1, ore=[];
   for(let i=1;i<=9;i++){ const h=2*i-1; if(!B[h]||!B[h+1]) { ore.length=0; break; } const gz=QO.hourGZ(c.giorno[0],BR[i]), st=vis(gz), m=s*(B[h+1].c-B[h].o)/atr*1000;
     const aut=q=>{ const P=c.palaces[q]; const cielo=[P.tiH,P.ti2H].includes(st), terra=[P.diH,P.di2H].includes(st); if(!cielo&&!terra) return null; if(!PB[q].split('').some(b=>cl(b,gz[1]))) return null; return cielo&&terra?'cielo e terra':cielo?'cielo':'terra'; };
-    ore.push({i,gz,m,ty:aut(pty),zf:aut(pc)}); const g=(medOra[x.cross+per+i]||(medOra[x.cross+per+i]=[0,0])); g[0]+=Math.abs(m); g[1]++; }
+    const rov=q=>{ if(!PB[q].includes(gz[1])) return null; const P=c.palaces[OPP[q]]; if(![P.tiH,P.ti2H,P.diH,P.di2H].includes(st)) return null; return PB[OPP[q]].split('').some(b=>cl(b,gz[1]))?'rovescio':null; };
+    const o={i,gz,m,ty:aut(pty),zf:aut(pc),tyR:rov(pty),zfR:rov(pc)}; ore.push(o); const g=(medOra[x.cross+per+i]||(medOra[x.cross+per+i]=[0,0])); g[0]+=Math.abs(m); g[1]++; }
   if(ore.length) rows.push({x,per,rel,ore,vuotoTY:false}); }
 const R={}; const add=(k,per,o,forte,x)=>{ const g=(R[k]||(R[k]=[[0,0,0,0,0],[0,0,0,0,0]]))[per]; g[0]++; if(o.m>0)g[1]++; g[2]+=o.m; const mo=medOra[x.cross+per+o.i]; g[3]+=Math.abs(o.m)/(mo[0]/mo[1]); if(forte)g[4]++; };
 for(const r of rows){ const mx=Math.max(...r.ore.map(o=>Math.abs(o.m))); let n=r.ore.filter(o=>o.ty).length;
   for(const o of r.ore){ const forte=Math.abs(o.m)===mx;
     add('0 tutte le ore',r.per,o,forte,r.x); add('1 '+r.rel+' | tutte le ore',r.per,o,forte,r.x);
     if(o.ty){ add('2 autoclash del TY | tutte le carte',r.per,o,forte,r.x); add('3 autoclash del TY | '+r.rel,r.per,o,forte,r.x); if(r.rel==='TY genera ZF') add('4 TY genera ZF, autoclash del TY | stelo dell\'ora in '+o.ty,r.per,o,forte,r.x); }
+    if(o.tyR){ add('8 autoclash del TY AL ROVESCIO (ramo nel palazzo, stelo di fronte) | '+r.rel,r.per,o,forte,r.x); }
+    if(o.ty||o.tyR){ add('9 autoclash del TY, i due modi insieme | '+r.rel,r.per,o,forte,r.x); add('9 autoclash del TY, i due modi insieme | tutte le carte',r.per,o,forte,r.x);
+      if(r.rel==='TY genera ZF'){ add('9a TY genera ZF, autoclash (due modi) | '+(r.x.real===r.x.trend?'giorni che hanno seguito':'giorni che NON hanno seguito'),r.per,o,forte,r.x); } }
+    if(o.zf||o.zfR){ add('9b autoclash dello ZF, i due modi insieme | '+r.rel,r.per,o,forte,r.x); }
     if(o.zf){ add('5 autoclash dello ZF | tutte le carte',r.per,o,forte,r.x); add('6 autoclash dello ZF | '+r.rel,r.per,o,forte,r.x); } }
   if(r.rel==='TY genera ZF'){ const tot=r.ore.reduce((a,o)=>a+o.m,0), g=(R['7 TY genera ZF | giornata 01-19 GMT nel verso del trend | ore di autoclash del TY: '+(n>=2?'2 o piu\'':n)]||(R['7 TY genera ZF | giornata 01-19 GMT nel verso del trend | ore di autoclash del TY: '+(n>=2?'2 o piu\'':n)]=[[0,0,0,0,0],[0,0,0,0,0]]))[r.per]; g[0]++; if(tot>0)g[1]++; g[2]+=tot; g[3]+=1; } }
 const f=g=>g[0]?String(g[0]).padStart(6)+' '+(100*g[1]/g[0]).toFixed(1).padStart(5)+'% '+(g[2]/g[0]>=0?'+':'')+(g[2]/g[0]).toFixed(1).padStart(6)+' amp '+(g[3]/g[0]).toFixed(2)+' forte '+(100*g[4]/g[0]).toFixed(1).padStart(4)+'%':'     0';
