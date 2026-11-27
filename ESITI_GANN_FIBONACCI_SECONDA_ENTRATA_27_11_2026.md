@@ -129,3 +129,19 @@ all'apertura della prima ora OAP (03-15 GMT) nel verso di Lio, uscita 21:00. Tre
 - Ampiezza dell'ora OAP (qualunque verso): 187 · 191 millesimi di campo; tutte le ore 191 · 182. Non si muove di piu'.
 CONCLUSIONE: nemmeno le ore OAP, cosi' come si possono scrivere oggi, scelgono il momento della seconda entrata. Conferma le misure di S65-S68
 (entrare all'ora invece che a mezzanotte: pari o peggio). Resta la regola del ritracciamento sul prezzo.
+
+## 12. Carte per le ORE, una alla volta (Edu 27/11: "fammi vedere una alla volta delle carte qimen di giorni con significativi movimenti del cross a ore specifiche")
+CARTA ORE 1 — USDCAD 10/11/2026 (seme 141, Geng Shen, yin 9; trend LONG, salito 70: SEGUE; Lio LONG debole giusto; bilancia 2 a 2 ferma; ZFTY cascata
+"non segue" sbagliata). ZF in Dui (Gui sopra Geng), TY in Gen (Geng sopra Ji), DS Wu in Qian con View, HS Geng in Gen. Vuoti del giorno Wu Wei, dell'ora Zi Chou.
+Ore: fermo fino alle 13 GMT; Ji Wei 13-15 32 pip con il trend; Geng Shen 15-17 34 con; Xin You 17-19 12 contro.
+Lettura di Claude (catena Li -> Gen -> Dui accesa dalle due ore): NON e' quella di Edu.
+LETTURA DI EDU: "Qui e' abbastanza chiaro: TY genera ZF e l'ora Ji Wei e Geng Shen autoclashano il TY."
+  (Gen ha i rami Chou e Yin: Ji sta in Gen nella terra e Wei clasha Chou; Geng sta in Gen nel cielo e Shen clasha Yin.)
+CABLATO in trading/qmdj_ore.js (solo indicazione, non decide): campi autoTY, autoTYgenera, autoTYMotivo nelle ore di ore(): stelo dell'ora nel
+palazzo del TY (cielo o terra) e ramo dell'ora che clasha un ramo di quel palazzo. Sulla carta scatta proprio su Ji Wei e Geng Shen.
+MISURA (qmdj_lavoro/ty_autoclash.js, tutte le carte con trend, ore 01-19 GMT, 2020-23 · 2024-26; movimento dell'ora nel verso del trend in
+millesimi di campo medio): TY genera ZF, tutte le ore 49,7%, +0,4 · 50,6%, +7,0. Con autoclash del TY: 51,8% (141 ore), -3,7 · 50,7% (136), +17,0;
+ampiezza 0,94 · 1,01; ora piu' forte del giorno 13,5% · 11,8% (caso 11%). Stelo dell'ora nella terra del TY: 54,8% (84), +14 · 51,7% (87), +30;
+nel cielo 47,4% (57) · 49,0% (49). Autoclash dello ZF col TY che genera lo ZF: 58,7% (150), +16 · 55,6% (169), +23.
+Giorni col TY che genera lo ZF e DUE ore di autoclash del TY (come questa carta): 11 · 11 giorni soltanto.
+Da sola l'indicazione non separa e i casi sono pochi: va raccolta con le altre, carta per carta. Pagina "Carte OAP": carta in cima.
