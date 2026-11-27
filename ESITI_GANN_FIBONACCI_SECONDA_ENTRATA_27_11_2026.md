@@ -76,3 +76,12 @@ Ancora = prezzo orario all'istante del JieQi (GMT). Due serie: i 24 termini e i 
 - Giorno del JieQi: il mercato segue il trend EMA 46,9% · 46,7% nel giorno del Jie (414 · 306), 46,1% · 51,2% nel giorno del Qi;
   Lio nel giorno del Jie 70,1% (154) · 68,3% (101), negli altri giorni 66,5% · 64,3%. Giorni di Fibonacci dal Jie (5, 8, 13, 21): 50,8% · 51,1%.
 CONCLUSIONE: nemmeno agganciato ai JieQi. Unico spunto, debole: nel giorno del Jie il mercato segue il trend un po' meno (47%).
+
+## 8. Un numero ricorrente in ore dentro il trend? (Edu: "a distanze di 17 o 27 ore c'è un ritracciamento?") — gann_fibo/ritmo_ore.py
+Barre orarie, movimento nel verso del trend EMA12 diviso per il campo medio. NESSUN RITMO che tenga nei due periodi.
+- Ora del giorno (GMT): nessuna ora va contro (o col) trend in tutti e due i periodi.
+- Ore dall'inizio del trend (1-312): 2 ore "significative" nei due periodi (la 7ª col trend, la 199ª contro) su 312 guardate: caso.
+  Ora 17: -2,0 · -2,3 millesimi di campo (t -0,5); ora 27: -5,2 · -1,2 (t -1,4 · -0,3): niente.
+- Autocorrelazione a 1-120 ore: nessuna distanza sopra la soglia nei due periodi (17 ore: -2,3 · +1,4; 27 ore: +1,7 · -2,9 millesimi).
+- Distanza fra l'inizio di un ritracciamento (ritorno di 0,3 campi) e il successivo: mediana 25 ore in tutti e due i periodi
+  (2.696 · 2.104 ritracciamenti), ma distribuzione larga, senza picchi: 17 ore 2,4% · 1,9%, 27 ore 2,1% · 1,2%, come le vicine.
