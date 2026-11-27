@@ -115,3 +115,17 @@ ore 02 +23,5 · +16,1; ore 07 +20,7 · +12,9; ore 12 +12,6 · +8,3).
 CONCLUSIONE: lo schema dell'ora del Commander, cosi' com'e' nel codice, non dice quando fare la seconda entrata. Resta la regola del
 ritracciamento. LIMITE: lo schema nel codice e' largo (un'ora dello schema c'e' quasi ogni giorno); le regole OAP lette da Edu sulle carte
 (S66, OAP_S69.md: stelo e ramo dell'ora nel palazzo che decide) non sono nel codice e non sono misurate qui.
+
+## 11. Le ore OAP (l'ora che accende il palazzo che decide) per la seconda entrata (Edu 27/11: "Ok") — ore_seconda.js, voci 8 e 9
+Palazzo che decide = palDecide di lettura() (ZFTY, se tace DsHs): la bilancia NON indica un palazzo. Stessi trade forti e medi, seconda entrata
+all'apertura della prima ora OAP (03-15 GMT) nel verso di Lio, uscita 21:00. Tre forme dalle regole lette da Edu (S66):
+- V1 stelo e ramo dell'ora nel palazzo che decide (ramo anche nascosto nel 六仪): 65,2% (859), +15,5 · 60,8% (842), +11,9;
+  attesa della stessa ora dell'orologio +16,8 · +11,1. UGUALE.
+- V2 ramo nel palazzo, stelo dentro o in un palazzo che lo genera: +15,6 · +12,1 (attesa +17,1 · +11,2). V3 stelo nel palazzo e ramo che
+  clasha il palazzo: +16,9 · +11,3 (attesa +17,7 · +12,0). UGUALI.
+- Carta d'accordo con Lio: V1 +17,8 · +14,0, V2 +18,2 · +14,9 (attesa +17 · +11); carta contro Lio +12,9 · +9,6 e +12,8 · +9,4. La differenza
+  e' quella gia' nota fra qimen con Lio e qimen contro (vale gia' dalle 00:00), non viene dall'ora.
+- Ritracciamento gia' raggiunto e poi un'ora OAP: entrare SUBITO +28,4 · +21,2 (V1); ASPETTARE l'ora +17,9 · +13,5. Aspettare costa 8-10 pip.
+- Ampiezza dell'ora OAP (qualunque verso): 187 · 191 millesimi di campo; tutte le ore 191 · 182. Non si muove di piu'.
+CONCLUSIONE: nemmeno le ore OAP, cosi' come si possono scrivere oggi, scelgono il momento della seconda entrata. Conferma le misure di S65-S68
+(entrare all'ora invece che a mezzanotte: pari o peggio). Resta la regola del ritracciamento sul prezzo.

@@ -70,6 +70,33 @@ for(const r of rows){ const d=r.x.date, h=prima(r,DEF['B schema completo (ramo o
   add('7 prima entrata 00:00 | '+r.qv,d,r.p1); if(h==null) continue; const g=BQ[r.qv+h][d<'2024'?0:1];
   add('7 schema completo, seconda entrata all\'ora | '+r.qv,d,r.ent(h)); add('7 schema completo, attesa di quell\'ora nello stesso gruppo | '+r.qv,d,g[1]/g[0]);
   const b1=r.B[h], b2=r.B[h+1]; if(b1&&b2) add('7 movimento dentro l\'ora dello schema nel verso di Lio (millesimi di campo) | '+r.qv,d,r.s*(b2.c-b1.o)/r.atr*1000); }
+// 8: ORE OAP (S66-S69): l'ora che accende il PALAZZO CHE DECIDE la carta (palDecide di lettura(): ZFTY, se tace DsHs).
+//    V1 stelo e ramo dell'ora nel palazzo che decide (ramo anche nascosto nel 六仪) · V2 ramo nel palazzo, stelo dentro o in un palazzo che lo genera
+//    V3 stelo nel palazzo che decide e ramo che clasha un ramo del palazzo
+{ const PBp={1:'子',8:'丑寅',3:'卯',4:'辰巳',9:'午',2:'未申',7:'酉',6:'戌亥'}, LIU={'子':'戊','戌':'己','申':'庚','午':'辛','辰':'壬','寅':'癸'}, YIR2={'戊':'子','己':'戌','庚':'申','辛':'午','壬':'辰','癸':'寅'};
+  const ELn={1:4,2:2,3:0,4:0,6:3,7:3,8:2,9:1}, gen=(a,b)=>(ELn[a]+1)%5===ELn[b];
+  const steli=q=>[q.tiH,q.ti2H,q.diH,q.di2H].filter(Boolean);
+  const vis=gz=>gz[0]!=='甲'?gz[0]:LIU[BR[((BR.indexOf(gz[1])-STs.indexOf(gz[0]))%12+12)%12]];
+  const ramoIn=(c,q,br)=>PBp[q].includes(br)||(LIU[br]&&steli(c.palaces[q]).includes(LIU[br]));
+  const ramiDi=(c,q)=>PBp[q].split('').concat(steli(c.palaces[q]).map(x=>YIR2[x]).filter(Boolean));
+  const palSt=(c,gz)=>{const st=vis(gz),o=[];for(const q of [1,2,3,4,6,7,8,9]) if(steli(c.palaces[q]).includes(st)) o.push(q);return o;};
+  const cl=(a,b)=>Math.abs(BR.indexOf(a)-BR.indexOf(b))===6;
+  const V={ 'V1 stelo e ramo nel palazzo che decide':(c,q,gz,ps)=>ramoIn(c,q,gz[1])&&ps.includes(q),
+            'V2 ramo nel palazzo, stelo dentro o che lo genera':(c,q,gz,ps)=>ramoIn(c,q,gz[1])&&(ps.includes(q)||ps.some(x=>gen(x,q))),
+            'V3 stelo nel palazzo, ramo che clasha il palazzo':(c,q,gz,ps)=>ps.includes(q)&&ramiDi(c,q).some(b=>cl(b,gz[1])) };
+  for(const r of rows){ const d=r.x.date, c=r.ch; let z=null,dd=null; try{ z=Q.lettura(c,r.x.trend,'zfty'); dd=Q.lettura(c,r.x.trend,'dshs'); }catch(e){}
+    const L=(z&&z.dir&&z.palDecide)?z:(dd&&dd.dir&&dd.palDecide)?dd:null; if(!L){ add('8 nessun palazzo che decide: prima entrata',d,r.p1); continue; }
+    const q=L.palDecide, acc=L.dir===r.x.liDir?'carta con Lio':'carta contro Lio';
+    for(const n in V){ let h1=null, tot=0, nn=0;
+      for(let i=1;i<=8;i++){ const gz=QO.hourGZ(c.giorno[0],BR[i]), h=2*i-1; if(!r.B[h]||!r.B[h+1]) continue; if(!V[n](c,q,gz,palSt(c,gz))) continue;
+        if(h1==null&&h>=2) h1=h; const m=r.s*(r.B[h+1].c-r.B[h].o)/r.atr*1000; add('9 '+n+' | movimento dentro l\'ora nel verso di Lio (millesimi di campo)',d,m); add('9 '+n+' | ampiezza dell\'ora (millesimi di campo, qualunque verso)',d,Math.abs(m)); }
+      if(h1==null) continue; const e=r.ent(h1), cg=r.contro(h1), g=BQ[r.qv+h1]?0:0;
+      add('8 '+n+' | seconda entrata all\'ora (03-15 GMT)',d,e); add('8 '+n+' | attesa di quell\'ora dell\'orologio',d,att(h1,d));
+      add('8 '+n+' | '+acc+' | seconda entrata all\'ora',d,e); add('8 '+n+' | '+acc+' | attesa',d,att(h1,d));
+      if(h1<=7){ add('8 '+n+' | ora entro le 07 GMT | seconda entrata',d,e); add('8 '+n+' | ora entro le 07 GMT | attesa',d,att(h1,d)); }
+      if(cg>=0.2){ add('8 '+n+' | prezzo contro Lio >= 0,2 | seconda entrata',d,e); add('8 '+n+' | prezzo contro Lio >= 0,2 | attesa',d,att(h1,d)); }
+      if(r.hr!=null&&h1>=r.hr){ add('8 '+n+' | ritracciamento gia\' raggiunto: entro SUBITO',d,r.ent(r.hr)); add('8 '+n+' | ritracciamento gia\' raggiunto: ASPETTO l\'ora',d,e); } }
+    for(let i=1;i<=8;i++){ const h=2*i-1; if(r.B[h]&&r.B[h+1]) add('9 tutte le ore | ampiezza (millesimi di campo)',d,Math.abs(r.s*(r.B[h+1].c-r.B[h].o)/r.atr*1000)); } } }
 const f=g=>g[0]?(String(g[0]).padStart(5)+' '+(100*g[1]/g[0]).toFixed(1).padStart(5)+'% '+(g[2]/g[0]>=0?'+':'')+(g[2]/g[0]).toFixed(1).padStart(5)):'    0';
 console.log(''.padEnd(96),'2020-23: casi vinti media | 2024-26');
 for(const k of Object.keys(R).sort()) console.log(k.padEnd(96),f(R[k][0]),'|',f(R[k][1]));
