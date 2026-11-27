@@ -392,7 +392,9 @@ async function leggiSegnali(env) {
   var s; try { s = JSON.parse(await r.text()); } catch (e) { return 'ERRORE segnali.json illeggibile\n'; }
   var righe = ['DATA=' + (s.data || '')];
   (s.trades || []).forEach(function (t) {
-    if (/^[A-Z]{6}$/.test(t.cross) && (t.dir === 'LONG' || t.dir === 'SHORT')) righe.push(t.cross + ';' + t.dir + ';' + (t.forza || 'forte'));
+    if (/^[A-Z]{6}$/.test(t.cross) && (t.dir === 'LONG' || t.dir === 'SHORT')) righe.push(t.cross + ';' + t.dir + ';' + (t.forza || 'forte') +
+      // S79 (27/11/2026): quarto campo = livello della seconda entrata (solo forti e medi; l'EA 1.00/1.10 lo ignora)
+      ((t.seconda && t.seconda.livello > 0) ? ';' + t.seconda.livello : ''));
   });
   righe.push('FINE');
   return righe.join('\n') + '\n';

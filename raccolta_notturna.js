@@ -42,6 +42,19 @@ if (typeof navigator === 'undefined') global.navigator = {};
 global.document = { getElementById: id => (id === 'report' ? box : null), querySelector: () => null,
   querySelectorAll: () => [], addEventListener: () => {} };
 
+// S79: campo medio giornaliero = media, sugli ultimi 20 giorni lun-ven prima di "data", di (massimo - minimo) dei prezzi orari
+// (apertura e chiusura delle barre dalle 00 alle 21 GMT). Lo stesso calcolo della misura (lio_seconda.py).
+const SECONDA_FRAZ = 0.2;
+function campoMedio(barre, data) {
+  const by = {};
+  (barre || []).forEach(b => { const d = b.t.slice(0, 10), h = b.t.slice(11, 13); if (d >= data || h > '21') return;
+    const g = (by[d] = by[d] || { lo: Infinity, hi: -Infinity, a: false, z: false });
+    g.lo = Math.min(g.lo, b.o, b.c); g.hi = Math.max(g.hi, b.o, b.c); if (h === '00') g.a = true; if (h === '21') g.z = true; });
+  const gg = Object.keys(by).sort().filter(d => by[d].a && by[d].z && ![0, 6].includes(new Date(d + 'T12:00:00Z').getUTCDay())).slice(-20);
+  if (gg.length < 15) return null;
+  return gg.reduce((s, d) => s + (by[d].hi - by[d].lo), 0) / gg.length;
+}
+
 async function main() {
   let feed;
   if (process.argv[2]) feed = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
@@ -110,6 +123,22 @@ async function main() {
     const lio = (reg[feed.date] || []).filter(t => t.livello === 'LI' && !t.cantina && (t.signal === 'LONG' || t.signal === 'SHORT'));
     const trades = QR ? QR.segnaliTrades(lio, qmGiorno)
       : lio.map(t => ({ cross: t.cross, dir: t.signal, forza: (t.forza || 'forte') === 'forte' ? 'forte-lotto-minimo' : t.forza, forza_lio: t.forza || 'forte', qmdj: 'manca' }));
+    // S79 (27/11/2026, Edu: "Procedi"): SECONDA ENTRATA sul ritracciamento. Sui trade forti e medi di Lio, se a un'ora piena fra le
+    // 02 e le 07 GMT il prezzo e' andato CONTRO Lio di 0,2 del campo medio giornaliero (20 giorni, barre orarie 00-21 GMT) rispetto
+    // all'apertura delle 00:00, l'EA entra una seconda volta a 0,01 e esce alle 21:00. Misura (lio_seconda_ea.py, 2020-23 · 2024-26):
+    // seconda entrata 73,1% (572) +28,2 pip · 63,8% (538) +19,5; dal vivo 23/10-26/11 14 trade, 13 vinti, +216 pip.
+    // Qui si calcola il livello (prezzo) e lo si scrive nel trade: campo "seconda".
+    try {
+      const orario = JSON.parse(fs.readFileSync(path.join(DIR, 'orario_live.json'), 'utf8'));
+      trades.forEach(t => {
+        if ((t.forza_lio || 'forte') === 'debole') return;
+        const row = (feed.rows || []).find(r => r.cross === t.cross), cm = campoMedio(orario[t.cross], feed.date);
+        if (!row || !(row.price > 0) || !cm) return;
+        const jpy = /JPY$/.test(t.cross), s = t.dir === 'LONG' ? 1 : -1;
+        t.seconda = { livello: +(row.price - s * SECONDA_FRAZ * cm).toFixed(jpy ? 3 : 5), pip: Math.round(SECONDA_FRAZ * cm * (jpy ? 100 : 10000) * 10) / 10,
+          dalle_gmt: '02:00', entro_gmt: '07:00', lotti: 0.01 };
+      });
+    } catch (e) { console.log('seconda entrata non calcolata: ' + e.message); }
     const segnali = { data: feed.date, generato: new Date().toISOString(), entrata_gmt: '01:00', uscita_gmt: '21:00',
       trades: weekend ? [] : trades, saltati: (weekend || !QR || !QR.segnaliSaltati) ? [] : QR.segnaliSaltati(lio, qmGiorno) };
     fs.writeFileSync(path.join(DIR, 'segnali.json'), JSON.stringify(segnali, null, 1));
@@ -131,10 +160,14 @@ async function main() {
     const dirEA = path.join(DIR, 'esiti_ea');
     (fs.existsSync(dirEA) ? fs.readdirSync(dirEA) : []).filter(f => /^\d{4}-\d{2}-\d{2}\.csv$/.test(f)).forEach(f => {
       const d = f.slice(0, 10);
-      fs.readFileSync(path.join(dirEA, f), 'utf8').split(/\r?\n/).forEach(r => {
-        const c = r.split(';'); if (c.length < 11 || !/^[A-Z]{6}$/.test(c[0])) return;
+      // S79 (27/11/2026): con la seconda entrata un cross puo' avere DUE righe nello stesso giorno. La prima per ora di entrata va
+      // nel campo "ea", la seconda nel campo "ea2".
+      const viste = {};
+      fs.readFileSync(path.join(dirEA, f), 'utf8').split(/\r?\n/).map(r => r.split(';')).filter(c => c.length >= 11 && /^[A-Z]{6}$/.test(c[0]))
+        .sort((a, b) => (a[3] < b[3] ? -1 : a[3] > b[3] ? 1 : 0)).forEach(c => {
         const t = (storico[d] || []).find(x => x.cross === c[0]); if (!t) return;
-        t.ea = { verso: c[1], lotti: +c[2], entrata: c[3], prezzoEntrata: +c[4], uscita: c[5], prezzoUscita: +c[6],
+        const campo = viste[c[0]] ? 'ea2' : 'ea'; if (viste[c[0]] > 1) return; viste[c[0]] = (viste[c[0]] || 0) + 1;
+        t[campo] = { verso: c[1], lotti: +c[2], entrata: c[3], prezzoEntrata: +c[4], uscita: c[5], prezzoUscita: +c[6],
           pip: +c[7], profitto: +c[8], swap: +c[9], commissione: +c[10], valuta: c[11] || '' };
       });
     });
