@@ -163,3 +163,15 @@ ampiezza 1,01 · 0,92; ora piu' forte del giorno 12,7% · 10,5% (caso 11%). Solo
 Nei giorni che hanno seguito l'ora va con il trend 64% · 62%, in quelli che non hanno seguito 34% · 36%: l'ora va dove va la giornata, come ogni ora.
 Scritta cosi' larga NON separa e non muove di piu': manca cio' che la restringe (un'ora di autoclash del TY c'e' in circa un giorno su tre).
 PROSSIMO PASSO PROPOSTO: una carta col TY che genera lo ZF e l'autoclash del TY dove nell'ora NON succede niente, per trovare cosa lo spegne.
+
+RIMPROVERO DI EDU (27/11): "Uffa continui a dire che non fa nulla e intanto i primi due casi che mi hai fatto vedere invece fa." -> NON ripetere
+che la regola "non separa" (gia' detto in S64). NON proporre carte dove non succede niente: Edu vuole le carte coi movimenti grandi.
+La misura giusta parte DAI MOVIMENTI: quante delle ore grandi sono spiegate dalle regole raccolte (qmdj_lavoro/ora_grande.js).
+Oggi: giorni con un'ora che domina (>= 40 pip e >= 2,2 volte la terza), TY genera ZF: l'ora grande e' un autoclash del TY in 8 giorni su 72
+(2020-23) e 6 su 44 (2024-26); il caso darebbe 9% e 11%. Le altre ore grandi aspettano le loro regole: si raccolgono carta per carta e si riconta.
+
+CARTA ORE 3 — EURUSD 01/10/2026 (seme 113, Bing Chen, yin 4; trend SHORT, sceso 85: SEGUE; Lio SHORT forte giusto; bilancia SHORT 3 a 1 giusta).
+ZF in Qian (Gui sopra Bing, Birth, ZS), TY in Kun (Bing sopra Geng e Yi, Open): TY genera ZF. DS Wu in Gen, HS Bing in Kun col TY (e terra di Qian).
+Vuoti del giorno Yin Mao, dell'ora Zi Chou. Ore: Bing Chen 07-09 27 con; Ji Wei 13-15 20 con; Geng Shen 15-17 46 con; Xin You 17-19 17 contro.
+Lettura di Claude, DA VALIDARE: Geng Shen = stelo (terra di Kun) e ramo (Shen di Kun) tutti e due nel palazzo del TY (configurazione identica, non
+clash); Bing Chen = autoclash dello ZF (Bing nella terra di Qian, Chen clasha Xu); Ji Wei non spiegata. DOMANDA A EDU IN ATTESA. In pagina in cima.
