@@ -139,10 +139,16 @@ async function main() {
           dalle_gmt: '02:00', entro_gmt: '07:00', lotti: 0.01 };
       });
     } catch (e) { console.log('seconda entrata non calcolata: ' + e.message); }
+    // S81 (28/11/2026, Edu: "Voglio mandare il Qimen ALL'EA, e che quindi diventa operativo a tutti gli effetti"): dove Lio e' fermo
+    // e il qimen (bilancia) ha un verdetto, il trade va all'EA come gli altri: forza "qimen" (l'EA da' 0,01 a tutto cio' che non e'
+    // "forte"), senza seconda entrata. Misura del 27/11: qimen coi fermi di Lio 52,8% · 54,7% (detto a Edu, ha deciso lui).
+    const qmFermi = (weekend || !QR || !QR.segnaliFermi) ? [] : QR.segnaliFermi(qmGiorno);
+    qmFermi.forEach(f => { if (!trades.some(t => t.cross === f.cross))
+      trades.push({ cross: f.cross, dir: f.dir, forza: 'qimen', forza_lio: 'fermo', qmdj: 'solo', origine: 'qimen' }); });
     const segnali = { data: feed.date, generato: new Date().toISOString(), entrata_gmt: '01:00', uscita_gmt: '21:00',
       trades: weekend ? [] : trades, saltati: (weekend || !QR || !QR.segnaliSaltati) ? [] : QR.segnaliSaltati(lio, qmGiorno),
-      // S80 (28/11/2026): il qimen dove Lio e' fermo. Solo per l'app e per contare in avanti: l'EA legge soltanto "trades".
-      qimen_lio_fermo: (weekend || !QR || !QR.segnaliFermi) ? [] : QR.segnaliFermi(qmGiorno) };
+      // S80 (28/11/2026): il qimen dove Lio e' fermo, per l'app e per contare in avanti. Da S81 gli stessi stanno anche in "trades".
+      qimen_lio_fermo: qmFermi, qimen_all_ea: true };
     fs.writeFileSync(path.join(DIR, 'segnali.json'), JSON.stringify(segnali, null, 1));
     require('child_process').execSync('git add segnali.json', { cwd: DIR, stdio: 'ignore' });
   } catch (e) { console.log('segnali.json non scritto: ' + e.message); }
@@ -158,6 +164,7 @@ async function main() {
   // S70 (17/11/2026): i risultati VERI dell'EA di MetaTrader (file esiti_ea/AAAA-MM-GG.csv, scritti dal Worker alle
   // 21:00 GMT) entrano nello storico accanto all'esito del feed, nel campo "ea" del trade. Riga del CSV:
   // CROSS;VERSO;LOTTI;ORA_ENTRATA_GMT;PREZZO_ENTRATA;ORA_USCITA_GMT;PREZZO_USCITA;PIP;PROFITTO;SWAP;COMMISSIONE;VALUTA
+  let qmLive, qmLiveToccato = false;
   try {
     const dirEA = path.join(DIR, 'esiti_ea');
     (fs.existsSync(dirEA) ? fs.readdirSync(dirEA) : []).filter(f => /^\d{4}-\d{2}-\d{2}\.csv$/.test(f)).forEach(f => {
@@ -165,14 +172,22 @@ async function main() {
       // S79 (27/11/2026): con la seconda entrata un cross puo' avere DUE righe nello stesso giorno. La prima per ora di entrata va
       // nel campo "ea", la seconda nel campo "ea2".
       const viste = {};
+      if (qmLive === undefined) { try { qmLive = JSON.parse(fs.readFileSync(path.join(DIR, 'qmdj_live.json'), 'utf8')); } catch (e) { qmLive = null; } }
       fs.readFileSync(path.join(dirEA, f), 'utf8').split(/\r?\n/).map(r => r.split(';')).filter(c => c.length >= 11 && /^[A-Z]{6}$/.test(c[0]))
         .sort((a, b) => (a[3] < b[3] ? -1 : a[3] > b[3] ? 1 : 0)).forEach(c => {
-        const t = (storico[d] || []).find(x => x.cross === c[0]); if (!t) return;
+        const t = (storico[d] || []).find(x => x.cross === c[0]);
+        if (!t) {   // S81: trade del solo qimen (Lio fermo): l'esito vero va nel registro del qimen
+          const f = qmLive && qmLive[d] && (qmLive[d].fermi || []).find(x => x.cross === c[0]);
+          if (f && !viste[c[0]]) { viste[c[0]] = 1; qmLiveToccato = true;
+            f.ea = { verso: c[1], lotti: +c[2], entrata: c[3], prezzoEntrata: +c[4], uscita: c[5], prezzoUscita: +c[6], pip: +c[7], profitto: +c[8] }; }
+          return; }
         const campo = viste[c[0]] ? 'ea2' : 'ea'; if (viste[c[0]] > 1) return; viste[c[0]] = (viste[c[0]] || 0) + 1;
         t[campo] = { verso: c[1], lotti: +c[2], entrata: c[3], prezzoEntrata: +c[4], uscita: c[5], prezzoUscita: +c[6],
           pip: +c[7], profitto: +c[8], swap: +c[9], commissione: +c[10], valuta: c[11] || '' };
       });
     });
+    if (qmLiveToccato) { fs.writeFileSync(path.join(DIR, 'qmdj_live.json'), JSON.stringify(qmLive, null, 1));
+      try { require('child_process').execSync('git add qmdj_live.json', { cwd: DIR, stdio: 'ignore' }); } catch (e) {} }
   } catch (e) { console.log('esiti dell\'EA non letti: ' + e.message); }
   fs.writeFileSync(STORICO_FILE, JSON.stringify(storico, null, 1));
   // il file raccolta.yml salva solo registro_live.json e trade_persi.md: lo storico lo mette in lista qui

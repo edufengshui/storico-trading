@@ -44,3 +44,12 @@ Avvio come in S76 (clonare storico-trading e trading; Edu ha gia' dato l'ok ai r
 
 ## PUNTI APERTI
 - Tutti quelli di S79 (i 6 passi di Edu per avvisi Telegram e seconda entrata; EA 1.20 non compilato) e di S78 (carte 15, 17, 3, 4, 6, 7, regola di View...).
+
+## AGGIUNTA DEL 28/11 MATTINA (chat "Trading - leggi ripartenza S80") — IL QIMEN VA ALL'EA
+Edu: "Voglio mandare il Qimen ALL'EA, e che quindi diventa operativo a tutti gli effetti".
+- CABLATO E CARICATO: raccolta_notturna.js mette in "trades" di segnali.json anche i cross dove Lio e' fermo e il qimen (bilancia) ha un
+  verdetto: forza "qimen", forza_lio "fermo", origine "qimen", senza seconda entrata. L'EA (anche il vecchio 1.00) da' 0,01 a tutto cio' che
+  non e' "forte": NESSUN passo di Edu. segnali.json ha anche qimen_all_ea: true; l'app scrive "LIO FERMO · decide il qimen (entra su
+  MetaTrader a 0,01)". Gli esiti veri dell'EA di questi trade vanno in qmdj_live.json, campo "ea" del fermo (non nello storico di Lio).
+- DA GUARDARE lunedi' 30/11: in segnali.json i trade con forza "qimen"; nel diario del VPS "LioEA: aperto ..." su quei cross.
+- Lotto: 0,01. Se Edu vuole un lotto diverso per il qimen serve l'EA nuovo (oggi distingue solo "forte").
