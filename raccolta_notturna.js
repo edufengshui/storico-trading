@@ -116,7 +116,7 @@ async function main() {
   // (qmdj_live.json, scritto prima dell'entrata e mai riscritto), poi i segnali: lotto pieno solo sui forti col QMDJ d'accordo.
   let qmGiorno = null, QR = null;
   try { QR = require(path.join(DIR, 'qmdj_registro.js'));
-    if (!weekend) { qmGiorno = QR.aggiorna(reg, feed.date, DIR);
+    if (!weekend) { qmGiorno = QR.aggiorna(reg, feed.date, DIR, feed);
       require('child_process').execSync('git add qmdj_live.json', { cwd: DIR, stdio: 'ignore' }); }
   } catch (e) { console.log('qmdj_live.json non scritto: ' + e.message); }
   try {
@@ -140,7 +140,9 @@ async function main() {
       });
     } catch (e) { console.log('seconda entrata non calcolata: ' + e.message); }
     const segnali = { data: feed.date, generato: new Date().toISOString(), entrata_gmt: '01:00', uscita_gmt: '21:00',
-      trades: weekend ? [] : trades, saltati: (weekend || !QR || !QR.segnaliSaltati) ? [] : QR.segnaliSaltati(lio, qmGiorno) };
+      trades: weekend ? [] : trades, saltati: (weekend || !QR || !QR.segnaliSaltati) ? [] : QR.segnaliSaltati(lio, qmGiorno),
+      // S80 (28/11/2026): il qimen dove Lio e' fermo. Solo per l'app e per contare in avanti: l'EA legge soltanto "trades".
+      qimen_lio_fermo: (weekend || !QR || !QR.segnaliFermi) ? [] : QR.segnaliFermi(qmGiorno) };
     fs.writeFileSync(path.join(DIR, 'segnali.json'), JSON.stringify(segnali, null, 1));
     require('child_process').execSync('git add segnali.json', { cwd: DIR, stdio: 'ignore' });
   } catch (e) { console.log('segnali.json non scritto: ' + e.message); }

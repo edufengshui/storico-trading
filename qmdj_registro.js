@@ -4,7 +4,7 @@
 // del giorno (campo "regole" = impronta di qmdj.js). Una riga gia' scritta non viene piu' toccata.
 const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const BR = '子丑寅卯辰巳午未申酉戌亥';
-function aggiorna(reg, data, DIR) {
+function aggiorna(reg, data, DIR, feed) {
   const file = path.join(DIR, 'qmdj_live.json');
   let arch = {}; try { arch = JSON.parse(fs.readFileSync(file, 'utf8')); } catch (e) {}
   if (arch[data]) return arch[data];                       // gia' scritto: non si riscrive dopo l'esito
@@ -30,7 +30,20 @@ function aggiorna(reg, data, DIR) {
     righe.push({ cross: t.cross, lio: t.signal, forza: t.forza || '', trend: tr, seed: t.seed, qmdj: u.dir || null, da: u.da || null, cascata: u.cascata === undefined ? null : u.cascata, motivo: u.motivo || null, flusso: flussoTesto(Q, ch),
       verso: !u.dir ? 'muto' : (u.dir === t.signal ? 'accordo' : 'contro'), segueForte: !!u.segueForte, bilancia: bil });
   }
-  arch[data] = { scritto: new Date().toISOString(), regole: regole, trades: righe };
+  // S80 (28/11/2026, Edu: "Vale la pena usare il qimen quando Lio tace, fallo"): il verdetto del qimen (bilancia) scritto PRIMA dell'entrata
+  // anche sui cross dove Lio e' fermo (nessun trade di Lio nel registro del giorno), col trend EMA consolidato e il seme non sul bordo.
+  // Serve a contare in avanti e a mostrarlo nell'app. NON va all'EA (misura 27/11: qimen da solo coi fermi di Lio 52,8% · 54,7%).
+  const fermi = [];
+  try { const conLio = {}; (reg[data] || []).forEach(t => { if (t.signal === 'LONG' || t.signal === 'SHORT') conLio[t.cross] = 1; });
+    for (const r of ((feed && feed.date === data && feed.rows) || [])) {
+      if (!r || r.status !== 'ok' || conLio[r.cross] || r.seedFragile === true || r.emaConsolidated === false || !r.branch) continue;
+      const tr = r.direction === 'up' ? 'LONG' : r.direction === 'down' ? 'SHORT' : null; if (!tr) continue;
+      const ch = Q.oraria(Date.UTC(p[0], p[1] - 1, p[2]), r.branch); if (!ch) continue;
+      const b = Q.bilancia ? Q.bilancia(ch, tr) : null; if (!b) continue;
+      fermi.push({ cross: r.cross, trend: tr, seed: r.seed == null ? null : r.seed, qmdj: b.dir || null, long: b.long, short: b.short, scarto: Math.abs(b.long - b.short),
+        segue: b.dir ? b.dir === tr : null, voci: b.voci.map(v => (v.dir ? v.dir + ' ' + v.peso : '-') + ' | ' + v.t), flusso: flussoTesto(Q, ch) });
+    } } catch (e) {}
+  arch[data] = { scritto: new Date().toISOString(), regole: regole, trades: righe, fermi: fermi };
   fs.writeFileSync(file, JSON.stringify(arch, null, 1));
   return arch[data];
 }
@@ -72,7 +85,8 @@ function segnaliTrades(lio, qm) {
 }
 function segnaliSaltati(lio, qm) { const per = {}; ((qm && qm.trades) || []).forEach(r => { per[r.cross] = r.verso; });
   return lio.map(t => ({ t, m: motivoNo(t, per[t.cross]) })).filter(x => x.m).map(x => ({ cross: x.t.cross, dir: x.t.signal, forza_lio: x.t.forza || 'forte', motivo: x.m })); }
-module.exports = { aggiorna, segnaliTrades, segnaliSaltati };
+function segnaliFermi(qm) { return ((qm && qm.fermi) || []).filter(f => f.qmdj).map(f => ({ cross: f.cross, dir: f.qmdj, trend: f.trend, segue: f.segue, scarto: f.scarto })); }
+module.exports = { aggiorna, segnaliTrades, segnaliSaltati, segnaliFermi };
 if (require.main === module) {   // prova a mano: node qmdj_registro.js AAAA-MM-GG
   global.window = global; const lj = require('lunar-javascript'); global.Solar = lj.Solar; global.Lunar = lj.Lunar;
   const reg = JSON.parse(fs.readFileSync(path.join(__dirname, 'registro_live.json'), 'utf8')), qm = aggiorna(reg, process.argv[2], __dirname);
