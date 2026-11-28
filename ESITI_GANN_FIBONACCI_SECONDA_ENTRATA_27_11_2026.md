@@ -204,3 +204,8 @@ perche' Edu ha detto "se rilevanti": contato sempre segna circa un'ora su cinque
 grande e' una delle forme, portato compreso, in 22 giorni su 72 e 19 su 44; il caso 32% e 35%). DA CAPIRE CON EDU: quando una porta o una stella
 e' "rilevante" (in Bing Chen: e' il pilastro della carta, Bing e' l'HS e sta col TY, e Delusion e Assistant portano Chen tutte e due).
 RICHIAMO: quando Claude cerca dove sta un ramo deve guardare anche porte e stelle (gia' detto il 26/11 e il 28/10), non solo i rami del palazzo.
+
+ESITO DEI TRE TRADE A MANO DEL 27/11 (verdetti del qimen con Lio fermo; Edu 28/11: "sono andati benino, solo uno negativo"). Dai prezzi orari,
+dall'apertura delle 07 GMT alla chiusura delle 21 GMT, prima dello spread: EURUSD SHORT 43 pip vinto; USDCHF LONG 24 pip vinto; GBPUSD LONG 27 pip
+perso. Totale 40 pip, 2 su 3. (Dalle 00:00: 35, 17, -9.) Un giorno solo: non cambia la misura (qimen con Lio fermo 52,8% · 54,7%).
+Resta in attesa di Edu: scrivere il verdetto del qimen nel registro in avanti anche quando Lio e' fermo.
