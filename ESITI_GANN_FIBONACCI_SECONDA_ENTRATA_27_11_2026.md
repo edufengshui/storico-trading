@@ -209,3 +209,24 @@ ESITO DEI TRE TRADE A MANO DEL 27/11 (verdetti del qimen con Lio fermo; Edu 28/1
 dall'apertura delle 07 GMT alla chiusura delle 21 GMT, prima dello spread: EURUSD SHORT 43 pip vinto; USDCHF LONG 24 pip vinto; GBPUSD LONG 27 pip
 perso. Totale 40 pip, 2 su 3. (Dalle 00:00: 35, 17, -9.) Un giorno solo: non cambia la misura (qimen con Lio fermo 52,8% · 54,7%).
 Resta in attesa di Edu: scrivere il verdetto del qimen nel registro in avanti anche quando Lio e' fermo.
+
+## 13. 28/11/2026 — il qimen va all'EA; GBPUSD 27/11/2026 e l'ora Gui Wei (View Zhi Shi che clasha l'HS)
+- Edu: "Voglio mandare il Qimen ALL'EA, e che quindi diventa operativo a tutti gli effetti". CABLATO (raccolta_notturna.js): i cross dove Lio e'
+  fermo e la bilancia ha un verdetto entrano in "trades" di segnali.json con forza "qimen" (l'EA da' 0,01), senza seconda entrata; esiti veri
+  in qmdj_live.json, campo "ea" del fermo. App: "LIO FERMO · decide il qimen (entra su MetaTrader a 0,01)".
+- L'ora del grafico di MetaTrader (ThinkMarkets) e' GMT+2 d'inverno: le "15" del grafico sono le 13 GMT (controllato sulle barre del 27/11).
+CARTA ORE 5 — GBPUSD 27/11/2026 (seme 131, Bing Xu, yin 2; trend SHORT, sceso 9 fra le 00 e le 21, 38 dalle 13 GMT: SEGUE; Lio fermo per clash
+giorno/mese; bilancia LONG 2 a 1 SBAGLIATA: e' il trade a mano perso). ZF in Xun (Geng sopra Bing, Birth), TY in Zhen (Bing sopra Yi, Rest):
+paralleli (legno) -> DsHs. DS Yi in Gen (cielo) e terra di Zhen; HS Bing in Zhen (cielo) e terra di Xun. View in Dui con lo Zhi Shi (Gui sopra
+Ren, Heart). Vuoti del giorno Yin Mao (Zhen tutto, Gen a meta'), dell'ora Wu Wei. Ore: Ding Chou 01-03 30 contro; Gui Wei 13-15 17 con (minimo 25);
+Jia Shen 15-17 11 con; Yi You 17-19 10 con. Voci della bilancia: "l'ora controlla il giorno" e "Qing Long Tao Zou (Yi sopra Xin in Gen)" non
+segue; "View clasha la controparte" segue.
+LETTURA DI EDU: "Io direi che quello che conta di piu' e' View in quanto Zhi Shi che clasha la HS, Clash che si e' attivato proprio all'ora Gui".
+CABLATO (trading/qmdj.js, bilancia): se la porta View e' lo Zhi Shi e il suo palazzo sta di fronte al palazzo dell'HS, la voce "View clasha la
+controparte" pesa 3 (QMDJ_BIL_VIEW_ZS_PESO; il numero 3 e' di CLAUDE, Edu ha detto "conta di piu'"; QMDJ_BIL_VIEW_ZS=false spegne). La carta ora:
+SHORT 3 a 2, giusta. In qmdj_ore.js indicazione viewZS: lo stelo dell'ora nel CIELO del palazzo di View-Zhi Shi di fronte all'HS (segna Gui Wei;
+con la terra segnerebbe anche Ren Wu 11-13, 5 contro: lasciata fuori).
+MISURA (qmdj_lavoro/view_zs.js, 2020-23 · 2024-26): carte con View Zhi Shi che clasha l'HS e la voce presente: 27 · 26; il mercato segue il trend
+59,3% · 73,1%; li' la bilancia prima 68,2% (22) · 75,0% (16), dopo 64,0% (25) · 82,6% (23); Lio li' 79,2% · 75,0%. Tutte le carte: bilancia
+52,3% +5.481 · 52,1% +4.623 -> 52,2% +5.515 · 52,3% +4.800. POCHI CASI.
+DOMANDE APERTE A EDU: un HS in un palazzo vuoto del giorno puo' controllare il DS? (qui Zhen tutto vuoto); Gui in Wei e' in tomba come Ding in Chou?

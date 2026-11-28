@@ -1066,6 +1066,15 @@
     if (!stessi && (due || !zb || zb.paralleli || !zb.dir)) { var db = letturaBase(c, trend, 'dshs'); c._sis = 'zfty';
       if (db && !(zb && zb.parTimely && !due)) prendi(zb && zb.paralleli ? 'DsHs (ZF e TY paralleli)' : 'DsHs', conTiene(db)); }
     for (k = 0; k < args.length; k++) metti('arg: ' + args[k].k.replace(/^base: /, 'base '), args[k].f + ': ' + args[k].k.replace(/^base: /, '') + ' -> ' + (args[k].v ? 'segue' : 'non segue'), seg(args[k].v));
+    // Edu 28/11/2026 (GBPUSD 27/11/2026, trend SHORT, sceso; la bilancia diceva LONG 2 a 1 e ha sbagliato): "quello che conta di piu'
+    // e' View in quanto Zhi Shi che clasha la HS, clash che si e' attivato proprio all'ora Gui". Quando la porta View e' lo Zhi Shi e
+    // il suo palazzo sta di fronte al palazzo dell'HS, la voce "View clasha la controparte" pesa QMDJ_BIL_VIEW_ZS_PESO (3: il peso e'
+    // di Claude, Edu ha detto solo "conta di piu'"). QMDJ_BIL_VIEW_ZS=false: come prima.
+    if (W.QMDJ_BIL_VIEW_ZS !== false) { var OPz = { 1:9, 9:1, 2:8, 8:2, 3:7, 7:3, 4:6, 6:4 }, vz = null, kz;
+      for (kz = 1; kz <= 9; kz++) if (kz !== 5 && (c.palaces[kz].doorName || c.palaces[kz].door) === 'View') vz = kz;
+      if (vz && c.palaces[vz].zhiShi && OPz[vz] === palOf(c, stemOf(c.pilastro)))
+        for (kz = 0; kz < voci.length; kz++) if (/View clasha la controparte/.test(voci[kz].t) && voci[kz].peso) {
+          voci[kz].peso = W.QMDJ_BIL_VIEW_ZS_PESO || 3; voci[kz].t += ' — View e\' lo Zhi Shi e clasha l\'HS: conta di piu\''; } }
     // 2. lo stato dei palazzi di ZF e TY
     if (zf && ty && zf !== ty) {
       // Edu 25/11/2026: "Lo ZF sarebbe Jia quindi l'unico clash serio avviene se sta sopra Geng" -> per lo ZF conta solo Geng

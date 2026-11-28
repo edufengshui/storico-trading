@@ -53,3 +53,7 @@ Edu: "Voglio mandare il Qimen ALL'EA, e che quindi diventa operativo a tutti gli
   MetaTrader a 0,01)". Gli esiti veri dell'EA di questi trade vanno in qmdj_live.json, campo "ea" del fermo (non nello storico di Lio).
 - DA GUARDARE lunedi' 30/11: in segnali.json i trade con forza "qimen"; nel diario del VPS "LioEA: aperto ..." su quei cross.
 - Lotto: 0,01. Se Edu vuole un lotto diverso per il qimen serve l'EA nuovo (oggi distingue solo "forte").
+- 28/11 pomeriggio: CARTA ORE 5, GBPUSD 27/11/2026 (in cima alla pagina), letta da Edu: "quello che conta di piu' e' View in quanto Zhi Shi che
+  clasha la HS, Clash che si e' attivato proprio all'ora Gui". CABLATO in qmdj.js (bilancia: quella voce pesa 3, peso di Claude) e qmdj_ore.js
+  (viewZS). Numeri in ESITI punto 13. APERTO: HS in palazzo vuoto del giorno puo' controllare il DS? Il peso 3 va bene a Edu?
+- Grafico MetaTrader: ora del server GMT+2 d'inverno (15 sul grafico = 13 GMT).
